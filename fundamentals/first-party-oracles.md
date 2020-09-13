@@ -13,10 +13,10 @@ Based on this information, it looks like simply having an oracle solves the API 
 However, there is an important point to consider:
 Who will host the oracle node?
  
-1. If the [API provider](/fundamentals/api#api-provider) hosts the oracle node, the oracle is called a **first-party oracle**.
+1. If the [API provider](/fundamentals/api.md#api-provider) hosts the oracle node, the oracle is called a **first-party oracle**.
 2. If a third-party middleman hosts the oracle node, the oracle is called a **third-party oracle**.
 
-Third party oracles are both insecure and expensive (see the [whitepaper](/README#whitepaper) for a detailed explanation).
+Third party oracles are both insecure and expensive (see the [whitepaper](/README.md#whitepaper) for a detailed explanation).
 In contrast, first-party oracles are both secure and cost-efficient due to not having a middleman on the interface path.
 
-[Home](/README#contents)
+[Home](/README.md#contents)

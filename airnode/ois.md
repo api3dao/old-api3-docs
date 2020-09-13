@@ -369,3 +369,5 @@ OAS equivalent: `paths.{path}.{method}.description` of corresponding operation
 (Optional) URL to external documentation for the endpoint.
 
 OAS equivalent: `paths.{path}.{method}.externalDocs` of corresponding operation
+
+[Home](/README.md#contents)

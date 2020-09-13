@@ -13,7 +13,7 @@
 ## Wallet designation
 
 Fulfilling a request requires the provider to make a transaction, which costs gas.
-This requires the provider to make sure that their node wallet is always funded, which is not feasible for first-party oracles (see the [whitepaper](/README#whitepaper)).
+This requires the provider to make sure that their node wallet is always funded, which is not feasible for first-party oracles (see the [whitepaper](/README.md#whitepaper)).
 As a solution, the Airnode protocol allows the requester to cover the fulfillment gas costs through the wallet designation scheme.
 
 Each provider has a wallet designated for each requester.
@@ -51,4 +51,4 @@ The requester announcing that a client can use their designated wallets beforeha
 If a client makes a request with a wallet designated to a requester that has not endorsed the client, the provider Airnode will ignore the request.
 Otherwise, the request will be fulfilled with the requester's designated wallet.
 
-[Home](/README#contents)
+[Home](/README.md#contents)

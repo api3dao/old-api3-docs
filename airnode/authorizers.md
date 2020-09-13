@@ -53,4 +53,4 @@ Note that authorizer lists with multiple elements should not start or end with `
 `[]` returns false (deny everyone), `[0]` returns true (accept everyone).
 Note that this means endpoints deny access to everyone by default as a security measure.
 
-[Home](/README#contents)
+[Home](/README.md#contents)

@@ -44,3 +44,5 @@ Here is an example `security.json` file that the platform generates (note that i
 
 The first option here is for the user to open `security.json` and replace `<TO_BE_FILLED>` with their API key.
 Alternatively, the user may directly attempt to deploy with `security.json` and the corresponding `config.json` (which has the same `id`), where the deployment script parses `security.json` and asks for the user to provide the values of each of the security credentials.
+
+[Home](/README.md#contents)

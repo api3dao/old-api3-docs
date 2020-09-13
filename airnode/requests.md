@@ -76,4 +76,4 @@ If the node encountered any errors but it cannot error because `error()` reverts
 
 If the node cannot even fail a request (e.g., the wallet designated for the requester does not have enough funds), the request gets ignored.
 
-[Home](/README#contents)
+[Home](/README.md#contents)

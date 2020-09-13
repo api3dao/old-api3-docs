@@ -33,4 +33,4 @@ Then, the protocol should not require the API provider to handle cryptocurrency 
 * The API provider cannot stake funds that would expose them to financial risk due to compliance, legal and accounting reasons.
 Therefore, the security mechanics of the protocol should not depend on oracles to stake.
 
-[Home](/README#contents)
+[Home](/README.md#contents)

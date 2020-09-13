@@ -12,3 +12,5 @@ Furthermore, Airnode is designed to allow the usage of multiple Ethereum provide
 This is achieved by treating all integrated providers individually.
 As a result, the operations of an Airnode cannot be disrupted reliably unless all of its providers are malicious.
 Therefore, using multiple Ethereum providers is a better strategy to achieve the best availability than using a private Ethereum node.
+
+[Home](/README.md#contents)

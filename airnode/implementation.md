@@ -64,4 +64,4 @@ The interactions made with each provider is contained in a separate serverless f
 We also recommend cloud hosting over hosting on-premises due to the superior availability of serverless functions, and also for their set-and-forget qualities.
 As a precaution, redundancy on multiple cloud providers can be provisioned easily and virtually at no cost thanks to the fully-serverless design of Airnode.
 
-[Home](/README#contents)
+[Home](/README.md#contents)
