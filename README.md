@@ -12,8 +12,8 @@ The vast majority of the external integrations that decentralized applications n
 
 ## Whitepaper
 
-See the [whitepaper](https://github.com/api3org/api3-whitepaper) for a detailed discussion of the project.
-Just as these docs, you can discuss it and propose updates through [issues](https://github.com/api3org/api3-whitepaper/issues).
+See the [whitepaper](https://github.com/api3dao/api3-whitepaper) for a detailed discussion of the project.
+Just as these docs, you can discuss it and propose updates through [issues](https://github.com/api3dao/api3-whitepaper/issues).
 
 # Documentation
 
@@ -34,7 +34,7 @@ Just as these docs, you can discuss it and propose updates through [issues](http
   - [2.8. `security.json`](/airnode/2-8-security-json.md)
   - [2.9. Ethereum providers](/airnode/2-9-ethereum-providers.md)
 
-API3 documentation is kept as a regular repository of Markdown files to be easily contributable by everyone. Feel free to create [issues](https://github.com/api3org/api3-docs/issues) for discussions, proposed additions and changes.
+API3 documentation is kept as a regular repository of Markdown files to be easily contributable by everyone. Feel free to create [issues](https://github.com/api3dao/api3-docs/issues) for discussions, proposed additions and changes.
 
 # Community
 
