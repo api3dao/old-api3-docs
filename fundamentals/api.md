@@ -9,6 +9,10 @@ It allows Web developers to use all the data on https://coinmarketcap.com/ and m
 In return, developers pay a [subscription fee](https://coinmarketcap.com/api/pricing/).
 In practice, any kind of data or service that is worth using is served by a paid API, i.e., *if you are not paying for it, you are the product*.
 
+<p align="center">
+  <img src="https://github.com/clc-group/api3-docs/raw/master/figures/coinmarketcap.png" />
+</p>
+
 ## ~~Oracle problem~~ API connectivity problem
 
 A smart contract cannot access data that is not presently in the blockchain, which is commonly known as *the oracle problem*.
