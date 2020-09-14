@@ -20,6 +20,10 @@ The long term plan is to support all API schemes that there is demand for.
 Airnode is designed to be operated as a first-party oracle, i.e., by the API provider themselves.
 This results in very restrictive requirements:
 
+<p align="center">
+  <img src="https://github.com/clc-group/api3-docs/raw/master/figures/airnode.png" />
+</p>
+
 * The API provider does not know how to operate an oracle node.
 Then, the oracle node should not require any know-how from the API provider.
 * API-oracle node integration should be standardized so that tools can be developed to streamline the process.
