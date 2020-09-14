@@ -46,21 +46,21 @@ This means that API3 can use the skills of all kinds of experts and the decentra
 
 # Contents
 
-## Fundamentals
+## 1. Fundamentals
 
-### [API](/fundamentals/api.md)
-### [First-party oracles](/fundamentals/first-party-oracles.md)
-### [Decentrally-governed oracle networks](/fundamentals/decentrally-governed-oracle-networks.md)
-### [dAPI](/fundamentals/dapi.md)
+### [1.1. API](/fundamentals/api.md)
+### [1.2. First-party oracles](/fundamentals/first-party-oracles.md)
+### [1.3. Decentrally-governed oracle networks](/fundamentals/decentrally-governed-oracle-networks.md)
+### [1.4. dAPI](/fundamentals/dapi.md)
 
-## Airnode
+## 2. Airnode
 
-### [Design philosophy](/airnode/design-philosophy.md)
-### [Implementation](/airnode/implementation.md)
-### [Protocol: Wallet designation](/airnode/wallet-designation.md)
-### [Protocol: Requests](/airnode/requests.md)
-### [Protocol: Authorizers](/airnode/authorizers.md)
-### [OIS](/airnode/ois.md)
-### [`config.json`](/airnode/config-json.md)
-### [`security.json`](/airnode/security-json.md)
-### [Ethereum providers](/airnode/ethereum-providers.md)
+### [2.1. Design philosophy](/airnode/design-philosophy.md)
+### [2.2. Implementation](/airnode/implementation.md)
+### [2.3. Protocol: Wallet designation](/airnode/wallet-designation.md)
+### [2.4. Protocol: Requests](/airnode/requests.md)
+### [2.5. Protocol: Authorizers](/airnode/authorizers.md)
+### [2.6. OIS](/airnode/ois.md)
+### [2.7. `config.json`](/airnode/config-json.md)
+### [2.8. `security.json`](/airnode/security-json.md)
+### [2.9. Ethereum providers](/airnode/ethereum-providers.md)

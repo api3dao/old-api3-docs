@@ -1,6 +1,6 @@
 # Decentrally-governed oracle networks
 
-[First-party oracles](/fundamentals/first-party-oracles.md) are optimally secure and cost-efficient.
+[First-party oracles](/fundamentals/1-2-first-party-oracles.md) are optimally secure and cost-efficient.
 Nevertheless, they cannot be considered as a full solution for all use cases.
 This is because a first-party oracle is operated by a single API provider and only serves their APIs.
 Then, using a single first-party oracle creates centralization at the API level, and requires the API provider to be trusted.

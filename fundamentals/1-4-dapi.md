@@ -2,9 +2,9 @@
 
 We have covered the following:
 
-* Decentralized applications need access to [APIs](/fundamentals/api.md)
-* APIs should be interfaced to smart contract platforms through [first-party oracles](/fundamentals/first-party-oracles.md)
-* For API level decentralization, [decentrally-governed oracle networks](/fundamentals/decentrally-governed-oracle-networks.md) should be employed
+* Decentralized applications need access to [APIs](/fundamentals/1-1-api.md)
+* APIs should be interfaced to smart contract platforms through [first-party oracles](/fundamentals/1-2-first-party-oracles.md)
+* For API level decentralization, [decentrally-governed oracle networks](/fundamentals/1-3-decentrally-governed-oracle-networks.md) should be employed
 
 Then, we can conclude that decentrally-governed networks of first-party oracles solve the API connectivity problem.
 Although this is technically correct, the same solution can be reached through a more useful lens.
