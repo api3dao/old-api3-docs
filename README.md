@@ -1,5 +1,9 @@
 # API3 Docs
 
+<p align="center">
+  <img src="https://github.com/clc-group/api3-docs/raw/master/figures/api3.png" />
+</p>
+
 [Table of contents](#contents)
 
 API3 documentations are kept as a regular repository of Markdown files to be easily contributable by everyone.
