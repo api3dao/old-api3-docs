@@ -3,7 +3,7 @@
 [Table of contents](#contents)
 
 API3 documentations are kept as a regular repository of Markdown files to be easily contributable by everyone.
-Feel free to create [issues](https://github.com/api3dao/api3-docs/issues) for discussions, proposed additions and changes.
+Feel free to create [issues](https://github.com/api3org/api3-docs/issues) for discussions, proposed additions and changes.
 
 ## What is API3?
 
@@ -19,8 +19,8 @@ By refining the definition of the problem, API3 aims to provide a much more opti
 
 ## Whitepaper
 
-See the [whitepaper](https://github.com/api3dao/api3-whitepaper) for a detailed discussion of the project.
-Just as these docs, you can discuss it and propose updates through [issues](https://github.com/api3dao/api3-whitepaper/issues).
+See the [whitepaper](https://github.com/api3org/api3-whitepaper) for a detailed discussion of the project.
+Just as these docs, you can discuss it and propose updates through [issues](https://github.com/api3org/api3-whitepaper/issues).
 
 ## Be a part
 

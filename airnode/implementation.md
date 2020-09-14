@@ -1,6 +1,6 @@
 # Airnode implementation
 
-See the [Airnode repository](https://github.com/api3dao/airnode/) for the source code and technical documentation.
+See the [Airnode repository](https://github.com/api3org/airnode/) for the source code and technical documentation.
 Here, we will go over high-level guidelines that were followed in implementing the initial version.
 
 ## Statelessness
