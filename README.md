@@ -1,8 +1,8 @@
-# API3 Docs
-
 <p align="center">
-  <img src="https://github.com/clc-group/api3-docs/raw/master/figures/api3.png" />
+  <img src="https://github.com/clc-group/api3-docs/raw/master/figures/api3.png" width="400" />
 </p>
+
+# Documentations
 
 [Table of contents](#contents)
 
