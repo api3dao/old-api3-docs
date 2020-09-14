@@ -2,8 +2,6 @@
   <img src="https://github.com/clc-group/api3-docs/raw/master/figures/api3.png" width="400" />
 </p>
 
-# API3
-
 ## What is API3?
 
 [API3](https://api3.org/) is a collaborative project to deliver traditional API services to smart contract platforms in a decentralized and trust-minimized way. It is governed by a decentralized autonomous organization (DAO), its code is open source and its operations are completely transparent.
