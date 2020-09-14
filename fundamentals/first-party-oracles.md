@@ -3,7 +3,9 @@
 An oracle is an agent that acts as an intermediary between a smart contract platform and an API.
 In other words, a decentralized application can use an oracle to call an API.
 
-![oracle](https://github.com/clc-group/api3-docs/raw/master/figures/oracle.png)
+<p align="center">
+  <img src="https://github.com/clc-group/api3-docs/raw/master/figures/oracle.png" />
+</p>
 
 An oracle consists of two parts:
 * The oracle node that acts as a proxy, i.e., listens for requests made on the blockchain, calls the API over the Web, fulfills the requests by making transactions on the blockchain.
