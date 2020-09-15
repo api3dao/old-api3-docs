@@ -17,10 +17,10 @@ It stores a set of request parameters on-chain.
 
 ## Templates
 
-Templates are used to record request parameters to the chain.
+Templates are used to record request parameters onto the blockchain.
 While making a request, the requester simply passes a `templateId`, rather than passing all the parameters.
 This both improves UX by allowing the creation of templates over a GUI, and also allows a large parameter payload (e.g., off-chain computation specifications) to be used at no additional gas cost.
-Template parametes can be overriden by parameters provided at request-time.
+Template parameters can be overridden by parameters provided at request-time.
 
 A template includes the following fields:
 
@@ -36,8 +36,8 @@ struct Template {
     }
 ```
 
-Among these, `fulfillAddress`, `errorAddress`, `fulfillFunctionId`, `errorFunctionId` can be overriden by parameters defined at request-time.
-In addition, parameters encoded in `parameters` can be overriden by ones provided with the same name at request-time.
+Among these, `fulfillAddress`, `errorAddress`, `fulfillFunctionId`, `errorFunctionId` can be overridden by parameters defined at request-time.
+In addition, parameters encoded in `parameters` can be overridden by ones provided with the same name at request-time.
 
 ## Request types
 

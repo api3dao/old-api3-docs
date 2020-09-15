@@ -13,7 +13,7 @@ These prepopulated fields are expected to be reviewed and customized by the inte
 - [`apiSpecifications`](#4-apiSpecifications)
 - [`endpoints`](#5-endpoints)
 
-```
+```json
 {
   "oisFormat": "1.0.0",
   "title": "myOisTitle",
@@ -50,7 +50,7 @@ OAS equivalent: `info.title`
 - [`security`](#43-security)
 - [`paths`](#44-paths)
 
-```
+```json
 {
   "servers": [
     {
@@ -138,7 +138,8 @@ OAS equivalent: `components.securitySchemes.{securitySchemeName}.scheme`
 Applies to all operations.
 Unlike in OAS, `security` cannot be a list.
 Each security scheme maps to an empty list as:
-```
+
+```json
 "security": {
   "mySecurityScheme1": []
 }
@@ -186,7 +187,7 @@ OAS equivalent: `paths.{path}.{method}.parameters.{#}.in`
 - [`description`*](#57-description*)
 - [`externalDocs`*](#58-externalDocs*)
 
-```
+```json
 [
   {
     "name": "convertToUsd",

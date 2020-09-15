@@ -13,7 +13,7 @@ Then, it is important to know what exactly the application will be used for to s
 Airnode is designed to interface APIs to smart contract platforms.
 This means that it can only do this, but do it well.
 Note that this scope is not as restrictive as it seems, as APIs come in many shapes and forms (HTTP/WebSocket, request-response/publish-subscribe/webhooks, etc.).
-The long term plan is to support all API schemes that there is demand for.
+The long term plan is to support all API schemes that there are demand for.
 
 ## Requirements
 

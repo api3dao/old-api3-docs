@@ -14,7 +14,8 @@ This field is optional.
 ## `apiCredentials`
 
 An example:
-```
+
+```json
 {
   "myOisTitle": [
     "securitySchemeName": "mySecurityScheme",
@@ -30,7 +31,8 @@ A string of 12 words.
 # The user flow
 
 Here is an example `security.json` file that the platform generates (note that it does not have `masterKeyMnemonic` because we do not recommend the user to import their own private keys):
-```
+
+```json
 {
   "apiCredentials": {
     "myOisTitle": [

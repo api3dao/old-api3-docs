@@ -45,7 +45,7 @@ Since the provider has announced their `xpub`, the requester (or any other third
 
 ## Endorsement
 
-While making a request, the client sends the adress of the wallet designated to a requester as an argument for the provider Airnode to use to fulfill the request.
+While making a request, the client sends the address of the wallet designated to a requester as an argument for the provider Airnode to use to fulfill the request.
 However, the use of their designated wallet requires the requester's consent.
 The requester announcing that a client can use their designated wallets beforehand is called an endorsement.
 If a client makes a request with a wallet designated to a requester that has not endorsed the client, the provider Airnode will ignore the request.

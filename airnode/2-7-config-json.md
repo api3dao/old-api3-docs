@@ -9,7 +9,8 @@ It is composed of three main sections:
 4. A UUID named `id` that specifies a specific deployment
 
 Contents of a `config.json` file:
-```
+
+```json
 {
   "ois": [
     ...
@@ -36,7 +37,7 @@ Each node serves the APIs of a single provider.
 `triggers` are events that trigger an API call and an Ethereum transaction by Airnode.
 Triggers of different types are kept in lists under their respective keys:
 
-- `request`: When the node sees an event with its `providerId` and this trigger's `endpointId` emitted from the central ChainAPI contract, it responds to it with the respective endpoint defined in the OIS. 
+- `request`: When the node sees an event with its `providerId` and this trigger's `endpointId` emitted from the central ChainAPI contract, it responds to it with the respective endpoint defined in the OIS.
   - `endpointId`
   - `oisTitle`
   - `endpointName`
@@ -44,7 +45,7 @@ Triggers of different types are kept in lists under their respective keys:
 ^ These are subject to change (will probably get additional fields).
 For now, we can focus on `request` and omit the rest.
 
-```
+```json
 {
   "request": [
     {
@@ -72,7 +73,8 @@ An object containing the following configuration parameters:
 - `nodeKey`: The API key the platform will use to access the node API
 - `providerId`: The `bytes32` provider ID assigned to the provider by the Airnode contract
 - `ethereumProviders`: A list of Ethereum providers, each with the following structure:
-```
+
+```json
 {
   "chainId": 1,
   "name": "my-infura-mainnet",
@@ -82,7 +84,7 @@ An object containing the following configuration parameters:
 
 An example `nodeSettings` object:
 
-```
+```json
 {
   "platformUrl": "...",
   "platformKey": "...",
@@ -99,7 +101,7 @@ Once deployed, the node periodically calls `platformUrl` to send this `id`.
 
 ## Potential update to `nodeSettings`:
 
-```
+```json
 chains: [
   {
     type: "evm",
