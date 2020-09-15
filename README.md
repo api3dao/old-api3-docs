@@ -19,7 +19,7 @@ By refining the definition of the problem, API3 aims to provide a much more opti
 See the [whitepaper](https://github.com/api3dao/api3-whitepaper) for a detailed discussion of the project.
 Just as these docs, you can discuss it and propose updates through [issues](https://github.com/api3dao/api3-whitepaper/issues).
 
-# Documentation
+## Contents
 
 - [1. Fundamentals](/fundamentals)
   - [1.1. API](/fundamentals/1-1-api.md)
