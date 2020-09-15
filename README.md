@@ -41,8 +41,6 @@ Just as these docs, you can discuss it and propose updates through [issues](http
 API3 documentation is kept as a regular repository of Markdown files to be easily contributable by everyone.
 Feel free to create [issues](https://github.com/api3dao/api3-docs/issues) for discussions, proposed additions and changes.
 
-# Community
-
 ## Become a part of API3
 
 API3 is formed by people who spontaneously found each other through a common understanding.
