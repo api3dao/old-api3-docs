@@ -24,7 +24,7 @@ Template parameters can be overridden by parameters provided at request-time.
 
 A template includes the following fields:
 
-```
+```solidity
 struct Template {
     bytes32 providerId;
     bytes32 endpointId;

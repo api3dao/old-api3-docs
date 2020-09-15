@@ -22,7 +22,7 @@ This scheme both allows the provider to set transparent and flexible policies, a
 Policies are implemented as lists of *Authorizers*.
 An authorizer is a contract with the following abstract:
 
-```
+```solidity
 abstract contract Authorizer {
     uint public authorizerType;
 
