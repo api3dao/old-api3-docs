@@ -43,7 +43,7 @@ Here is an example `security.json` file that the platform generates (note that i
         "value": "<TO_BE_FILLED>"
       }
     ]
-  }
+  },
   "id": "9a52131e-babd-11ea-b3de-0242ac130004"
 }
 ```
