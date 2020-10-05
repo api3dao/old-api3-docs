@@ -12,7 +12,7 @@ The vast majority of the external integrations that decentralized applications n
 
 ## Whitepaper
 
-See the [whitepaper](https://github.com/api3dao/api3-whitepaper) for a detailed discussion of the project.
+See the [whitepaper](https://raw.githubusercontent.com/api3dao/api3-whitepaper/master/api3-whitepaper.pdf) for a detailed discussion of the project.
 Just as these docs, you can discuss it and propose updates through [issues](https://github.com/api3dao/api3-whitepaper/issues).
 
 # Documentation
