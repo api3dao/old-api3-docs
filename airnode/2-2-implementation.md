@@ -1,6 +1,6 @@
 # Airnode implementation
 
-See the [Airnode repository](https://github.com/api3dao/airnode/) for the source code and technical documentation.
+See the [Airnode repository](https://github.com/api3dao/airnode/) for the source code and technical documentation provided in specific packages.
 Here, we will go over high-level guidelines that were followed in implementing the initial version.
 
 ## Statelessness
@@ -11,16 +11,16 @@ Doing so comes with many disadvantages:
 
 1. The database becomes a single point of failure.
 Making it redundant is costly and not trivial.
-2. Any anomalies that happen on the blockchain (block reorgs, ommer blocks, etc.) result in the oracle node state to fall out of sync with the chain, which is not trivial to correct.
+2. Any anomaly that happens on the blockchain (block reorgs, ommer blocks, etc.) results in the oracle node state to fall out of sync with the chain, which is not trivial to correct.
 3. A highly stateful application has many edge cases.
-These are difficult to cover completely and result in bugs that put the node out of operation.
+These are difficult to cover completely and are likely to result in bugs that put the node out of operation.
 
 These disadvantages result in an unstable oracle node, which is the essential reason why traditional oracle nodes require *professional node operators* that need to be ready to respond to incidents 24/7.
 Since this is not a realistic requirement for first-party oracles, an oracle node that is designed for first-party oracles has to be stateless.
 
 Another way to look at keeping oracle node state is this:
 The blockchain (e.g., Ethereum) node that the oracle node uses already keeps the state on behalf of the oracle node.
-The duplication of this responsibility also duplicates the points of failure.
+The duplication of this responsibility also duplicates the points of failure (where failure in either of them results in total failure).
 Then, the oracle node should depend on the blockchain node to keep its state, which requires the protocol to be designed to fit this scheme.
 
 ### Non-idempotent operations
@@ -60,6 +60,9 @@ In this case, calls made to all APIs are contained in separate serverless functi
 * **Blockchain nodes:** Similarly, using blockchain (e.g., Ethereum) nodes run by third party service providers is considered as a valid usage scenario.
 Airnode uses all providers simultaneously (i.e., not through a Quorum-based consensus or behind a load balancer) for maximum availability, which is made possible by its unique stateless design.
 The interactions made with each provider is contained in a separate serverless function invocation so that a malicious provider cannot induce node-level failure.
+
+In addition, the protocol is implemented in a way that a blockchain service provider cannot tamper with the parameters of a request, but only deny service.
+Note that this is not the case with alternative solutions, as they treat the blockchain service provider as a trusted party.
 
 We also recommend cloud hosting over hosting on-premises due to the superior availability of serverless functions, and also for their set-and-forget qualities.
 As a precaution, redundancy on multiple cloud providers can be provisioned easily and virtually at no cost thanks to the fully-serverless design of Airnode.

@@ -24,19 +24,19 @@ Template parametes can be overriden by parameters provided at request-time.
 
 A template includes the following fields:
 
-```
+```solidity
 struct Template {
     bytes32 providerId;
     bytes32 endpointId;
+    uint256 requesterInd;
+    address designatedWallet;
     address fulfillAddress;
-    address errorAddress;
     bytes4 fulfillFunctionId;
-    bytes4 errorFunctionId;
     bytes parameters;
     }
 ```
 
-Among these, `fulfillAddress`, `errorAddress`, `fulfillFunctionId`, `errorFunctionId` can be overriden by parameters defined at request-time.
+Among these, `requesterInd`, `designatedWallet`, `fulfillAddress`, `fulfillFunctionId` can be overriden by parameters defined at request-time.
 In addition, parameters encoded in `parameters` can be overriden by ones provided with the same name at request-time.
 
 ## Request types
@@ -45,7 +45,7 @@ There are multiple request types with respect to how they utilize templates:
 
 ### 1. Regular request
 
-A regular request refers to a template, yet provides its own `fulfillAddress`, `errorAddress`, `fulfillFunctionId`, `errorFunctionId` that will override the ones from the template.
+A regular request refers to a template, yet provides its own `requesterInd`, `designatedWallet`, `fulfillAddress`, `fulfillFunctionId` that will override the ones from the template.
 
 ### 2. Short request
 
@@ -62,18 +62,18 @@ A request made to an Airnode has four possible outcomes:
 
 ### 1. Fulfill
 
-If the node encountered no errors at any step, it calls the `fulfill()` method that will call back the method `fulfillFunctionId` at `fulfillAddress` to deliver `data`.
+If the node encountered no errors at any step, it calls the `fulfill()` method that will call back the method `fulfillFunctionId` at `fulfillAddress` to deliver `data` and 0 as the `statusCode`.
 
-### 2. Error
+If the node encountered an error, it will do the same, but `statusCode` will be non-0, indicating to the client that the request failed (see [this](https://github.com/api3dao/airnode/tree/master/packages/node#behaviour) for details).
+The client can then handle this error as it sees fit (e.g., ignore it, make a request to an alternative provider, etc.).
 
-If the node encountered any errors (including `fulfill()` reverting), it calls the `error()` method that will call back the method `errorFunctionId` at `errorAddress` to deliver `errorCode`.
+### 2. Fail
 
-### 3. Fail
+If `fulfill()` reverts, the node calls the `fail()` method to report this.
+The node will not attempt to fulfill a failed request afterwards.
 
-If the node encountered any errors but it cannot error because `error()` reverts, it calls the `fail()` method to report this.
+### 3. Ignore
 
-### 4. Ignore
-
-If the node cannot even fail a request (e.g., the wallet designated for the requester does not have enough funds), the request gets ignored.
+If the node cannot even fail a request (e.g., the client is not endorsed by the requester), the request gets ignored.
 
 [Home](/README.md#contents)

@@ -22,12 +22,16 @@ This scheme both allows the provider to set transparent and flexible policies, a
 Policies are implemented as lists of *Authorizers*.
 An authorizer is a contract with the following abstract:
 
-```
+```solidity
 abstract contract Authorizer {
     uint public authorizerType;
 
     function checkIfAuthorized(
+        bytes32 requestId,
+        bytes32 providerId,
         bytes32 endpointId,
+        uint256 requesterInd,
+        address designatedWallet,
         address clientAddress
         )
         virtual
