@@ -37,7 +37,7 @@ Each node serves the APIs of a single provider.
 `triggers` are events that trigger an API call and an Ethereum transaction by Airnode.
 Triggers of different types are kept in lists under their respective keys:
 
-- `request`: When the node sees an event with its `providerId` and this trigger's `endpointId` emitted from the central ChainAPI contract, it responds to it with the respective endpoint defined in the OIS.
+- `request`: When the node sees an event with its `providerId` and this trigger's `endpointId` emitted from the central Airnode contract, it responds to it with the respective endpoint defined in the OIS.
   - `endpointId`
   - `oisTitle`
   - `endpointName`
