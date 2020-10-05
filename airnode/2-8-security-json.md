@@ -14,11 +14,14 @@ This field is optional.
 ## `apiCredentials`
 
 An example:
-```
+
+```json
 {
   "myOisTitle": [
-    "securitySchemeName": "mySecurityScheme",
-    "value": "ytbddA5wZR94KCd9"
+    {
+      "securitySchemeName": "mySecurityScheme",
+      "value": "mysupersecretkey"
+    }
   ]
 }
 ```
@@ -30,14 +33,17 @@ A string of 12 words.
 # The user flow
 
 Here is an example `security.json` file that the platform generates (note that it does not have `masterKeyMnemonic` because we do not recommend the user to import their own private keys):
-```
+
+```json
 {
   "apiCredentials": {
     "myOisTitle": [
-      "securitySchemeName": "mySecurityScheme",
-      "value": <TO_BE_FILLED>
+      {
+        "securitySchemeName": "mySecurityScheme",
+        "value": "<TO_BE_FILLED>"
+      }
     ]
-  }
+  },
   "id": "9a52131e-babd-11ea-b3de-0242ac130004"
 }
 ```
