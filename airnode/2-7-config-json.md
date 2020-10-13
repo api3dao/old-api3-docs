@@ -122,7 +122,7 @@ Airnode can be configured to work with multiple blockchain providers, types and 
 }
 ```
 
-`contracts` - An optional array of contracts to use instead of the default Airnode contract addresses.
+`contracts` - An optional object of contracts to use instead of the default Airnode contract addresses.
 
 The following contracts can be overridden:
 
@@ -134,7 +134,7 @@ The following contracts can be overridden:
 
 **NOTE** Contract addresses cannot be overridden for EVM chain ID 1 (Ethereum mainnet).
 
-Contract overrides have two required keys: `name` (one of the above contract name) and `address`. i.e. `{ name: 'Airnode', address: '0xf1d4...0bd3' }`. You can provide as many or as few overrides as needed.
+Contract overrides are provided as with a name (key) and override address (value). i.e. `{ Airnode: '0xf1d4...0bd3' }`. You can provide as many or as few overrides as needed.
 
 ```json
 {
@@ -142,9 +142,9 @@ Contract overrides have two required keys: `name` (one of the above contract nam
   "id": 1,
   "type": "evm",
   "providers": [{ "name": "infura-mainnet", "url": "https://..." }],
-  "contracts": [
-    { "name": "Airnode", "address": "0xf1d4...0bd1" }
-  ]
+  "contracts": {
+    "Airnode": "0xf1d4...0bd1"
+  }
 }
 ```
 
@@ -181,9 +181,9 @@ A more complete example of a `nodeSettings` configuration:
           "url": "https://ropsten.infura.io/v3/<your key>"
         }
       ],
-      "contracts": [
-        { "name": "Airnode", "address": "0xf1d4...0bd1" }
-      ]
+      "contracts": {
+        "Airnode": "0xf1d4...0bd1"
+      }
     }
   ]
 }
