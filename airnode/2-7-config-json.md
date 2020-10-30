@@ -84,6 +84,8 @@ This allows the platform to tell if the user has deployed their node, have used 
 
 Airnode can be configured to work with multiple blockchain providers, types and networks.
 
+`adminAddress` - the master address that is used to update endpoints and authorizers.
+
 `id` - the corresponding chain (or network) ID. A list of known Ethereum chain IDs can be found at [EIP-155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md#list-of-chain-ids), although this list is not exhaustive and the `id` does not necessarily need to be a popular or known value.
 
 `type` - the type of blockchain to connect to. Currently only `evm` is supported for Ethereum and other EVM compatible blockchains, although other blockchain types will be supported in the future.
@@ -104,7 +106,7 @@ Airnode can be configured to work with multiple blockchain providers, types and 
 
 ```json
 {
-
+  "adminAddress": "0x5e00...F410",
   "id": 1,
   "type": "evm",
   "providers": [
@@ -138,7 +140,7 @@ Contract overrides are provided as with a name (key) and override address (value
 
 ```json
 {
-
+  "adminAddress": "0x5e00...F410",
   "id": 1,
   "type": "evm",
   "providers": [{ "name": "infura-mainnet", "url": "https://..." }],
@@ -161,6 +163,7 @@ A more complete example of a `nodeSettings` configuration:
   "providerId": "0xf5ad...1d6d",
   "chains": [
     {
+      "adminAddress": "0x5e00...F410",
       "id": 1,
       "type": "evm",
       "providers": [
@@ -173,6 +176,7 @@ A more complete example of a `nodeSettings` configuration:
       ]
     },
     {
+      "adminAddress": "0x5e00...F410",
       "id": 3,
       "type": "evm",
       "providers": [
