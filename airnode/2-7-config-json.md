@@ -6,7 +6,7 @@ It is composed of four main sections:
 1. A list of [OIS](/airnode/2-6-ois.md)
 2. An object of lists of triggers, each mapping to an endpoint defined in an OIS in 1
 3. An object containing node configuration parameters
-4. A UUID named `id` that specifies a specific deployment
+4. A UUID named `id` that specifies a `config.json`/`security.json` pair
 
 Contents of a `config.json` file:
 
@@ -69,7 +69,7 @@ An object containing the following configuration parameters:
 
 Airnode can be configured to work with multiple blockchain providers, types and networks.
 
-`providerAdminForRecordCreation` - the master address that is used to update endpoint authorizers.
+`providerAdminForRecordCreation` - the master address that will be authorized to update the authorizers of the provider's endpoints.
 Note that the node only uses this while creating the provider record.
 Changing this after the provider record is created will not have any effect.
 
@@ -179,6 +179,5 @@ A more complete example of a `nodeSettings` configuration:
 ## `id`
 
 A UUID defined by the platform for the specific `config.json` file and its corresponding `security.json` file.
-Once deployed, the node periodically calls `platformUrl` to send this `id`.
 
 [Home](/README.md#contents)
