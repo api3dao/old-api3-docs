@@ -19,7 +19,7 @@ In practice, any kind of data or service that is worth using is served by a paid
 
 A smart contract cannot access data that is not presently in the blockchain, which is commonly known as *the oracle problem*.
 This is only worth consideration because it includes not being able to call the paid (read: useful) APIs described above.
-Therefore, all the exotic game theoretic and cryptographic methods proposed for various oracle solutions essentially aim to provide smart contracts access to these paid APIs.
+Therefore, all the game theoretic and cryptographic methods proposed for various oracle solutions essentially aim to provide smart contracts access to these paid APIs.
 Therefore, it would be more accurate to define the problem at hand as *the API connectivity problem*.
 As you read through, you will discover that this redefinition will have ripple effects across the entire solution, from how the ecosystem is built to the lowest levels of the protocol.
 
