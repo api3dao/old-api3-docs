@@ -42,8 +42,6 @@ Triggers of different types are kept in lists under their respective keys:
   - `oisTitle`
   - `endpointName`
 
-^ These are subject to change (will probably get additional fields).
-For now, we can focus on `request` and omit the rest.
 
 ```json
 {
