@@ -20,6 +20,8 @@ Who will host the oracle node?
 1. If the [API provider](/fundamentals/1-1-api.md#api-provider) hosts the oracle node, the oracle is called a **first-party oracle**.
 2. If a third-party middleman hosts the oracle node, the oracle is called a **third-party oracle**.
 
+*See our article, [First-Party vs Third-Party Oracles](https://medium.com/api3/first-party-vs-third-party-oracles-90356e3cffe5) for a comparison of the two types of oracles.*
+
 Third party oracles are both insecure and expensive (see the [whitepaper](/README.md#whitepaper) for a detailed explanation).
 In contrast, first-party oracles are both secure and cost-efficient due to not having a middleman on the interface path.
 

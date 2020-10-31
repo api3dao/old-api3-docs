@@ -17,6 +17,8 @@ The long term plan is to support all API schemes that there are demand for.
 
 ## Requirements
 
+*See our article, [Where are the first-party oracles?](https://medium.com/api3/where-are-the-first-party-oracles-5078cebaf17) where we list the obstacles in the way of first-party oracles.*
+
 Airnode is designed to be operated as a first-party oracle, i.e., by the API provider themselves.
 This results in very restrictive requirements:
 

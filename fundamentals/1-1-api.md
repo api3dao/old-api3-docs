@@ -1,6 +1,6 @@
 # API (Application programming interface)
 
-*See Saša Milić's article, [APIs: The Digital Glue](https://medium.com/api3/apis-the-digital-glue-7ac87566e773) for a more complete background on APIs.*
+*See our article, [APIs: The Digital Glue](https://medium.com/api3/apis-the-digital-glue-7ac87566e773) for a more complete background on APIs.*
 
 An API is a well-defined and documented protocol that one can use to interact with an application programmatically.
 In the context of decentralized applications, this definition is quite useless, and even misguiding.
@@ -22,6 +22,8 @@ This is only worth consideration because it includes not being able to call the 
 Therefore, all the game theoretic and cryptographic methods proposed for various oracle solutions essentially aim to provide smart contracts access to these paid APIs.
 Therefore, it would be more accurate to define the problem at hand as *the API connectivity problem*.
 As you read through, you will discover that this redefinition will have ripple effects across the entire solution, from how the ecosystem is built to the lowest levels of the protocol.
+
+*See our article, [The API Connectivity Problem](https://medium.com/api3/the-api-connectivity-problem-bd7fa0420636) where she elaborates on the API connectivity problem.*
 
 ## API provider
 
