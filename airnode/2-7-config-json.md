@@ -138,9 +138,6 @@ Contract overrides are provided as with a name (key) and override address (value
 
 ```json
 {
-  "providerIdShort": "9e5a89d",
-  "stage": "testnet",
-  "nodeVersion": "0.1.0",
   "providerAdminForRecordCreation": "0x5e00...F410",
   "id": 1,
   "type": "evm",
@@ -157,6 +154,9 @@ A more complete example of a `nodeSettings` configuration:
 
 ```json
 {
+  "providerIdShort": "9e5a89d",
+  "stage": "testnet",
+  "nodeVersion": "0.1.0",
   "logFormat": "plain",
   "chains": [
     {
