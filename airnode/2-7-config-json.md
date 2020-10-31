@@ -37,7 +37,7 @@ Each node serves the APIs of a single provider.
 `triggers` are events that trigger an API call and an Ethereum transaction by Airnode.
 Triggers of different types are kept in lists under their respective keys:
 
-- `request`: When the node sees an event with its `providerId` and this trigger's `endpointId` emitted from the central Airnode contract, it responds to it with the respective endpoint defined in the OIS.
+- `request` - When the node sees an event with its `providerId` and this trigger's `endpointId` emitted from the central Airnode contract, it responds to it with the respective endpoint defined in the OIS.
   - `endpointId`
   - `oisTitle`
   - `endpointName`
@@ -61,34 +61,133 @@ Triggers of different types are kept in lists under their respective keys:
 
 An object containing the following configuration parameters:
 
-- `platformUrl`: The platform (read: ChainAPI) API URL for the node to periodically call to deliver information such as:
-  - The `id` of `config.json`
-  - The base URL of the node API the platform can call to make test calls and read logs from CloudWatch
-  - ...
+1. `platformUrl` - The platform (read: ChainAPI) API URL for the node to periodically call to deliver information such as:
 
-^ This allows the platform to tell if the user has deployed their node, have used the correct `config.json` file and if/when they take down their node.
-- `platformKey`: The API key the node will use to access the platform API
-- `nodeKey`: The API key the platform will use to access the node API
-- `providerId`: The `bytes32` provider ID assigned to the provider by the Airnode contract
-- `ethereumProviders`: A list of Ethereum providers, each with the following structure:
+- The `id` of `config.json`
+- The base URL of the node API the platform can call to make test calls and read logs from CloudWatch
+
+This allows the platform to tell if the user has deployed their node, have used the correct `config.json` file and if/when they take down their node.
+
+2. `platformKey` - The API key the node will use to access the platform API
+
+3. `nodeKey` - The API key the platform will use to access the node API
+
+4. `providerId` - The `bytes32` provider ID assigned to the provider by the Airnode contract
+
+5. `logFormat` - The format that Airnode should use to output logs. Either `json` or `plain`
+
+6. `chains` - A list of blockchain configurations. See [chains](#chains) below.
+
+### `chains`
+
+Airnode can be configured to work with multiple blockchain providers, types and networks.
+
+`adminAddress` - the master address that is used to update endpoints and authorizers.
+
+`id` - the corresponding chain (or network) ID. A list of known Ethereum chain IDs can be found at [EIP-155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md#list-of-chain-ids), although this list is not exhaustive and the `id` does not necessarily need to be a popular or known value.
+
+`type` - the type of blockchain to connect to. Currently only `evm` is supported for Ethereum and other EVM compatible blockchains, although other blockchain types will be supported in the future.
+
+`providers` - one or more providers serving the given chain ID and type. Each `provider` must have the following keys:
+
+**Required**
+
+1. `name` - a *unique* name across ALL configured providers in `config.json`
+
+2. `url` - an HTTP endpoint that Airnode should use to connect to.
+
+**Optional**
+
+1. `blockHistoryLimit` - the number of block in the past that Airnode should use to search for requests or events. Defaults to `600` (roughly 1 hour for Ethereum)
+
+2. `minConfirmations` - the number of confirmations required for a request or event to be considered valid. Default to `6`
 
 ```json
 {
-  "chainId": 1,
-  "name": "my-infura-mainnet",
-  "url": "https://..."
+  "adminAddress": "0x5e00...F410",
+  "id": 1,
+  "type": "evm",
+  "providers": [
+    {
+      "name": "my-infura-mainnet",
+      "url": "https://mainnet.infura.io/v3/<your key>",
+      "blockHistoryLimit": 600,
+      "minConfirmations": 6
+    },
+    {
+      "name": "secondary-mainnet",
+      "url": "https://..."
+    }
+  ]
 }
 ```
 
-An example `nodeSettings` object:
+`contracts` - An optional object of contracts to use instead of the default Airnode contract addresses.
+
+The following contracts can be overridden:
+
+1. `Airnode`
+
+2. `Convenience`
+
+3. `GasPriceFeed`
+
+**NOTE** Contract addresses cannot be overridden for EVM chain ID 1 (Ethereum mainnet).
+
+Contract overrides are provided as with a name (key) and override address (value). i.e. `{ Airnode: '0xf1d4...0bd3' }`. You can provide as many or as few overrides as needed.
 
 ```json
 {
-  "platformUrl": "...",
+  "adminAddress": "0x5e00...F410",
+  "id": 1,
+  "type": "evm",
+  "providers": [{ "name": "infura-mainnet", "url": "https://..." }],
+  "contracts": {
+    "Airnode": "0xf1d4...0bd1"
+  }
+}
+```
+
+### Example
+
+A more complete example of a `nodeSettings` configuration:
+
+```json
+{
+  "logFormat": "plain",
+  "platformUrl": "https://...",
   "platformKey": "...",
   "nodeKey": "...",
-  "providerId": "...",
-  "ethereumProviders": [..., ...]
+  "providerId": "0xf5ad...1d6d",
+  "chains": [
+    {
+      "adminAddress": "0x5e00...F410",
+      "id": 1,
+      "type": "evm",
+      "providers": [
+        {
+          "name": "infura-mainnet",
+          "url": "https://mainnet.infura.io/v3/<your key>",
+          "blockHistoryLimit": 600,
+          "minConfirmations": 6
+        }
+      ]
+    },
+    {
+      "adminAddress": "0x5e00...F410",
+      "id": 3,
+      "type": "evm",
+      "providers": [
+        {
+          "name": "infura-ropsten",
+          "url": "https://ropsten.infura.io/v3/<your key>"
+        }
+      ],
+      "contracts": {
+        "Airnode": "0xf1d4...0bd1"
+      }
+    }
+  ]
 }
 ```
 
@@ -96,23 +195,5 @@ An example `nodeSettings` object:
 
 A UUID defined by the platform for the specific `config.json` file and its corresponding `security.json` file.
 Once deployed, the node periodically calls `platformUrl` to send this `id`.
-
-## Potential update to `nodeSettings`:
-
-```json
-chains: [
-  {
-    type: "evm",
-    id: 1,
-    minConfirmations: 6,
-    providers: [
-      {
-        "name": infura",
-        "url": "https://..."
-      }
-    ]
-  }
-]
-```
 
 [Home](/README.md#contents)
