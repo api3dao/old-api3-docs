@@ -13,7 +13,7 @@ Doing so comes with many disadvantages:
 Making it redundant is costly and not trivial.
 2. Any anomaly that happens on the blockchain (block reorgs, ommer blocks, etc.) results in the oracle node state to fall out of sync with the chain, which is not trivial to correct.
 3. A highly stateful application has many edge cases.
-These are difficult to cover completely and are likely to result in bugs that put the node out of operation.
+These are difficult to cover completely and are likely to result in bugs that incapacitate the node.
 
 These disadvantages result in an unstable oracle node, which is the essential reason why traditional oracle nodes require *professional node operators* that need to be ready to respond to incidents 24/7.
 Since this is not a realistic requirement for first-party oracles, an oracle node that is designed for first-party oracles has to be stateless.

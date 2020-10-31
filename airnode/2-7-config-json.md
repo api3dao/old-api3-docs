@@ -1,7 +1,7 @@
 # `config.json`
 
 `config.json` is the configuration file used for deploying Airnode.
-It is composed of three main sections:
+It is composed of four main sections:
 
 1. A list of [OIS](/airnode/2-6-ois.md)
 2. An object of lists of triggers, each mapping to an endpoint defined in an OIS in 1

@@ -10,7 +10,7 @@ Regardless of the reason, the provider must be able to set policies that manage 
 There are two main points to consider about how these policies are implemented:
 
 1. If the policies are kept off-chain, the requester cannot see them or check if they satisfy them.
-Furthermore, the provider updating the policies (e.g., increasing the service prices) requires off-chain coordination.
+Furthermore, the provider updating the policies (e.g., increasing the service fees) requires off-chain coordination.
 2. Embedding the policies in the request-response loop results in a gas cost overhead.
 
 Based on these considerations, we designed a hybrid method.
@@ -24,7 +24,7 @@ An authorizer is a contract with the following abstract:
 
 ```solidity
 abstract contract Authorizer {
-    uint public authorizerType;
+    uint256 public authorizerType;
 
     function checkIfAuthorized(
         bytes32 requestId,

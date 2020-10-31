@@ -1,7 +1,6 @@
 # `security.json`
 
 `security.json` is one of the configuration files used while deploying Airnode.
-Unlike `config.json`, its contents are not imported to the node, but stored in AWS SSM.
 These security credentials are tagged with `id`.
 This `id` matches `id` from `config.json` and identifies a particular deployment.
 

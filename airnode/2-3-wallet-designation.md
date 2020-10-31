@@ -27,6 +27,9 @@ The provider's Airnode listens for withdrawal requests and fulfills them automat
 Therefore, the requester should be able to receive their funds from their designated wallet in a few minutes notice.
 The designated wallet does not get deleted, and can be used in the future simply by funding it again.
 
+Note that there is no mechanism that prevents the provider from funding their designated wallets themselves.
+Therefore, the Airnode protocol also supports the legacy scheme where the provider covers the gas costs, and even a hybrid scheme where the provider covers the gas costs coming from some requesters, and requires others to cover the gas costs of their requests.
+
 ## Wallet derivation
 
 A provider has a single private key that they use across all chains.
