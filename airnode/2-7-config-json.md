@@ -69,7 +69,9 @@ An object containing the following configuration parameters:
 
 Airnode can be configured to work with multiple blockchain providers, types and networks.
 
-`adminAddress` - the master address that is used to update endpoints and authorizers.
+`providerAdminForRecordCreation` - the master address that is used to update endpoint authorizers.
+Note that the node only uses this while creating the provider record.
+Changing this after the provider record is created will not have any effect.
 
 `id` - the corresponding chain (or network) ID. A list of known Ethereum chain IDs can be found at [EIP-155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md#list-of-chain-ids), although this list is not exhaustive and the `id` does not necessarily need to be a popular or known value.
 
@@ -91,7 +93,7 @@ Airnode can be configured to work with multiple blockchain providers, types and 
 
 ```json
 {
-  "adminAddress": "0x5e00...F410",
+  "providerAdminForRecordCreation": "0x5e00...F410",
   "id": 1,
   "type": "evm",
   "providers": [
@@ -125,7 +127,7 @@ Contract overrides are provided as with a name (key) and override address (value
 
 ```json
 {
-  "adminAddress": "0x5e00...F410",
+  "providerAdminForRecordCreation": "0x5e00...F410",
   "id": 1,
   "type": "evm",
   "providers": [{ "name": "infura-mainnet", "url": "https://..." }],
@@ -144,7 +146,7 @@ A more complete example of a `nodeSettings` configuration:
   "logFormat": "plain",
   "chains": [
     {
-      "adminAddress": "0x5e00...F410",
+      "providerAdminForRecordCreation": "0x5e00...F410",
       "id": 1,
       "type": "evm",
       "providers": [
@@ -157,7 +159,7 @@ A more complete example of a `nodeSettings` configuration:
       ]
     },
     {
-      "adminAddress": "0x5e00...F410",
+      "providerAdminForRecordCreation": "0x5e00...F410",
       "id": 3,
       "type": "evm",
       "providers": [
