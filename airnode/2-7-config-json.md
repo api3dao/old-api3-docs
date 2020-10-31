@@ -61,22 +61,9 @@ Triggers of different types are kept in lists under their respective keys:
 
 An object containing the following configuration parameters:
 
-1. `platformUrl` - The platform (read: ChainAPI) API URL for the node to periodically call to deliver information such as:
+1. `logFormat` - The format that Airnode should use to output logs. Either `json` or `plain`
 
-- The `id` of `config.json`
-- The base URL of the node API the platform can call to make test calls and read logs from CloudWatch
-
-This allows the platform to tell if the user has deployed their node, have used the correct `config.json` file and if/when they take down their node.
-
-2. `platformKey` - The API key the node will use to access the platform API
-
-3. `nodeKey` - The API key the platform will use to access the node API
-
-4. `providerId` - The `bytes32` provider ID assigned to the provider by the Airnode contract
-
-5. `logFormat` - The format that Airnode should use to output logs. Either `json` or `plain`
-
-6. `chains` - A list of blockchain configurations. See [chains](#chains) below.
+1. `chains` - A list of blockchain configurations. See [chains](#chains) below.
 
 ### `chains`
 
@@ -155,10 +142,6 @@ A more complete example of a `nodeSettings` configuration:
 ```json
 {
   "logFormat": "plain",
-  "platformUrl": "https://...",
-  "platformKey": "...",
-  "nodeKey": "...",
-  "providerId": "0xf5ad...1d6d",
   "chains": [
     {
       "adminAddress": "0x5e00...F410",
