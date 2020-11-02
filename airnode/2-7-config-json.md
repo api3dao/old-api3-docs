@@ -72,6 +72,9 @@ For example, the provider may make multiple deployments with `stage`s set as `de
 1. `nodeVersion` - The node version this `config.json` is supposed to be used with.
 The deployer checks this and refuses to deploy if its node version does not agree with this field.
 
+1. `cloudProvider` - The cloud provider that will be used to deploy the node.
+Can be `aws` or `local:aws`.
+
 1. `logFormat` - The format that Airnode should use to output logs. Either `json` or `plain`
 
 1. `chains` - A list of blockchain configurations. See [chains](#chains) below.
@@ -157,6 +160,7 @@ A more complete example of a `nodeSettings` configuration:
   "providerIdShort": "9e5a89d",
   "stage": "testnet",
   "nodeVersion": "0.1.0",
+  "cloudProvider": "aws",
   "logFormat": "plain",
   "chains": [
     {
