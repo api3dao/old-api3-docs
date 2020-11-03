@@ -86,6 +86,7 @@ Airnode can be configured to work with multiple blockchain providers, types and 
 `providerAdminForRecordCreation` - the master address that will be authorized to update the authorizers of the provider's endpoints.
 Note that the node only uses this while creating the provider record.
 Changing this after the provider record is created will not have any effect.
+This field is optional, but not having it means that the node will not be able to create a provider record on the respective chain.
 
 `id` - the corresponding chain (or network) ID. A list of known Ethereum chain IDs can be found at [EIP-155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md#list-of-chain-ids), although this list is not exhaustive and the `id` does not necessarily need to be a popular or known value.
 
