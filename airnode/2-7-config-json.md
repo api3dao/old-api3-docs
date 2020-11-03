@@ -105,6 +105,15 @@ Changing this after the provider record is created will not have any effect.
 
 2. `minConfirmations` - the number of confirmations required for a request or event to be considered valid. Default to `6`
 
+`contracts` - An object that keeps the addresses of the contracts deployed on the respective chain.
+It has to include the following contract addresses:
+
+1. `Airnode`
+
+2. `Convenience`
+
+An example object from the `chains` list:
+
 ```json
 {
   "providerAdminForRecordCreation": "0x5e00...F410",
@@ -121,32 +130,10 @@ Changing this after the provider record is created will not have any effect.
       "name": "secondary-mainnet",
       "url": "https://..."
     }
-  ]
-}
-```
-
-`contracts` - An optional object of contracts to use instead of the default Airnode contract addresses.
-
-The following contracts can be overridden:
-
-1. `Airnode`
-
-2. `Convenience`
-
-3. `GasPriceFeed`
-
-**NOTE** Contract addresses cannot be overridden for EVM chain ID 1 (Ethereum mainnet).
-
-Contract overrides are provided as with a name (key) and override address (value). i.e. `{ Airnode: '0xf1d4...0bd3' }`. You can provide as many or as few overrides as needed.
-
-```json
-{
-  "providerAdminForRecordCreation": "0x5e00...F410",
-  "id": 1,
-  "type": "evm",
-  "providers": [{ "name": "infura-mainnet", "url": "https://..." }],
+  ],
   "contracts": {
-    "Airnode": "0xf1d4...0bd1"
+    "Airnode": "0xf1d4...0bd1",
+    "Convenience": "0x12ab...de56"
   }
 }
 ```
