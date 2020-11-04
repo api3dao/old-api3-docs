@@ -75,6 +75,8 @@ The deployer checks this and refuses to deploy if its node version does not agre
 1. `cloudProvider` - The cloud provider that will be used to deploy the node.
 Can be `aws` or `local:aws`.
 
+1. `region` - The cloud provider region that the node will be deployed at.
+
 1. `logFormat` - The format that Airnode should use to output logs. Either `json` or `plain`
 
 1. `chains` - A list of blockchain configurations. See [chains](#chains) below.
@@ -149,6 +151,7 @@ A more complete example of a `nodeSettings` configuration:
   "stage": "testnet",
   "nodeVersion": "0.1.0",
   "cloudProvider": "aws",
+  "region": "us-east-1",
   "logFormat": "plain",
   "chains": [
     {
