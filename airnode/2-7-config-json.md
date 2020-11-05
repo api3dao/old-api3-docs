@@ -66,9 +66,6 @@ The deployer uses the first 7 characters of the full `providerId` by default.
 For example, if the `providerId` is `0x9e5a89de5a7e780b9eb5a61425a3a656f0c891ac4c56c07037d257724af490c9`, `providerIdShort` would be `9e5a89d`.
 This field must not exist for the first deployment, and must exist for redeployments.
 
-1. `stage` - The label used to distinguish between multiple deployments of the same provider on a cloud provider.
-For example, the provider may make multiple deployments with `stage`s set as `dev`, `ropsten`, `mainnet`, where each of these deployments would use the same private key and have the same `providerId`.
-
 1. `nodeVersion` - The node version this `config.json` is supposed to be used with.
 The deployer checks this and refuses to deploy if its node version does not agree with this field.
 
@@ -76,6 +73,9 @@ The deployer checks this and refuses to deploy if its node version does not agre
 Can be `aws` or `local:aws`.
 
 1. `region` - The cloud provider region that the node will be deployed at.
+
+1. `stage` - The label used to distinguish between multiple deployments of the same provider on a cloud provider.
+For example, the provider may make multiple deployments with `stage`s set as `dev`, `ropsten`, `mainnet`, where each of these deployments would use the same private key and have the same `providerId`.
 
 1. `logFormat` - The format that Airnode should use to output logs. Either `json` or `plain`
 
@@ -148,10 +148,10 @@ A more complete example of a `nodeSettings` configuration:
 ```json
 {
   "providerIdShort": "9e5a89d",
-  "stage": "testnet",
   "nodeVersion": "0.1.0",
   "cloudProvider": "aws",
   "region": "us-east-1",
+  "stage": "testnet",
   "logFormat": "plain",
   "chains": [
     {
