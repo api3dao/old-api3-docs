@@ -30,15 +30,13 @@ Just as these docs, you can discuss it and propose updates through [issues](http
 - [2. Airnode](/airnode)
   - [2.1. Design philosophy](/airnode/2-1-design-philosophy.md)
   - [2.2. Implementation](/airnode/2-2-implementation.md)
-  - [2.3. Protocol*: Wallet designation](/airnode/2-3-wallet-designation.md)
-  - [2.4. Protocol*: Requests](/airnode/2-4-requests.md)
-  - [2.5. Protocol*: Authorizers](/airnode/2-5-authorizers.md)
+  - [2.3. Protocol: Wallet designation](/airnode/2-3-wallet-designation.md)
+  - [2.4. Protocol: Requests](/airnode/2-4-requests.md)
+  - [2.5. Protocol: Authorizers](/airnode/2-5-authorizers.md)
   - [2.6. OIS](/airnode/2-6-ois.md)
   - [2.7. `config.json`](/airnode/2-7-config-json.md)
   - [2.8. `security.json`](/airnode/2-8-security-json.md)
   - [2.9. Ethereum providers](/airnode/2-9-ethereum-providers.md)
-
-**Refer to the [`protocol-overhaul`](https://github.com/api3dao/airnode/tree/protocol-overhaul) branch for the up-to-date implementation of the protocol.*
 
 API3 documentation is kept as a regular repository of Markdown files to be easily contributable by everyone.
 Feel free to create [issues](https://github.com/api3dao/api3-docs/issues) for discussions, proposed additions and changes.
