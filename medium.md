@@ -7,7 +7,7 @@
 1. [First-Party vs Third-Party Oracles](https://medium.com/api3/first-party-vs-third-party-oracles-90356e3cffe5)
 1. [Where are the first-party oracles?](https://medium.com/api3/where-are-the-first-party-oracles-5078cebaf17)
 1. [Staking & oracles](https://medium.com/api3/staking-oracles-c91f2f5bcf6d)
-1. ...
+1. [Why security must be quantified](https://medium.com/api3/why-security-must-be-quantified-3d2dd06c4909)
 
 ### Airnode: The first-party oracle node
 
