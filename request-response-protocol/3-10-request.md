@@ -1,26 +1,18 @@
-# Airnode protocol: Requests
+# Request–response protocol: Request
 
-## Glossary
+When a client makes a request using `Airnode.sol`, it is returned a `requestId`.
+This `requestId` is a hash of all request parameters and a nonce.
+This allows Airnode to verify that the request parameters are not tampered with.
 
-**Provider:** An entity that runs an Airnode to serve one or more APIs
+## Request parameters
 
-**Requester:** An entity that can endorse clients for their requests to be fulfilled with the requester's designated wallets
+- `providerId` and `endpointId` specify the endpoint
+- `requesterInd` and `designatedWallet` specify which wallet will be used to fulfill the request
+- `fulfillAddress` and `fulfillFunctionId` specify which method will be called to fulfill the request
+- `parameters` specify the API and [reserved](/airnode/2-6-ois.md#54-reservedParameters
+) parameters
 
-**Client:** A contract that makes requests to providers
-
-**Endpoint:** A specific service that a provider provides.
-It is mapped to an API operation at the Airnode-end.
-All requests refer to an endpoint.
-
-**Template:** Short for request template.
-It stores a set of request parameters on-chain.
-
-## Templates
-
-Templates are used to record request parameters onto the blockchain.
-While making a request, the requester simply passes a `templateId`, rather than passing all the parameters.
-This both improves UX by allowing the creation of templates over a GUI, and also allows a large parameter payload (e.g., off-chain computation specifications) to be used at no additional gas cost.
-Template parameters can be overridden by parameters provided at request-time.
+## How templates are used in requests
 
 A template includes the following fields:
 
@@ -36,8 +28,11 @@ struct Template {
     }
 ```
 
+The client can refer to the `templateId` of a template while making the request, and the provider's Airnode will fetch these and use them in the request.
 Among these, `requesterInd`, `designatedWallet`, `fulfillAddress`, `fulfillFunctionId` can be overriden by parameters defined at request-time.
-In addition, parameters encoded in `parameters` can be overriden by ones provided with the same name at request-time.
+
+When a template is used to make a request, both the parameters encoded in `parameters` of the template and `parameters` provided at request-time by the client will be used by the provider's Airnode.
+In case the two include a parameter with the same name, the one provided at request-time will be used.
 
 ## Request types
 
@@ -58,14 +53,14 @@ They are useful if the client will not make a similar request ever again (e.g., 
 
 ## Request outcomes
 
-A request made to an Airnode has four possible outcomes:
+A request made to an Airnode has three possible outcomes:
 
 ### 1. Fulfill
 
 If the node encountered no errors at any step, it calls the `fulfill()` method that will call back the method `fulfillFunctionId` at `fulfillAddress` to deliver `data` and 0 as the `statusCode`.
 
 If the node encountered an error, it will do the same, but `statusCode` will be non-0, indicating to the client that the request failed (see [this](https://github.com/api3dao/airnode/tree/master/packages/node#behaviour) for details).
-The client can then handle this error as it sees fit (e.g., ignore it, make a request to an alternative provider, etc.).
+The client can then handle this error as it sees fit (e.g., ignore it, make a request to an alternative provider, etc.)
 
 ### 2. Fail
 
@@ -76,4 +71,4 @@ The node will not attempt to fulfill a failed request afterwards.
 
 If the node cannot even fail a request (e.g., the client is not endorsed by the requester), the request gets ignored.
 
-[Home](/README.md#contents)
+[Request–response protocol concepts](/request-response-protocol/3-1-general-structure.md#concepts)

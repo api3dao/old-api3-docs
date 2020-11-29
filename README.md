@@ -34,13 +34,23 @@ See a grouped list of our Medium posts [here](/medium.md).
 - [2. Airnode](/airnode)
   - [2.1. Design philosophy](/airnode/2-1-design-philosophy.md)
   - [2.2. Implementation](/airnode/2-2-implementation.md)
-  - [2.3. Protocol: Wallet designation](/airnode/2-3-wallet-designation.md)
-  - [2.4. Protocol: Requests](/airnode/2-4-requests.md)
-  - [2.5. Protocol: Authorizers](/airnode/2-5-authorizers.md)
   - [2.6. OIS](/airnode/2-6-ois.md)
   - [2.7. `config.json`](/airnode/2-7-config-json.md)
   - [2.8. `security.json`](/airnode/2-8-security-json.md)
   - [2.9. Ethereum providers](/airnode/2-9-ethereum-providers.md)
+
+- [3. Request–reponse protocol](/request-response-protocol)
+  - [3.1. General structure](/request-response-protocol/3-1-general-structure.md)
+  - [3.2. Provider](/request-response-protocol/3-2-provider.md)
+  - [3.3. Endpoint](/request-response-protocol/3-3-endpoint.md)
+  - [3.4. Authorizer](/request-response-protocol/3-4-authorizer.md)
+  - [3.5. Requester](/request-response-protocol/3-5-requester.md)
+  - [3.6. Client](/request-response-protocol/3-6-client.md)
+  - [3.7. Designated wallet](/request-response-protocol/3-7-designated-wallet.md)
+  - [3.8. Endorsement](/request-response-protocol/3-8-endorsement.md)
+  - [3.9. Template](/request-response-protocol/3-9-template.md)
+  - [3.10. Request](/request-response-protocol/3-10-request.md)
+
 
 API3 documentation is kept as a regular repository of Markdown files to be easily contributable by everyone.
 Feel free to create [issues](https://github.com/api3dao/api3-docs/issues) for discussions, proposed additions and changes.
