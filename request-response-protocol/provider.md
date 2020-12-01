@@ -54,7 +54,7 @@ The Airnode deployment displays instructions for how to do this, and the `master
 ## `providerAdmin`
 
 `providerAdmin` is an address that is authorized to update provider-related properties (e.g., endpoint authorizers).
-Airnode sets a `providerAdmin` while creating the provider record, and this is sourced from [`config.json`](/airnode/2-7-config-json.md) under the name `providerAdminForRecordCreation`.
+Airnode sets a `providerAdmin` while creating the provider record, and this is sourced from [`config.json`](/airnode/config-json.md) under the name `providerAdminForRecordCreation`.
 
 `providerAdmin` can transfer its authority to another address.
 The master wallet can reclaim the authority by calling `createProvider()` and setting another `providerAdmin`.
@@ -72,13 +72,13 @@ providerIdDerivedFromXpub = keccak256(abi.encode(masterNode.address));
 assert(providerIdDerivedFromXpub === providerId);
 ```
 
-See the [section about designated wallets](/request-response-protocol/3-7-designated-wallet.md) to see how requesters can use `xpub` to derive their designated wallets.
+See the [section about designated wallets](/request-response-protocol/designated-wallet.md) to see how requesters can use `xpub` to derive their designated wallets.
 
 ## Setting endpoint authorizers
 
 An important responsibility of the `providerAdmin` is to set endpoint authorizers.
 Authorizers are used to enforce rules about which requests will be responded to, and this can be used to enforce KYC, monthly subscription payments, etc.
-See the sections about [endpoints](/request-response-protocol/3-3-endpoint.md) and [authorizers](/request-response-protocol/3-4-authorizer.md) for more details.
+See the sections about [endpoints](/request-response-protocol/endpoint.md) and [authorizers](/request-response-protocol/authorizer.md) for more details.
 
 
-[Request–response protocol concepts](/request-response-protocol/3-1-general-structure.md#concepts)
+[Request–response protocol concepts](/request-response-protocol/general-structure.md#concepts)

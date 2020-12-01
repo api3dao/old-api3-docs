@@ -1,9 +1,9 @@
 # Request–response protocol: Endpoint
 
-Airnode serves APIs to blockchains according to [Oracle Integration Specifications (OIS)](/airnode/2-6-ois.md).
-APIs are composed of [operations](/airnode/2-6-ois.md#44-paths), which represent individual functionalities that an API offers.
-OIS maps each API operation to an [endpoint](/airnode/2-6-ois.md#5-endpoints), which can be thought of as an Airnode operation.
-The endpoints that an Airnode will serve over the request–response protocol are listed under [`triggers`](/airnode/2-7-config-json.md#triggers) of [`config.json`](/airnode/2-7-config-json.md).
+Airnode serves APIs to blockchains according to [Oracle Integration Specifications (OIS)](/airnode/ois.md).
+APIs are composed of [operations](/airnode/ois.md#44-paths), which represent individual functionalities that an API offers.
+OIS maps each API operation to an [endpoint](/airnode/ois.md#5-endpoints), which can be thought of as an Airnode operation.
+The endpoints that an Airnode will serve over the request–response protocol are listed under [`triggers`](/airnode/config-json.md#triggers) of [`config.json`](/airnode/2-7-config-json.md).
 
 ## `endpointId`
 
@@ -22,6 +22,6 @@ For example, the provider can choose to randomly generate their `endpointId`s, a
 ## Authorizers
 
 Providers can assign a list of authorizers to their endpoints.
-See the [section about authorizers](/request-response-protocol/3-4-authorizer.md) for more details.
+See the [section about authorizers](/request-response-protocol/authorizer.md) for more details.
 
-[Request–response protocol concepts](/request-response-protocol/3-1-general-structure.md#concepts)
+[Request–response protocol concepts](/request-response-protocol/general-structure.md#concepts)

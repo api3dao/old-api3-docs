@@ -1,7 +1,7 @@
 # Request–response protocol: Designated wallet
 
-Each [provider](/request-response-protocol/3-2-provider.md) keeps a designated wallet for each [requester](/request-response-protocol/3-5-requester.md).
-[Clients](/request-response-protocol/3-6-client.md) [endorsed](/request-response-protocol/3-8-endorsement.md) by a requester can specify their requests to be fulfilled by the said requester's designated wallet.
+Each [provider](/request-response-protocol/provider.md) keeps a designated wallet for each [requester](/request-response-protocol/requester.md).
+[Clients](/request-response-protocol/client.md) [endorsed](/request-response-protocol/endorsement.md) by a requester can specify their requests to be fulfilled by the said requester's designated wallet.
 This allows the requester to cover the gas cost of request fulfillments.
 
 ## Deriving the address of the designated wallet
@@ -49,4 +49,4 @@ Although the designated wallet scheme allows the requester to cover the fulfillm
 The only thing that needs to be done in this case is for the provider to top up the designated wallet, instead of the requester.
 Furthermore, this scheme allows hybrid use-cases where the provider covers the fulfillment gas costs for on requester (e.g., because they have made a special service agreement with them), while requires others to cover their own fulfillment gas costs.
 
-[Request–response protocol concepts](/request-response-protocol/3-1-general-structure.md#concepts)
+[Request–response protocol concepts](/request-response-protocol/general-structure.md#concepts)

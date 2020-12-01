@@ -52,15 +52,15 @@ In addition, Airnodes use the this contract to check if a request is authorized 
 *Click the links to go to the page of the specific concept.
 You are recommended to read these in the given order.*
 
-A [provider](/request-response-protocol/3-2-provider.md) operates an Airnode to serve one or more APIs to smart contracts.
+A [provider](/request-response-protocol/provider.md) operates an Airnode to serve one or more APIs to smart contracts.
 
-Each of the API operations that the provider's Airnode serves is accessible over an [endpoint](/request-response-protocol/3-3-endpoint.md).
-The provider sets [authorizers](/request-response-protocol/3-4-authorizer.md) for these endpoints, which are contracts that implement authorization policies.
+Each of the API operations that the provider's Airnode serves is accessible over an [endpoint](/request-response-protocol/endpoint.md).
+The provider sets [authorizers](/request-response-protocol/authorizer.md) for these endpoints, which are contracts that implement authorization policies.
 
-A [requester](/request-response-protocol/3-5-requester.md) owns contracts that make requests to providers.
-Each of these contracts is called a [client](/request-response-protocol/3-6-client.md).
+A [requester](/request-response-protocol/requester.md) owns contracts that make requests to providers.
+Each of these contracts is called a [client](/request-response-protocol/client.md).
 
-Each provider keeps a [designated wallet](/request-response-protocol/3-7-designated-wallet.md) for each requester.
-The requester [endorses](/request-response-protocol/3-8-endorsement.md) their clients for them to be allowed to make requests that will be fulfilled by the requester's designated wallet.
+Each provider keeps a [designated wallet](/request-response-protocol/designated-wallet.md) for each requester.
+The requester [endorses](/request-response-protocol/endorsement.md) their clients for them to be allowed to make requests that will be fulfilled by the requester's designated wallet.
 
-A requester can create a request [template](/request-response-protocol/3-9-template.md), which is an on-chain record that they can refer to while making [requests](/request-response-protocol/3-10-request.md).
+A requester can create a request [template](/request-response-protocol/template.md), which is an on-chain record that they can refer to while making [requests](/request-response-protocol/request.md).

@@ -1,6 +1,6 @@
 # Request–response protocol: Endorsement
 
-A [requester](/request-response-protocol/3-5-requester.md) announcing that a [client](/request-response-protocol/3-6-client.md) can specify their requests to be fulfilled by the requester's [designated wallets](/request-response-protocol/3-7-designated-wallet.md) is called an endorsement.
+A [requester](/request-response-protocol/requester.md) announcing that a [client](/request-response-protocol/client.md) can specify their requests to be fulfilled by the requester's [designated wallets](/request-response-protocol/designated-wallet.md) is called an endorsement.
 This is done by the `requesterAdmin` calling `RequesterStore.sol` with the client contract's address.
 The check of if a client is endorsed by the requester whose designated wallet it wants to have the request fulfilled with is done at the protocol level (and not by Airnodes).
 
@@ -14,4 +14,4 @@ Airnode derives the designated wallet address using the provided `requesterInd`,
 Airnode will ignore the request if the two do not match.
 This is done this way because deriving the designated wallet address from the `requesterInd` on-chain is not feasible.
 
-[Request–response protocol concepts](/request-response-protocol/3-1-general-structure.md#concepts)
+[Request–response protocol concepts](/request-response-protocol/general-structure.md#concepts)

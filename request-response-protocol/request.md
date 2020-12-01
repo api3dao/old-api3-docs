@@ -9,7 +9,7 @@ This allows Airnode to verify that the request parameters are not tampered with.
 - `providerId` and `endpointId` specify the endpoint
 - `requesterInd` and `designatedWallet` specify which wallet will be used to fulfill the request
 - `fulfillAddress` and `fulfillFunctionId` specify which method will be called to fulfill the request
-- `parameters` specify the API and [reserved](/airnode/2-6-ois.md#54-reservedParameters
+- `parameters` specify the API and [reserved](/airnode/ois.md#54-reservedParameters
 ) parameters
 
 ## How templates are used in requests
@@ -71,4 +71,4 @@ The node will not attempt to fulfill a failed request afterwards.
 
 If the node cannot even fail a request (e.g., the client is not endorsed by the requester), the request gets ignored.
 
-[Request–response protocol concepts](/request-response-protocol/3-1-general-structure.md#concepts)
+[Request–response protocol concepts](/request-response-protocol/general-structure.md#concepts)

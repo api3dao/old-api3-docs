@@ -1,7 +1,7 @@
 # Request–response protocol: Template
 
 An oracle request has many parameters.
-It is very common for [clients](/request-response-protocol/3-6-client.md) (e.g., a data feed) to make repeated requests with the exact same parameters.
+It is very common for [clients](/request-response-protocol/client.md) (e.g., a data feed) to make repeated requests with the exact same parameters.
 In such instances, it is wasteful to pass all of these parameters repeatedly.
 
 Templates are on-chain records of request parameters that the clients can refer to while making requests.
@@ -23,4 +23,4 @@ templateId = keccak256(abi.encode(
 ```
 This allows Airnode to fetch templates with a static call, and verify that the received parameters are not tampered with.
 
-[Request–response protocol concepts](/request-response-protocol/3-1-general-structure.md#concepts)
+[Request–response protocol concepts](/request-response-protocol/general-structure.md#concepts)

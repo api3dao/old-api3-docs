@@ -88,4 +88,4 @@ Here are some examples:
 - Respond to requests made by requesters who have been whitelisted by the API provider backend (for example, based on Paypal payments)
 - ...
 
-[Request–response protocol concepts](/request-response-protocol/3-1-general-structure.md#concepts)
+[Request–response protocol concepts](/request-response-protocol/general-structure.md#concepts)
