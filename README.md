@@ -40,6 +40,7 @@ See a grouped list of our Medium posts [here](/medium.md).
   - [OIS](/airnode/ois.md)
   - [`config.json`](/airnode/config-json.md)
   - [`security.json`](/airnode/security-json.md)
+  - [Airnode ABI specifications](/airnode/airnode-abi-specifications.md)
   - [Ethereum providers](/airnode/ethereum-providers.md)
 
 - [Request–reponse protocol](/request-response-protocol)
