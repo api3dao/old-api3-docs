@@ -2,7 +2,7 @@
 
 `security.json` is the file the deployer uses to push API credentials along with the serverless function.
 
-Has three fields:
+Has two fields:
 - `apiCredentials`: Keeps the values of the security scheme parameters and the necessary fields to identify them
 - `id`: A UUID defined by the platform for this specific deployment (matches the corresponding `id` from `config.json`)
 

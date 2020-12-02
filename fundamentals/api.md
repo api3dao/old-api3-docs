@@ -23,7 +23,7 @@ Therefore, all the game theoretic and cryptographic methods proposed for various
 Therefore, it would be more accurate to define the problem at hand as *the API connectivity problem*.
 As you read through, you will discover that this redefinition will have ripple effects across the entire solution, from how the ecosystem is built to the lowest levels of the protocol.
 
-*See our article, [The API Connectivity Problem](https://medium.com/api3/the-api-connectivity-problem-bd7fa0420636) where she elaborates on the API connectivity problem.*
+*See our article, [The API Connectivity Problem](https://medium.com/api3/the-api-connectivity-problem-bd7fa0420636) for a more extensive treatment.*
 
 ## API provider
 

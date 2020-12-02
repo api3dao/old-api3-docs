@@ -2,6 +2,9 @@
   <img src="https://github.com/clc-group/api3-docs/raw/master/figures/api3.png" width="400" />
 </p>
 
+*API3 documentation is kept as a regular repository of Markdown files to be easily contributable by everyone.
+Feel free to create [issues](https://github.com/api3dao/api3-docs/issues) for discussions, proposed additions and changes.*
+
 ## What is API3?
 
 [API3](https://api3.org/) is a collaborative project to deliver traditional API services to smart contract platforms in a decentralized and trust-minimized way.
@@ -50,10 +53,6 @@ See a grouped list of our Medium posts [here](/medium.md).
   - [Endorsement](/request-response-protocol/endorsement.md)
   - [Template](/request-response-protocol/template.md)
   - [Request](/request-response-protocol/request.md)
-
-
-API3 documentation is kept as a regular repository of Markdown files to be easily contributable by everyone.
-Feel free to create [issues](https://github.com/api3dao/api3-docs/issues) for discussions, proposed additions and changes.
 
 # Community
 

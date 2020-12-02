@@ -1,6 +1,6 @@
 # Oracle Integration Specifications (OIS) 1.0.0
 
-*This will migrated from docs to its own repo.*
+*This will be migrated from docs to its own repo.*
 
 *Fields denoted by \* are for documentation purposes and not used by the oracle node.*
 
