@@ -10,7 +10,7 @@ This allows Airnode to verify that the request parameters are not tampered with.
 - `requesterInd` and `designatedWallet` specify which wallet will be used to fulfill the request
 - `fulfillAddress` and `fulfillFunctionId` specify which method will be called to fulfill the request
 - `parameters` specify the API and [reserved](/airnode/ois.md#54-reservedParameters
-) parameters
+) parameters (see [Airnode ABI specifications](/airnode/airnode-abi-specifications.md) for how these are encoded)
 
 ## How templates are used in requests
 
