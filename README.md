@@ -26,34 +26,41 @@ Just as these docs, you can discuss it and propose updates through [issues](http
 
 See a grouped list of our Medium posts [here](/medium.md).
 
-## Contents
+## Fundamentals
 
-- [Fundamentals](/fundamentals)
-  - [API](/fundamentals/api.md)
-  - [First-party oracles](/fundamentals/first-party-oracles.md)
-  - [Decentrally-governed oracle networks](/fundamentals/decentrally-governed-oracle-networks.md)
-  - [dAPI](/fundamentals/dapi.md)
+An introduction to the API connectivity problem and API3's solution
 
-- [Airnode](/airnode)
-  - [Design philosophy](/airnode/design-philosophy.md)
-  - [Implementation](/airnode/implementation.md)
-  - [OIS](/airnode/ois.md)
-  - [`config.json`](/airnode/config-json.md)
-  - [`security.json`](/airnode/security-json.md)
-  - [Airnode ABI specifications](/airnode/airnode-abi-specifications.md)
-  - [Ethereum providers](/airnode/ethereum-providers.md)
+- [API](/fundamentals/api.md)
+- [First-party oracles](/fundamentals/first-party-oracles.md)
+- [Decentrally-governed oracle networks](/fundamentals/decentrally-governed-oracle-networks.md)
+- [dAPI](/fundamentals/dapi.md)
 
-- [Request–reponse protocol](/request-response-protocol)
-  - [General structure](/request-response-protocol/general-structure.md)
-  - [Provider](/request-response-protocol/provider.md)
-  - [Endpoint](/request-response-protocol/endpoint.md)
-  - [Authorizer](/request-response-protocol/authorizer.md)
-  - [Requester](/request-response-protocol/requester.md)
-  - [Client](/request-response-protocol/client.md)
-  - [Designated wallet](/request-response-protocol/designated-wallet.md)
-  - [Endorsement](/request-response-protocol/endorsement.md)
-  - [Template](/request-response-protocol/template.md)
-  - [Request](/request-response-protocol/request.md)
+## Airnode
+
+The design of Airnode and specification details
+
+- [Design philosophy](/airnode/design-philosophy.md)
+- [Implementation](/airnode/implementation.md)
+- [Ethereum providers](/airnode/ethereum-providers.md)
+- [OIS](/airnode/ois.md)
+- [`config.json`](/airnode/config-json.md)
+- [`security.json`](/airnode/security-json.md)
+- [Airnode ABI specifications](/airnode/airnode-abi-specifications.md)
+
+## Request–reponse protocol
+
+The description of the components of the request–reponse protocol and how they interrelate
+
+- [General structure](/request-response-protocol/general-structure.md)
+- [Provider](/request-response-protocol/provider.md)
+- [Endpoint](/request-response-protocol/endpoint.md)
+- [Authorizer](/request-response-protocol/authorizer.md)
+- [Requester](/request-response-protocol/requester.md)
+- [Client](/request-response-protocol/client.md)
+- [Designated wallet](/request-response-protocol/designated-wallet.md)
+- [Endorsement](/request-response-protocol/endorsement.md)
+- [Template](/request-response-protocol/template.md)
+- [Request](/request-response-protocol/request.md)
 
 # Community
 
