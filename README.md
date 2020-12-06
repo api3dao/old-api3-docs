@@ -64,9 +64,10 @@ The description of the components of the request–reponse protocol and how they
 
 ## Cookbook
 
-Recipes about using Airnode as the provider and requester
+Guides on using Airnode as the provider and requester
 
 - [API integration](/cookbook/api-integration.md)
+- [Configuring Airnode](/cookbook/configuring-airnode.md)
 
 
 # Community
