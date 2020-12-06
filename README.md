@@ -62,12 +62,12 @@ The description of the components of the request–reponse protocol and how they
 - [Template](/request-response-protocol/template.md)
 - [Request](/request-response-protocol/request.md)
 
-## Cookbook
+## Guides
 
 Guides on using Airnode as the provider and requester
 
-- [API integration](/cookbook/api-integration.md)
-- [Configuring Airnode](/cookbook/configuring-airnode.md)
+- [API integration](/guides/api-integration.md)
+- [Configuring Airnode](/guides/configuring-airnode.md)
 
 
 # Community

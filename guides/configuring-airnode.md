@@ -6,9 +6,9 @@ Users configure their Airnodes by providing a `config.json` and a `security.json
 Both [`config.json`](/airnode/config-json.md) and [`security.json`](/airnode/security-json.md) formats are documented, which you can follow to create these files.
 This guide aims to follow a more instructive approach and give some tips along the way.
 
-We assume that you have already followed the [API integration guide](/cookbook/api-integration.md) and created your OIS.
+We assume that you have already followed the [API integration guide](/guides/api-integration.md) and created your OIS.
 Similar to the [OIS template](/templates/ois.json) we have provided in the previous guide, we have a [`config.json` template](/templates/config.json) and a [`security.json` template](/templates/security.json) for this guide.
-Download these files and see the [template notation information](/cookbook/api-integration.md#ois-template).
+Download these files and see the [template notation information](/guides/api-integration.md#ois-template).
 
 ## Creating `config.json`
 
