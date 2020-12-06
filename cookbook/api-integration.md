@@ -11,13 +11,13 @@ To integrate a System X to a System Y, we need to do three things:
 - Oracle endpoints are mapped to API operations
 
 Therefore, the only thing you need to integrate an API to Airnode is to create an OIS.
-You can do this simply by reading the [OIS documentation](/airnode/ois.json) and creating the OIS for your specific API and use-case.
+You can do this simply by reading the [OIS documentation](/airnode/ois.md) and creating the OIS for your specific API and use-case.
 This guide aims to follow a more instructive approach and give some tips along the way.
 Make sure to refer to the [OIS documentation](/airnode/ois.md) when you need further details, and you can also refer to [OAS 3.0.3](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
 
 ## OIS Template
 
-We will be working on the [OIS template](/templates/ois.md), so first download that and let us go over the notation.
+We will be working on the [OIS template](/templates/ois.json), so first download that and let us go over the notation.
 An OIS is a [JSON](https://www.json.org) file.
 This guide will assume that you are already familiar with the JSON format, but you can probably work off of the OIS template even if this is the first time you are using it.
 
