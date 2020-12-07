@@ -68,6 +68,7 @@ Guides on using Airnode as the provider and requester
 
 - [API integration](/guides/api-integration.md)
 - [Configuring Airnode](/guides/configuring-airnode.md)
+- [Deploying Airnode](/guides/deploying-airnode.md)
 
 
 # Community
