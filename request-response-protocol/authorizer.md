@@ -49,12 +49,12 @@ Whenever the provider's Airnode receives a request, it checks if it should fulfi
 Similarly, the requester can use this on-chain policy by making a static call to check if they are authorized.
 This scheme both allows the provider to set transparent and flexible policies, and this to be done with no gas overhead.
 
-## The authorizer array
+## Authorizer list
 
 An authorizer typically checks for a single condition ("has the requester made their monthly payment", "is this client address whitelisted", etc.).
 Authorizers can be combined to enforce more complex policies.
 
-Say we have authorizer contracts X, Y, Z, T, and our authorizer array is
+Say we have authorizer contracts X, Y, Z, T, and our authorizer list is
 ```
 [X, Y, 0, Z, T]
 ```
