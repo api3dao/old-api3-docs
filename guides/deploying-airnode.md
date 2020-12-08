@@ -3,7 +3,7 @@
 After [integrating your API](/guides/api-integration.md) and [creating the configuration files](/guides/configuring-airnode.md), the next step is to deploy your Airnode.
 Airnode comes with a [deployer](https://github.com/api3dao/airnode/tree/master/packages/deployer), which uses [Terraform](https://www.terraform.io/) and [Serverless Framework](https://www.serverless.com/) to automate the entire deployment process.
 This deployer is also containerized as a [Docker](https://www.docker.com/) image, which allows you to deploy your Airnode on any platform without worrying about installing dependencies.
-So let us begin!
+So let's begin!
 
 ## Installing Docker
 
@@ -25,7 +25,7 @@ AWS_SECRET_KEY=q4JiOfPP4wQOuRj01/6/7RAodTAg6lFb99IoB4XH
 ```
 Here is an [example file](https://github.com/api3dao/airnode/blob/master/packages/deployer/.env.example) that is left blank.
 Make sure that you do not push your credentials to a repository or leave them around!
-These credentials can be used to gain access to your Airnode's Ethereum private key.
+These credentials can be used to gain access to your Airnode's private key.
 
 ## Deployment
 
@@ -42,17 +42,17 @@ docker run -it --rm \
 
 This will first download the deployer image, which may take a few minutes depending on the speed of your Internet connection.
 Then, it will read your configuration files and start deployment.
-This process will be entirely automatic, with the exception that at one stage, the deployer will display the mnemonics of the Airnode's private key.
-Please note this down with pen and paper (do not copy paste to a text file on your computer) and keep this in a secure place.
+This process will be entirely automatic, with the exception that at one stage, the deployer will display the mnemonics of your Airnode's private key.
+Please note this down with pen and paper (do not copy paste to a text file on your computer) and keep it in a secure place.
 
 Another point to mention is that the deployer will display your master wallet address, and ask you to deposit some ETH in it for it to create your provider record.
-Follow the instructions, and you will receive any unused ETH in the `providerAdmin` you have set in your `config.json`.
+Follow the instructions for your Airnode to create your provider record using your master wallet, and it will send any unused ETH to the `providerAdminForRecordCreation` you have set in your `config.json`.
 You can see the [docs](/request-response-protocol/provider.md#creating-a-provider-record) for more information about this process.
 
 A couple minutes after noting down your mnemonic and hitting `ENTER`, you should be done!
 The deployer will output a receipt file ending with `.receipt.json`.
 This file does not include any sensitive information, so feel free to share it as needed.
-The receipt includes your [`providerId`](/request-response-protocol/provider.md#provideid), `providerIdShort` and `masterWalletAddress` that you will need to fund for it to create your provider record (if you have not already).
+The receipt contains your [`providerId`](/request-response-protocol/provider.md#provideid), `providerIdShort` and `masterWalletAddress` that you will need to fund for it to create your provider record (if you have not already).
 You will need to add your `providerIdShort` to your `config.json` to be able to redeploy your node with updated configurations.
 
 To find out how to redeploy your node or remove it from your cloud provider account, see the [deployer image docs](https://github.com/api3dao/airnode/blob/master/Docker.md).

@@ -10,10 +10,10 @@ To integrate a System X to a System Y, we need to do three things:
 - Oracle endpoints are specified
 - Oracle endpoints are mapped to API operations
 
-Therefore, the only thing you need to integrate an API to Airnode is to create an OIS.
-You can do this simply by reading the [OIS documentation](/airnode/ois.md) and creating the OIS for your specific API and use-case.
+Therefore, the only thing you need to do to integrate an API to Airnode is to create an OIS.
+You can do this simply by reading the [OIS docs](/airnode/ois.md) and creating the OIS for your specific API and use-case.
 This guide aims to follow a more instructive approach and give some tips along the way.
-Make sure to refer to the [OIS documentation](/airnode/ois.md) when you need further details, and you can also refer to [OAS 3.0.3](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
+Make sure to refer to the [OIS docs](/airnode/ois.md) when you need further details, and you can also refer to [OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
 
 ## OIS Template
 
@@ -23,7 +23,7 @@ This guide will assume that you are already familiar with the JSON format, but y
 
 In the OIS template, there are some fields that contain `{FILL_*}`.
 This means that the value you will be replacing this with is independent from the other fields.
-On the other hand, if two fields contain the same expression  (e.g., `{FILL_OPERATION_PARAMETER_1_NAME}`), you must replace them with the same value, because they are referencing each other.
+On the other hand, if two fields contain the same expression  (e.g., `{FILL_OPERATION_PARAMETER_1_NAME}`), you must use the same value in them, because they are referencing each other.
 
 ## Step 1: Specifying the API
 
@@ -42,7 +42,7 @@ For the purposes of this guide, you can simply use the name of your API.
 - `version`: This is the version of this specific OIS, and is for you to be able to version-control your integrations.
 You are recommended to use [semver](https://semver.org/) for this, so your initial version could be `0.1.0`.
 
-Now we can move on to specifying the API under the name `apiSpecifications`.
+Now we can move on to specifying the API under `apiSpecifications`.
 This guide will continue assuming you do not have the OpenAPI specifications of the API that you will be integrating.
 
 ### Base URL
@@ -77,7 +77,7 @@ path:     /v1/getdata
 method:   GET
 ```
 Here, `GET` refers to an [HTTP request method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
-This implies that we could have another API operation that is specified as:
+This implies that we could have had another API operation that can be specified as:
 ```
 path:     /v1/getdata
 method:   POST
@@ -110,7 +110,7 @@ Make sure to choose a descriptive name, such as `myapi_apikey`.
 This name will also be referred to in [`security.json`](/airnode/security-json.md).
 
 Next, fill in `type`, `name` and `in` by referring to the [`components` section of OIS](/airnode/ois.md#42-components).
-Note that [OAS 3.0.3](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#securitySchemeObject) is also a good source for further details.
+Note that [OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#securitySchemeObject) is also a good source for further details.
 
 As noted above, make sure to insert the name of your security scheme under `apiSpecifications.security`.
 Furthermore, similar to API operations, you can use multiple security schemes simply by duplicating the one provided in the OIS template (e.g., an API key goes in the header, and an additional user ID goes in the query).
@@ -131,7 +131,7 @@ On the other hand, you can hardcode `BTC` as the asset whose price will be retur
 
 The recommended endpoint definition pattern is to create an endpoint for each API operation, and allow the requesters to provide all operation parameters themselves.
 This results in optimal flexibility, and essentially allows the requesters to use the entire API functionality on-chain.
-Normally oracle integrations strive to hardcode as many API parameters as possible because passing these parameters on-chain results in a gas cost overhead.
+Normally, oracle integrations strive to hardcode as many API parameters as possible because passing these parameters on-chain results in a gas cost overhead.
 However, the Airnode protocol uses [templates](/request-response-protocol/template.md) (not to be confused with the OIS template we are using for this guide), which allows requesters to specify a large number of endpoint parameters at no additional gas cost.
 
 Note that there are some cases where you may not want to map endpoints to API operations one-to-one.
@@ -145,7 +145,8 @@ After this brief detour, let us get back to filling in our OIS template.
 In the OIS template, there is only one endpoint defined but you can add more, just like the API operations.
 The first field you need to fill in is `name`.
 Make sure that it is descriptive, and that multiple endpoints do not have the same name.
-If you are integrating API operations to endpoints one-to-one, using the API operation paths as the endpoint name is a decent choice (i.e., the endpoint `name` would be `/v1/getdata`).
+If you are integrating API operations to endpoints one-to-one, using the API operation path as the endpoint name is a decent choice (i.e., the endpoint `name` would be `/v1/getdata`).
+Note that you would also add the method to this name if there were multiple operations with different methods for a single path.
 
 The next step is to fill in `endpoints.*.operation`.
 Here, you need to enter the `path` and `method` of an API operation you have defined in `apiSpecifications.paths`, which means that requests to this endpoint will have the Airnode call the respective API operation.
@@ -156,10 +157,10 @@ It is common to need to hardcode API parameters (recall the `JSON`/`XML` example
 We call such hardcoded parameters "fixed operation parameters".
 
 In the OIS template, we have one fixed operation parameter under `endpoints.*.fixedOperationParameters`, and it refers to the first operation parameter.
-This means that whenever the Airnode receives a request for this endpoint, the respective API call will be made with that operation parameter set to `endpoints.*.value`.
+This means that whenever the Airnode receives a request for this endpoint, the respective API call will be made with that operation parameter set to `endpoints.*.fixedOperationParameters.*.value`.
 
 An endpoint can have multiple fixed operation parameters.
-Note that an operation parameter cannot be both in `fixedOperationParameters` and `parameters`.
+An operation parameter cannot be both in `fixedOperationParameters` and `parameters`.
 
 ### `reservedParameters`
 
@@ -182,13 +183,13 @@ As a separate note, an endpoint can have multiple parameters.
 
 ## Conclusion
 
-This was it!
+This was all!
 We specified the API operations and endpoints.
 Each endpoint maps to an API operation, and each endpoint parameter maps to an API operation parameter.
-The resulting OIS includes no user-specific information, which means that you can share it for others to easily provide the same services (for example to set up a third-party oracle network).
+The resulting OIS includes no user-specific information, which means that you can share it for others to easily provide the same services (for example, to set up a third-party oracle network).
 
 Note that there was some subjectivity while defining the endpoints.
-This means that two different OISes can exist for the exact same API, differing based on how the integrators designed the interface that the requester will use.
+This means that two different OISes can exist for the same exact API, differing based on how the integrators designed the interface that the requester will use.
 However, in most cases, one would simply map API operations to endpoints directly, and let the requester provide all API operation parameters through the endpoint parameters.
 At the moment, we do not have a tool that generates an `endpoints` list that maps to `apiSpecifications.paths` one-to-one.
 If you would like to help build this, please join the conversation in [this issue](https://github.com/api3dao/airnode/issues/153).
