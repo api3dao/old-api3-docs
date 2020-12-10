@@ -9,11 +9,12 @@
 1. [Staking & oracles](https://medium.com/api3/staking-oracles-c91f2f5bcf6d)
 1. [Why security must be quantified](https://medium.com/api3/why-security-must-be-quantified-3d2dd06c4909)
 1. [On DAOs: Decentralized Autonomous Organizations](https://medium.com/api3/on-daos-decentralized-autonomous-organizations-84c00abb89bc)
-1. ...
+1. [API3: The Glue Connecting the Blockchain to the Digital World](https://medium.com/api3/api3-the-glue-connecting-the-blockchain-to-the-digital-world-129e61ec598f)
 
 ### Airnode: The first-party oracle node
 
 1. [Airnode: The API gateway for blockchains](https://medium.com/api3/airnode-the-api-gateway-for-blockchains-8b07ff136840)
+1. [Getting to know Airnode](https://medium.com/api3/getting-to-know-airnode-162e50ea243e)
 1. ...
 
 ### Governance

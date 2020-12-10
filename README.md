@@ -35,6 +35,8 @@ An introduction to the API connectivity problem and API3's solution
 - [Decentrally-governed oracle networks](/fundamentals/decentrally-governed-oracle-networks.md)
 - [dAPI](/fundamentals/dapi.md)
 
+*See our article, [API3: The Glue Connecting the Blockchain to the Digital World](https://medium.com/api3/api3-the-glue-connecting-the-blockchain-to-the-digital-world-129e61ec598f) for an overview of the API3 solution.*
+
 ## Airnode
 
 The design of Airnode and specification details
