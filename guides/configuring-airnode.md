@@ -44,6 +44,7 @@ In JS (using ethers.js):
 ```js
 endpointId = ethers.utils.keccak256(ethers.utils.defaultAbiCoder.encode(['string'], [`${oisTitle}/${endpointName}`]));
 ```
+You can also use [`airnode-admin`](https://github.com/api3dao/airnode-admin#derive-endpoint-id) to derive endpoint IDs according to this convention.
 However, you can set `endpointId` to an arbitrary `bytes32` value (e.g., `0x0000000000000000000000000000000000000000000000000000000000000123`), and as long as the requester uses the same `endpointId` while making requests to this endpoint, it will work fine.
 If you are not using the recommended convention, make sure that your endpoints have different IDs.
 

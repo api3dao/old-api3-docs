@@ -33,6 +33,7 @@ In JS (using ethers.js):
 ```js
 airnode.connect(providerAdmin).updateEndpointAuthorizers(providerId, endpointId, [ethers.constants.AddressZero]);
 ```
+You can also use [`airnode-admin`](https://github.com/api3dao/airnode-admin#update-authorizers) to update endpoint authorizers.
 
 After making this transaction, your Airnode will respond to all requests.
 Note that being able to do this on-chain through `providerAdmin` allows you to update your authorization policies without interacting with your Airnode or having to redeploy it.
