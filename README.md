@@ -76,7 +76,7 @@ Guides on using Airnode as the provider
 Guides on using Airnode as the requester
 
 - [Creating a requester](/guides/creating-a-requester.md)
-- [Developing a client contract](/guides/deceloping-a-client-contract.md)
+- [Developing a client contract](/guides/developing-a-client-contract.md)
 
 
 # Community
