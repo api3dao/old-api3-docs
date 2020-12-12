@@ -22,6 +22,7 @@
 - [API3 Builder Terminology](https://medium.com/api3/api3-builder-terminology-dd398fe447c3)
 - [API3 Tokenomics Update](https://medium.com/api3/api3-tokenomics-update-f032d6e49b30)
 - [Announcing Monolith #1: Authoritative API3 DAO](https://medium.com/api3/announcing-monolith-1-authoritative-api3-dao-ec9ca6d044f8)
+- [API3 Operations](https://medium.com/api3/api3-operations-a35c93a3a9d)
 
 ### Standalone
 
