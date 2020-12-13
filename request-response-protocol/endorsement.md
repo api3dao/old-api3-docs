@@ -14,4 +14,4 @@ Airnode derives the designated wallet address using the provided `requesterInd`,
 Airnode will ignore the request if the two do not match.
 This is done this way because deriving the designated wallet address from the `requesterInd` on-chain is not feasible.
 
-[Request–response protocol concepts](/request-response-protocol/general-structure.md#concepts)
+[Home](/README.md#requestreponse-protocol)

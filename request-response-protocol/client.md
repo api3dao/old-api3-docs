@@ -7,4 +7,6 @@ Doing so requires the client to be [endorsed](/request-response-protocol/endorse
 Note that the client is the contract that makes the request.
 The client may specify the request such that the request is fulfilled by the provider's Airnode calling back another contract.
 
-[Request–response protocol concepts](/request-response-protocol/general-structure.md#concepts)
+See the [Airnode client examples](https://github.com/api3dao/airnode-client-examples).
+
+[Home](/README.md#requestreponse-protocol)

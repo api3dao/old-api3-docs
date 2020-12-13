@@ -24,4 +24,4 @@ Below are some example reasons why one would want to have multiple requester ide
 - To keep separate designated wallets for two separate use-cases for easier accounting
 - To duplicate transaction queues for a single use-case and increase response throughput
 
-[Request–response protocol concepts](/request-response-protocol/general-structure.md#concepts)
+[Home](/README.md#requestreponse-protocol)

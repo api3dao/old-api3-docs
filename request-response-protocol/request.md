@@ -59,7 +59,7 @@ A request made to an Airnode has three possible outcomes:
 
 If the node encountered no errors at any step, it calls the `fulfill()` method that will call back the method `fulfillFunctionId` at `fulfillAddress` to deliver `data` and 0 as the `statusCode`.
 
-If the node encountered an error, it will do the same, but `statusCode` will be non-0, indicating to the client that the request failed (see [this](https://github.com/api3dao/airnode/tree/master/packages/node#behaviour) for details).
+If the node encountered an error, it will do the same, but `statusCode` will be non-0, indicating to the client that the request has failed (see [this](https://github.com/api3dao/airnode/tree/master/packages/node#behaviour) for details).
 The client can then handle this error as it sees fit (e.g., ignore it, make a request to an alternative provider, etc.)
 
 ### 2. Fail
@@ -71,4 +71,4 @@ The node will not attempt to fulfill a failed request afterwards.
 
 If the node cannot even fail a request (e.g., the client is not endorsed by the requester), the request gets ignored.
 
-[Request–response protocol concepts](/request-response-protocol/general-structure.md#concepts)
+[Home](/README.md#requestreponse-protocol)

@@ -27,12 +27,12 @@ Airnode.sol
 ### [`EndpointStore.sol`](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/EndpointStore.sol)
 
 - Used by providers to set endpoint authorizers.
-- Used by Airnodes to retrieve endpoint authorizers and check authorization status.
+- Used by Airnodes to retrieve endpoint authorizers to check authorization status.
 
 ### [`ProviderStore.sol`](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/ProviderStore.sol)
 
 - Used by Airnodes to create provider records.
-- Used by requesters to retrieve the extended public keys of providers and derive their designated wallet addresses.
+- Used by requesters to retrieve the extended public keys of providers to derive their designated wallet addresses.
 - Used by requesters to request withdrawals from their designated wallets.
 - Used by Airnodes to fulfill withdrawal requests.
 
@@ -64,3 +64,9 @@ Each provider keeps a [designated wallet](/request-response-protocol/designated-
 The requester [endorses](/request-response-protocol/endorsement.md) their clients for them to be allowed to make requests that will be fulfilled by the requester's designated wallet.
 
 A requester can create a request [template](/request-response-protocol/template.md), which is an on-chain record that they can refer to while making [requests](/request-response-protocol/request.md).
+
+## `airnode-admin`
+
+[`airnode-admin`](https://github.com/api3dao/airnode-admin/) is a CLI tool used by providers, requesters and third parties to interact with `Airnode.sol` and perform the administrative actions mentioned above.
+
+[Home](/README.md#requestreponse-protocol)

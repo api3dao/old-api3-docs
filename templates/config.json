@@ -95,7 +95,6 @@
     "stage": "{FILL_*}",
     "logFormat": "json",
     "chains": {
-      "providerAdminForRecordCreation": "{FILL_*}",
       "id": "{FILL_*}",
       "type": "evm",
       "providers": [
@@ -107,7 +106,8 @@
       "contracts": {
         "Airnode": "{FILL_*}",
         "Convenience": "{FILL_*}"
-      }
+      },
+      "providerAdminForRecordCreation": "{FILL_*}"
     }
   },
   "id": "{FILL_ID}"

@@ -4,7 +4,7 @@
 
 [First-party oracles](/fundamentals/first-party-oracles.md) are optimally secure and cost-efficient.
 Nevertheless, they cannot be considered as a full solution for all use cases.
-This is because a first-party oracle is operated by a single API provider and only serves their APIs.
+This is because a first-party oracle is operated by a single API provider and only serves their API.
 Then, using a single first-party oracle creates centralization at the API level, and requires the API provider to be trusted.
 This is not acceptable in some use cases, e.g., if the use case secures a large amount of funds.
 
@@ -22,4 +22,4 @@ If a central entity can switch the oracles or APIs used in the aggregator in and
 This eliminates the decentralization and trustlessness qualities that using an oracle network provides.
 Therefore, it is not adequate to use an oracle network for decentralization, this oracle network must be governed decentrally as well.
 
-[Home](/README.md#contents)
+[Home](/README.md#fundamentals)

@@ -371,4 +371,4 @@ OAS equivalent: `paths.{path}.{method}.description` of corresponding operation
 
 OAS equivalent: `paths.{path}.{method}.externalDocs` of corresponding operation
 
-[Home](/README.md#contents)
+[Home](/README.md#airnode)

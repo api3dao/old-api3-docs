@@ -2,13 +2,13 @@
   <img src="https://github.com/clc-group/api3-docs/raw/master/figures/api3.png" width="400" />
 </p>
 
-*API3 documentation is kept as a regular repository of Markdown files to be easily contributable by everyone.
+*API3 documentation is kept as a regular repository of Markdown files for everyone to be able to easily contribute.
 Feel free to create [issues](https://github.com/api3dao/api3-docs/issues) for discussions, proposed additions and changes.*
 
 ## What is API3?
 
 [API3](https://api3.org/) is a collaborative project to deliver traditional API services to smart contract platforms in a decentralized and trust-minimized way.
-It is governed by a decentralized autonomous organization (DAO), its code is open source and its operations are completely transparent.
+It is governed by a decentralized autonomous organization (DAO), its code is open source and its operations are transparent.
 
 ## API3 thesis statement
 
@@ -48,6 +48,7 @@ The design of Airnode and specification details
 - [`config.json`](/airnode/config-json.md)
 - [`security.json`](/airnode/security-json.md)
 - [Airnode ABI specifications](/airnode/airnode-abi-specifications.md)
+- [Reserved parameters](/airnode/reserved-parameters.md)
 
 ## Request–reponse protocol
 
@@ -66,18 +67,17 @@ The description of the components of the request–reponse protocol and how they
 
 ## Guides
 
-Guides on using Airnode as the provider
+Guides on using Airnode as a provider
 
 - [API integration](/guides/api-integration.md)
 - [Configuring Airnode](/guides/configuring-airnode.md)
 - [Deploying Airnode](/guides/deploying-airnode.md)
 - [Setting authorizers](/guides/setting-authorizers.md)
 
-Guides on using Airnode as the requester
+Guides on using Airnode as a requester
 
 - [Creating a requester](/guides/creating-a-requester.md)
 - [Developing a client contract](/guides/developing-a-client-contract.md)
-
 
 # Community
 

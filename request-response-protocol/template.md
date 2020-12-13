@@ -23,4 +23,4 @@ templateId = keccak256(abi.encode(
 ```
 This allows Airnode to fetch templates with a static call, and verify that the received parameters are not tampered with.
 
-[Request–response protocol concepts](/request-response-protocol/general-structure.md#concepts)
+[Home](/README.md#requestreponse-protocol)

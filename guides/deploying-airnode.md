@@ -42,7 +42,7 @@ docker run -it --rm \
 
 This will first download the deployer image, which may take a few minutes depending on the speed of your Internet connection.
 Then, it will read your configuration files and start deployment.
-This process will be entirely automatic, with the exception that at one stage, the deployer will display the mnemonics of your Airnode's private key.
+This process will be entirely automatic, with the exception that at one stage, the deployer will display the mnemonic of your Airnode's private key.
 Please note this down with pen and paper (do not copy paste to a text file on your computer) and keep it in a secure place.
 
 Another point to mention is that the deployer will display your master wallet address, and ask you to deposit some ETH in it for it to create your provider record.
@@ -57,3 +57,5 @@ You will need to add your `providerIdShort` to your `config.json` to be able to 
 
 To find out how to redeploy your node or remove it from your cloud provider account, see the [deployer image docs](https://github.com/api3dao/airnode/blob/master/Docker.md).
 Now, the next step is to configure the authorization policies for the endpoints you will be serving.
+
+[Home](/README.md#guides)

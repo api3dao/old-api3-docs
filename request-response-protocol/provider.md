@@ -19,7 +19,7 @@ To derive `providerId ` in JS (using ethers.js):
 providerId = ethers.utils.keccak256(ethers.utils.defaultAbiCoder.encode(['address'], [masterWalletAddress]));
 ```
 where `masterWalletAddress` is the address of the wallet derived from the private key of the provider with the path `m`.
-For deriving wallets from a private key using a path, see [HD wallets](https://github.com/ethereumbook/ethereumbook/blob/develop/05wallets.asciidoc#hd_wallets)).
+(For deriving wallets from a private key using a path, see [HD wallets](https://github.com/ethereumbook/ethereumbook/blob/develop/05wallets.asciidoc#hd_wallets).)
 Here is an example of how one derives the master wallet address from the mnemonic in JS (using ethers.js):
 ```js
 masterHdNode = ethers.utils.HDNode.fromMnemonic(mnemonic);
@@ -80,5 +80,4 @@ An important responsibility of the `providerAdmin` is to set endpoint authorizer
 Authorizers are used to enforce rules about which requests will be responded to, and this can be used to enforce KYC, monthly subscription payments, etc.
 See the sections about [endpoints](/request-response-protocol/endpoint.md) and [authorizers](/request-response-protocol/authorizer.md) for more details.
 
-
-[Request–response protocol concepts](/request-response-protocol/general-structure.md#concepts)
+[Home](/README.md#requestreponse-protocol)

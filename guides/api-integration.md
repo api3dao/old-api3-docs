@@ -13,7 +13,7 @@ To integrate a System X to a System Y, we need to do three things:
 Therefore, the only thing you need to do to integrate an API to Airnode is to create an OIS.
 You can do this simply by reading the [OIS docs](/airnode/ois.md) and creating the OIS for your specific API and use-case.
 This guide aims to follow a more instructive approach and give some tips along the way.
-Make sure to refer to the [OIS docs](/airnode/ois.md) when you need further details, and you can also refer to [OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
+Make sure to refer to the [OIS docs](/airnode/ois.md) when you need further details, and you can also refer to the [OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
 
 ## OIS Template
 
@@ -110,7 +110,7 @@ Make sure to choose a descriptive name, such as `myapi_apikey`.
 This name will also be referred to in [`security.json`](/airnode/security-json.md).
 
 Next, fill in `type`, `name` and `in` by referring to the [`components` section of OIS](/airnode/ois.md#42-components).
-Note that [OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#securitySchemeObject) is also a good source for further details.
+[OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#securitySchemeObject) is also a good source for further details.
 
 As noted above, make sure to insert the name of your security scheme under `apiSpecifications.security`.
 Furthermore, similar to API operations, you can use multiple security schemes simply by duplicating the one provided in the OIS template (e.g., an API key goes in the header, and an additional user ID goes in the query).
@@ -127,12 +127,12 @@ Then, it is the integrator's job to define what this service is.
 
 For example, if your API operation returns an asset price given its ticker (e.g., `BTC`), you can specify the endpoint such that the requester provides the ticker as a parameter.
 The resulting endpoint would be a general one that returns prices for any kind of asset.
-On the other hand, you can hardcode `BTC` as the asset whose price will be returned (using [fixed operation parameters](#fixedoperationparameters)), which would make your endpoint a specific one that only returns the Bitcoin price.
+On the other hand, you can hardcode `BTC` as the asset whose price will be returned (using [fixed operation parameters](#fixedoperationparameters)), which would make your endpoint a specific one that only returns the BTC price.
 
 The recommended endpoint definition pattern is to create an endpoint for each API operation, and allow the requesters to provide all operation parameters themselves.
 This results in optimal flexibility, and essentially allows the requesters to use the entire API functionality on-chain.
 Normally, oracle integrations strive to hardcode as many API parameters as possible because passing these parameters on-chain results in a gas cost overhead.
-However, the Airnode protocol uses [templates](/request-response-protocol/template.md) (not to be confused with the OIS template we are using for this guide), which allows requesters to specify a large number of endpoint parameters at no additional gas cost.
+However, the Airnode protocol uses [templates](/request-response-protocol/template.md) (not to be confused with the OIS template we are using for this guide), which allow requesters to specify a large number of endpoint parameters at no additional gas cost.
 
 Note that there are some cases where you may not want to map endpoints to API operations one-to-one.
 For example, the API operation may have a parameter, `responseFormat`, that can take the values `JSON`/`XML` and determines in which format the API will respond to the call.
@@ -169,7 +169,7 @@ These parameters are called "reserved parameters", and their names start with an
 See the [related OIS docs](/airnode/ois.md#54-reservedParameters) for more information.
 
 The current list of reserved parameters are `_type`, `_path` and `_times`.
-See the reserved parameters guide to see what each of these parameters are for.
+See the [reserved parameters guide](/airnode/reserved-parameters.md) to see what each of these parameters are for.
 In most cases, all three should be defined as reserved parameters with no fixed/default values, as doing so provides the requester with the most flexibility.
 
 ### `parameters`
@@ -193,3 +193,5 @@ This means that two different OISes can exist for the same exact API, differing 
 However, in most cases, one would simply map API operations to endpoints directly, and let the requester provide all API operation parameters through the endpoint parameters.
 At the moment, we do not have a tool that generates an `endpoints` list that maps to `apiSpecifications.paths` one-to-one.
 If you would like to help build this, please join the conversation in [this issue](https://github.com/api3dao/airnode/issues/153).
+
+[Home](/README.md#guides)

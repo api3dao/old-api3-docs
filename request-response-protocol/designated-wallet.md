@@ -16,7 +16,7 @@ designatedWalletAddress = designatedWalletNode.address;
 ```
 
 where `xpub` is retrieved from `ProviderStore.sol` using the `providerId`, and `requesterInd` is assigned by `RequesterStore.sol` when the requester record was created.
-For more information on deriving wallets from a private key using a path, see [HD wallets](https://github.com/ethereumbook/ethereumbook/blob/develop/05wallets.asciidoc#hd_wallets)).
+(For more information on deriving wallets from a private key using a path, see [HD wallets](https://github.com/ethereumbook/ethereumbook/blob/develop/05wallets.asciidoc#hd_wallets).)
 
 ## The path convention
 
@@ -47,6 +47,6 @@ The designated wallet does not get deleted, and can be used in the future simply
 
 Although the designated wallet scheme allows the requester to cover the fulfillment gas costs, it is just as easy to have the provider cover the gas costs.
 The only thing that needs to be done in this case is for the provider to top up the designated wallet, instead of the requester.
-Furthermore, this scheme allows hybrid use-cases where the provider covers the fulfillment gas costs for on requester (e.g., because they have made a special service agreement with them), while requires others to cover their own fulfillment gas costs.
+Furthermore, this scheme allows hybrid use-cases where the provider covers the fulfillment gas costs for one requester (e.g., because they have made a special service agreement with them), while requires others to cover their own fulfillment gas costs.
 
-[Request–response protocol concepts](/request-response-protocol/general-structure.md#concepts)
+[Home](/README.md#requestreponse-protocol)

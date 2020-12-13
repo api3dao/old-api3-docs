@@ -18,9 +18,9 @@ interface IAuthorizer {
 }
 ```
 
-When an Airnode receives a request, it will use authorizers to verify if the request should be responded to.
+When an Airnode receives a request, it will use authorizers to verify if it should be responded to.
 Therefore, an authorizer contract can be used to implement an arbitrary authorization policy depending on the arguments above (`requestId`, `providerId`, etc.).
-Note that the authorizer does not have to use all of arguments, and can even decide on external criteria such as `blockNumber` (e.g., "do not respond to anyone after block number N").
+Note that the authorizer does not have to use all of the arguments, and can even decide on external criteria such as `blockNumber` (e.g., "do not respond to anyone after block number N").
 
 Providers can assign a list of authorizer contract addresses to their endpoints.
 These authorizers can be general purpose ones, but also custom-implemented by the provider to fit a specific need.
@@ -40,7 +40,7 @@ A protocol that does not have the authorizer scheme or equivalent functionality 
 There are two main points to consider about how authorization policies are implemented:
 
 1. If the policies are kept off-chain, the requester cannot see them or check if they satisfy them.
-Furthermore, the provider updating the policies (e.g., increasing the service fees) requires off-chain coordination.
+Furthermore, the provider updating the policies (e.g., increasing the service fees) requires off-chain coordination with the requester.
 2. Embedding the policies in the request–response loop results in a gas cost overhead.
 
 Based on these considerations, Airnode uses a hybrid method.
@@ -58,18 +58,18 @@ Say we have authorizer contracts X, Y, Z, T, and our authorizer list is
 ```
 [X, Y, 0, Z, T]
 ```
-This means that the requester should satisfy
+This means that the following must be satisfied
 ```
 (X AND Y) OR (Z AND T)
 ```
-to be considered authorized.
+for the request to be considered authorized.
 In other words, consequent authorizer contracts need to verify authorization simultaneously, while `0` represents the start of an independent authorization policy.
 
 From a logical standpoint, consequent authorizers get `AND`ed while `0` acts as an `OR` gate, providing great flexibility in forming a policy out of simple building blocks.
-We could also define a `NOT` gate here to achieve a full set of universal logic gates, but this not very useful in this context because authorizers tend to check for positive conditions ("have paid", "is whitelisted", etc.) and we would not need policies that require these to be false.
+We could also define a `NOT` gate here to achieve a full set of universal logic gates, but this not very useful in this context because authorizers tend to check for positive conditions ("have paid", "is whitelisted", etc.) and we generally would not need policies that require these to be false.
 Note that authorizer lists with multiple elements should not start or end with `0`, and `0`s should not be used consecutively, e.g., `[X, Y, 0, 0, Z, T]`.
 
-It should also be noted that one can implement a single authorizer that does all the required checks.
+It should also be noted that one can implement a single proxy authorizer that does all the required checks.
 
 ## Default behavior: Deny all access
 
@@ -88,4 +88,4 @@ Here are some examples:
 - Respond to requests made by requesters who have been whitelisted by the API provider backend (for example, based on Paypal payments)
 - ...
 
-[Request–response protocol concepts](/request-response-protocol/general-structure.md#concepts)
+[Home](/README.md#requestreponse-protocol)

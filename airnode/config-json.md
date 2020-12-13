@@ -79,7 +79,7 @@ For example, the provider may make multiple deployments with `stage`s set as `de
 
 - `logFormat` - The format that Airnode should use to output logs. Either `json` or `plain`.
 
-- `chains` - A list of blockchain configurations. See [chains](#nodeSettings.chains) below.
+- `chains` - A list of blockchain configurations. See [chains](#nodesettingschains) below.
 
 ### `nodeSettings.chains`
 
@@ -88,20 +88,15 @@ Configurations for each chain is represented with an object in this `chains` lis
 
 **Required**
 
-- `providerAdminForRecordCreation` - the master address that will be authorized to update the authorizers of the provider's endpoints.
-Note that the node only uses this while creating the provider record.
-Changing this after the provider record is created will not have any effect.
-This field is optional, but not having it means that the node will not be able to create a provider record on the respective chain.
-
 - `id` - the corresponding chain (or network) ID. A list of known Ethereum chain IDs can be found at [EIP-155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md#list-of-chain-ids), although this list is not exhaustive and the `id` does not necessarily need to be a popular or known value.
 
-- `type` - the type of blockchain to connect to. Currently only `evm` is supported for Ethereum and other EVM compatible blockchains, although other blockchain types will be supported in the future.
+- `type` - the type of blockchain to connect to. Currently only `evm` is supported for Ethereum and other EVM-based blockchains, although other types are planned to be supported in the future.
 
 - `providers` - one or more providers serving the given chain ID and type. Each `provider` must have the following keys:
 
   1. `name` - a *unique* name across ALL configured providers in `config.json`
 
-  2. `url` - an HTTP endpoint that Airnode should use to connect to.
+  2. `url` - an HTTP endpoint that Airnode should use to connect to
 
 - `contracts` - An object that keeps the addresses of the contracts deployed on the respective chain.
 It has to include the following contract addresses:
@@ -112,7 +107,12 @@ It has to include the following contract addresses:
 
 **Optional**
 
-- `blockHistoryLimit` - the number of block in the past that Airnode should use to search for requests or events. Defaults to `600` (roughly 1 hour for Ethereum).
+- `providerAdminForRecordCreation` - the master address that will be authorized to update the authorizers of the provider's endpoints (see the [protocol docs](/request-response-protocol/general-structure.md) for more information).
+Note that the node only uses this while creating the provider record.
+Changing this after the provider record is created will not have any effect.
+This field is optional, but not having it means that the node will not be able to create a provider record on the respective chain.
+
+- `blockHistoryLimit` - the number of blocks in the past that Airnode should use to search for requests or events. Defaults to `600` (roughly 1 hour for Ethereum).
 
 - `minConfirmations` - the number of confirmations required for a request or event to be considered valid. Default to `0`.
 
@@ -122,7 +122,6 @@ An example object from the `chains` list:
 
 ```json
 {
-  "providerAdminForRecordCreation": "0x5e00...F410",
   "id": 1,
   "type": "evm",
   "providers": [
@@ -139,6 +138,7 @@ An example object from the `chains` list:
     "Airnode": "0xf1d4...0bd1",
     "Convenience": "0x12ab...de56"
   },
+  "providerAdminForRecordCreation": "0x5e00...F410",
   "blockHistoryLimit": 600,
   "minConfirmations": 6,
   "ignoreBlockedRequestsAfterBlocks": 20,
@@ -159,7 +159,6 @@ A more complete example of a `nodeSettings` configuration:
   "logFormat": "plain",
   "chains": [
     {
-      "providerAdminForRecordCreation": "0x5e00...F410",
       "id": 1,
       "type": "evm",
       "providers": [
@@ -168,12 +167,12 @@ A more complete example of a `nodeSettings` configuration:
           "url": "https://mainnet.infura.io/v3/<your key>"
         }
       ],
+      "providerAdminForRecordCreation": "0x5e00...F410",
       "blockHistoryLimit": 600,
       "minConfirmations": 0,
       "ignoreBlockedRequestsAfterBlocks": 20
     },
     {
-      "providerAdminForRecordCreation": "0x5e00...F410",
       "id": 3,
       "type": "evm",
       "providers": [
@@ -184,7 +183,8 @@ A more complete example of a `nodeSettings` configuration:
       ],
       "contracts": {
         "Airnode": "0xf1d4...0bd1"
-      }
+      },
+      "providerAdminForRecordCreation": "0x5e00...F410"
     }
   ]
 }
@@ -192,6 +192,6 @@ A more complete example of a `nodeSettings` configuration:
 
 ## `id`
 
-A UUID defined by the platform for the specific `config.json` file and its corresponding `security.json` file.
+A UUID for the specific `config.json` file and its corresponding `security.json` file.
 
-[Home](/README.md#contents)
+[Home](/README.md#airnode)

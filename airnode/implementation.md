@@ -30,7 +30,7 @@ Calling it once or more will not make any difference at the API server-side.
 In contrast, using a POST operation of a remittance service provider API to send $100 to another party would be a non-idempotent operation.
 Each call would send an additional $100, and thus using the operation multiple times would have a different effect than using it once.
 
-The oracle node being stateless means that it would not be able to "remember" if it has made an API call associated with a request, and may repeat it under some conditions.
+The oracle node being stateless means that it would not be able to "remember" if it has made an API call associated with a request, and may repeat it under certain conditions.
 This is not an issue at the moment, because presently, oracles are only used for idempotent operations.
 However, we aim for Airnode to be able to support non-idempotent operations as well, so we are researching alternative methods to achieve this while protecting the resiliency that statelessness provides.
 
@@ -63,7 +63,7 @@ The interactions made with each provider is contained in a separate serverless f
 In addition, the protocol is implemented in a way that a blockchain service provider cannot tamper with the parameters of a request, but only deny service.
 Note that this is not the case with alternative solutions, as they treat the blockchain service provider as a trusted party.
 
-We also recommend cloud hosting over hosting on-premises due to the superior availability of serverless functions, and also for their set-and-forget qualities.
+We recommend cloud hosting over hosting on-premises due to the superior availability of serverless functions, and also for their set-and-forget qualities.
 As a precaution, redundancy on multiple cloud providers can be provisioned easily and virtually at no cost thanks to the fully-serverless design of Airnode.
 
-[Home](/README.md#contents)
+[Home](/README.md#airnode)

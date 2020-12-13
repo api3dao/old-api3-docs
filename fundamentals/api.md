@@ -7,7 +7,7 @@ In the context of decentralized applications, this definition is quite useless, 
 Instead, we should see APIs as channels businesses use to monetize their data and services.
 
 Take the [CoinMarketCap API](https://coinmarketcap.com/api/) as an example.
-It allows Web developers to use all the data on https://coinmarketcap.com/ and more in their applications programmatically by making API calls.
+It allows Web developers to use all the data seen on https://coinmarketcap.com/ and more in their applications programmatically by making API calls.
 In return, developers pay a [subscription fee](https://coinmarketcap.com/api/pricing/).
 In practice, any kind of data or service that is worth using is served by a paid API, i.e., *if you are not paying for it, you are the product*.
 
@@ -31,4 +31,4 @@ API provider is a term that is criminally underused by existing oracle solutions
 It refers to the business that owns and operates the API that the decentralized application needs to receive data and services from.
 Then, it is only natural for the API provider to be a point of consideration in the solution of the API connectivity problem.
 
-[Home](/README.md#contents)
+[Home](/README.md#fundamentals)

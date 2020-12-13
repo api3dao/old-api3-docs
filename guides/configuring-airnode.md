@@ -82,10 +82,7 @@ And finally, you probably want your `logFormat` to be set to `json` for your Air
 An Airnode can serve multiple chains simultaneously.
 You can specify each of these chains under `nodeSettings.chains` as an object.
 
-The first field of the chain object is `providerAdminForRecordCreation`.
-This is the address that your Airnode will set as the [provider admin](/request-response-protocol/provider.md#provideradmin) while creating the provider record on the respective chain.
-You should set this field to an address that only you control.
-Next, you should set the ID of the chain in `id` (e.g., `3` for Ropsten testnet).
+You should set the ID of the chain in `id` (e.g., `3` for Ropsten testnet).
 `type` is the type of the chain, and only `evm` is supported at the moment.
 
 Airnode can use multiple Ethereum providers per chain.
@@ -93,9 +90,12 @@ These can both be your private Ethereum node, or an Ethereum service provider su
 Accordingly, the `providers` field is list.
 Enter the `name` (to be used in logs) and the `url` of the Ethereum provider as an object.
 
-The chain object has a final `contracts` field, which contains the addresses of the contracts that implement the Airnode protocols.
+`contracts` contains the addresses of the contracts that implement the Airnode protocols.
 Although you can deploy these contracts yourself, you are recommended to use the ones that were deployed by API3.
 You can find them [here](https://github.com/api3dao/airnode/tree/master/packages/protocol/deployments).
+
+`providerAdminForRecordCreation` is the address that your Airnode will set as the [provider admin](/request-response-protocol/provider.md#provideradmin) while creating the provider record on the respective chain.
+You should set this field to an address that only you control.
 
 ### `id`
 
@@ -121,3 +121,5 @@ Your `security.json` contains your API keys, so it should definitely be kept sec
 Therefore, even though you can safely share your OIS, you should avoid publishing your configuration files/pushing them to repos.
 
 Now that we have our Airnode configuration files, the next step is deployment.
+
+[Home](/README.md#guides)
