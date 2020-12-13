@@ -14,4 +14,4 @@ You can use [`airnode-admin`](https://github.com/api3dao/airnode-admin#endorse-c
 Endorsing a client contract means it can make requests that will be fulfilled by the designated wallet associated with your requester record.
 You can use [`airnode-admin`](https://github.com/api3dao/airnode-admin#derive-designated-wallet) to derive your designated wallet and fund it so that the provider you have made requests to can fulfill your requests.
 
-[Home](/README.md#guides)
+[Home](/README.md#requester-guides)

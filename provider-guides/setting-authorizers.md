@@ -50,4 +50,4 @@ If you would like to contribute to this set of authorizer contracts, please join
 Your Airnode is completly set up now.
 The following guides will be on how a requester would be able to make requests to it.
 
-[Home](/README.md#guides)
+[Home](/README.md#provider-guides)

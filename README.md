@@ -65,19 +65,17 @@ The description of the components of the request–reponse protocol and how they
 - [Template](/request-response-protocol/template.md)
 - [Request](/request-response-protocol/request.md)
 
-## Guides
+## Provider guides
 
-Guides on using Airnode as a provider
+- [API integration](/provider-guides/api-integration.md)
+- [Configuring Airnode](/provider-guides/configuring-airnode.md)
+- [Deploying Airnode](/provider-guides/deploying-airnode.md)
+- [Setting authorizers](/provider-guides/setting-authorizers.md)
 
-- [API integration](/guides/api-integration.md)
-- [Configuring Airnode](/guides/configuring-airnode.md)
-- [Deploying Airnode](/guides/deploying-airnode.md)
-- [Setting authorizers](/guides/setting-authorizers.md)
+## Requester guides
 
-Guides on using Airnode as a requester
-
-- [Creating a requester](/guides/creating-a-requester.md)
-- [Developing a client contract](/guides/developing-a-client-contract.md)
+- [Creating a requester](/requester-guides/creating-a-requester.md)
+- [Developing a client contract](/requester-guides/developing-a-client-contract.md)
 
 # Community
 

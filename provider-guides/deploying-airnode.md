@@ -58,4 +58,4 @@ You will need to add your `providerIdShort` to your `config.json` to be able to 
 To find out how to redeploy your node or remove it from your cloud provider account, see the [deployer image docs](https://github.com/api3dao/airnode/blob/master/Docker.md).
 Now, the next step is to configure the authorization policies for the endpoints you will be serving.
 
-[Home](/README.md#guides)
+[Home](/README.md#provider-guides)

@@ -122,4 +122,4 @@ Therefore, even though you can safely share your OIS, you should avoid publishin
 
 Now that we have our Airnode configuration files, the next step is deployment.
 
-[Home](/README.md#guides)
+[Home](/README.md#provider-guides)

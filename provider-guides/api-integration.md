@@ -194,4 +194,4 @@ However, in most cases, one would simply map API operations to endpoints directl
 At the moment, we do not have a tool that generates an `endpoints` list that maps to `apiSpecifications.paths` one-to-one.
 If you would like to help build this, please join the conversation in [this issue](https://github.com/api3dao/airnode/issues/153).
 
-[Home](/README.md#guides)
+[Home](/README.md#provider-guides)
