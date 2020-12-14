@@ -50,9 +50,9 @@ The design of Airnode and specification details
 - [Airnode ABI specifications](/airnode/airnode-abi-specifications.md)
 - [Reserved parameters](/airnode/reserved-parameters.md)
 
-## Request–reponse protocol
+## Request–response protocol
 
-The description of the components of the request–reponse protocol and how they interrelate
+The description of the components of the request–response protocol and how they interrelate
 
 - [General structure](/request-response-protocol/general-structure.md)
 - [Provider](/request-response-protocol/provider.md)
