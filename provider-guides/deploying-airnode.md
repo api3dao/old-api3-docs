@@ -1,6 +1,6 @@
 # Deploying Airnode
 
-After [integrating your API](/provider-guides/api-integration.md) and [creating the configuration files](/guides/configuring-airnode.md), the next step is to deploy your Airnode.
+After [integrating your API](/provider-guides/api-integration.md) and [creating the configuration files](/provider-guides/configuring-airnode.md), the next step is to deploy your Airnode.
 Airnode comes with a [deployer](https://github.com/api3dao/airnode/tree/master/packages/deployer), which uses [Terraform](https://www.terraform.io/) and [Serverless Framework](https://www.serverless.com/) to automate the entire deployment process.
 This deployer is also containerized as a [Docker](https://www.docker.com/) image, which allows you to deploy your Airnode on any platform without worrying about installing dependencies.
 So let's begin!
@@ -29,7 +29,7 @@ These credentials can be used to gain access to your Airnode's private key.
 
 ## Deployment
 
-Get the `config.json` and `security.json` files you have created while [configuring your Airnode](/guides/configuring-airnode.md), your `.env` file with your [cloud provider credentials](#creating-cloud-credentials), and place these three files in the same directory.
+Get the `config.json` and `security.json` files you have created while [configuring your Airnode](/prvoider-guides/configuring-airnode.md), your `.env` file with your [cloud provider credentials](#creating-cloud-credentials), and place these three files in the same directory.
 Then, in this same directory, run the following command (if you are on Windows, replace `$(pwd)` with `%cd%`):
 
 ```sh

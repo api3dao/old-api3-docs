@@ -9,7 +9,7 @@ The first step a requester needs to take is to develop and deploy such a client 
 
 ## Endorsing your contract
 
-Assuming you have already [created a requester](/guides/creating-a-requester.md), you should endorse the client contract so that it can make requests.
+Assuming you have already [created a requester](/requester-guides/creating-a-requester.md), you should endorse the client contract so that it can make requests.
 You can use [`airnode-admin`](https://github.com/api3dao/airnode-admin#endorse-client) to endorse client contracts.
 Endorsing a client contract means it can make requests that will be fulfilled by the designated wallet associated with your requester record.
 You can use [`airnode-admin`](https://github.com/api3dao/airnode-admin#derive-designated-wallet) to derive your designated wallet and fund it so that the provider you have made requests to can fulfill your requests.
