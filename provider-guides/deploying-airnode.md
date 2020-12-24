@@ -29,7 +29,7 @@ These credentials can be used to gain access to your Airnode's private key.
 
 ## Deployment
 
-Get the `config.json` and `security.json` files you have created while [configuring your Airnode](/prvoider-guides/configuring-airnode.md), your `.env` file with your [cloud provider credentials](#creating-cloud-credentials), and place these three files in the same directory.
+Get the `config.json` and `security.json` files you have created while [configuring your Airnode](/provider-guides/configuring-airnode.md), your `.env` file with your [cloud provider credentials](#creating-cloud-credentials), and place these three files in the same directory.
 Then, in this same directory, run the following command (if you are on Windows, replace `$(pwd)` with `%cd%`):
 
 ```sh
