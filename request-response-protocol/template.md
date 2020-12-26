@@ -14,7 +14,7 @@ Each template is identified by a `templateId`, which is the hash of its contents
 templateId = keccak256(abi.encode(
     providerId,
     endpointId,
-    requesterInd,
+    requesterIndex,
     designatedWallet,
     fulfillAddress,
     fulfillFunctionId,

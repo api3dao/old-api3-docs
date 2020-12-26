@@ -1,7 +1,7 @@
 # Request–response protocol: Client
 
 A client is a contract that makes Airnode requests.
-While making a request, the client refers to a [requester](/request-response-protocol/requester.md) by its [`requesterInd`](/request-response-protocol/requester.md#requesterInd), which means "fulfill my request with the [designated wallet](/request-response-protocol/designated-wallet.md) of the requester identified by `requesterInd`".
+While making a request, the client refers to a [requester](/request-response-protocol/requester.md) by its [`requesterIndex`](/request-response-protocol/requester.md#requesterIndex), which means "fulfill my request with the [designated wallet](/request-response-protocol/designated-wallet.md) of the requester identified by `requesterIndex`".
 Doing so requires the client to be [endorsed](/request-response-protocol/endorsement.md) by the said requester.
 
 Note that the client is the contract that makes the request.

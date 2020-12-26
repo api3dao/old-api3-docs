@@ -7,7 +7,7 @@ This allows Airnode to verify that the request parameters are not tampered with.
 ## Request parameters
 
 - `providerId` and `endpointId` specify the endpoint
-- `requesterInd` and `designatedWallet` specify which wallet will be used to fulfill the request
+- `requesterIndex` and `designatedWallet` specify which wallet will be used to fulfill the request
 - `fulfillAddress` and `fulfillFunctionId` specify which method will be called to fulfill the request
 - `parameters` specify the API and [reserved](/airnode/ois.md#54-reservedParameters
 ) parameters (see [Airnode ABI specifications](/airnode/airnode-abi-specifications.md) for how these are encoded)
@@ -20,7 +20,7 @@ A template includes the following fields:
 struct Template {
     bytes32 providerId;
     bytes32 endpointId;
-    uint256 requesterInd;
+    uint256 requesterIndex;
     address designatedWallet;
     address fulfillAddress;
     bytes4 fulfillFunctionId;
@@ -29,7 +29,7 @@ struct Template {
 ```
 
 The client can refer to the `templateId` of a template while making the request, and the provider's Airnode will fetch these and use them in the request.
-Among these, `requesterInd`, `designatedWallet`, `fulfillAddress`, `fulfillFunctionId` can be overriden by parameters defined at request-time.
+Among these, `requesterIndex`, `designatedWallet`, `fulfillAddress`, `fulfillFunctionId` can be overriden by parameters defined at request-time.
 
 When a template is used to make a request, both the parameters encoded in `parameters` of the template and `parameters` provided at request-time by the client will be used by the provider's Airnode.
 In case the two include a parameter with the same name, the one provided at request-time will be used.
@@ -40,7 +40,7 @@ There are multiple request types with respect to how they utilize templates:
 
 ### 1. Regular request
 
-A regular request refers to a template, yet provides its own `requesterInd`, `designatedWallet`, `fulfillAddress`, `fulfillFunctionId` that will override the ones from the template.
+A regular request refers to a template, yet provides its own `requesterIndex`, `designatedWallet`, `fulfillAddress`, `fulfillFunctionId` that will override the ones from the template.
 
 ### 2. Short request
 

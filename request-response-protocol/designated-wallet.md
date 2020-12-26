@@ -11,17 +11,17 @@ A requester can derive their designated wallet for a specific provider in JS (us
 
 ```js
 hdNode = ethers.utils.HDNode.fromExtendedKey(xpub);
-designatedWalletNode = hdNode.derivePath(`m/0/${requesterInd}`);
+designatedWalletNode = hdNode.derivePath(`m/0/${requesterIndex}`);
 designatedWalletAddress = designatedWalletNode.address;
 ```
 
-where `xpub` is retrieved from `ProviderStore.sol` using the `providerId`, and `requesterInd` is assigned by `RequesterStore.sol` when the requester record was created.
+where `xpub` is retrieved from `ProviderStore.sol` using the `providerId`, and `requesterIndex` is assigned by `RequesterStore.sol` when the requester record was created.
 (For more information on deriving wallets from a private key using a path, see [HD wallets](https://github.com/ethereumbook/ethereumbook/blob/develop/05wallets.asciidoc#hd_wallets).)
 
 ## The path convention
 
-The path of a designated wallet for the request–response protocol is `m/0/${requesterInd}`.
-This means that we assume that `requesterInd` will be less than `2^31` (yet this can be extended by using schemes such as `m/0/${requestInd % 2^31}/${requestInd / 2^31}`).
+The path of a designated wallet for the request–response protocol is `m/0/${requesterIndex}`.
+This means that we assume that `requesterIndex` will be less than `2^31` (yet this can be extended by using schemes such as `m/0/${requestInd % 2^31}/${requestInd / 2^31}`).
 Other branches such as `m/1/...`, `m/2/...`, etc. are reserved for other protocols (e.g., the pub–sub protocol).
 
 ## The custodial nature of the designated wallets

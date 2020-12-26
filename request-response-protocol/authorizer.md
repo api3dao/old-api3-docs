@@ -8,7 +8,7 @@ interface IAuthorizer {
         bytes32 requestId,
         bytes32 providerId,
         bytes32 endpointId,
-        uint256 requesterInd,
+        uint256 requesterIndex,
         address designatedWallet,
         address clientAddress
         )
