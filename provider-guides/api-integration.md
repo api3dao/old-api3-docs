@@ -89,6 +89,17 @@ This means that the OIS template specifies only one API operation, but you can h
 The name of the element (denoted as `{FILL_PATH}`) should be replaced with the path (e.g., `/v1/getdata`).
 Similarly, `{FILL_METHOD}` should be replaced with the method of the operation you want to integrate (e.g., `GET`).
 
+##### Path parameters
+
+Some API operations have path parameters such as the following
+```
+/price/{coinId}
+```
+This means that calling the `/price/ethereum` path will return the Ethereum price, calling the `/price/bitcoin` path will return the Bitcoin price, etc.
+
+These path parameters are given in curly braces in the path, and must also be defined as [operation parameters](#operation-parameters) with the same `name`, and their `in` field defined as `path`.
+A request that maps to this operation and does not define this path parameter will be errored.
+
 #### Operation parameters
 
 After specifying the path and method of an operation, the final step is to specify its parameters.
