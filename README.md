@@ -87,6 +87,7 @@ API3 is formed by people who spontaneously found each other through a common und
 Despite being largely overlooked, the API connectivity problem is the most critical obstacle in front of meaningful decentralized applications being built at scale.
 
 If existing oracle solutions do not fulfill the needs of the decentralized applications you want to build, give you a fair opportunity to monetize your API business, or feel like they are working against the ethos of decentralization, we invite you to be a part of API3 so that we can solve the API connectivity problem together.
+If you are coming from a technical background, see our [guide](/CONTRIBUTING.mg) to get you started on contributing.
 
 The API connectivity problem is in essence an ecosystem building problem, more so than a technical one.
 This means that API3 can use the skills of all kinds of experts and the decentralized nature of the project will allow you to shape it in a way that makes the best use of your skills.
