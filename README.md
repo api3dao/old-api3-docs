@@ -95,6 +95,6 @@ This means that API3 can use the skills of all kinds of experts and the decentra
 
 **Telegram (for community):** https://t.me/API3DAO
 
-**Keybase (for contributors):** https://keybase.io/team/api3
+**Discord (for contributors):** https://discord.gg/qnRrcfnm5W
 
 **Medium publication of the DAO:** https://medium.com/api3
