@@ -152,4 +152,10 @@ This means that each parameter will be padded with zeros to complete them to 32 
 Although this padding increases gas costs, ABI encoding/decoding functions being cheap balances this.
 Furthermore, the [template](/request-response-protocol/template.md) pattern we use in our protocols allows us to refer to these encoded parameters without explicitly passing them in our requests, making the increased cost induced by padding irrelevant in most cases.
 
+## `@api3/airnode-abi`
+
+The user may need to encode and decode Airnode ABI off-chain.
+For that, we have published the related [Airnode monorepo package](https://github.com/api3dao/airnode/tree/master/packages/airnode-abi) under the name `@api3/airnode-abi`.
+You can refer to the [`airnode-starter`](https://github.com/api3dao/airnode-starter/blob/9ec0e62b9d5edccd2b711250055b6bdb0cc049ef/scripts/make-request.js#L25) repo for an example usage.
+
 [Home](/README.md#airnode)
