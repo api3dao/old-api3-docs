@@ -9,10 +9,10 @@ In systems terminology, they are not memoryless.
 Doing so comes with many disadvantages:
 
 1. The database becomes a single point of failure.
-Making it redundant is costly and not trivial.
+Orchestrating redundancy is costly and not trivial.
 2. Any anomaly that happens on the blockchain (block reorgs, ommer blocks, etc.) results in the oracle node state to fall out of sync with the chain, which is not trivial to correct.
 3. A highly stateful application has many edge cases.
-These are difficult to cover completely and are likely to result in bugs that incapacitate the node.
+These are difficult to cover with tests completely and are likely to result in bugs that incapacitate the node.
 
 These disadvantages result in an unstable oracle node, which is the essential reason why traditional oracle nodes require *professional node operators* that need to be ready to respond to incidents 24/7.
 Since this is not a realistic requirement for first-party oracles, an oracle node that is designed for first-party oracles has to be stateless.
@@ -46,7 +46,7 @@ In other words, the oracle node *turns itself off and on again* very frequently,
 They provide the closest experience to *set-and-forget* possible.
 * Serverless functions are priced on-demand.
 Especially considering that Airnode will not require major concurrent usage, this will result in great cost-efficiency (and even let the user stay below [Free Tier](https://aws.amazon.com/free) limits).
-* Bare serverless functions are easy to port across cloud providers using [Serverless Framework](https://www.serverless.com/), especially when their cloud provider-specific dependencies are limited.
+* Bare serverless functions are easy to port across cloud providers (e.g., using [Serverless Framework](https://www.serverless.com/)), especially when their cloud provider-specific dependencies are limited.
 
 ## Approach to security
 

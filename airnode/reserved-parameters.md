@@ -7,7 +7,7 @@ There are two types of parameters:
 1. [Endpoint parameters](https://github.com/api3dao/api3-docs/blob/master/airnode/ois.md#55-parameters) mapped to API operation parameters
 1. [Reserved parameters](https://github.com/api3dao/api3-docs/blob/master/airnode/ois.md#54-reservedparameters)
 
-Reserved parameters signal to the provider to perform a specific operation while fulfillng the request.
+Reserved parameters signal to the provider to perform a specific operation while fulfilling the request.
 Reserved parameter names start with `_`.
 
 ## `_type`
@@ -55,4 +55,4 @@ _path: data
 _times: 100
 ```
 the request will be fulfilled with the value `123`.
-Note that the number gets multiplied with `100`, and the gets floored.
+Note that the number gets multiplied by `100`, and then gets floored.

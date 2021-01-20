@@ -5,7 +5,7 @@ The Airnode model aims to minimize the node operation effort using managed servi
 Accordingly, it is assumed that the typical user will be using an Ethereum provider such as Infura, Alchemy, etc.
 These services will only increase in variety, so designing a solution depending on these is not expected to cause a problem in the future.
 In addition, among these Ethereum providers, Infura provides 100,000 calls per day for free.
-An oracle that doesn't get any requests makes less than 10,000 calls per day, which allows the user to keep an oracle online for free, and upgrade to a paid plan once it gains traction.
+An oracle that doesn't get any requests makes less than 3,000 calls per day (2 calls per minute), which allows the user to keep an oracle online for free, and upgrade to a paid plan once it gains traction.
 
 Although it is assumed that the user will be using an Ethereum provider, there is no reason for providers to not be able to use a private Ethereum node.
 Furthermore, Airnode is designed to allow the usage of multiple Ethereum providers simultaneously.
