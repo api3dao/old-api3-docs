@@ -23,6 +23,7 @@
 - [API3 Tokenomics Update](https://medium.com/api3/api3-tokenomics-update-f032d6e49b30)
 - [Announcing Monolith #1: Authoritative API3 DAO](https://medium.com/api3/announcing-monolith-1-authoritative-api3-dao-ec9ca6d044f8)
 - [API3 Operations](https://medium.com/api3/api3-operations-a35c93a3a9d)
+- [Hello ChainAPI!](https://medium.com/api3/hello-chainapi-e1b386a74f1d)
 
 ### Standalone
 
@@ -31,5 +32,6 @@
 - [AI Winter, Oracle Frost](https://medium.com/api3/ai-winter-oracle-frost-4fffe9bfdb95)
 - [The Race to First-Party Oracles](https://medium.com/api3/the-race-to-first-party-oracles-87fab596e906)
 - [Is API3 the ‘Chainlink Killer’?](https://medium.com/api3/is-api3-the-chainlink-killer-3bd59f93c895)
+- [On exclusivity deals and their implications for Ethereum](https://medium.com/api3/on-exclusivity-deals-and-their-implications-for-ethereum-9354a9ff7929)
 
 [Home](/README.md#contents)
