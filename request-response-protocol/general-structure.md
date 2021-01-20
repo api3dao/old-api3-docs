@@ -65,8 +65,8 @@ The requester [endorses](/request-response-protocol/endorsement.md) their client
 
 A requester can create a request [template](/request-response-protocol/template.md), which is an on-chain record that they can refer to while making [requests](/request-response-protocol/request.md).
 
-## `airnode-admin`
+## `@api3/airnode-admin`
 
-[`airnode-admin`](https://github.com/api3dao/airnode-admin/) is a CLI tool used by providers, requesters and third parties to interact with `Airnode.sol` and perform the administrative actions mentioned above.
+[`@api3/airnode-admin`](https://github.com/api3dao/airnode/tree/master/packages/admin) is a package and a CLI tool used by providers, requesters and third parties to interact with `Airnode.sol` and perform the administrative actions mentioned above.
 
 [Home](/README.md#requestreponse-protocol)
