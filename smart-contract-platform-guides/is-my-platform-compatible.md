@@ -29,6 +29,11 @@ Here, the most obvious tell of a chain supporting the required API functionality
 This is because Metamask has similar requirements to Airnode.
 On the other hand, if your smart contract platform requires customized versions of `web3.js`, `ethers.js`, `truffle`, etc. being used, that is probably because the node API is not identical to Ethereum's.
 
+### HTTP vs WSS
+
+Airnode uses the HTTP endpoint to access the JSON-RPC API.
+Therefore, not supporting WSS endpoints/not having them widely available is not a problem.
+
 **TL;DR** If your users can use Metamask to interact with your smart contract platform, you are good.
 Otherwise, the parts of Airnode that interacts with the chain will need to be customized.
 
