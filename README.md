@@ -77,12 +77,12 @@ The description of the components of the request–response protocol and how the
 - [Creating a requester](/requester-guides/creating-a-requester.md)
 - [Developing a client contract](/requester-guides/developing-a-client-contract.md)
 
+Refer to the [Airnode starter](https://github.com/api3dao/airnode-starter) repo, where these provider and requester guides are reiterated with a real API on a public chain.
+
 ## Smart contract platform guides
 
 - [Is my platform compatible?](/smart-contract-platform-guides/is-my-platform-compatible.md)
-- [Self-serve integration](/smart-contract-platform-guides/self-serve-integration.md)
-
-Refer to the [Airnode starter](https://github.com/api3dao/airnode-starter) repo, where these provider and requester guides are reiterated with a real API on a public chain.
+- [Self-serve integration](/smart-contract-platform-guides/self-serve%20integration.md)
 
 # Community
 

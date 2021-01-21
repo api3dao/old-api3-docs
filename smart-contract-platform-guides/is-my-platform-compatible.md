@@ -34,19 +34,19 @@ Otherwise, the parts of Airnode that interacts with the chain will need to be cu
 
 ## What next?
 
-If your platform is compatible, the integration will be trivial, so you can even attempt to [do it yourself](/smart-contract-platform-guides/self-serve-integration.md).
+If your platform is compatible, the integration will be trivial, so you can even attempt to [do it yourself](/smart-contract-platform-guides/self-serve%20integration.md).
 Do not hesitate to drop by [our Discord](https://discord.gg/qnRrcfnm5W) and ask for support.
 
 If your platform is not directly compatible, this means that a significant amount of development will need to be undertaken for porting Airnode to your chain.
 Here are some reasons to carry through with this:
 - Airnode and its protocol are designed to enable standardized and set-and-forget oracle nodes.
 Its value-add comes from its design philosophy as much as its implementation.
-- The integration effort will only be on the parts of Airnode that interact with the chain.
+- The integration effort will only cover the parts of Airnode that interact with the chain.
 The part that interacts with APIs does not need to be modified at all, and that constitutes roughly 50% of the node.
 - Porting Airnode to your chain will make the existing API–oracle integrations made for Airnode available to your chain.
 Therefore, you would not only be porting a piece of software, but all the APIs that will be made available as a result.
 
 As mentioned above, this porting effort is significant, and will require you to allocate resources.
-To find out about how we can help, contact us using contact@api3.org
+To find out about how we can help, contact us at contact@api3.org
 
 [Home](/README.md#smart-contract-platform-guides)
