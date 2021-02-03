@@ -1,0 +1,20 @@
+{
+  "name": "compare-vuepress",
+  "version": "1.0.0",
+  "description": "Comparision of VuePress, Docusaurus and GitBook.",
+  "main": "index.js",
+  "repository": "https://github.com/wkande/compare-vuepress",
+  "author": "Warren Anderson",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "devDependencies": {
+    "vuepress": "^1.8.0",
+    "vuepress-plugin-versioning": "^4.9.0"
+  },
+  "dependencies": {
+    "vuepress-theme-titanium": "^4.9.0"
+  }
+}
