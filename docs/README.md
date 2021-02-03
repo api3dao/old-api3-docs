@@ -2,7 +2,7 @@
 home: true
 heroImage: 
 heroText: Document Portal
-tagline: Doumentation based on Guides. Master files
+tagline: Doumentation based on Guides. [master branch]
 actionText: Get Started →
 actionLink: /requesters/
 features:
