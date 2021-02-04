@@ -2,6 +2,8 @@
 title: Introduction
 ---
 
+# {{$frontmatter.title}}
+
 Link to [API Integration](api-integrations.md)within this version
 Link to [Create Request](../requesters/create-request.md) within this version
 
