@@ -2,9 +2,9 @@
 home: true
 heroImage: 
 heroText: Document Portal
-tagline: Doumentation based on Guides. [master branch]
+tagline: Vist the current version of the documentation.
 actionText: Get Started →
-actionLink: /requesters/
+actionLink: /0.1.1/requesters/introduction
 features:
 - title: What is API3?
   details: API3 is a collaborative project to deliver traditional API services to smart contract platforms in a decentralized and trust-minimized way. It is governed by a decentralized autonomous organization (DAO), its code is open source and its operations are transparent.
@@ -15,4 +15,3 @@ features:
 footer: MIT Licensed | Copyright © 2018-present SomeOne
 navbar: true
 ---
-

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Creating a Requester | API3 Document Portal</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/assets/css/0.styles.47099ff7.css" as="style"><link rel="preload" href="/assets/js/app.a5a9186b.js" as="script"><link rel="preload" href="/assets/js/2.07fbdb5e.js" as="script"><link rel="preload" href="/assets/js/36.61b00ed4.js" as="script"><link rel="prefetch" href="/assets/js/10.4abaee1e.js"><link rel="prefetch" href="/assets/js/11.553a00a7.js"><link rel="prefetch" href="/assets/js/12.5360a92c.js"><link rel="prefetch" href="/assets/js/13.e07ea0af.js"><link rel="prefetch" href="/assets/js/14.794ff9ca.js"><link rel="prefetch" href="/assets/js/15.6bb9a8e3.js"><link rel="prefetch" href="/assets/js/16.a4013902.js"><link rel="prefetch" href="/assets/js/17.a8677196.js"><link rel="prefetch" href="/assets/js/18.9483abe4.js"><link rel="prefetch" href="/assets/js/19.a7d94068.js"><link rel="prefetch" href="/assets/js/20.d68e25f3.js"><link rel="prefetch" href="/assets/js/21.6aec94fc.js"><link rel="prefetch" href="/assets/js/22.023bef78.js"><link rel="prefetch" href="/assets/js/23.9da2273b.js"><link rel="prefetch" href="/assets/js/24.3e30971b.js"><link rel="prefetch" href="/assets/js/25.8cff3da4.js"><link rel="prefetch" href="/assets/js/26.7d63536e.js"><link rel="prefetch" href="/assets/js/27.a8a4d841.js"><link rel="prefetch" href="/assets/js/28.b171db10.js"><link rel="prefetch" href="/assets/js/29.1ad11121.js"><link rel="prefetch" href="/assets/js/3.7dc44937.js"><link rel="prefetch" href="/assets/js/30.a244aca4.js"><link rel="prefetch" href="/assets/js/31.95f42b1d.js"><link rel="prefetch" href="/assets/js/32.416913a1.js"><link rel="prefetch" href="/assets/js/33.43fa3d9c.js"><link rel="prefetch" href="/assets/js/34.44de2351.js"><link rel="prefetch" href="/assets/js/35.e063a3d8.js"><link rel="prefetch" href="/assets/js/37.7192b9fc.js"><link rel="prefetch" href="/assets/js/38.0716475d.js"><link rel="prefetch" href="/assets/js/39.260dca54.js"><link rel="prefetch" href="/assets/js/4.77a548c8.js"><link rel="prefetch" href="/assets/js/5.5fd3c55b.js"><link rel="prefetch" href="/assets/js/6.706caab8.js"><link rel="prefetch" href="/assets/js/7.d81ee166.js"><link rel="prefetch" href="/assets/js/8.bc73cd5d.js"><link rel="prefetch" href="/assets/js/9.49430974.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.47099ff7.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/assets/img/logo2.png" alt="API3 Document Portal" class="logo"> <span class="site-name can-hide">API3 Document Portal</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Versions" class="dropdown-title"><span class="title">Versions</span> <span class="arrow down"></span></button> <button type="button" aria-label="Versions" class="mobile-dropdown-title"><span class="title">Versions</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/master/requesters/introduction.html" class="nav-link">
+  master
+</a></li><li class="dropdown-item"><!----> <a href="/0.1.1/requesters/introduction.html" class="nav-link">
+  0.1.1
+</a></li><li class="dropdown-item"><!----> <a href="/0.1.0/requesters/introduction.html" class="nav-link">
+  0.1.0
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/wkande/vuepress-docs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Versions" class="dropdown-title"><span class="title">Versions</span> <span class="arrow down"></span></button> <button type="button" aria-label="Versions" class="mobile-dropdown-title"><span class="title">Versions</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/master/requesters/introduction.html" class="nav-link">
+  master
+</a></li><li class="dropdown-item"><!----> <a href="/0.1.1/requesters/introduction.html" class="nav-link">
+  0.1.1
+</a></li><li class="dropdown-item"><!----> <a href="/0.1.0/requesters/introduction.html" class="nav-link">
+  0.1.0
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/wkande/vuepress-docs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/master/master.html" class="sidebar-link">Master Development</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Requesters</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/master/requesters/introduction.html" class="sidebar-link">Introduction</a></li><li><a href="/master/requesters/create-request.html" aria-current="page" class="active sidebar-link">Creating a Requester</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/master/requesters/create-request.html#page-info" class="sidebar-link">$page Info</a></li></ul></li><li><a href="/master/requesters/develop-client-contract.html" class="sidebar-link">Developing a Client Contract</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Providers</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Hackathon 2022</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="frontmatter-title"><a href="#frontmatter-title" class="header-anchor">#</a> Creating a Requester</h1> <p>Each requester needs to create a requester record, and get assigned a requester index. This is fairly early, using @api3/airnode-admin. A requester index grants you a separate designated wallet for each provider, which you can use @api3/airnode-admin to derive for a specific provider. You will need to fund the address of thet designated wallet that you have derived if you want the provider to respond to the requests that your client contracts will make.</p> <h2 id="page-info"><a href="#page-info" class="header-anchor">#</a> $page Info</h2> <div class="custom-block tip"><p class="custom-block-title">$page Info</p> <p>{
+  &quot;title&quot;: &quot;Creating a Requester&quot;,
+  &quot;frontmatter&quot;: {
+    &quot;title&quot;: &quot;Creating a Requester&quot;
+  },
+  &quot;regularPath&quot;: &quot;/master/requesters/create-request.html&quot;,
+  &quot;relativePath&quot;: &quot;master/requesters/create-request.md&quot;,
+  &quot;key&quot;: &quot;v-382c2a3a&quot;,
+  &quot;path&quot;: &quot;/master/requesters/create-request.html&quot;,
+  &quot;headers&quot;: [
+    {
+      &quot;level&quot;: 2,
+      &quot;title&quot;: &quot;$page Info&quot;,
+      &quot;slug&quot;: &quot;page-info&quot;
+    }
+  ]
+}</p></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/master/requesters/introduction.html" class="prev">
+        Introduction
+      </a></span> <span class="next"><a href="/master/requesters/develop-client-contract.html">
+        Developing a Client Contract
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.a5a9186b.js" defer></script><script src="/assets/js/2.07fbdb5e.js" defer></script><script src="/assets/js/36.61b00ed4.js" defer></script>
+  </body>
+</html>
