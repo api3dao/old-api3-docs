@@ -1,2 +1,5 @@
 /.DS_Store
 /node_modules
+
+/docs/.vuepress/lib/versiong.log
+/docs/.vuepress/dist

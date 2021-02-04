@@ -8,13 +8,13 @@
   "license": "MIT",
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "bump": "node -e 'require(\"./docs/.vuepress/lib/versioning.js\").generate()'",
+    "deploy": "git subtree push --prefix docs/.vuepress/dist origin gh-pages"
   },
   "devDependencies": {
     "vuepress": "^1.8.0",
     "vuepress-plugin-versioning": "^4.9.0"
   },
-  "dependencies": {
-    "vuepress-theme-titanium": "^4.9.0"
-  }
+  "dependencies": {}
 }
