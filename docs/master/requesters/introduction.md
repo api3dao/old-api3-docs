@@ -12,9 +12,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 :::
 
 
-::: tip
-This is a tip
-:::
 
 | Tables        | Are           | Cool  |
 | ------------- |:-------------:| -----:|
@@ -28,7 +25,19 @@ This is a tip
 console.log('Hello, VuePress!')
 ```
 
-:::
+<code-group>
+<code-block title="YARN">
+```bash
+yarn create vuepress-site [optionalDirectoryName]
+```
+</code-block>
+
+<code-block title="NPM">
+```bash
+npx create-vuepress-site [optionalDirectoryName]
+```
+</code-block>
+</code-group>
 
 ``` js{2,4}
 export default {
@@ -39,3 +48,5 @@ export default {
   }
 }
 ```
+
+:::

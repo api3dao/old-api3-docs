@@ -1,10 +1,10 @@
 ---
 home: true
 heroImage: 
-heroText: Document Portal
+heroText: API3 Documentation
 tagline: Vist the current version of the documentation.
 actionText: Get Started →
-actionLink: /0.1.1/requesters/introduction
+actionLink: /master/fundamentals/about-apis
 features:
 - title: What is API3?
   details: API3 is a collaborative project to deliver traditional API services to smart contract platforms in a decentralized and trust-minimized way. It is governed by a decentralized autonomous organization (DAO), its code is open source and its operations are transparent.
@@ -15,3 +15,10 @@ features:
 footer: MIT Licensed | Copyright © 2018-present SomeOne
 navbar: true
 ---
+
+<p align="center">
+  <img src="https://github.com/clc-group/api3-docs/raw/master/figures/api3.png" width="400" />
+</p>
+
+*API3 documentation is kept as a regular repository of Markdown files for everyone to be able to easily contribute.
+Feel free to create [issues](https://github.com/api3dao/api3-docs/issues) for discussions, proposed additions and changes.*

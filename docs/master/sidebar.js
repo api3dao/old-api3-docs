@@ -1,5 +1,13 @@
 module.exports = [
-      ['master', 'Master Development'],
+      {
+        title: 'Fundamentals',
+        children: [
+            'fundamentals/about-apis',
+            'fundamentals/first-party-oracles',
+            'fundamentals/decentrally-governed-oracle-networks',
+            'fundamentals/dapi'
+        ]
+      },
       {
         title: 'Requesters',
         children: [

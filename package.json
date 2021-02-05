@@ -13,6 +13,7 @@
     "deploy": "git subtree push --prefix docs/.vuepress/dist origin gh-pages"
   },
   "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.8.0",
     "vuepress": "^1.8.0",
     "vuepress-plugin-versioning": "^4.9.0"
   },

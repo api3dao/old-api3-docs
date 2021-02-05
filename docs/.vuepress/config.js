@@ -1,18 +1,11 @@
 const versioning = require('./lib/versioning.js')
 
 module.exports = {
-  title: 'API3 Document Portal',
-  description: 'Just playing around',
-  plugins: ['@vuepress/last-updated'],
-  plugins: [
-    ['@vuepress/search', {
-      searchMaxSuggestions: 10
-    }]
-  ],
+  title: 'API3',
+  description: 'Technical documentation for API3 ',
   markdown: {
     lineNumbers: true
   },
-  
   themeConfig: {
     displayAllHeaders: false,
     logo: '/assets/img/logo2.png',
@@ -26,8 +19,23 @@ module.exports = {
         text: 'Versions',
         items: versioning.linksFor('requesters/introduction.md') // TODO create custom component
       },
-      { text: 'GitHub', link: 'https://github.com/wkande/vuepress-docs' },
+      { text: 'Website', link: 'https://www.api3.org' },
+      { text: 'Discord (Dev)', link: 'https://discord.gg/qnRrcfnm5W' },
+      { text: 'Telegram (Chat)', link: 'https://t.me/API3DAO' },
     ],
-    sidebar: versioning.sidebars
-  }
+    repo: 'wkande/vuepress-docs',
+    repoLabel: 'GitHub!',
+    sidebar: versioning.sidebars,
+    smoothScroll: true
+  },
+  plugins: [
+      ['@vuepress/last-updated'],
+      ['@vuepress/back-to-top', true],
+      ['@vuepress/search', {
+          searchMaxSuggestions: 10,
+          // Only search the latest version, e.g. 4.3, otherwise many duplicates will show up
+          // TODO need to change this to the selected version rather than the latest
+          test: `/${versioning.versions.latest.replace('.', '\\.')}/`
+      }]
+  ]
 }
