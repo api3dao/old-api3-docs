@@ -19,7 +19,7 @@ module.exports = {
   versions: {
     // latest stable release
     get latest () {
-      console.log(process.env.NODE_ENV)
+      console.log('process.env.NODE_ENV', process.env.NODE_ENV)
       console.log('GET latest')
 
       fss.appendFile(logPath, `latest version: ${versions[1]}\n`, function (err) {
