@@ -7,7 +7,7 @@ const versions = require('../versions.json')
 const fse = require('fs-extra')
 const path = process.cwd()+"/docs"
 const logPath = process.cwd()+"/docs/.vuepress/lib/versioning.log"
-let {version} = require('./selectedVrs.js')
+//let {version} = require('./selectedVrs.js')
 
 const fss = require('fs')
 
@@ -19,24 +19,21 @@ module.exports = {
   versions: {
     // latest stable release
     get latest () {
-      console.log('process.env.NODE_ENV', process.env.NODE_ENV)
-      console.log('GET latest')
 
       fss.appendFile(logPath, `latest version: ${versions[1]}\n`, function (err) {
         if (err) throw err;
       });
       //selectedVrs.version = versions[1];
-      fss.appendFile(logPath, `selected version: ${version}\n`, function (err) {
+      /*fss.appendFile(logPath, `selected version: ${version}\n`, function (err) {
         if (err) throw err;
-      });
+      });*/
       return versions[1]
     },
     get all () {
-      console.log('GET all')
 
-      fss.appendFile(logPath, `all version ${versions}\n`, function (err) {
+      /*fss.appendFile(logPath, `all version ${versions}\n`, function (err) {
         if (err) throw err;
-      });
+      });*/
 
       return versions
     }
@@ -45,18 +42,17 @@ module.exports = {
   // Generate a single object that represents all versions from each sidebar
   // https://vuepress.vuejs.org/theme/default-theme-config.html#multiple-sidebars
   get sidebars () {
-    console.log('>>>>>>>>>>>>>>> GET sidebars')
     let sidebars = {}
 
     versions.forEach((version) => {
       let sidebar = require(`../../${version}/sidebar.js`)
       sidebars[`/${version}/`] = sidebar
     })
-    console.log('sidebars', sidebars)
-    fss.writeFileSync(
+    console.log('>>> sidebars', sidebars)
+    /*fss.writeFileSync(
       `${path}/.vuepress/lib/versioning.log`,
       `sidebars: ${JSON.stringify(sidebars)}\n`,
-    );
+    );*/
 
     return sidebars
   },
