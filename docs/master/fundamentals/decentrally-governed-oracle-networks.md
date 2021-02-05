@@ -25,5 +25,3 @@ Here, an important thing to consider is how the oracle network is governed.
 If a central entity can switch the oracles or APIs used in the aggregator in and out, or even replace the aggregator itself making use of a proxy mechanism, they can effectively manipulate the oracle network output at will.
 This eliminates the decentralization and trustlessness qualities that using an oracle network provides.
 Therefore, it is not adequate to use an oracle network for decentralization, this oracle network must be governed decentrally as well.
-
-[Home](/README.md#fundamentals)

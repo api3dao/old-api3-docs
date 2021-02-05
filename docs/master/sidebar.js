@@ -9,11 +9,66 @@ module.exports = [
         ]
       },
       {
-        title: 'Requesters',
+        title: 'Airnode',
         children: [
-            'requesters/introduction',
-            'requesters/create-request',
-            'requesters/develop-client-contract'
+            'airnode/design-philosophy',
+            'airnode/implementation',
+            'airnode/ethereum-providers'
+        ]
+      },
+      {
+        title: 'Specifications',
+        children: [
+            'specifications/oracle-integration-specifications-ois',
+            'specifications/config.json',
+            'specifications/security.json',
+            'specifications/airnode-abi',
+            'specifications/reserved-parameters'
+        ]
+      },
+
+      /*
+      {
+        title: 'Request-Response',
+        children:[
+          'protocols/request-response/general-structure',
+          'protocols/request-response/provider',
+          'protocols/request-response/endpoint',
+          'protocols/request-response/authorizer',
+          'protocols/request-response/requester',
+          'protocols/request-response/client',
+          'protocols/request-response/designated-wallet',
+          'protocols/request-response/endorsement',
+          'protocols/request-response/template',
+          'protocols/request-response/request'
+        ]
+      },
+      {
+        title: 'Publish-Subscribe',
+        children:['protocols/publish-subscribe/introduction'
+        ]
+      },
+      */
+
+
+      {title: 'Protocols', children:[
+        {title: 'Request-Response',
+          children:['protocols/request-response/general-structure',
+          'protocols/request-response/provider',
+          'protocols/request-response/endpoint',
+          'protocols/request-response/authorizer',
+          'protocols/request-response/requester',
+          'protocols/request-response/client',
+          'protocols/request-response/designated-wallet',
+          'protocols/request-response/endorsement',
+          'protocols/request-response/template',
+          'protocols/request-response/request'
+          ]
+        },
+        {
+          title: 'Publish-Subscribe',
+          children:['protocols/publish-subscribe/introduction'
+          ]}
         ]
       },
       {
@@ -23,14 +78,15 @@ module.exports = [
             'providers/api-integrations',
             'providers/configure-airnode',
             'providers/deploy-airnode',
-            'providers/set-authorizers'
+            'providers/set-authorizers',
         ]
       },
       {
-        title: 'Hackathon 2022',
+        title: 'Requesters',
         children: [
-            'hackathon/introduction',
-            'hackathon/location'
+            'requesters/introduction',
+            'requesters/create-request',
+            'requesters/develop-client-contract'
         ]
       }
     ]

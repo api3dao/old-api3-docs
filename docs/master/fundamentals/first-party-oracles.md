@@ -28,5 +28,3 @@ Who will host the oracle node?
 
 Third party oracles are both insecure and expensive (see the [whitepaper](/README.md#whitepaper) for a detailed explanation).
 In contrast, first-party oracles are both secure and cost-efficient due to not having a middleman on the interface path.
-
-[Home](/README.md#fundamentals)

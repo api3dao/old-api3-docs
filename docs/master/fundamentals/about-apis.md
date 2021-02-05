@@ -35,5 +35,3 @@ As you read through, you will discover that this redefinition will have ripple e
 API provider is a term that is criminally underused by existing oracle solutions.
 It refers to the business that owns and operates the API that the decentralized application needs to receive data and services from.
 Then, it is only natural for the API provider to be a point of consideration in the solution of the API connectivity problem.
-
-[Home](/README.md#fundamentals)

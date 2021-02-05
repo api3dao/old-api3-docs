@@ -4,7 +4,8 @@ module.exports = {
   title: 'API3',
   description: 'Technical documentation for API3 ',
   markdown: {
-    lineNumbers: true
+    lineNumbers: true,
+    toc: { includeLevel: [1, 2, 3] },
   },
   themeConfig: {
     displayAllHeaders: false,

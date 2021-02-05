@@ -1,5 +1,6 @@
 ---
 title: API Integration
+sidebarDepth: 3
 ---
 
 # {{ $frontmatter.title }}
@@ -16,13 +17,13 @@ Oracle endpoints are specified
 Oracle endpoints are mapped to API operations
 Therefore, the only thing you need to do to integrate an API to Airnode is to create an OIS. You can do this simply by reading the OIS docs and creating the OIS for your specific API and use-case. This guide aims to follow a more instructive approach and give some tips along the way. Make sure to refer to the OIS docs when you need further details, and you can also refer to the OAS 3.0.3 docs about fields related to API specifications.
 
-OIS Template
+## OIS Template
 
 We will be working on the OIS template, so first download that and let us go over the notation. An OIS is a JSON file. This guide will assume that you are already familiar with the JSON format, but you can probably work off of the OIS template even if this is the first time you are using it.
 
 In the OIS template, there are some fields that contain {FILL_*}. This means that the value you will be replacing this with is independent from the other fields. On the other hand, if two fields contain the same expression (e.g., {FILL_OPERATION_PARAMETER_1_NAME}), you must use the same value in them, because they are referencing each other.
 
-Step 1: Specifying the API
+## Step 1: Specifying the API
 
 OIS uses a simplified version of the OpenAPI Specification. This means that if you have the OpenAPI/Swagger specifications of the API that you are going to integrate, you are about 80% done, because you can copy paste entire sections (but make sure that you make the necessary modifications to conform to the OIS format). At the moment, we do not have a tool that converts OpenAPI specifications to OIS automatically. If you would like to help build this, please join the conversation in this issue.
 
@@ -33,7 +34,7 @@ title: This is the title of your OIS. Note that an Airnode can only serve one OI
 version: This is the version of this specific OIS, and is for you to be able to version-control your integrations. You are recommended to use semver for this, so your initial version could be 0.1.0.
 Now we can move on to specifying the API under apiSpecifications. This guide will continue assuming you do not have the OpenAPI specifications of the API that you will be integrating.
 
-Base URL
+### Base URL
 
 The first step of specifying your API is to enter its base URL under apiSpecifications.servers.0.url, but let us talk about base URLs and paths before that. Say this is the full URL you want the API calls to be made to:
 
@@ -50,7 +51,7 @@ because the call will be made to base URL+path, and thus both will result in the
 
 Set your base URL as the section of the full URL that you expect to be shared by all operations. In the example above, we would recommend using https://www.myapi.com, in case additional paths starting with /v2 get added to the API in the future. As you can tell, API integration requires many subjective choices, and is more art than science.
 
-Paths
+### Paths
 
 An API operation is specified by a path and a method. For example:
 
@@ -64,7 +65,7 @@ Then, a path is not enough to specify an operation by itself, we must also provi
 
 In the OIS template, we have a paths object with a single element. This means that the OIS template specifies only one API operation, but you can have more simply by adding more elements to that object. The name of the element (denoted as {FILL_PATH}) should be replaced with the path (e.g., /v1/getdata). Similarly, {FILL_METHOD} should be replaced with the method of the operation you want to integrate (e.g., GET).
 
-Path parameters
+#### Path parameters
 
 Some API operations have path parameters such as the following
 
@@ -73,13 +74,13 @@ This means that calling the /price/ethereum path will return the Ethereum price,
 
 These path parameters are given in curly braces in the path, and must also be defined as operation parameters with the same name, and their in field defined as path. A request that maps to this operation and does not define this path parameter will be errored.
 
-Operation parameters
+#### Operation parameters
 
 After specifying the path and method of an operation, the final step is to specify its parameters. Each parameter is an object in apiSpecifications.path.{PATH}.{METHOD}.parameters, with the fields in and name. in tells where the parameter goes in the HTTP request to the API, and name tells the name that the parameter value will be sent under.
 
 Note that you do not have to specify all operation parameters, but only the ones that you want the on-chain requester to be able to provide (see endpoint parameters), and the ones that you want to hardcode a value to (see fixed operation parameters).
 
-Security schemes
+### Security schemes
 
 As a final step, we need to specify the security schemes of the API. Usually, this means telling Airnode where the API key goes, and under what name. Note that we will not be entering the API key itself in the OIS, because the OIS is not meant to include any user-specific information. Security credentials such as API keys go in security.json.
 
@@ -91,7 +92,7 @@ As noted above, make sure to insert the name of your security scheme under apiSp
 
 Congratulations, you have just specified your API operations! Now let us move on to the part that will be exposed to the chain.
 
-Step 2: Specifying the endpoints
+## Step 2: Specifying the endpoints
 
 An endpoint is a service that Airnode exposes to on-chain clients. It maps to an API operation, but the nature of this mapping is customizable. Then, it is the integrator's job to define what this service is.
 
@@ -107,7 +108,7 @@ endpoints is a list, with each endpoint represented as an object under it. In th
 
 The next step is to fill in endpoints.*.operation. Here, you need to enter the path and method of an API operation you have defined in apiSpecifications.paths, which means that requests to this endpoint will have the Airnode call the respective API operation.
 
-fixedOperationParameters
+### fixedOperationParameters
 
 It is common to need to hardcode API parameters (recall the JSON/XML example above). We call such hardcoded parameters "fixed operation parameters".
 
@@ -115,19 +116,19 @@ In the OIS template, we have one fixed operation parameter under endpoints.*.fix
 
 An endpoint can have multiple fixed operation parameters. An operation parameter cannot be both in fixedOperationParameters and parameters.
 
-reservedParameters
+### reservedParameters
 
 The requester can provide some parameters that are not mapped to API operation parameters. These parameters are called "reserved parameters", and their names start with an underscore. See the related OIS docs for more information.
 
 The current list of reserved parameters are _type, _path and _times. See the reserved parameters guide to see what each of these parameters are for. In most cases, all three should be defined as reserved parameters with no fixed/default values, as doing so provides the requester with the most flexibility.
 
-parameters
+### parameters
 
 Endpoint parameters map to API operation parameters that the requester is allowed to provide values for. It refers to an API operation (similar to a fixed operation parameter) through its field operationParameter. You can also provide default values for endpoint parameters, though this is not recommended in most cases.
 
 Endpoint parameters have a name field, which does not have to be the same as the API operation parameter that they map to. As a separate note, an endpoint can have multiple parameters.
 
-Conclusion
+## Conclusion
 
 This was all! We specified the API operations and endpoints. Each endpoint maps to an API operation, and each endpoint parameter maps to an API operation parameter. The resulting OIS includes no user-specific information, which means that you can share it for others to easily provide the same services (for example, to set up a third-party oracle network).
 

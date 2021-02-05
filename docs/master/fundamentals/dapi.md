@@ -25,5 +25,3 @@ From the user's (i.e., the entity that operates the decentralized application) p
 
 Due to being defined as a full product rather than an interface, unlike a traditional oracle network, a dAPI includes the underlying APIs.
 This results in a superior solution (secure and cost-efficient first-party oracles) and ecosystem (with API providers as its members).
-
-[Home](/README.md#fundamentals)
