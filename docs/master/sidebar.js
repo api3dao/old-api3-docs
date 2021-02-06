@@ -51,7 +51,7 @@ module.exports = [
       */
 
 
-      {title: 'Protocols', children:[
+      {title: 'Protocols-Org', children:[
         {title: 'Request-Response',
           children:['protocols/request-response/general-structure',
           'protocols/request-response/provider',
@@ -67,8 +67,15 @@ module.exports = [
         },
         {
           title: 'Publish-Subscribe',
-          children:['protocols/publish-subscribe/introduction'
+          children:['protocols/publish-subscribe/roadmap'
           ]}
+        ]
+      },
+      {
+        title: 'Protocols',
+        children: [
+            'protocols/request-response',
+            'protocols/publish-subscribe'
         ]
       },
       {
@@ -87,6 +94,12 @@ module.exports = [
             'requesters/introduction',
             'requesters/create-request',
             'requesters/develop-client-contract'
+        ]
+      },
+      {
+        title: 'Tutorials',
+        children: [
+            'tutorials/airnode-starter'
         ]
       }
     ]

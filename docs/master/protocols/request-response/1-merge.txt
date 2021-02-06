@@ -1,0 +1,1 @@
+cat general-structure.md provider.md endpoint.md authorizer.md requester.md client.md designated-wallet.md endorsement.md template.md request.md > ../request-response.md

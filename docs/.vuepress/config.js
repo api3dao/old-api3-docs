@@ -7,7 +7,10 @@ module.exports = {
     lineNumbers: true,
     toc: { includeLevel: [1, 2, 3] },
   },
+  theme: 'reco',
   themeConfig: {
+    noFoundPageByTencent: false, /* vuepress-theme-reco */
+    subSidebar: 'auto', /* vuepress-theme-reco */
     displayAllHeaders: false,
     logo: '/assets/img/logo2.png',
     versions: {
