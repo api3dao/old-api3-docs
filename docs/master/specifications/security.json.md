@@ -3,8 +3,6 @@ title: security.json
 sidebarDepth: 1
 ---
 
-# {{$frontmatter.title}}
-
 `security.json` is the file the deployer uses to push API credentials along with the serverless function.
 
 ::: danger TODO

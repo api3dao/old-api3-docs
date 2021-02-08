@@ -1,5 +1,12 @@
 module.exports = [
       {
+        title: 'Getting Started (alt)',
+        children: [
+            'getting-started/what-is-api3',
+            'getting-started/contributing'
+        ]
+      },
+      {
         title: 'Fundamentals',
         children: [
             'fundamentals/about-apis',
@@ -26,32 +33,7 @@ module.exports = [
             'specifications/reserved-parameters'
         ]
       },
-
-      /*
-      {
-        title: 'Request-Response',
-        children:[
-          'protocols/request-response/general-structure',
-          'protocols/request-response/provider',
-          'protocols/request-response/endpoint',
-          'protocols/request-response/authorizer',
-          'protocols/request-response/requester',
-          'protocols/request-response/client',
-          'protocols/request-response/designated-wallet',
-          'protocols/request-response/endorsement',
-          'protocols/request-response/template',
-          'protocols/request-response/request'
-        ]
-      },
-      {
-        title: 'Publish-Subscribe',
-        children:['protocols/publish-subscribe/introduction'
-        ]
-      },
-      */
-
-
-      {title: 'Protocols-Org', children:[
+      {title: 'Protocols', children:[
         {title: 'Request-Response',
           children:['protocols/request-response/general-structure',
           'protocols/request-response/provider',
@@ -63,7 +45,7 @@ module.exports = [
           'protocols/request-response/endorsement',
           'protocols/request-response/template',
           'protocols/request-response/request'
-          ]
+          ],
         },
         {
           title: 'Publish-Subscribe',
@@ -72,10 +54,25 @@ module.exports = [
         ]
       },
       {
-        title: 'Protocols',
+        title: 'Protocols (alt)',
         children: [
             'protocols/request-response',
             'protocols/publish-subscribe'
+        ]
+      },
+      {title: 'Guides', children:[
+          {title: 'Provider',
+            children:['guides/provider/api-integration',
+                      'guides/provider/configuring-airnode',
+                      'guides/provider/deploying-airnode',
+                      'guides/provider/setting-authorizers'
+            ]
+          },
+          {title: 'Requester',
+            children:['guides/requester/creating-requester',
+                      'guides/requester/developing-client-contract'
+            ]
+          }
         ]
       },
       {
@@ -86,8 +83,7 @@ module.exports = [
             'providers/configure-airnode',
             'providers/deploy-airnode',
             'providers/set-authorizers',
-        ]
-      },
+      ]},
       {
         title: 'Requesters',
         children: [

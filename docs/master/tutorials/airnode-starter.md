@@ -2,7 +2,6 @@
 title: Airnode Starter
 ---
 
-
 ::: tip
  Check out the project source code here [https://github.com/api3dao/airnode-starter](https://github.com/api3dao/airnode-starter)
 :::

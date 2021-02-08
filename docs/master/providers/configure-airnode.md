@@ -3,8 +3,6 @@ title: Configuring Airnode
 sidebarDepth: 3
 ---
 
-# {{ $frontmatter.title }}
-
 Users configure their Airnodes by providing a config.json and a security.json file during deployment/redeployment. config.json specifies the API–oracle integration specifications in the form of OISes, but also user-specific configuration details. security.json includes security credentials such as API keys. Both config.json and security.json formats are documented, which you can follow to create these files. This guide aims to follow a more instructive approach and give some tips along the way.
 
 We assume that you have already followed the API integration guide and created your OIS. Similar to the OIS template we have provided in the previous guide, we have a config.json template and a security.json template for this guide. Download these files and see the template notation information.

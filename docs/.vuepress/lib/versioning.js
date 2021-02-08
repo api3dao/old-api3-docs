@@ -20,24 +20,29 @@ module.exports = {
     // latest stable release
     get latest () {
 
-      fss.appendFile(logPath, `latest version: ${versions[1]}\n`, function (err) {
+      /* Until we have versions sent back master/next */
+      fss.appendFile(logPath, `latest version: ${versions[0]}\n`, function (err) {
         if (err) throw err;
       });
       //selectedVrs.version = versions[1];
       /*fss.appendFile(logPath, `selected version: ${version}\n`, function (err) {
         if (err) throw err;
       });*/
-      return versions[1]
+
+      /* Until we have versions sent back master/next */
+      //return versions[1]
+      return versions[0]
     },
+
+
     get all () {
-
-      /*fss.appendFile(logPath, `all version ${versions}\n`, function (err) {
+      fss.appendFile(logPath, `all version ${versions}\n`, function (err) {
         if (err) throw err;
-      });*/
-
+      });
       return versions
     }
   },
+  
   
   // Generate a single object that represents all versions from each sidebar
   // https://vuepress.vuejs.org/theme/default-theme-config.html#multiple-sidebars
@@ -49,10 +54,10 @@ module.exports = {
       sidebars[`/${version}/`] = sidebar
     })
     console.log('>>> sidebars', sidebars)
-    /*fss.writeFileSync(
+    fss.writeFileSync(
       `${path}/.vuepress/lib/versioning.log`,
       `sidebars: ${JSON.stringify(sidebars)}\n`,
-    );*/
+    );
 
     return sidebars
   },
@@ -65,7 +70,6 @@ module.exports = {
       let item = { text: version, link: `/${version}/${url}` }
       links.push(item)
     })
-
     return links
   },
 

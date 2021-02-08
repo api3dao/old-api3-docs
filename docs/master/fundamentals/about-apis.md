@@ -18,7 +18,7 @@ In practice, any kind of data or service that is worth using is served by a paid
   <img src="https://github.com/clc-group/api3-docs/raw/master/figures/coinmarketcap.png" />
 </p>
 
-## API connectivity problem
+## API Connectivity Problem
 
 A smart contract cannot access data that is not presently in the blockchain, which is commonly known as *the oracle problem*.
 This is only worth consideration because it includes not being able to call the paid (read: useful) APIs described above.
@@ -28,7 +28,7 @@ As you read through, you will discover that this redefinition will have ripple e
 
 *See our article, [The API Connectivity Problem](https://medium.com/api3/the-api-connectivity-problem-bd7fa0420636) for a more extensive treatment.*
 
-## API provider
+## API Provider
 
 API provider is a term that is criminally underused by existing oracle solutions.
 It refers to the business that owns and operates the API that the decentralized application needs to receive data and services from.

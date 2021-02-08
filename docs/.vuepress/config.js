@@ -2,6 +2,7 @@ const versioning = require('./lib/versioning.js')
 
 module.exports = {
   title: 'API3',
+  base: '/vuepress-docs/',
   description: 'Technical documentation for API3 ',
   markdown: {
     lineNumbers: true,
@@ -19,10 +20,10 @@ module.exports = {
         all: versioning.versions.all
     },
     nav: [
-      {
+      /*{
         text: 'Versions',
         items: versioning.linksFor('requesters/introduction.md') // TODO create custom component
-      },
+      },*/
       { text: 'Website', link: 'https://www.api3.org' },
       { text: 'Discord (Dev)', link: 'https://discord.gg/qnRrcfnm5W' },
       { text: 'Telegram (Chat)', link: 'https://t.me/API3DAO' },
@@ -34,7 +35,8 @@ module.exports = {
   },
   plugins: [
       ['@vuepress/last-updated'],
-      ['@vuepress/back-to-top', true],
+      /* reco is setting a back-top-top */
+      /*['@vuepress/back-to-top', true],*/
       ['@vuepress/search', {
           searchMaxSuggestions: 10,
           // Only search the latest version, e.g. 4.3, otherwise many duplicates will show up

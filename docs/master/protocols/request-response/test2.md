@@ -1,4 +1,0 @@
-<h1 id="frontmatter.title">{{$frontmatter.title}}</h1>
-<p>A client is a contract that makes Airnode requests. While making a request, the client refers to a <a href="/request-response-protocol/requester.md">requester</a> by its <a href="/request-response-protocol/requester.md#requesterIndex"><code>requesterIndex</code></a>, which means “fulfill my request with the <a href="/request-response-protocol/designated-wallet.md">designated wallet</a> of the requester identified by <code>requesterIndex</code>”. Doing so requires the client to be <a href="/request-response-protocol/endorsement.md">endorsed</a> by the said requester.</p>
-<p>Note that the client is the contract that makes the request. The client may specify the request such that the request is fulfilled by the provider’s Airnode calling back another contract.</p>
-<p>See the <a href="https://github.com/api3dao/airnode-client-examples">Airnode client examples</a>.</p>

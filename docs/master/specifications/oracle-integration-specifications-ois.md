@@ -1,9 +1,6 @@
 ---
 title: Oracle Integration Specifications (OIS)
-sidebarDepth: 3
 ---
-
-# {{$frontmatter.title}}
 
 ::: danger TODO
 Migration comment below

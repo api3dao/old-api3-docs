@@ -2,8 +2,6 @@
 title: Developing a Client Contract
 ---
 
-# {{ $frontmatter.title }}
-
 ## Overview
 
 A client is a contract that makes requests to providers using the Airnode.sol contract that implements the protocol. A client is endorsed by a requester, which means that it can specify its request to be fulfilled by the respective requester's designated wallet.

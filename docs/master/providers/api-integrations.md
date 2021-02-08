@@ -3,8 +3,6 @@ title: API Integration
 sidebarDepth: 3
 ---
 
-# {{ $frontmatter.title }}
-
 To integrate a System X to a System Y, we need to do three things:
 
 Specify the interface of System X

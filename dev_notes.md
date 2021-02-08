@@ -2,6 +2,14 @@
 
 Some issues that may come up while developing with VuePress.
 
+## Netlify ENV vars
+
+Adding environment variables to the Netlify deployment setup caused deploy errors.
+
+```bash
+vuepress not found
+```
+
 ## language does not exist
 
 While the message does not seem to be an issue it is annoying.
