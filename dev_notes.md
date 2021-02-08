@@ -2,14 +2,6 @@
 
 Some issues that may come up while developing with VuePress.
 
-## Netlify ENV vars
-
-Adding environment variables to the Netlify deployment setup caused deploy errors.
-
-```bash
-vuepress not found
-```
-
 ## language does not exist
 
 While the message does not seem to be an issue it is annoying.
@@ -34,3 +26,10 @@ A poosible solutions to the lack of a page-right sub-sidebar.
 
 https://github.com/vuepress-reco/vuepress-theme-reco/tags
 
+## Clean up origin/<branches> caused by missue of the deploy.sh script
+
+```bash
+git branch -d -r origin/<remote branch name> (This will not delete the branch on the remote repo!)
+```
+
+https://gist.github.com/magnusbae/10182865

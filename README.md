@@ -1,10 +1,6 @@
 # Documentation
 
-
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/d4a76c59-4220-43f3-a512-a42dc58e758d/deploy-status)](https://app.netlify.com/sites/wyo-prod/deploys)
-
-[Visit the Documents Website](https://wyo-prod.netlify.app/master/providers/introduction.html)
+[Documents Website](https://wkande.github.io/vuepress-docs/)
 
 ---
 
