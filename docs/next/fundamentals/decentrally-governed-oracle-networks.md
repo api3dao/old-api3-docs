@@ -15,11 +15,8 @@ An oracle network makes the same request to multiple independent oracles and red
 Individual malicious oracles cannot manipulate the outcome of this process, which provides a degree of decentralization and trustlessness.
 
 <p align="center">
-  <img src="https://github.com/clc-group/api3-docs/raw/master/figures/central-governance.png" />
-  <img src="https://github.com/clc-group/api3-docs/raw/master/figures/decentral-governance.png" />
+  <img src="/assets/figures/central-governance.png" />
+  <img src="/assets/figures/decentral-governance.png" />
 </p>
 
-Here, an important thing to consider is how the oracle network is governed.
-If a central entity can switch the oracles or APIs used in the aggregator in and out, or even replace the aggregator itself making use of a proxy mechanism, they can effectively manipulate the oracle network output at will.
-This eliminates the decentralization and trustlessness qualities that using an oracle network provides.
-Therefore, it is not adequate to use an oracle network for decentralization, this oracle network must be governed decentrally as well.
+An important thing to consider is how the oracle network is governed. If a central entity can switch the oracles or APIs used in the aggregator in and out, or even replace the aggregator itself making use of a proxy mechanism, they can effectively manipulate the oracle network output at will. This eliminates the decentralization and trustlessness qualities that using an oracle network provides. Therefore, it is not adequate to use an oracle network for decentralization, this oracle network must be governed decentrally as well.
