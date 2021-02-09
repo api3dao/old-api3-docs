@@ -26,19 +26,11 @@ The long term plan is to support all API schemes that there are demand for.
 Airnode is designed to be operated as a first-party oracle, i.e., by the API provider themselves.
 This results in very restrictive requirements:
 
-<p align="center">
-  <img src="https://github.com/clc-group/api3-docs/raw/master/figures/airnode.png" />
-</p>
+![airnode.png](../figures/airnode.png)
 
-* The API provider does not know how to operate an oracle node.
-Then, the oracle node should not require any know-how from the API provider.
+* The API provider does not know how to operate an oracle node. Then, the oracle node should not require any know-how from the API provider.
 * API–oracle node integration should be standardized so that tools can be developed to streamline the process.
-* The API provider does not want to invest man-hours to operate the node.
-Then, the oracle node should be *set-and-forget*.
-* The API provider does not want to pay for hosting when their oracle is not being used.
-Then, the hosting services should be priced on-demand.
-* The API provider cannot accept cryptocurrency as payment due to compliance, legal and accounting reasons.
-They cannot exchange cryptocurrencies or fund their node wallets for the same reasons.
-Then, the protocol should not require the API provider to handle cryptocurrency as a means of payment, or fund their node wallet periodically.
-* The API provider cannot stake funds that would expose them to financial risk due to compliance, legal and accounting reasons.
-Therefore, the security mechanics of the protocol should not depend on oracles to stake.
+* The API provider does not want to invest man-hours to operate the node. Then, the oracle node should be *set-and-forget*.
+* The API provider does not want to pay for hosting when their oracle is not being used. Then, the hosting services should be priced on-demand.
+* The API provider cannot accept cryptocurrency as payment due to compliance, legal and accounting reasons. They cannot exchange cryptocurrencies or fund their node wallets for the same reasons. Then, the protocol should not require the API provider to handle cryptocurrency as a means of payment, or fund their node wallet periodically.
+* The API provider cannot stake funds that would expose them to financial risk due to compliance, legal and accounting reasons. Therefore, the security mechanics of the protocol should not depend on oracles to stake.
