@@ -7,45 +7,34 @@ const versions = require('../versions.json')
 const fse = require('fs-extra')
 const path = process.cwd()+"/docs"
 const logPath = process.cwd()+"/docs/.vuepress/lib/versioning.log"
-//let {version} = require('./selectedVrs.js')
 
-const fss = require('fs')
-
-
-
-
+/**
+ * 
+ */
 module.exports = {
 
   versions: {
+
     // latest stable release
     get latest () {
 
-      /* Until we have versions sent back master/next */
-      fss.appendFile(logPath, `latest version: ${versions[0]}\n`, function (err) {
-        if (err) throw err;
-      });
-      //selectedVrs.version = versions[1];
-      /*fss.appendFile(logPath, `selected version: ${version}\n`, function (err) {
-        if (err) throw err;
-      });*/
-
-      /* Until we have versions sent back master/next */
+      /* Until we have versions sent to /next */
       //return versions[1]
+      console.log('>>> latest version:', versions[0])
       return versions[0]
     },
 
-
+    // get all versions
     get all () {
-      fss.appendFile(logPath, `all version ${versions}\n`, function (err) {
-        if (err) throw err;
-      });
+      console.log('>>> all versions:', versions)
       return versions
     }
   },
-  
-  
-  // Generate a single object that represents all versions from each sidebar
-  // https://vuepress.vuejs.org/theme/default-theme-config.html#multiple-sidebars
+   
+  /**
+   * Generate a single object that represents all versions from each sidebar
+   * https://vuepress.vuejs.org/theme/default-theme-config.html#multiple-sidebars
+   */
   get sidebars () {
     let sidebars = {}
 
@@ -53,11 +42,7 @@ module.exports = {
       let sidebar = require(`../../${version}/sidebar.js`)
       sidebars[`/${version}/`] = sidebar
     })
-    console.log('>>> sidebars', sidebars)
-    fss.writeFileSync(
-      `${path}/.vuepress/lib/versioning.log`,
-      `sidebars: ${JSON.stringify(sidebars)}\n`,
-    );
+    console.log('>>> sidebars:', sidebars)
 
     return sidebars
   },
@@ -73,7 +58,9 @@ module.exports = {
     return links
   },
 
-  // Generate a new version
+  /**
+   * Generate a new version
+   */
   generate (version) {
     version = version || process.argv[1]
     console.log('\n')
@@ -93,14 +80,14 @@ module.exports = {
     this.info(`Generating new version into 'docs/${version}' ...`)
 
     try {
-      fse.copySync(`${path}/master`, `${path}/${version}`)
+      fse.copySync(`${path}/next`, `${path}/${version}`)
 
-      // remove 'master' from the top of list
+      // remove 'next' from the top of list
       versions.shift()
       // add new generated version on top of list
       versions.unshift(version)
-      // add 'master' again on top of list
-      versions.unshift('master')
+      // add 'next' again on top of list
+      versions.unshift('next')
 
       // write to versions.json
       fs.writeFileSync(

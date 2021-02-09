@@ -26,9 +26,18 @@ A possible solution to the lack of a page-right sub-sidebar.
 
 https://github.com/vuepress-reco/vuepress-theme-reco/tags
 
+## Deploying Docs to GitHub Pages
+
+- Commit and push to remote repo.
+- Merge branches @remote repo to master.
+- Pull remote master to local repo.
+- Switch to local master branch.
+- Run the deploy.sh script.
+- Switch back to your next development branch.
+
 ## Clean up origin/<branches>
 
-May be needed to clear origin/gh-pages locally if you donot want it hanging around. Caused by missue of the deploy.sh script
+May be needed to clear origin/gh-pages locally if you do not want it hanging around. Caused by missue of the deploy.sh script.
 
 ```bash
 git branch -d -r origin/<remote branch name> (This will not delete the branch on the remote repo!)

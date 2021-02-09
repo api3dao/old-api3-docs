@@ -34,6 +34,7 @@ module.exports = {
     smoothScroll: true
   },
   plugins: [
+      ['vuepress-plugin-element-tabs'],
       ['@vuepress/last-updated'],
       /* reco is setting a back-top-top */
       /*['@vuepress/back-to-top', true],*/

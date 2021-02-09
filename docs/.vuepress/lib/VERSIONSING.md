@@ -8,7 +8,7 @@ Version specific changes are handled by keeping the docs for each version separa
 
 | Path                                 | Web route                                           |
 | ------------------------------------ | --------------------------------------------------- |
-| `docs/master/requesters/installation.md` | `https://mysite.com/master/requesters/installation.html` |
+| `docs/next/requesters/installation.md` | `https://mysite.com/next/requesters/installation.html` |
 | `docs/0.1.0/requesters/installation.md`    | `https://mysite.com/0.1.0/requesters/installation.html`    |
 | `docs/pages/README.md`                | `https://mysite.com/pages/README.html`                |
 
@@ -22,12 +22,12 @@ in a single PR.
 
 ### Tagging a new version
 
-1. First, finish your work on `docs/master`.
+1. First, finish your work on `docs/next`.
 
 1. Enter a new version number. We only tag minor releases, so `3.1` will get separate
     docs, but `3.1.4` will not.
 
         yarn bump 3.1
 
-This will copy the contents of `docs/master/` into `docs/<version>/`
+This will copy the contents of `docs/next/` into `docs/<version>/`
 and place a new version number in `docs/.vuepress/versions.json`.
