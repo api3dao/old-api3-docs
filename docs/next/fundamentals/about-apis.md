@@ -14,10 +14,7 @@ It allows Web developers to use all the data seen on https://coinmarketcap.com/ 
 In return, developers pay a [subscription fee](https://coinmarketcap.com/api/pricing/).
 In practice, any kind of data or service that is worth using is served by a paid API.
 
-
-![img](../figures/test.png)
-  <img :src="$withBase('/assets/figures/coinmarketcap.png')" />
-
+![img](../figures/coinmarketcap.png)
 
 ## API Connectivity Problem
 

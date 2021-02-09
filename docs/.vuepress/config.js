@@ -13,7 +13,7 @@ module.exports = {
     noFoundPageByTencent: false, /* vuepress-theme-reco */
     subSidebar: 'auto', /* vuepress-theme-reco */
     displayAllHeaders: false,
-    logo: '/assets/img/logo2.png',
+    logo: '/img/logo2.png',
     versions: {
         latest: versioning.versions.latest,
         selected: versioning.versions.latest,

@@ -14,9 +14,8 @@ In such cases, oracle networks provide the required decentralization.
 An oracle network makes the same request to multiple independent oracles and reduces their responses to a single answer through predetermined consensus rules implemented as a smart contract called the aggregator.
 Individual malicious oracles cannot manipulate the outcome of this process, which provides a degree of decentralization and trustlessness.
 
-<p align="center">
-  <img src="/assets/figures/central-governance.png" />
-  <img src="/assets/figures/decentral-governance.png" />
-</p>
+![central-governance.png](../figures/central-governance.png)
+
+![../figures/decentral-governance.png](../figures/decentral-governance.png)
 
 An important thing to consider is how the oracle network is governed. If a central entity can switch the oracles or APIs used in the aggregator in and out, or even replace the aggregator itself making use of a proxy mechanism, they can effectively manipulate the oracle network output at will. This eliminates the decentralization and trustlessness qualities that using an oracle network provides. Therefore, it is not adequate to use an oracle network for decentralization, this oracle network must be governed decentrally as well.
