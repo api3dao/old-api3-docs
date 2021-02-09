@@ -1,6 +1,5 @@
 ---
 title: security.json
-sidebarDepth: 1
 ---
 
 `security.json` is the file the deployer uses to push API credentials along with the serverless function.

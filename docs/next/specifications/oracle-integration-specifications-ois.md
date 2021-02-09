@@ -2,11 +2,11 @@
 title: Oracle Integration Specifications (OIS)
 ---
 
-::: danger TODO
-Migration comment below
-:::
 
-_This will be migrated from docs to its own repo._
+
+::: danger TODO
+This will be migrated from docs to its own repo.
+:::
 
 _Fields denoted by \_ are for documentation purposes and not used by the oracle node.\*
 
@@ -362,4 +362,3 @@ OAS equivalent: `paths.{path}.{method}.description` of corresponding operation
 \(Optional\) URL to external documentation for the endpoint.
 
 OAS equivalent: `paths.{path}.{method}.externalDocs` of corresponding operation
-
