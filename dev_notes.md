@@ -30,8 +30,8 @@ https://github.com/vuepress-reco/vuepress-theme-reco/tags
 
 - Commit and push to remote repo.
 - Merge branches @remote repo to master.
-- Pull remote master to local repo.
 - Switch to local master branch.
+- Pull remote master to local repo.
 - Run the deploy.sh script.
 - Switch back to your next development branch.
 
