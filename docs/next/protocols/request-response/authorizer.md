@@ -2,6 +2,8 @@
 title: Authorizer
 ---
 
+# {{$frontmatter.title}}
+
 An authorizer is a contract with the following interface:
 
 ```text

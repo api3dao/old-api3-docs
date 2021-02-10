@@ -1,6 +1,11 @@
 ---
-title: Oracle Integration Specifications (OIS) 1.0.0
+title: Oracle Integration Specifications (OIS)
+sidebarDepth: 3
 ---
+
+# {{$frontmatter.title}}
+
+**Oracle Integration Specifications (OIS) 1.0.0** 
 
 *This will be migrated from docs to its own repo.*
 

@@ -8,7 +8,7 @@ module.exports = {
     lineNumbers: true,
     toc: { includeLevel: [1, 2, 3] },
   },
-  theme: 'reco',
+
   themeConfig: {
     noFoundPageByTencent: false, /* vuepress-theme-reco */
     subSidebar: 'auto', /* vuepress-theme-reco */
@@ -37,7 +37,7 @@ module.exports = {
       ['vuepress-plugin-element-tabs'],
       ['@vuepress/last-updated'],
       /* reco is setting a back-top-top */
-      /*['@vuepress/back-to-top', true],*/
+      ['@vuepress/back-to-top', true],
       ['@vuepress/search', {
           searchMaxSuggestions: 10,
           // Only search the latest version, e.g. 4.3, otherwise many duplicates will show up

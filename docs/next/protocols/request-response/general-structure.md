@@ -3,6 +3,8 @@ title: General Structure
 
 ---
 
+# {{$frontmatter.title}}
+
 The first protocol implemented for Airnode is request–response. An Airnode serving the request–response protocol listens for requests, makes the API call specified by the request, and fulfills the request as soon as possible.
 
 The request–response protocol is implemented as a single permisionless contract that all Airnodes interact with, which is named `Airnode.sol`. This contract has the following inheritance tree that compartmentalizes the aspects of the protocol:

@@ -2,6 +2,8 @@
 title: Airnode ABI
 ---
 
+# {{$frontmatter.title}}
+
 [Contract application binary interface \(ABI\)](https://docs.soliditylang.org/en/v0.6.12/abi-spec.html) is used to encode different types of data while interacting with Ethereum contracts. As a result, both Solidity and modules such as web3.js and ethers.js treat ABI encoding–decoding functionality as a first-class citizen. This makes using contract ABI for encoding API call parameters a very attractive option.
 
 Although encoding API call parameters using contract ABI has many advantages, it cannot be used for this purpose directly. Quoting from the [Solidity docs](https://docs.soliditylang.org/en/v0.6.12/abi-spec.html):
@@ -157,3 +159,7 @@ The header can encode up to 31 parameters \(and 1 byte is used to encode the enc
 ### Padding
 
 We are using the [strict encoding mode](https://docs.soliditylang.org/en/v0.6.12/abi-spec.html#strict-encoding-mode) so that we can decode the values later on. This means that each parameter will be padded with zeros to complete them to 32 bytes. Although this padding increases gas costs, ABI encoding/decoding functions being cheap balances this. Furthermore, the [template](/request-response-protocol/template.md) pattern we use in our protocols allows us to refer to these encoded parameters without explicitly passing them in our requests, making the increased cost induced by padding irrelevant in most cases.
+
+## `@api3/airnode-abi`
+
+The user may need to encode and decode Airnode ABI off-chain. For that, we have published the related [Airnode monorepo package](https://github.com/api3dao/airnode/tree/master/packages/airnode-abi) under the name `@api3/airnode-abi`. You can refer to the [`airnode-starter`](https://github.com/api3dao/airnode-starter/blob/9ec0e62b9d5edccd2b711250055b6bdb0cc049ef/scripts/make-request.js#L25) repo for an example usage.

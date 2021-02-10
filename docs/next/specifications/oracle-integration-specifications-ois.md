@@ -2,7 +2,7 @@
 title: Oracle Integration Specifications (OIS)
 ---
 
-
+# {{$frontmatter.title}}
 
 ::: danger TODO
 This will be migrated from docs to its own repo.

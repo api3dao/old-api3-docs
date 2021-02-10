@@ -2,6 +2,8 @@
 title: Ethereum Providers
 ---
 
+# {{$frontmatter.title}}
+
 An oracle node requires access to a blockchain (e.g., Ethereum) node to listen for request events and send transactions to fulfill requests.
 The Airnode model aims to minimize the node operation effort using managed services wherever possible.
 Accordingly, it is assumed that the typical user will be using an Ethereum provider such as Infura, Alchemy, etc.

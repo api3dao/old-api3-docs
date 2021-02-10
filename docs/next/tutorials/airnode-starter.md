@@ -1,6 +1,9 @@
 ---
 title: Airnode Starter
+sidebarDepth: 3
 ---
+
+# {{$frontmatter.title}}
 
 ::: tip
  Check out the project source code here [https://github.com/api3dao/airnode-starter](https://github.com/api3dao/airnode-starter)
@@ -9,7 +12,7 @@ title: Airnode Starter
 This project is composed of two steps:
 
 1. Deploy an Airnode on Ropsten
-2. Make a request to the deployed Airnode in a contract
+1. Make a request to the deployed Airnode in a contract
 
 You can skip the first step and use the Airnode that we have deployed as well. You are recommended to read the contents of the scripts as you run them, and read the entire readme before starting.
 
@@ -18,27 +21,27 @@ You can skip the first step and use the Airnode that we have deployed as well. Y
 First, you need to create a Ropsten wallet with some ETH in it.
 
 1. Clone this repo
-2. Run the following to install the dependencies
+1. Run the following to install the dependencies
 
    ```bash
    npm install
    ```
 
-3. Run the following to build the contracts
+1. Run the following to build the contracts
 
    ```bash
    npm run build
    ```
 
-4. Run the following to generate a wallet, whose mnemonic phrase will be displayed on the terminal and recorded in a `.env` file at the project root.
+1. Run the following to generate a wallet, whose mnemonic phrase will be displayed on the terminal and recorded in a `.env` file at the project root.
 
    ```bash
    npm run generate-wallet
    ```
 
-5. Install [Metamask](https://metamask.io/) to your web browser
-6. Import the mnemonic phrase to Metamask
-7. Use the [faucet](https://faucet.metamask.io/) to get some Ropsten ETH
+1. Install [Metamask](https://metamask.io/) to your web browser
+1. Import the mnemonic phrase to Metamask
+1. Use the [faucet](https://faucet.metamask.io/) to get some Ropsten ETH
 
 Then, you need to get a Ropsten provider URL. This will be used both by the deployed Airnode and by you while interacting with contracts. 1. Go to [Infura](https://infura.io/), create an account and get a Ropsten provider URL 2. Replace `https://ropsten.infura.io/v3/{YOUR_KEY}` in your `.env` file with the URL you got from Infura
 

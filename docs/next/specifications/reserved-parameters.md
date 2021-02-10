@@ -2,6 +2,8 @@
 title: Reserved Parameters
 ---
 
+# {{$frontmatter.title}}
+
 A requester can pass request parameters either by referencing a [template](/request-response-protocol/template.md) that contains them, or as an argument of the request-making methods of [`Airnode.sol`](/request-response-protocol/general-structure.md#airnodesol). In either case, these parameters are encoded in a `bytes`-type variable using [Airnode ABI](/airnode/airnode-abi-specifications.md). There are two types of parameters:
 
 1. [Endpoint parameters](https://github.com/api3dao/api3-docs/blob/master/airnode/ois.md#55-parameters) mapped to API operation parameters

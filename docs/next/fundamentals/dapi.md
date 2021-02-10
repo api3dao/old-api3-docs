@@ -2,6 +2,8 @@
 title: dAPI (Decentralized API)
 ---
 
+# {{$frontmatter.title}}
+
 We have covered the following:
 
 * Decentralized applications need access to [APIs](/fundamentals/api.md)

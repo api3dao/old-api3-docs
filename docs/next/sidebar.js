@@ -1,6 +1,6 @@
 module.exports = [
       {
-        title: 'Getting Started (alt)',
+        title: 'Getting Started',
         children: [
             'getting-started/what-is-api3',
             'getting-started/contributing'
@@ -20,7 +20,9 @@ module.exports = [
         children: [
             'airnode/design-philosophy',
             'airnode/implementation',
-            'airnode/ethereum-providers'
+            'airnode/ethereum-providers',
+            'airnode/ois',
+            'airnode/config-json'
         ]
       },
       {
@@ -51,7 +53,7 @@ module.exports = [
         children:['protocols/publish-subscribe/roadmap'
         ]
       },*/
-      {title: 'Protocols (alt)', children:[
+      {title: 'Protocols', children:[
         {title: 'Request-Response',
           children:['protocols/request-response/general-structure',
           {path:'protocols/request-response/provider', title:'Provider'},
@@ -71,13 +73,13 @@ module.exports = [
           ]}
         ]
       },
-      {
+      /*{
         title: 'Protocols (alt2)',
         children: [
             'protocols/request-response',
             'protocols/publish-subscribe'
         ]
-      },
+      },*/
       {title: 'Guides', children:[
           {title: 'Provider',
             children:['guides/provider/api-integration',
@@ -90,26 +92,32 @@ module.exports = [
             children:['guides/requester/creating-requester',
                       'guides/requester/developing-client-contract'
             ]
+          },
+          {title: 'Templates',
+            children:['templates/ois.md',
+                      'templates/config.md',
+                      'templates/security.md'
+            ]
           }
         ]
       },
-      {
-        title: 'Providers',
+      /*{
+        title: 'Providers Guide (alt)',
         children: [
-            'providers/introduction.md',
-            'providers/api-integrations',
-            'providers/configure-airnode',
-            'providers/deploy-airnode',
-            'providers/set-authorizers',
+            'providers-guide/introduction.md',
+            'providers-guide/api-integrations',
+            'providers-guide/configure-airnode',
+            'providers-guide/deploy-airnode',
+            'providers-guide/set-authorizers',
       ]},
       {
-        title: 'Requesters',
+        title: 'Requesters Guide (alt)',
         children: [
-            'requesters/introduction',
-            'requesters/create-request',
-            'requesters/develop-client-contract'
+            'requesters-guide/introduction',
+            'requesters-guide/create-request',
+            'requesters-guide/develop-client-contract'
         ]
-      },
+      },*/
       {
         title: 'Tutorials',
         children: [

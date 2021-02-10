@@ -18,6 +18,5 @@
     "vuepress-plugin-element-tabs": "^0.2.8"
   },
   "dependencies": {
-    "vuepress-theme-reco": "^1.6.1"
   }
 }

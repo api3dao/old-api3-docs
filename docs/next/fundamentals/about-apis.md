@@ -3,11 +3,11 @@ title: About APIs
 showComment: false
 ---
 
+# {{$frontmatter.title}}
+
 *See our article, [APIs: The Digital Glue](https://medium.com/api3/apis-the-digital-glue-7ac87566e773) for a more complete background on APIs.*
 
-An API (Application Programming Interface) is a well-defined and documented protocol that one can use to interact with an application programmatically.
-In the context of decentralized applications, this definition is quite useless, and even misguiding.
-Instead, we should see APIs as channels businesses use to monetize their data and services.
+An API (Application Programming Interface) is a well-defined and documented protocol that one can use to interact with an application programmatically. In the context of decentralized applications, this definition is quite useless, and even misguiding. Instead, we should see APIs as channels businesses use to monetize their data and services.
 
 Take the [CoinMarketCap API](https://coinmarketcap.com/api/) as an example.
 It allows Web developers to use all the data seen on https://coinmarketcap.com/ and more in their applications programmatically by making API calls.
