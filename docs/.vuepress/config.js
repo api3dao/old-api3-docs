@@ -1,7 +1,7 @@
 const versioning = require('./lib/versioning.js')
 
 module.exports = {
-  title: 'API3',
+  title: 'Documentation',
   base: '/vuepress-docs/',
   description: 'Technical documentation for API3 ',
   markdown: {
@@ -13,7 +13,7 @@ module.exports = {
     noFoundPageByTencent: false, /* vuepress-theme-reco */
     subSidebar: 'auto', /* vuepress-theme-reco */
     displayAllHeaders: false,
-    logo: '/img/logo2.png',
+    logo: '/img/api3-cropped.png',
     versions: {
         latest: versioning.versions.latest,
         selected: versioning.versions.latest,
