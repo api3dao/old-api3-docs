@@ -32,7 +32,7 @@ https://github.com/vuepress-reco/vuepress-theme-reco/tags
 - Merge branches @remote repo to master.
 - Switch to local master branch.
 - Pull remote master to local repo.
-- Run the deploy.sh script.
+- Run the deploy.sh script (passphrase for ssh key will be needed).
 - Switch back to your next development branch.
 
 ## Clean up origin/<branches>

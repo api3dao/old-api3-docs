@@ -7,6 +7,10 @@ sidebarDepth: 3
 <!-- General Structure -->
 <!-- ----------------- -->
 
+::: danger 
+In (alt2) the entire request-response protocol would be in a single markdown file.
+:::
+
 ## General Structure
 
 The first protocol implemented for Airnode is request–response. An Airnode serving the request–response protocol listens for requests, makes the API call specified by the request, and fulfills the request as soon as possible.

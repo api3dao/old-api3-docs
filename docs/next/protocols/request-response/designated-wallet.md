@@ -2,7 +2,7 @@
 title: Designated Wallet
 ---
 
-Each [provider](/request-response-protocol/provider.md) keeps a designated wallet for each [requester](/request-response-protocol/requester.md). [Clients](/request-response-protocol/client.md) [endorsed](/request-response-protocol/endorsement.md) by a requester can specify their requests to be fulfilled by the said requester's designated wallet. This allows the requester to cover the gas cost of request fulfillments.
+Each [provider](./provider.md) keeps a designated wallet for each [requester](./requester.md). [Clients](./client.md) [endorsed](./endorsement.md) by a requester can specify their requests to be fulfilled by the said requester's designated wallet. This allows the requester to cover the gas cost of request fulfillments.
 
 ## Deriving the address of the designated wallet
 

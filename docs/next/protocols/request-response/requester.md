@@ -2,15 +2,15 @@
 title: Requester
 ---
 
-A requester is an entity \(individual, business, etc.\) whose contracts make requests to [providers](/request-response-protocol/provider.md). These contracts are called [clients](/request-response-protocol/client.md).
+A requester is an entity \(individual, business, etc.\) whose contracts make requests to [providers](./provider.md). These contracts are called [clients](./client.md).
 
-After a client makes a request, the provider uses the respective requester's [designated wallet](/request-response-protocol/designated-wallet.md) to fulfill the request, meaning that the requester covers the gas cost. This relationship between the requester and the client is announced by the requester [endorsing](/request-response-protocol/endorsement.md) the client.
+After a client makes a request, the provider uses the respective requester's [designated wallet](./designated-wallet.md) to fulfill the request, meaning that the requester covers the gas cost. This relationship between the requester and the client is announced by the requester [endorsing](./endorsement.md) the client.
 
 ## `requesterIndex`
 
 A requester needs to create a record on-chain, which results in them being assigned a requester index \(`requesterIndex`\). Note that unlike `providerId`, this index will not be the same across all chains.
 
-A requester can use the [`xpub` of a provider](/request-response-protocol/provider.md#xpub) and their `requesterIndex` to derive the address of their [designated wallet](/request-response-protocol/designated-wallet.md) for that provider.
+A requester can use the [`xpub` of a provider](./provider.md#xpub) and their `requesterIndex` to derive the address of their [designated wallet](./designated-wallet.md) for that provider.
 
 ## `requesterAdmin`
 

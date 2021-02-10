@@ -2,20 +2,16 @@
 title: Endorsement
 ---
 
-Airnode serves APIs to blockchains according to [Oracle Integration Specifications \(OIS\)](/airnode/ois.md). APIs are composed of [operations](/airnode/ois.md#44-paths), which represent individual functionalities that an API offers. OIS maps each API operation to an [endpoint](/airnode/ois.md#5-endpoints), which can be thought of as an Airnode operation. The endpoints that an Airnode will serve over the request–response protocol are listed under [`triggers`](/airnode/config-json.md#triggers) of [`config.json`](/airnode/config-json.md).
+A [requester](./requester.md) announcing that a [client](./client.md) can specify their requests to be fulfilled by the requester's [designated wallets](./designated-wallet.md) is called an endorsement.
+This is done by the `requesterAdmin` calling `RequesterStore.sol` with the client contract's address.
+The check of if a client is endorsed by the requester whose designated wallet it wants to have the request fulfilled with is done at the protocol level (and not by Airnodes).
 
-## `endpointId`
+## How an endorsed client refers to the endorser
 
-`endpointId` identifies specific endpoints that a provider serves, and is computed in JS \(using ethers.js\) as follows:
+A client contract can have multiple requesters that have endorsed it.
+While making a request, the client both provides the `designatedWallet` address that it wants to have the request fulfilled by, and also the `requesterInd` of the requester that this wallet belongs to.
+The contract checks if the client is endorsed, and if so, emits the request event.
 
-```javascript
-endpointId = ethers.utils.keccak256(ethers.utils.defaultAbiCoder.encode(['string'], [`${OIS_NAME}/${ENDPOINT_NAME}`]));
-```
-
-Note that this means that `endpointId`s are not unique, and two providers can serve equivalent endpoints using the same ID \(in fact, this is the desired outcome\). This is not an issue, as requests are made with a `providerId` and `endpointId` pair.
-
-This convention of determining `endpointId`s is not enforced at the protocol-level. For example, the provider can choose to generate their `endpointId`s randomly, and as long as their requesters use correct `endpointId`s, this will not be an issue.
-
-## Authorizers
-
-Providers can assign a list of authorizers to their endpoints. See the [section about authorizers](/request-response-protocol/authorizer.md) for more details.
+Airnode derives the designated wallet address using the provided `requesterIndex`, then checks if this matches `designatedWallet`.
+Airnode will ignore the request if the two do not match.
+This is done this way because deriving the designated wallet address from the `requesterIndex` on-chain is not feasible.

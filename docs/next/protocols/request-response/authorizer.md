@@ -37,9 +37,7 @@ A protocol that does not have the authorizer scheme or equivalent functionality 
 
 There are two main points to consider about how authorization policies are implemented:
 
-1. If the policies are kept off-chain, the requester cannot see them or check if they satisfy them.
-
-   Furthermore, the provider updating the policies \(e.g., increasing the service fees\) requires off-chain coordination with the requester.
+1. If the policies are kept off-chain, the requester cannot see them or check if they satisfy them. Furthermore, the provider updating the policies \(e.g., increasing the service fees\) requires off-chain coordination with the requester.
 
 2. Embedding the policies in the request–response loop results in a gas cost overhead.
 
