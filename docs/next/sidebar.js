@@ -29,8 +29,8 @@ module.exports = [
         title: 'Specifications',
         children: [
             'specifications/oracle-integration-specifications-ois',
-            'specifications/config.json',
-            'specifications/security.json',
+            'specifications/config-json',
+            'specifications/security-json',
             'specifications/airnode-abi',
             'specifications/reserved-parameters'
         ]
@@ -121,7 +121,8 @@ module.exports = [
       {
         title: 'Tutorials',
         children: [
-            'tutorials/airnode-starter'
+            'tutorials/airnode-starter',
+            'tutorials/aws-credentials'
         ]
       }
     ]

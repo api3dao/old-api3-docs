@@ -14,7 +14,7 @@ The upside of containerizing the deployer is that you only need to install Docke
 
 The deployer interacts with your cloud provider to deploy Airnode programmatically, without requiring you to click through a lot of ever-changing graphical interfaces. For it to be able to do that, you need to give it permission.
 
-To be able to do this, you need to create a new user in your AWS account, give it programmatic access, retrieve its access key ID and secret access keys, and feed these to the deployer. Fortunately, this is not nearly as complicated as it sounds. Follow [this video](https://www.youtube.com/watch?v=KngM5bfpttA), get your keys, and put them in a file named `.env` as below (values are made up, you need to replace these with your own):
+To be able to do this, you need to create a new user in your AWS account, give it the **Programmatic Access** privilege, retrieve its access key ID and secret access keys, and feed these to the deployer. Fortunately, this is not nearly as complicated as it sounds. Follow [this video](https://www.youtube.com/watch?v=KngM5bfpttA), get your keys, and put them in a file named `.env` as below (values are made up, you need to replace these with your own):
 
 ```
 AWS_ACCESS_KEY_ID=JSDYNDRUA1XAF2W3UGPA

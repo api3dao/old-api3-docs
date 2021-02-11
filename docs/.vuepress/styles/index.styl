@@ -47,7 +47,7 @@
   border-left:solid lightgrey 5px !important;
 }
 
-/* Vuepress native sidebar */
+/* START Vuepress native sidebar changes */
 a.active.sidebar-link:not(.sidebar-sub-headers .sidebar-sub-header .sidebar-link) {
   background-color:#e0ffdd !important;
   border-left:4px solid #e0ffdd !important;
@@ -57,16 +57,26 @@ a.active.sidebar-link:not(.sidebar-sub-headers .sidebar-sub-header .sidebar-link
 }
 
 
-
-p.sidebar-heading{
-  color:gray;
+p.sidebar-heading.open{
+  color:black !important;
 }
+p.sidebar-heading{
+  color:gray !important;
+}
+
 ul.sidebar-sub-headers{
   margin-left:38px !important;
   border-left:2px lightgrey solid !important;
 }
 li.sidebar-sub-header{
   margin-left:-35px !important;
+}
+/* END sidbar changes */
+
+
+/* Site name at top of landing page */
+.site-name{
+  font-size:large !important;
 }
 
 
