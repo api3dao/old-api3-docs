@@ -28,7 +28,7 @@ Airnode will deploy serverless functions to AWS Lambda. Follow these steps to cr
     
     <img style="border:solid gray 2px" src="./images-aws/aws-verify.png" alt="drawing" width="100"/>
 
-1. The final page shows the newly created user and its keys. 
+1. The final page shows the newly created user and its keys. Be sure to write down the **Secret access key**, it can only be viewed once and tehn is hidden by AWS.
 
     <img style="border:solid gray 2px" src="./images-aws/aws-keys.png" alt="drawing" width="100"/>
 

@@ -1,6 +1,9 @@
 const versioning = require('./lib/versioning.js')
 
 module.exports = {
+  head: [
+    ['link', { rel: 'icon', href: '/img/small-logo.png' }]
+  ],
   title: 'Documentation',
   base: '/vuepress-docs/',
   description: 'Technical documentation for API3 ',

@@ -35,25 +35,7 @@ module.exports = [
             'specifications/reserved-parameters'
         ]
       },
-      /*{title: 'Request-Response Protocol',
-        children:['protocols/request-response/general-structure',
-        {path:'protocols/request-response/provider', title:'Provider'},
-        'protocols/request-response/endpoint',
-        'protocols/request-response/authorizer',
-        'protocols/request-response/requester',
-        'protocols/request-response/client',
-        'protocols/request-response/designated-wallet',
-        'protocols/request-response/endorsement',
-        'protocols/request-response/template',
-        'protocols/request-response/request'
-        ],
-      },
-      {
-        title: 'Publish-Subscribe Protocol',
-        children:['protocols/publish-subscribe/roadmap'
-        ]
-      },*/
-      {title: 'Protocols', children:[
+      {title: 'Protocols', initialOpenGroupIndex: -1, children:[
         {title: 'Request-Response',
           children:['protocols/request-response/general-structure',
           {path:'protocols/request-response/provider', title:'Provider'},
@@ -73,14 +55,7 @@ module.exports = [
           ]}
         ]
       },
-      /*{
-        title: 'Protocols (alt2)',
-        children: [
-            'protocols/request-response',
-            'protocols/publish-subscribe'
-        ]
-      },*/
-      {title: 'Guides', children:[
+      {title: 'Guides', initialOpenGroupIndex: -1, children:[
           {title: 'Provider',
             children:['guides/provider/api-integration',
                       'guides/provider/configuring-airnode',

@@ -10,7 +10,7 @@ A starter project for deploying and making requests to an Airnode. This project 
 1. Deploy an Airnode on Ropsten.
 1. Making a request to the deployed Airnode in a contract.
 
-You can skip the first step and use the Airnode that we have deployed. It is recommended that you read the contents of the scripts as you run them, and read the entire readme before starting.
+You can skip the first step and use a pre-deployed Airnode. It is recommended that you read the contents of the scripts as you run them, fought in the scripts directory of the airnode-starter project. Also read this entire tutorial before starting.
 
 ::: tip
  Check out the source code in the [airnode-starter](https://github.com/api3dao/airnode-starter) project.
@@ -41,9 +41,9 @@ npm install
 npm run build
   ```
 
-### Prepare Wallet
+### Prepare Master Wallet
 
-Run the following to generate a wallet, whose mnemonic phrase will be displayed on the terminal and recorded in a `.env` file at the project root.
+Run the following to generate a **Master Wallet**, whose mnemonic phrase will be displayed on the terminal and recorded in a `.env` file at the project root.
 
 ```bash
 cd airnode-starter
@@ -51,7 +51,7 @@ npm run generate-wallet
 ```
 
 1. Install [Metamask](https://metamask.io/) to your web browser.
-1. Import the mnemonic phrase to Metamask.
+1. Import the mnemonic phrase (returned by generate-wallet) to Metamask.
 1. Use the [faucet](https://faucet.metamask.io/) to get some Ropsten ETH.
 
 ### Ropsten Provider URL
@@ -114,7 +114,13 @@ npm run customize-config
 
 ### Deploy
 
-The **/config** directory now has the required [`config.json`](../airnode/config-json.html), [`security.json`](../specifications/security-json.html) and [`.env`](../guides/provider/deploying-airnode.md#creating-cloud-credentials) files. Run the following to deploy the node:
+The **/config** directory now has the required files for deployment.  
+
+- [config.json](../airnode/config-json.html)
+- [security.json](../specifications/security-json.html)
+- [.env](../guides/provider/deploying-airnode.html#creating-cloud-credentials)
+
+Run the following to deploy the node. This will output a receipt file with the extension **.receipt.json** in the /config directory.
 
 ```bash
 # Only run the deployer from the /config directory
@@ -127,21 +133,19 @@ docker run -it --rm \
   api3/airnode:latest
 ```
 
-This will output a receipt file with the extension **.receipt.json** in the /config directory.
-
 ### Fund Master Wallet
 
-Run the following to send your master wallet 0.1 ETH for it to [create a provider record](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/provider.md#creating-a-provider-record) for you on-chain.
+Run the following to send your **Master Wallet** 0.1 ETH to [create a provider record](../protocols/request-response/provider.html#creating-a-provider-record) on-chain. The deployed Airnode will use these funds for the transaction that will create the provider record on Ropsten. Leftover ETH will be returned to your address automatically.
 
 ```bash
 npm run fund-master-wallet
 ```
 
-Your deployed Airnode will use these funds to make the transaction that will create the provider record on Ropsten, and send the leftover ETH back to your address automatically.
-
 ### Make Endpoint Publicly Accessible
 
-`config.json` defines an [endpoint](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/endpoint.md) named `coinMarketData`, whose [`endpointId`](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/endpoint.md#endpointid) is `0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c`. Endpoints are not publicly accessible by default, so you will have to make a transaction for this. Run the following to set your endpoint's [authorizers](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/authorizer.md) to `[0x0000000000000000000000000000000000000000]`, which makes it [publicly accessible](https://github.com/api3dao/api3-docs/blob/master/provider-guides/setting-authorizers.md#allow-all):
+**config.json** defines an [endpoint](../protocols/request-response/endpoint.html) named `coinMarketData`, whose [endpointId](../protocols/request-response/endpoint.html#endpointid) is `0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c`. 
+
+Endpoints are not publicly accessible by default. Run the command **update-authorizers** to set your endpoint's [authorizers](../protocols/request-response/authorizer.html) to `[0x0000000000000000000000000000000000000000]`, which makes it [publicly accessible](../guides/provider/setting-authorizers.html#allow-all):
 
 ```bash
 npm run update-authorizers
@@ -153,21 +157,19 @@ npm run update-authorizers
 
 ## Step 2: Make a request
 
-The scripts in this step will use the Airnode you have deployed if you have completed Step 1. Otherwise, it will use the `providerId` of the Airnode that we have deployed given in [`parameters.js`](/src/parameters.js). Note that the `endpointId` will be the same either way because it is [derived from the OIS and endpoint name](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/endpoint.md#endpointid).
+The scripts in this section will use the Airnode created in *Step 1*. Otherwise, it will a default (pre-deployed) Airnode. It uses the **providerId** in [parameters.js](https://github.com/api3dao/airnode-starter/blob/main/src/parameters.js). Note that the endpointId will be the same either way because it is derived from the [OIS and endpoint name](../protocols/request-response/endpoint.md#endpointid).
 
 ### Create Requester
 
-Run the following to create an on-chain [requester](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/requester.md) record:
+Run the following to create an on-chain [requester](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/requester.md) record. Use the requester, denoted with an index, in other projects as well. Note that **requesterIndex** is chain-specific, create another requester record for other chains.
 
 ```bash
 npm run create-requester
 ```
 
-You can use this requester denoted with an index in other projects as well. Note that `requesterIndex` is chain-specific, so you will have to create another requester record on other chains.
-
 ### Deploy Client Contract
 
-Run the following to deploy `ExampleClient.sol`:
+Run the following to deploy the contract **/contracts/ExampleClient.sol** from the airnode-starter project.
 
 ```bash
 npm run deploy-client
@@ -175,7 +177,7 @@ npm run deploy-client
 
 ### Endorse Client
 
-Run the following to [endorse](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/endorsement.md) your deployed [client](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/client.md) contract using the requester you have created:
+Run the following command to [endorse](../protocols/request-response/endorsement.md) your deployed [client](../protocols/request-response/client.md) contract using the requester created above.
 
 ```bash
 npm run endorse-client
@@ -183,38 +185,36 @@ npm run endorse-client
 
 ### Derive/Fund Designated Wallet
 
-First run the following to derive the [designated wallet](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/designated-wallet.md) for the provider–requester pair:
+First run the following to derive a [designated wallet](../protocols/request-response/designated-wallet.md) for the provider–requester pair:
 
 ```bash
 npm run derive-designated-wallet-address
 ```
 
-and then fund this designated wallet with 0.1 ETH:
+Next fund the designated wallet with 0.1 ETH. The requests that the client contract will make will be funded by this 0.1 ETH. It may be necessary to run **fund-designated-wallet** again if you make too many requests and use up this 0.1 ETH (unlikely on Ropsten because the gas price is low).
 
 ```bash
 npm run fund-designated-wallet
 ```
 
-The requests that the client contract will make will be funded by this 0.1 ETH. Note that you may have to run `fund-designated-wallet` again if you make too many requests and use up this 0.1 ETH \(unlikely on Ropsten because the gas price is low\).
-
 ### Make Request
 
-Run the following to make a request which will be fulfilled by the Airnode and printed out on the terminal. Note  the price is now on-chain, you can use it in your contract to implement any arbitrary logic.
+Run the following command to make a request which will be fulfilled by the Airnode and printed out on the terminal. Note the price is now on-chain, you can use it in your contract to implement any arbitrary logic.
 
 ```text
 npm run make-request
 ```
 
-Try replacing the **coinId** value in [make-request.js](https://github.com/api3dao/airnode-starter/blob/main/scripts/make-request.js) from `"ethereum"` to `"bitcoin"` and make another request. You can see the API docs to see which coin IDs are supported.
+Try replacing the **coinId** value in [make-request.js](https://github.com/api3dao/airnode-starter/blob/main/scripts/make-request.js) from **ethereum** to **bitcoin** and make another request. You can see the API docs to see which coin IDs are supported.
 
 ## Remove the Airnode
 
-This step is optional but recommended.
-
-It is very unlikely for you to forget to take down your Airnode because it is designed to be *set-and-forget*.
-When you are done with this project, go to `config/` as your working directory and use the command below where `$RECEIPT_FILENAME` is replaced with the name of your receipt file ending with `.receipt.json` (you can refer to our [Docker instructions](https://github.com/api3dao/airnode/blob/master/Docker.md) for more information).
+Because the Airnode is *set-and-forget*, it is easy to forget that it is still functioning. To remove it, go to `config/` directory and use the command below where `$RECEIPT_FILENAME` is replaced with the name of your receipt file ending with `.receipt.json` (you can refer to the [Docker instructions](https://github.com/api3dao/airnode/blob/master/Docker.md) for more information).
 
 ```sh
+# Interact with the deployer from the /config directory
+cd /config
+
 docker run -it --rm \
   --env-file .env \
   --env COMMAND=remove-with-receipt \
@@ -229,6 +229,5 @@ You deployed an Airnode, made a request to it and received the response at the c
 
 * [API3 whitepaper](https://github.com/api3dao/api3-whitepaper) will give you a broad overview of the project
 * [Medium posts](https://github.com/api3dao/api3-docs/blob/master/medium.md) are a more digestible version of the whitepaper
-* [API3 docs](https://github.com/api3dao/api3-docs) will provide you with the theory of how Airnode and its protocol works
-* [`airnode-admin`](https://github.com/api3dao/airnode-admin) lets you interact with the Airnode contract \(to create a request, endorse a client, etc.\) using a CLI tool
-* [Airnode client examples](https://github.com/api3dao/airnode-client-examples) demonstrate different request patterns that the Airnode protocol supports \(for example, we used a full request in this starter project\)
+* [airnode-admin](https://github.com/api3dao/airnode-admin) lets you interact with the Airnode contract \(to create a request, endorse a client, etc.\) using a CLI tool
+* [Airnode client examples](https://github.com/api3dao/airnode-client-examples) demonstrate different request patterns that the Airnode protocol supports (for example, we used a full request in this starter project).
