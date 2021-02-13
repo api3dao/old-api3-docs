@@ -2,23 +2,19 @@
 home: true
 heroImage: 
 heroText: API3 Documentation
-tagline: Vist the current version of the documentation.
+tagline: Decentralized APIs for Web 3.0
 actionText: Get Started →
 actionLink: /next/getting-started/what-is-api3
 features:
-- title: What is API3?
-  details: API3 is a collaborative project to deliver traditional API services to smart contract platforms in a decentralized and trust-minimized way. It is governed by a decentralized autonomous organization (DAO), its code is open source and its operations are transparent.
-- title: API3 Thesis Statement
-  details: The vast majority of the external integrations that decentralized applications need are to commercial Web APIs that traditional businesses have built to monetize their data and services. Therefore, what is widely known as the oracle problem is in practice the API connectivity problem. Existing oracle solutions fall short because they fail to make this distinction, resulting in inferior solutions that depend on third-party oracles and ecosystems that exclude API providers. By refining the definition of the problem, API3 aims to provide a much more optimal solution.
-- title: Contributing (to the API3 DAO as a technical member)
-  details: This is aimed to guide an API3 DAO member with a technical background to contribute to the project (through development, integrations, writing documentation, etc.) The general point is that one needs to be able to use a solution proficiently before being able to improve it. Therefore, you are recommended to do all of the below before attempting to contribute, and make sure to ask any questions you have on our Discord.
-footer: MIT Licensed | Copyright © 2018-present SomeOne
+- title: Decentralized APIs
+  details: Create powerful decentralized applications with API3's decentrally governed and quantifiably secure data feeds.
+- title: Real-World Data
+  details: API3 data feeds, dAPIs, aggregate data from first-party oracles, operated by some of the world’ premier API providers.
+- title: API Providers Operated
+  details: Fully serverless oracle nodes that can be deployed by any API provider for free, and requires minimal day-to-day management.
+footer: MIT Licensed
 navbar: true
 ---
 
-<p align="center">
-  <img src="https://github.com/clc-group/api3-docs/raw/master/figures/api3.png" width="400" />
-</p>
-
-*API3 documentation is kept as a regular repository of Markdown files for everyone to be able to easily contribute.
+*API3 documentation is kept as a regular repository of Markdown files for everyone to contribute.
 Feel free to create [issues](https://github.com/api3dao/api3-docs/issues) for discussions, proposed additions and changes.*

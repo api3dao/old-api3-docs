@@ -1,4 +1,5 @@
 /**
+ * From nuwave/lighthouse
  * This file does not work with hot reloading.
  * Restart the dev server to apply changes.
 */
@@ -50,7 +51,7 @@ module.exports = {
   // Build dropdown items for each version
   linksFor (url) {
     let links = []
-
+    
     versions.forEach(version => {
       let item = { text: version, link: `/${version}/${url}` }
       links.push(item)

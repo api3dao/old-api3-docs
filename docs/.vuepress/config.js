@@ -17,11 +17,11 @@ module.exports = {
     subSidebar: 'auto', /* vuepress-theme-reco */
     displayAllHeaders: false,
     logo: '/img/api3-cropped.png',
-    versions: {
+    /*versions: {
         latest: versioning.versions.latest,
         selected: versioning.versions.latest,
         all: versioning.versions.all
-    },
+    },*/
     nav: [
       /*{
         text: 'Versions',
@@ -43,7 +43,7 @@ module.exports = {
       /* reco is setting a back-top-top */
       ['@vuepress/back-to-top', true],
       ['@vuepress/search', {
-          searchMaxSuggestions: 10,
+          searchMaxSuggestions: 15,
           // Only search the latest version, e.g. 4.3, otherwise many duplicates will show up
           // TODO need to change this to the selected version rather than the latest
           test: `/${versioning.versions.latest.replace('.', '\\.')}/`

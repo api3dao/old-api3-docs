@@ -22,13 +22,13 @@ Airnode will deploy serverless functions to AWS Lambda. Follow these steps to cr
 
     <img style="border:solid gray 2px" src="./images-aws/aws-set-permissions.png" alt="drawing" width="100"/>
 
-1. **Tags** are not needed to run this tutorial. Select the **Next: Review** button.
+1. **Tags** are optional. Select the **Next: Review** button.
 
 1. Verify **AWS access type** is "Programmatic access - with an access key" and **Managed Policy** is "AWSLambda_Full_Access". Select the **Next: Create User** button.
     
     <img style="border:solid gray 2px" src="./images-aws/aws-verify.png" alt="drawing" width="100"/>
 
-1. The final page shows the newly created user and its keys. Be sure to write down the **Secret access key**, it can only be viewed once and tehn is hidden by AWS.
+1. The final page shows the newly created user and its keys. Be sure to write down the **Secret access key**. It can only be viewed once and then is hidden by AWS.
 
     <img style="border:solid gray 2px" src="./images-aws/aws-keys.png" alt="drawing" width="100"/>
 
