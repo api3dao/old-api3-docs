@@ -1,10 +1,11 @@
 ---
 title: What is API3?
+sidebarDepth: 0
 ---
 
 # {{$frontmatter.title}}
 
-**API3** \([https://api3.org](https://api3.org)\) is a collaborative project to deliver traditional API services to smart contract platforms in a decentralized and trust-minimized way. It is governed by a decentralized autonomous organization \(DAO\), namely the **API3 DAO** \([https://dao.api3.org](https://dao.api3.org)\). Therefore, its code is open source and its operations are transparent.
+**API3** ([https://api3.org](https://api3.org)) is a collaborative project to deliver traditional API services to smart contract platforms in a decentralized and trust-minimized way. It is governed by a decentralized autonomous organization (DAO), namely the **API3 DAO** ([https://dao.api3.org](https://dao.api3.org)). Therefore, its code is open source and its operations are transparent.
 
 ## Thesis Statement
 
@@ -12,11 +13,10 @@ The vast majority of the external integrations that decentralized applications n
 
 Therefore, what is widely known as _the oracle problem_ is in practice _the API connectivity problem_.
 
-Existing oracle solutions fall short because they fail to make this distinction, resulting in inferior solutions that depend on third-party oracles and ecosystems that exclude API providers.  
-By refining the definition of the problem, **API3** aims to provide a much more optimal solution.
+Existing oracle solutions fall short because they fail to make this distinction, resulting in inferior solutions that depend on third-party oracles and ecosystems that exclude API providers. By refining the definition of the problem, **API3** aims to provide a much more optimal solution.
 
 ::: tip
-For a detailed discussion of the project, check the full version of the whitepaper [in PDF here](https://raw.githubusercontent.com/api3dao/api3-whitepaper/master/api3-whitepaper.pdf).
+For a detailed discussion of the API3project, read the [PDF Whitepaper](https://raw.githubusercontent.com/api3dao/api3-whitepaper/master/api3-whitepaper.pdf).
 :::
 
 ## The Airnode

@@ -16,7 +16,7 @@ module.exports = {
     noFoundPageByTencent: false, /* vuepress-theme-reco */
     subSidebar: 'auto', /* vuepress-theme-reco */
     displayAllHeaders: false,
-    logo: '/img/api3-cropped.png',
+    logo: '/img/logo-white.webp',
     /*versions: {
         latest: versioning.versions.latest,
         selected: versioning.versions.latest,

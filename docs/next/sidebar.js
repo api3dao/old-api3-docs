@@ -1,13 +1,13 @@
 module.exports = [
       {
-        title: 'Getting Started',
+        title: 'Getting Started', collapsable: false, 
         children: [
             'getting-started/what-is-api3',
             'getting-started/contributing'
         ]
       },
       {
-        title: 'Fundamentals',
+        title: 'Fundamentals', collapsable: false,
         children: [
             'fundamentals/about-apis',
             'fundamentals/first-party-oracles',
@@ -16,7 +16,7 @@ module.exports = [
         ]
       },
       {
-        title: 'Airnode',
+        title: 'Airnode', collapsable: false,
         children: [
             'airnode/design-philosophy',
             'airnode/implementation',
@@ -26,7 +26,7 @@ module.exports = [
         ]
       },
       {
-        title: 'Specifications',
+        title: 'Specifications', collapsable: false,
         children: [
             'specifications/oracle-integration-specifications-ois',
             'specifications/config-json',
@@ -35,7 +35,7 @@ module.exports = [
             'specifications/reserved-parameters'
         ]
       },
-      {title: 'Protocols', initialOpenGroupIndex: -1, children:[
+      {title: 'Protocols', initialOpenGroupIndex: -1, collapsable: false, children:[
         {title: 'Request-Response',
           children:['protocols/request-response/general-structure',
           {path:'protocols/request-response/provider', title:'Provider'},
@@ -55,7 +55,7 @@ module.exports = [
           ]}
         ]
       },
-      {title: 'Guides', initialOpenGroupIndex: -1, children:[
+      {title: 'Guides', initialOpenGroupIndex: -1, collapsable: false, children:[
           {title: 'Provider',
             children:['guides/provider/api-integration',
                       'guides/provider/configuring-airnode',
@@ -94,7 +94,7 @@ module.exports = [
         ]
       },*/
       {
-        title: 'Tutorials',
+        title: 'Tutorials', collapsable: false,
         children: [
             'tutorials/airnode-starter',
             'tutorials/aws-credentials'

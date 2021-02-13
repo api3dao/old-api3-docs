@@ -45,7 +45,7 @@ There are two main points to consider about how authorization policies are imple
 
 Based on these considerations, Airnode uses a hybrid method. A provider announces their policy for a specific endpoint on-chain by setting a list of authorizers. Whenever the provider's Airnode receives a request, it checks if it should fulfill this request by making a static call that queries this on-chain policy. Similarly, the requester can use this on-chain policy by making a static call to check if they are authorized. This scheme both allows the provider to set transparent and flexible policies, and this to be done with no gas overhead.
 
-## Authorizer list
+## Authorizer List
 
 An authorizer typically checks for a single condition \("has the requester made their monthly payment", "is this client address whitelisted", etc.\). Authorizers can be combined to enforce more complex policies.
 
