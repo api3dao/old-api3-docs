@@ -99,5 +99,11 @@ module.exports = [
             'tutorials/airnode-starter',
             'tutorials/aws-credentials'
         ]
+      },
+      {
+        title: 'VuePress Migration', collapsable: false,
+        children: [
+            'migration-plan'
+        ]
       }
     ]

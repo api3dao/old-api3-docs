@@ -7,7 +7,7 @@
   "author": "Warren Anderson",
   "license": "MIT",
   "scripts": {
-    "docs:dev": "NODE_OPTIONS='--max-old-space-size=8192'  vuepress dev docs",
+    "docs:dev": "NODE_OPTIONS='--max-old-space-size=4096' vuepress dev docs",
     "docs:build": "vuepress build docs",
     "bump": "node -e 'require(\"./docs/.vuepress/lib/versioning.js\").generate()'",
     "merge:md": "cat /docs/master/protocols/request-response/client.txt /docs/master/protocols/request-response/template.md > rrr.md"

@@ -1,6 +1,6 @@
-# Dev Notes
+# Development Notes
 
-Some issues that may come up while developing with VuePress.
+Some side-notes while developing with VuePress.
 
 ## language does not exist
 
@@ -9,31 +9,24 @@ While the message does not seem to be an issue it is annoying.
 ```bash
 4:47:20 PM: Language does not exist: text
 4:47:20 PM: Language does not exist: text
-4:47:20 PM: Language does not exist: text
-4:47:20 PM: Language does not exist: text
-4:47:20 PM: Language does not exist: text
 ```
 
-This message may appear (may times) when running `yarn docs:dev or build`. Try running `NODE_OPTIONS="--max-old-space-size=8192" yarn docs:dev or build`. Afterwards go back to using `yarn docs:dev` and the message should go away.
+This message may appear (may times) when running `yarn docs:dev or build`. Try running `NODE_OPTIONS="--max-old-space-size=4096" yarn docs:dev or build`. Afterwards go back to using `yarn docs:dev` and the message should go away.
 
-The package.json script can also be updated if the mesagae appears. 
+The package.json script can also be updated if the message does not go away.
 
 https://github.com/vuejs/vuepress/issues/1066
 
-## vuepress-theme-reco
-
-A possible solution to the lack of a page-right sub-sidebar.
-
-https://github.com/vuepress-reco/vuepress-theme-reco/tags
-
 ## Deploying Docs to GitHub Pages
 
-- Commit and push to remote repo.
-- Merge branches @remote repo to master.
-- Switch to local master branch.
-- Pull remote master to local repo.
-- Run the deploy.sh script (passphrase for ssh key will be needed).
-- Switch back to your next development branch.
+1. Commit and push to remote repo.
+1. Merge branches @remote repo to master.
+1. Switch to local master branch.
+1. Pull remote master to local repo.
+1. Run the deploy.sh script (passphrase for ssh key will be needed).
+1. Switch back to your next development branch.
+
+It is important to pull down the master after commit/push of a local working branch and then a merge to master @remote. This insures the local build of the dist folder gets the latest from all contributors
 
 ## Clean up origin/<branches>
 
