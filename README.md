@@ -1,6 +1,6 @@
 # Documentation
 
-[Documents Website](https://wkande.github.io/vuepress-docs/)
+[Documents Website](https://api3dao.github.io/api3-docs/)
 
 ---
 
