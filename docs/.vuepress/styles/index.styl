@@ -1,9 +1,5 @@
 
-.search-box {
-  order: 1;
-  margin-right: 0;
-  margin-left: 1rem;
-}
+
 
 .suggestions {
   left: auto !important;
@@ -11,68 +7,83 @@
 }
 
 
-/*.theme-container {
-  color:#505050;
-}*/
 
 
-/* These next two apply changes to the sidebar */
-/*.sidebar-group .sidebar-heading {
-  color:#909090;
-}
-.depth-1{
-  color:indigo;
-  opacity: 1;
-}*/
 
 
-/** Change the color of the Vuepress tip quotebox to lightgrey */
+/************************************************/
+/* START Content */
+
+/** Change the left border color of the Vuepress tip quotebox to API3c Violet */
 .tip{
-  border-left:solid lightgrey 5px !important;
+  border-left:solid #7963B2 5px !important;
 }
 
-/************************************************/
-/* START Vuepress native sidebar changes */
-/************************************************/
-a.active.sidebar-link:not(.sidebar-sub-headers .sidebar-sub-header .sidebar-link) {
-  background-color:#e0ffdd !important; /*#e0ffdd*/
-  border-left:4px solid #e0ffdd !important;
-  border-right:4px solid green !important;
-  
-  /*opacity: 0.7;*/
-  /*color:green;*/
+h1{
+  color:#301934 !important;
 }
 
-p.sidebar-heading.open{
-  font-size:13pt !important;
+/* END Content */
+/************************************************/
+
+
+
+
+/************************************************/
+/* START sidebar changes */
+
+/* Default size for all DOCS unser a DIVIDER */
+section.sidebar-group.depth-0 a.sidebar-link{
+  font-size:small;
+}
+
+/* Default size for all DOCS unser a GROUP */
+section.sidebar-group.collapsable.is-sub-group.depth-1 a.sidebar-link{
+  font-size:samll;
+}
+
+/* DIVIDER */
+section.sidebar-group.depth-0 p.sidebar-heading{
+  color:darkpurple !important;
+}
+
+/* DOC under a DIVIDER */
+section.sidebar-group.depth-0  ul.sidebar-links.sidebar-group-items a.active.sidebar-link{
   color:black !important;
-
+  border-left:4px solid #7CE3CB !important;
+  background-color:#7CE3CB;
 }
 
-p.sidebar-heading{
-  font-size:13pt !important;
-  color:gray !important;
-  opacity: 1 !important;
+/* GROUP under a DIVIDER */
+section.sidebar-group.collapsable.is-sub-group.depth-1 p.sidebar-heading{
   cursor: pointer !important;
+  color:darkpurple !important;
+  opacity: 1;
+  font-size:11pt;
 }
 
-ul.sidebar-sub-headers{
-  margin-left:38px !important;
-  border-left:2px lightgrey solid !important;
-}
-li.sidebar-sub-header{
-  margin-left:-35px !important;
+/* DOC under a GROUP */
+section.sidebar-group.collapsable.is-sub-group.depth-1  ul.sidebar-links.sidebar-group-items a.active.sidebar-link{
+  color:black !important;
+  background-color:#7CE3CB;
+  border-left:4px solid #7CE3CB !important;
+  margin-left:-16px;
+  width:400px !important;
+  padding-left:44px;
+  font-size:small !important;
 }
 
 .sidebar{
   border-right:solid 1px lightgrey;
 }
-/************************************************/
+
 /* END sidbar changes */
 /************************************************/
 
 
 
+/******************************************************/
+/* START NavBar */
 .navbar, .search-box, div.links, .nav-item, .site-name{
   color:white !important;
   background-color:black !important;
@@ -83,17 +94,31 @@ a.nav-link.external, a.repo-link{
   color:white !important;
 }
 
+img.logo{
+  margin-top:3px;
+  width:85px; /* you can use % */
+  height:auto !important;
+}
 
-
+.search-box {
+  order: 1;
+  margin-right: 0;
+  margin-left: 1rem;
+}
 
 /* Site name at top of landing page */
 .site-name{
-  font-size:large !important;
+  font-size:medium !important;
 }
+
+/* END NavBar */
+/************************************************/
+
+
 
 /******************************************************/
 /* START Native TOC adjustments */
-/******************************************************/
+
 .table-of-contents{
     position: fixed;
     top:1 0px;
@@ -174,14 +199,14 @@ a.nav-link.external, a.repo-link{
     }
 }
 
-          /* Mobile */
+/* Mobile */
 @media only screen and (max-width: 500px) {
     div.theme-default-content.content__default {
         margin-left:0px;
         max-width:88% !important;
     }
 }
-/************************************************/
+
 /* END Native TOC adjustments */
 /************************************************/
 
