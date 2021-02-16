@@ -21,7 +21,7 @@ The following instructions are to migrate a local repo to the api3dao/api3-docs 
 
     ```
     title: 'Documentation',
-    base: '/vuepress-docs/',
+    base: '/api3-docs/',
     ```
 
 - Push local branch **stage** to remote api3dao/api3-docs.

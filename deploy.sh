@@ -20,6 +20,6 @@ git commit -m 'Deploying the locally built /dist folder to master:gh-pages as it
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:wkande/vuepress-docs.git master:gh-pages
+git push -f git@github.com:wkande/api3-docs.git master:gh-pages
 
 cd -
