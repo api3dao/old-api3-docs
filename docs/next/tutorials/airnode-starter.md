@@ -1,9 +1,10 @@
 ---
 title: Airnode Starter
-sidebarDepth: 3
 ---
 
 # {{$frontmatter.title}}
+
+[[toc]]
 
 A starter project for deploying and making requests to an Airnode. This project is composed of two steps.
 

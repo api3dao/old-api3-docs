@@ -1,9 +1,10 @@
 ---
 title: Configuring Airnode
-sidebarDepth: 3
 ---
 
 # {{$frontmatter.title}}
+
+[[toc]]
 
 Users configure their Airnodes by providing a `config.json` and a `security.json` file during deployment/redeployment. `config.json` specifies the API–oracle integration specifications in the form of [OIS](../../airnode/ois.md)es, but also user-specific configuration details. `security.json` includes security credentials such as API keys. Both [`config.json`](../../airnode/config-json.md) and [`security.json`](../../airnode/security-json.md) formats are documented, which you can follow to create these files. This guide aims to follow a more instructive approach and give some tips along the way.
 

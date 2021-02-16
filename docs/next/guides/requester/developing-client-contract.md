@@ -4,6 +4,8 @@ title: Developing a Client Contract
 
 # {{$frontmatter.title}}
 
+[[toc]]
+
 A [client](/request-response-protocol/client.md) is a contract that makes requests to [providers](/request-response-protocol/provider.md) using the [`Airnode.sol`](/request-response-protocol/general-structure.md#airnodesol) contract that implements the protocol. A client is [endorsed](/request-response-protocol/endorsement.md) by a [requester](/request-response-protocol/requester.md), which means that it can specify its request to be fulfilled by the respective requester's [designated wallet](/request-response-protocol/designated-wallet.md).
 
 The Airnode protocol is designed to be flexible, and is meant to serve a variety of use cases. See the [Airnode client examples](https://github.com/api3dao/airnode-client-examples) for some potential design patterns. The first step a requester needs to take is to develop and deploy such a client contract.

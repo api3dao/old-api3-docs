@@ -11,10 +11,11 @@ module.exports = {
     lineNumbers: true,
     toc: { includeLevel: [1, 2, 3] },
   },
-
+  //theme: 'reco',
   themeConfig: {
-    noFoundPageByTencent: false, /* vuepress-theme-reco */
-    subSidebar: 'auto', /* vuepress-theme-reco */
+    //noFoundPageByTencent: false, /* vuepress-theme-reco */
+    //subSidebar: 'auto', /* vuepress-theme-reco */
+    sidebarDepth: 0,
     displayAllHeaders: false,
     logo: '/img/logo-white.webp',
     /*versions: {
@@ -31,16 +32,16 @@ module.exports = {
       { text: 'Discord (Dev)', link: 'https://discord.gg/qnRrcfnm5W' },
       { text: 'Telegram (Chat)', link: 'https://t.me/API3DAO' },
     ],
-    repo: 'wkande/vuepress-docs',
+    repo: 'api3/api3-docs',
     repoLabel: 'GitHub!',
     sidebar: versioning.sidebars,
     smoothScroll: true
   },
   plugins: [
+    //['reco'],
       ['@vuepress/medium-zoom'],
       ['vuepress-plugin-element-tabs'],
       ['@vuepress/last-updated'],
-      /* reco is setting a back-top-top */
       ['@vuepress/back-to-top', true],
       ['@vuepress/search', {
           searchMaxSuggestions: 15,

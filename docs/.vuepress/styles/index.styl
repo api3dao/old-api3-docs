@@ -25,32 +25,17 @@
   opacity: 1;
 }*/
 
-/** Reco sub-sidebar **/
-/*.sidebar-group-items .sidebar-group .sidebar-heading{
-  opacity: 1 !important;
-}*/
-
-/** reco */
-/*.level-2{
-  margin-left: -15px;
-  font: bold 14px Arial, serif;
-}*/
-
-/** reco **/
-/*.sub-sidebar-wrapper{
-  height:85vh; 
-  top: 80px !important;
-  border-top: 2px solid #3cb371;
-}*/
 
 /** Change the color of the Vuepress tip quotebox to lightgrey */
 .tip{
   border-left:solid lightgrey 5px !important;
 }
 
+/************************************************/
 /* START Vuepress native sidebar changes */
+/************************************************/
 a.active.sidebar-link:not(.sidebar-sub-headers .sidebar-sub-header .sidebar-link) {
-  background-color:#e0ffdd !important;
+  background-color:#e0ffdd !important; /*#e0ffdd*/
   border-left:4px solid #e0ffdd !important;
   border-right:4px solid green !important;
   
@@ -82,7 +67,9 @@ li.sidebar-sub-header{
 .sidebar{
   border-right:solid 1px lightgrey;
 }
+/************************************************/
 /* END sidbar changes */
+/************************************************/
 
 
 
@@ -104,7 +91,99 @@ a.nav-link.external, a.repo-link{
   font-size:large !important;
 }
 
+/******************************************************/
+/* START Native TOC adjustments */
+/******************************************************/
+.table-of-contents{
+    position: fixed;
+    top:1 0px;
+    right: 5px;
+    font-size:small;
+    color:#50c878;
+    min-width:275px !important;
+    max-width:275px !important;
+}
 
+@media only screen and (max-width: 4000px) {
+    div.theme-default-content.content__default{
+      max-width:67% ;
+      margin-left:70px;
+    }
+}
+@media only screen and (max-width: 1600px) {
+    div.theme-default-content.content__default{
+      /*background-color: pink;*/
+      max-width:65%;
+      margin-left:70px;
+    }
+}
+@media only screen and (max-width: 1500px) {
+    div.theme-default-content.content__default{
+      /*background-color: yellow;*/
+      max-width:65%;
+      margin-left:30px;
+    }
+}
+@media only screen and (max-width: 1450px) {
+    div.theme-default-content.content__default{
+      /*background-color: gray;*/
+      max-width:65%;
+      margin-left:10px;
+    }
+}
+@media only screen and (max-width: 1400px) {
+    div.theme-default-content.content__default{
+      /*background-color: lightgrey;*/
+      max-width:65%;
+      margin-left:10px;
+    }
+}
+@media only screen and (max-width: 1350px) {
+    div.theme-default-content.content__default{
+      /*background-color: beige;*/
+      max-width:65%;
+      margin-left:10px;
+    }
+}
+@media only screen and (max-width: 1300px) {
+    div.theme-default-content.content__default{
+      /*background-color: pink;*/
+      max-width:60%;
+      margin-left:10px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .table-of-contents{
+      display:none;
+    }
+    div.theme-default-content.content__default{
+      /*(background-color: lightblue;*/
+      margin-left:10px;
+      max-width:85%;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .table-of-contents{
+      display:none;
+    }
+    div.theme-default-content.content__default{
+      /*background-color: lightgreen;*/
+      margin-left:10px;
+      max-width:85%;
+    }
+}
+
+          /* Mobile */
+@media only screen and (max-width: 500px) {
+    div.theme-default-content.content__default {
+        margin-left:0px;
+        max-width:88% !important;
+    }
+}
+/************************************************/
+/* END Native TOC adjustments */
+/************************************************/
 
 
 

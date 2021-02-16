@@ -4,6 +4,8 @@ title: Requester
 
 # {{$frontmatter.title}}
 
+[[toc]]
+
 A requester is an entity \(individual, business, etc.\) whose contracts make requests to [providers](./provider.md). These contracts are called [clients](./client.md).
 
 After a client makes a request, the provider uses the respective requester's [designated wallet](./designated-wallet.md) to fulfill the request, meaning that the requester covers the gas cost. This relationship between the requester and the client is announced by the requester [endorsing](./endorsement.md) the client.

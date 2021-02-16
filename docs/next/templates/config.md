@@ -2,6 +2,8 @@
 title: config.json
 ---
 
+[[toc]]
+
 # {{$frontmatter.title}}
 
 ```json

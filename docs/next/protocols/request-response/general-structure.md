@@ -1,9 +1,10 @@
 ---
 title: General Structure
-
 ---
 
 # {{$frontmatter.title}}
+
+[[toc]]
 
 The first protocol implemented for Airnode is request–response. An Airnode serving the request–response protocol listens for requests, makes the API call specified by the request, and fulfills the request as soon as possible.
 

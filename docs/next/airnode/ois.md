@@ -1,9 +1,10 @@
 ---
 title: Oracle Integration Specifications (OIS)
-sidebarDepth: 3
 ---
 
 # {{$frontmatter.title}}
+
+[[toc]]
 
 **Oracle Integration Specifications (OIS) 1.0.0** 
 

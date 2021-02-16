@@ -4,6 +4,8 @@ title: AWS Cloud Credentials
 
 # {{$frontmatter.title}}
 
+[[toc]]
+
 Airnode will deploy serverless functions to AWS Lambda. Follow these steps to create an IAM User with programmatic access and the necessary permissions.
 
 1. Login (create an account if needed) to the [AWS Console](https://console.aws.amazon.com/).

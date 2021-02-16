@@ -2,6 +2,8 @@
 title: security.json
 ---
 
+[[toc]]
+
 # {{$frontmatter.title}}
 
 ```json

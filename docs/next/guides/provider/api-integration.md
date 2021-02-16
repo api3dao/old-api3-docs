@@ -1,9 +1,10 @@
 ---
 title: API Intgeration
-sidebarDepth: 3
 ---
 
 # {{$frontmatter.title}}
+
+[[toc]]
 
 To integrate a System X to a System Y, we need to do three things:
 

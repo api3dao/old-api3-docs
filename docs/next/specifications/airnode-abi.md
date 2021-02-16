@@ -4,6 +4,8 @@ title: Airnode ABI
 
 # {{$frontmatter.title}}
 
+[[toc]]
+
 [Contract application binary interface \(ABI\)](https://docs.soliditylang.org/en/v0.6.12/abi-spec.html) is used to encode different types of data while interacting with Ethereum contracts. As a result, both Solidity and modules such as web3.js and ethers.js treat ABI encoding–decoding functionality as a first-class citizen. This makes using contract ABI for encoding API call parameters a very attractive option.
 
 Although encoding API call parameters using contract ABI has many advantages, it cannot be used for this purpose directly. Quoting from the [Solidity docs](https://docs.soliditylang.org/en/v0.6.12/abi-spec.html):

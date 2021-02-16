@@ -18,5 +18,6 @@
     "vuepress": "^1.8.0",
     "vuepress-plugin-element-tabs": "^0.2.8"
   },
-  "dependencies": {}
+  "dependencies": {
+  }
 }

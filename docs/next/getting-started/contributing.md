@@ -4,6 +4,8 @@ title: Contributing
 
 # {{$frontmatter.title}}
 
+[[toc]]
+
 **Contributing (to the API3 DAO as a technical member)**
 
 This is aimed to guide an API3 DAO member with a technical background to contribute to the project (through development, integrations, writing documentation, etc.)
