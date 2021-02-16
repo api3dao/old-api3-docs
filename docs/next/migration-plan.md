@@ -29,7 +29,12 @@ The following instructions are to migrate a local repo to the api3dao/api3-docs 
   1. First change the git remote url of the local repo. Verify the change in .git/config.
 
       ```bash
-      git remote set-url origin https://gihub.com/api3dao/api3-docs
+      git remote set-url origin git@github.com:api3dao/api3-docs.git
+      
+      # OR to remove old stage reference first (will re-add)
+      git remote -v 
+      git remote remove origin 
+      git remote add origin git@github.com:api3dao/api3-docs.git  
       ```
 
   1. Now push (force) from local stage branch to remote api3dao/api3-docs. This will create a new stage branch at the remote repo.
