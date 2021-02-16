@@ -32,7 +32,7 @@ module.exports = {
     repo: 'api3/api3-docs',
     repoLabel: 'GitHub!',
     sidebar: versioning.sidebars,
-    smoothScroll: true
+    smoothScroll: false /* true will cause the TOC to require a dclick for ubuntu firefox */
   },
   plugins: [
     //['reco'],
