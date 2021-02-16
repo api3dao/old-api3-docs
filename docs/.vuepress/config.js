@@ -5,11 +5,11 @@ module.exports = {
     ['link', { rel: 'icon', href: '/img/small-logo.png' }]
   ],
   title: 'Documentation',
-  base: '/vuepress-docs/',
-  description: 'Technical documentation for API3 ',
+  base: '/api3-docs/',
+  description: 'Technical Documentation for API3 ',
   markdown: {
     lineNumbers: true,
-    toc: { includeLevel: [1, 2, 3] },
+    toc: { includeLevel: [2, 3] },
   },
   //theme: 'reco',
   themeConfig: {
@@ -17,7 +17,7 @@ module.exports = {
     //subSidebar: 'auto', /* vuepress-theme-reco */
     sidebarDepth: 0,
     displayAllHeaders: false,
-    logo: '/img/logo-white.webp',
+    logo: '/img/logo.png',
     /*versions: {
         latest: versioning.versions.latest,
         selected: versioning.versions.latest,
