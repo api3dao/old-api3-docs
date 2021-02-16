@@ -11,10 +11,7 @@ module.exports = {
     lineNumbers: true,
     toc: { includeLevel: [2, 3] },
   },
-  //theme: 'reco',
   themeConfig: {
-    //noFoundPageByTencent: false, /* vuepress-theme-reco */
-    //subSidebar: 'auto', /* vuepress-theme-reco */
     sidebarDepth: 0,
     displayAllHeaders: false,
     logo: '/img/logo.png',
