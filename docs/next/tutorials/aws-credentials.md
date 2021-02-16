@@ -34,4 +34,4 @@ Airnode will deploy serverless functions to AWS Lambda. Follow these steps to cr
 
     <img style="border:solid gray 2px" src="./images-aws/aws-keys.png" alt="drawing" width="100"/>
 
-The keys (*Access key id and Secret access key*) are used by Airnode to install serverless functions to AWS. See the tutorial [airnode-start](../tutorials/airnode-starter.html) to learn more.
+The keys (*Access key id and Secret access key*) are used by Airnode to install serverless functions to AWS. See the tutorial [airnode-starter](../tutorials/airnode-starter.html) to learn more.
