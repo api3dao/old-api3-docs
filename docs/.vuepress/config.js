@@ -32,7 +32,11 @@ module.exports = {
     repo: 'api3/api3-docs',
     repoLabel: 'GitHub!',
     sidebar: versioning.sidebars,
-    smoothScroll: false /* true will cause the TOC to require a dclick for ubuntu firefox */
+    /* 2021-02-17
+       smoothScroll=true will cause the TOC to require a dclick for ubuntu firefox.
+       Try true again after firefox gets an update.
+    */
+    smoothScroll: false 
   },
   plugins: [
     //['reco'],
