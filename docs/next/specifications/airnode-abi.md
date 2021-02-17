@@ -1,5 +1,5 @@
 ---
-title: Airnode ABI
+title: ABI (Application Binary Interface)
 ---
 
 # {{$frontmatter.title}}
