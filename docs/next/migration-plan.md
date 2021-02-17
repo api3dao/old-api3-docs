@@ -9,7 +9,7 @@ title: Moving to VuePress
 The following instructions are to migrate a local repo to the api3dao/api3-docs remote repo in the form of a new remote branch named **stage**. The stage branch is temporary until it is merged to master and then deleted.
 
 
-## Phase 1 - New Stage Branch
+## ~~Phase 1 - New Stage Branch~~ (completed 2021-02-16)
 
 - Turn off the GitHub integration setting at GitBook.
 
@@ -50,7 +50,9 @@ The following instructions are to migrate a local repo to the api3dao/api3-docs 
 After it is decided to merge the remote stage branch to master proceed with the following.
 
   1. Remove GitBook integrations from the repo settings.
+  1. Commit any local repo work.
   1. Force merge remote stage onto master.
   1. Clone a new copy of the remote repo to work from.
   1. Start following the instructions in dev_notes.md to deploy the docs to master:gh-pages.
+  1. Point web URL to [https://api3dao.github.io/api3-docs/](https://api3dao.github.io/api3-docs/).
   
