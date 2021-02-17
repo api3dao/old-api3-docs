@@ -4,7 +4,7 @@ title: dAPI (Decentralized API)
 
 # {{$frontmatter.title}}
 
-[[toc]]
+[[TOC]]
 
 We have covered the following:
 

@@ -12,31 +12,32 @@ title: What is API3?
 
 The vast majority of the external integrations that decentralized applications need are to commercial Web APIs that traditional businesses have built to monetize their data and services.
 
-Therefore, what is widely known as _the oracle problem_ is in practice _the API connectivity problem_.
+Therefore, what is widely known as _the oracle problem_ is in practice _an API connectivity problem_.
 
 Existing oracle solutions fall short because they fail to make this distinction, resulting in inferior solutions that depend on third-party oracles and ecosystems that exclude API providers. By refining the definition of the problem, **API3** aims to provide a much more optimal solution.
 
-::: tip
-For a detailed discussion of the API3project, read the [PDF Whitepaper](https://raw.githubusercontent.com/api3dao/api3-whitepaper/master/api3-whitepaper.pdf).
+::: tip API3 Whitepaper (pdf)
+For a detailed discussion of the API3 project, download and read the [API3 Whitepaper](https://raw.githubusercontent.com/api3dao/api3-whitepaper/master/api3-whitepaper.pdf).
 :::
 
 ## The Airnode
 
-As you'll learn throughout this documentation, at its core **API3** brings the ability for API providers to easily run their own Oracle nodes allowing them to provide their data on-chain without any intermediary to any Decentralized App \(dApp\) interested by those data.
+~~As you'll learn throughout this documentation,~~ At its core, **API3** brings the ability for API Providers to easily run their own Oracle nodes. This allows them to provide their data on-chain, without ~~any~~ an intermediary, to any Decentralized App \(dApp\) interested ~~by those~~ in their services.
 
-At the heart of this mechanism sits **Airnode**, our open-source Oracle node.  
-It's designed to be easily deployed by any API Provider with almost no maintenance.
+At the heart of this mechanism sits **Airnode**, ~~our~~ an open-source Oracle Node. It's designed to be easily deployed by any API Provider with almost no maintenance. Because of Airnode, dApp developers can write Smart Contracts to interact with the on-chain data of API Providers.
 
-Then any dApp developer can write Smart Contracts to interact with the on-chain data of the API Provider provided by **Airnode**.
+~~Then any dApp developer can write Smart Contracts to interact with the on-chain data of the API Provider provided by **Airnode**.~~
 
-Since it is wanted to not overload in any means the API Providers with on-chain or off-chain concerns for providing their data on-chain, **Airnode** is designed with some mechanisms that allow this easiness.
+Airnode is designed with mechanisms to remove the on-chain or off-chain concerns of API Providers. The set-and-forget framework of Airnode is all about ease of implementation.
 
-::: tip
+~~Since it is wanted to not overload in any means the API Providers with on-chain or off-chain concerns for providing their data on-chain, **Airnode** is designed with some mechanisms that allow this easiness.~~
+
+~~::: tip
 This documentation is all about explaining those mechanisms.
-:::
+:::~~
 
-::: tip
-It's recommended to have read the chapter 4 of the whitepaper: _Airnode: A Node Designed for First-Party Oracles_
+::: tip Learn more about Airnode
+Read chapter 4 of the [API3 Whitepaper](https://raw.githubusercontent.com/api3dao/api3-whitepaper/master/api3-whitepaper.pdf) to learn more. _Airnode: A Node Designed for First-Party Oracles_
 :::
 
 ## Learn More about API3
@@ -44,10 +45,11 @@ It's recommended to have read the chapter 4 of the whitepaper: _Airnode: A Node 
 <!-- START TAB BOX -->
 :::: tabs
 ::: tab API3 Website
-Our website \([https://api3.org/](https://api3.org/)\) is still the best place to learn more.
+~~Our~~ The API3 website ([https://api3.org/](https://api3.org/)) is ~~still~~ the best place to learn more.
 :::
 
 ::: tab The White Paper
+
 **Abstract**
 
 With decentralized applications beginning to provide meaningful services in areas such as decentralized finance, there is an increasing need for these applications to receive data or trigger events using traditional Web APIs.
@@ -58,15 +60,18 @@ dAPIs are composed of first-party oracles operated by API providers, and thus ar
 
 Staked API3 tokens will be used as collateral for the on-chain insurance service that will provide quantifiable and trustless security guarantees to dAPI users. These mechanics will remove the need for a central authority at the ecosystem level. As a result, the API3 Project will allow smart contract platforms to leverage APIs for the building of meaningful applications in a truly decentralized and trust-minimized way.
 
-**Link to the Full PDF Version**
 
-For a detailed discussion of the project, check the full version of the whitepaper [in PDF here](https://raw.githubusercontent.com/api3dao/api3-whitepaper/master/api3-whitepaper.pdf).
+**Download**
+
+Get the full [API3 Whitepaper](https://raw.githubusercontent.com/api3dao/api3-whitepaper/master/api3-whitepaper.pdf) in PDF format.
+
+~~**Link to the Full PDF Version**~~
+
+~~For a detailed discussion of the project, check the full version of the whitepaper [in PDF here](https://raw.githubusercontent.com/api3dao/api3-whitepaper/master/api3-whitepaper.pdf).~~
 :::
 
 ::: tab Blog Posts
-For people that are not comfortable with academic-style papers📜   
-That's fine👌  
-The following Blog Posts explain the Whitepaper in smaller digestible pieces.
+~~For people that are not~~ Not comfortable with academic-style papers? ~~📜    That's fine👌~~ The following Blog Posts explain the Whitepaper in smaller digestible ~~pieces~~ articles.
 
 **About our journey: Getting APIs on the Blockchain**
 
@@ -105,20 +110,22 @@ You can find all our blog posts on our [Medium page here](https://medium.com/api
 :::
 
 ::: tab Communities
-💬 &nbsp;&nbsp; Feel free to join our Community Chat on [Telegram](https://t.me/API3DAO)
+Join the API3 community on the following services.  
 
-💻 &nbsp;&nbsp; Feel free to join our Developer Chat on [Discord](https://discord.gg/qnRrcfnm5W)
+💬 &nbsp;&nbsp; ~~Feel free to join our~~ Community Chat on [Telegram](https://t.me/API3DAO)
 
-💬 &nbsp;&nbsp; Feel free to join our DAO Chat on the [DAOtalk Forum](https://daotalk.org/c/daos/api3-dao/37)
+💻 &nbsp;&nbsp; ~~Feel free to join our~~ Developer Chat on [Discord](https://discord.gg/qnRrcfnm5W)
+
+💬 &nbsp;&nbsp; ~~Feel free to join our~~ DAO Chat on the [DAOtalk Forum](https://daotalk.org/c/daos/api3-dao/37)
 :::
 
 ::: tab GitHub
-On our Github Page \([https://github.com/api3dao](https://github.com/api3dao)\) you will find everything about.. everything.
+~~On our Github Page \([https://github.com/api3dao](https://github.com/api3dao)\)~~ Visit the [API3 GitHub](https://github.com/api3dao) page and find everything about.. everything. Explore the many repositories to gain in-depth knowledge about API3.
 
-Indeed, as stated from the beginning, there we have repositories about:
+~~Indeed, as stated from the beginning, there we have repositories about:~~
 
 * the whitepaper
-* the codes
+* the code~~s~~
 * the docs \(including this very one\)
 * some examples
 
@@ -129,17 +136,18 @@ Feel free to contribute. &nbsp;👍
 
 ## Contributing
 
-At **API3** we are open to any proposals and improvements.
-
-Feel free to contribute by:
+At **API3** we are open to any proposals and improvements. Please feel free to contribute. ~~by:~~
 
 * opening issues
 * making pull requests
 * proposing features
 
-::: tip
+
+Read more about contributing in the [Contributing](./contributing.html) section.
+
+~~::: tip
 You can read more about contributing in the [Contributing](./contributing.html) section
-:::
+:::~~
 
 
 

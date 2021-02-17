@@ -1,5 +1,5 @@
 ---
-title: About APIs
+title: APIs
 showComment: false
 ---
 
