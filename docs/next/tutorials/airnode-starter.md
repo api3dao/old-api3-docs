@@ -131,7 +131,7 @@ docker run -it --rm \
   --env-file .env \
   --env COMMAND=deploy-first-time \
   -v $(pwd):/airnode/out \
-  api3/airnode:latest
+  api3/airnode-deployer:pre-alpha
 ```
 
 ### Fund Master Wallet
@@ -221,7 +221,7 @@ docker run -it --rm \
   --env COMMAND=remove-with-receipt \
   --env RECEIPT_FILENAME=$RECEIPT_FILENAME \
   -v $(pwd):/airnode/out \
-  api3/airnode:latest
+  api3/airnode-deployer:pre-alpha
 ```
 
 ## Conclusion
