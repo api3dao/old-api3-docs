@@ -1,31 +1,56 @@
 module.exports = [
       {
-        title: 'Getting Started', collapsable: false, 
+        title: 'Introduction', collapsable: false, 
         children: [
             'getting-started/what-is-api3',
+            'fundamentals/decentrally-governed-oracle-networks',
+            'fundamentals/first-party-oracles',
+            'fundamentals/apis',
+            'fundamentals/dapp',
+            'fundamentals/dapis',
+            /*{title: 'Fundamentals',  
+            children: [
+                'fundamentals/apis',
+                'fundamentals/dapis',
+                'fundamentals/first-party-oracles',
+                'fundamentals/decentrally-governed-oracle-networks',
+              ]
+            },*/
             'getting-started/contributing'
         ]
       },
-      {
+      /*{
         title: 'Fundamentals', collapsable: false,
         children: [
-            'fundamentals/about-apis',
+            'fundamentals/apis',
             'fundamentals/first-party-oracles',
             'fundamentals/decentrally-governed-oracle-networks',
-            'fundamentals/dapi'
+            'fundamentals/dapis'
         ]
-      },
+      },*/
       {
         title: 'Airnode', collapsable: false,
         children: [
+            'airnode/ethereum-providers',
             'airnode/design-philosophy',
             'airnode/implementation',
-            'airnode/ethereum-providers',
-            'airnode/ois',
-            'airnode/config-json'
-        ]
+            
+            //'airnode/ois',
+            //'airnode/config-json',
+            {
+              title: 'Specifications',
+              children: [
+                  //'specifications/oracle-integration-specifications-ois',
+                  'airnode/ois',
+                  'specifications/airnode-abi',
+                  'airnode/config-json',
+                  'specifications/security-json',
+                  'specifications/reserved-parameters'
+              ]
+            },
+        ],
       },
-      {
+      /*{
         title: 'Specifications', collapsable: false,
         children: [
             'specifications/oracle-integration-specifications-ois',
@@ -34,7 +59,7 @@ module.exports = [
             'specifications/airnode-abi',
             'specifications/reserved-parameters'
         ]
-      },
+      },*/
       {title: 'Protocols', initialOpenGroupIndex: -1, collapsable: false, children:[
         {title: 'Request-Response',
           children:['protocols/request-response/general-structure',
@@ -68,12 +93,17 @@ module.exports = [
                       'guides/requester/developing-client-contract'
             ]
           },
+          {title: 'Smart Contracts',
+            children:['guides/smart-contracts/self-serve-integration',
+                      'guides/smart-contracts/platform-compatible'
+            ]
+          },
           {title: 'Templates',
             children:['templates/ois.md',
                       'templates/config.md',
                       'templates/security.md'
             ]
-          }
+          },
         ]
       },
       /*{
