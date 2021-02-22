@@ -2,9 +2,10 @@ module.exports = [
       {
         title: 'Introduction', collapsable: false, 
         children: [
-            'getting-started/what-is-api3',
-            'fundamentals/decentrally-governed-oracle-networks',
+            'introduction/what-is-api3',
             'fundamentals/first-party-oracles',
+            'fundamentals/decentrally-governed-oracle-networks',
+            
             'fundamentals/apis',
             'fundamentals/dapp',
             'fundamentals/dapis',
@@ -16,7 +17,7 @@ module.exports = [
                 'fundamentals/decentrally-governed-oracle-networks',
               ]
             },*/
-            'getting-started/contributing'
+            'introduction/contributing'
         ]
       },
       /*{
@@ -31,6 +32,7 @@ module.exports = [
       {
         title: 'Airnode', collapsable: false,
         children: [
+            'airnode/overview',
             'airnode/ethereum-providers',
             'airnode/design-philosophy',
             'airnode/implementation',
@@ -127,7 +129,8 @@ module.exports = [
         title: 'Tutorials', collapsable: false,
         children: [
             'tutorials/airnode-starter',
-            'tutorials/aws-credentials'
+            'tutorials/aws-credentials',
+            'tutorials/client-examples'
         ]
       },
       {
