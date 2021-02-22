@@ -5,8 +5,9 @@ title: Implementation
 # {{$frontmatter.title}}
 
 [[toc]]
+<div class="toc-label">Table of Contents</div>
 
-*See the article, [Getting to know Airnode](https://medium.com/api3/getting-to-know-airnode-162e50ea243e) for a technical overview of the software.*
+*See the article, [Getting to know Airnode](https://medium.com/api3/getting-to-know-airnode-162e50ea243e) for a technical overview of the Airnode software.*
 
 ## Statelessness
 
@@ -16,9 +17,9 @@ Oracle nodes typically keep persistent track of the blockchain and the state of 
 2. Any anomaly that happens on the blockchain (block reorgs, ommer blocks, etc.) results in the oracle node state to fall out of sync with the chain, which is not trivial to correct.
 3. A highly stateful application has many edge cases. These are difficult to cover with tests completely and are likely to result in bugs that incapacitate the node.
 
-These disadvantages result in an unstable oracle node, which is the essential reason why traditional oracle nodes require *professional node operators* that need to be ready to respond to incidents 24/7. Since this is not a realistic requirement for first-party oracles, an oracle node that is designed for first-party oracles has to be stateless.
+These disadvantages result in an unstable Oracle node, which is the essential reason why traditional Oracle nodes require *professional node operators* that respond to incidents 24/7. Since this is not a realistic requirement for First-Party Oracles, an Oracle node that is designed for First-Party Oracles has to be stateless.
 
-Another way to look at keeping oracle node state is this: The blockchain (e.g., Ethereum) node that the oracle node uses already keeps the state on behalf of the oracle node. The duplication of this responsibility also duplicates the points of failure (where failure in either of them results in total failure). Then, the oracle node should depend on the blockchain node to keep its state, which requires the protocol to be designed to fit this scheme.
+Another way to look at keeping oracle node state is this: The blockchain (e.g., Ethereum) node that the Oracle node uses already keeps the state on behalf of the Oracle node. The duplication of this responsibility also duplicates the points of failure (where failure in either of them results in total failure). The Oracle node should depend on the blockchain node to keep its state, which requires the protocol to be designed to fit this scheme.
 
 ### Non-idempotent operations
 
@@ -31,7 +32,7 @@ The oracle node being stateless means that it would not be able to "remember" if
 
 Although serverless functions are better known for scaling automatically even with extreme concurrent usage (which may also come in handy in a bright future), we use it for different reasons:
 
-* **Serverless functions are stateless.** This means that whatever problem occurs in an invocation, the next invocation will start with a clean slate. This provides great resiliency against internal (from Airnode itself) or external (from the API, Ethereum node) bugs. In other words, the oracle node *turns itself off and on again* very frequently, which automatically fixes the majority of the potential problems.
+* **Serverless functions are stateless.** This means that whatever problem occurs in an invocation, the next invocation will start with a clean slate. This provides great resiliency against internal (from Airnode itself) or external (from the API, Ethereum node) bugs. In other words, the oracle node *turns itself off and on again* very frequently, which automatically mitigates potential problems.
 * **Serverless functions are fully managed.** They provide the closest experience to *set-and-forget* possible.
 * **Serverless functions are priced on-demand.** Especially considering that Airnode will not require major concurrent usage, this will result in great cost-efficiency (and even let the user stay below [Free Tier](https://aws.amazon.com/free) limits).
 * **Bare serverless functions** are easy to port across cloud providers (e.g., using [Serverless Framework](https://www.serverless.com/)), especially when their cloud provider-specific dependencies are limited.
@@ -42,8 +43,8 @@ For an optimally hands-off user experience, Airnode should utilize fully-managed
 
 There are two external parties that Airnode interacts with:
 
-* **APIs:** Although Airnode is designed for first-party oracles, we also consider serving data from third-party APIs as a valid usage scenario. In this case, calls made to all APIs are contained in separate serverless function invocations so that they cannot induce node-level failure.
-* **Blockchain nodes:** Similarly, using blockchain (e.g., Ethereum) nodes run by third party service providers is considered as a valid usage scenario. Airnode uses all providers simultaneously (i.e., not through a Quorum-based consensus or behind a load balancer) for maximum availability, which is made possible by its unique stateless design. The interactions made with each provider is contained in a separate serverless function invocation so that a malicious provider cannot induce node-level failure.
+* **APIs:** Although Airnode is designed for First-Party Oracles, serving data from third-party APIs is a valid usage scenario. In this case, calls made to all APIs are contained in separate serverless function invocations so that they cannot induce node-level failure.
+* **Blockchain Nodes:** Similarly, using blockchain (e.g., Ethereum) nodes run by third party service providers is considered as a valid usage scenario. Airnode uses all providers simultaneously (i.e., not through a Quorum-based consensus or behind a load balancer) for maximum availability, which is made possible by its unique stateless design. The interactions made with each provider is contained in a separate serverless function invocation so that a malicious provider cannot induce node-level failure.
 
 In addition, the protocol is implemented in a way that a blockchain service provider cannot tamper with the parameters of a request, but only deny service. Note that this is not the case with alternative solutions, as they treat the blockchain service provider as a trusted party.
 

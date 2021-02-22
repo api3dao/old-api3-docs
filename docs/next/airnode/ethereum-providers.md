@@ -5,18 +5,28 @@ title: Ethereum Providers
 # {{$frontmatter.title}}
 
 [[toc]]
+<div class="toc-label">Table of Contents</div>
 
-An oracle node requires access to a blockchain (e.g., Ethereum) node to listen for request events and send transactions to fulfill requests.
-The Airnode model aims to minimize the node operation effort using managed services wherever possible.
-Accordingly, it is assumed that the typical user will be using an Ethereum provider such as Infura, Alchemy, etc.
+::: danger TODO
+The second sentence below seems out-of-place.
+:::
 
-These services will only increase in variety, so designing a solution depending on these is not expected to cause a problem in the future.
-In addition, among these Ethereum providers, Infura provides 100,000 calls per day for free.
-An oracle that doesn't get any requests makes less than 3,000 calls per day (2 calls per minute), which allows the user to keep an oracle online for free, and upgrade to a paid plan once it gains traction.
+An oracle node requires access to a blockchain node (e.g., Ethereum) to listen for request events and send transactions to fulfill requests. The Airnode model minimizes the node operational effort using managed services wherever possible. 
 
-Although it is assumed that the user will be using an Ethereum provider, there is no reason for providers to not be able to use a private Ethereum node.
-Furthermore, Airnode is designed to allow the usage of multiple Ethereum providers simultaneously.
-This is achieved by treating all integrated providers individually.
+It is assumed that the typical API Provider will be using an Ethereum Provider such as [Infura](https://infura.io/), [Alchemy](https://www.alchemyapi.io/), etc. These services will only increase in variety. Designing a solution that depends on them in the future will not be problematic.
 
-As a result, the operations of an Airnode cannot be disrupted reliably unless all of its providers are malicious.
-Therefore, using multiple Ethereum providers is a better strategy to achieve the best availability than using a private Ethereum node.
+::: danger TODO
+Speak to the relationship of an Oracle and Ethereum Provider in more detail.
+:::
+
+
+
+## Availability
+
+Although it is assumed that API Providers will be using an Ethereum Provider, they can use a private Ethereum node. Furthermore, Airnode is designed to allow the use of multiple Ethereum Providers simultaneously. This is achieved by treating all integrated providers individually.
+
+As a result, the operations of an Airnode cannot be disrupted reliably unless all of its Ethereum Providers are malicious. Using multiple Ethereum Providers is a better strategy to achieve the best availability than using a private Ethereum node.
+
+## Costs
+
+Among these Ethereum Providers, [Infura](https://infura.io/pricing) provides 100,000 calls per day for free. An Oracle that doesn't get any requests makes less than 3,000 calls per day (2 calls per minute), which allows the user to keep an Oracle online for free, and upgrade to a paid plan once it gains traction. [Alchemy](https://www.alchemyapi.io/pricing) allows 25,000,000 compute units/month for free before billing begins.

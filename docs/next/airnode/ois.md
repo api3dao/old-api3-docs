@@ -5,6 +5,7 @@ title: Oracle Integration Specifications (OIS)
 # {{$frontmatter.title}}
 
 [[toc]]
+<div class="toc-label">Table of Contents</div>
 
 **Oracle Integration Specifications (OIS) 1.0.0** 
 

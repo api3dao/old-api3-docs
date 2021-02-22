@@ -6,7 +6,7 @@ title: AWS Cloud Credentials
 
 [[toc]]
 
-Airnode will deploy serverless functions to AWS Lambda. Follow these steps to create an IAM User with programmatic access and the necessary permissions.
+Airnode will deploy serverless functions to AWS Lambda. Follow these steps to create an IAM User with programmatic access and the necessary permissions. As an alternative to this tutorial watch this [Video](https://www.youtube.com/watch?v=KngM5bfpttA).
 
 1. Login (create an account if needed) to the [AWS Console](https://console.aws.amazon.com/).
 
@@ -20,17 +20,17 @@ Airnode will deploy serverless functions to AWS Lambda. Follow these steps to cr
 
     <img style="border:solid gray 2px" src="./images-aws/aws-user.png" alt="drawing" width="100"/>
 
-1. Set permissions for the new **User**. For this tutorial select **Lambda Full Access**. Be sure to set the proper permissions for any production environment. Select the **Next: Tags** button.
+1. Set permissions for the new User. Select the category **Attach existing policies directly** and then select **AdministratorAccess**. Select the **Next: Tags** button.
 
     <img style="border:solid gray 2px" src="./images-aws/aws-set-permissions.png" alt="drawing" width="100"/>
 
 1. **Tags** are optional. Select the **Next: Review** button.
 
-1. Verify **AWS access type** is "Programmatic access - with an access key" and **Managed Policy** is "AWSLambda_Full_Access". Select the **Next: Create User** button.
-    
+1. Verify **AWS access type** is "Programmatic access - with an access key" and **Managed Policy** is "SystemAdministrator". Select the **Next: Create User** button.
+
     <img style="border:solid gray 2px" src="./images-aws/aws-verify.png" alt="drawing" width="100"/>
 
-1. The final page shows the newly created user and its keys. Be sure to write down the **Secret access key**. It can only be viewed once and then is hidden by AWS.
+1. The final page shows the newly created user and its keys. Be sure to write down the **Secret access key** and/or download the CSV file. It can only be viewed once and then is hidden by AWS.
 
     <img style="border:solid gray 2px" src="./images-aws/aws-keys.png" alt="drawing" width="100"/>
 

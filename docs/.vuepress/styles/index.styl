@@ -27,8 +27,6 @@ h1{
 /************************************************/
 
 
-
-
 /************************************************/
 /* START sidebar changes */
 
@@ -121,13 +119,25 @@ img.logo{
 
 .table-of-contents{
     position: fixed;
-    top:1 0px;
+    top:170px;
     right: 5px;
     font-size:small;
     color:#50c878;
     min-width:275px !important;
     max-width:275px !important;
 }
+.toc-label{
+  position: fixed;
+    top:150px;
+    right: 5px;
+    font-size:medium;
+    color:gray;
+    min-width:275px !important;
+    max-width:275px !important;
+    border-bottom:1px solid lightgrey;
+    margin-bottom:40px !important;
+}
+
 
 @media only screen and (max-width: 4000px) {
     div.theme-default-content.content__default{
@@ -179,7 +189,7 @@ img.logo{
 }
 
 @media only screen and (max-width: 1200px) {
-    .table-of-contents{
+    .table-of-contents, .toc-label{
       display:none;
     }
     div.theme-default-content.content__default{
@@ -189,7 +199,7 @@ img.logo{
     }
 }
 @media only screen and (max-width: 900px) {
-    .table-of-contents{
+    .table-of-contents, .toc-label{
       display:none;
     }
     div.theme-default-content.content__default{
