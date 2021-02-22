@@ -2,7 +2,7 @@ module.exports = [
       {
         title: 'Introduction', collapsable: false, 
         children: [
-            'introduction/what-is-api3',
+            '/next/',
             'fundamentals/first-party-oracles',
             'fundamentals/decentrally-governed-oracle-networks',
             
