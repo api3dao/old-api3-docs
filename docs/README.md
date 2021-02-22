@@ -4,7 +4,7 @@ heroImage:
 heroText: API3 Documentation
 tagline: Decentralized APIs for Web 3.0
 actionText: Get Started →
-actionLink: /next/getting-started/what-is-api3
+actionLink: /next/introduction/what-is-api3
 features:
 - title: Decentralized APIs
   details: Create powerful decentralized applications with API3's decentrally governed and quantifiably secure data feeds.
