@@ -108,23 +108,6 @@ module.exports = [
           },
         ]
       },
-      /*{
-        title: 'Providers Guide (alt)',
-        children: [
-            'providers-guide/introduction.md',
-            'providers-guide/api-integrations',
-            'providers-guide/configure-airnode',
-            'providers-guide/deploy-airnode',
-            'providers-guide/set-authorizers',
-      ]},
-      {
-        title: 'Requesters Guide (alt)',
-        children: [
-            'requesters-guide/introduction',
-            'requesters-guide/create-request',
-            'requesters-guide/develop-client-contract'
-        ]
-      },*/
       {
         title: 'Tutorials', collapsable: false,
         children: [

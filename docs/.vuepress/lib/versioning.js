@@ -21,7 +21,7 @@ module.exports = {
 
       /* Until we have versions sent to /next */
       //return versions[1]
-      console.log('>>> latest version:', versions[0])
+      //console.log('>>> latest version:', versions[0])
       return versions[0]
     },
 
@@ -43,7 +43,7 @@ module.exports = {
       let sidebar = require(`../../${version}/sidebar.js`)
       sidebars[`/${version}/`] = sidebar
     })
-    console.log('>>> sidebars:', sidebars)
+    //console.log('>>> sidebars:', sidebars)
 
     return sidebars
   },

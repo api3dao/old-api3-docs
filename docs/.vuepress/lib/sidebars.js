@@ -15,7 +15,7 @@ module.exports = {
       let sidebar = require(`../../${version}/sidebar.js`)
       sidebars[`/${version}/`] = sidebar
     })
-    console.log('>>> sidebars:', sidebars)
+    //console.log('>>> sidebars:', JSON.stringify(sidebars))
 
     return sidebars
   },
