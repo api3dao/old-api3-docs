@@ -4,7 +4,10 @@ title: config.json
 
 # {{$frontmatter.title}}
 
-[[toc]]
+[[TOC]]
+
+<Version selectedVersion="next" />
+
 <div class="toc-label">Table of Contents</div>
 
 `config.json` is the configuration file used while deploying the Airnode.

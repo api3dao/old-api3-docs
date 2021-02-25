@@ -6,6 +6,10 @@ title: Oracle Integration Specifications (OIS) 1.0.0
 
 [[TOC]]
 
+<Version selectedVersion="pre-alpha" />
+
+<div class="toc-label">Table of Contents</div>
+
 *This will be migrated from docs to its own repo.*
 
 *Fields denoted by \* are for documentation purposes and not used by the oracle node.*

@@ -4,8 +4,11 @@ title: First-Party Oracles
 
 # {{$frontmatter.title}}
 
-
 [[TOC]]
+
+<Version selectedVersion="pre-alpha" />
+
+
 
 An oracle is an agent that acts as an intermediary between a smart contract platform and an API.
 In other words, a decentralized application can use an oracle to call an API.
@@ -24,10 +27,10 @@ Based on this information, it looks like simply having an oracle solves the API 
 However, there is an important point to consider:
 Who will host the oracle node?
  
-1. If the [API provider](/fundamentals/api.md#api-provider) hosts the oracle node, the oracle is called a **first-party oracle**.
+1. If the [API provider](apis.md#api-provider) hosts the oracle node, the oracle is called a **first-party oracle**.
 2. If a third-party middleman hosts the oracle node, the oracle is called a **third-party oracle**.
 
 *See our article, [First-Party vs Third-Party Oracles](https://medium.com/api3/first-party-vs-third-party-oracles-90356e3cffe5) for a comparison of the two types of oracles.*
 
-Third party oracles are both insecure and expensive (see the [whitepaper](/README.md#whitepaper) for a detailed explanation).
+Third party oracles are both insecure and expensive (see the [API3 Whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf) for a detailed explanation).
 In contrast, first-party oracles are both secure and cost-efficient due to not having a middleman on the interface path.

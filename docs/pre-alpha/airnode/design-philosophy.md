@@ -6,6 +6,10 @@ title: Airnode design philosophy
 
 [[TOC]]
 
+<Version selectedVersion="pre-alpha" />
+
+<div class="toc-label">Table of Contents</div>
+
 *See our article, [Airnode: The API gateway for blockchains](https://medium.com/api3/airnode-the-api-gateway-for-blockchains-8b07ff136840) for a high level overview of Airnode.*
 
 The API3 solution to the API connectivity problem requires an ecosystem of a large number of first-party oracles.

@@ -6,6 +6,10 @@ title: Authorizer
 
 [[TOC]]
 
+<Version selectedVersion="pre-alpha" />
+
+<div class="toc-label">Table of Contents</div>
+
 An authorizer is a contract with the following interface:
 
 ```solidity

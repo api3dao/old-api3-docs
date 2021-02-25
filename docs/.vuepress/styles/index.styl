@@ -35,7 +35,7 @@ section.sidebar-group.depth-0 a.sidebar-link{
   font-size:small;
 }
 
-/* Default size for all DOCS unser a GROUP */
+/* Default size for all DOCS under a GROUP */
 section.sidebar-group.collapsable.is-sub-group.depth-1 a.sidebar-link{
   font-size:samll;
 }
@@ -82,9 +82,17 @@ section.sidebar-group.collapsable.is-sub-group.depth-1  ul.sidebar-links.sidebar
 
 /******************************************************/
 /* START NavBar */
+
 .navbar, .search-box, div.links, .nav-item, .site-name{
   color:white !important;
   background-color:black !important;
+}
+
+/* Site name at top of landing page */
+span.site-name.can-hide{
+  font-size:large !important;
+  font-weight:normal;
+  margin-left:50px !important;
 }
 
 a.nav-link.external, a.repo-link{
@@ -94,7 +102,7 @@ a.nav-link.external, a.repo-link{
 
 img.logo{
   margin-top:3px;
-  width:85px; /* you can use % */
+  width:90px; /* you can use % */
   height:auto !important;
 }
 
@@ -104,12 +112,7 @@ img.logo{
   margin-left: 1rem;
 }
 
-/* Site name at top of landing page */
-.site-name{
-  font-size:medium !important;
-}
-
-/* Versions menu */
+/* Versions menu ??? is this junk*/
 span.title{
   color:white;
   font-weight:bold;

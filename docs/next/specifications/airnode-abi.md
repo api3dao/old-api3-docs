@@ -4,7 +4,11 @@ title: ABI (Application Binary Interface)
 
 # {{$frontmatter.title}}
 
-[[toc]]
+[[TOC]]
+
+<Version selectedVersion="next" />
+
+<div class="toc-label">Table of Contents</div>
 
 [Contract application binary interface \(ABI\)](https://docs.soliditylang.org/en/v0.6.12/abi-spec.html) is used to encode different types of data while interacting with Ethereum contracts. As a result, both Solidity and modules such as web3.js and ethers.js treat ABI encoding–decoding functionality as a first-class citizen. This makes using contract ABI for encoding API call parameters a very attractive option.
 

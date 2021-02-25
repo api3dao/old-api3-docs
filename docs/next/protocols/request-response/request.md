@@ -4,7 +4,11 @@ title: Request
 
 # {{$frontmatter.title}}
 
-[[toc]]
+[[TOC]]
+
+<Version selectedVersion="next" />
+
+<div class="toc-label">Table of Contents</div>
 
 When a client makes a request using `Airnode.sol`, it is returned a `requestId`. This `requestId` is a hash of all request parameters and a nonce. This allows Airnode to verify that the request parameters are not tampered with.
 

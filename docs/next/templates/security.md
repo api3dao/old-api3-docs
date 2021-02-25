@@ -2,7 +2,9 @@
 title: security.json
 ---
 
-[[toc]]
+[[TOC]]
+
+<Version selectedVersion="next" />
 
 # {{$frontmatter.title}}
 

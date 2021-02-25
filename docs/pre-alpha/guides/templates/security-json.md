@@ -4,6 +4,8 @@ title: security.json
 
 # {{$frontmatter.title}}
 
+<Version selectedVersion="pre-alpha" />
+
 ```json
 {
   "apiCredentials": {

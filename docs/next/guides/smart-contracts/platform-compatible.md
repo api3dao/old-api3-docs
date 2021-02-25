@@ -6,6 +6,10 @@ title: Platform Compatible
 
 [[TOC]]
 
+<Version selectedVersion="next" />
+
+<div class="toc-label">Table of Contents</div>
+
 We are receiving an overwhelming amount of demand by teams of smart contract platforms and decentralized applications built on these about integrating Airnode to gain access to API data and services. These guides are for you to be able to self-serve to assess the feasibility of an integration, and even prototype the integration yourself.
 
 A lot of the smart contract platforms are directly compatible with Airnode, meaning that the integration effort will be trivial and can even be done with minimal support from API3. In this guide, we will go over different factors that determine compatibility.

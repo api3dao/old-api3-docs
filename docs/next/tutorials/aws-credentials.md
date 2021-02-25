@@ -4,7 +4,11 @@ title: AWS Cloud Credentials
 
 # {{$frontmatter.title}}
 
-[[toc]]
+[[TOC]]
+
+<Version selectedVersion="next" />
+
+<div class="toc-label">Table of Contents</div>
 
 Airnode will deploy serverless functions to AWS Lambda. Follow these steps to create an IAM User with programmatic access and the necessary permissions. As an alternative to this tutorial watch this [Video](https://www.youtube.com/watch?v=KngM5bfpttA).
 

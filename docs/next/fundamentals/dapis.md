@@ -6,6 +6,10 @@ title: dAPI (Decentralized API)
 
 [[TOC]]
 
+<Version selectedVersion="next" />
+
+<div class="toc-label">Table of Contents</div>
+
 Consider the following points previously discussed.
 
 * Decentralized applications need access to [APIs](./apis.md).

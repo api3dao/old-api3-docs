@@ -3,23 +3,28 @@ module.exports = [
     title: 'Introduction', collapsable: false, 
     children: [
         {title:'What is API3?', path:'/pre-alpha/'},
-        'introduction/first-party-oracles',
-        'introduction/decentrally-governed-oracle-networks',
-        'introduction/apis',
-        'introduction/dapis',
         'introduction/contributing',
+    ]
+  },
+  {
+    title: 'Fundamentals', collapsable: false, 
+    children: [
+        {title: 'API', path: 'fundamentals/apis'},
+        'fundamentals/first-party-oracles',
+        'fundamentals/decentrally-governed-oracle-networks',
+        {title: 'dAPI', path: 'fundamentals/dapis'},
     ]
   },
   {
     title: 'Airnode', collapsable: false,
     children: [
-        'airnode/ethereum-providers',
-        'airnode/design-philosophy',
-        'airnode/implementation',
+        {title:'Design Philosophy', path:'airnode/design-philosophy'},
+        {title:'Implementation', path:'airnode/implementation'},
+        {title:'Ethereum Providers', path:'airnode/ethereum-providers'},
         {
           title: 'Specifications',
           children: [
-              'airnode/specifications/ois',
+              {title:'Oracle Integration Specifications (OIS)', path:'airnode/specifications/ois'},
               'airnode/specifications/airnode-abi-specifications',
               'airnode/specifications/config-json',
               'airnode/specifications/security-json',
@@ -29,7 +34,7 @@ module.exports = [
     ],
   },
   //{title: 'Protocols', initialOpenGroupIndex: -1, collapsable: false, children:[
-      {title: 'Request-Response',
+      {title: 'Request-Response Protocol',
         children:['protocols/request-response/general-structure',
         'protocols/request-response/provider',
         'protocols/request-response/endpoint',
@@ -63,8 +68,13 @@ module.exports = [
         ]
       },
       {title: 'Smart Contracts',
-        children:['guides/smart-contracts/self-serve-integration',
-                  'guides/smart-contracts/is-my-platform-compatible'
+        children:['guides/smart-contracts/is-my-platform-compatible',
+                  'guides/smart-contracts/self-serve-integration',
+        ]
+      },
+      {title: 'Docker',
+        children:['guides/docker/docker',
+        'guides/docker/docker-client'
         ]
       },
       {title: 'Templates',
@@ -75,12 +85,11 @@ module.exports = [
       },
     ]
   },
-  /*{
+  {
     title: 'Tutorials', collapsable: false,
     children: [
-        //'tutorials/airnode-starter',
-        //'tutorials/aws-credentials',
-        //'tutorials/client-examples'
+        'tutorials/airnode-starter'
+        
     ]
-  },*/
+  }
 ]

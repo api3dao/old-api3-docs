@@ -6,6 +6,10 @@ title: dApp (Decentralized App)
 
 [[TOC]]
 
+<Version selectedVersion="next" />
+
+<div class="toc-label">Table of Contents</div>
+
 ::: danger TODO
 dApp: do we need a short description of how they work? They appear in other files.
 

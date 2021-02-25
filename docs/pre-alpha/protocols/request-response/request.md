@@ -6,6 +6,10 @@ title: Request
 
 [[TOC]]
 
+<Version selectedVersion="pre-alpha" />
+
+<div class="toc-label">Table of Contents</div>
+
 When a client makes a request using `Airnode.sol`, it is returned a `requestId`.
 This `requestId` is a hash of all request parameters and a nonce.
 This allows Airnode to verify that the request parameters are not tampered with.
@@ -15,8 +19,8 @@ This allows Airnode to verify that the request parameters are not tampered with.
 - `providerId` and `endpointId` specify the endpoint
 - `requesterIndex` and `designatedWallet` specify which wallet will be used to fulfill the request
 - `fulfillAddress` and `fulfillFunctionId` specify which method will be called to fulfill the request
-- `parameters` specify the API and [reserved](/airnode/ois.md#54-reservedParameters
-) parameters (see [Airnode ABI specifications](/airnode/airnode-abi-specifications.md) for how these are encoded)
+- `parameters` specify the API and [reserved](../../airnode/specifications/ois.html#_5-4-reservedparameters
+) parameters (see [Airnode ABI specifications](../../airnode/specifications/airnode-abi-specifications.html) for how these are encoded)
 
 ## How templates are used in requests
 

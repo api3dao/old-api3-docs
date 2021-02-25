@@ -4,7 +4,10 @@ title: Design Philosophy
 
 # {{$frontmatter.title}}
 
-[[toc]]
+[[TOC]]
+
+<Version selectedVersion="next" />
+
 <div class="toc-label">Table of Contents</div>
 
 *See the article, [Airnode: The API gateway for blockchains](https://medium.com/api3/airnode-the-api-gateway-for-blockchains-8b07ff136840) for a high level overview of Airnode.*

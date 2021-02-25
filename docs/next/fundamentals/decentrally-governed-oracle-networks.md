@@ -6,6 +6,10 @@ title: Decentrally-Governed Oracle Networks
 
 [[TOC]]
 
+<Version selectedVersion="next" />
+
+<div class="toc-label">Table of Contents</div>
+
 *See the article, [On DAOs: Decentralized Autonomous Organizations](https://medium.com/api3/on-daos-decentralized-autonomous-organizations-84c00abb89bc) about DAOs and decentralized governance.*
 
 [First-Party Oracles](./first-party-oracles.html) are optimally secure and cost-efficient.

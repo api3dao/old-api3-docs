@@ -4,4 +4,8 @@ title: config.json
 
 # {{$frontmatter.title}}
 
-[[toc]]
+[[TOC]]
+
+<Version selectedVersion="next" />
+
+<div class="toc-label">Table of Contents</div>

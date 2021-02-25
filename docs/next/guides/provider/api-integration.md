@@ -4,7 +4,11 @@ title: API Intgeration
 
 # {{$frontmatter.title}}
 
-[[toc]]
+[[TOC]]
+
+<Version selectedVersion="next" />
+
+<div class="toc-label">Table of Contents</div>
 
 To integrate a System X to a System Y, we need to do three things:
 

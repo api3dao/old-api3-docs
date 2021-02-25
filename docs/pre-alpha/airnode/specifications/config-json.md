@@ -6,10 +6,14 @@ title: config.json
 
 [[TOC]]
 
+<Version selectedVersion="pre-alpha" />
+
+<div class="toc-label">Table of Contents</div>
+
 `config.json` is the configuration file used for deploying Airnode.
 It is composed of four main sections:
 
-1. `ois`: A list of [OIS](/airnode/ois.md) objects
+1. `ois`: A list of [OIS](ois.md) objects
 2. `triggers`: A list of trigger objects, each mapping to an endpoint defined in an OIS in 1
 3. `nodeSettings`: An object containing node configuration parameters
 4. `id`: A UUID that specifies a `config.json`/`security.json` file pair
@@ -113,7 +117,7 @@ It has to include the following contract addresses:
 
 **Optional**
 
-- `providerAdminForRecordCreation` - the master address that will be authorized to update the authorizers of the provider's endpoints (see the [protocol docs](/request-response-protocol/general-structure.md) for more information).
+- `providerAdminForRecordCreation` - the master address that will be authorized to update the authorizers of the provider's endpoints (see the [protocol docs](../../protocols/request-response/general-structure.md) for more information).
 Note that the node only uses this while creating the provider record.
 Changing this after the provider record is created will not have any effect.
 This field is optional, but not having it means that the node will not be able to create a provider record on the respective chain.

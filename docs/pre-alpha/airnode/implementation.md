@@ -6,6 +6,10 @@ title: Airnode implementation
 
 [[TOC]]
 
+<Version selectedVersion="pre-alpha" />
+
+<div class="toc-label">Table of Contents</div>
+
 *See our article, [Getting to know Airnode](https://medium.com/api3/getting-to-know-airnode-162e50ea243e) for a technical overview of the software.*
 
 ## Statelessness

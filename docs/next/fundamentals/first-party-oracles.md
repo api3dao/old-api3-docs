@@ -4,7 +4,11 @@ title: First-Party Oracles
 
 # {{$frontmatter.title}}
 
-[[toc]]
+[[TOC]]
+
+<Version selectedVersion="next" />
+
+<div class="toc-label">Table of Contents</div>
 
 A smart contract cannot access data that is not presently in the blockchain, which is commonly known as the Oracle problem. An oracle is an agent that acts as an intermediary between a smart contract platform and an API. In other words, a decentralized application can use an Oracle to call an off-chain API.
 

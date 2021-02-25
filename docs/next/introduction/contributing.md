@@ -4,7 +4,11 @@ title: Contributing
 
 # {{$frontmatter.title}}
 
-[[toc]]
+[[TOC]]
+
+<Version selectedVersion="next" />
+
+<div class="toc-label">Table of Contents</div>
 
 **Contributing to the API3 DAO as a technical member**
 

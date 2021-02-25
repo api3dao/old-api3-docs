@@ -6,6 +6,10 @@ title: Is my platform compatible?
 
 [[TOC]]
 
+<Version selectedVersion="pre-alpha" />
+
+<div class="toc-label">Table of Contents</div>
+
 We are receiving an overwhelming amount of demand by teams of smart contract platforms and decentralized applications built on these about integrating Airnode to gain access to API data and services.
 These guides are for you to be able to self-serve to assess the feasibility of an integration, and even prototype the integration yourself.
 
@@ -45,7 +49,7 @@ Otherwise, the parts of Airnode that interacts with the chain will need to be cu
 
 ## What next?
 
-If your platform is compatible, the integration will be trivial, so you can even attempt to [do it yourself](/smart-contract-platform-guides/self-serve%20integration.md).
+If your platform is compatible, the integration will be trivial, so you can even attempt to [do it yourself](self-serve-integration.html).
 Do not hesitate to drop by [our Discord](https://discord.gg/qnRrcfnm5W) and ask for support.
 
 If your platform is not directly compatible, this means that a significant amount of development will need to be undertaken for porting Airnode to your chain.

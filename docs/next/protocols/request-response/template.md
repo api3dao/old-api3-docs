@@ -4,7 +4,11 @@ title: Template
 
 # {{$frontmatter.title}}
 
-[[toc]]
+[[TOC]]
+
+<Version selectedVersion="next" />
+
+<div class="toc-label">Table of Contents</div>
 
 An oracle request has many parameters. It is very common for [clients](./client.md) \(e.g., a data feed\) to make repeated requests with the exact same parameters. In such instances, it is wasteful to pass all of these parameters repeatedly.
 

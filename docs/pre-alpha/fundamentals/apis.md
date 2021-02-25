@@ -6,6 +6,10 @@ title: API (Application programming interface)
 
 [[TOC]]
 
+<Version selectedVersion="pre-alpha" />
+
+<div class="toc-label">Table of Contents</div>
+
 *See our article, [APIs: The Digital Glue](https://medium.com/api3/apis-the-digital-glue-7ac87566e773) for a more complete background on APIs.*
 
 An API is a well-defined and documented protocol that one can use to interact with an application programmatically.

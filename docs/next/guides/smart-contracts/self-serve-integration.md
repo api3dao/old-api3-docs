@@ -6,6 +6,10 @@ title: Self-Serve Integration
 
 [[TOC]]
 
+<Version selectedVersion="next" />
+
+<div class="toc-label">Table of Contents</div>
+
 Assuming you have determined that your platform [is compatible](/smart-contract-platform-guides/is-my-platform-compatible.md), you can attempt to do the integration yourself by following the steps below.
 
 ## Part 1: Protocol contract deployment

@@ -4,7 +4,11 @@ title: Authorizer
 
 # {{$frontmatter.title}}
 
-[[toc]]
+[[TOC]]
+
+<Version selectedVersion="next" />
+
+<div class="toc-label">Table of Contents</div>
 
 An authorizer is a contract with the following interface:
 
