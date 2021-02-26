@@ -7,6 +7,7 @@
   "author": "Warren Anderson",
   "license": "MIT",
   "scripts": {
+    "test:links": "for file in $(find ./docs/pre-alpha -path ./node_modules -prune -false -o -name \"*.md\"); do markdown-link-check --verbose --config .markdown-link-check.config.json \"$file\" || exit 1; done;",
     "docs:dev": "NODE_OPTIONS='--max-old-space-size=4096' vuepress dev docs",
     "docs:build": "vuepress build docs",
     "bump": "node -e 'require(\"./docs/.vuepress/lib/versioning.js\").generate()'",
@@ -15,6 +16,7 @@
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.8.0",
     "@vuepress/plugin-medium-zoom": "^1.8.0",
+    "markdown-link-check": "^3.8.6",
     "vuepress": "^1.8.0",
     "vuepress-plugin-element-tabs": "^0.2.8"
   },

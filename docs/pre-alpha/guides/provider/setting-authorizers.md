@@ -10,7 +10,7 @@ title: Setting authorizers
 
 <div class="toc-label">Table of Contents</div>
 
-We are assuming that you have [configured your Airnode](configuring-airnode.html) (and set `endpointId`s of your endpoints), and [deployed your Airnode](deploying-airnode.html) and received your `providerId` in your receipt file.
+We are assuming that you have [configured your Airnode](configuring-airnode.md) (and set `endpointId`s of your endpoints), and [deployed your Airnode](deploying-airnode.md) and received your `providerId` in your receipt file.
 Requesters who know your `providerId` and `endpointId`s should now be able to make requests to your endpoints.
 However, you probably do not want to serve the entire public with your Airnode, but rather
 - Only serve your own client contracts
@@ -22,7 +22,7 @@ In this guide, we will explain how you can achieve this.
 
 ## `authorizers`
 
-[EndpointStore.sol](../../protocols/request-response/general-structure.html#endpointstore-sol) keeps a list of [authorizer](../../protocols/request-response/authorizer.html) addresses for each `providerId`–`endpointId` pair.
+[EndpointStore.sol](../../protocols/request-response/general-structure.md#endpointstore-sol) keeps a list of [authorizer](../../protocols/request-response/authorizer.md) addresses for each `providerId`–`endpointId` pair.
 An authorizer is a contract that Airnode calls to check if it should respond to a specific request.
 It can enforce any kind of authorization policy that one could implement as a contract.
 
@@ -42,7 +42,7 @@ In JS (using ethers.js):
 ```js
 airnode.connect(providerAdmin).updateEndpointAuthorizers(providerId, endpointId, [ethers.constants.AddressZero]);
 ```
-You can also use [@api3/airnode-admin](https://github.com/api3dao/airnode/tree/master/packages/admin#update-authorizers) to update endpoint authorizers.
+You can also use [@api3/airnode-admin](https://github.com/api3dao/airnode/tree/pre-alpha/packages/admin#update-authorizers) to update endpoint authorizers.
 
 After making this transaction, your Airnode will respond to all requests.
 Note that being able to do this on-chain through `providerAdmin` allows you to update your authorization policies without interacting with your Airnode or having to redeploy it.
@@ -50,9 +50,9 @@ Note that being able to do this on-chain through `providerAdmin` allows you to u
 ## Custom authorization policies
 
 We have mentioned that authorizer contracts can implement any arbitrary authorization logic.
-See [this example](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/authorizers/MinBalanceAuthorizer.sol) where Airnode only responds to requests if the wallet it will use to fulfill the request has a balance more than an amount set by the provider admin.
+See [this example](https://github.com/api3dao/airnode/blob/pre-alpha/packages/protocol/contracts/authorizers/MinBalanceAuthorizer.sol) where Airnode only responds to requests if the wallet it will use to fulfill the request has a balance more than an amount set by the provider admin.
 
-The authorizer list allows you to combine single-purpose authorizer contracts to form complex policies as described in the [docs](../../protocols/request-response/authorizer.html#authorizer-list).
+The authorizer list allows you to combine single-purpose authorizer contracts to form complex policies as described in the [docs](../../protocols/request-response/authorizer.md#authorizer-list).
 If you would like to contribute to this set of authorizer contracts, please join the conversation in [this issue](https://github.com/api3dao/airnode/issues/38).
 
 ## Conclusion

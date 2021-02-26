@@ -104,7 +104,7 @@ Some API operations have path parameters such as the following.
 
 This means that calling the `/price/ethereum` path will return the Ethereum price, calling the `/price/bitcoin` path will return the Bitcoin price, etc.
 
-These path parameters are given in curly braces in the path, and must also be defined as [operation parameters](./api-integration.html#operation-parameters) with the same `name`, and their `in` field defined as `path`. A request that maps to this operation and does not define this path parameter will be errored.
+These path parameters are given in curly braces in the path, and must also be defined as [operation parameters](#operation-parameters) with the same `name`, and their `in` field defined as `path`. A request that maps to this operation and does not define this path parameter will be errored.
 
 #### Operation Parameters
 
@@ -114,11 +114,11 @@ Note that you do not have to specify all operation parameters, but only the ones
 
 ### Security Schemes
 
-As a final step, we need to specify the security schemes of the API. Usually, this means telling Airnode where the API key goes, and under what name. Note that we will not be entering the API key itself in the OIS, because the OIS is not meant to include any user-specific information. Security credentials such as API keys go in [`security.json`](/airnode/security-json.md).
+As a final step, we need to specify the security schemes of the API. Usually, this means telling Airnode where the API key goes, and under what name. Note that we will not be entering the API key itself in the OIS, because the OIS is not meant to include any user-specific information. Security credentials such as API keys go in [`security.json`](../../airnode/security-json.md).
 
-First, name the security scheme by replacing `{FILL_SECURITY_SCHEME_NAME}` under `apiSpecifications.components.securitySchemes`. Note that you will also need to use the same name under `apiSpecifications.security`. Make sure to choose a descriptive name, such as `myapi_apikey`. This name will also be referred to in [`security.json`](/airnode/security-json.md).
+First, name the security scheme by replacing `{FILL_SECURITY_SCHEME_NAME}` under `apiSpecifications.components.securitySchemes`. Note that you will also need to use the same name under `apiSpecifications.security`. Make sure to choose a descriptive name, such as `myapi_apikey`. This name will also be referred to in [`security.json`](../../airnode/security-json.md).
 
-Next, fill in `type`, `name` and `in` by referring to the [`components` section of OIS](/airnode/ois.md#42-components). [OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#securitySchemeObject) is also a good source for further details.
+Next, fill in `type`, `name` and `in` by referring to the [`components` section of OIS](../../airnode/ois.md#42-components). [OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#securitySchemeObject) is also a good source for further details.
 
 As noted above, make sure to insert the name of your security scheme under `apiSpecifications.security`.Furthermore, similar to API operations, you can use multiple security schemes simply by duplicating the one provided in the OIS template (e.g., an API key goes in the header, and an additional user ID goes in the query). Similarly, if the API you are integrating is publicly accessible, you can remove all security schemes.
 
@@ -130,7 +130,7 @@ An endpoint is a service that Airnode exposes to on-chain clients. It maps to an
 
 For example, if your API operation returns an asset price given its ticker (e.g., `BTC`), you can specify the endpoint such that the requester provides the ticker as a parameter. The resulting endpoint would be a general one that returns prices for any kind of asset. On the other hand, you can hardcode `BTC` as the asset whose price will be returned (using [fixed operation parameters](#fixedoperationparameters)), which would make your endpoint a specific one that only returns the BTC price.
 
-The recommended endpoint definition pattern is to create an endpoint for each API operation, and allow the requesters to provide all operation parameters themselves. This results in optimal flexibility, and essentially allows the requesters to use the entire API functionality on-chain. Normally, oracle integrations strive to hardcode as many API parameters as possible because passing these parameters on-chain results in a gas cost overhead. However, the Airnode protocol uses [templates](/request-response-protocol/template.md) (not to be confused with the OIS template we are using for this guide), which allow requesters to specify a large number of endpoint parameters at no additional gas cost.
+The recommended endpoint definition pattern is to create an endpoint for each API operation, and allow the requesters to provide all operation parameters themselves. This results in optimal flexibility, and essentially allows the requesters to use the entire API functionality on-chain. Normally, oracle integrations strive to hardcode as many API parameters as possible because passing these parameters on-chain results in a gas cost overhead. However, the Airnode protocol uses [templates](../../protocols/request-response/template.md) (not to be confused with the OIS template we are using for this guide), which allow requesters to specify a large number of endpoint parameters at no additional gas cost.
 
 Note that there are some cases where you may not want to map endpoints to API operations one-to-one. For example, the API operation may have a parameter, `responseFormat`, that can take the values `JSON`/`XML` and determines in which format the API will respond to the call. Airnode expects responses to be in JSON format, and thus hardcoding this parameter as `JSON` would be more suitable than letting the requester decide, as there is only one valid choice. Again, the integrator's job is to be aware of these subtleties and use judgement.
 
@@ -150,9 +150,9 @@ An endpoint can have multiple fixed operation parameters. An operation parameter
 
 ### reservedParameters
 
-The requester can provide some parameters that are not mapped to API operation parameters. These parameters are called "reserved parameters", and their names start with an underscore. See the [related OIS docs](/airnode/ois.md#54-reservedParameters) for more information.
+The requester can provide some parameters that are not mapped to API operation parameters. These parameters are called "reserved parameters", and their names start with an underscore. See the [related OIS docs](../../airnode/ois.md#54-reservedParameters) for more information.
 
-The current list of reserved parameters are `_type`, `_path` and `_times`. See the [reserved parameters guide](/airnode/reserved-parameters.md) to see what each of these parameters are for. In most cases, all three should be defined as reserved parameters with no fixed/default values, as doing so provides the requester with the most flexibility.
+The current list of reserved parameters are `_type`, `_path` and `_times`. See the [reserved parameters guide](../../specifications/reserved-parameters.md) to see what each of these parameters are for. In most cases, all three should be defined as reserved parameters with no fixed/default values, as doing so provides the requester with the most flexibility.
 
 ### parameters
 

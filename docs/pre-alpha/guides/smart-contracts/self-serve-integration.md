@@ -10,7 +10,7 @@ title: Self-serve integration
 
 <div class="toc-label">Table of Contents</div>
 
-Assuming you have determined that your platform [is compatible](is-my-platform-compatible.html), you can attempt to do the integration yourself by following the steps below.
+Assuming you have determined that your platform [is compatible](is-my-platform-compatible.md), you can attempt to do the integration yourself by following the steps below.
 
 ## Part 1: Protocol contract deployment
 
@@ -30,7 +30,7 @@ yarn run bootstrap
 yarn run build
 ```
 
-3. Go to the [protocol package](https://github.com/api3dao/airnode/tree/master/packages/protocol)
+3. Go to the [protocol package](https://github.com/api3dao/airnode/tree/pre-alpha/packages/protocol)
 
 ```sh
 cd packages/protocol
@@ -73,7 +73,7 @@ $CHAIN_NAME: {
 "deploy:$CHAIN_NAME": "hardhat deploy --network $CHAIN_NAME"
 ```
 
-8. Finally, run the added script to deploy the contracts, which will record the deployment details including the contract address in the [`/deployments`](https://github.com/api3dao/airnode/tree/master/packages/protocol/deployments) directory.
+8. Finally, run the added script to deploy the contracts, which will record the deployment details including the contract address in the [`/deployments`](https://github.com/api3dao/airnode/tree/pre-alpha/packages/protocol/deployments) directory.
 
 ```sh
 yarn run deploy:$CHAIN_NAME

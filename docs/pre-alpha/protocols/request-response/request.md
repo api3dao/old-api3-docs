@@ -19,8 +19,8 @@ This allows Airnode to verify that the request parameters are not tampered with.
 - `providerId` and `endpointId` specify the endpoint
 - `requesterIndex` and `designatedWallet` specify which wallet will be used to fulfill the request
 - `fulfillAddress` and `fulfillFunctionId` specify which method will be called to fulfill the request
-- `parameters` specify the API and [reserved](../../airnode/specifications/ois.html#_5-4-reservedparameters
-) parameters (see [Airnode ABI specifications](../../airnode/specifications/airnode-abi-specifications.html) for how these are encoded)
+- `parameters` specify the API and [reserved](../../airnode/specifications/ois.md#_5-4-reservedparameters
+) parameters (see [Airnode ABI specifications](../../airnode/specifications/airnode-abi-specifications.md) for how these are encoded)
 
 ## How templates are used in requests
 
@@ -69,7 +69,7 @@ A request made to an Airnode has three possible outcomes:
 
 If the node encountered no errors at any step, it calls the `fulfill()` method that will call back the method `fulfillFunctionId` at `fulfillAddress` to deliver `data` and 0 as the `statusCode`.
 
-If the node encountered an error, it will do the same, but `statusCode` will be non-0, indicating to the client that the request has failed (see [this](https://github.com/api3dao/airnode/tree/master/packages/node#behaviour) for details).
+If the node encountered an error, it will do the same, but `statusCode` will be non-0, indicating to the client that the request has failed (see [this](https://github.com/api3dao/airnode/tree/pre-alpha/packages/node#behaviour) for details).
 The client can then handle this error as it sees fit (e.g., ignore it, make a request to an alternative provider, etc.)
 
 ### 2. Fail

@@ -10,7 +10,7 @@ title: Self-Serve Integration
 
 <div class="toc-label">Table of Contents</div>
 
-Assuming you have determined that your platform [is compatible](/smart-contract-platform-guides/is-my-platform-compatible.md), you can attempt to do the integration yourself by following the steps below.
+Assuming you have determined that your platform [is compatible](platform-compatible.md), you can attempt to do the integration yourself by following the steps below.
 
 ## Part 1: Protocol contract deployment
 
@@ -81,7 +81,7 @@ yarn run deploy:$CHAIN_NAME
 
 If your chain has a customized flow for deploying contracts, you can find the bytecodes of the compiled contracts in the `artifacts/` directory.
 
-Note that you will need to deploy both [`Airnode.sol`](/request-response-protocol/general-structure.md#airnodesol) and [`Convenience.sol`](/request-response-protocol/general-structure.md#conveniencesol).
+Note that you will need to deploy both [`Airnode.sol`](../../protocols/request-response/general-structure.md#airnode-sol) and [`Convenience.sol`](../../protocols/request-response/general-structure.md#convenience-sol).
 
 ## Part 2: Make a test call
 
@@ -107,5 +107,3 @@ Note that you can use the `$MNEMONIC` and the `$PROVIDER_URL` you have used whil
 The final step of the instructions is to run the `make-request` script, which will make a request on your chain for the Airnode to fulfill it.
 This example project working as intended is a very good indicator that the integration has succeeded.
 After doing this, you are recommended to take a deep dive into [our docs](https://github.com/api3dao/api3-docs) next to learn more about Airnode and its protocol.
-
-[Home](/README.md#smart-contract-platform-guides)

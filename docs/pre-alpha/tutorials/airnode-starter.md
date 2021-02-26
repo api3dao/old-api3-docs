@@ -60,7 +60,7 @@ However, if you will be deploying your own Airnode, the provider endpoint must b
 *(You only need cloud credentials if you will not be skipping Step 1.)*
 
 Follow the [docs](https://github.com/api3dao/api3-docs/blob/master/provider-guides/deploying-airnode.md#creating-cloud-credentials) to create your cloud credentials.
-Place them at `/config/.env`, similar to [`/config/example.env`](/config/example.env).
+Place them at `/config/.env`, similar to [/config/example.env](config-examples/example-env.md).
 Do not confuse this `.env` file with the one in the project root that keeps your mnemonic phrase and provider URL.
 
 **Following these instructions to deploy an Airnode on AWS is [free](https://aws.amazon.com/free/) at the time this is being written.**
@@ -81,9 +81,9 @@ You can make test calls over the [CoinGecko API docs](https://www.coingecko.com/
   <img src="https://user-images.githubusercontent.com/19530665/103151070-be14ea00-478b-11eb-9608-a967c4282d9f.png" width="1024" />
 </p>
 
-See [`config.example.json`](/config/config.example.json) for how this integration is achieved.
+See [`config.example.json`](config-examples/config-example-json.md) for how this integration is achieved.
 We fixed the [reserved parameters](https://github.com/api3dao/api3-docs/blob/master/provider-guides/api-integration.md#reservedparameters) to read the value from `market_data.current_price.usd`, cast it as an `int256` and multiply it by `1,000,000` before returning.
-No security scheme (i.e., API key) is defined in `config.json` or [`security.json`](/config/security.json) because the CoinGecko API is publicly accessible.
+No security scheme (i.e., API key) is defined in `config.json` or [`security.json`](config-examples/security-json.md) because the CoinGecko API is publicly accessible.
 
 ### Customize your `config.json`
 
@@ -131,7 +131,7 @@ npm run update-authorizers
 ## Step 2: Make a request
 
 The scripts in this step will use the Airnode you have deployed if you have completed Step 1.
-Otherwise, it will use the `providerId` of the Airnode that we have deployed given in [`parameters.js`](/src/parameters.js).
+Otherwise, it will use the `providerId` of the Airnode that we have deployed given in `src/parameters.js`.
 Note that the `endpointId` will be the same either way because it is [derived from the OIS and endpoint name](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/endpoint.md#endpointid).
 
 ### Create a requester
@@ -181,7 +181,7 @@ npm run make-request
 which should be fulfilled by the Airnode and printed out on the terminal.
 Note that now that the price is on-chain, you can use it in your contract to implement any arbitrary logic.
 
-Try replacing the `coinId` value in [`make-request.js`](/scripts/make-request.js) from `"ethereum"` to `"bitcoin"` and make another request.
+Try replacing the `coinId` value in `/scripts/make-request` from `"ethereum"` to `"bitcoin"` and make another request.
 You can see the API docs to find out which coin IDs are supported.
 
 ## Conclusion
@@ -192,7 +192,7 @@ If you want to learn more, see the following resources:
 - [API3 whitepaper](https://github.com/api3dao/api3-whitepaper) will give you a broad overview of the project
 - [Medium posts](https://github.com/api3dao/api3-docs/blob/master/medium.md) are a more digestible version of the whitepaper
 - [API3 docs](https://github.com/api3dao/api3-docs) will provide you with the theory of how Airnode and its protocol works
-- [`@api3/airnode-admin`](https://github.com/api3dao/airnode/tree/master/packages/admin) lets you interact with the Airnode contract (to create a request, endorse a client, etc.) using a CLI tool
+- [`@api3/airnode-admin`](https://github.com/api3dao/airnode/tree/pre-alpha/packages/admin) lets you interact with the Airnode contract (to create a request, endorse a client, etc.) using a CLI tool
 - [Airnode client examples](https://github.com/api3dao/airnode-client-examples) demonstrate different request patterns that the Airnode protocol supports (for example, we used a full request in this starter project)
 
 ## Taking down your Airnode

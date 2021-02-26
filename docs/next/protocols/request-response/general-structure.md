@@ -38,7 +38,10 @@ Airnode.sol
 * Used by requesters to store request templates.
 * Used by Airnodes to retrieve request templates.
 
-### [`EndpointStore.sol`](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/EndpointStore.sol)
+<!-- markdown-link-check-disable -->
+<!-- TODO: Only in pre-alphafor now-->
+### [`EndpointStore.sol`](https://github.com/api3dao/airnode/tree/master/packages/protocol/contracts)
+<!-- markdown-link-check-enable -->
 
 * Used by providers to set endpoint authorizers.
 * Used by Airnodes to retrieve endpoint authorizers to check authorization status.
@@ -75,4 +78,4 @@ A requester can create a request [template](template.md), which is an on-chain r
 
 ## airnode-admin CLI
 
-[`airnode-admin`](https://github.com/api3dao/airnode-admin/) is a CLI tool used by providers, requesters and third parties to interact with `Airnode.sol` and perform the administrative actions mentioned above.
+[airnode-admin](https://github.com/api3dao/airnode/tree/master/packages/admin) is a CLI tool used by providers, requesters and third parties to interact with `Airnode.sol` and perform the administrative actions mentioned above.

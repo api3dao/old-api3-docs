@@ -63,7 +63,7 @@ The config object can be thought of as the static NoSQL database of the Airnode.
 }
 ```
 
-- `ois`: API specifications and the corresponding on-chain endpoints, kept as [OIS](/airnode/ois.md) objects
+- `ois`: API specifications and the corresponding on-chain endpoints, kept as [OIS](ois.md) objects
 
 - `triggers`: Which on-chain endpoints will be usable by which protocols (request–response or publish–subcribe) and under what endpoint ID
 
@@ -77,9 +77,9 @@ The config object can be thought of as the static NoSQL database of the Airnode.
 
 ## ois
 
-`ois` is a list of [OIS](/airnode/ois.md) objects. Since each OIS specifies the integration of a single API to an oracle, an Airnode can serve multiple APIs.
+`ois` is a list of [OIS](ois.md) objects. Since each OIS specifies the integration of a single API to an oracle, an Airnode can serve multiple APIs.
 
-Contents of an `ois` list can be seen below (see the [OIS docs](/airnode/ois.md) for a complete example and the explanation of the fields):
+Contents of an `ois` list can be seen below (see the [OIS docs](ois.md) for a complete example and the explanation of the fields):
 
 ```json
 [
@@ -116,7 +116,7 @@ Contents of a `triggers` object can be seen below:
 }
 ```
 
-According to the example above, the Airnode has an OIS with the title `myOisTitle`. This OIS has an endpoint with the name `myEndpointName.` When the Airnode detects a [request](/request-response-protocol/request.md) that references its [`providerId`](/request-response-protocol/provider.md#providerid) and `0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5` as the [`endpointId`](/request-response-protocol/endpoint.md#endpointId), it will call the specified endpoint (`myOisTitle`-`myEndpointName`) with the provided parameters to fulfill the request. See the [docs](/request-response-protocol/endpoint.md#endpointid) for the default convention for setting the `endpointId.`
+According to the example above, the Airnode has an OIS with the title `myOisTitle`. This OIS has an endpoint with the name `myEndpointName.` When the Airnode detects a [request](../protocols/request-response/request.md) that references its [`providerId`](../protocols/request-response/provider.md#providerid) and `0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5` as the [`endpointId`](../protocols/request-response/endpoint.md#endpointId), it will call the specified endpoint (`myOisTitle`-`myEndpointName`) with the provided parameters to fulfill the request. See the [docs](../protocols/request-response/endpoint.md#endpointid) for the default convention for setting the `endpointId.`
 
 ## chains
 
@@ -169,7 +169,7 @@ Refer to the documentations of the chain you will be using to find its chain ID.
 
   - `Convenience`
 
-- `providerAdminForRecordCreation` (optional) - the provider admin address the Airnode will set on first deployment. When the Airnode is deployed on a chain for the first time, it makes a transaction with its master wallet to create a provider record. While doing so, it also authorizes an address to set the authorization policies for the endpoints of the provider (see the [protocol docs](/request-response-protocol/general-structure.md) for more information). Changing this field after the provider record is created will not have any effect. This field is optional, but not having it means that the node will not be able to create a provider record.
+- `providerAdminForRecordCreation` (optional) - the provider admin address the Airnode will set on first deployment. When the Airnode is deployed on a chain for the first time, it makes a transaction with its master wallet to create a provider record. While doing so, it also authorizes an address to set the authorization policies for the endpoints of the provider (see the [protocol docs](../protocols/request-response/general-structure.md) for more information). Changing this field after the provider record is created will not have any effect. This field is optional, but not having it means that the node will not be able to create a provider record.
 
 - `blockHistoryLimit` (optional) - the number of blocks in the past that the Airnode should search for requests. Defaults to `300` (roughly 1 hour for Ethereum).
 
@@ -224,7 +224,7 @@ Contents of an `environment` object can be seen below:
 }
 ```
 
-Each entry in `securitySchemes` map to a security scheme defined in an OIS, where `oisTitle` is the `title` field of the related OIS, and `name` is the name of the respective security scheme (these would be `myOisTitle` and `mySecurityScheme` in the example in the [OIS docs](/airnode/ois.md)). `envName` is the environment variable name that the security scheme value (e.g., the API key) will be found under. The recommended naming convention is `ss_${oisTitle}_${name}`.
+Each entry in `securitySchemes` map to a security scheme defined in an OIS, where `oisTitle` is the `title` field of the related OIS, and `name` is the name of the respective security scheme (these would be `myOisTitle` and `mySecurityScheme` in the example in the [OIS docs](ois.md)). `envName` is the environment variable name that the security scheme value (e.g., the API key) will be found under. The recommended naming convention is `ss_${oisTitle}_${name}`.
 
 Each entry in `chainProviders` map to an entry in `chainProviders` under [`chains`](#chains). Example values would be `evm` for `chainType`, `1` for `chainId` and `self-hosted-mainnet` for `name`. Here, the `envName` is the name of the environment variable that keeps the respective blockchain provider URL. The recommended naming convention is `cp_${chainType}_${chainId}_${name}`.
 

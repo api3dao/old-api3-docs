@@ -38,7 +38,7 @@ Airnode uses the HTTP endpoint to access the JSON-RPC API. Therefore, not suppor
 
 ## What next?
 
-If your platform is compatible, the integration will be trivial, so you can even attempt to [do it yourself](/smart-contract-platform-guides/self-serve%20integration.md). Do not hesitate to drop by [our Discord](https://discord.gg/qnRrcfnm5W) and ask for support.
+If your platform is compatible, the integration will be trivial, so you can even attempt to [do it yourself](self-serve-integration.md). Do not hesitate to drop by [our Discord](https://discord.gg/qnRrcfnm5W) and ask for support.
 
 If your platform is not directly compatible, this means that a significant amount of development will need to be undertaken for porting Airnode to your chain. Here are some reasons to carry through with this:
 

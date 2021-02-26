@@ -10,7 +10,7 @@ title: Endorsement
 
 <div class="toc-label">Table of Contents</div>
 
-A [requester](requester.html) announcing that a [client](client.html) can specify their requests to be fulfilled by the requester's [designated wallets](designated-wallet.html) is called an endorsement.
+A [requester](requester.md) announcing that a [client](client.md) can specify their requests to be fulfilled by the requester's [designated wallets](designated-wallet.md) is called an endorsement.
 This is done by the `requesterAdmin` calling `RequesterStore.sol` with the client contract's address.
 The check of if a client is endorsed by the requester whose designated wallet it wants to have the request fulfilled with is done at the protocol level (and not by Airnodes).
 

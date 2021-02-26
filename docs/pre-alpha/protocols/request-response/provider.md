@@ -64,7 +64,7 @@ The Airnode deployment displays instructions for how to do this, and the `master
 ## `providerAdmin`
 
 `providerAdmin` is an address that is authorized to update provider-related properties (e.g., endpoint authorizers).
-Airnode sets a `providerAdmin` while creating the provider record, and this is sourced from [config.json](../../airnode/specifications/config-json.html) under the name `providerAdminForRecordCreation`.
+Airnode sets a `providerAdmin` while creating the provider record, and this is sourced from [config.json](../../airnode/specifications/config-json.md) under the name `providerAdminForRecordCreation`.
 
 `providerAdmin` can transfer its authority to another address.
 The master wallet can reclaim the authority by calling `createProvider()` and setting another `providerAdmin`.
@@ -82,10 +82,10 @@ providerIdDerivedFromXpub = keccak256(abi.encode(masterNode.address));
 assert(providerIdDerivedFromXpub === providerId);
 ```
 
-See the [section about designated wallets](designated-wallet.html) to see how requesters can use `xpub` to derive their designated wallets.
+See the [section about designated wallets](designated-wallet.md) to see how requesters can use `xpub` to derive their designated wallets.
 
 ## Setting endpoint authorizers
 
 An important responsibility of the `providerAdmin` is to set endpoint authorizers.
 Authorizers are used to enforce rules about which requests will be responded to, and this can be used to enforce KYC, monthly subscription payments, etc.
-See the sections about [endpoints](endpoint.html) and [authorizers](authorizer.html) for more details.
+See the sections about [endpoints](endpoint.md) and [authorizers](authorizer.md) for more details.

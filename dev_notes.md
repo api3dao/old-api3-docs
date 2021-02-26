@@ -37,3 +37,17 @@ git branch -d -r origin/<remote branch name> (This will not delete the branch on
 ```
 
 https://gist.github.com/magnusbae/10182865
+
+## Test:Links
+
+Use markdown-links-check to validate markdown links project wide. VuePress will create HTML links from the markdown files thereafter. If is not necessary to check the VuePress output after conversion.
+
+https://www.jamestharpe.com/markdown-link-check/
+https://glebbahmutov.com/blog/check-markdown-links/
+https://github.com/tcort/markdown-link-check/tags
+https://github.com/gaurav-nelson/github-action-markdown-link-check#custom-variables
+
+```bash
+# Run from the project root
+npm run test:links
+```

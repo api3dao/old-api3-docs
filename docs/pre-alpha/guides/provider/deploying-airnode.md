@@ -10,8 +10,8 @@ title: Deploying Airnode
 
 <div class="toc-label">Table of Contents</div>
 
-After [integrating your API](api-integration.html) and [creating the configuration files](configuring-airnode.html), the next step is to deploy your Airnode.
-Airnode comes with a [deployer](https://github.com/api3dao/airnode/tree/master/packages/deployer), which uses [Terraform](https://www.terraform.io/) and [Serverless Framework](https://www.serverless.com/) to automate the entire deployment process.
+After [integrating your API](api-integration.md) and [creating the configuration files](configuring-airnode.md), the next step is to deploy your Airnode.
+Airnode comes with a [deployer](https://github.com/api3dao/airnode/tree/pre-alpha/packages/deployer), which uses [Terraform](https://www.terraform.io/) and [Serverless Framework](https://www.serverless.com/) to automate the entire deployment process.
 This deployer is also containerized as a [Docker](https://www.docker.com/) image, which allows you to deploy your Airnode on any platform without worrying about installing dependencies.
 So let's begin!
 
@@ -39,7 +39,7 @@ These credentials can be used to gain access to your Airnode's private key.
 
 ## Deployment
 
-Get the `config.json` and `security.json` files you have created while [configuring your Airnode](configuring-airnode.html), your `.env` file with your [cloud provider credentials](#creating-cloud-credentials), and place these three files in the same directory.
+Get the `config.json` and `security.json` files you have created while [configuring your Airnode](configuring-airnode.md), your `.env` file with your [cloud provider credentials](#creating-cloud-credentials), and place these three files in the same directory.
 Then, in this same directory, run the following command (if you are on Windows, use CMD, replace `\` with `^`, `$(pwd)` with `%cd%`):
 
 ```sh
@@ -57,12 +57,12 @@ Please note this down with pen and paper (do not copy paste to a text file on yo
 
 Another point to mention is that the deployer will display your master wallet address, and ask you to deposit some ETH in it for it to create your provider record.
 Follow the instructions for your Airnode to create your provider record using your master wallet, and it will send any unused ETH to the `providerAdminForRecordCreation` you have set in your `config.json`.
-You can see the [docs](../../protocols/request-response/provider.html#creating-a-provider-record) for more information about this process.
+You can see the [docs](../../protocols/request-response/provider.md#creating-a-provider-record) for more information about this process.
 
 A couple minutes after noting down your mnemonic and hitting `ENTER`, you should be done!
 The deployer will output a receipt file ending with `.receipt.json`.
 This file does not include any sensitive information, so feel free to share it as needed.
-The receipt contains your [`providerId`](/request-response-protocol/provider.md#provideid), `providerIdShort` and `masterWalletAddress` that you will need to fund for it to create your provider record (if you have not already).
+The receipt contains your [`providerId`](../../protocols/request-response/provider.md#provideid), `providerIdShort` and `masterWalletAddress` that you will need to fund for it to create your provider record (if you have not already).
 You will need to add your `providerIdShort` to your `config.json` to be able to redeploy your node with updated configurations.
 
 To find out how to redeploy your node or remove it from your cloud provider account, see the [deployer image docs](https://github.com/api3dao/airnode/blob/pre-alpha/Docker.md).

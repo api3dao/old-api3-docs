@@ -37,7 +37,7 @@ Contents of a `config.json` file:
 
 ## `ois`
 
-`ois` is a list of OIS objects as described in [OIS](/airnode/ois.md).
+`ois` is a list of OIS objects as described in [OIS](ois.md).
 Since each OIS defines the integration of a single API to an oracle, this means that a node can serve multiple APIs.
 However, this does not mean that nodes can be shared between multiple providers.
 Each node serves the APIs of a single provider.

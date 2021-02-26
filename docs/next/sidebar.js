@@ -113,7 +113,14 @@ module.exports = [
         children: [
             'tutorials/airnode-starter',
             'tutorials/aws-credentials',
-            'tutorials/client-examples'
+            'tutorials/client-examples',
+            {title: 'Config Examples',
+            children:['tutorials/config-examples/authorizers-json.md',
+                      'tutorials/config-examples/config-example-json.md',
+                      'tutorials/config-examples/example-env.md',
+                      'tutorials/config-examples/security-json.md',
+            ]
+          },
         ]
       },
       {

@@ -22,9 +22,9 @@ This guide helps an API3 DAO member with the needed technical background to cont
 
 - Run and understand the example projects:
 
-  - [Client Examples](../tutorials/client-examples.html)
+  - [Client Examples](../tutorials/client-examples.md)
 
-  - [Airnode Starter](../tutorials/airnode-starter.html)
+  - [Airnode Starter](../tutorials/airnode-starter.md)
 
 - (Optional, but ideal) Integrate an API to an Airnode without using any guide, deploy the Airnode, and build a dApp that uses the Airnode. Better yet, join one of our hackathons.
 

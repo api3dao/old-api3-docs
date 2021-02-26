@@ -10,7 +10,7 @@ title: Setting Authorizers
 
 <div class="toc-label">Table of Contents</div>
 
-We are assuming that you have [configured your Airnode](/provider-guides/configuring-airnode.md) (and set `endpointId`s of your endpoints), and [deployed your Airnode](/provider-guides/deploying-airnode.md) and received your `providerId` in your receipt file. Requesters who know your `providerId` and `endpointId`s should now be able to make requests to your endpoints. However, you probably do not want to serve the entire public with your Airnode, but rather:
+We are assuming that you have [configured your Airnode](configuring-airnode.md) (and set `endpointId`s of your endpoints), and [deployed your Airnode](deploying-airnode.md) and received your `providerId` in your receipt file. Requesters who know your `providerId` and `endpointId`s should now be able to make requests to your endpoints. However, you probably do not want to serve the entire public with your Airnode, but rather:
 
 - Only serve your own client contracts
 - Only serve requesters who have made a subscription payment
@@ -21,7 +21,7 @@ In this guide, we will explain how you can achieve this.
 
 ## authorizers
 
-[`EndpointStore.sol`](/request-response-protocol/general-structure.md#endpointstoresol) keeps a list of [authorizer](/request-response-protocol/authorizer.md) addresses for each `providerId`–`endpointId` pair. An authorizer is a contract that Airnode calls to check if it should respond to a specific request. It can enforce any kind of authorization policy that one could implement as a contract.
+[`EndpointStore.sol`](../../protocols/request-response/general-structure.md#endpointstoresol) keeps a list of [authorizer](../../protocols/request-response/authorizer.md) addresses for each `providerId`–`endpointId` pair. An authorizer is a contract that Airnode calls to check if it should respond to a specific request. It can enforce any kind of authorization policy that one could implement as a contract.
 
 ## Deny All (default)
 
@@ -30,7 +30,7 @@ By default, the authorizers of all endpoints of a provider is an empty list. An 
 ## Allow All
 
 The simplest authorization policy is opening the endpoint to the public, so let us see how to do that first.
-Authorizers being set to `[0]` means that all requests made to it will be authorized (i.e., will be responded to by Airnode). Only the `providerAdmin` of a provider can update the authorizers of its endpoints. Therefore, you will need to make a transaction using the provider admin address (that you have set in `config.json` as `providerAdminForRecordCreation`) to [`EndpointStore.sol`](/request-response-protocol/general-structure.md#endpointstoresol). In JS (using ethers.js):
+Authorizers being set to `[0]` means that all requests made to it will be authorized (i.e., will be responded to by Airnode). Only the `providerAdmin` of a provider can update the authorizers of its endpoints. Therefore, you will need to make a transaction using the provider admin address (that you have set in `config.json` as `providerAdminForRecordCreation`) to [`EndpointStore.sol`](../../protocols/request-response/general-structure.md#endpointstoresol). In JS (using ethers.js):
 
 ```js
 airnode.connect(providerAdmin).updateEndpointAuthorizers(providerId, endpointId, [ethers.constants.AddressZero]);
@@ -44,7 +44,7 @@ After making this transaction, your Airnode will respond to all requests. Note t
 
 We have mentioned that authorizer contracts can implement any arbitrary authorization logic. See [this example](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/authorizers/MinBalanceAuthorizer.sol) where Airnode only responds to requests if the wallet it will use to fulfill the request has a balance more than an amount set by the provider admin.
 
-The authorizer list allows you to combine single-purpose authorizer contracts to form complex policies as described in the [docs](/request-response-protocol/authorizer.md#authorizer-list). If you would like to contribute to this set of authorizer contracts, please join the conversation in [this issue](https://github.com/api3dao/airnode/issues/38).
+The authorizer list allows you to combine single-purpose authorizer contracts to form complex policies as described in the [docs](../../protocols/request-response/authorizer.md#authorizer-list). If you would like to contribute to this set of authorizer contracts, please join the conversation in [this issue](https://github.com/api3dao/airnode/issues/38).
 
 ## Conclusion
 

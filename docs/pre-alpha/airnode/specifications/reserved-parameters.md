@@ -24,7 +24,7 @@ Reserved parameter names start with `_`.
 
 Can be `int256`, `bool`, or `bytes32`.
 Signifies what Solidity type the API response will be typecast to before fulfillment.
-See the [conversion behavior docs](https://github.com/api3dao/airnode/tree/master/packages/adapter#conversion-behaviour) for details.
+See the [conversion behavior docs](https://github.com/api3dao/airnode/tree/pre-alpha/packages/adapter#conversion-behaviour) for details.
 
 ## `_path`
 

@@ -12,7 +12,7 @@ title: Decentrally-Governed Oracle Networks
 
 *See the article, [On DAOs: Decentralized Autonomous Organizations](https://medium.com/api3/on-daos-decentralized-autonomous-organizations-84c00abb89bc) about DAOs and decentralized governance.*
 
-[First-Party Oracles](./first-party-oracles.html) are optimally secure and cost-efficient.
+[First-Party Oracles](first-party-oracles.md) are optimally secure and cost-efficient.
 Nevertheless, they cannot be considered as a full solution for all use cases.
 This is because a First-Party Oracle is operated by a single API Provider and only serves their API.
 Thus, using a single First-Party Oracle creates centralization at the API level, and requires the API Provider to be trusted. This is not acceptable in some use cases, e.g., if the use case secures a large amount of funds.

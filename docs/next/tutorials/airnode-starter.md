@@ -64,7 +64,9 @@ npm run generate-wallet
 A Ropsten provider URL is needed. This will be used both by the deployed Airnode and by you while interacting with contracts.
 
 1. Go to [Infura](https://infura.io/), create an account and get a Ropsten provider URL which will contain a key.
+<!-- markdown-link-check-disable -->
 1. Replace **https://ropsten.infura.io/v3/{YOUR_KEY}** in your **.env** file with the URL from Infura.
+<!-- markdown-link-check-enable -->
 
 Note that you can use any other provider or your own Ropsten node. However, if you will be deploying your own Airnode, the provider endpoint must be publicly accessible \(i.e., `127.0.0.1:8545` will not work\).
 
@@ -72,9 +74,9 @@ _(You only need cloud credentials if you will not be skipping Step 1.)_
 
 ### AWS Cloud Credentials
 
-Airnode will deploy serverless functions to AWS Lambda. Cloud Credentials are the key pair (*Access key id and Secret access key*) of an IAM user. Use the [AWS Cloud Credentials](../tutorials/aws-credentials.html) tutorial to learn how to create AWS Cloud Credentials.
+Airnode will deploy serverless functions to AWS Lambda. Cloud Credentials are the key pair (*Access key id and Secret access key*) of an IAM user. Use the [AWS Cloud Credentials](../tutorials/aws-credentials.md) tutorial to learn how to create AWS Cloud Credentials.
 
-<!-- Follow the section **AWS Cloud Credentials** in the [Guides > Provider > Deploying Airnode](../guides/provider/deploying-airnode.html#creating-cloud-credentials) to create your cloud credentials.--> 
+<!-- Follow the section **AWS Cloud Credentials** in the [Guides > Provider > Deploying Airnode](../guides/provider/deploying-airnode.md#creating-cloud-credentials) to create your cloud credentials.--> 
 
 Create and place the cloud credentials into **/config/.env** and not into the **.env** in the project root. 
 
@@ -107,7 +109,7 @@ Make test calls over the [CoinGecko APIs page](https://www.coingecko.com/en/api)
 
 ![](https://user-images.githubusercontent.com/19530665/103151070-be14ea00-478b-11eb-9608-a967c4282d9f.png)
 
-See [`config.example.json`](/config/config.example.json) for how this integration is achieved. We fixed the [reserved parameters](https://github.com/api3dao/api3-docs/blob/master/provider-guides/api-integration.md#reservedparameters) to read the value from `market_data.current_price.usd`, cast it as an `int256` and multiply it by `1,000,000` before returning. No security scheme \(i.e., API key\) is defined in `config.json` or [`security.json`](/config/security.json) because the CoinGecko API is publicly accessible.
+See [`config.example.json`](config-examples/config-example-json.md) for how this integration is achieved. We fixed the [reserved parameters](https://github.com/api3dao/api3-docs/blob/master/provider-guides/api-integration.md#reservedparameters) to read the value from `market_data.current_price.usd`, cast it as an `int256` and multiply it by `1,000,000` before returning. No security scheme \(i.e., API key\) is defined in `config.json` or [`security.json`](config-examples/security-json.md) because the CoinGecko API is publicly accessible.
 
 ### Customize `config.json`
 
@@ -121,9 +123,9 @@ npm run customize-config
 
 The **/config** directory now has the required files for deployment.  
 
-- [config.json](../airnode/config-json.html)
-- [security.json](../specifications/security-json.html)
-- [.env](../guides/provider/deploying-airnode.html#creating-cloud-credentials)
+- [config.json](../airnode/config-json.md)
+- [security.json](../specifications/security-json.md)
+- [.env](../guides/provider/deploying-airnode.md#creating-cloud-credentials)
 
 Run the following to deploy the node. This will output a receipt file with the extension **.receipt.json** in the /config directory.
 
@@ -140,7 +142,7 @@ docker run -it --rm \
 
 ### Fund Master Wallet
 
-Run the following to send your **Master Wallet** 0.1 ETH to [create a provider record](../protocols/request-response/provider.html#creating-a-provider-record) on-chain. The deployed Airnode will use these funds for the transaction that will create the provider record on Ropsten. Leftover ETH will be returned to your address automatically.
+Run the following to send your **Master Wallet** 0.1 ETH to [create a provider record](../protocols/request-response/provider.md#creating-a-provider-record) on-chain. The deployed Airnode will use these funds for the transaction that will create the provider record on Ropsten. Leftover ETH will be returned to your address automatically.
 
 ```bash
 npm run fund-master-wallet
@@ -148,9 +150,9 @@ npm run fund-master-wallet
 
 ### Make Endpoint Publicly Accessible
 
-**config.json** defines an [endpoint](../protocols/request-response/endpoint.html) named `coinMarketData`, whose [endpointId](../protocols/request-response/endpoint.html#endpointid) is `0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c`. 
+**config.json** defines an [endpoint](../protocols/request-response/endpoint.md) named `coinMarketData`, whose [endpointId](../protocols/request-response/endpoint.md#endpointid) is `0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c`. 
 
-Endpoints are not publicly accessible by default. Run the command **update-authorizers** to set your endpoint's [authorizers](../protocols/request-response/authorizer.html) to `[0x0000000000000000000000000000000000000000]`, which makes it [publicly accessible](../guides/provider/setting-authorizers.html#allow-all):
+Endpoints are not publicly accessible by default. Run the command **update-authorizers** to set your endpoint's [authorizers](../protocols/request-response/authorizer.md) to `[0x0000000000000000000000000000000000000000]`, which makes it [publicly accessible](../guides/provider/setting-authorizers.md#allow-all):
 
 ```bash
 npm run update-authorizers
@@ -234,5 +236,5 @@ You deployed an Airnode, made a request to it and received the response at the c
 
 * [API3 whitepaper](https://github.com/api3dao/api3-whitepaper) will give you a broad overview of the project
 * [Medium posts](https://github.com/api3dao/api3-docs/blob/master/medium.md) are a more digestible version of the whitepaper
-* [airnode-admin](https://github.com/api3dao/airnode-admin) lets you interact with the Airnode contract \(to create a request, endorse a client, etc.\) using a CLI tool
+* [airnode-admin](https://github.com/api3dao/airnode/tree/master/packages/admin) lets you interact with the Airnode contract \(to create a request, endorse a client, etc.\) using a CLI tool
 * [Airnode client examples](https://github.com/api3dao/airnode-client-examples) demonstrate different request patterns that the Airnode protocol supports (for example, we used a full request in this starter project).
