@@ -88,8 +88,14 @@ module.exports = [
   {
     title: 'Tutorials', collapsable: false,
     children: [
-        'tutorials/airnode-starter'
-        
+        'tutorials/airnode-starter',
+        {title: 'Config Examples',
+          children:['tutorials/config-examples/authorizers-json',
+                    'tutorials/config-examples/config-example-json',
+                    'tutorials/config-examples/example-env',
+                    'tutorials/config-examples/security-json',
+          ]
+        },
     ]
   }
 ]

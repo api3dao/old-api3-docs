@@ -81,9 +81,9 @@ You can make test calls over the [CoinGecko API docs](https://www.coingecko.com/
   <img src="https://user-images.githubusercontent.com/19530665/103151070-be14ea00-478b-11eb-9608-a967c4282d9f.png" width="1024" />
 </p>
 
-See [`config.example.json`](config-examples/config-example-json.md) for how this integration is achieved.
+See [config.example.json](config-examples/config-example-json.md) for how this integration is achieved.
 We fixed the [reserved parameters](https://github.com/api3dao/api3-docs/blob/master/provider-guides/api-integration.md#reservedparameters) to read the value from `market_data.current_price.usd`, cast it as an `int256` and multiply it by `1,000,000` before returning.
-No security scheme (i.e., API key) is defined in `config.json` or [`security.json`](config-examples/security-json.md) because the CoinGecko API is publicly accessible.
+No security scheme (i.e., API key) is defined in `config.json` or [security.json](config-examples/security-json.md) because the CoinGecko API is publicly accessible.
 
 ### Customize your `config.json`
 
@@ -94,7 +94,7 @@ npm run customize-config
 
 ### Deploy
 
-Now your `/config` directory should have the required [`config.json`](https://github.com/api3dao/api3-docs/blob/master/airnode/config-json.md), [`security.json`](https://github.com/api3dao/api3-docs/blob/master/airnode/security-json.md) and [`.env`](https://github.com/api3dao/api3-docs/blob/master/provider-guides/deploying-airnode.md#creating-cloud-credentials) files.
+Now your `/config` directory should have the required [config.json](https://github.com/api3dao/api3-docs/blob/master/airnode/config-json.md), [security.json](https://github.com/api3dao/api3-docs/blob/master/airnode/security-json.md) and [.env](https://github.com/api3dao/api3-docs/blob/master/provider-guides/deploying-airnode.md#creating-cloud-credentials) files.
 Run the following to deploy your node:
 
 ```sh
@@ -121,7 +121,7 @@ Your deployed Airnode will use these funds to make the transaction that will cre
 
 ### Make your endpoint publicly accessible
 
-`config.json` defines an [endpoint](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/endpoint.md) named `coinMarketData`, whose [`endpointId`](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/endpoint.md#endpointid) is `0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c`.
+`config.json` defines an [endpoint](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/endpoint.md) named `coinMarketData`, whose [endpointId](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/endpoint.md#endpointid) is `0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c`.
 Endpoints are not publicly accessible by default, so you will have to make a transaction for this.
 Run the following to set your endpoint's [authorizers](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/authorizer.md) to `[0x0000000000000000000000000000000000000000]`, which makes it [publicly accessible](https://github.com/api3dao/api3-docs/blob/master/provider-guides/setting-authorizers.md#allow-all):
 ```sh
@@ -192,7 +192,7 @@ If you want to learn more, see the following resources:
 - [API3 whitepaper](https://github.com/api3dao/api3-whitepaper) will give you a broad overview of the project
 - [Medium posts](https://github.com/api3dao/api3-docs/blob/master/medium.md) are a more digestible version of the whitepaper
 - [API3 docs](https://github.com/api3dao/api3-docs) will provide you with the theory of how Airnode and its protocol works
-- [`@api3/airnode-admin`](https://github.com/api3dao/airnode/tree/pre-alpha/packages/admin) lets you interact with the Airnode contract (to create a request, endorse a client, etc.) using a CLI tool
+- [@api3/airnode-admin](https://github.com/api3dao/airnode/tree/pre-alpha/packages/admin) lets you interact with the Airnode contract (to create a request, endorse a client, etc.) using a CLI tool
 - [Airnode client examples](https://github.com/api3dao/airnode-client-examples) demonstrate different request patterns that the Airnode protocol supports (for example, we used a full request in this starter project)
 
 ## Taking down your Airnode

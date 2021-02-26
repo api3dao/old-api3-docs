@@ -115,10 +115,10 @@ module.exports = [
             'tutorials/aws-credentials',
             'tutorials/client-examples',
             {title: 'Config Examples',
-            children:['tutorials/config-examples/authorizers-json.md',
-                      'tutorials/config-examples/config-example-json.md',
-                      'tutorials/config-examples/example-env.md',
-                      'tutorials/config-examples/security-json.md',
+            children:['tutorials/config-examples/authorizers-json',
+                      'tutorials/config-examples/config-example-json',
+                      'tutorials/config-examples/example-env',
+                      'tutorials/config-examples/security-json',
             ]
           },
         ]
