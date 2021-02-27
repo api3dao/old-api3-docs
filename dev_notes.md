@@ -51,3 +51,9 @@ https://github.com/gaurav-nelson/github-action-markdown-link-check#custom-variab
 # Run from the project root
 npm run test:links
 ```
+
+When running the test:links script the following error may be caused by a file with a space in its name.
+
+```bash
+ERROR: File not found! Please provide a valid filename as an argument.
+```
