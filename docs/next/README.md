@@ -10,9 +10,7 @@ title: What is API3?
 
 <div class="toc-label">Table of Contents</div>
 
-<!-- markdown-link-check-disable -->
-**API3** ([https://api3.org](https://api3.org)) is a collaborative project to deliver traditional API services to smart contract platforms in a decentralized and trust-minimized way. It is governed by a Decentralized Autonomous Organization (DAO), namely the **API3 DAO** ([https://dao.api3.org](https://dao.api3.org)). Therefore, its code is open source and its operations are transparent.
-<!-- markdown-link-check-enable -->
+**API3** ([https://api3.org](https://api3.org)) is a collaborative project to deliver traditional API services to smart contract platforms in a decentralized and trust-minimized way. It is governed by a Decentralized Autonomous Organization (DAO), namely the **API3 DAO**. Therefore, its code is open source and its operations are transparent.
 
 ## Thesis Statement
 
@@ -23,7 +21,7 @@ Therefore, what is widely known as _the oracle problem_ is in practice _an API c
 Existing oracle solutions fall short because they fail to make this distinction, resulting in inferior solutions that depend on third-party oracles and ecosystems that exclude API providers. By refining the definition of the problem, **API3** aims to provide a much more optimal solution.
 
 ::: tip API3 Whitepaper (pdf)
-For a detailed discussion of the API3 project, read the <a href="../../api3-whitepaper.pdf" target="_whitepaper_pdf">API3 Whitepaper</a>.
+For a detailed discussion of the API3 project, read the [API3 Whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf).
 :::
 
 ## The Airnode
@@ -35,20 +33,21 @@ At the heart of this mechanism sits **Airnode**, an open-source Oracle Node. It'
 Airnode is designed with mechanisms to remove the on-chain or off-chain concerns of API Providers. The set-and-forget framework of Airnode is all about ease of implementation.
 
 ::: tip Learn more about Airnode
-Read chapter 4 of the <a href="../../api3-whitepaper.pdf" target="_whitepaper_pdf">API3 Whitepaper</a> to learn more. _Airnode: A Node Designed for First-Party Oracles_
+Read chapter 4 of the [API3 Whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf) to learn more. _Airnode: A Node Designed for First-Party Oracles_
 :::
 
 ## Learn More about API3
 
 <!-- START TAB BOX -->
 :::: tabs
+
 ::: tab API3 Website
 The API3 website ([https://api3.org/](https://api3.org/)) is the best place to learn more.
 :::
 
 ::: tab The White Paper
 
-**Abstract from the <a href="../../api3-whitepaper.pdf" target="_whitepaper_pdf">API3 Whitepaper</a>**
+**Abstract from the [API3 Whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf)</a>**
 
 With decentralized applications beginning to provide meaningful services in areas such as decentralized finance, there is an increasing need for these applications to receive data or trigger events using traditional Web APIs.
 
@@ -118,6 +117,7 @@ Visit the [API3 GitHub](https://github.com/api3dao) page and find everything abo
 
 Please feel free to contribute to any API3 GitHub repositories.
 :::
+
 ::::
 <!-- END TAB BOX -->
 
