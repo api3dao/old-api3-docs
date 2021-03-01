@@ -67,7 +67,7 @@ module.exports = [
                   'guides/requester/developing-a-client-contract'
         ]
       },
-      {title: 'Smart Contracts',
+      {title: 'Smart Contracts Platform',
         children:['guides/smart-contracts/is-my-platform-compatible',
                   'guides/smart-contracts/self-serve-integration',
         ]
