@@ -4,11 +4,8 @@ title: Ethereum Providers
 
 # {{$frontmatter.title}}
 
+<TocHeader />
 [[TOC]]
-
-<Version selectedVersion="next" />
-
-<div class="toc-label">Table of Contents</div>
 
 ::: danger TODO
 The second sentence below seems out-of-place.

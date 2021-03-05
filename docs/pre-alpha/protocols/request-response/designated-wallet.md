@@ -4,11 +4,8 @@ title: Designated wallet
 
 # {{$frontmatter.title}}
 
+<TocHeader />
 [[TOC]]
-
-<Version selectedVersion="pre-alpha" />
-
-<div class="toc-label">Table of Contents</div>
 
 Each [provider](provider.md) keeps a designated wallet for each [requester](requester.md).
 [Clients](client.md) [endorsed](endorsement.md) by a requester can specify their requests to be fulfilled by the said requester's designated wallet.

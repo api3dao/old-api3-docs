@@ -2,7 +2,7 @@
 //const versions = require('../versions.json')
 //const fse = require('fs-extra')
 //const path = process.cwd()+"/docs"
-const vrs = ['next', 'pre-alpha']
+const vrs = ['pre-alpha']
 var selectedVrs = "DUDE-3";
 
 module.exports = {
@@ -38,11 +38,21 @@ module.exports = {
     console.log('+++++++++++++++++++++ SIDEBARS +++++++++++++++++++++++++')
     let sidebars = {}
 
+    let sidebarNextProviders = require(`../../next/grp-providers/sidebar.js`)
+    let sidebarNextRequesters = require(`../../next/grp-requesters/sidebar.js`)
+    let sidebarNextMembers = require(`../../next/grp-members/sidebar.js`)
+    sidebars[`/next/grp-providers/`] = sidebarNextProviders
+    sidebars[`/next/grp-requesters/`] = sidebarNextRequesters
+    sidebars[`/next/grp-members/`] = sidebarNextMembers
+    console.log('>>> sidebars:', JSON.stringify(sidebars))
+
     vrs.forEach((version) => {
       let sidebar = require(`../../${version}/sidebar.js`)
       sidebars[`/${version}/`] = sidebar
+      
     })
-    //console.log('>>> sidebars:', JSON.stringify(sidebars))
+    
+    
 
     return sidebars
   },

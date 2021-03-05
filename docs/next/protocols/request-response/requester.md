@@ -4,11 +4,8 @@ title: Requester
 
 # {{$frontmatter.title}}
 
+<TocHeader />
 [[TOC]]
-
-<Version selectedVersion="next" />
-
-<div class="toc-label">Table of Contents</div>
 
 A requester is an entity \(individual, business, etc.\) whose contracts make requests to [providers](./provider.md). These contracts are called [clients](./client.md).
 

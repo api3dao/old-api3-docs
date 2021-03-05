@@ -4,11 +4,8 @@ title: Airnode starter
 
 # {{$frontmatter.title}}
 
+<TocHeader />
 [[TOC]]
-
-<Version selectedVersion="pre-alpha" />
-
-<div class="toc-label">Table of Contents</div>
 
 > A starter project for deploying an Airnode and making requests to it
 

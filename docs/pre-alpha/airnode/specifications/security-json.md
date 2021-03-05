@@ -4,11 +4,8 @@ title: security.json
 
 # {{$frontmatter.title}}
 
+<TocHeader />
 [[TOC]]
-
-<Version selectedVersion="pre-alpha" />
-
-<div class="toc-label">Table of Contents</div>
 
 `security.json` is the file the deployer uses to push API credentials along with the serverless function.
 

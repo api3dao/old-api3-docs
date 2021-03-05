@@ -4,11 +4,8 @@ title: dAPI (Decentralized API)
 
 # {{$frontmatter.title}}
 
+<TocHeader />
 [[TOC]]
-
-<Version selectedVersion="next" />
-
-<div class="toc-label">Table of Contents</div>
 
 Consider the following points previously discussed.
 

@@ -4,11 +4,8 @@ title: Decentrally-Governed Oracle Networks
 
 # {{$frontmatter.title}}
 
+<TocHeader />
 [[TOC]]
-
-<Version selectedVersion="next" />
-
-<div class="toc-label">Table of Contents</div>
 
 *See the article, [On DAOs: Decentralized Autonomous Organizations](https://medium.com/api3/on-daos-decentralized-autonomous-organizations-84c00abb89bc) about DAOs and decentralized governance.*
 

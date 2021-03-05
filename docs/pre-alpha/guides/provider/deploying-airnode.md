@@ -4,11 +4,8 @@ title: Deploying Airnode
 
 # {{$frontmatter.title}}
 
+<TocHeader />
 [[TOC]]
-
-<Version selectedVersion="pre-alpha" />
-
-<div class="toc-label">Table of Contents</div>
 
 After [integrating your API](api-integration.md) and [creating the configuration files](configuring-airnode.md), the next step is to deploy your Airnode.
 Airnode comes with a [deployer](https://github.com/api3dao/airnode/tree/pre-alpha/packages/deployer), which uses [Terraform](https://www.terraform.io/) and [Serverless Framework](https://www.serverless.com/) to automate the entire deployment process.

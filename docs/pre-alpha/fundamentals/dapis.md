@@ -6,8 +6,6 @@ title: dAPI (Decentralized API)
 
 [[TOC]]
 
-<Version selectedVersion="pre-alpha" />
-
 We have covered the following:
 
 * Decentralized applications need access to [APIs](apis.md)

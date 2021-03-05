@@ -4,11 +4,8 @@ title: Oracle Integration Specifications (OIS)
 
 # {{$frontmatter.title}}
 
+<TocHeader />
 [[TOC]]
-
-<Version selectedVersion="next" />
-
-<div class="toc-label">Table of Contents</div>
 
 ::: danger TODO
 This will be migrated from docs to its own repo.

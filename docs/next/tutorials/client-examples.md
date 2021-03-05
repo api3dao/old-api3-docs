@@ -4,11 +4,8 @@ title: Client Examples
 
 # {{$frontmatter.title}}
 
+<TocHeader />
 [[TOC]]
-
-<Version selectedVersion="next" />
-
-<div class="toc-label">Table of Contents</div>
 
 ::: danger TODO
 Are these example suitable to be used as tutorials?

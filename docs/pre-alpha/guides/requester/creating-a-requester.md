@@ -6,8 +6,6 @@ title: Creating a requester
 
 [[TOC]]
 
-<Version selectedVersion="pre-alpha" />
-
 Each requester needs to create a requester record, and get assigned a requester index.
 This is fairly early, using [@api3/airnode-admin](https://github.com/api3dao/airnode/tree/pre-alpha/packages/admin#create-requester).
 A requester index grants you a separate [designated wallet](../../protocols/request-response/designated-wallet.md) for each provider, which you can use [@api3/airnode-admin](https://github.com/api3dao/airnode/tree/pre-alpha/packages/admin#derive-designated-wallet) to derive for a specific provider.

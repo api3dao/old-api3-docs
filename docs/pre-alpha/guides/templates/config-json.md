@@ -4,8 +4,6 @@ title: config.json
 
 # {{$frontmatter.title}}
 
-<Version selectedVersion="pre-alpha" />
-
 ```json{
   "ois": [
     {

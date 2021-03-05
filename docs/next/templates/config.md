@@ -2,8 +2,6 @@
 title: config.json
 ---
 
-<Version selectedVersion="next" />
-
 # {{$frontmatter.title}}
 
 ```json

@@ -4,11 +4,8 @@ title: API integration
 
 # {{$frontmatter.title}}
 
+<TocHeader />
 [[TOC]]
-
-<Version selectedVersion="pre-alpha" />
-
-<div class="toc-label">Table of Contents</div>
 
 To integrate a System X to a System Y, we need to do three things:
 - Specify the interface of System X

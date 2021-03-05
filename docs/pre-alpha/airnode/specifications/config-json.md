@@ -4,11 +4,8 @@ title: config.json
 
 # {{$frontmatter.title}}
 
+<TocHeader />
 [[TOC]]
-
-<Version selectedVersion="pre-alpha" />
-
-<div class="toc-label">Table of Contents</div>
 
 `config.json` is the configuration file used for deploying Airnode.
 It is composed of four main sections:

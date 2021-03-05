@@ -6,10 +6,6 @@ title: First-Party Oracles
 
 [[TOC]]
 
-<Version selectedVersion="pre-alpha" />
-
-
-
 An oracle is an agent that acts as an intermediary between a smart contract platform and an API.
 In other words, a decentralized application can use an oracle to call an API.
 

@@ -4,8 +4,6 @@ title: config.json
 
 # {{$frontmatter.title}}
 
+<TocHeader />
 [[TOC]]
 
-<Version selectedVersion="next" />
-
-<div class="toc-label">Table of Contents</div>

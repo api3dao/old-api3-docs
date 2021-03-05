@@ -4,12 +4,8 @@ title: Overview
 
 # {{$frontmatter.title}}
 
-
+<TocHeader />
 [[TOC]]
-
-<Version selectedVersion="next" />
-
-<div class="toc-label">Table of Contents</div>
 
 Airnode is a fully-serverless oracle node that is designed specifically for API providers
 to operate their own oracles.

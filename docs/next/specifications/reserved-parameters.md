@@ -3,11 +3,9 @@ title: Reserved Parameters
 ---
 
 # {{$frontmatter.title}}
+
+<TocHeader />
 [[TOC]]
-
-<Version selectedVersion="next" />
-
-<div class="toc-label">Table of Contents</div>
 
 A requester can pass request parameters either by referencing a [template](../protocols/request-response/template.md) that contains them, or as an argument of the request-making methods of [`Airnode.sol`](../protocols/request-response/general-structure.md#airnodesol). In either case, these parameters are encoded in a `bytes`-type variable using [Airnode ABI](airnode-abi.md). There are two types of parameters:
 

@@ -4,11 +4,8 @@ title: Developing a client contract
 
 # {{$frontmatter.title}}
 
+<TocHeader />
 [[TOC]]
-
-<Version selectedVersion="pre-alpha" />
-
-<div class="toc-label">Table of Contents</div>
 
 A [client](../../protocols/request-response/client.md) is a contract that makes requests to [providers](../../protocols/request-response/provider.md) using the [Airnode.sol](../../protocols/request-response/general-structure.md#airnode-sol) contract that implements the protocol.
 A client is [endorsed](../../protocols/request-response/endorsement.md) by a [requester](../../protocols/request-response/requester.md), which means that it can specify its request to be fulfilled by the respective requester's [designated wallet](../../protocols/request-response/designated-wallet.md).

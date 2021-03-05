@@ -4,11 +4,8 @@ title: Is my platform compatible?
 
 # {{$frontmatter.title}}
 
+<TocHeader />
 [[TOC]]
-
-<Version selectedVersion="pre-alpha" />
-
-<div class="toc-label">Table of Contents</div>
 
 We are receiving an overwhelming amount of demand by teams of smart contract platforms and decentralized applications built on these about integrating Airnode to gain access to API data and services.
 These guides are for you to be able to self-serve to assess the feasibility of an integration, and even prototype the integration yourself.

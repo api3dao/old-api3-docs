@@ -6,8 +6,6 @@ title: Docker Client instructions
 
 [[TOC]]
 
-<Version selectedVersion="pre-alpha" />
-
 1. Build the Docker image (you can skip this step and fetch the pre-built image)
 ```sh
 mv Dockerfile Dockerfile-deployer && \

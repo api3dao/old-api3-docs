@@ -4,11 +4,8 @@ title: Docker instructions
 
 # {{$frontmatter.title}}
 
+<TocHeader />
 [[TOC]]
-
-<Version selectedVersion="pre-alpha" />
-
-<div class="toc-label">Table of Contents</div>
 
 1. Build the Docker image
 ```sh

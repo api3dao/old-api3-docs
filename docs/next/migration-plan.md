@@ -4,11 +4,8 @@ title: Moving to VuePress
 
 # {{$frontmatter.title}}
 
+<TocHeader />
 [[TOC]]
-
-<Version selectedVersion="next" />
-
-<div class="toc-label">Table of Contents</div>
 
 The following instructions are to migrate a local repo to the api3dao/api3-docs remote repo in the form of a new remote branch named **stage**. The stage branch is temporary until it is merged to master and then deleted.
 

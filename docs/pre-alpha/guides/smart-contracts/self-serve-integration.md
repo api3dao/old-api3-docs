@@ -4,11 +4,8 @@ title: Self-serve integration
 
 # {{$frontmatter.title}}
 
+<TocHeader />
 [[TOC]]
-
-<Version selectedVersion="pre-alpha" />
-
-<div class="toc-label">Table of Contents</div>
 
 Assuming you have determined that your platform [is compatible](is-my-platform-compatible.md), you can attempt to do the integration yourself by following the steps below.
 
