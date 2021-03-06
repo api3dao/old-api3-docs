@@ -4,7 +4,7 @@ module.exports = {
   env: process.env.NODE_ENV,
   versions:[
     {name:'next', url:'/next/grp-providers/'},
-    {name:'0.1.0', url:'/0.1.0/grp-providers/'},
+    //{name:'0.1.0', url:'/0.1.0/grp-providers/'},
     {name:'pre-alpha', url:'/pre-alpha/'},
   ],
   head: [
