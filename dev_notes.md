@@ -57,16 +57,3 @@ When running the test:links script the following error may be caused by a file w
 ```bash
 ERROR: File not found! Please provide a valid filename as an argument.
 ```
-
-## Click Behind
-
-There are two good solution to this.
-
-The first does not use a plugin but requires the top element gets focus upon opening, difficult.
-https://stackoverflow.com/questions/36170425/detect-click-outside-element
-
-The second is a popular plugin.
-https://www.npmjs.com/package/v-click-outside
-
-
-
