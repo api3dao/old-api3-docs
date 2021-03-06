@@ -10,7 +10,7 @@
     "copy:navbar": "cp docs/.vuepress/components/Navbar.vue node_modules/@vuepress/theme-default/components/Navbar.vue",
     "copy:sidebar": "cp docs/.vuepress/components/Sidebar.vue node_modules/@vuepress/theme-default/components/Sidebar.vue",
     "test:links": "for file in $(find ./docs/pre-alpha -path ./node_modules -prune -false -o -name \"*.md\"); do markdown-link-check --verbose --config .markdown-link-check.config.json \"$file\" || exit 1; done;",
-    "docs:dev": "yarn run copy:navbar; yarn run copy:sidebar; NODE_OPTIONS='--max-old-space-size=4096' vuepress dev docs",
+    "docs:dev": "yarn run copy:navbar; yarn run copy:sidebar; vuepress dev docs",
     "docs:build": "yarn run copy:navbar; yarn run copy:sidebar; vuepress build docs"
   },
   "devDependencies": {
@@ -20,9 +20,9 @@
     "@vuepress/plugin-back-to-top": "^1.8.2",
     "@vuepress/plugin-medium-zoom": "^1.8.2",
     "markdown-link-check": "^3.8.6",
-    "shapla-tabs": "^1.0.4",
     "v-click-outside": "^3.1.2",
-    "vuepress": "^1.8.2"
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-element-tabs": "^0.2.8"
   },
   "dependencies": {}
 }
