@@ -3,10 +3,10 @@
 # abort on errors
 set -e
 
-# build
+# build the docs
 npm run docs:build
 
-# navigate into the build output directory
+# navigate to the build output directory
 cd docs/.vuepress/dist
 
 # if you are deploying to a custom domain
