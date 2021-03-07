@@ -7,6 +7,19 @@ module.exports = {
     //{name:'0.1.0', url:'/0.1.0/grp-providers/'},
     {name:'pre-alpha', url:'/pre-alpha/'},
   ],
+  sidebarHeaders:[
+    {vrs:'pre-alpha', current:true, buttons:[]},
+    {vrs:'0.1.0', buttons:[
+      {isActive: false, label:'Members', url:'/0.1.0/grp-members/', img:'users'},
+      {isActive: false, label:'Requesters', url:'/0.1.0/grp-requesters/', img:'eye'},
+      {isActive: true, label:'Providers', url:'/0.1.0/grp-providers/', img:'sitemap'}
+    ]},
+    {vrs:'next', buttons:[
+      {isActive: false, label:'Members', url:'/next/grp-members/', img:'users'},
+      {isActive: false, label:'Requesters', url:'/next/grp-requesters/', img:'eye'},
+      {isActive: true, label:'Providers', url:'/next/grp-providers/', img:'sitemap'}
+    ]}
+  ],
   head: [
     ['link', { rel: 'icon', href: '/img/small-logo.png' }]
   ],
@@ -50,13 +63,13 @@ module.exports = {
       ['vuepress-plugin-element-tabs'],
       ['@vuepress/last-updated'],
       ['@vuepress/back-to-top', true],
-      //['fulltext-search'],
+      //['fulltext-search'], https://z3by.github.io/vuepress-tools/plugins/vuepress-plugin-fulltext-search.html
       ['@vuepress/search', {
           searchMaxSuggestions: 15,
           // Only search the latest version, e.g. 4.3, otherwise many duplicates will show up
           // TODO need to change this to the selected version rather than the latest
           //test: `/${versioning.versions.latest.replace('.', '\\.')}/`
-          test: `/pre-alpha/` 
+          test: '/pre-alpha/'
         }
       ]
   ]

@@ -23,6 +23,7 @@
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
   Vue.component('font-awesome-icon', FontAwesomeIcon)
   library.add(faUsers, faSitemap, faEye)
+  import { sidebarHeaders } from '../config.js'
 
   export default {
     components: {
@@ -33,19 +34,7 @@
       },
     },
     data: () => ({
-      headers:[
-        {vrs:'pre-alpha', current:true, buttons:[]},
-        {vrs:'0.1.0', buttons:[
-          {isActive: false, label:'Members', url:'/0.1.0/grp-members/', img:'users'},
-          {isActive: false, label:'Requesters', url:'/0.1.0/grp-requesters/', img:'eye'},
-          {isActive: true, label:'Providers', url:'/0.1.0/grp-providers/', img:'sitemap'}
-        ]},
-        {vrs:'next', buttons:[
-          {isActive: false, label:'Members', url:'/next/grp-members/', img:'users'},
-          {isActive: false, label:'Requesters', url:'/next/grp-requesters/', img:'eye'},
-          {isActive: true, label:'Providers', url:'/next/grp-providers/', img:'sitemap'}
-        ]}
-      ]
+      headers:sidebarHeaders,
     }),
     methods: {
       select(btnUrl) {
