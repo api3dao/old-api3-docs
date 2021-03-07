@@ -1,5 +1,4 @@
 <template>
-
   <div class="toc-label">
     Table of Contents
   </div>
@@ -17,7 +16,7 @@
   }
 </script>
 
-<!-- There is a style for this in index.styl -->
+<!-- There is a style for TocHeader in index.styl as part of the TOC changes.-->
 <style scoped>
   
 </style>
