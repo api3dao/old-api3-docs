@@ -1,5 +1,6 @@
 ---
-home: true
+home: false
+layout: Home
 heroImage: 
 heroText: API3 Documentation
 tagline: Decentralized APIs for Web 3.0
@@ -17,4 +18,3 @@ navbar: true
 ---
 
 API3 documentation is kept as a regular repository of Markdown files for everyone to contribute. Feel free to create [issues](https://github.com/api3dao/api3-docs/issues) for discussions, proposed additions and changes.
-

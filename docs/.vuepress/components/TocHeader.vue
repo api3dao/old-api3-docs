@@ -1,3 +1,10 @@
+Add comment here
+<!-- 
+  Adds a element to any page and displays "Table of Contents" above 
+  the VuePress generated TOC. It aligns itself above the TOC 
+  using css in index.styl, look for the .toc-label class.
+-->
+
 <template>
   <div class="toc-label">
     Table of Contents
@@ -7,16 +14,8 @@
 <script>
   export default {
     name:'toc-header',
-    data: () => ({
-
-    }),
-    beforeMount() {
-      console.log('\n----- TocHeader -----')
-    },
   }
 </script>
 
-<!-- There is a style for TocHeader in index.styl as part of the TOC changes.-->
 <style scoped>
-  
 </style>

@@ -5,7 +5,9 @@
 
     <NavLinks />
     
-    <!-- Added: moves to node_modules @vuepress/theme-default/components during docs:dev and docs:build -->
+    <!-- 
+      Added: wkande: Sidebar Header for version categories. 
+    -->
     <SidebarHeader />
 
     <slot name="top" />

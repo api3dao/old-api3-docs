@@ -1,4 +1,9 @@
-<!-- https://code.luasoftware.com/tutorials/vuepress/vuepress-create-custom-component/ -->
+<!--
+Parent of VersionsModal.vue. Opens a modal of user version selections.
+
+- Opens a modal passing versions list to modal and env (development or production)
+- Receives emit message from child component to close modal (@clicked="onChildClick")
+-->
 
 <template>
     <span class="nav-site">
@@ -10,7 +15,6 @@
 </template>
 
 <script>
-  import { beforeMount } from 'vue'
   import { env, versions } from '../config.js'
   import VersionsModal from './VersionsModal';
 
@@ -32,12 +36,6 @@
         // The modal will send a msg to close when user clicks outside the modal
         this.showModal = false;
       }
-    },
-    beforeMount() {
-      //this.selected = this.$page.path;
-      console.log('\n-----NavSite -----')
-      console.log('NavSite: this.$page.path:', this.$page.path)
-      console.log('NavSite:', this.environment)
     },
   }
 </script>

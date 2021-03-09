@@ -1,23 +1,27 @@
-<!-- https://morioh.com/p/cbf9735ca6fb -->
+<!--
+Child of Versions.vue. Presents a versions list of user version selections. 
+
+Parameters from parent
+- env
+- versions
+- shoModal
+
+- Renders a versions list
+- Sends user to selects version using router-link
+- Sends emit message to parent to close modal both on a selection or click-behind
+-->
 
 <template>
     <div class="modal" v-if="showModal" v-click-outside="onClickOutside">
         <div v-if="showModal" class="modal-content">
-            <!--div class="modal-header">
-                <slot name="header"></slot>
-            </div-->
-
             <div class="modal-body">
-                <!--slot name="body"></slot-->
                 <div style="border-bottom:1px solid lightgrey;">Versions</div>
-                  <div v-for="vrs in versions" v-on:click="onClickOutside">
+                  <div v-for="vrs in versions" v-on:click="onClickOutside(vrs.url, $event)">
                     <router-link  :to="vrs.url" v-if="vrs.name!='next' || (vrs.name==='next' && env==='development')">
                       <span class="label">{{vrs.name}}</span>
                     </router-link>
                   </div>
             </div>
-            <!--div class="modal-footer"></div-->
-  
         </div>
     </div>
 </template>
@@ -25,7 +29,6 @@
 <script>
   import Vue from 'vue'
   import vClickOutside from 'v-click-outside'
-  import { versions, env } from '../config.js'
   Vue.use(vClickOutside)
 
   export default {
@@ -36,8 +39,7 @@
       versions: Array
     },
     methods: {
-      onClickOutside (event) {
-        console.log('Clicked outside. Event: ', event)
+      onClickOutside (url, event) {
         this.$emit('clicked') // goes to parent method
       },
     },

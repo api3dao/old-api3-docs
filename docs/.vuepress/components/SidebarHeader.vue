@@ -1,3 +1,18 @@
+<!--
+A version can have 1-N categories. A category is a logical grouping of docs within
+a version. Categories are represented as buttons in the sidebar. If the version has 
+no categories no buttons are displayed.
+  
+Reads sidebarHeaders from config.json and based on the currentVersion
+derived from this.$page.path, renders the categories (buttons) of the version if any.
+
+Important players:
+- currentVersion (var): computed value that gets the version from the $page.path
+- headers (var): available sidebars from config.json
+- select (method): moves the user to the category selected
+- watch (event): detects the button click, sees the route change and calls select()
+-->
+
 <template>
     <div >
       <div class="container" :name="header.vrs" v-for="(header, index) in headers" :selected="header.vrs">
@@ -26,8 +41,6 @@
   import { sidebarHeaders } from '../config.js'
 
   export default {
-    components: {
-    },
     computed: {
       currentVersion: function () {
           return this.$page.path.split('/')[1].replace(/\//g,'');
@@ -39,45 +52,26 @@
     methods: {
       select(btnUrl) {
         let vrs = btnUrl.split('/')[1]
-        //console.log('\n>>> 1', vrs, btnUrl)
-        
         this.headers.forEach(function(head) {
             if(head.vrs===vrs){
-              //console.log(2, head.vrs, vrs)
               head.buttons.forEach(function(btn) {
                   btn.isActive = false
-                  //console.log('> flag', btnUrl.startsWith(btn.url))
                   if(btnUrl.startsWith(btn.url)) btn.isActive = true
-                  //console.log(3, btn.url, btnUrl)
               });
             }
         });
       },
     },
     watch: {
-    '$route'($event) {
-        //console.clear()
-        //console.log('\n--------------------------\n>>> $route', this.$route.path)     
+    '$route'($event) {     
         this.select(this.$route.path)
       }
-    },
-    beforeRouteUpdate (to, from, next) {
-      console.log('beforeRouteUpdate')
-    },
-    beforeMount() {
-      console.log('\n-----SidebarHeader -----')
-      console.log('this.$page.path:', this.$page.path)
-      console.log('currentVersion:', this.currentVersion)
-      //console.log('beforeMount env:', env)
-      //this.environment = env
-      //console.log('this.environment:', this.environment)
     },
   }
 </script>
 
 <style scoped>
   .selectedButton {
-      /*outline: solid 1px gray;*/
       color:black !important;
   }
 
@@ -96,5 +90,4 @@
     font-size:small;
     color:black;
   }
-
 </style>

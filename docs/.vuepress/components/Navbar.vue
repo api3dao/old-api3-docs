@@ -2,8 +2,11 @@
   <header class="navbar">
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')" />
 
-    <RouterLink
-      :to="$localePath"
+    <!-- 
+      Changed: 2021-03-08 wkande: Logo now goes to https://api3.org.
+    -->
+    <a
+      href="https://api3.org"
       class="home-link"
     >
       <img
@@ -12,13 +15,26 @@
         :src="$withBase($site.themeConfig.logo)"
         :alt="$siteTitle"
       >
+    </a>
+
+    <RouterLink
+      :to="$localePath"
+      class="home-link"
+    >
+      <!-- 
+        Added: wkande: v-on:click="$themeConfig.startPath = $route.fullPath" 
+        Sets the startPath for the Landing Page (actionLink) with the page 
+        the user is currently on.
+      -->
       <span
+        v-on:click="$themeConfig.startPath = $route.fullPath"
         v-if="$siteTitle"
         ref="siteName"
         class="site-name"
         :class="{ 'can-hide': $site.themeConfig.logo }"
       >{{ $siteTitle }}</span>
     </RouterLink>
+    
 
     <div
       class="links"
@@ -26,7 +42,9 @@
         'max-width': linksWrapMaxWidth + 'px'
       } : {}"
     >
-      <!-- Added: moves to node_modules @vuepress/theme-default/components during docs:dev and docs:build -->
+      <!-- 
+        Added: 2021-03-04 wkande: This adds the custom Versions component 
+      -->
       <Versions />
 
       <AlgoliaSearchBox

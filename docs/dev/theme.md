@@ -43,5 +43,5 @@ There are overrides to the default theme in **.vuepress/components/index.styl**.
 
 ## config.themeConfig.smoothScroll
 
-As of 2021-02-17 **smoothScroll=true** will cause the TOC hyperlinks to require a *double click* for Ubuntu firefox users. Change this back to true should firefox remedy the issue.
+As of 2021-02-17 **smoothScroll=true** will cause the TOC hyperlinks to require a *double click* for Ubuntu Firefox users. Change this back to true should Firefox remedy the issue.
 

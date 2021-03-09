@@ -1,12 +1,15 @@
 //const sidebars = require('./lib/sidebars.js')
 
+const search = require('./lib/search.js')
+
 module.exports = {
   env: process.env.NODE_ENV,
   versions:[
     {name:'next', url:'/next/grp-providers/'},
-    //{name:'0.1.0', url:'/0.1.0/grp-providers/'},
+    {name:'0.1.0', url:'/0.1.0/grp-providers/'},
     {name:'pre-alpha', url:'/pre-alpha/'},
   ],
+  //versionDefault: 'pre-alpha',
   sidebarHeaders:[
     {vrs:'pre-alpha', current:true, buttons:[]},
     {vrs:'0.1.0', buttons:[
@@ -31,11 +34,12 @@ module.exports = {
     toc: { includeLevel: [2, 3] },
   },
   themeConfig: {
+    startPath:'/pre-alpha/',
     sidebarDepth: 0,
     displayAllHeaders: false,
     logo: '/img/logo.png',
     nav: [
-      { text: 'Website', link: 'https://www.api3.org' },
+      //{ text: 'Website', link: 'https://www.api3.org' },
       { text: 'Discord (Dev)', link: 'https://discord.gg/qnRrcfnm5W' },
       { text: 'Telegram (Chat)', link: 'https://t.me/API3DAO' },
       { text: 'GitHub', link: 'https://github.com/api3dao/api3-docs' },
@@ -53,8 +57,8 @@ module.exports = {
               '/dev/':require(`../dev/sidebar.js`),
              },
     /* 2021-02-17
-       smoothScroll=true will cause the TOC to require a dclick for ubuntu firefox.
-       Try true again after firefox gets an update.
+       smoothScroll=true will cause the TOC to require a dclick for Ubuntu Firefox.
+       Try true again after Firefox gets an update.
     */
     smoothScroll: false 
   },
