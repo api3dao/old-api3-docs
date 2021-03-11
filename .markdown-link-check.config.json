@@ -3,6 +3,13 @@
     {
       "pattern": "^\/img\/",
       "replacement": "../static/img/"
+    },
+    {
+      "pattern": "^/",
+      "replacement": "https://github.com/api3dao/api3-docs/tree/stage/"
     }
-  ]
+  ],
+  "retryOn429": true,
+  "retryCount": 2,
+  "fallbackRetryDelay": "10s"
 }
