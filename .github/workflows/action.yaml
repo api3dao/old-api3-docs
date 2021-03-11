@@ -10,4 +10,4 @@ jobs:
         use-quiet-mode: 'yes'
         use-verbose-mode: 'yes'
         config-file: .markdown-link-check.config.json
-        folder-path: 'docs/dev, doc/pre-alpha'
+        folder-path: 'docs/dev, docs/pre-alpha'
