@@ -1,5 +1,5 @@
 <!--
-Child of Versions.vue. Presents a versions list of user version selections. 
+Child of Versions.vue. Presents a list of user version selections. 
 
 Parameters from parent
 - env
@@ -50,11 +50,11 @@ Parameters from parent
   .modal {
     font-size:medium;
     padding: 10px;
-    border-radius:10px;
+    border-radius:6px;
     color:gray;
     position: absolute;
-    top: 125px;
-    left: 100px;
+    top: 129px;
+    left: 93px;
     transform: translate(-50%, -50%);
     width: 100px;
     max-width: 100px;
