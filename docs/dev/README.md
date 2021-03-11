@@ -7,7 +7,6 @@ title: Setup
 <TocHeader />
 [[TOC]]
 
-
 Prerequisites for a VuePress project are the same as Vue.
 
 ## Clone
@@ -30,21 +29,14 @@ yarn install
 
 ## Run Locally
 
-Execute the **docs:dev** script in package.json to run the project locally. The script performs three steps.
+Execute the **docs:dev** script in package.json to run the project locally. The script performs four steps.
 
-1. Copies an updated [navbar](./custom-components.md#Sidebar) to node_modules @vuepress.
 1. Copies an updated [sidebar](./custom-components.md#Navbar) to node_modules @vuepress.
-1. Run a local development server (hot reload) at localhost:8080.
-
-```json
-"docs:dev": `yarn run copy:navbar; 
-yarn run copy:sidebar; 
-NODE_OPTIONS='--max-old-space-size=4096' 
-vuepress dev docs`
-```
+1. Copies an updated [navbar](./custom-components.md#Sidebar) to node_modules @vuepress.
+1. Copies an updated [sidebar](./custom-components.md#Searchbox) to node_modules @vuepress.
+1. Runs a local development server (hot reload) at localhost:8080.
 
 ```bash
 # run locally
 yarn docs:dev
 ```
-
