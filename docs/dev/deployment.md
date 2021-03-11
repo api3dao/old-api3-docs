@@ -55,5 +55,6 @@ It is important to pull down the master (step 4) after master @remote has been m
 1. Merge contributing branches "@remote" repo to master.
 1. Switch to local master branch.
 1. Pull "@remote" master to local repo.
+1. Verify the proper versions (**versions key**) are listed in config.json
 1. Run the **deploy.sh** script from the local project root.
-1. Switch back to your next local development branch.
+1. Switch to next local development branch.
