@@ -7,10 +7,7 @@ title: Quirks
 <TocHeader />
 [[toc]]
 
-
 ## language does not exist
-
-
 
 ```bash
 4:47:20 PM: Language does not exist: text
