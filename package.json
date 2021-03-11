@@ -10,7 +10,7 @@
     "copy:navbar": "cp docs/.vuepress/components/Navbar.vue node_modules/@vuepress/theme-default/components/Navbar.vue",
     "copy:sidebar": "cp docs/.vuepress/components/Sidebar.vue node_modules/@vuepress/theme-default/components/Sidebar.vue",
     "copy:searchbox": "cp docs/.vuepress/components/SearchBox.vue node_modules/@vuepress/plugin-search/Searchbox.vue",
-    "test:links": "for file in $(find ./docs/pre-alpha -path ./node_modules -prune -false -o -name \"*.md\"); do markdown-link-check --verbose --config .markdown-link-check.config.json \"$file\" || exit 1; done;",
+    "test:links": "for file in $(find ./docs/dev ./docs/pre-alpha -path ./node_modules -prune -false -o -name \"*.md\"); do markdown-link-check --verbose --config .markdown-link-check.config.json \"$file\" || exit 1; done;",
     "docs:dev": "yarn run copy:navbar; yarn run copy:sidebar; yarn run copy:searchbox; vuepress dev docs",
     "docs:build": "yarn run copy:navbar; yarn run copy:sidebar; yarn run copy:searchbox; vuepress build docs"
   },
