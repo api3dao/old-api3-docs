@@ -9,11 +9,16 @@ title: Override Components
 
 There are a few changes made to some default @vuepress components. See the code comments within each component for execution details. These components, located in .vuepress/compomnents, are copied to node_modules/@vuepress/themeConfig/components or node_modules/@vuepress/plugins when running or building the project locally.
 
+- Navbar.vue > @vuepress/themeConfig/components
+- Sidebar.vue > @vuepress/themeConfig/components
+- Search.vue > @vuepress/plugin-search
+- Home.vue > is not moved to @vuepress, it is defined as a layout page for root/README.md
+
 ## Home.vue
 
 The override component Home.use is a replacement for the VuePress Home.vue. It provides a replacement layout for the root README.md file which is rendered as the Home or Landing Page. The action button will now pick up the last page the user was on before returning to the Home page and use it when returning to the docs.
 
-**Changes**
+#### Changes
 
 - Action button uses config.josn startUrl to enter the docs.
 
@@ -42,7 +47,7 @@ actionLink () {
 The override component Navbar.use is a replacement for the VuePress Navbar.vue. The custom component [Versions.vue](./custom-components.md#versions.vue) has been added to **Navbar.vue**.
 
 
-**Changes**
+#### Changes
 
 - Version menu component added.
 - Title link updates the setPath key in config.json and returns the user to the landing page.
