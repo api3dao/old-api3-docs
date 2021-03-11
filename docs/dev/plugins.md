@@ -70,18 +70,14 @@ The above imports and code creates three icons that can then be used in HTML cod
 
 ## markdown-link-check
 
-This package is used to validate hyperlinks in markdown files. Implemented in the `vuepress "test:links"` script.
+This package is used to validate hyperlinks in markdown files. There are two scripts.
 
-Before running `vuepress "docs:build"` or `sh deploy.sh` be sure to run `vuepress "test:links"` first to validate hyperlinks. The normal workflow when deploying api3-docs to gh-pages is as follows. See [Deployment](./deployment.md) to learn more.
+- `vuepress "test:links:prod"` validates the production version folders and the dev folder.
+- `vuepress "test:links:next"` validates the */next* folder.
 
-```bash
-# cd root of project
-yarn test:links
-yarn docs:build
-sh deploy.sh
-```
+This package is also used in a **GitHub Action** on the remote repo to validate hyperlinks on `git push`, see [GitHub Actions](./github-actions.md#markdown-check-link).
 
-This package is also used in a **GitHub Action** (.github/workflows/action.yaml) on the remote repo to validate hyperlinks on *git push*.
+Before running `vuepress "docs:build"` or `sh deploy.sh` be sure to run `vuepress "test:links:prod"` first to validate production hyperlinks. See [Deployment](./deployment.md) to learn more about incorpoaration of this test.
 
 ## v-click-outside
 
@@ -112,4 +108,3 @@ Tab two contents
 :::
 ::::
 ```
-

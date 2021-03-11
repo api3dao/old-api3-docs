@@ -18,7 +18,7 @@ This message may appear (may times) when running `yarn docs:dev or docs:build`. 
 
 ## markdown-links-check
 
-When running the test:links script the following error may be caused by a file with a space in its name.
+When running the `test:links:prod` or `test:links:next` scripts the following error may be caused by a file with a space in its name.
 
 ```bash
 ERROR: File not found! Please provide a valid filename as an argument.
