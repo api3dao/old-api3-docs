@@ -5,6 +5,7 @@ module.exports = [
         '/dev/',
         '/dev/theme',
         '/dev/plugins',
+        '/dev/override-components',
         '/dev/custom-components',
         '/dev/versioning',
         '/dev/deployment', 
