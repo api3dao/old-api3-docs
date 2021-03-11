@@ -45,7 +45,7 @@ api3-docs uses several community plugins and packages to enhance the user experi
 
 ## @fortawesome
 
-Three plugins from [@fortawesome](https://www.npmjs.com/package/@fortawesome/vue-fontawesome]) provide access to the  **Font Awesome** icon set. This is a collection of three plugins that work closely together to render Font Awesome icons. An example can be found in the .vuepress.components/SidebarHeader.vue component.
+Three plugins from [@fortawesome](https://www.npmjs.com/package/@fortawesome/vue-fontawesome) provide access to the  **Font Awesome** icon set. This is a collection of three plugins that work closely together to render Font Awesome icons. An example can be found in the .vuepress.components/SidebarHeader.vue component.
 
 ```js
 import Vue from 'vue'
