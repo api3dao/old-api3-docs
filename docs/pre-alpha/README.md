@@ -1,6 +1,12 @@
+---
+title: What is API?
+---
+
 <p align="center">
   <img src="./figures/api3.png" width="400" />
 </p>
+
+# {{$frontmatter.title}}
 
 <TocHeader />
 [[TOC]]
