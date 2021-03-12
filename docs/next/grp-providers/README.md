@@ -1,5 +1,5 @@
 ---
-title: Providers Stuff
+title: What is a Provider?
 ---
 
 # {{$frontmatter.title}}

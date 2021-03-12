@@ -1,12 +1,14 @@
 module.exports = [
-      {
-        title: 'Members', collapsable: false, 
-        children: [
-          
-            '/next/grp-members/',
-            '/next/grp-members/test/go',
-            
-        ]
-      },
-
+  {
+    title: 'Introduction', collapsable: false, 
+    children: [
+        '/next/',
+        '/next/grp-members/',
     ]
+  },
+  {
+    title: 'Providers', collapsable: false, 
+    children: [
+    ]
+  },
+]

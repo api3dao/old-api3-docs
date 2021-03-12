@@ -1,11 +1,15 @@
 module.exports = [
-      {
-        title: 'Providers', collapsable: false, 
-        children: [
-          
-            '/next/grp-providers/',
-            
-        ]
-      },
+  {
+    title: 'Introduction', collapsable: false, 
+    children: [
+        '/next/',
+        '/next/grp-providers/',
+    ]
+  },
+  {
+    title: 'Providers', collapsable: false, 
+    children: [
 
     ]
+  },
+]

@@ -41,6 +41,7 @@ module.exports = {
     sidebar: {'/next/grp-providers/':require(`../next/grp-providers/sidebar.js`),
               '/next/grp-requesters/':require(`../next/grp-requesters/sidebar.js`),
               '/next/grp-members/':require(`../next/grp-members/sidebar.js`),
+              '/next/':require(`../next/grp-providers/sidebar.js`), // Default the /next route to /next-grp-provider
               '/0.1.0/grp-providers/':require(`../0.1.0/grp-providers/sidebar.js`),
               '/0.1.0/grp-requesters/':require(`../0.1.0/grp-requesters/sidebar.js`),
               '/0.1.0/grp-members/':require(`../0.1.0/grp-members/sidebar.js`),
@@ -49,7 +50,7 @@ module.exports = {
              },
     /* 
       2021-02-17: wkande: 
-      smoothScroll=true will cause the TOC to require a dclick for Ubuntu Firefox.
+      smoothScroll=true will cause the TOC to require a double click for Ubuntu Firefox.
       Try true again after Firefox gets an update.
     */
     smoothScroll: false 
