@@ -1,3 +1,0 @@
-# Releases
-
-Info about releases.
