@@ -57,25 +57,23 @@ git push -f git@github.com:api3dao/api3-docs.git master:gh-pages
 
 ## Deploying
 
-It is important to pull down the master (step 4) after master @remote has been merged with all contributors. This insures the local build of the dist folder gets the latest from all contributors.
+It is important to pull down the master branch (step 4) after the remote master repo has been merged with all contributors. This insures the local build of the dist folder gets the latest from all contributors.
 
 1. Verify the proper versions (**versions key**) are listed in config.json.
+1. Verify the repo target in `deploy.sh` is set to api3dao/api3-docs.
+1. Run `yarn test:links:prod` to verify hyperlinks.
 1. Git
     - Commit and push local work to the remote repo.
-    - @remote repo merge contributing branches to master.
+    - From the remote repo, merge contributing branches to master.
     - Switch to local master branch.
     - Pull remote master to local repo.
 1. Deploy
-    - Run `yarn test:links:prod` to test hyperlinks.
-    - Execute `deploy.sh` to deploy from the current local barnch.
+    - Deploy from a desired local branch, usually **master**.
+    - Execute `deploy.sh` to deploy.
     ```bash
-    # cd root of project
-    yarn test:links:prod
-    # ... output from link test here
-    yarn docs:build
-    # ... output from build here
+    # cd <root of project>
+    warren@Warrens-Mac-mini.local /Users/warren/DEV/api3-docs [master]
+    # Verify the branch that is set.
     sh deploy.sh
     ```
 1. Switch to next local development branch.
-
-
