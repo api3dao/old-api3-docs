@@ -77,13 +77,13 @@ This package is used to validate hyperlinks in markdown files. There are two scr
 
 This package is also used in a **GitHub Action** on the remote repo to validate hyperlinks on `git push`, see [GitHub Actions](./github-actions.md#markdown-check-link).
 
-Before running `vuepress "docs:build"` or `sh deploy.sh` be sure to run `vuepress "test:links:prod"` first to validate production hyperlinks. See [Deployment](./deployment.md) to learn more about incorpoaration of this test.
+Before running `vuepress "docs:build"` or `sh deploy.sh` be sure to run `vuepress "test:links:prod"` first to validate production hyperlinks. See [Deployment](./deployment.md) to learn more about incorporation of this test.
 
 ## v-click-outside
 
 This community plugin detects clicks outside an element without stopping the event propagation. It is used in the **.vuepress/components/VersionsModal.vue** custom component to allow clicks behind to close the modal.
 
-Note that [VersionsModal.vue](./custom-components.md#VersionsModal.vue) is a child component of **Versions.vue**. VersionsModal.vue uses this plugin to emit an event to Versions.vue that in turn closes the version picklist modal.
+Note that [VersionsModal.vue](./custom-components.md#VersionsModal.vue) is a child component of **Versions.vue**. VersionsModal.vue uses this plugin to emit an event to Versions.vue that in turn closes the modal.
 
 ## vuepress-plugin-element-tabs
 

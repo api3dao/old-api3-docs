@@ -54,5 +54,5 @@ If you would like to contribute to this set of authorizer contracts, please join
 
 ## Conclusion
 
-Your Airnode is completly set up now.
+Your Airnode is completely set up now.
 The following guides will be on how a requester would be able to make requests to it.

@@ -112,4 +112,4 @@ Older versions can be updated at any time, even will work progresses on the **ne
 
 ## Hidden Versions
 
-A version can be add to the **sidebarHeaders** key in .vuepress/config.json and not the **verisons** key. Doing so will make the version available to users that type the proper path into the browser URL bar. The version will not be available to select from the versions hyperlink in the navbar. (e.g. The **/api3-docs/dev/** documents are are implemented using this technique.)
+A version can be add to the **sidebarHeaders** key in .vuepress/config.json and not the **versions** key. Doing so will make the version available to users that type the proper path into the browser URL bar. The version will not be available to select from the versions hyperlink in the navbar. (e.g. The **/api3-docs/dev/** documents are are implemented using this technique.)

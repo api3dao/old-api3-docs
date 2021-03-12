@@ -7,7 +7,7 @@ title: Override Components
 <TocHeader />
 [[toc]]
 
-There are a few changes made to some default @vuepress components. See the code comments within each component for execution details. These components, located in .vuepress/compomnents, are copied to node_modules/@vuepress/themeConfig/components or node_modules/@vuepress/plugins when running or building the project locally.
+There are a few changes made to some default @vuepress components. See the code comments within each component for execution details. These components, located in .vuepress/components, are copied to node_modules/@vuepress/themeConfig/components or node_modules/@vuepress/plugins when running or building the project locally.
 
 - Navbar.vue > @vuepress/themeConfig/components
 - Sidebar.vue > @vuepress/themeConfig/components
@@ -20,7 +20,7 @@ The override component Home.use is a replacement for the VuePress Home.vue. It p
 
 #### Changes
 
-- Action button uses config.josn startUrl to enter the docs.
+- Action button uses config.json startUrl to enter the docs.
 
 ```js
 // Template

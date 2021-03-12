@@ -36,7 +36,7 @@ struct Template {
 ```
 
 The client can refer to the `templateId` of a template while making the request, and the provider's Airnode will fetch these and use them in the request.
-Among these, `requesterIndex`, `designatedWallet`, `fulfillAddress`, `fulfillFunctionId` can be overriden by parameters defined at request-time.
+Among these, `requesterIndex`, `designatedWallet`, `fulfillAddress`, `fulfillFunctionId` can be overridden by parameters defined at request-time.
 
 When a template is used to make a request, both the parameters encoded in `parameters` of the template and `parameters` provided at request-time by the client will be used by the provider's Airnode.
 In case the two include a parameter with the same name, the one provided at request-time will be used.

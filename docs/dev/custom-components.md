@@ -7,7 +7,7 @@ title: Custom Components
 <TocHeader />
 [[toc]]
 
-There are several custom Vue Components located in .vuepress/components. See the code comments within each component for execution details. These components, located in .vuepress/compomnents, are copied to node_modules/@vuepress/themeConfig/components or node_modules/@vuepress/plugins when running or building the project locally.
+There are several custom Vue Components located in .vuepress/components. See the code comments within each component for execution details. These components, located in .vuepress/components, are copied to node_modules/@vuepress/themeConfig/components or node_modules/@vuepress/plugins when running or building the project locally.
 
 ## TocHeader.vue
 
