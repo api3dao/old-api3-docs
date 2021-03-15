@@ -59,6 +59,7 @@
     <!-- 
       Changed: wkande: The class theme-default-content has been altered in 
       index.styl and causes the element Content to only be 67% wide.
+      Removing the class lets the content of Home go full-width on the page.
     -->
     <!--Content class="theme-default-content custom" /-->
     <Content class="custom" />
@@ -88,7 +89,11 @@ export default {
     
     actionLink () {
       return {
-        /* Changed: wkande: The link is picked up from the config.json file which is set by the title in the Navbar. */
+        /* 
+          Changed: wkande: The actionBtn link is picked up from the config.json file (themeConfig.startPath).
+          The themeConfig.startPath value get changed as the docs are used whenever the user
+          clicks on the title in the Navbar (Documentation text right of the API3 logo). 
+        */
         link: this.$themeConfig.startPath, // Original value: this.data.actionLink,
         text: this.data.actionText
       }
