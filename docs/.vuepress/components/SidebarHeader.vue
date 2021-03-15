@@ -6,6 +6,8 @@ no categories no buttons are displayed.
 Reads sidebarHeaders from config.json and based on the currentVersion
 derived from this.$page.path, renders the categories (buttons) of the version if any.
 
+The "Info btn" (if any) must be first row in the header.buttons array.
+
 Important players:
 - currentVersion (var): computed value that gets the version from the $page.path
 - headers (var): available sidebars from config.json
@@ -34,7 +36,7 @@ Important players:
             </div>
         </div>
       </div>
-      <div style="border-top:solid 1px lightgrey;margin-bottom:-10px;"/></div>
+      <div style="border-top:solid 1px lightgrey;margin-bottom:-10px;"></div>
     </div>
 </template>
 
@@ -61,26 +63,33 @@ Important players:
     }),
     methods: {
       select(route) {
-        /**
-         * 1. Convert the route into an array.
-         * 2. The array will have 3 lines if the route was to the root of the version. ( Mini btn)
-         * 3. The array will have > 3 lines if in a sub-folder of the version.
-         */
-        let pathArr = route.split('/')
-        let vrs = pathArr[1]
-        
+        let vrs = route.split('/')[1]
+        console.log('\nRoute:', route)
         this.headers.forEach(function(head) {
             if(head.vrs===vrs){
-              head.buttons.forEach(function(btn) {
+              for (let btn of head.buttons) {
+                btn.isActive = false
+              }
+              let foundIt = false
+              for (let btn of head.buttons) {
                   btn.isActive = false
-                  if(btn.info && pathArr.length === 3 ){ // Mini
-                    btn.isActive = true
-                  }
-                  else if(!btn.info && route.startsWith(btn.baseUrl)) // Not mini
+                  if(!btn.info && route.startsWith(btn.baseUrl)) // Roles
                   {
+                    console.log('Activated:', btn.baseUrl)
                     btn.isActive = true
+                    foundIt = true
+                    break
                   }
-              });
+              };
+              /*
+                If a category btn was not found then activate the Info btn.
+                The header may or may not have an Info button. If not then there
+                should have been a category btn match.
+              */
+              if(!foundIt){ // Then it goes to the Info btn
+                console.log('Activated:', head.buttons[0].baseUrl)
+                head.buttons[0].isActive = true;
+              }
             }
         });
       },
