@@ -10,6 +10,7 @@ module.exports = [
         '/dev/versioning',
         '/dev/github-actions',
         '/dev/deployment', 
+        '/dev/migration-plan',
         '/dev/quirks', 
     ]
   },
