@@ -1,5 +1,5 @@
 ---
-title: Oracle Integration Specifications (OIS)
+title: Oracle Integration Specifications (OIS) 1.0.0
 ---
 
 # {{$frontmatter.title}}
@@ -7,14 +7,14 @@ title: Oracle Integration Specifications (OIS)
 <TocHeader />
 [[TOC]]
 
-**Oracle Integration Specifications (OIS) 1.0.0** 
-
 *This will be migrated from docs to its own repo.*
 
 *Fields denoted by \* are for documentation purposes and not used by the oracle node.*
 
 *The OAS equivalents given are used to automatically populate OIS fields.
 These prepopulated fields are expected to be reviewed and customized by the integrating party.*
+
+*All URLs are absolute (i.e., [relative URLs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#relative-references-in-urls) are not supported).*
 
 - [`oisFormat`](#1-oisFormat)
 - [`title`](#2-title)
@@ -68,7 +68,7 @@ OAS equivalent: `info.title`
   ],
   "components": {
     "securitySchemes": {
-      "mySecurityScheme": {
+      "mySecurityScheme1": {
         "type": "apiKey",
         "name": "X-MY-API-KEY",
         "in": "query"
@@ -76,7 +76,7 @@ OAS equivalent: `info.title`
     }
   },
   "security": {
-    "mySecurityScheme": []
+    "mySecurityScheme1": []
   },
   "paths": {
     "/myPath": {
@@ -137,7 +137,7 @@ OAS equivalent: `components.securitySchemes.{securitySchemeName}.in`
 (Required if security scheme `type` is `http`) The name of the HTTP Authorization scheme to be used in the [Authorization header as defined in RFC7235](https://tools.ietf.org/html/rfc7235#section-5.1).
 
 Allowed values: The values used SHOULD be registered in the [IANA Authentication Scheme registry](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml).
-We support `Basic` and `Bearer`.
+We support `basic` and `bearer`.
 
 OAS equivalent: `components.securitySchemes.{securitySchemeName}.scheme`
 
@@ -150,7 +150,7 @@ Each security scheme maps to an empty list as:
 
 ```json
 "security": {
-  "mySecurityScheme": []
+  "mySecurityScheme1": []
 }
 ```
 

@@ -4,6 +4,24 @@ module.exports = [
       '/next/grp-providers/',
     ]
   },
+  {
+    title: 'Airnode', collapsable: false,
+    children: [
+        {title:'Design Philosophy', path:'airnode/design-philosophy'},
+        {title:'Implementation', path:'airnode/implementation'},
+        {title:'Ethereum Providers', path:'airnode/ethereum-providers'},
+        {
+          title: 'Specifications',
+          children: [
+              {title:'Oracle Integration Specifications (OIS)', path:'airnode/specifications/ois'},
+              'airnode/specifications/airnode-abi-specifications',
+              'airnode/specifications/config-json',
+              'airnode/specifications/security-json',
+              'airnode/specifications/reserved-parameters'
+          ]
+        },
+    ],
+  },
   {title: 'Request-Response Protocol', collapsable: false,
     children:[
       'protocols/request-response/general-structure',

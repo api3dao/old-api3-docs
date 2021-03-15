@@ -5,9 +5,4 @@ module.exports = [
         '/next/grp-members/',
     ]
   },
-  {
-    title: 'Members', collapsable: false, 
-    children: [
-    ]
-  },
 ]

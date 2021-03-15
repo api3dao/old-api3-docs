@@ -4,21 +4,26 @@ title: dAPI (Decentralized API)
 
 # {{$frontmatter.title}}
 
-<TocHeader />
 [[TOC]]
 
-Consider the following points previously discussed.
+We have covered the following:
 
-* Decentralized applications need access to [APIs](./apis.md).
-* APIs should be interfaced to smart contract platforms through [First-Party Oracles](./first-party-oracles.md).
-* For API level decentralization, [Decentrally-Governed Oracle Networks](./decentrally-governed-oracle-networks.md) should be employed.
+* Decentralized applications need access to [APIs](apis.md)
+* APIs should be interfaced to smart contract platforms through [first-party oracles](first-party-oracles.md)
+* For API level decentralization, [decentrally-governed oracle networks](decentrally-governed-oracle-networks.md) should be employed
 
-We can conclude that Decentrally-Governed Oracle Networks of First-Party Oracles solve the API connectivity problem. Although this is technically correct, the same solution can be reached through a more useful lens.
+Then, we can conclude that decentrally-governed networks of first-party oracles solve the API connectivity problem.
+Although this is technically correct, the same solution can be reached through a more useful lens.
 
-Decentralized applications cannot access Web APIs, and Oracle solutions aim to build decentralized interfaces to facilitate this. However, this approach results in an inferior solution and ecosystem (see the <a href="../../api3-whitepaper.pdf" target="_whitepaper_pdf">API3 Whitepaper</a>) for a detailed explanation).
+Decentralized applications cannot access Web APIs, and oracle solutions aim to build decentralized interfaces to facilitate this.
+However, this approach results in an inferior solution and ecosystem (see the [API3 Whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf) for a detailed explanation).
 
-Instead, API3 will build complete products called decentralized APIs (dAPIs for short), which are blockchain-native, decentralized API services. From the user's (i.e., the entity that operates the decentralized application) perspective, the experience of using a dAPI would be very similar to a Web developer using a traditional API; they would find a dAPI they need, pay the subscription fee, and enjoy access.
+<p align="center">
+  <img src="https://github.com/clc-group/api3-docs/raw/master/figures/dapi.png" />
+</p>
 
-![dapi.png](../figures/dapi.png)
+Instead, API3 will build complete products called decentralized APIs (dAPIs for short), which are blockchain-native, decentralized API services.
+From the user's (i.e., the entity that operates the decentralized application) perspective, the experience of using a dAPI would be very similar to a Web developer using a traditional API; they would find a dAPI they need, pay the subscription fee, and enjoy access.
 
-Due to being defined as a full product rather than an interface, unlike a traditional oracle network, a dAPI includes the underlying APIs. This results in a superior solution (secure and cost-efficient First-Party Oracles) and ecosystem (with API providers as its members).
+Due to being defined as a full product rather than an interface, unlike a traditional oracle network, a dAPI includes the underlying APIs.
+This results in a superior solution (secure and cost-efficient first-party oracles) and ecosystem (with API providers as its members).
