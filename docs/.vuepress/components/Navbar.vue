@@ -5,6 +5,7 @@
     <!-- 
       Changed: 2021-03-08 wkande: Logo now goes to https://api3.org.
     -->
+
     <a
       href="https://api3.org"
       class="home-link"
@@ -43,7 +44,7 @@
       } : {}"
     >
       <!-- 
-        Added: 2021-03-04 wkande: This adds the custom Versions component 
+        Added: wkande: This adds the custom Versions component 
       -->
       <Versions />
 
@@ -51,8 +52,16 @@
         v-if="isAlgoliaSearch"
         :options="algolia"
       />
-      <SearchBox v-else-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false" />
+      <!-- 
+        Updated: wkande: There are paths where the SearchBox cannot be added 
+      -->
+      
+      <SearchBox 
+        v-else-if="$route.path != '/' && 
+        $site.themeConfig.search !== false && 
+        $page.frontmatter.search !== false" />
       <NavLinks class="can-hide" />
+
     </div>
   </header>
 </template>
@@ -88,7 +97,6 @@ export default {
       return this.algolia && this.algolia.apiKey && this.algolia.indexName
     }
   },
-
   mounted () {
     const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
     const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'))
