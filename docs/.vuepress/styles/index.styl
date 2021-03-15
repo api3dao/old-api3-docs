@@ -26,7 +26,7 @@ h1{
 /************************************************/
 /* START sidebar changes */
 
-/* Default size for all DOCS unser a DIVIDER */
+/* Default size for all DOCS uner a DIVIDER */
 section.sidebar-group.depth-0 a.sidebar-link{
   font-size:small;
 }
@@ -48,12 +48,19 @@ section.sidebar-group.depth-0  ul.sidebar-links.sidebar-group-items a.active.sid
   background-color:#7CE3CB;
 }
 
-/* GROUP under a DIVIDER */
+/* GROUP under a DIVIDER that is collapsable */
 section.sidebar-group.collapsable.is-sub-group.depth-1 p.sidebar-heading{
   cursor: pointer !important;
   color:darkpurple !important;
   opacity: 1;
-  font-size:11pt;
+  font-size:12pt;
+}
+
+/* GROUP under a DIVIDER that is not collapsable */
+section.sidebar-group.is-sub-group.depth-1 p.sidebar-heading{
+  color:darkpurple !important;
+  opacity: 1;
+  font-size:12pt;
 }
 
 /* DOC under a GROUP */
