@@ -14,16 +14,25 @@ Important players:
 -->
 
 <template>
-    <div >
-      <div class="container" :name="header.vrs" v-for="(header, index) in headers" :selected="header.vrs">
-            <div v-if="header.vrs===currentVersion" v-for="(btn, index) in header.buttons">
-              <router-link v-bind:class="{ selectedButton: btn.isActive }" class="route-link" :to="btn.url">
+    <div>
+
+      <div class="container" :name="header.vrs" v-for="(header, index) in headers" :key="index" :selected="header.vrs">
+
+        <div v-for="(btn, index) in header.buttons" :key="index">
+            <div v-if="header.vrs===currentVersion && btn.info" >
+              <router-link v-bind:class="{ selectedButton: btn.isActive }" class="route-link" :to="btn.baseUrl">
+                <font-awesome-icon :icon="btn.img" style="font-size:large;margin-top:-30px;" />
+              </router-link>
+            </div>
+        
+            <div v-else-if="header.vrs===currentVersion && !btn.info">
+              <router-link v-bind:class="{ selectedButton: btn.isActive }" class="route-link" :to="btn.baseUrl">
                 <font-awesome-icon :icon="btn.img" size="2x" />
                 <br />
                 <span class="label">{{btn.label}}</span>
               </router-link>
             </div>
-          
+        </div>
       </div>
       <div style="border-top:solid 1px lightgrey;margin-bottom:-10px;"/></div>
     </div>
@@ -33,40 +42,63 @@ Important players:
   import Vue from 'vue'
   import { library } from '@fortawesome/fontawesome-svg-core'
   import { faUsers } from '@fortawesome/free-solid-svg-icons'
+  import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
   import { faSitemap } from '@fortawesome/free-solid-svg-icons'
   import { faEye } from '@fortawesome/free-solid-svg-icons'
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
   Vue.component('font-awesome-icon', FontAwesomeIcon)
-  library.add(faUsers, faSitemap, faEye)
+  library.add(faUsers, faSitemap, faEye, faInfoCircle)
   import { sidebarHeaders } from '../config.js'
 
   export default {
     computed: {
       currentVersion: function () {
-          return this.$page.path.split('/')[1].replace(/\//g,'');
+        return this.$page.path.split('/')[1].replace(/\//g,'');
       },
     },
     data: () => ({
       headers:sidebarHeaders,
     }),
     methods: {
-      select(btnUrl) {
-        let vrs = btnUrl.split('/')[1]
+      select(route) {
+        /**
+         * 1. Convert the route into an array.
+         * 2. The array will have 3 lines if the route was to the root of the version. ( Mini btn)
+         * 3. The array will have > 3 lines if in a sub-folder of the version.
+         */
+        let pathArr = route.split('/')
+        let vrs = pathArr[1]
+        
         this.headers.forEach(function(head) {
             if(head.vrs===vrs){
               head.buttons.forEach(function(btn) {
                   btn.isActive = false
-                  if(btnUrl.startsWith(btn.url)) btn.isActive = true
+                  if(btn.info && pathArr.length === 3 ){ // Mini
+                    btn.isActive = true
+                  }
+                  else if(!btn.info && route.startsWith(btn.baseUrl)) // Not mini
+                  {
+                    btn.isActive = true
+                  }
               });
             }
         });
       },
     },
     watch: {
-    '$route'($event) {     
+    '$route'($event) {
+        //console.log('$route', this.$route.path)     
         this.select(this.$route.path)
       }
     },
+    mounted() {
+      this.$nextTick(function () {
+        // Code that will run only after the
+        // entire view has been rendered
+        // console.log('this.$nextTick > $route.path', this.$route.path)
+        this.select(this.$route.path)
+      })
+    }
   }
 </script>
 
@@ -76,8 +108,8 @@ Important players:
   }
 
   div.container{
-    display:flex;flex-flow: row wrap;align-items: center;
-    justify-content: center;
+    display:flex;flex-flow: row wrap;align-items: left;
+    justify-content: left;
   }
 
   .route-link{
