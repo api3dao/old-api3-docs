@@ -56,7 +56,12 @@
       </div>
     </div>
 
-    <Content class="theme-default-content custom" />
+    <!-- 
+      Changed: wkande: The class theme-default-content has been altered in 
+      index.styl and causes the element Content to only be 67% wide.
+    -->
+    <!--Content class="theme-default-content custom" /-->
+    <Content class="custom" />
 
     <div
       v-if="data.footer"
