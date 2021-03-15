@@ -86,7 +86,7 @@ Important players:
                 The header may or may not have an Info button. If not then there
                 should have been a category btn match.
               */
-              if(!foundIt){ // Then it goes to the Info btn
+              if(!foundIt && head.buttons.length > 0 ){ // Then it goes to the Info btn if the version has buttons.
                 console.log('Activated:', head.buttons[0].baseUrl)
                 head.buttons[0].isActive = true;
               }
