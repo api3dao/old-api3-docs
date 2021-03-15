@@ -13,7 +13,7 @@ Assuming you have determined that your platform [is compatible](is-my-platform-c
 
 *Replace parts starting with `$`*
 
-1. Clone the [Airnode monorepo](https://github.com/api3dao/airnode) (currently you need to sue the `pre-alpha` branch)
+1. Clone the [Airnode monorepo](https://github.com/api3dao/airnode) (currently you need to use the `pre-alpha` branch)
 
 ```sh
 git clone --single-branch --branch pre-alpha https://github.com/api3dao/airnode.git
