@@ -2,20 +2,15 @@ module.exports = {
   env: process.env.NODE_ENV,
   versions:[
     {name:'next', url:'/next/grp-providers/'},
-    //{name:'0.1.0', url:'/0.1.0/grp-providers/'},
     {name:'pre-alpha', url:'/pre-alpha/'},
   ],
   sidebarHeaders:[
     {vrs:'pre-alpha', current:true, buttons:[]},
-    {vrs:'0.1.0', buttons:[
-      {isActive: false, label:'Members', url:'/0.1.0/grp-members/', img:'users'},
-      {isActive: false, label:'Requesters', url:'/0.1.0/grp-requesters/', img:'eye'},
-      {isActive: true, label:'Providers', url:'/0.1.0/grp-providers/', img:'sitemap'}
-    ]},
     {vrs:'next', buttons:[
-      {isActive: false, label:'Members', url:'/next/grp-members/', img:'users'},
-      {isActive: false, label:'Requesters', url:'/next/grp-requesters/', img:'eye'},
-      {isActive: true, label:'Providers', url:'/next/grp-providers/', img:'sitemap'}
+      {isActive: false, info:true,          baseUrl:'/next/', img:'info-circle'},
+      {isActive: false, label:'Members',    baseUrl:'/next/grp-members/', img:'users'},
+      {isActive: false, label:'Requesters', baseUrl:'/next/grp-requesters/', img:'eye'},
+      {isActive: true,  label:'Providers',  baseUrl:'/next/grp-providers/', img:'sitemap'}
     ]}
   ],
   head: [
@@ -41,10 +36,7 @@ module.exports = {
     sidebar: {'/next/grp-providers/':require(`../next/grp-providers/sidebar.js`),
               '/next/grp-requesters/':require(`../next/grp-requesters/sidebar.js`),
               '/next/grp-members/':require(`../next/grp-members/sidebar.js`),
-              '/next/':require(`../next/grp-providers/sidebar.js`), // Default the /next route to /next-grp-provider
-              '/0.1.0/grp-providers/':require(`../0.1.0/grp-providers/sidebar.js`),
-              '/0.1.0/grp-requesters/':require(`../0.1.0/grp-requesters/sidebar.js`),
-              '/0.1.0/grp-members/':require(`../0.1.0/grp-members/sidebar.js`),
+              '/next/':require(`../next/sidebar.js`), // Default the /next route to /next-grp-provider
               '/pre-alpha/':require(`../pre-alpha/sidebar.js`),
               '/dev/':require(`../dev/sidebar.js`),
              },
