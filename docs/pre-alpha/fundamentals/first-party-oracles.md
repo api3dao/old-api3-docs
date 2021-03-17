@@ -1,5 +1,5 @@
 ---
-title: First-Party Oracles
+title: First-party oracles
 ---
 
 # {{$frontmatter.title}}
