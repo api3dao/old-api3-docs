@@ -98,7 +98,7 @@ Not comfortable with academic-style papers? The following Blog Posts explain the
 
 **All the Blog Posts**
 
-You can find all our blog posts on our [Medium page here](https://medium.com/api3)
+You can find all our blog posts on our [Medium page here](https://medium.com/api3/archive)
 :::
 
 ::: tab Communities
