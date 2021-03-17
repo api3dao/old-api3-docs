@@ -8,7 +8,7 @@
     <!-- 
       Added: wkande: Sidebar Header for version categories. 
     -->
-    <SidebarHeader />
+    <!--SidebarHeader /-->
 
     <slot name="top" />
 

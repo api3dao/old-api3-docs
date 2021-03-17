@@ -1,5 +1,5 @@
 ---
-title: Who is API3?
+title: What is API3?
 ---
 
 # {{$frontmatter.title}}

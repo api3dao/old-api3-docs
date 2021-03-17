@@ -33,9 +33,9 @@ module.exports = {
       { text: 'Telegram (Chat)', link: 'https://t.me/API3DAO' },
       { text: 'GitHub', link: 'https://github.com/api3dao/api3-docs' },
     ],
-    sidebar: {'/next/grp-providers/':require(`../next/grp-providers/sidebar.js`),
+    sidebar: {/*'/next/grp-providers/':require(`../next/grp-providers/sidebar.js`),
               '/next/grp-requesters/':require(`../next/grp-requesters/sidebar.js`),
-              '/next/grp-members/':require(`../next/grp-members/sidebar.js`),
+              '/next/grp-members/':require(`../next/grp-members/sidebar.js`),*/
               '/next/':require(`../next/sidebar.js`), // Default the /next route to /next-grp-provider
               '/pre-alpha/':require(`../pre-alpha/sidebar.js`),
               '/dev/':require(`../dev/sidebar.js`),

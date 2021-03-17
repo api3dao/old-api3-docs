@@ -26,6 +26,11 @@ h1{
 /************************************************/
 /* START sidebar changes */
 
+/* Moves the top of the sidebar up. Makes mobile look better and moves links closer to navbar on top. */
+aside.sidebar{
+  margin-top:-8px;
+}
+
 /* Default size for all DOCS uner a DIVIDER */
 section.sidebar-group.depth-0 a.sidebar-link{
   font-size:small;
@@ -63,8 +68,19 @@ section.sidebar-group.is-sub-group.depth-1 p.sidebar-heading{
   font-size:12pt;
 }
 
-/* DOC under a GROUP */
+/* DOC under a GROUP that is collapsable */
 section.sidebar-group.collapsable.is-sub-group.depth-1  ul.sidebar-links.sidebar-group-items a.active.sidebar-link{
+  color:black !important;
+  background-color:#7CE3CB;
+  border-left:4px solid #7CE3CB !important;
+  margin-left:-16px;
+  width:400px !important;
+  padding-left:44px;
+  font-size:small !important;
+}
+
+/* DOC under a GROUP that is not collapsable */
+section.sidebar-group.is-sub-group.depth-1  ul.sidebar-links.sidebar-group-items a.active.sidebar-link{
   color:black !important;
   background-color:#7CE3CB;
   border-left:4px solid #7CE3CB !important;
