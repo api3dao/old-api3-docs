@@ -24,9 +24,9 @@ Feel free to ask questions.
 
 - Run and understand the example projects:
 
-  https://github.com/api3dao/airnode-client-examples
+  https://github.com/api3dao/airnode-client-examples/tree/pre-alpha
 
-  https://github.com/api3dao/airnode-starter
+  https://github.com/api3dao/airnode-starter/tree/pre-alpha
 
 - (Optional, but ideal) Integrate an API to an Airnode without using any guide, deploy the Airnode, and build a dApp that uses the Airnode.
 Better yet, join one of our hackathons.
