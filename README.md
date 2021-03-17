@@ -5,7 +5,7 @@
 ---
 
 <p align="center">
-  <img src="https://github.com/clc-group/api3-docs/raw/master/figures/api3.png" width="400" />
+  <img src="https://github.com/api3dao/api3-docs/raw/master/figures/api3.png" width="400" />
 </p>
 
 *API3 documentation is kept as a regular repository of Markdown files for everyone to be able to easily contribute.

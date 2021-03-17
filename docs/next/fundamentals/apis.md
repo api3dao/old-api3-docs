@@ -19,7 +19,7 @@ In return, developers pay a [subscription fee](https://coinmarketcap.com/api/pri
 In practice, any kind of data or service that is worth using is served by a paid API.
 
 <p align="center">
-  <img src="https://github.com/clc-group/api3-docs/raw/master/figures/coinmarketcap.png" />
+  <img src="https://github.com/api3dao/api3-docs/raw/master/figures/coinmarketcap.png" />
 </p>
 
 ## ~~Oracle problem~~ API connectivity problem
