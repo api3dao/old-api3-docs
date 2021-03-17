@@ -33,7 +33,7 @@ yarn run build
 cd packages/protocol
 ```
 
-4. Create a `credentials.json` file, similar to [credentials.example.json](https://github.com/api3dao/airnode/blob/master/packages/protocol/credentials.example.json)
+4. Create a `credentials.json` file, similar to [credentials.example.json](https://github.com/api3dao/airnode/blob/pre-alpha/packages/protocol/credentials.example.json)
 
 ```sh
 cp credentials.example.json credentials.json
@@ -55,7 +55,7 @@ Make sure that it is funded (if applicable).
 
 `$PROVIDER_URL` is the URL of the node JSON-RPC API you will use to deploy the protocol contracts.
 
-6. Add the following entry to [hardhat.config.js](https://github.com/api3dao/airnode/blob/master/packages/protocol/hardhat.config.js)
+6. Add the following entry to [hardhat.config.js](https://github.com/api3dao/airnode/blob/pre-alpha/packages/protocol/hardhat.config.js)
 
 ```js
 $CHAIN_NAME: {
@@ -64,7 +64,7 @@ $CHAIN_NAME: {
     }
 ```
 
-7. Add the following script to [package.json](https://github.com/api3dao/airnode/blob/master/packages/protocol/package.json)
+7. Add the following script to [package.json](https://github.com/api3dao/airnode/blob/pre-alpha/packages/protocol/package.json)
 
 ```json
 "deploy:$CHAIN_NAME": "hardhat deploy --network $CHAIN_NAME"

@@ -30,7 +30,7 @@ Follow [this video](https://www.youtube.com/watch?v=KngM5bfpttA), get your keys,
 AWS_ACCESS_KEY_ID=JSDYNDRUA1XAF2W3UGPA
 AWS_SECRET_KEY=q4JiOfPP4wQOuRj01/6/7RAodTAg6lFb99IoB4XH
 ```
-Here is an [example file](https://github.com/api3dao/airnode/blob/master/packages/deployer/.env.example) that is left blank.
+Here is an [example file](https://github.com/api3dao/airnode/blob/pre-alpha/packages/deployer/.env.example) that is left blank.
 Make sure that you do not push your credentials to a repository or leave them around!
 These credentials can be used to gain access to your Airnode's private key.
 
