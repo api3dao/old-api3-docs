@@ -1,5 +1,5 @@
 ---
-title: Docker Client instructions
+title: Client image instructions
 ---
 
 # {{$frontmatter.title}}
