@@ -9,6 +9,8 @@ title: Airnode starter
 
 > A starter project for deploying an Airnode and making requests to it
 
+See the code [here](https://github.com/api3dao/airnode-starter)
+
 This project is composed of two steps:
 1. Deploy an Airnode on a supported chain
 1. Make a request to the deployed Airnode in a contract
