@@ -1,13 +1,17 @@
 ---
-title: What is API3?
+title: What is API?
 ---
+
+<p align="center">
+  <img src="./figures/api3.png" width="400" />
+</p>
 
 # {{$frontmatter.title}}
 
 <TocHeader />
 [[TOC]]
 
-**API3** ([https://api3.org](https://api3.org)) is a collaborative project to deliver traditional API services to smart contract platforms in a decentralized and trust-minimized way. It is governed by a Decentralized Autonomous Organization (DAO), namely the **API3 DAO**. Therefore, its code is open source and its operations are transparent.
+**API3** ([https://api3.org](https://api3.org)) is a collaborative project to deliver traditional API services to smart contract platforms in a decentralized and trust-minimized way. It is governed by a _decentralized autonomous organization_ (DAO), namely the **API3 DAO**. Therefore, its code is open source and its operations are transparent.
 
 ## Thesis Statement
 
@@ -15,7 +19,7 @@ The vast majority of the external integrations that decentralized applications n
 
 Therefore, what is widely known as _the oracle problem_ is in practice _an API connectivity problem_.
 
-Existing oracle solutions fall short because they fail to make this distinction, resulting in inferior solutions that depend on third-party oracles and ecosystems that exclude API providers. By refining the definition of the problem, **API3** aims to provide a much more optimal solution.
+Existing oracle solutions fall short because they fail to make this distinction, resulting in inferior solutions that depend on third-party oracles and ecosystems that exclude _API providers_. By refining the definition of the problem, **API3** aims to provide a much more optimal solution.
 
 ::: tip API3 Whitepaper (pdf)
 For a detailed discussion of the API3 project, read the [API3 Whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf).
@@ -23,14 +27,14 @@ For a detailed discussion of the API3 project, read the [API3 Whitepaper](https:
 
 ## The Airnode
 
-At its core, **API3** brings the ability for API Providers to easily run their own Oracle nodes. This allows them to provide their data on-chain, without an intermediary, to any Decentralized App \(dApp\) interested in their services.
+At its core, **API3** brings the ability for API providers to easily run their own _oracle nodes_. This allows them to provide their data on-chain, without an intermediary, to any _decentralized app_ \(dApp\) interested in their services.
 
-At the heart of this mechanism sits **Airnode**, an open-source Oracle Node. It's designed to be easily deployed by any API Provider with almost no maintenance. Because of Airnode, dApp developers can write Smart Contracts to interact with the on-chain data of API Providers.
+At the heart of this mechanism sits **Airnode**, an open-source oracle node. It's designed to be easily deployed by any API provider with almost no maintenance. Because of Airnode, dApp developers can write _smart contracts_ to interact with the on-chain data of API providers.
 
-Airnode is designed with mechanisms to remove the on-chain or off-chain concerns of API Providers. The set-and-forget framework of Airnode is all about ease of implementation.
+Airnode is designed with mechanisms to remove the on-chain or off-chain concerns of API providers. The set-and-forget framework of Airnode is all about ease of implementation.
 
 ::: tip Learn more about Airnode
-Read chapter 4 of the [API3 Whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf) to learn more. _Airnode: A Node Designed for First-Party Oracles_
+Read Section 4 of the [API3 Whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf) to learn more. _Airnode: A Node Designed for First-Party Oracles_
 :::
 
 ## Learn More about API3
@@ -42,7 +46,7 @@ Read chapter 4 of the [API3 Whitepaper](https://github.com/api3dao/api3-whitepap
 The API3 website ([https://api3.org/](https://api3.org/)) is the best place to learn more.
 :::
 
-::: tab The White Paper
+::: tab The Whitepaper
 
 **Abstract from the [API3 Whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf)</a>**
 
@@ -73,6 +77,7 @@ Not comfortable with academic-style papers? The following Blog Posts explain the
 
 1. [Airnode: The API gateway for blockchains](https://medium.com/api3/airnode-the-api-gateway-for-blockchains-8b07ff136840)
 2. [Getting to know Airnode](https://medium.com/api3/getting-to-know-airnode-162e50ea243e)
+3. [Setting Oracle Integration Standards](https://medium.com/api3/setting-oracle-integration-standards-ac9104c38f9e)
 
 **About the Governance**
 
@@ -80,6 +85,7 @@ Not comfortable with academic-style papers? The following Blog Posts explain the
 * [API3 Tokenomics Update](https://medium.com/api3/api3-tokenomics-update-f032d6e49b30)
 * [Announcing Monolith \#1: Authoritative API3 DAO](https://medium.com/api3/announcing-monolith-1-authoritative-api3-dao-ec9ca6d044f8)
 * [API3 Operations](https://medium.com/api3/api3-operations-a35c93a3a9d)
+* [Hello ChainAPI!](https://medium.com/api3/hello-chainapi-e1b386a74f1d)
 
 **Standalone Posts**
 
@@ -88,6 +94,7 @@ Not comfortable with academic-style papers? The following Blog Posts explain the
 * [AI Winter, Oracle Frost](https://medium.com/api3/ai-winter-oracle-frost-4fffe9bfdb95)
 * [The Race to First-Party Oracles](https://medium.com/api3/the-race-to-first-party-oracles-87fab596e906)
 * [Is API3 the ‘Chainlink Killer’?](https://medium.com/api3/is-api3-the-chainlink-killer-3bd59f93c895)
+* [On exclusivity deals and their implications for Ethereum](https://medium.com/api3/on-exclusivity-deals-and-their-implications-for-ethereum-9354a9ff7929)
 
 **All the Blog Posts**
 
@@ -100,8 +107,6 @@ Join the API3 community on the following services.
 Community Chat on [Telegram](https://t.me/API3DAO)
 
 Developer Chat on [Discord](https://discord.gg/qnRrcfnm5W)
-
-DAO Chat on the [DAOtalk Forum](https://daotalk.org/c/daos/api3-dao/37)
 :::
 
 ::: tab GitHub

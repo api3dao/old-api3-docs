@@ -33,7 +33,7 @@ yarn run build
 cd packages/protocol
 ```
 
-4. Create a `credentials.json` file, similar to [credentials.example.json](https://github.com/api3dao/airnode/blob/master/packages/protocol/credentials.example.json)
+4. Create a `credentials.json` file, similar to [credentials.example.json](https://github.com/api3dao/airnode/blob/pre-alpha/packages/protocol/credentials.example.json)
 
 ```sh
 cp credentials.example.json credentials.json
@@ -55,7 +55,7 @@ Make sure that it is funded (if applicable).
 
 `$PROVIDER_URL` is the URL of the node JSON-RPC API you will use to deploy the protocol contracts.
 
-6. Add the following entry to [hardhat.config.js](https://github.com/api3dao/airnode/blob/master/packages/protocol/hardhat.config.js)
+6. Add the following entry to [hardhat.config.js](https://github.com/api3dao/airnode/blob/pre-alpha/packages/protocol/hardhat.config.js)
 
 ```js
 $CHAIN_NAME: {
@@ -64,7 +64,7 @@ $CHAIN_NAME: {
     }
 ```
 
-7. Add the following script to [package.json](https://github.com/api3dao/airnode/blob/master/packages/protocol/package.json)
+7. Add the following script to [package.json](https://github.com/api3dao/airnode/blob/pre-alpha/packages/protocol/package.json)
 
 ```json
 "deploy:$CHAIN_NAME": "hardhat deploy --network $CHAIN_NAME"
@@ -85,22 +85,19 @@ Note that you will need to deploy both [Airnode.sol](../../protocols/request-res
 After completing Part 1, you must have two contract addresses, one for `Airnode.sol` and one for `Convenience.sol`.
 Now follow the steps below to make a test call:
 
-1. Clone the [airnode-starter](https://github.com/api3dao/airnode-starter) repo
+1. Clone the [airnode-starter](https://github.com/api3dao/airnode-starter/tree/pre-alpha) repo
 
 ```sh
-git clone https://github.com/api3dao/airnode-starter.git
+git clone --single-branch --branch pre-alpha https://github.com/api3dao/airnode-starter.git
 ```
 
-2. Open the [config.example.json](https://github.com/api3dao/airnode-starter/blob/main/config/config.example.json) file in `config/`.
+2. Open the [config.example.json](https://github.com/api3dao/airnode-starter/blob/pre-alpha/config/config.example.json) file in `config/`.
 Replace the following values:
 
     - `nodeSettings.chains.0.id`: `3` -> The ID of your chain
     - `nodeSettings.chains.contracts.Airnode`: `0xF8d32C3e53F7DA6e7CB82323f2cAB2159776b832` -> The address of the `Airnode.sol` contract you have deployed
     - `nodeSettings.chains.contracts.Convenience`: `0x1552cF617711D6Da04E0EDC9e5C26eBbA08625ac` -> The address of the `Convenience.sol` contract you have deployed
 
-3. Follow the [instructions](https://github.com/api3dao/airnode-starter#setup) (both Step 1 and 2).
-Note that you can use the `$MNEMONIC` and the `$PROVIDER_URL` you have used while deploying the contracts in your `.env` file.
+3. Follow the [instructions](https://github.com/api3dao/airnode-starter/tree/pre-alpha#setup#setup) (both Step 1 and 2). Note that you can use the `$MNEMONIC` and the `$PROVIDER_URL` you have used while deploying the contracts in your `.env` file.
 
-The final step of the instructions is to run the `make-request` script, which will make a request on your chain for the Airnode to fulfill it.
-This example project working as intended is a very good indicator that the integration has succeeded.
-After doing this, you are recommended to take a deep dive into [our docs](https://github.com/api3dao/api3-docs) next to learn more about Airnode and its protocol.
+The final step of the instructions is to run the `make-request` script, which will make a request on your chain for the Airnode to fulfill it. This example project working as intended is a very good indicator that the integration has succeeded.After doing this, you are recommended to take a deep dive into [our docs](https://github.com/api3dao/api3-docs) next to learn more about Airnode and its protocol.

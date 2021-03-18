@@ -7,7 +7,7 @@ title: Oracle Integration Specifications (OIS) 1.0.0
 <TocHeader />
 [[TOC]]
 
-*This will be migrated from docs to its own repo.*
+*See our article, [Setting Oracle Integration Standards](https://medium.com/api3/setting-oracle-integration-standards-ac9104c38f9e) for an overview of OIS.*
 
 *Fields denoted by \* are for documentation purposes and not used by the oracle node.*
 
