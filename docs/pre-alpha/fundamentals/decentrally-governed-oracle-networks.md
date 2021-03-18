@@ -19,8 +19,8 @@ An oracle network makes the same request to multiple independent oracles and red
 Individual malicious oracles cannot manipulate the outcome of this process, which provides a degree of decentralization and trustlessness.
 
 <p align="center">
-  <img src="https://github.com/clc-group/api3-docs/raw/master/figures/central-governance.png" />
-  <img src="https://github.com/clc-group/api3-docs/raw/master/figures/decentral-governance.png" />
+  <img src="https://github.com/api3dao/api3-docs/raw/master/figures/central-governance.png" />
+  <img src="https://github.com/api3dao/api3-docs/raw/master/figures/decentral-governance.png" />
 </p>
 
 Here, an important thing to consider is how the oracle network is governed.

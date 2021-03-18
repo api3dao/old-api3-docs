@@ -1,5 +1,5 @@
 ---
-title: First-Party Oracles
+title: First-party oracles
 ---
 
 # {{$frontmatter.title}}
@@ -10,7 +10,7 @@ An oracle is an agent that acts as an intermediary between a smart contract plat
 In other words, a decentralized application can use an oracle to call an API.
 
 <p align="center">
-  <img src="https://github.com/clc-group/api3-docs/raw/master/figures/oracle.png" />
+  <img src="https://github.com/api3dao/api3-docs/raw/master/figures/oracle.png" />
 </p>
 
 An oracle consists of two parts:

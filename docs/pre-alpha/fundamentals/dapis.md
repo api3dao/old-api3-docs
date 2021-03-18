@@ -19,7 +19,7 @@ Decentralized applications cannot access Web APIs, and oracle solutions aim to b
 However, this approach results in an inferior solution and ecosystem (see the [API3 Whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf) for a detailed explanation).
 
 <p align="center">
-  <img src="https://github.com/clc-group/api3-docs/raw/master/figures/dapi.png" />
+  <img src="https://github.com/api3dao/api3-docs/raw/master/figures/dapi.png" />
 </p>
 
 Instead, API3 will build complete products called decentralized APIs (dAPIs for short), which are blockchain-native, decentralized API services.

@@ -22,7 +22,7 @@ title: Medium Posts
 
 1. [Airnode: The API gateway for blockchains](https://medium.com/api3/airnode-the-api-gateway-for-blockchains-8b07ff136840)
 1. [Getting to know Airnode](https://medium.com/api3/getting-to-know-airnode-162e50ea243e)
-1. ...
+1. [Setting Oracle Integration Standards](https://medium.com/api3/setting-oracle-integration-standards-ac9104c38f9e)
 
 ### Governance
 
