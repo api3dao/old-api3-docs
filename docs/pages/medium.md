@@ -7,6 +7,10 @@ title: Medium Posts
 <TocHeader />
 [[TOC]]
 
+::: danger Deprecated
+This markdown page is deprecated. It has been replaced by a Vue Component (.vuepress/components/MediumWhitepaper.vue).
+:::
+
 ### Getting APIs on the Blockchain
 
 1. [APIs: The Digital Glue](https://medium.com/api3/apis-the-digital-glue-7ac87566e773)
