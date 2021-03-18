@@ -4,7 +4,8 @@ title: config.json
 
 # {{$frontmatter.title}}
 
-```json{
+```json
+{
   "ois": [
     {
       "oisFormat": "1.0.0",

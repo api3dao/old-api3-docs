@@ -11,7 +11,7 @@ A [client](../../protocols/request-response/client.md) is a contract that makes 
 A client is [endorsed](../../protocols/request-response/endorsement.md) by a [requester](../../protocols/request-response/requester.md), which means that it can specify its request to be fulfilled by the respective requester's [designated wallet](../../protocols/request-response/designated-wallet.md).
 
 The Airnode protocol is designed to be flexible, and is meant to serve a variety of use cases.
-See the [Airnode client examples](https://github.com/api3dao/airnode-client-examples) for some potential design patterns.
+See the [Airnode client examples](https://github.com/api3dao/airnode-client-examples/tree/pre-alpha) for some potential design patterns.
 The first step a requester needs to take is to develop and deploy such a client contract.
 
 ## Endorsing your contract

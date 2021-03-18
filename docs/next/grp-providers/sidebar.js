@@ -48,8 +48,8 @@ module.exports = [
       },
       {title: 'Docker',
         children:[
-          'guides/docker/docker',
-          'guides/docker/docker-client'
+          'guides/docker/deployer-image',
+          'guides/docker/client-image'
         ]
       },
       {title: 'Templates',

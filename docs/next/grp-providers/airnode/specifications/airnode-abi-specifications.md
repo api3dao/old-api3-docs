@@ -163,4 +163,4 @@ Furthermore, the [template](../../protocols/request-response/template.md) patter
 
 The user may need to encode and decode Airnode ABI off-chain.
 For that, we have published the related [Airnode monorepo package](https://github.com/api3dao/airnode/tree/pre-alpha/packages/airnode-abi) under the name `@api3/airnode-abi`.
-You can refer to the [`airnode-starter`](https://github.com/api3dao/airnode-starter/blob/9ec0e62b9d5edccd2b711250055b6bdb0cc049ef/scripts/make-request.js#L25) repo for an example usage.
+You can refer to the [`airnode-starter`](https://github.com/api3dao/airnode-starter/blob/b521d9d77dc3c4d3f6b27adf674adca3a3fba05f/scripts/make-request.js#L25) repo for an example usage.
