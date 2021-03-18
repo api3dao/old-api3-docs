@@ -47,16 +47,14 @@ module.exports = [
       },
       {title: 'Guides', collapsable: true, 
         children:[
-
               'grp-providers/guides/provider/api-integration',
               'grp-providers/guides/provider/configuring-airnode',
               'grp-providers/guides/provider/deploying-airnode',
-              'grp-providers/guides/provider/setting-authorizers'
-    ,
+              'grp-providers/guides/provider/setting-authorizers',
           {title: 'Docker',
             children:[
-              'grp-providers/guides/docker/docker',
-              'grp-providers/guides/docker/docker-client'
+              'grp-providers/guides/docker/client-image',
+              'grp-providers/guides/docker/deployer-image'
             ]
           },
           {title: 'Templates',
