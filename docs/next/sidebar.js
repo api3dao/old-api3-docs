@@ -31,6 +31,15 @@ module.exports = [
             },
         ],
       },
+      {
+        title: 'Deployment Files', initialOpenGroupIndex: -1, collapsable: true,
+        children: [
+            {title:'Overview', path:'grp-providers/deployment-files/overview'},
+            {title:'config.json', path:'grp-providers/deployment-files/config-json'},
+            {title:'secrets.env', path:'grp-providers/deployment-files/secrets-env'},
+            {title:'receipt.json', path:'grp-providers/deployment-files/receipt-json'},
+        ],
+      },
       {title: 'Request-Response Protocol', collapsable: true,
         children:[
           'grp-providers/protocols/request-response/general-structure',
