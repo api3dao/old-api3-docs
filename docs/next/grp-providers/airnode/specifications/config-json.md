@@ -4,6 +4,11 @@ title: config.json
 
 # {{$frontmatter.title}}
 
+
+::: danger Deprecated
+This copy of config.json is deprecated. See <u>[config.json](../../deployment-files/config-json.md)</u>.
+:::
+
 <TocHeader />
 [[TOC]]
 
