@@ -94,18 +94,16 @@ module.exports = [
         children: [
             {title:'Oracle Integration Specifications (OIS)', path:'technology/specifications/ois'},
             'technology/specifications/airnode-abi-specifications',
-            {title:'(?) config.json (deprecated)', path:'technology/specifications/config-json'},
-            {title:'(?) security.json (deprecated)', path:'technology/specifications/security-json'},
             'technology/specifications/reserved-parameters'
         ]
       },
       {
         title: 'Deployment Files', collapsable: true,
         children: [
-            {title:'Overview', path:'grp-providers/deployment-files/overview'},
-            {title:'config.json', path:'grp-providers/deployment-files/config-json'},
-            {title:'secrets.env', path:'grp-providers/deployment-files/secrets-env'},
-            {title:'receipt.json', path:'grp-providers/deployment-files/receipt-json'},
+            {title:'Overview', path:'technology/deployment-files/overview'},
+            {title:'config.json', path:'technology/deployment-files/config-json'},
+            {title:'secrets.env', path:'technology/deployment-files/secrets-env'},
+            {title:'receipt.json', path:'technology/deployment-files/receipt-json'},
         ],
       },
       {
