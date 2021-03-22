@@ -1,6 +1,6 @@
 module.exports = [
   {
-    title: 'General/Introduction', initialOpenGroupIndex: 0, collapsable: false,
+    title: 'General/Introduction', initialOpenGroupIndex: 0, collapsable: true,
     children: [
       '',
       'contributing',
@@ -11,7 +11,7 @@ module.exports = [
     ]
   },
   {
-    title: 'API Providers', initialOpenGroupIndex: 0, collapsable: false, 
+    title: 'API Providers', initialOpenGroupIndex: 0, collapsable: true, 
     children: [
       {
         title: 'Airnode', initialOpenGroupIndex: -1, collapsable: true,
@@ -62,7 +62,7 @@ module.exports = [
     ]
   },
   {
-    title: 'Requesters', initialOpenGroupIndex: 0, collapsable: false,
+    title: 'Requesters', initialOpenGroupIndex: 0, collapsable: true,
     children:[
       {
         title: 'Requester', collapsable: false,
@@ -81,22 +81,22 @@ module.exports = [
     ]
   },
   {
-    title: 'API3 Members', initialOpenGroupIndex: 0, collapsable: false,
+    title: 'API3 Members', initialOpenGroupIndex: 0, collapsable: true,
     children: [
       'grp-members/'
     ]
   },
   {
-    title: 'Technology', initialOpenGroupIndex: 2, collapsable: false,
+    title: 'Technology', initialOpenGroupIndex: 2, collapsable: true,
     children: [
       {
-        title: 'Specification Files',
+        title: 'Specification Files', collapsable: true,
         children: [
-            {title:'Oracle Integration Specifications (OIS)', path:'grp-providers/airnode/specifications/ois'},
-            'grp-providers/airnode/specifications/airnode-abi-specifications',
-            {title:'(?) config.json (deprecated)', path:'grp-providers/airnode/specifications/config-json'},
-            {title:'(?) security.json (deprecated)', path:'grp-providers/airnode/specifications/security-json'},
-            'grp-providers/airnode/specifications/reserved-parameters'
+            {title:'Oracle Integration Specifications (OIS)', path:'technology/specifications/ois'},
+            'technology/specifications/airnode-abi-specifications',
+            {title:'(?) config.json (deprecated)', path:'technology/specifications/config-json'},
+            {title:'(?) security.json (deprecated)', path:'technology/specifications/security-json'},
+            'technology/specifications/reserved-parameters'
         ]
       },
       {
@@ -111,16 +111,16 @@ module.exports = [
       {
         title: 'Request-Response Protocol', collapsable: true, initialOpenGroupIndex: -1,
         children:[
-          'grp-providers/protocols/request-response/general-structure',
-          'grp-providers/protocols/request-response/provider',
-          'grp-providers/protocols/request-response/endpoint',
-          'grp-providers/protocols/request-response/authorizer',
-          'grp-providers/protocols/request-response/requester',
-          'grp-providers/protocols/request-response/client',
-          'grp-providers/protocols/request-response/designated-wallet',
-          'grp-providers/protocols/request-response/endorsement',
-          'grp-providers/protocols/request-response/template',
-          'grp-providers/protocols/request-response/request'
+          'technology/protocols/request-response/general-structure',
+          'technology/protocols/request-response/provider',
+          'technology/protocols/request-response/endpoint',
+          'technology/protocols/request-response/authorizer',
+          'technology/protocols/request-response/requester',
+          'technology/protocols/request-response/client',
+          'technology/protocols/request-response/designated-wallet',
+          'technology/protocols/request-response/endorsement',
+          'technology/protocols/request-response/template',
+          'technology/protocols/request-response/request'
         ],
       },
     ]
