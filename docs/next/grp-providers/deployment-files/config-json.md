@@ -214,7 +214,9 @@ Contents of a `nodeSettings` object can be seen below:
   "nodeVersion": "0.1.0",
   "cloudProvider": "aws",
   "region": "us-east-1",
-  "stage": "testnet"
+  "stage": "testnet",
+  "logFormat": "json",
+  "logLevel": "INFO"
 }
 ```
 
@@ -228,6 +230,12 @@ See the cloud provider documentations for possible values.
 
 - `stage` - The label used to distinguish between multiple deployments of the same Airnode on a cloud provider.
 For example, the same Airnode may have multiple deployments with `stage`s set as `dev`, `ropsten`, `mainnet`, where each of these deployments would use the same private key and have the same `airnodeId`.
+
+- `logFormat` - The format that will be used to output logs.
+Either `json` or `plain`.
+
+- `logLevel` - The highest verbosity level of the logs that will be outputted.
+`DEBUG`, `INFO`, `WARN` or `ERROR`.
 
 ## `environment`
 
