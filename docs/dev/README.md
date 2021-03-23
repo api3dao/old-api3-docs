@@ -31,9 +31,9 @@ yarn install
 
 Execute the **docs:dev** script in package.json to run the project locally. The script performs four steps.
 
-1. Copies an updated [sidebar](./custom-components.md#Navbar) to node_modules @vuepress.
-1. Copies an updated [navbar](./custom-components.md#Sidebar) to node_modules @vuepress.
-1. Copies an updated [sidebar](./custom-components.md#Searchbox) to node_modules @vuepress.
+1. Copies an updated [Navbar.vue](./override-components.md#navbar-vue) to node_modules/@vuepress.
+1. Copies an updated [Sidebar.vue](./override-components.md#sidebar-vue) to node_modules/@vuepress.
+1. Copies an updated [SearchBox.vue](./override-components.md#searchbox-vue) to node_modules/@vuepress.
 1. Runs a local development server (hot reload) at localhost:8080.
 
 ```bash

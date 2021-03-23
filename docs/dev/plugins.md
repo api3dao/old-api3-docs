@@ -7,7 +7,7 @@ title: Plugins and Packages
 <TocHeader />
 [[toc]]
 
-The default theme for VuePress uses several plugins that are maintained by the VuePress team. Additionally the API3 Docs use plugins developed by the VuePress community. An attempt has been made to use only a few of these and to use those that are popular and maintained.
+The default theme for VuePress uses several plugins that are maintained by the VuePress team. Additionally this project uses plugins developed by the VuePress community. An attempt has been made to only use community plugins that are popular and maintained.
 
 All plugins are installed as devDependencies.
 
@@ -45,7 +45,7 @@ api3-docs uses several community plugins and packages to enhance the user experi
 
 ## @fortawesome
 
-Three plugins from [@fortawesome](https://www.npmjs.com/package/@fortawesome/vue-fontawesome) provide access to the  **Font Awesome** icon set. This is a collection of three plugins that work closely together to render Font Awesome icons. An example can be found in the .vuepress.components/SidebarHeader.vue component.
+Three plugins from [@fortawesome](https://www.npmjs.com/package/@fortawesome/vue-fontawesome) provide access to the  **Font Awesome** icon set. This is a collection of three plugins that work closely together to render Font Awesome icons. An example can be found in the .vuepress.components/SidebarHeader.vue component. SidebarHeader.vue is not in use by this project and is archived. It may be re-introduced in the future.
 
 ```js
 import Vue from 'vue'
@@ -81,9 +81,7 @@ Before running `vuepress "docs:build"` or `sh deploy.sh` be sure to run `vuepres
 
 ## v-click-outside
 
-This community plugin detects clicks outside an element without stopping the event propagation. It is used in the **.vuepress/components/VersionsModal.vue** custom component to allow clicks behind to close the modal.
-
-Note that [VersionsModal.vue](./custom-components.md#VersionsModal.vue) is a child component of **Versions.vue**. VersionsModal.vue uses this plugin to emit an event to Versions.vue that in turn closes the modal.
+This community plugin detects clicks outside an element without stopping the event propagation. It is used in the **.vuepress/components/VersionsModal.vue** custom component to allow clicks behind to close the modal. Note that [VersionsModal.vue](./custom-components.md#VersionsModal.vue) is a child component of **Versions.vue**. VersionsModal.vue uses this plugin to emit an event to Versions.vue that in turn closes the modal.
 
 ## vuepress-plugin-element-tabs
 
