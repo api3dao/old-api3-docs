@@ -27,7 +27,7 @@ yarn test:links:next
 
 ## Understand deploy.sh
 
-1. Builds a static website and places it in **.vuepress/dist**.
+1. Builds a static website and places it in **.vuepress/dist**. The **/dist** folder is deleted if it exists and re-created.
 
 ```bash
 # build the docs
@@ -41,7 +41,7 @@ npm run docs:build
 cd docs/.vuepress/dist
 ```
 
-3. The .vuepress/dist folder is staged to be pushed.
+1. The .vuepress/dist folder is staged to be pushed.
 
 ```bash
 git init
@@ -72,8 +72,8 @@ It is important to pull down the master branch (step 4) after the remote master 
     - Execute `deploy.sh` to deploy.
     ```bash
     # cd <root of project>
-    warren@Warrens-Mac-mini.local /Users/warren/DEV/api3-docs [master]
     # Verify the branch that is set.
+    % /Users/warren/DEV/api3-docs [master]
     sh deploy.sh
     ```
-1. Switch to next local development branch.
+2. Switch to next local development branch.

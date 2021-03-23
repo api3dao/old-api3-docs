@@ -4,15 +4,6 @@ module.exports = {
     {name:'next', url:'/next/'},
     {name:'pre-alpha', url:'/pre-alpha/'},
   ],
-  /*sidebarHeaders:[
-    {vrs:'pre-alpha', current:true, buttons:[]},
-    {vrs:'next', buttons:[
-      {isActive: false, info:true,          baseUrl:'/next/', img:'info-circle'},
-      {isActive: false, label:'Members',    baseUrl:'/next/grp-members/', img:'users'},
-      {isActive: false, label:'Requesters', baseUrl:'/next/grp-requesters/', img:'eye'},
-      {isActive: true,  label:'Providers',  baseUrl:'/next/grp-providers/', img:'sitemap'}
-    ]}
-  ],*/
   head: [
     ['link', { rel: 'icon', href: '/img/small-logo.png' }]
   ],

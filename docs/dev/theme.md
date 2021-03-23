@@ -7,7 +7,7 @@ title: Theme
 <TocHeader />
 [[toc]]
 
-The api3-docs project uses the VuePress default theme. The theme is configured in the **.vuepress/config.json file. This document speaks to some of the key theme settings and overrides used by this project.
+The api3-docs project uses the VuePress default theme. The theme is configured in the .vuepress/config.json file. This document speaks to some of the key theme settings and overrides used by this project.
 
 ## config.themeConfig.sidebarDepth
 
@@ -15,7 +15,16 @@ The **sidebarDepth** is set to a depth of *0* so that only **Heading 1** element
 
 ## config.themeConfig.sidebar
 
-The sidebar is a JSON object of sidebars each with a key that represents its path. The multiple sidebars are part of the api3-docs project's [Versioning](./versioning.md) scheme.
+The sidebar is a JSON object with a set of dynamic path keys. The value of each dynamic path key is the sidebar.json file that will be used for the path. This tells each path where the sidebar for the path is located, usually in the root of the path
+
+```json
+sidebar: {
+'/next/':require(`../next/sidebar.js`),
+'/0.1.0/':require(`../0.1.0/sidebar.js`),
+'/pre-alpha/':require(`../pre-alpha/sidebar.js`),
+'/dev/':require(`../dev/sidebar.js`),
+},
+```
 
 ## config.markdown
 

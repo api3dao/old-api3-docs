@@ -53,7 +53,7 @@ After it is decided to merge the remote stage branch to master proceed with the 
   1. Remove GitBook integrations from the repo settings.
   1. Commit any local repo work.
   1. Force merge remote stage onto master.
-  1. Clone a new copy of the remote repo to work from.
-  1. Start following the instructions in dev_notes.md to deploy the docs to master:gh-pages.
-  1. Point web URL to [https://api3dao.github.io/api3-docs/](https://api3dao.github.io/api3-docs/).
+  1. Clone a new copy of the remote repo to locally work from.
+  1. Start following the instructions in [Deployment](./deployment.md) to deploy the docs to master:gh-pages.
+  1. Point all website URLs to [https://api3dao.github.io/api3-docs/](https://api3dao.github.io/api3-docs/).
   
