@@ -33,7 +33,7 @@ module.exports = {
       { text: 'Telegram (Chat)', link: 'https://t.me/API3DAO' },
       { text: 'GitHub', link: 'https://github.com/api3dao/api3-docs' },
     ],
-    sidebar: {'/next/':require(`../next/sidebar.js`), // Default the /next route to /next-grp-provider
+    sidebar: {'/next/':require(`../next/sidebar.js`),
               '/pre-alpha/':require(`../pre-alpha/sidebar.js`),
               '/dev/':require(`../dev/sidebar.js`),
              },
