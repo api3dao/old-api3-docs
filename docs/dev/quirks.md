@@ -23,13 +23,3 @@ When running the `test:links:prod` or `test:links:next` scripts the following er
 ```bash
 ERROR: File not found! Please provide a valid filename as an argument.
 ```
-
-## Remove origin/gh-pages
-
-May be needed to clear **origin/gh-pages locally** if you do not want it hanging around. Caused by misuse of the deploy.sh script. Of course it does not hurt anything to leave it locally.
-
-```bash
-git branch -d -r origin/<remote branch name> (This will not delete the branch on the remote repo!)
-```
-
-Reference: [https://gist.github.com/magnusbae/10182865](https://gist.github.com/magnusbae/10182865)

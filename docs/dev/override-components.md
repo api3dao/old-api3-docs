@@ -57,6 +57,10 @@ The override component Navbar.use is a replacement for the VuePress Navbar.vue. 
 
 ## Sidebar.vue
 
+::: tip
+The SidebarHeader is no longer used. See [SidebarHeader.vue](./custom-components.md#sidebarheader) in Cutom Components.
+:::
+
 The override component Sidebar.vue is a replacement for the VuePress Sidebar.vue. The custom component [SidebarHeader.vue](./custom-components.md#sidebarheader) has been added to **Sidebar.vue**.
 
 **Changes**
