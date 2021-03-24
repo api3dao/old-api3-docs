@@ -5,7 +5,7 @@ title: security.json
 # {{$frontmatter.title}}
 
 ::: danger Deprecated
-Is this deprecated? See <u>[secrets.json](../../deployment-files/secrets-env.md)</u>.
+Is this deprecated? See <u>[secrets.json](../deployment-files/secrets-env.md)</u>.
 :::
 
 <TocHeader />

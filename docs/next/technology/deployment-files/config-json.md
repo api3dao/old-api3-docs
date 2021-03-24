@@ -64,7 +64,7 @@ Its contents can be seen below:
 }
 ```
 
-- `ois`: API specifications and the corresponding on-chain endpoints, kept as [OIS](../airnode/specifications/ois.md) objects
+- `ois`: API specifications and the corresponding on-chain endpoints, kept as [OIS](../specifications/ois.md) objects
 
 - `triggers`: Which on-chain endpoints will be usable by which protocols (RRP or PSP) and under what endpoint ID
 
@@ -78,10 +78,10 @@ Its contents can be seen below:
 
 ## `ois`
 
-`ois` is a list of [OIS](../airnode/specifications/ois.md) objects.
+`ois` is a list of [OIS](../specifications/ois.md) objects.
 Since each OIS specifies the integration of an API to an oracle, a single Airnode deployment can serve multiple APIs.
 
-Contents of an `ois` list can be seen below (see the [OIS docs](../airnode/specifications/ois.md) for a complete example and the explanation of the fields):
+Contents of an `ois` list can be seen below (see the [OIS docs](../specifications/ois.md) for a complete example and the explanation of the fields):
 
 ```json
 [
@@ -264,7 +264,7 @@ Contents of an `environment` object can be seen below:
 }
 ```
 
-Each entry in `securitySchemes` map to a security scheme defined in an OIS, where `oisTitle` is the `title` field of the related OIS, and `name` is the name of the respective security scheme (these would be `myOisTitle` and `mySecurityScheme` in the example in the [OIS docs](../airnode/specifications/ois.md)).
+Each entry in `securitySchemes` map to a security scheme defined in an OIS, where `oisTitle` is the `title` field of the related OIS, and `name` is the name of the respective security scheme (these would be `myOisTitle` and `mySecurityScheme` in the example in the [OIS docs](../specifications/ois.md)).
 `envName` is the environment variable name that the security scheme value (e.g., the API key) will be found under.
 The recommended naming convention is `ss_${oisTitle}_${name}` where spaces in the names are replaced with underscores(`_`).
 

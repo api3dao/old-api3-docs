@@ -7,7 +7,7 @@ title: Reserved parameters
 <TocHeader />
 [[TOC]]
 
-A requester can pass request parameters either by referencing a [template](../../protocols/request-response/template.md) that contains them, or as an argument of the request-making methods of [Airnode.sol](../../protocols/request-response/general-structure.md#airnodesol).
+A requester can pass request parameters either by referencing a [template](../protocols/request-response/template.md) that contains them, or as an argument of the request-making methods of [Airnode.sol](../protocols/request-response/general-structure.md#airnodesol).
 In either case, these parameters are encoded in a `bytes`-type variable using [Airnode ABI](airnode-abi-specifications.md).
 There are two types of parameters:
 

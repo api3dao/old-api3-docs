@@ -6,7 +6,7 @@ title: config.json
 
 
 ::: danger Deprecated
-This copy of config.json is deprecated. See <u>[config.json](../../deployment-files/config-json.md)</u>.
+This copy of config.json is deprecated. See <u>[config.json](../deployment-files/config-json.md)</u>.
 :::
 
 <TocHeader />
@@ -119,7 +119,7 @@ It has to include the following contract addresses:
 
 **Optional**
 
-- `providerAdminForRecordCreation` - the master address that will be authorized to update the authorizers of the provider's endpoints (see the [protocol docs](../../protocols/request-response/general-structure.md) for more information).
+- `providerAdminForRecordCreation` - the master address that will be authorized to update the authorizers of the provider's endpoints (see the [protocol docs](../protocols/request-response/general-structure.md) for more information).
 Note that the node only uses this while creating the provider record.
 Changing this after the provider record is created will not have any effect.
 This field is optional, but not having it means that the node will not be able to create a provider record on the respective chain.
