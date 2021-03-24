@@ -11,7 +11,7 @@ The `secrets.env` file is bundled with a [`config.json`](config-json.md) file an
 All variables defined in a `secrets.env` file will be set as the environment variables of all deployments specified in the `config.json` file.
 
 A `secrets.env` file is composed of three main groups of variables:
-- [Cloud provider credentials](../guides/provider/deploying-airnode.md#creating-cloud-credentials) that are used by the deployer
+- [Cloud provider credentials](../../grp-providers/guides/provider/deploying-airnode.md#creating-cloud-credentials) that are used by the deployer
 - `MASTER_KEY_MNEMONIC` that gives access to the Airnode master wallet and [designated wallets](../protocols/request-response/designated-wallet.md)
 - Environment variables [referred to in `config.json`](config-json.md#environment) with the names `envName`
 

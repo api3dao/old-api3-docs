@@ -16,8 +16,8 @@ This allows Airnode to verify that the request parameters are not tampered with.
 - `providerId` and `endpointId` specify the endpoint
 - `requesterIndex` and `designatedWallet` specify which wallet will be used to fulfill the request
 - `fulfillAddress` and `fulfillFunctionId` specify which method will be called to fulfill the request
-- `parameters` specify the API and [reserved](../../airnode/specifications/ois.md#_5-4-reservedparameters
-) parameters (see [Airnode ABI specifications](../../airnode/specifications/airnode-abi-specifications.md) for how these are encoded)
+- `parameters` specify the API and [reserved](../../specifications/ois.md#_5-4-reservedparameters
+) parameters (see [Airnode ABI specifications](../../specifications/airnode-abi-specifications.md) for how these are encoded)
 
 ## How templates are used in requests
 

@@ -8,9 +8,9 @@ title: Configuring Airnode
 [[TOC]]
 
 Users configure their Airnodes by providing a `config.json` and a `security.json` file during deployment/redeployment.
-`config.json` specifies the API–oracle integration specifications in the form of [OIS](../../airnode/specifications/ois.md)es, but also user-specific configuration details.
+`config.json` specifies the API–oracle integration specifications in the form of [OIS](../../../technology/specifications/ois.md)es, but also user-specific configuration details.
 `security.json` includes security credentials such as API keys.
-Both [config.json](../../airnode/specifications/config-json.md) and [security.json](../../airnode/specifications/security-json.md) formats are documented, which you can follow to create these files.
+Both [config.json](../../../technology/deployment-files/config-json.md) and [security.json](../../../technology/deployment-files/secrets-env.md) formats are documented, which you can follow to create these files.
 This guide aims to follow a more instructive approach and give some tips along the way.
 
 We assume that you have already followed the [API integration guide](api-integration.md) and created your OIS.
@@ -101,7 +101,7 @@ Enter the `name` (to be used in logs) and the `url` of the Ethereum provider as 
 Although you can deploy these contracts yourself, you are recommended to use the ones that were deployed by API3.
 You can find them [here](https://github.com/api3dao/airnode/tree/pre-alpha/packages/protocol/deployments).
 
-`providerAdminForRecordCreation` is the address that your Airnode will set as the [provider admin](../../protocols/request-response/provider.md#provideradmin) while creating the provider record on the respective chain.
+`providerAdminForRecordCreation` is the address that your Airnode will set as the [provider admin](../../../technology/protocols/request-response/provider.md#provideradmin) while creating the provider record on the respective chain.
 You should set this field to an address that only you control.
 
 ### `id`
@@ -111,9 +111,11 @@ Furthermore, `security.json` has the same field with the identical value, allowi
 For this to work, you are recommended to choose a unique value for this field for each `config.json`/`security.json` you create (e.g., use a UUID).
 
 ## Creating `security.json`
-
+<!-- markdown-link-check-disable -->
+<!-- Once these security links get changed to secrets, remove the link-check-disable. -->
 `security.json` is where we will store our API keys.
-Make sure to download the [`security.json` template](../templates/security-json.md) and refer to the [docs](../../airnode/specifications/security-json.md) as needed.
+Make sure to download the [`security.json` template](../templates/security-json.md) and refer to the [docs](../../../technology/specifications/security-json.md) as needed.
+<!-- markdown-link-check-enable -->
 
 For each security scheme you have defined in your `config.json`, you need to create an entry in `security.json` that includes its value.
 Feel free to duplicate the OIS entries under `apiCredentials` or security scheme entries under these OIS entries as needed.

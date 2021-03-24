@@ -61,7 +61,7 @@ The Airnode deployment displays instructions for how to do this, and the `master
 ## `providerAdmin`
 
 `providerAdmin` is an address that is authorized to update provider-related properties (e.g., endpoint authorizers).
-Airnode sets a `providerAdmin` while creating the provider record, and this is sourced from [config.json](../../airnode/specifications/config-json.md) under the name `providerAdminForRecordCreation`.
+Airnode sets a `providerAdmin` while creating the provider record, and this is sourced from [config.json](../../deployment-files/config-json.md) under the name `providerAdminForRecordCreation`.
 
 `providerAdmin` can transfer its authority to another address.
 The master wallet can reclaim the authority by calling `createProvider()` and setting another `providerAdmin`.

@@ -12,15 +12,15 @@ To integrate a System X to a System Y, we need to do three things:
 - Specify the interface of System Y
 - Specify how the interface of System X maps to the interface of System Y
 
-[Oracle Integration Specifications (OIS)](../../airnode/specifications/ois.md) are designed to follow these exact steps:
+[Oracle Integration Specifications (OIS)](../../../technology/specifications/ois.md) are designed to follow these exact steps:
 - API operations are specified
 - Oracle endpoints are specified
 - Oracle endpoints are mapped to API operations
 
 Therefore, the only thing you need to do to integrate an API to Airnode is to create an OIS.
-You can do this simply by reading the [OIS docs](../../airnode/specifications/ois.md) and creating the OIS for your specific API and use-case.
+You can do this simply by reading the [OIS docs](../../../technology/specifications/ois.md) and creating the OIS for your specific API and use-case.
 This guide aims to follow a more instructive approach and give some tips along the way.
-Make sure to refer to the [OIS docs](../../airnode/specifications/ois.md) when you need further details, and you can also refer to the [OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
+Make sure to refer to the [OIS docs](../../../technology/specifications/ois.md) when you need further details, and you can also refer to the [OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
 
 ## OIS Template
 
@@ -116,7 +116,8 @@ Each parameter is an object in `apiSpecifications.path.{PATH}.{METHOD}.parameter
 Note that you do not have to specify all operation parameters, but only the ones that you want the on-chain requester to be able to provide (see [endpoint parameters](#parameters)), and the ones that you want to hardcode a value to (see [fixed operation parameters](#fixedoperationparameters)).
 
 ### Security schemes
-
+<!-- markdown-link-check-disable -->
+<!-- Once fixed, remove the link-check-disable. -->
 As a final step, we need to specify the security schemes of the API.
 Usually, this means telling Airnode where the API key goes, and under what name.
 Note that we will not be entering the API key itself in the OIS, because the OIS is not meant to include any user-specific information.
@@ -126,8 +127,8 @@ First, name the security scheme by replacing `{FILL_SECURITY_SCHEME_NAME}` under
 Note that you will also need to use the same name under `apiSpecifications.security`.
 Make sure to choose a descriptive name, such as `myapi_apikey`.
 This name will also be referred to in [`security.json`](../../airnode/specifications/security-json.md).
-
-Next, fill in `type`, `name` and `in` by referring to the [`components` section of OIS](../../airnode/specifications/ois.md#42-components).
+<!-- markdown-link-check-enable -->
+Next, fill in `type`, `name` and `in` by referring to the [`components` section of OIS](../../../technology/specifications/ois.md#_4-2-components).
 [OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#securitySchemeObject) is also a good source for further details.
 
 As noted above, make sure to insert the name of your security scheme under `apiSpecifications.security`.
@@ -150,7 +151,7 @@ On the other hand, you can hardcode `BTC` as the asset whose price will be retur
 The recommended endpoint definition pattern is to create an endpoint for each API operation, and allow the requesters to provide all operation parameters themselves.
 This results in optimal flexibility, and essentially allows the requesters to use the entire API functionality on-chain.
 Normally, oracle integrations strive to hardcode as many API parameters as possible because passing these parameters on-chain results in a gas cost overhead.
-However, the Airnode protocol uses [templates](../../protocols/request-response/template.md) (not to be confused with the OIS template we are using for this guide), which allow requesters to specify a large number of endpoint parameters at no additional gas cost.
+However, the Airnode protocol uses [templates](../../../technology/protocols/request-response/template.md) (not to be confused with the OIS template we are using for this guide), which allow requesters to specify a large number of endpoint parameters at no additional gas cost.
 
 Note that there are some cases where you may not want to map endpoints to API operations one-to-one.
 For example, the API operation may have a parameter, `responseFormat`, that can take the values `JSON`/`XML` and determines in which format the API will respond to the call.
@@ -184,10 +185,10 @@ An operation parameter cannot be both in `fixedOperationParameters` and `paramet
 
 The requester can provide some parameters that are not mapped to API operation parameters.
 These parameters are called "reserved parameters", and their names start with an underscore.
-See the [related OIS docs](../../airnode/specifications/ois.md#_5-4-reservedparameters) for more information.
+See the [related OIS docs](../../../technology/specifications/ois.md#_5-4-reservedparameters) for more information.
 
 The current list of reserved parameters are `_type`, `_path` and `_times`.
-See the [reserved parameters guide](../../airnode/specifications/reserved-parameters.md) to see what each of these parameters are for.
+See the [reserved parameters guide](../../../technology/specifications/reserved-parameters.md) to see what each of these parameters are for.
 In most cases, all three should be defined as reserved parameters with no fixed/default values, as doing so provides the requester with the most flexibility.
 
 ### `parameters`

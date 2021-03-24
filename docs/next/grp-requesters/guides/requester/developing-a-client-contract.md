@@ -7,8 +7,8 @@ title: Developing a client contract
 <TocHeader />
 [[TOC]]
 
-A [client](../../protocols/request-response/client.md) is a contract that makes requests to [providers](../../protocols/request-response/provider.md) using the [Airnode.sol](../../protocols/request-response/general-structure.md#airnode-sol) contract that implements the protocol.
-A client is [endorsed](../../protocols/request-response/endorsement.md) by a [requester](../../protocols/request-response/requester.md), which means that it can specify its request to be fulfilled by the respective requester's [designated wallet](../../protocols/request-response/designated-wallet.md).
+A [client](../../../technology/protocols/request-response/client.md) is a contract that makes requests to [providers](../../../technology/protocols/request-response/provider.md) using the [Airnode.sol](../../../technology/protocols/request-response/general-structure.md#airnode-sol) contract that implements the protocol.
+A client is [endorsed](../../../technology/protocols/request-response/endorsement.md) by a [requester](../../../technology/protocols/request-response/requester.md), which means that it can specify its request to be fulfilled by the respective requester's [designated wallet](../../../technology/protocols/request-response/designated-wallet.md).
 
 The Airnode protocol is designed to be flexible, and is meant to serve a variety of use cases.
 See the [Airnode client examples](https://github.com/api3dao/airnode-client-examples/tree/pre-alpha) for some potential design patterns.
