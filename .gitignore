@@ -1,7 +1,16 @@
 /.DS_Store
-/node_modules
+node_modules/
 
-/docs/.vuepress/lib/versiong.log
-/docs/.vuepress/dist
+docs/.vuepress/dist
 
 package-lock.json
+
+
+# Ignoring a Previously Committed Files #
+# The files in your working copy can be either tracked or untracked.
+# To ignore a file that has been previously committed, you’ll need to 
+# unstage and remove the file from the index, and then add a rule for the file in .gitignore:
+# git rm --cached filename
+# The --cached option tells git not to delete the file from the working tree 
+# but only to remove it from the index.
+# To recursively remove a directory, use the -r option:
