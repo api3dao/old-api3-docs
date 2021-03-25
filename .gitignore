@@ -3,3 +3,5 @@
 
 /docs/.vuepress/lib/versiong.log
 /docs/.vuepress/dist
+
+package-lock.json
