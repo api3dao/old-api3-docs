@@ -14,12 +14,12 @@ cd docs/.vuepress/dist
 
 git init
 git add -A
-git commit -m 'Deploying the locally built /dist folder to master:gh-pages as its own commit history.'
+git commit -m 'Deploying the locally built /dist folder to main:gh-pages as its own commit history.'
 
 # if you are deploying to https://<USERNAME>.github.io
-# git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
+# git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git main
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:api3dao/api3-docs.git master:gh-pages
+git push -f git@github.com:api3dao/api3-docs.git main:gh-pages
 
 cd -
