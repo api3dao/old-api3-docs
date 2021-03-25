@@ -57,9 +57,9 @@ Its contents can be seen below:
   "nodeSettings": {
     ...
   },
-  "environment": [
+  "environment": {
     ...
-  ],
+  },
   "id": "..."
 }
 ```
