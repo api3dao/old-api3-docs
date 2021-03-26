@@ -8,7 +8,7 @@ module.exports = {
     ['link', { rel: 'icon', href: '/img/small-logo.png' }]
   ],
   title: 'Documentation',
-  base: '/api3-docs/',
+  base: '/',
   description: 'Technical Documentation for API3 ',
   markdown: {
     lineNumbers: true,
