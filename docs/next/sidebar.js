@@ -111,7 +111,7 @@ module.exports = [
         title: 'Request-Response Protocol', collapsable: true, initialOpenGroupIndex: -1,
         children:[
           'technology/protocols/request-response/general-structure',
-          'technology/protocols/request-response/provider',
+          'technology/protocols/request-response/airnode',
           'technology/protocols/request-response/endpoint',
           'technology/protocols/request-response/authorizer',
           'technology/protocols/request-response/requester',
