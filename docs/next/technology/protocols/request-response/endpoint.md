@@ -25,4 +25,4 @@ This convention of determining an `endpointId` is not enforced at the protocol-l
 ## Authorizers
 
 Airnodes can assign a list of authorizers to their endpoints.
-See the [section about authorizers](authorizer.md) for more details.
+See the [section about Authorizer](authorizer.md) for more details.
