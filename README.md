@@ -36,10 +36,10 @@ See a grouped list of our Medium posts [here](/medium.md).
 
 An introduction to the API connectivity problem and API3's solution
 
-- [API](/fundamentals/api.md)
-- [First-party oracles](/fundamentals/first-party-oracles.md)
-- [Decentrally-governed oracle networks](/fundamentals/decentrally-governed-oracle-networks.md)
-- [dAPI](/fundamentals/dapi.md)
+- [API](/docs/pre-alpha/fundamentals/apis.md)
+- [First-party oracles](/docs/pre-alpha/fundamentals/first-party-oracles.md)
+- [Decentrally-governed oracle networks](/docs/pre-alpha/fundamentals/decentrally-governed-oracle-networks.md)
+- [dAPI](/docs/pre-alpha/fundamentals/dapis.md)
 
 *See our article, [API3: The Glue Connecting the Blockchain to the Digital World](https://medium.com/api3/api3-the-glue-connecting-the-blockchain-to-the-digital-world-129e61ec598f) for an overview of the API3 solution.*
 
@@ -47,48 +47,48 @@ An introduction to the API connectivity problem and API3's solution
 
 The design of Airnode and specification details
 
-- [Design philosophy](/airnode/design-philosophy.md)
-- [Implementation](/airnode/implementation.md)
-- [Ethereum providers](/airnode/ethereum-providers.md)
-- [OIS](/airnode/ois.md)
-- [`config.json`](/airnode/config-json.md)
-- [`security.json`](/airnode/security-json.md)
-- [Airnode ABI specifications](/airnode/airnode-abi-specifications.md)
-- [Reserved parameters](/airnode/reserved-parameters.md)
+- [Design philosophy](/docs/pre-alpha/airnode/design-philosophy.md)
+- [Implementation](/docs/pre-alpha/airnode/implementation.md)
+- [Ethereum providers](/docs/pre-alpha/airnode/ethereum-providers.md)
+- [OIS](/docs/pre-alpha/airnode/specifications/ois.md)
+- [`config.json`](/docs/pre-alpha/airnode/specifications/config-json.md)
+- [`security.json`](/docs/pre-alpha/airnode/specifications/security-json.md)
+- [Airnode ABI specifications](/docs/pre-alpha/airnode/specifications/airnode-abi-specifications.md)
+- [Reserved parameters](/docs/pre-alpha/airnode/specifications/reserved-parameters.md)
 
 ## Request–response protocol
 
 The description of the components of the request–response protocol and how they interrelate
 
-- [General structure](/request-response-protocol/general-structure.md)
-- [Provider](/request-response-protocol/provider.md)
-- [Endpoint](/request-response-protocol/endpoint.md)
-- [Authorizer](/request-response-protocol/authorizer.md)
-- [Requester](/request-response-protocol/requester.md)
-- [Client](/request-response-protocol/client.md)
-- [Designated wallet](/request-response-protocol/designated-wallet.md)
-- [Endorsement](/request-response-protocol/endorsement.md)
-- [Template](/request-response-protocol/template.md)
-- [Request](/request-response-protocol/request.md)
+- [General structure](/docs/pre-alpha/protocols/request-response/general-structure.md)
+- [Provider](/docs/pre-alpha/protocols/request-response/provider.md)
+- [Endpoint](/docs/pre-alpha/protocols/request-response/endpoint.md)
+- [Authorizer](/docs/pre-alpha/protocols/request-response/authorizer.md)
+- [Requester](/docs/pre-alpha/protocols/request-response/requester.md)
+- [Client](/docs/pre-alpha/protocols/request-response/client.md)
+- [Designated wallet](/docs/pre-alpha/protocols/request-response/designated-wallet.md)
+- [Endorsement](/docs/pre-alpha/protocols/request-response/endorsement.md)
+- [Template](/docs/pre-alpha/protocols/request-response/template.md)
+- [Request](/docs/pre-alpha/protocols/request-response/request.md)
 
 ## Provider guides
 
-- [API integration](/provider-guides/api-integration.md)
-- [Configuring Airnode](/provider-guides/configuring-airnode.md)
-- [Deploying Airnode](/provider-guides/deploying-airnode.md)
-- [Setting authorizers](/provider-guides/setting-authorizers.md)
+- [API integration](/docs/pre-alpha/guides/provider/api-integration.md)
+- [Configuring Airnode](/docs/pre-alpha/guides/provider/configuring-airnode.md)
+- [Deploying Airnode](/docs/pre-alpha/guides/provider/deploying-airnode.md)
+- [Setting authorizers](/docs/pre-alpha/guides/provider/setting-authorizers.md)
 
 ## Requester guides
 
-- [Creating a requester](/requester-guides/creating-a-requester.md)
-- [Developing a client contract](/requester-guides/developing-a-client-contract.md)
+- [Creating a requester](/docs/pre-alpha/guides/requester/creating-a-requester.md)
+- [Developing a client contract](/docs/pre-alpha/guides/requester/developing-a-client-contract.md)
 
 Refer to the [Airnode starter](https://github.com/api3dao/airnode-starter) repo, where these provider and requester guides are reiterated with a real API on a public chain.
 
 ## Smart contract platform guides
 
-- [Is my platform compatible?](/smart-contract-platform-guides/is-my-platform-compatible.md)
-- [Self-serve integration](/smart-contract-platform-guides/self-serve%20integration.md)
+- [Is my platform compatible?](/docs/pre-alpha/guides/smart-contracts/is-my-platform-compatible.md)
+- [Self-serve integration](/docs/pre-alpha/guides/smart-contracts/self-serve%20integration.md)
 
 # Community
 
