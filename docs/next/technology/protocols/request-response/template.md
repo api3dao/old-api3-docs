@@ -19,7 +19,7 @@ Additional advantages are reducing boilerplate code required to make a request, 
 Each template is identified by a `templateId`, which is the hash of its contents:
 ```solidity
 templateId = keccak256(abi.encode(
-    providerId,
+    airnodeId,
     endpointId,
     requesterIndex,
     designatedWallet,
