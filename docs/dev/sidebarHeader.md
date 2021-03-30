@@ -54,14 +54,14 @@ These categories are represented in the sidebar header as buttons the user can u
 
 The **SidebarHeader** is a custom Vue Component. It maintains an array of the header definitions for the version.
 
-![Sidebar Headers](./img/sidebar-header.png)
+![Sidebar Headers](./assets/img/sidebar-header.png)
 
 Like versions, sidebarHeaders are declared in the .vuepress/config.json file. Note that there is a implied mapping between versions and sidebarHeaders: version.name = sidebarHeaders.vrs. There can only be one **Info button** for each header and it is declared using the *info* key.
 
 ```json{1,6}
 versions:[
-  {name:'next', url:'/next/grp-providers/'},
-  {name:'0.1.0', url:'/next/grp-providers/'},
+  {name:'next', url:'/next/'},
+  {name:'0.1.0', url:'/0.1.0/'},
   {name:'pre-alpha', url:'/pre-alpha/'},
 ],
 sidebarHeaders:[
