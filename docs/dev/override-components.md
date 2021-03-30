@@ -57,15 +57,15 @@ The override component Navbar.use is a replacement for the VuePress Navbar.vue. 
 
 ## Sidebar.vue
 
-::: tip
-The SidebarHeader is no longer used. See [SidebarHeader.vue](./custom-components.md#sidebarheader) in Cutom Components.
+::: danger
+The SidebarHeader is no longer used. See [SidebarHeader.vue](./custom-components.md#sidebarheader) in Custom Components. The SidebarHeader could be used in hte future to place any type of element at the top of the Sidebar.
 :::
 
-The override component Sidebar.vue is a replacement for the VuePress Sidebar.vue. The custom component [SidebarHeader.vue](./custom-components.md#sidebarheader) has been added to **Sidebar.vue**.
+~~The override component Sidebar.vue is a replacement for the VuePress Sidebar.vue. The custom component [SidebarHeader.vue](./custom-components.md#sidebarheader) has been added to **Sidebar.vue**.~~
 
-**Changes**
+~~**Changes**~~
 
-- Displays the version categories (a.k.a Roles) above the sidebar links.
+~~- Displays the version categories (a.k.a Roles) above the sidebar links.~~
 
 [Sidebar.vue](https://github.com/api3dao/api3-docs/blob/stage/docs/.vuepress/components/Sidebar.vue)
 
