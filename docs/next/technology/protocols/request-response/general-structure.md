@@ -48,22 +48,12 @@ This contract is used by Airnodes to make batch-calls to `AirnodeRrp.sol`. For e
 - Used by requesters to store request templates.
 - Used by Airnodes to retrieve request templates.
 
-<!--
-### EndpointStore.sol
-[EndpointStore.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/EndpointStore.sol)
-
-- Used by providers to set endpoint authorizers.
-- Used by Airnodes to retrieve endpoint authorizers to check authorization status.
-- -->
-
-
-
 ### AirnodeParameterStore.sol
 
 [AirnodeParameterStore.sol](https://github.com/api3dao/airnode/blob/pre-alpha/packages/protocol/contracts/ProviderStore.sol)
 
-- Used by Airnodes to create ~~provider~~ parameter records.
-- Used by requesters to retrieve the extended public keys of ~~providers~~ an Airnode to derive their designated wallet addresses.
+- Used by an Airnode owner to manage parameter records.
+- Used by requesters to retrieve the extended public keys of an Airnode to derive their designated wallet addresses.
 - Used by requesters to request withdrawals from their designated wallets.
 - Used by Airnodes to fulfill withdrawal requests.
 
@@ -80,17 +70,17 @@ This contract is used by Airnodes to make batch-calls to `AirnodeRrp.sol`. For e
 Click the links below for the page of the specific concept. It is recommended to read these in their given order.
 :::
 
-1. An ~~provider~~ API provider operates an [Airnode](airnode.md) to serve one or more APIs to smart contracts.
+1. An [Airnode](airnode.md) serves one or more APIs to smart contracts.
 
 1. Each of the API operations that the Airnode serves is accessible over an [endpoint](endpoint.md).
-The ~~provider~~ Airnode sets [authorizers](authorizer.md) for these endpoints, which are contracts that implement authorization policies.
+The Airnode sets [authorizers](authorizer.md) for these endpoints, which are contracts that implement authorization policies.
 
-1. A [requester](requester.md) owns contracts that make requests to ~~providers~~ Airnodes. Each of these contracts is called a [client](client.md).
+1. A [requester](requester.md) owns contracts that make requests to Airnodes. Each of these contracts is called a [client](client.md).
 
-1. Each ~~provider~~ Airnode keeps a [designated wallet](designated-wallet.md) for each requester. The requester [endorses](endorsement.md) their clients allowing them to make requests that will be fulfilled by the requester's designated wallet.
+1. Each Airnode keeps a [designated wallet](designated-wallet.md) for each requester. The requester [endorses](endorsement.md) their clients allowing them to make requests that will be fulfilled by the requester's designated wallet.
 
 1. A requester can create a request [template](template.md), which is an on-chain record that they can refer to while making [requests](request.md).
 
 ## @api3/airnode-admin
 
-[`@api3/airnode-admin`](https://github.com/api3dao/airnode/tree/master/packages/admin) is a package and a CLI tool used ~~by providers, requesters and third parties~~ to interact with `AirnodeRrp.sol` and perform administrative actions for the concepts mentioned above.
+[`@api3/airnode-admin`](https://github.com/api3dao/airnode/tree/master/packages/admin) is a package and a CLI tool used to interact with `AirnodeRrp.sol` and perform administrative actions for the concepts mentioned above.
