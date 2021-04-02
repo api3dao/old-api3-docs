@@ -82,9 +82,22 @@ module.exports = [
     ]
   },
   {
-    title: 'API3 Members', initialOpenGroupIndex: 0, collapsable: true,
+    /** 
+     * When adding a new doc or group before the"Dashboard" group
+     * you must change the value of initialOpenGroupIndex.
+     */
+    title: 'API3 Members', initialOpenGroupIndex: 5, collapsable: true,
     children: [
-      'grp-members/'
+      {title:'API3 DAO', path:'grp-members/'},
+      {title:'Tokens', path:'grp-members/tokens'},
+      {title:'Insurance Pool', path:'grp-members/insurance-pool'},
+      {title:'Staking', path:'grp-members/staking'},
+      {title:'Voting', path:'grp-members/voting'},
+      {title: 'Dashboard', collapsable: true,
+      children: [
+        {title:'Monitor the Insurance Pool', path:'grp-members/dashboard/pool'},
+        {title:'Stake your Tokens', path:'grp-members/dashboard/staking'}
+      ]}
     ]
   },
   {
