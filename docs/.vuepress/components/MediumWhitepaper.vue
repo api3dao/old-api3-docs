@@ -8,7 +8,7 @@
     <div v-for="(item, index) in medium" :key="index">
       <div class="medium-heading">{{item.tag}}</div>
       <div class="medium-link" v-for="(post, index) in item.posts" :key="index">
-        <a :href=post.url target="_api3_medium">{{post.title}}</a>
+        <a :href=post.url target="api3_docs">{{post.title}}</a>
       </div>
     </div>
   </div>
