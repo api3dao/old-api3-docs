@@ -17,7 +17,7 @@ Parameters from parent
             <div class="modal-body">
                 <div style="border-bottom:1px solid lightgrey;">Versions</div>
                   <div v-for="(vrs, index) in versions" :key="index" v-on:click="onClickOutside(vrs.url, $event)">
-                    <router-link  :to="vrs.url" v-if="vrs.name!='next' || (vrs.name==='next' && env==='development')">
+                    <router-link  :to="vrs.url">
                       <span class="label">{{vrs.name}}</span>
                     </router-link>
                   </div>

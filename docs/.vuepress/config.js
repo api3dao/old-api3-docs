@@ -1,7 +1,9 @@
 module.exports = {
   env: process.env.NODE_ENV,
+  /**
+   * List all base routes that are to become versions here.
+   */
   versions:[
-    {name:'next', url:'/next/'},
     {name:'pre-alpha', url:'/pre-alpha/'},
   ],
   head: [
