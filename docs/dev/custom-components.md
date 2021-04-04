@@ -7,7 +7,7 @@ title: Custom Components
 <TocHeader />
 [[toc]]
 
-There are several custom Vue Components located in .vuepress/components. See the code comments within each component for execution details. These components, located in .vuepress/components, are copied to node_modules/@vuepress/themeConfig/components or node_modules/@vuepress/plugins when running or building the project locally.
+There are custom Vue Components located in .vuepress/components. See the code comments within each component for execution details. These components are copied to node_modules/@vuepress/themeConfig/components or node_modules/@vuepress/plugins when running or building the project locally.
 
 ## TocHeader.vue
 
@@ -28,7 +28,5 @@ VersionsModal.vue is a child component of Versions.vue. Versions.vue has been ad
 ::: danger No Longer Used
 This component is no longer used but is kept as an archived component in case it is needed again. It could be used as a sidebar header to hold almost anything.
 :::
-
-~~SidebarHeader.vue has been added to VuePress Sidebar.vue. It allows users to switch between categories (a.k.a Roles) of the current version and is presented as a row of buttons across the top of the sidebar. Some versions may not have categories and as such buttons will not be present.~~
 
 [SidebarHeader.vue](https://github.com/api3dao/api3-docs/blob/stage/docs/.vuepress/components/SidebarHeader.vue)

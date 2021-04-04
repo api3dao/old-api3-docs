@@ -22,7 +22,7 @@ git commit -m 'Deploying a locally built /dist folder to main:gh-pages as its ow
 # if you are deploying to https://<USERNAME>.github.io
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git main
 
-# Ff you are deploying to https://<USERNAME>.github.io/<REPO>
+# If you are deploying to https://<USERNAME>.github.io/<REPO>
 # NEVER push to main, use main:gh-pages.
 git push -f git@github.com:api3dao/api3-docs.git main:gh-pages
 

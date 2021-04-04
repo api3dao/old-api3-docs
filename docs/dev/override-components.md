@@ -10,9 +10,9 @@ title: Override Components
 There are a few changes made to some default @vuepress components. See the code comments within each component for execution details. These components, located in .vuepress/components, are copied to node_modules/@vuepress/themeConfig/components or node_modules/@vuepress/plugins when running or building the project locally.
 
 - Navbar.vue > @vuepress/themeConfig/components
-- Sidebar.vue > @vuepress/themeConfig/components
 - Search.vue > @vuepress/plugin-search
-- Home.vue > is not moved to @vuepress, it is defined as a layout page for root/README.md
+- Home.vue > is not moved to @vuepress, it is defined as a layout page inside the root/README.md frontmatter definitions
+
 
 ## Home.vue
 
@@ -55,25 +55,11 @@ The override component Navbar.use is a replacement for the VuePress Navbar.vue. 
 
 [Navbar.vue](https://github.com/api3dao/api3-docs/blob/stage/docs/.vuepress/components/Navbar.vue)
 
-## Sidebar.vue
-
-::: danger
-The SidebarHeader is no longer used. See [SidebarHeader.vue](./custom-components.md#sidebarheader) in Custom Components. The SidebarHeader could be used in hte future to place any type of element at the top of the Sidebar.
-:::
-
-~~The override component Sidebar.vue is a replacement for the VuePress Sidebar.vue. The custom component [SidebarHeader.vue](./custom-components.md#sidebarheader) has been added to **Sidebar.vue**.~~
-
-~~**Changes**~~
-
-~~- Displays the version categories (a.k.a Roles) above the sidebar links.~~
-
-[Sidebar.vue](https://github.com/api3dao/api3-docs/blob/stage/docs/.vuepress/components/Sidebar.vue)
-
 ## SearchBox.vue
 
 The override component SearchBox.use is a replacement for the VuePress SearchBox.vue. The files **match-query.js** and **search.svg** are located in .vuepress/components only for the purpose of running SearchBox.vue in development mode. They currently are not altered.
 
-**Changes**
+#### Changes**
 
 - Filters out results that are not part of the current version.
 - Added box-shadow to suggestions class (results).

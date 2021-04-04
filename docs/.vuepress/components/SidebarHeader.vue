@@ -1,4 +1,9 @@
 <!--
+
+IMPORTANT: This is an archived component, no longer in use. It may be needed in the future
+and may no longer be compatible with the versioning scheme. Reintroduction may require 
+some cleanup.
+
 A version can have 1-N categories. A category is a logical grouping of docs within
 a version. Categories are represented as buttons in the sidebar. If the version has 
 no categories no buttons are displayed.
