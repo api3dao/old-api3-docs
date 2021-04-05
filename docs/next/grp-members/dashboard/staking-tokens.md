@@ -10,11 +10,19 @@ title: How to Stake
 > Content
 > 
 
+::: danger More detail on these thoughts are needed
+- What happens through staking
+- How you accrue tokens in the pool
+- What happens when you unstake and the consequences of unstaking at different time
+- How to maximize your rewards based on your investing profile
+:::
+
 
 
 
 
 ## Unstaking
+
 
 When unstaking your tokens, you will initiate a 7 day wait period before you can complete the process in order to prevent evasion of pending claim payouts[...]
 

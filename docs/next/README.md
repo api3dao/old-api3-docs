@@ -22,7 +22,7 @@ Therefore, what is widely known as _the oracle problem_ is in practice _an API c
 Existing oracle solutions fall short because they fail to make this distinction, resulting in inferior solutions that depend on third-party oracles and ecosystems that exclude _API providers_. By refining the definition of the problem, **API3** aims to provide a much more optimal solution.
 
 ::: tip API3 Whitepaper (pdf)
-For a detailed discussion of the API3 project, read the [API3 Whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf).
+For a detailed discussion of the API3 project, read the <a href="/api3-whitepaper-v1.0.1.pdf" target="api3-docs">API3 Whitepaper</a>.
 :::
 
 ## The Airnode

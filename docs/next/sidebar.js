@@ -90,13 +90,14 @@ module.exports = [
     children: [
       {title:'API3 DAO', path:'grp-members/'},
       {title:'Tokens', path:'grp-members/tokens'},
+      {title:'Monetization', path:'grp-members/monetization'},
       {title:'Insurance Pool', path:'grp-members/insurance-pool'},
-      {title:'Staking', path:'grp-members/staking'},
-      {title:'Voting', path:'grp-members/voting'},
       {title: 'Dashboard', collapsable: true,
       children: [
         {title:'Monitor the Insurance Pool', path:'grp-members/dashboard/pool'},
-        {title:'Stake your Tokens', path:'grp-members/dashboard/staking'}
+        {title:'Stake your Tokens', path:'grp-members/dashboard/staking-tokens'},
+        {title:'Vote', path:'grp-members/dashboard/vote'},
+        {title:'Submit Proposals', path:'grp-members/dashboard/submit-proposals'},
       ]}
     ]
   },
