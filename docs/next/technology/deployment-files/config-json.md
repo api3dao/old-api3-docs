@@ -64,17 +64,17 @@ Its contents can be seen below:
 }
 ```
 
-- `ois`: API specifications and the corresponding on-chain endpoints, kept as [OIS](../specifications/ois.md) objects
+- [`ois`](#ois): API specifications and the corresponding on-chain endpoints, kept as [OIS](../specifications/ois.md) objects
 
-- `triggers`: Which on-chain endpoints will be usable by which protocols (RRP or PSP) and under what endpoint ID
+- [`triggers`](#triggers): Which on-chain endpoints will be usable by which protocols (RRP or PSP) and under what endpoint ID
 
-- `chains`: Blockchains the Airnode deployment will serve on and configuration details
+- [`chains`](#chains): Blockchains the Airnode deployment will serve on and configuration details
 
-- `nodeSettings`: General deployment parameters such as node version and deployment configuration
+- [`nodeSettings`](#nodesettings): General deployment parameters such as node version and deployment configuration
 
-- `environment`: Mapping of secrets to environment variables
+- [`environment`](#environment): Mapping of secrets to environment variables
 
-- `id`: Unique identifier for this config object
+- [`id`](#id): Unique identifier for this config object
 
 ## `ois`
 
