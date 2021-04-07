@@ -15,14 +15,14 @@ The **sidebarDepth** is set to a depth of *0* so that only **Heading 1** element
 
 ## config.themeConfig.sidebar
 
-The sidebar is a JSON object with a set of dynamic path keys. The value of each dynamic path key is the sidebar.json file that will be used for the path. This tells each path where the sidebar for the path is located, usually in the root of the path
+The sidebar is a JSON object with a set of routes. The value of each route is the sidebar.json file that will be used for the route. The sidebar for the route is located in the route's root folder.
 
 ```json
 sidebar: {
-'/next/':require(`../next/sidebar.js`),
-'/0.1.0/':require(`../0.1.0/sidebar.js`),
-'/pre-alpha/':require(`../pre-alpha/sidebar.js`),
-'/dev/':require(`../dev/sidebar.js`),
+'/next/': require(`../next/sidebar.js`),
+'/0.1.0/': require(`../0.1.0/sidebar.js`),
+'/pre-alpha/': require(`../pre-alpha/sidebar.js`),
+'/dev/': require(`../dev/sidebar.js`),
 },
 ```
 
@@ -42,7 +42,7 @@ markdown: {
 
 ## index.styl
 
-There are overrides to the default theme in **.vuepress/components/index.styl**. Such overrides are common practice when using VuePress. There are four areas that index.styl style changes address. The changes are detailed in index.styl using code comments.
+There are overrides to the default theme in **.vuepress/components/index.styl**. Such overrides are common practice when using VuePress. There are four groups of changes which are detailed in index.styl using code comments.
 
 - Content
 - Navbar

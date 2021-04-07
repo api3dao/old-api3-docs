@@ -37,7 +37,33 @@ module.exports = {
     */
     smoothScroll: false 
   },
+  /**
+   * Loading for PDF, not a great solution.
+   * https://github.com/vuejs/vuepress/issues/700
+   */
+  chainWebpack: (config, isServer) => {
+    config.module
+      .rule('pdfs')
+      .test(/\.pdf$/)
+      .use('file-loader')
+        .loader('file-loader')
+      .options({
+        name: `[path][name].[ext]`
+      });
+    
+    config.module.rule('vue')
+      .uses.store
+      .get('vue-loader').store
+      .get('options').transformAssetUrls = {
+        video: ['src', 'poster'],
+        source: 'src',
+        img: 'src',
+        image: ['xlink:href', 'href'],
+        a: 'href'
+      };
+  },
   plugins: [
+      ['vue-pdf'],
       ['@vuepress/medium-zoom'],
       ['vuepress-plugin-element-tabs'],
       ['@vuepress/last-updated'],

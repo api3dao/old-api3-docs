@@ -86,15 +86,13 @@ module.exports = [
      * When adding a new doc or group before the"Dashboard" group
      * you must change the value of initialOpenGroupIndex.
      */
-    title: 'API3 Members', initialOpenGroupIndex: 5, collapsable: true,
+    title: 'API3 Members', initialOpenGroupIndex: 2, collapsable: true,
     children: [
       {title:'API3 DAO', path:'grp-members/'},
-      {title:'Tokens', path:'grp-members/tokens'},
-      {title:'Monetization', path:'grp-members/monetization'},
-      {title:'Insurance Pool', path:'grp-members/insurance-pool'},
+      {title:'The DAO Pool', path:'grp-members/dao-pool'},
       {title: 'Dashboard', collapsable: true,
       children: [
-        {title:'Monitor the Insurance Pool', path:'grp-members/dashboard/pool'},
+        {title:'Monitor the DAO Pool', path:'grp-members/dashboard/pool'},
         {title:'Stake your Tokens', path:'grp-members/dashboard/staking-tokens'},
         {title:'Vote', path:'grp-members/dashboard/vote'},
         {title:'Submit Proposals', path:'grp-members/dashboard/submit-proposals'},
@@ -104,6 +102,7 @@ module.exports = [
   {
     title: 'Technology', initialOpenGroupIndex: 2, collapsable: true,
     children: [
+      {title:'RRP Flow Chart', path:'technology/rrp-flowdiagram'},
       {
         title: 'Specification Files', collapsable: true,
         children: [
