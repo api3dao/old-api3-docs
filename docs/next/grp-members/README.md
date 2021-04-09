@@ -54,7 +54,7 @@ In general the industry standard for API provider subscription fees are commonly
 
 ### dAPI monetization
 
-To gain access to a dAPI, the user will pay a recurring subscription fee, which may either be fixed or customized for the user based on the specific use case. These prices will be determined by the respective team, and will include the premium if the user wants to receive the [insurance service](dao-pool.md#insurance-service). The payment will be able to be made in any cryptocurrency, which will be received by the DAO in API3 tokens through a liquidity pool-based decentralized exchange.
+To gain access to a dAPI, the user will pay a recurring subscription fee, which may either be fixed or customized for the user based on the specific use case. These prices will be determined by the respective team, and will include a premium if the user wants to receive the [insurance service](dao-pool.md#insurance-service). The payment can be made in any cryptocurrency, which will be received by the DAO in API3 tokens through a liquidity pool-based decentralized exchange.
 
 ### API provider compensation
 
