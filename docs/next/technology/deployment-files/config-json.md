@@ -230,6 +230,7 @@ See the cloud provider documentations for possible values.
 
 - `stage` - The label used to distinguish between multiple deployments of the same Airnode on a cloud provider.
 For example, the same Airnode may have multiple deployments with `stage`s set as `dev`, `ropsten`, `mainnet`, where each of these deployments would use the same private key and have the same `airnodeId`.
+`stage` cannot be longer than 16 characters.
 
 - `logFormat` - The format that will be used to output logs.
 Either `json` or `plain`.
