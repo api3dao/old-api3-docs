@@ -102,7 +102,6 @@ module.exports = [
   {
     title: 'Technology', initialOpenGroupIndex: 2, collapsable: true,
     children: [
-      {title:'RRP Flow Chart', path:'technology/rrp-flowdiagram'},
       {
         title: 'Specification Files', collapsable: true,
         children: [
@@ -135,6 +134,13 @@ module.exports = [
           'technology/protocols/request-response/request'
         ],
       },
+    ]
+  },
+  {
+    title: '- Homeless', initialOpenGroupIndex: 0, collapsable: true,
+    children:[
+      'homeless/hardhat-starter',
+      {title:'RRP Flow Chart', path:'technology/rrp-flowdiagram'},
     ]
   },
 ]

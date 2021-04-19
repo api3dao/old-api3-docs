@@ -59,6 +59,18 @@ The only way to gain representation in the DAO is to stake API3 tokens in the po
 
 All governing parties will be exposed to all risks and rewards of API3, and will govern to optimize them. Inflationary rewards and the staked tokens being used as collateral will create a positive feedback loop in terms of governance quality. Initial token holders will have to stake and expose themselves to risk if they do not want to lose value to inflation. If they misgovern and lose collateral through insurance claims, these tokens will get returned to the open market, from where they will be acquired by new governing parties. In contrast, if initial token holders govern well and cause token scarcity in the market, the representation distribution will be protected. In other words, governance tokens being used as collateral results in a robust Darwinian structure that improves itself and is able to recover from failures.
 
+## Monetization
+
+In general the industry standard for API provider subscription fees are commonly paid monthly or annually, as this scheme suits both API providers and their clients. API3 follows the same scheme for dAPIs.
+
+### dAPI monetization
+
+To gain access to a dAPI, a dApp will pay a recurring subscription fee, which may be fixed or customized for the dApp based on a specific use case. These prices will be determined by the respective team, and will include a premium if the dApp wants to receive the [insurance service](dao-pool.md#insurance-service). The payment can be made in any cryptocurrency, which will be received by the DAO in API3 tokens through a liquidity pool-based decentralized exchange.
+
+### API provider compensation
+
+API providers will be compensated periodically at fixed rates, which will fit their existing pricing models. This will be done using stablecoins wherever possible, some API providers categorically reject handling cryptocurrency as payment. In such cases, the DAO will provide a grant that will be paid out in return of the proof that the API provider is compensated in fiat by the grantee.
+
 ## Insurance Service
 
 API3 provides dAPI users with a quantifiable level of _security_ in the form of an on-chain insurance service. Staked pool funds are used to cover potential financial losses from dAPI malfunctions that the dAPI consumer might incur. This accomplishes two goals.
@@ -66,7 +78,7 @@ API3 provides dAPI users with a quantifiable level of _security_ in the form of 
 - The insurance acts as a well-defined and trustless safety net in case of a dAPI malfunction.
 - It holds the governing parties responsible for dAPI malfunctions, and thus incentivizes them to govern towards more secure dAPIs.
 
-API3 co-develop an on-chain insurance service with Kleros that provides quantifiable and trustless _security_ to dAPI users. This insurance service will protect the dAPI user against damages caused by certain dAPI malfunctions up to a payout limit. Note that even if API3 did not provide this service, the dAPI user could have received on-chain insurance services using a third party solution. Such a solution would tend towards charging very high insurance premiums, as they would not have access to the information and expertise to accurately assess dAPI risks.
+API3 co-developed an on-chain insurance service with Kleros that provides quantifiable and trustless _security_ to dAPI users. This insurance service will protect the dAPI user against damages caused by certain dAPI malfunctions up to a payout limit. Note that even if API3 did not provide this service, the dAPI user could have received on-chain insurance services using a third party solution. Such a solution would tend towards charging very high insurance premiums, as they would not have access to the information and expertise to accurately assess dAPI risks.
 
 The proposed insurance service is special in the way that it is collateralized by the funds staked by the governing parties of the API3 DAO. Therefore, it not only provides _security_ to the dAPI user, but also creates a very strong incentive for dAPIs to be governed in a way that dAPI _security_ is maximized, which will further decrease insurance costs.
 
@@ -74,7 +86,7 @@ Reference <a href="/api3-whitepaper-v1.0.1.pdf#Insurance process" target="api3-d
 
 ## Rewards and Risks
 
-API3 aims to set up, maintain, and [monetize](README.md#monetization) dAPIs at scale. Its success in doing so can be estimated by its total revenue, as this will increase with the number of dAPIs and the amount of funds secured by them. API3 generates revenue through subscription fees and insurance fees. The fees can be made in any cryptocurrency, which will be received by the DAO in API3 tokens through a liquidity pool-based decentralized exchange. To align the governance incentives with API3’s success, combined with the inflationary rewards, the net revenue to the DAO will result in burning of API3 tokens. This mechanic will produce positive staking incentives using inflationary rewards and claim risks rather than revenue sharing.
+API3 aims to set up, maintain, and [monetize](#monetization) dAPIs at scale. Its success in doing so can be estimated by its total revenue, as this will increase with the number of dAPIs and the amount of funds secured by them. API3 generates revenue through subscription fees and insurance fees. The fees can be made in any cryptocurrency, which will be received by the DAO in API3 tokens through a liquidity pool-based decentralized exchange. To align the governance incentives with API3’s success, combined with the inflationary rewards, the net revenue to the DAO will result in burning of API3 tokens. This mechanic will produce positive staking incentives using inflationary rewards and claim risks rather than revenue sharing.
 
 > ![doa-pool-staking-2](../assets/images/dao-pool-staking-2.png)
 
