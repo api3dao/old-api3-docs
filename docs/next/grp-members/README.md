@@ -7,11 +7,13 @@ title: API3 DAO
 <TocHeader />
 [[TOC]]
 
-API3 is governed by a Decentralized Autonomous Organization, DAO. Its governance is entirely decentralized and open, meaning that all stakeholders will be able to participate in the governance of the project directly. This will be achieved through the API3 token, which when staked in the [DAO pool](dao-pool.md), will grant voting power in the DAO.
+API3 is governed by a Decentralized Autonomous Organization, DAO. The DAO is a collaborative effort to build, manage and monetize dAPIs at scale. To achieve this in a fully decentralized way, the incentives of the participants are reconciled through the governance, security, and [value capture utilities](dao-pool.md#token-utilities) of the API3 token.
 
-The DAO will vote on high-level matters such as staking incentives and collateralization. Additionally, the DAO will give out grants from the DAO bank and decide on the general direction of the project.
+The API3 project has a completely open, decentralized and direct governance model. Any API3 token holder can stake the DAO pool and obtain direct voting privileges in the DAO and thus participate in the governance of the project directly. In addition, stakers receive [inflationary rewards](dao-pool.html#inflationary-rewards) and any additional benefits that the DAO may decide on in the future. The staked API3 tokens will back an on-chain [insurance service](dao-pool.html#insurance-service) as collateral to provide dAPI users with quantifiable and trustless security guarantees.
 
+The DAO votes on high-level matters such as staking incentives and collateralization. Additionally, the DAO will give out grants from the DAO bank and decide on the general direction of the project.
 
+![dao](../assets/images/dao.png)
 
 ## DAO Structure
 
@@ -47,15 +49,3 @@ Firstly, to limit the amount of damage a malicious or incompetent team may cause
 ### Transparency
 
 The second principle is transparency. For the DAO to be able to assess its performance, the team must report to the DAO in great detail. These reports will have the additional benefit of providing accountability and allow the dAPI users and the general public to be able to audit the operations of API3 at all times.
-
-## Monetization
-
-In general the industry standard for API provider subscription fees are commonly paid monthly or annually, as this scheme suits both API providers and their clients. API3 will aim to follow the same scheme for dAPIs.
-
-### dAPI monetization
-
-To gain access to a dAPI, the user will pay a recurring subscription fee, which may either be fixed or customized for the user based on the specific use case. These prices will be determined by the respective team, and will include a premium if the user wants to receive the [insurance service](dao-pool.md#insurance-service). The payment can be made in any cryptocurrency, which will be received by the DAO in API3 tokens through a liquidity pool-based decentralized exchange.
-
-### API provider compensation
-
-API providers will be compensated periodically at fixed rates, which will fit their existing pricing models. This will be done using stablecoins wherever possible, some API providers categorically reject handling cryptocurrency as payment. In such cases, the DAO will provide a grant that will be paid out in return of the proof that the API provider is compensated in fiat by the grantee.
