@@ -25,10 +25,11 @@ module.exports = [
       {
         title: 'Guides', collapsable: true, 
         children:[
-              'grp-providers/guides/provider/api-integration',
-              'grp-providers/guides/provider/configuring-airnode',
-              'grp-providers/guides/provider/deploying-airnode',
-              'grp-providers/guides/provider/setting-authorizers',
+          'grp-providers/guides/provider/api-integration',
+          'grp-providers/guides/provider/api-integration-2',
+          'grp-providers/guides/provider/configuring-airnode',
+          'grp-providers/guides/provider/deploying-airnode',
+          'grp-providers/guides/provider/setting-authorizers',
           {
             title: 'Docker',
             children:[

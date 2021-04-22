@@ -1,5 +1,5 @@
 ---
-title: API integration
+title: API Integration (ois.json)
 ---
 
 # {{$frontmatter.title}}
@@ -7,20 +7,60 @@ title: API integration
 <TocHeader />
 [[TOC]]
 
-To integrate a System X to a System Y, we need to do three things:
-- Specify the interface of System X
-- Specify the interface of System Y
-- Specify how the interface of System X maps to the interface of System Y
+
+::: tip Input data > API parameters
+Client contracts call the AirnodeRRP contract with the necessary input data an API operation will need to execute. The AirnodeRRP contract communicates with the appropriate off-chain Airnode which maps the client's input data to the parameters of an API operation (header, path, query, body). This mapping is performed by the Airnode using the **Oracle Integration Specifications (OIS)** json data which is embedded in the Airnode's config.json file as the _ois key_.
+:::
+
+:::: tabs
+
+::: tab config
+```json
+// config.json
+{
+  "ois": ...,
+  "triggers": ...,
+  "nodeSettings": ...,
+  "id": ...
+}
+```
+:::
+
+::: tab OIS Template
+<<< @/docs/next/grp-providers/guides/templates/ois-json.md
+:::
+
+:::: 
+
+
+The only thing needed to integrate an API to Airnode is the creation of an OIS. This guide aims to follow a more instructive approach and give some tips along the way. Make sure to refer to the [OIS docs](../../../technology/specifications/ois.md) when you need further details, and you can also refer to the [OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
+
+OIS is largely inspired by OAS and designed to elegantly interface with existing Web API standards.
+
+You can do this simply by reading the [OIS docs](../../../technology/specifications/ois.md) and creating the OIS for your specific API and use-case. 
+
+
+
+
+
+## Oracle Integration Specifications (OIS)
+
+OIS maps the input data from a client contract to the parameters of an API operation `(GET /price/{token})`. This mapping is performed by Airnode after receiving the input data of the client contract from the AirnodeRRP contract.
+
+The mapping of the data passed by a client contract for an API operation to use in its execution is accomplished by the Airnode.  It uses the OIS template which is the the ois key found inside the 
 
 [Oracle Integration Specifications (OIS)](../../../technology/specifications/ois.md) are designed to follow these exact steps:
 - API operations are specified
 - Oracle endpoints are specified
 - Oracle endpoints are mapped to API operations
 
+Therefore, the only thing an API provider needs to do,in order to integrate an API to Airnode, is to create an OIS.
+
 Therefore, the only thing you need to do to integrate an API to Airnode is to create an OIS.
 You can do this simply by reading the [OIS docs](../../../technology/specifications/ois.md) and creating the OIS for your specific API and use-case.
 This guide aims to follow a more instructive approach and give some tips along the way.
 Make sure to refer to the [OIS docs](../../../technology/specifications/ois.md) when you need further details, and you can also refer to the [OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
+
 
 ## OIS Template
 
