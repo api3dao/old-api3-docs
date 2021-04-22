@@ -7,19 +7,6 @@ title: API integration (OIS)
 <TocHeader />
 [[TOC]]
 
-
-<MarkdownInVue>
-
-  ### Headline
-
-```bash
-  // some code
-```
-
-</MarkdownInVue>
-
-
-
 To integrate System X to System Y, we need to do three things.
 
 - Specify the interface of System X
