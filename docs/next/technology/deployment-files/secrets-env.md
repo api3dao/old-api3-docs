@@ -7,10 +7,11 @@ title: secrets.env
 <TocHeader />
 [[TOC]]
 
-:::danger
-The docs are outdated here. Decided that the environment variables should be all uppercase not contain any hyphens because of https://unix.stackexchange.com/a/23714
-The provider name is also a part of the environment variable name in the first example (evm-local). The environment field in config.json maps an environment variable name to each blockchain provider. The environment variable can be specified to be anything, but ChainAPI will use the following convention CP_<CHAIN_TYPE>_<CHAIN_ID>_<PROVIDER_NAME>  where the whitespaces and any non-alphanumeric characters in <PROVIDER_NAME> are replaced with _ .
-:::
+<Todo>
+
+The docs are outdated here. Decided that the environment variables should be all uppercase not contain any hyphens because of https://unix.stackexchange.com/a/23714. The provider name is also a part of the environment variable name in the first example (evm-local). The environment field in config.json maps an environment variable name to each blockchain provider. The environment variable can be specified to be anything, but ChainAPI will use the following convention CP_<CHAIN_TYPE>_<CHAIN_ID>_<PROVIDER_NAME> where the whitespaces and any non-alphanumeric characters in <PROVIDER_NAME> are replaced with _.
+
+</Todo>
 
 The `secrets.env` file is bundled with a [`config.json`](config-json.md) file and contains the secrets that the respective Airnode deployments will need.
 All variables defined in a `secrets.env` file will be set as the environment variables of all deployments specified in the `config.json` file.
