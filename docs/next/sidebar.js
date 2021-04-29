@@ -1,6 +1,6 @@
 module.exports = [
   {
-    title: 'General/Introduction', initialOpenGroupIndex: 0, collapsable: true,
+    title: 'Introduction', initialOpenGroupIndex: 0, collapsable: true,
     children: [
       '',
       'contributing',
@@ -28,8 +28,11 @@ module.exports = [
           'grp-providers/guides/provider/api-integration',
           'grp-providers/guides/provider/api-integration-2',
           'grp-providers/guides/provider/configuring-airnode',
+          'grp-providers/guides/provider/configuring-airnode-2',
           'grp-providers/guides/provider/deploying-airnode',
+          'grp-providers/guides/provider/deploying-airnode-2',
           'grp-providers/guides/provider/setting-authorizers',
+          'grp-providers/guides/provider/setting-authorizers-2',
           {
             title: 'Docker',
             children:[
@@ -38,11 +41,11 @@ module.exports = [
             ]
           },
           {
-            title: '(?) Templates',
+            title: 'Templates',
             children:[
               'grp-providers/guides/templates/ois-json',
               'grp-providers/guides/templates/config-json',
-              'grp-providers/guides/templates/security-json'
+              'grp-providers/guides/templates/secrets-env'
             ]
           },
         ]

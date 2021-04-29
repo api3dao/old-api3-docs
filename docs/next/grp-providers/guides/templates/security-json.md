@@ -2,7 +2,12 @@
 title: security.json
 ---
 
-# {{$frontmatter.title}}
+# ~~{{$frontmatter.title}}~~ deprecated
+
+
+::: danger
+Deprecated: [see secrets.env](secrets-env.md)
+:::
 
 ```json
 {

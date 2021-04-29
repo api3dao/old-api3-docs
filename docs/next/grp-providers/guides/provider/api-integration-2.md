@@ -1,5 +1,5 @@
 ---
-title: API integration (OIS)
+title: API Integration (2)
 ---
 
 # {{$frontmatter.title}}
@@ -7,28 +7,27 @@ title: API integration (OIS)
 <TocHeader />
 [[TOC]]
 
-To integrate System X to System Y, we need to do three things.
-
-- Specify the interface of System X
-- Specify the interface of System Y
-- Specify how the interface of System X maps to the interface of System Y
-
-OIS ([Oracle Integration Specifications](../../../technology/specifications/ois.md)) is designed to follow the steps mentioned above.
+A successful integration of an API with an Airnode requires the mapping of each other's interface. This is accomplished using an OIS ([Oracle Integration Specifications](../../../technology/specifications/ois.md)) json object that is designed to follow three basic steps.
 
 - API operations are specified
 - Airnode endpoints are specified
 - Airnode endpoints are mapped to API operations
 
-_What is OIS?_
->OIS is a mapping of API operations, such as  `GET /token/{id}`, to Airnode endpoints.
+> ![api-integration-ois](../../../assets/images/api-integration-ois.png)
 
-_How is OIS used?_
-> When a client contract calls an AirnodeRRP contract request function, such as `makeRequest(..., callData)`, the callData is communicated to the off-chain Airnode which uses OIS mappings to translate the callData into a valid HTTP request for the appropriate API operation.
+OIS is a mapping of API operations, such as  `GET /token/{id}`, to Airnode endpoints. When a client contract calls an AirnodeRRP contract request function, such as `makeRequest(..., callData)`, the callData is communicated to the off-chain Airnode which uses OIS mappings to translate the callData into a valid HTTP request for the appropriate API operation.
 
-_Where is OIS found?_
-> OIS is a key (`ois`) in every Airnode's [config.json](../templates/config-json.md) file.
+Therefore, only thing needed to integrate an API to Airnode is to create an OIS json object which lives in an Airnode's config.json file. This guide is an instructive approach to creating an OIS. As a point of reference, refer to [Oracle Integration Specifications (OIS)](../../../technology/specifications/ois.md) in the Technology section of these docs for additional input and understanding. It may be useful, but not necessary, to reference the [OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
 
-The only thing needed to integrate an API to Airnode is to create an OIS. This guide aims to follow a more instructive approach to creating an OIS and give some tips along the way. As a point of reference, refer to [Oracle Integration Specifications (OIS)](../../../technology/specifications/ois.md) in the Technology section of these docs for additional input and understanding. It may be useful, but not necessary, to reference the [OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
+::: tip Tips
+
+- Refer to the [Oracle Integration Specifications (OIS)](../../../technology/specifications/ois.md) reference while using this guide.
+
+- Open the [OIS template](https://docs.api3.org/next/grp-providers/guides/templates/ois-json.html) in another browser window to follow along. 
+
+- View an example of an [Airnode config.json file](../../tutorials/config-examples/config-example-json.md) from the Airnode Starter tutorial.
+
+:::
 
 ## OIS Template
 
@@ -228,9 +227,11 @@ The `GET /tokens` returns a list of all tokens. The list count can be limited us
 
 ### Security schemes
 
-::: danger Needs Work
-Security schemes needs more work.
-:::
+<Todo>
+
+Need to work on this. Need to rely less on OAS.
+
+</Todo>
 
 <!-- markdown-link-check-disable -->
 <!-- Once fixed, remove the link-check-disable. -->
@@ -284,6 +285,12 @@ An Airnode endpoint can have multiple `fixedOperationParameters`. An API operati
 
 #### reservedParameters
 
+<Todo>
+
+The explanation of reservedParameters needs work. It jumps the user around. At least explain what they are in detail before making the jumps.
+
+</Todo>
+
 The requester can provide some parameters that are not mapped to API operation parameters.
 These parameters are called "reserved parameters", and their names start with an underscore.
 See the [related OIS docs](../../../technology/specifications/ois.md#_5-4-reservedparameters) for more information.
@@ -306,3 +313,5 @@ We specified the API operations and Airnode endpoints. Each Airnode endpoint map
 Note that there was some subjectivity while defining the Airnode endpoints. This means that two different OISes can exist for the same exact API, differing based on how the integrators designed the interface that the requester will use. However, in most cases, one would simply map API operations to Airnode endpoints directly, and let the requester provide all API operation parameters through the Airnode endpoint parameters.
 
 Currently there is no tool that generates an `endpoints` list that maps to `apiSpecifications.paths` one-to-one. If you would like to help build this, please join the conversation in [this issue](https://github.com/api3dao/airnode/issues/153).
+
+Now that we have our OIS object, the next step is [Configuring Airnode](configuring-airnode.md).
