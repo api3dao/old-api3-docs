@@ -7,7 +7,7 @@ title: Configuring Airnode (2)
 <TocHeader />
 [[TOC]]
 
-An Airnode is deployed or redeployed using configuration properties from its `config.json` and `secrets.env` files. The  `config.json` specifies the [OIS](../../../technology/specifications/ois.md) (Oracle Integration Specifications) and other specific configuration details. The `secrets.env` file includes security credentials such as API keys.
+An Airnode is deployed or redeployed using configuration values from its `config.json` and `secrets.env` files. The  `config.json` specifies the [OIS](../../../technology/specifications/ois.md) (Oracle Integration Specifications) and other specific configuration details. The `secrets.env` file includes security credentials such as API keys.
 
 > ![config-json](../../../assets/images/config-json.png)
 
@@ -27,18 +27,20 @@ It is assumed that you have already read the guide [API Integration (OIS)](api-i
 
 ## Creating `config.json`
 
-Use the [config.json template](../../guides/templates/config-json.html) to build your own Airnode configuration file. In the template, `config.json` has 4 fields:
+Use the [config.json template](../../guides/templates/config-json.html) to build your own Airnode configuration file. In the template, `config.json` has 6 fields:
+
+- `chains`
+- `environment`
+- `id`
+- `nodeSettings`
+- `triggers`
+- `ois`
 
 <Todo>
 
-Add chains?
+Reorganize the field sections below. Add `environment`.
 
 </Todo>
-
-- `ois`
-- `triggers`
-- `nodeSettings`
-- `id`
 
 ### ois
 
@@ -69,9 +71,6 @@ Next add an `endpointId` to the trigger which is the ID that the requester will 
       --oisTitle "My OIS title..." \
       --endpointName "My endpoint name..."
     ```
-
-3. Set `endpointId` to an arbitrary `bytes32` value (e.g., `0x0000000000000000000000000000000000000000000000000000000000000123`), and as long as the requester uses the same `endpointId` while making requests to this endpoint, it will work fine.
-If you are not using the recommended convention, make sure that your endpoints have different IDs.
 
 ### nodeSettings
 
@@ -131,9 +130,7 @@ The serets.env file does not appear to have an **id**.
 
 The `config.json` file has an `id` field, which identifies the specific configuration. Furthermore, `secrets.env` has the same field with the identical value, allowing the deployer to verify that the two files match. For this to work, you are recommended to choose a unique value for this field for each `config.json`/`secrets.env` you create (e.g., use a UUID).
 
-## Creating `security.json`
-<!-- markdown-link-check-disable -->
-<!-- Once these security links get changed to secrets, remove the link-check-disable. -->
+## Creating `secrets.env`
 
 <Todo>
 
@@ -141,13 +138,18 @@ Needs conversion to secrets.env when finalized.
 
 </Todo>
 
-`security.json` is where we will store our API keys.
-Make sure to download the [`security.json` template](../templates/security-json.md) and refer to the [docs](../../../technology/specifications/security-json.md) as needed.
-<!-- markdown-link-check-enable -->
+The `secrets.env` file is where you store secrets such as a chain provider url, cloud provider keys, etc. Make sure to download the [`secrets` template](../templates/secrets.md) and refer to the [docs](../../../technology/specifications/secrets.md) as needed.
 
-For each security scheme you have defined in your `config.json`, you need to create an entry in `security.json` that includes its value.
-Feel free to duplicate the OIS entries under `apiCredentials` or security scheme entries under these OIS entries as needed.
-Finally, make sure that you use the same `id` that you have used in `config.json`.
+```bash
+MASTER_KEY_MNEMONIC=""
+AWS_ACCESS_KEY_ID=""
+AWS_SECRET_KEY=""
+CP_EVM_31337_EVM_LOCAL=""
+SS_CURRENCY_CONVERTER_API_CURRENCY_CONVERTER_SECURITY_SCHEME=""
+```
+
+
+For each security scheme you have defined in your `config.json`, you need to create an entry in `security.json` that includes its value. Feel free to duplicate the OIS entries under `apiCredentials` or security scheme entries under these OIS entries as needed. Finally, make sure that you use the same `id` that you have used in `config.json`.
 
 ## Conclusion
 
