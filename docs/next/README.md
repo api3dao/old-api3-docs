@@ -75,6 +75,8 @@ Join the API3 community on the following services.
 Community Chat on [Telegram](https://t.me/API3DAO)
 
 Developer Chat on [Discord](https://discord.gg/qnRrcfnm5W)
+
+[YouTube Channel](https://www.youtube.com/channel/UCCpUthOhahxjdeX9T7t7nJQ)
 :::
 
 ::: tab GitHub

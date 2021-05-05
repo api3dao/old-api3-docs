@@ -26,13 +26,13 @@ module.exports = [
         title: 'Guides', collapsable: true, 
         children:[
           'grp-providers/guides/provider/api-integration',
-          'grp-providers/guides/provider/api-integration-2',
+          //'grp-providers/guides/provider/api-integration-orig',
           'grp-providers/guides/provider/configuring-airnode',
-          'grp-providers/guides/provider/configuring-airnode-2',
+          //'grp-providers/guides/provider/configuring-airnode-orig',
           'grp-providers/guides/provider/deploying-airnode',
-          'grp-providers/guides/provider/deploying-airnode-2',
+          //'grp-providers/guides/provider/deploying-airnode-orig',
           'grp-providers/guides/provider/setting-authorizers',
-          'grp-providers/guides/provider/setting-authorizers-2',
+          //'grp-providers/guides/provider/setting-authorizers-orig',
           {
             title: 'Docker',
             children:[
@@ -51,17 +51,21 @@ module.exports = [
         ]
       },
       {
-        title: 'Tutorials', collapsable: true,
+        title: 'Tutorial', collapsable: true,
         children: [
-          'grp-providers/tutorials/airnode-starter',
-          {title: 'Config Examples',
+          'grp-providers/tutorial/airnode-starter',
+          'grp-providers/tutorial/config-json',
+          'grp-providers/tutorial/secrets-env',
+          'grp-providers/tutorial/authorizers-json',
+          'grp-providers/tutorial/receipt-json'
+         /* {title: 'Config Examples',
             children:[
               'grp-providers/tutorials/config-examples/authorizers-json',
               'grp-providers/tutorials/config-examples/config-example-json',
               'grp-providers/tutorials/config-examples/example-env',
               'grp-providers/tutorials/config-examples/security-json',
             ]
-          },
+          },*/
         ]
       }
     ]

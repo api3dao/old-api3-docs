@@ -7,34 +7,35 @@ title: Deploying Airnode
 <TocHeader />
 [[TOC]]
 
-After [integrating your API](api-integration.md) and [creating the configuration files](configuring-airnode.md), the next step is to deploy your Airnode.
-Airnode comes with a [deployer](https://github.com/api3dao/airnode/tree/pre-alpha/packages/deployer), which uses [Terraform](https://www.terraform.io/) and [Serverless Framework](https://www.serverless.com/) to automate the entire deployment process.
-This deployer is also containerized as a [Docker](https://www.docker.com/) image, which allows you to deploy your Airnode on any platform without worrying about installing dependencies.
-So let's begin!
+After integrating your API ([API Integration](api-integration.md)) and creating the configuration files ([Configuring Airnode](configuring-airnode.md)), the next step is to deploy your Airnode. Airnode comes with a [deployer](https://github.com/api3dao/airnode/tree/pre-alpha/packages/deployer), which uses [Terraform](https://www.terraform.io/) and [Serverless Framework](https://www.serverless.com/) to automate the entire deployment process. Rather than using the deployer directly it is recommended to use the provided Docker image.
 
-## Installing Docker
+## Install Docker
 
-The upside of containerizing the deployer is that you only need to install Docker.
-The downside is that you need to install Docker.
-Go to the [Docker website](https://docs.docker.com/get-docker/) and install it first.
+The [deployer](https://github.com/api3dao/airnode/tree/pre-alpha/packages/deployer) is containerized as a Docker image (opens new window), which allows you to deploy your Airnode on any platform without the worry of installing dependencies and is the recommended way to do a deployment.
+
+If you do not already have docker installed go to the [Docker website](https://docs.docker.com/get-docker/) and install it.
 
 ## Creating cloud credentials
 
-The deployer interacts with your cloud provider to deploy Airnode programmatically, without requiring you to click through a lot of ever-changing graphical interfaces.
-For it to be able to do that, you need to give it permission.
+The deployer interacts with your cloud provider to deploy Airnode programmatically, without requiring you to click through a lot of ever-changing graphical interfaces.For it to be able to do that, you need to give it permission.
 
-To be able to do this, you need to create a new user in your AWS account, give it programmatic access, retrieve its access key ID and secret access keys, and feed these to the deployer.
-Fortunately, this is not nearly as complicated as it sounds.
-Follow [this video](https://www.youtube.com/watch?v=KngM5bfpttA), get your keys, and put them in a file named `.env` as below (values are made up, you need to replace these with your own):
+To be able to do this, you need to create a new user in your AWS account, give it programmatic access, retrieve its access key ID and secret access keys, and feed these to the deployer. Fortunately, this is not nearly as complicated as it sounds. Follow [this video](https://www.youtube.com/watch?v=KngM5bfpttA), get your keys, and put them in the secrets.env file as shown below.
+
 ```
-AWS_ACCESS_KEY_ID=JSDYNDRUA1XAF2W3UGPA
-AWS_SECRET_KEY=q4JiOfPP4wQOuRj01/6/7RAodTAg6lFb99IoB4XH
+AWS_ACCESS_KEY_ID="JSDYNDRU...AF2W3UGPA"
+AWS_SECRET_KEY="q4JiOfPP4wQOuRj01///7RAodTAg6lFb99IoB4XH"
+...
 ```
-Here is an [example file](https://github.com/api3dao/airnode/blob/pre-alpha/packages/deployer/.env.example) that is left blank.
-Make sure that you do not push your credentials to a repository or leave them around!
-These credentials can be used to gain access to your Airnode's private key.
+
+Here is an [example file](../templates/secrets-env.md) that is left blank. Make sure that you do not push your credentials to a repository or otherwise expose them as these credentials can be used to gain access to your Airnode's private key.
 
 ## Deployment
+
+<Todo>
+
+Deployment" needs to be updated when vrs 0.1.0 is ready. Not sure which Airnode repo branch to pull from.
+
+</Todo>
 
 Get the `config.json` and `security.json` files you have created while [configuring your Airnode](configuring-airnode.md), your `.env` file with your [cloud provider credentials](#creating-cloud-credentials), and place these three files in the same directory.
 Then, in this same directory, run the following command (if you are on Windows, use CMD, replace `\` with `^`, `$(pwd)` with `%cd%`):
@@ -44,7 +45,7 @@ docker run -it --rm \
   --env-file .env \
   --env COMMAND=deploy-first-time \
   -v $(pwd):/airnode/out \
-  api3/airnode-deployer:pre-alpha
+  api3/airnode-deployer:0.1.0
 ```
 
 This will first download the deployer image, which may take a few minutes depending on the speed of your Internet connection.

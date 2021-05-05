@@ -2,10 +2,11 @@
 title: Airnode starter
 ---
 
+<!-- markdownlint-disable -->
 # {{$frontmatter.title}}
-
 <TocHeader />
 [[TOC]]
+<!-- markdownlint-enable -->
 
 > A starter project for deploying an Airnode and making requests to it
 
@@ -13,7 +14,7 @@ See the code [here](https://github.com/api3dao/airnode-starter/tree/pre-alpha)
 
 This project is composed of two steps:
 1. Deploy an Airnode on a supported chain
-1. Make a request to the deployed Airnode in a contract
+2. Make a request to the deployed Airnode in a contract
 
 Currently supported chains:
 - Ropsten

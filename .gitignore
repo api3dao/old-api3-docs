@@ -5,7 +5,7 @@ node_modules/
 docs/.vuepress/dist
 
 package-lock.json
-settings.json
+
 
 
 # Ignoring a Previously Committed Files #
