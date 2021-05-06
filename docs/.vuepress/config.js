@@ -14,7 +14,7 @@ module.exports = {
   description: 'Technical Documentation for API3 ',
   markdown: {
     lineNumbers: true,
-    toc: { includeLevel: [2, 3, 4] },
+    //toc: { includeLevel: [2, 3] },
   },
   themeConfig: {
     startPath:'/pre-alpha/',
@@ -64,6 +64,7 @@ module.exports = {
   },
   plugins: [
       ['vue-pdf'],
+      ['vuepress-plugin-table-of-contents'],
       ['@vuepress/medium-zoom'],
       ['vuepress-plugin-element-tabs'],
       ['@vuepress/last-updated'],

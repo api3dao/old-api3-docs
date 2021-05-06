@@ -5,7 +5,7 @@ title: config.json
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2, 5]" />
 
 The `config.json` specifies one or multiple deployments.
 All of these deployments will belong to the same Airnode (will have the same [`airnodeId`](../protocols/request-response/provider.md#providerid), master private key, [designated wallets](../protocols/request-response/designated-wallet.md), etc.).
@@ -76,7 +76,7 @@ Its contents can be seen below:
 
 - [`id`](#id): Unique identifier for this config object
 
-## `ois`
+## ois
 
 `ois` is a list of [OIS](../specifications/ois.md) objects.
 Since each OIS specifies the integration of an API to an oracle, a single Airnode deployment can serve multiple APIs.
@@ -99,7 +99,7 @@ Contents of an `ois` list can be seen below (see the [OIS docs](../specification
 ]
 ```
 
-## `triggers`
+## triggers
 
 `triggers` map external triggers such as a request made through RRP (or a subscription made through PSP, which is not implemented yet) to an endpoint defined in an OIS.
 
@@ -123,7 +123,7 @@ This OIS has an endpoint with the name `myEndpointName`.
 When the Airnode deployment detects a [request](../protocols/request-response/request.md) that references its [`airnodeId`](../protocols/request-response/provider.md#providerid) and `0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5` as the [`endpointId`](../protocols/request-response/endpoint.md#endpointid), it will call the specified endpoint (`myOisTitle`-`myEndpointName`) with the parameters provided in the request to fulfill it.
 See the [docs](../protocols/request-response/endpoint.md#endpointid) for the default convention for setting the `endpointId`.
 
-## `chains`
+## chains
 
 `chains` lists the blockchains the Airnode deployment will serve on and specifies respective parameters.
 
@@ -204,7 +204,7 @@ Defaults to `0`.
 - `ignoreBlockedRequestsAfterBlocks` (optional) - the number of blocks that need to pass for the node to start ignoring blocked requests.
 Defaults to `20`.
 
-## `nodeSettings`
+## nodeSettings
 
 `nodeSettings` is an object containing general deployment parameters.
 Contents of a `nodeSettings` object can be seen below:
@@ -238,42 +238,78 @@ Either `json` or `plain`.
 - `logLevel` - The highest verbosity level of the logs that will be outputted.
 `DEBUG`, `INFO`, `WARN` or `ERROR`.
 
-## `environment`
+## environment
 
-Airnode deployments keep secrets such as security scheme values (i.e., API keys) and blockchain provider URLs as environment variables.
-`environment` tells the Airnode under which environment variable it can find each of these.
+Airnode deployments keep secrets such as security scheme values (i.e., API keys) and blockchain provider URLs as environment variables. `environment` tells the Airnode under which environment variable it can find each of these.
 
-Contents of an `environment` object can be seen below:
+Contents of an `environment` object can be seen below.
 
 ```json
-{
-  "securitySchemes": [
-    {
-      "oisTitle": "...",
-      "name": "...",
-      "envName": "..."
-    }
-  ],
-  "chainProviders": [
-    {
-      "chainType": "...",
-      "chainId": "...",
-      "name": "...",
-      "envName": "..."
-    }
-  ]
-}
+"securitySchemes": [
+  {
+    "oisTitle": "...",
+    "name": "...",
+    "envName": "..."
+  }
+],
+"chainProviders": [
+  {
+    "chainType": "...",
+    "chainId": "...",
+    "name": "...",
+    "envName": "..."
+  }
+]
 ```
 
-Each entry in `securitySchemes` map to a security scheme defined in an OIS, where `oisTitle` is the `title` field of the related OIS, and `name` is the name of the respective security scheme (these would be `myOisTitle` and `mySecurityScheme` in the example in the [OIS docs](../specifications/ois.md)).
-`envName` is the environment variable name that the security scheme value (e.g., the API key) will be found under.
-The recommended naming convention is `ss_${oisTitle}_${name}` where spaces in the names are replaced with underscores(`_`).
+### securitySchemes
 
-Each entry in `chainProviders` map to an entry in `providerNames` under [`chains`](#chains).
-Example values would be `evm` for `chainType`, `1` for `chainId` and `self-hosted-mainnet` for `name`.
-Here, the `envName` is the name of the environment variable that keeps the respective blockchain provider URL.
-The recommended naming convention is `cp_${chainType}_${chainId}_${name}` where spaces in the names are replaced with underscores(`_`).
+Each entry in `environment.securitySchemes` maps to a security scheme defined in an OIS, where `oisTitle` is the `title` field of the related OIS, and `name` is the name of the respective security scheme (these would be `myOisTitle` and `mySecurityScheme` in the example in the [OIS docs](../specifications/ois.md)). `envName` is the environment variable name that the security scheme value (e.g., the API key) will be found under. The recommended naming convention is `ss_${oisTitle}_${name}` where spaces in the names are replaced with underscores(`_`).
 
-## `id`
+<Todo>
+
+Need to add code block showing the mapping much like chainProviders below.
+
+</Todo>
+
+```json
+"securitySchemes": [
+
+
+]
+```
+
+### chainProviders
+
+Each entry in `environment.chainProviders[n]` maps to an entry in `chains[n]`. The following code block illustrates this a relationship with the [`chains object`](config-json.md#chains) shown above in the section **chains**. 
+
+Note that the value of `envName` is the name of the environment variable that holds the respective blockchain provider URL from secrets.env. 
+
+The recommended naming convention is `CP_${chainType}_${chainId}_${name}` where spaces in the names are replaced with underscores(`_`) and all characters are uppercase.
+
+
+```json
+"chainProviders": [
+  {                                // Maps to:
+    "chainType": "evm",            // chains[0].type
+    "chainId": "1",                // chains[0].id
+    "name": "self-hosted-mainnet", // chains[0].providerNames[0]
+    "envName": "CP_EVM_1_SELF-HOSTED-MAINNET"
+  },
+  {                                // Maps to:
+    "chainType": "evm",            // chains[0].type
+    "chainId": "1",                // chains[0].id
+    "name": "infura-mainnet",      // chains[0].providerNames[1]
+    "envName": "CP_EVM_1_INFURA-MAINNET"
+  },
+  {                                // Maps to:
+    "chainType": "evm",            // chains[1].type
+    "chainId": "3",                // chains[1].id
+    "name": "infura-ropsten",      // chains[1].providerNames[0]
+    "envName": "CP_EVM_1_INFURA-ROPSTEN"
+  }
+]
+```
+## id
 
 `id` is a unique identifier for the config object (e.g., a [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)).

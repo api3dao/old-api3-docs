@@ -5,7 +5,7 @@ title: Configuring Airnode
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,4]" />
 
 An Airnode is deployed or redeployed using configuration values from its `config.json` and `secrets.env` files. The  `config.json` specifies the [OIS](../../../technology/specifications/ois.md) (Oracle Integration Specifications) and other specific configuration details. The `secrets.env` file includes security credentials such as API keys and chain provider URLs.
 
