@@ -269,8 +269,7 @@ OAS equivalent: The `{method}` parameter in the `paths.{path}.{method}` for the 
 
 ### 5.3. `fixedOperationParameters`
 
-(Optional) A list of objects specifying fixed operation parameters.
-Each object has the following elements:
+(Required) A list of objects specifying fixed operation parameters. While required, the fixedOperationParameters array can be left empty. Each object has the following elements:
 
 - [`operationParameter`](#531-operationParameter)
 - [`value`](#532-value)
