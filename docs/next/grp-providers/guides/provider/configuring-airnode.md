@@ -177,9 +177,17 @@ Set the `logFormat` field set to `json` for Airnode to log in JSON.
 
 ### environment
 
-The secrets.env file is used to set environment variables which the Airnode deployer uses for deployments. Airnode utilizes the `environment` object in config.json to identify the variables it needs for deployment or redeployment. See the reference [config.json](../../technology/deployment-files/config-json.md#environment) for additional input.
+An Airnode deployments needs secrets such as security scheme values (i.e., API keys) and blockchain provider URLs. The secrets.env file stores these secrets which are used to set the environment variables. See the reference [config.json > environment](../../../technology/deployment-files/config-json.md#environment) for additional input.
 
-**Example:** 
+Steps Airnode takes related to environment variables during deployment and redeployment.
+
+1. Airnode creates environment variables from the secrets.env file.
+
+2. Airnode utilizes the `environment` object in config.json to identify the environment variables related to security schemes and provider URLs. 
+
+#### Example
+
+This example creates a chain provider record which in turn has a secret, a provider URL. The provider URL will be stored in the secrets.env file
 
 1. When creating a config.json file the `chains` field declares its use of blockchain 3, Ropsten. It then declares the use of the blockchain provider "infura_ropsten" in the `providerNames` array. The name "infura_ropsten" is completely arbitrary.
     ```json
