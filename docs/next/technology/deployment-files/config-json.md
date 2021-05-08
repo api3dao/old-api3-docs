@@ -5,7 +5,7 @@ title: config.json
 # {{$frontmatter.title}}
 
 <TocHeader />
-<TOC class="table-of-contents" :include-level="[2, 5]" />
+<TOC class="table-of-contents" :include-level="[2, 3, 4]" />
 
 The `config.json` specifies one or multiple deployments.
 All of these deployments will belong to the same Airnode (will have the same [`airnodeId`](../protocols/request-response/provider.md#providerid), master private key, [designated wallets](../protocols/request-response/designated-wallet.md), etc.).
@@ -135,8 +135,8 @@ Contents of a `chains` list can be seen below:
       "id": "1",
       "type": "evm",
       "providerNames": [
-        "self-hosted-mainnet",
-        "infura-mainnet"
+        "self_hosted_mainnet",
+        "infura_mainnet"
       ],
       "contracts": {
         "AirnodeRRP": "0x12B4...0C1a"
@@ -240,19 +240,19 @@ Either `json` or `plain`.
 
 ## environment
 
-Airnode deployments keep secrets such as security scheme values (i.e., API keys) and blockchain provider URLs as environment variables. `environment` tells the Airnode under which environment variable it can find each of these.
+Airnode deployments utilizes secrets such as security scheme values (i.e., API keys) and blockchain provider URLs. These secrets are loaded from secrets.env as environment variables by Airnode during deployment. `environment` tells the Airnode the relationship each environment variable has to a particular chain provider or security scheme.
 
 Contents of an `environment` object can be seen below.
 
 ```json
-"securitySchemes": [
+"securitySchemes": [   // Maps back to the ois field
   {
     "oisTitle": "...",
     "name": "...",
     "envName": "..."
   }
 ],
-"chainProviders": [
+"chainProviders": [    // Maps back to the chains field
   {
     "chainType": "...",
     "chainId": "...",
@@ -262,9 +262,17 @@ Contents of an `environment` object can be seen below.
 ]
 ```
 
+### evnName
+
+The value of the `envName` field is the actual environment variable name that must exist in secrets.env. The recommended naming conventions are below. Any spaces in the names should be replaced with underscores(`_`) and all characters are uppercase. Do not use dashes (-).
+
+- chainProvider[n].envName -- `CP_${chainType}_${chainId}_${name}`
+- securitySchemes[n].envName -- `SS_?????????`
+
 ### securitySchemes
 
 Each entry in `environment.securitySchemes` maps to a security scheme defined in an OIS, where `oisTitle` is the `title` field of the related OIS, and `name` is the name of the respective security scheme (these would be `myOisTitle` and `mySecurityScheme` in the example in the [OIS docs](../specifications/ois.md)). `envName` is the environment variable name that the security scheme value (e.g., the API key) will be found under. The recommended naming convention is `ss_${oisTitle}_${name}` where spaces in the names are replaced with underscores(`_`).
+
 
 <Todo>
 
@@ -275,38 +283,34 @@ Need to add code block showing the mapping much like chainProviders below.
 ```json
 "securitySchemes": [
 
-
 ]
 ```
 
 ### chainProviders
 
-Each entry in `environment.chainProviders[n]` maps to an entry in `chains[n]`. The following code block illustrates this a relationship with the [`chains object`](config-json.md#chains) shown above in the section **chains**. 
+Each entry in `environment.chainProviders[n]` maps to an entry in `chains[n]`. The following code block illustrates this a relationship with the `chains` object shown above in the section [chains](config-json.md#chains). 
 
-Note that the value of `envName` is the name of the environment variable that holds the respective blockchain provider URL from secrets.env. 
-
-The recommended naming convention is `CP_${chainType}_${chainId}_${name}` where spaces in the names are replaced with underscores(`_`) and all characters are uppercase.
-
+Note that the value of `envName` is the name of the environment variable (from secrets.env) which holds the respective blockchain provider URL. 
 
 ```json
 "chainProviders": [
   {                                // Maps to:
     "chainType": "evm",            // chains[0].type
     "chainId": "1",                // chains[0].id
-    "name": "self-hosted-mainnet", // chains[0].providerNames[0]
-    "envName": "CP_EVM_1_SELF-HOSTED-MAINNET"
+    "name": "self_hosted_mainnet", // chains[0].providerNames[0]
+    "envName": "CP_EVM_1_SELF_HOSTED_MAINNET"
   },
   {                                // Maps to:
     "chainType": "evm",            // chains[0].type
     "chainId": "1",                // chains[0].id
-    "name": "infura-mainnet",      // chains[0].providerNames[1]
-    "envName": "CP_EVM_1_INFURA-MAINNET"
+    "name": "infura_mainnet",      // chains[0].providerNames[1]
+    "envName": "CP_EVM_1_INFURA_MAINNET"
   },
   {                                // Maps to:
     "chainType": "evm",            // chains[1].type
     "chainId": "3",                // chains[1].id
-    "name": "infura-ropsten",      // chains[1].providerNames[0]
-    "envName": "CP_EVM_1_INFURA-ROPSTEN"
+    "name": "infura_ropsten",      // chains[1].providerNames[0]
+    "envName": "CP_EVM_1_INFURA_ROPSTEN"
   }
 ]
 ```
