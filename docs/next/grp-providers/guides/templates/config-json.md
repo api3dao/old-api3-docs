@@ -4,12 +4,17 @@ title: config.json
 
 # {{$frontmatter.title}}
 
-Template for an Airnode's configuration file.
+Below is a template for an Airnode's configuration file (config.json). There are comments in the JSON that denote relationships between certain field names or values. Consider the following examples.
 
-<Todo >
+> - `ois[0].title` is related to `triggers.request[0].oisTitle` when they share the same field name. 
+> - `ois[0].title` could also show up in `environment.securitySchemes` if the `ois` record does in fact use a security scheme.
 
-Need the 0.1.0 config.json template. The one below is still pre-alpha.
+There are two types of _FILL_ values to complete while creating a config.json file.
 
-</Todo>
+- **{FILL_*}** - An arbitrary value that is not related to any other field. 
+- **{FILL_TEXT}** - Related to at least one other field.
+
 
 <<< @/docs/next/grp-providers/code/template-config.json
+
+
