@@ -5,7 +5,7 @@ title: API (Application programming interface)
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 *See our article, [APIs: The Digital Glue](https://medium.com/api3/apis-the-digital-glue-7ac87566e773) for a more complete background on APIs.*
 

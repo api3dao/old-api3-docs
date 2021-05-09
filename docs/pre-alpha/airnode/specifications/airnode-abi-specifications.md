@@ -5,7 +5,7 @@ title: Airnode ABI specifications
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 [Contract application binary interface (ABI)](https://docs.soliditylang.org/en/v0.6.12/abi-spec.html) is used to encode different types of data while interacting with Ethereum contracts.
 As a result, both Solidity and modules such as web3.js and ethers.js treat ABI encoding–decoding functionality as a first-class citizen.

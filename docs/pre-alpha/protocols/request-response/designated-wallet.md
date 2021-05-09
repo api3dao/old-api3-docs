@@ -5,7 +5,7 @@ title: Designated wallet
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 Each [provider](provider.md) keeps a designated wallet for each [requester](requester.md).
 [Clients](client.md) [endorsed](endorsement.md) by a requester can specify their requests to be fulfilled by the said requester's designated wallet.

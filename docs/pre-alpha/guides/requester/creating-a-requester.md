@@ -4,7 +4,7 @@ title: Creating a requester
 
 # {{$frontmatter.title}}
 
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 Each requester needs to create a requester record, and get assigned a requester index.
 This is fairly early, using [@api3/airnode-admin](https://github.com/api3dao/airnode/tree/pre-alpha/packages/admin#create-requester).

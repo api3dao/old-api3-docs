@@ -5,7 +5,7 @@ title: Setting authorizers (orig)
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 We are assuming that you have [configured your Airnode](configuring-airnode.md) (and set `endpointId`s of your endpoints), and [deployed your Airnode](deploying-airnode.md) and received your `providerId` in your receipt file.
 Requesters who know your `providerId` and `endpointId`s should now be able to make requests to your endpoints.

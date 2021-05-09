@@ -5,7 +5,7 @@ title: Hardhat Starter
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 :::tip 
 The file is not intended to be part of the docs.

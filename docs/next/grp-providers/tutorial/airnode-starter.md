@@ -5,7 +5,7 @@ title: Airnode starter
 <!-- markdownlint-disable -->
 # {{$frontmatter.title}}
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 <!-- markdownlint-enable -->
 
 > A starter project for deploying an Airnode and making requests to it

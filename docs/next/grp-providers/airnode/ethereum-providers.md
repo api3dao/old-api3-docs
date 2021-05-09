@@ -4,7 +4,7 @@ title: Ethereum providers
 
 # {{$frontmatter.title}}
 
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 An oracle node requires access to a blockchain (e.g., Ethereum) node to listen for request events and send transactions to fulfill requests.
 The Airnode model aims to minimize the node operation effort using managed services wherever possible.

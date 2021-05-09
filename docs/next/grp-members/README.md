@@ -5,7 +5,7 @@ title: API3 DAO
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 API3 is governed by a Decentralized Autonomous Organization, DAO. The DAO is a collaborative effort to build, manage and monetize dAPIs at scale. To achieve this in a fully decentralized way, the incentives of the participants are reconciled through the governance, security, and [value capture utilities](dao-pool.md#token-utilities) of the API3 token.
 

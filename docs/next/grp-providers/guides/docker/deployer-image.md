@@ -5,7 +5,7 @@ title: Deployer image instructions
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 1. Build the Docker image
 ```sh

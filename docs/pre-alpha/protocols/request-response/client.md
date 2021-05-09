@@ -5,7 +5,7 @@ title: Client
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 A client is a contract that makes Airnode requests.
 While making a request, the client refers to a [requester](requester.md) by its [`requesterIndex`](requester.md#requesterIndex), which means "fulfill my request with the [designated wallet](designated-wallet.md) of the requester identified by `requesterIndex`".

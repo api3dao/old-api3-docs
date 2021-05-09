@@ -9,7 +9,7 @@ Is this deprecated? See <u>[secrets.json](../deployment-files/secrets-env.md)</u
 :::
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 `security.json` is the file the deployer uses to push API credentials along with the serverless function.
 

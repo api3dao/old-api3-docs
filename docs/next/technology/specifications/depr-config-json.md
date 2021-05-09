@@ -10,7 +10,7 @@ This copy of config.json is deprecated. See <u>[config.json](../deployment-files
 :::
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 `config.json` is the configuration file used for deploying Airnode.
 It is composed of four main sections:

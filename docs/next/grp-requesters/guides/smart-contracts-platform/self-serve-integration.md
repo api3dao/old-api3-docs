@@ -5,7 +5,7 @@ title: Self-serve integration
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 Assuming you have determined that your platform [is compatible](is-my-platform-compatible.md), you can attempt to do the integration yourself by following the steps below.
 

@@ -5,7 +5,7 @@ title: Tokens
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 API3 is the native token of the API3 project. The API3 ecosystem is a single token environment. Check out the Medium post [API3 Tokenomics Update](https://medium.com/api3/api3-tokenomics-update-f032d6e49b30) for an in-depth overview on API3 tokenomics.
 

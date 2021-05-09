@@ -5,7 +5,7 @@ title: Airnode
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 Use Airnode to serve one or more APIs to smart contracts (clients). Each Airnode has only one private key, which they use across all chains.
 

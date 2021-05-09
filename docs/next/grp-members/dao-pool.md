@@ -5,7 +5,7 @@ title: The DAO Pool
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 The API3 DAO has a single staking pool called the **DAO pool**. Staking API3 tokens in the pool will grant representation and staking rewards, but at the same time, the staked tokens will be used as collateral to pay out insurance claims as needed. To do this, the pool focuses on three token utilities and implements an insurance service which by design balances rewards and risks through responsible governance.
 
