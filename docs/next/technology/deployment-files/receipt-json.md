@@ -4,9 +4,6 @@ title: receipt.json
 
 # {{$frontmatter.title}}
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
-
 A `receipt.json` file is outputted after deployment that has (non-sensitive) information about the deployments.
 The main use of a receipt file is to detect deployments that are now obsolete and need to be removed.
 For example, the user may have deployed their Airnode on cloud providers A, B and C.

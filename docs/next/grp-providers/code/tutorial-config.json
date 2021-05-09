@@ -171,7 +171,7 @@
           "chainType": "evm",
           "chainId": "3",
           "name": "infura_ropsten",
-          "envName": "CP_EVM_3_infura_ropsten"
+          "envName": "CP_EVM_3_INFURA_ROPSTEN"
         }
       ],
       "securitySchemes": []

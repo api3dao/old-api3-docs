@@ -203,7 +203,7 @@ This example creates a chain provider record which in turn has a secret, a provi
     ]
     ```
 
-2. The Airnode deployer will use the `chains[0].providerNames[0]` value from above (infura_ropsten) to get the environment variable name for "infura_ropsten" which is "CP_EVM_3_infura_ropsten". It does so by mapping `chains[0].providerNames[0]` to `environment.chainProviders[n].name` which is a sibling of `envName`, the environment variable name  "CP_EVM_3_infura_ropsten". 
+2. The Airnode deployer will use the `chains[0].providerNames[0]` value from above (infura_ropsten) to get the environment variable name for "infura_ropsten" which is "CP_EVM_3_infura_ropsten". It does so by mapping `chains[0].providerNames[0]` to `environment.chainProviders[n].name` which is a sibling of `envName`, the environment variable name  "CP_EVM_3_INFURA_ROPSTEN". 
     ```json
     "environment": {
       "chainProviders": [
@@ -211,7 +211,7 @@ This example creates a chain provider record which in turn has a secret, a provi
           "chainType": "evm",
           "chainId": "3",
           "name": "infura_ropsten",
-          "envName": "CP_EVM_3_infura_ropsten"
+          "envName": "CP_EVM_3_INFURA_ROPSTEN"
         }
       ],
       "securitySchemes": []
@@ -219,13 +219,13 @@ This example creates a chain provider record which in turn has a secret, a provi
     ```
 
 
-3. When the Airnode deployer executes it first sets the environment variables named in secrets.env. Note the variable `CP_EVM_3_infura_ropsten` with a value that is a provider URL. Using the config.json file the deployer will be able to map its way to the CP_EVM_3_infura_ropsten environment variable and its value.
+3. When the Airnode deployer executes it first sets the environment variables named in secrets.env. Note the variable `CP_EVM_3_INFIRA_ROPSTEN` with a value that is a provider URL. Using the config.json file the deployer will be able to map its way to the CP_EVM_3_INFURA_ROPSTEN environment variable and its value.
     ```bash
     AWS_ACCESS_KEY_ID="XYZ123"
     AWS_SECRET_KEY="ABC789"
     MASTER_KEY_MNEMONIC="achieve climb couple wait accident symbol spy blouse reduce foil echo label"
-    SS_myOisTitle_mySecurityScheme="FRACZKMH4F32BZ8X5uTd"
-    CP_EVM_3_infura_ropsten="https://ropsten.infura.io/v3/7545745CVDG834834"
+    SS_MYOISTITLE_MY_SECURITY_SCHEME="FRACZKMH4F32BZ8X5uTd"
+    CP_EVM_3_INFURA_ROPSTEN="https://ropsten.infura.io/v3/7545745CVDG834834"
     ```
  
 
