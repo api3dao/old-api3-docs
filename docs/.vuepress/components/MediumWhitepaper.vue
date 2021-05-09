@@ -9,6 +9,7 @@
       <div class="medium-heading">{{item.tag}}</div>
       <div class="medium-link" v-for="(post, index) in item.posts" :key="index">
         <a :href=post.url target="api3_docs">{{post.title}}</a>
+        - <span class="date">{{post.date}}</span>
       </div>
     </div>
   </div>
@@ -36,6 +37,11 @@ export default {
 </script>
 
 <style>
+  .date{
+    color:gray;
+    font-size:x-small;
+    font-weight:bold;
+  }
   .medium-heading {
     color:gray;
     font-size:large;

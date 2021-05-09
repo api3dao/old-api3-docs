@@ -62,7 +62,9 @@ Staked API3 tokens will be used as collateral for the on-chain insurance service
 ::: tab Blog Posts
 Not comfortable with academic-style papers? The following Blog Posts explain the Whitepaper in smaller digestible articles.
 
-**About our journey: Getting APIs on the Blockchain**
+<medium-whitepaper />
+
+<!--**About our journey: Getting APIs on the Blockchain**
 
 1. [APIs: The Digital Glue](https://medium.com/api3/apis-the-digital-glue-7ac87566e773)
 2. [The API Connectivity Problem](https://medium.com/api3/the-api-connectivity-problem-bd7fa0420636)
@@ -95,6 +97,7 @@ Not comfortable with academic-style papers? The following Blog Posts explain the
 * [The Race to First-Party Oracles](https://medium.com/api3/the-race-to-first-party-oracles-87fab596e906)
 * [Is API3 the ‘Chainlink Killer’?](https://medium.com/api3/is-api3-the-chainlink-killer-3bd59f93c895)
 * [On exclusivity deals and their implications for Ethereum](https://medium.com/api3/on-exclusivity-deals-and-their-implications-for-ethereum-9354a9ff7929)
+* -->
 
 **All the Blog Posts**
 
