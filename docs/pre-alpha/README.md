@@ -9,7 +9,7 @@ title: What is API?
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 **API3** ([https://api3.org](https://api3.org)) is a collaborative project to deliver traditional API services to smart contract platforms in a decentralized and trust-minimized way. It is governed by a _decentralized autonomous organization_ (DAO), namely the **API3 DAO**. Therefore, its code is open source and its operations are transparent.
 

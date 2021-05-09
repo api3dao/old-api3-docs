@@ -5,7 +5,7 @@ title: Provider
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 A provider is an entity (individual, business, etc.) that operates an Airnode to serve one or more APIs to smart contracts.
 Each provider has only one private key, which they use across all chains.

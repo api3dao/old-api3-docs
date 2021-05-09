@@ -5,7 +5,7 @@ title: Airnode implementation
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 *See our article, [Getting to know Airnode](https://medium.com/api3/getting-to-know-airnode-162e50ea243e) for a technical overview of the software.*
 

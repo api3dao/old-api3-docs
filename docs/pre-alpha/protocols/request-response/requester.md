@@ -5,7 +5,7 @@ title: Requester
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 A requester is an entity (individual, business, etc.) whose contracts make requests to [providers](provider.md).
 These contracts are called [clients](client.md).

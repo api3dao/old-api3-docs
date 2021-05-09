@@ -5,7 +5,7 @@ title: Endpoint
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 Airnode serves APIs to blockchains according to [Oracle Integration Specifications (OIS)](../../airnode/specifications/ois.md).
 APIs are composed of [operations](../../airnode/specifications/ois.md#_4-4-paths), which represent individual functionalities that an API offers.

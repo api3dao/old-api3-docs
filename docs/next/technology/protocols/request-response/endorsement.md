@@ -5,7 +5,7 @@ title: Endorsement
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 A [requester](requester.md) announcing that a [client](client.md) can specify their requests to be fulfilled by the requester's [designated wallets](designated-wallet.md) is called an endorsement.
 This is done by the `requesterAdmin` calling `RequesterStore.sol` with the client contract's address.

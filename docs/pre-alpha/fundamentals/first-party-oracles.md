@@ -4,7 +4,7 @@ title: First-party oracles
 
 # {{$frontmatter.title}}
 
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 An oracle is an agent that acts as an intermediary between a smart contract platform and an API.
 In other words, a decentralized application can use an oracle to call an API.

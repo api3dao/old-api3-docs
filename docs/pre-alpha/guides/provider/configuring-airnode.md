@@ -5,7 +5,7 @@ title: Configuring Airnode
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 Users configure their Airnodes by providing a `config.json` and a `security.json` file during deployment/redeployment.
 `config.json` specifies the API–oracle integration specifications in the form of [OIS](../../airnode/specifications/ois.md)es, but also user-specific configuration details.

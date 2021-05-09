@@ -4,7 +4,7 @@ title: Decentrally-governed oracle networks
 
 # {{$frontmatter.title}}
 
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 *See our article, [On DAOs: Decentralized Autonomous Organizations](https://medium.com/api3/on-daos-decentralized-autonomous-organizations-84c00abb89bc) on DAOs and decentralized governance.*
 

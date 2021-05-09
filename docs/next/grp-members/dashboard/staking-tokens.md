@@ -5,7 +5,7 @@ title: How to Stake
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 > Content
 > 

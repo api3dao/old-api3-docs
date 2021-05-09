@@ -5,7 +5,7 @@ title: Template
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 An oracle request has many parameters.
 It is very common for [clients](client.md) (e.g., a data feed) to make repeated requests with the exact same parameters.

@@ -5,7 +5,7 @@ title: API Integration
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 A successful integration of an API with an Airnode requires the mapping of each other's interface. This is accomplished using an OIS ([Oracle Integration Specifications](../../../technology/specifications/ois.md)) json object that is designed to follow three basic steps.
 

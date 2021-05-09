@@ -5,7 +5,7 @@ title: API integration
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[TOC]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 To integrate a System X to a System Y, we need to do three things:
 - Specify the interface of System X

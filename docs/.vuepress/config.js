@@ -14,7 +14,6 @@ module.exports = {
   description: 'Technical Documentation for API3 ',
   markdown: {
     lineNumbers: true,
-    toc: { includeLevel: [2, 3] },
   },
   themeConfig: {
     startPath:'/pre-alpha/',
