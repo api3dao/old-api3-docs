@@ -264,14 +264,16 @@ Contents of an `environment` object can be seen below.
 
 ### evnName
 
-The value of the `envName` field is the actual environment variable name that must exist in secrets.env. The recommended naming conventions are below. Any spaces in the names should be replaced with underscores(`_`) and all characters are uppercase. Do not use dashes (-).
+The value of the `envName` field is the actual environment variable name that must exist in secrets.env. The recommended naming conventions are below. Replace any unsupported characters (whitespace, dash, etc.) with underscores. All characters are uppercase.
+
+> Supported characters; (A-Z, 0-9, _)
 
 - chainProvider[n].envName -- `CP_${chainType}_${chainId}_${name}`
-- securitySchemes[n].envName -- `SS_?????????`
+- securitySchemes[n].envName -- `SS_${oisTitle}_${name}`
 
 ### securitySchemes
-
-Each entry in `environment.securitySchemes` maps to a security scheme defined in an OIS, where `oisTitle` is the `title` field of the related OIS, and `name` is the name of the respective security scheme (these would be `myOisTitle` and `mySecurityScheme` in the example in the [OIS docs](../specifications/ois.md)). `envName` is the environment variable name that the security scheme value (e.g., the API key) will be found under. The recommended naming convention is `ss_${oisTitle}_${name}` where spaces in the names are replaced with underscores(`_`).
+  
+Each entry in `environment.securitySchemes` maps to a security scheme defined in an OIS, where `oisTitle` is the `title` field of the related OIS, and `name` is the name of the respective security scheme (these would be `myOisTitle` and `mySecurityScheme` in the example in the [OIS docs](../specifications/ois.md)). `envName` is the environment variable name that the security scheme value (e.g., the API key) will be found under.
 
 
 <Todo>
