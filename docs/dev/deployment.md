@@ -66,17 +66,20 @@ It is important to pull down the **main branch** (step 3) after the remote maste
 
 1. Verify the repo target in `deploy.sh` is set to `api3dao/api3-docs`.
   
-    `git push -f git@github.com:api3dao/api3-docs.git main:gh-pages`
+    ```bash
+    # Verify only, do not execute outside the deploy.sh script.
+    git push -f git@github.com:api3dao/api3-docs.git main:gh-pages
+    ```
 
-1. Run `yarn test:links:prod` to verify hyperlinks.
+2. Run `yarn test:links:prod` to verify hyperlinks.
 
-1. Git
+3. Git
     - Commit and push local work to the remote repo.
     - From the remote repo, merge contributing branches to main.
     - Switch to local main branch.
     - Pull remote main to local repo.
 
-1. Verify the proper versions (**versions key**) are listed in config.json.
+4. Verify the proper versions (**versions key**) are listed in config.json.
 
     ```json
       versions:[
@@ -85,7 +88,7 @@ It is important to pull down the **main branch** (step 3) after the remote maste
       ],
     ```
 
-1. Deploy
+5. Deploy
     - Deploy from a desired local branch, usually **main**.
     - Execute `deploy.sh` to deploy.
   
