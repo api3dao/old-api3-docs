@@ -233,31 +233,111 @@ The `GET /tokens` returns a list of all tokens. The list count can be limited us
 
 ### Security schemes
 
-<Todo>
+OIS security mostly follows OAS security practices. There are some differences noted below. For more about OAS security see [OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#securitySchemeObject). 
+ 
 
-Need to work on this. Need to rely less on OAS.
+- All API operations for each OIS object must use the securityScheme(s) named the `ois.apiSpecifications.security` field. 
+- Only `apiKey` and `http` security types are supported. 
 
-</Todo>
+#### How to secure an API 
 
-<!-- markdown-link-check-disable -->
-<!-- Once fixed, remove the link-check-disable. -->
-As a final step, we need to specify the security schemes of the API.
-Usually, this means telling Airnode where the API key goes, and under what name. Note that we will not be entering the API key itself in the OIS, because the OIS is not meant to include any user-specific information. Security credentials such as API keys go in [secrets.env](../../../technology/deployment-files/secrets-env.md) file.
+Security is implemented using the securitySchemes and security fields. You use `components.securitySchemes` to define the securitySchemes your API will use, then use `security` to apply the securitySchemes to all API operations in the `ois` object. Consider the following code that declares a securityScheme that requires an API Key that must exist in the HTTP header named X-api-key.
 
-First, name the security scheme by replacing `{FILL_SECURITY_SCHEME_NAME}` under `apiSpecifications.components.securitySchemes`.
-Note that you will also need to use the same name under `apiSpecifications.security`.
-Make sure to choose a descriptive name, such as `myapi_apikey`.
-This name will also be referred to in the [secrets.env](../../../technology/deployment-files/secrets-env.md) file.
-<!-- markdown-link-check-enable -->
-Next, fill in `type`, `name` and `in` by referring to the [`components` section of OIS](../../../technology/specifications/ois.md#_4-2-components).
-[OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#securitySchemeObject) is also a good source for further details.
+```json
+"components": {
+  "securitySchemes": {
+    "myApiKeyScheme": {   // Declares the security scheme myApiKeyScheme (arbitrary name).
+      "in": "header",     // "query", "header", "cookie"
+      "type": "apiKey",   // "apiKey", "http"
+      "name": "X-api-key" // Arbitrary name
+    }
+  }
+},
+"security": [
+  {
+    "myApiKeyScheme": [] // Applies the security scheme myApiKeyScheme 
+  }                      // globally to all API operations in the ois object.
+]
+```
 
-As noted above, make sure to insert the name of your security scheme under `apiSpecifications.security`.
-Furthermore, similar to API operations, you can use multiple security schemes simply by duplicating the one provided in the OIS template (e.g., an API key goes in the header, and an additional user ID goes in the query).
-Similarly, if the API you are integrating is publicly accessible, you can remove all security schemes.
+You can create a securityScheme by copying the code above or using the template code below. Just follow the steps below. Or use the full [OIS Template](../templates/ois-json.md). 
 
-Congratulations, you have just specified your API operations!
-Now let us move on to the part that will be exposed to the chain.
+```json
+"components": {
+  "securitySchemes": {
+    "{FILL_SECURITY_SCHEME_NAME}": {
+      "in": "{FILL_*}",
+      "type": "{FILL_*}",
+      "name": "{FILL_*}"
+    }
+  }
+},
+"security": {
+  "{FILL_SECURITY_SCHEME_NAME}": []
+}
+```
+1. First, name the security scheme by replacing `{FILL_SECURITY_SCHEME_NAME}` under `apiSpecifications.components.securitySchemes`. Note that you will also need to use the same name under `apiSpecifications.security`. Make sure to choose a descriptive name, such as `myApiKeyScheme`. This name will also be referred in the [secrets.env](../../../technology/deployment-files/secrets-env.md) file in a later step.
+
+    > Note that we will not be entering the API key itself in the OIS, because the OIS is not meant to include any user-specific information. Security credentials such as API keys go in [secrets.env](../../../technology/deployment-files/secrets-env.md) file.
+
+2. Enter values for `in`, `type` and `name`. You can refer to the [OIS](../../../technology/specifications/ois.md#_4-2-components) document for more details or reference the following table for acceptable values.
+
+    | type        | in           | name     |
+    | ----------- | ------------ | -------- |
+    | apiKey      | header       | {myName}, Arbitrary parameter name |
+    | http        | query        |          |
+    |             | cookie       |          |
+
+3. Make sure to insert the name of your securityScheme under `security`. 
+
+
+4. Security credentials such as API keys go in [secrets.env](../../../technology/deployment-files/secrets-env.md) file. This step will actually be discussed in the next Guide document [Configuring Airnode](configuring-airnode.md#creating-secrets-env) which will discuss how to link your securityScheme(s) to the secrets.env file via the environment field. For now the following shows what the type `apiKey` named `myApiKeyScheme` might look like in secrets.env.
+
+    ```bash
+    MASTER_KEY_MNEMONIC=""
+    AWS_ACCESS_KEY_ID=""
+    AWS_SECRET_KEY=""
+    CP_EVM_31337_EVM_LOCAL=""
+    SS_MY_API_KEY="XP9876BH768FGD6734" # The apiKey
+    ```
+
+#### Multiple securitySchemes
+
+You can use multiple security schemes (e.g., an API key goes in the header, and an additional secret goes in the query).
+   
+  ```json
+  "components": {
+    "securitySchemes": {
+      "myApiKeyScheme": {
+        "in": "header",
+        "type": "apiKey", 
+        "name": "X-api-key"
+      },
+      "mySecretScheme": {
+        "in": "query",
+        "type": "apiKey",
+        "name": "secret"
+      }
+    }
+  },
+  "security": [
+    {
+      "myApiKeyScheme": [],
+      "mySecretScheme": []
+    }
+  ]
+  ```
+
+#### API Operations needing different securitySchemes
+
+If different API operations use different securitySchemes (or some use none) they must be grouped in different `ois` objects based on their common securityScheme(s). For example: Your API has four operations, three require an apiKey in the HTTP header, another (/ping) requires no security. 
+
+- The first three API operations might be in the `ois[0]` object with a securityScheme named _myApiKeyScheme_ of type _apiKey_ as shown above. 
+- The /ping API operation would be in `ois[1]` which would not have any `component.securitySchemes` and `security` would be an empty array.
+
+#### No Security
+
+If the API you are integrating is publicly accessible, you can remove all security schemes.
 
 <!--------------- STEP 3 ---------------->
 
