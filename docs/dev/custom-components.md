@@ -13,7 +13,26 @@ There are custom Vue Components located in .vuepress/components. See the code co
 
 [TocHeader.vue](https://github.com/api3dao/api3-docs/blob/stage/docs/.vuepress/components/TocHeader.vue)
 
-TocHeader.vue adds an element to any markdown file and displays "Table of Contents" above the VuePress generated **TOC**. It aligns itself above the TOC using css in index.styl, look for the .toc-label class.
+TocHeader.vue adds an element to any markdown file and displays "Table of Contents" above the VuePress community generated **vuepress-plugin-table-of-contents**. It aligns itself above the TOC using css in index.styl, look for the .toc-label class.
+
+## Todo.vue
+
+[Todo.vue](https://github.com/api3dao/api3-docs/blob/stage/docs/.vuepress/components/Todo.vue)
+
+Todo.vue is a temporary component used as a placeholder for items that need to be resolved inside a document. A marker (badge) activates in the upper right hand corner of any document that contains one or more Todo components. The Todo can also reference a GitHub issue. Note that there must be a blank line before the closing tag (&lt;/Todo>) as this component uses Vue **slots**.
+
+```html
+<Todo :issueID="68">
+Example Todo, notice the badge in the upper right hand corner. The Todo can also reference a GitHub issue.
+
+</Todo>
+```
+
+<Todo :issueID="68">
+Example Todo, notice the badge in the upper right hand corner. The Todo can also reference a GitHub issue.
+
+</Todo>
+
 
 ## Versions.vue and VersionsModal.vue
 

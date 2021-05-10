@@ -13,17 +13,18 @@ All plugins are installed as devDependencies.
 
 ```json
 "devDependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.34",
-    "@fortawesome/free-solid-svg-icons": "^5.15.2",
-    "@fortawesome/vue-fontawesome": "^2.0.2",
-    "@vuepress/plugin-back-to-top": "^1.8.2",
-    "@vuepress/plugin-medium-zoom": "^1.8.2",
-    "markdown-link-check": "^3.8.6",
-    "v-click-outside": "^3.1.2",
-    "vuepress": "^1.8.2",
-    "vuepress-plugin-element-tabs": "^0.2.8"
-  },
-  "dependencies": {}
+  "@fortawesome/fontawesome-svg-core": "^1.2.34",
+  "@fortawesome/free-solid-svg-icons": "^5.15.2",
+  "@fortawesome/vue-fontawesome": "^2.0.2",
+  "@vuepress/plugin-back-to-top": "^1.8.2",
+  "@vuepress/plugin-medium-zoom": "^1.8.2",
+  "markdown-link-check": "^3.8.6",
+  "v-click-outside": "^3.1.2",
+  "vuepress": "^1.8.2",
+  "vuepress-plugin-element-tabs": "^0.2.8",
+  "vuepress-plugin-table-of-contents": "^1.1.7"
+},
+"dependencies": {}
 ```
 
 ## Vue and VuePress Plugins
@@ -42,6 +43,7 @@ api3-docs uses several community plugins and packages to enhance the user experi
 - markdown-link-check
 - v-click-outside
 - vuepress-plugin-element-tabs
+- vuepress-plugin-table-of-contents
 
 ## @fortawesome
 
@@ -106,3 +108,7 @@ Tab two contents
 :::
 ::::
 ```
+
+## vuepress-plugin-table-of-contents
+
+This community plugin was added to avoid using the VuePress native Table of Contents which is not properly adding its links to the browser history stack. This plugin uses the Vue Router for its links which are correctly added to the browser history. As a result the user experience when going back or forward through the history stack is accurate to include anchor positions.

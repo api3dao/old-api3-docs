@@ -20,8 +20,8 @@
           type="tip" :text="'Todo: '+$page.todoCnt" 
           vertical="top" />
         </span>
-        <a v-show="githubID" :href="githubURL" target="github">
-          GitHub Issue: #{{githubID}}
+        <a v-show="issueID" :href="githubURL" target="github">
+          GitHub Issue: #{{issueID}}
         </a>
         <div style="margin-top:-10px;margin-bottom:-10px;"><slot>Todo:</slot></div>
       </div>
@@ -33,7 +33,7 @@
 
   export default {
       name: 'todo',
-      props: {githubID:Number
+      props: {issueID:Number
     },
     data: () => ({
       githubURL:String,
@@ -41,7 +41,7 @@
     mounted() {
       this.$nextTick(function () {
         this.$page.todoCnt = 0 // Needed here and beforeMount
-        this.githubURL = "https://github.com/api3dao/api3-docs/issues/"+this.githubID
+        this.githubURL = "https://github.com/api3dao/api3-docs/issues/"+this.issueID
       })
     },
     beforeUpdate() {
