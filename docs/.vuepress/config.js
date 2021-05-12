@@ -14,6 +14,7 @@ module.exports = {
   description: 'Technical Documentation for API3 ',
   markdown: {
     lineNumbers: true,
+    extractHeaders: ['h2', 'h3', 'h4', 'h5']
   },
   themeConfig: {
     startPath:'/pre-alpha/',
@@ -62,8 +63,8 @@ module.exports = {
       };
   },
   plugins: [
-      ['vue-pdf'],
       ['vuepress-plugin-table-of-contents'],
+      ['vue-pdf'],
       ['@vuepress/medium-zoom'],
       ['vuepress-plugin-element-tabs'],
       ['@vuepress/last-updated'],
@@ -75,6 +76,7 @@ module.exports = {
             added to .vuepress.components/SearchBox.vue
           */
         }
-      ]
+      ],
+      
   ]
 }

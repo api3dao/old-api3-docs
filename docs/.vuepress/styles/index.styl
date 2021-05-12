@@ -35,6 +35,19 @@ a code{
   text-decoration:underline;
 }
 
+/* Next and prev links, keep off the TOC. */
+div.page-nav{
+  position:relative;
+  margin-left:0px;
+  max-width:530px;
+}
+
+/* Last update, keep of the TOC. */
+div.last-updated{
+  margin-right:220px;
+  min-width:220px;
+}
+
 /* END Content */
 /************************************************/
 
@@ -168,17 +181,24 @@ div.dropdown-wrapper, ul.nav-dropdown, li.dropdown-item a.nav-link.router-link-e
 
 .table-of-contents{
     position: fixed;
-    top:170px;
+    top:110px;
     right: 5px;
     font-size:small;
     color:#50c878;
     min-width:275px !important;
     max-width:275px !important;
+    border-bottom:1px lightgrey solid;
+    border-right:1px lightgrey solid;
+    /* http://jsfiddle.net/RyanBrackett/b44Zn/ */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-y: scroll; /* Add vertical scrollbar */
+    -webkit-overflow-scrolling: touch;
+    height: 75%;
 }
 /* This is a .vuepress/components/TocHeader.vue */
 .toc-label{
   position: fixed;
-    top:150px;
+    top:90px;
     right: 5px;
     font-size:medium;
     color:gray;
@@ -197,7 +217,7 @@ div.dropdown-wrapper, ul.nav-dropdown, li.dropdown-item a.nav-link.router-link-e
 }
 @media only screen and (max-width: 1600px) {
     div.theme-default-content.content__default{
-      /*background-color: pink;*/
+      /* background-color: pink; */
       max-width:65%;
       margin-left:70px;
     }
@@ -211,31 +231,32 @@ div.dropdown-wrapper, ul.nav-dropdown, li.dropdown-item a.nav-link.router-link-e
 }
 @media only screen and (max-width: 1450px) {
     div.theme-default-content.content__default{
-      /*background-color: gray;*/
+      /*  background-color: gray; */
       max-width:65%;
       margin-left:10px;
     }
 }
 @media only screen and (max-width: 1400px) {
     div.theme-default-content.content__default{
-      /*background-color: lightgrey;*/
+      /* background-color: lightgrey; */
       max-width:65%;
       margin-left:10px;
     }
 }
 @media only screen and (max-width: 1350px) {
     div.theme-default-content.content__default{
-      /*background-color: beige;*/
+      /* background-color: beige; */
       max-width:65%;
       margin-left:10px;
     }
 }
 @media only screen and (max-width: 1300px) {
     div.theme-default-content.content__default{
-      /*background-color: pink;*/
+      /* background-color: purple; */
       max-width:60%;
       margin-left:10px;
     }
+
 }
 
 @media only screen and (max-width: 1200px) {
@@ -243,7 +264,7 @@ div.dropdown-wrapper, ul.nav-dropdown, li.dropdown-item a.nav-link.router-link-e
       display:none;
     }
     div.theme-default-content.content__default{
-      /*(background-color: lightblue;*/
+      /* background-color: lightblue; */
       margin-left:10px;
       max-width:85%;
     }
@@ -253,7 +274,7 @@ div.dropdown-wrapper, ul.nav-dropdown, li.dropdown-item a.nav-link.router-link-e
       display:none;
     }
     div.theme-default-content.content__default{
-      /*background-color: lightgreen;*/
+      /*  background-color: lightgreen; */
       margin-left:10px;
       max-width:85%;
     }

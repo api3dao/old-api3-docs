@@ -5,7 +5,7 @@ title: Configuring Airnode
 # {{$frontmatter.title}}
 
 <TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TOC class="table-of-contents" :include-level=[2,5] />
 
 An Airnode is deployed or redeployed using configuration values from its `config.json` and `secrets.env` files. The  `config.json` specifies the [OIS](../../../technology/specifications/ois.md) (Oracle Integration Specifications) and other specific configuration details. The `secrets.env` file includes security credentials such as API keys and chain provider URLs.
 
@@ -84,36 +84,29 @@ The complete 0.1.0 list of Ethereum providers and their AirnodeRRP contractIDs d
 
 <ChainsSupported :version="'0.1.0'" />
 
-For additional information about chain parameters see the [chains](../../../technology/deployment-files/config-json.html#chains) section of the config.json explanation in the _Technology > Deployment Files_.
+For additional information about chain parameters see the [Technology > Deployment Files > config.json](../../../technology/deployment-files/config-json.html#chains).
 
-<details class="collapse-box">
-  <summary class="collapse-box-summary">
-  View a sample of the chains field.
-  </summary>
-
-  ```json
-    "chains": [
-      {
-        "id": "3",
-        "type": "evm",
-        "providerNames": [
-          "infura_ropsten"
-        ],
-        "contracts": {
-          "AirnodeRrp": "0xF6d2675468989387e96127546e0CBC9A384fa418"
-        },
-        "airnodeAdmin": "{FILL_AIRNODE_ADMIN}",
-        "authorizers": [
-          "0x0000000000000000000000000000000000000000"
-        ],
-        "blockHistoryLimit": 300,
-        "minConfirmations": 0,
-        "ignoreBlockedRequestsAfterBlocks": 20
-      }
-    ],
+```json
+  "chains": [
+    {
+      "id": "3",
+      "type": "evm",
+      "providerNames": [
+        "infura_ropsten"
+      ],
+      "contracts": {
+        "AirnodeRrp": "0xF6d2675468989387e96127546e0CBC9A384fa418"
+      },
+      "airnodeAdmin": "{FILL_AIRNODE_ADMIN}",
+      "authorizers": [
+        "0x0000000000000000000000000000000000000000"
+      ],
+      "blockHistoryLimit": 300,
+      "minConfirmations": 0,
+      "ignoreBlockedRequestsAfterBlocks": 20
+    }
+  ],
 ```
-
-</details>
 
 #### id
 
@@ -125,7 +118,7 @@ An Airnode can serve multiple chains simultaneously. Set the ID of the desired c
 
 #### providerNames
 
-Airnode can use multiple Ethereum providers per chain. These could be a private Ethereum node, or an Ethereum service provider such as Infura. Accordingly, the `providers` field is list which allows for multiple Ethereum providers. Enter the `name` (to be used in logs) and the `url` of the Ethereum provider as an object.
+Airnode can use multiple Ethereum providers per chain. These could be a private Ethereum node, or an Ethereum service provider such as Infura. Accordingly, the `providers` field is a list which allows for multiple Ethereum providers. Enter the `name` which identifies the provider. The name is used in the `environment` object to get its secret _provider URL_ and is used in logs.
 
 #### contracts
 
@@ -133,7 +126,7 @@ Airnode can use multiple Ethereum providers per chain. These could be a private 
 
 #### airnodeAdmin
 
-`airnodeAdmin` is the address that your Airnode will set as the [provider admin](../../../technology/protocols/request-response/airnode.md#airnodeAdmin) while creating the provider record on the respective chain. You should set this field to an address that only you control.
+`airnodeAdmin` is the address that your Airnode will set as the [airnodeAdmin](../../../technology/protocols/request-response/airnode.md#airnodeAdmin) while creating the Airnode record on the respective chain. You should set this field to an address that only you control.
 
 #### authorizers
 
@@ -153,7 +146,25 @@ The list of authorizer contract addresses the Airnode deployment will set on-cha
 
 ### nodeSettings
 
-The `nodeSettings` field holds node-specific (Airnode) configuration parameters. The first of these is `providerIdShort`, which is used as a label by the deployer to detect previous deployments. Therefore, you must not have the `providerIdShort` field in your `config.json` during the first deployment as it will be created for you. On the other hand, you must have it for the following redeployments. You can find your `providerIdShort` in the receipt file outputted after deployment. This guide assumes that you have not deployed Airnode yet, so we did not include the `providerIdShort` field in the `config.json` template.
+
+The `nodeSettings` field holds node-specific (Airnode) configuration parameters. 
+
+#### airnodeIdShort
+
+The first of these is `airnodeIdShort`, which is used as a label by the deployer to detect previous deployments. Therefore, you must not have the `airnodeIdShort` field in your `config.json` during the first deployment as it will be created for you. On the other hand, you must have it for the following redeployments. You can find your `airnodeIdShort` in the receipt file outputted after deployment. This guide assumes that you have not deployed Airnode yet, so the `airnodeIdShort` field is not present in the `config.json` template.
+
+```json
+{
+  // The airnodeIdShort is ommitted for new deployments
+  "nodeVersion": "0.1.0",
+  "cloudProvider": "aws",
+  "region": "us-east-1",
+  "stage": "testnet",
+  "logFormat": "json",
+  "logLevel": "INFO"
+}
+```
+
 
 #### nodeVersion
 
@@ -173,23 +184,47 @@ The `nodeSettings.stage` field allows you to deploy multiple Airnodes with the s
 
 #### logFormat
 
-Set the `logFormat` field set to `json` for Airnode to log in JSON.
+Set one of two possible log formats. 
+
+- json
+- plain
+
+#### logLevel
+
+Set one of four possible log levels. 
+
+- DEBUG
+- INFO
+- WARN
+- ERROR
 
 ### environment
 
-An Airnode deployments needs secrets such as security scheme values (i.e., API keys) and blockchain provider URLs. The secrets.env file stores these secrets which are used to set the environment variables. See the reference [config.json > environment](../../../technology/deployment-files/config-json.md#environment) for additional input.
+Airnode deployments need secrets such as security scheme values (i.e., API keys) and blockchain provider URLs. The secrets.env file stores these secrets which are used to set the environment variables. The `environment` field is used by Airnode to access the environment variables (secrets) for securitySchemes and blockchain provider URLs. These variables have arbitrary names and need to be declared. See the reference [Technology > Deployment Files > config.json > environment](../../../technology/deployment-files/config-json.md#environment) for additional input.
 
-Steps Airnode takes related to environment variables during deployment and redeployment.
+Note the following steps Airnode takes related to environment variables during deployment and redeployment.
 
 1. Airnode creates environment variables from the secrets.env file.
 
-2. Airnode utilizes the `environment` object in config.json to identify the environment variables related to security schemes and provider URLs. 
+2. Airnode utilizes the `environment` object in config.json to look-up the environment variables related to securitySchemes and chainProviders that are stored in secrets.env. 
 
-#### Example
+#### chainProviders
 
-This example creates a chain provider record which in turn has a secret, a provider URL. The provider URL will be stored in the secrets.env file
+Each entry in `environment.chainProviders[n]` maps to an `entry in chains[n]`. Note that the value of envName is the name of the environment variable (from secrets.env) which holds the respective blockchain provider URL. See the section [One Chain: One Provider](configuring-airnode.md#one-chain-one-provider) below to understand and setup a chainProvider along with an environment variable that points to its provider URL in `secrets.env`. 
 
-1. When creating a config.json file the `chains` field declares its use of blockchain 3, Ropsten. It then declares the use of the blockchain provider "infura_ropsten" in the `providerNames` array. The name "infura_ropsten" is completely arbitrary.
+> - chainId - blockchain ID 
+> - chainType - only evm supported at this time
+> - name - arbitrary name of the blockchain provider
+> - envName - name of the environment variable found in secrets.env
+
+##### One Chain: One Provider
+
+This example creates a `chains` record with one blockchain provider and a corresponding `environment.chainProviders ` record which in turn has a secret, a provider URL stored in the secrets.env file.
+
+1. For the purpose of this example the `chains` field declares its use of blockchain 3, _Ropsten_. The `type` is set to _evm_ which is the only type currently supported by Airnode. It then applies an arbitrary name for the blockchain provider "infura_ropsten" in the `providerNames` array.
+
+    > See the above [chains](configuring-airnode.md#chains) section of this page for information on the remaining fields within the `chains` object.
+
     ```json
     "chains": [
       {
@@ -203,7 +238,18 @@ This example creates a chain provider record which in turn has a secret, a provi
     ]
     ```
 
-2. The Airnode deployer will use the `chains[0].providerNames[0]` value from above (infura_ropsten) to get the environment variable name for "infura_ropsten" which is "CP_EVM_3_infura_ropsten". It does so by mapping `chains[0].providerNames[0]` to `environment.chainProviders[n].name` which is a sibling of `envName`, the environment variable name  "CP_EVM_3_INFURA_ROPSTEN". 
+2. The Airnode deployer will use three keys from `chains` to get the appropriate environment variable name from `environment` which in this case is "CP_EVM_3_INFURA_ROPSTEN". 
+
+    - `chains[0].id`
+    - `chains[0].type`
+    - `chains[0].providerNames[0]` 
+  
+3. Using the three keys from step #2 above, Airnode will look for a match using three keys in `environment`. The resulting match yields the value  of `envName` which is the name of the environment variable in secrets.env.
+  
+    - `environment.chainProviders[0].chainId` 
+    - `environment.chainProviders[0].chainType`
+    - `environment.chainProviders[0].name` 
+
     ```json
     "environment": {
       "chainProviders": [
@@ -216,48 +262,103 @@ This example creates a chain provider record which in turn has a secret, a provi
       ],
       "securitySchemes": []
     },
-    ```
 
-
-3. When the Airnode deployer executes it first sets the environment variables named in secrets.env. Note the variable `CP_EVM_3_INFIRA_ROPSTEN` with a value that is a provider URL. Using the config.json file the deployer will be able to map its way to the CP_EVM_3_INFURA_ROPSTEN environment variable and its value.
-    ```bash
-    AWS_ACCESS_KEY_ID="XYZ123"
-    AWS_SECRET_KEY="ABC789"
-    MASTER_KEY_MNEMONIC="achieve climb couple wait accident symbol spy blouse reduce foil echo label"
-    SS_MYOISTITLE_MY_SECURITY_SCHEME="FRACZKMH4F32BZ8X5uTd"
+    # secrets.env
+    ...
     CP_EVM_3_INFURA_ROPSTEN="https://ropsten.infura.io/v3/7545745CVDG834834"
     ```
- 
+
+##### One Chain: Multiple Providers
+
+Multiple providers can be used per chain. Simply add another `chains.providerName` and a new object to `environment.chainProviders`. In this case both blockchain providers will have the same `chainId` and `chainType`. As a result there will be an environment variable for each blockchain provider in secrets.env with a URL as its value.
+
+##### Multiple Chains: Multiple Providers
+
+Not as complicated as it sounds. First create two or more chain objects were each has a unique `id` and `type` and a list of `providerNames`. Then add each blockchain provider to the `environment.chainProviders` array much like the example above for [One Chain: One Provider](configuring-airnode.md#one-chain-one-provider)
+
+#### securitySchemes
+
+Each entry in `environment.securitySchemes` maps to a securityScheme defined in an OIS object, where `oisTitle` is the title field of the related OIS, and `name` is the name of the respective securityScheme. These would be myOisTitle and mySecurityScheme in the code example below. The `envName` field's value is the environment variable name used in secrets.env. 
+
+ that in turn holds the securityScheme value (e.g., the API key).
+
+Previously in [API Integrations](api-integration.md#security-schemes) you learned how to set up an API's securityScheme(s). Here we simply add them to `environment.securitySchemes` along with their `envName` (environment variable name).
+
+```json
+"ois": [
+  {
+    "title":"myOisTitle", // Used below in securitySchemes[0].oisTitle
+    ...,
+    "apiSpecifications": {
+      "components": {
+          "securitySchemes": {
+            "mySecurityScheme": {
+              "in": "header",  
+              "type": "apiKey",
+              "name": "X-api-key"
+            }
+          }
+        },
+      "security": [
+        {
+          "mySecurityScheme": []
+        }
+      ],
+    ...
+    }
+  }
+],
+"environment": {
+  ...,
+  "securitySchemes":[
+    {
+      "oisTitle": "myOisTitle", // ois[n].title
+      "name": "mySecurityScheme", // ois[n].apiSpecifications.security[n]
+      "envName": "SS_MYOISTITLE_MY_SECURITY_SCHEME" // ENV name in secrets.env
+    }
+  ]
+}
+--------------
+# secrets.env
+...
+SS_MYOISTITLE_MY_SECURITY_SCHEME="834989348HHGTDS_8754"
+```
+
+Based on the setup above Airnode will call the API operation with the following header.
+
+```json
+headers: {
+  "X-api-key": "834989348HHGTDS_8754",
+}
+```
+
 
 ### id
 
-<Todo>
+The `config.json` file needs a unique `id` field, which identifies the specific configuration. 
 
-The secrets.env file does not appear to have an **id**.
+## Creating secrets.env
 
-</Todo>
+The `secrets.env` file stores secrets such as chain provider urls, cloud provider keys, etc. Make sure to download the template [secrets.env](../templates/secrets-env.md) and refer to [Technology > Deployment Files > secrets.env](../../../technology/deployment-files/secrets-env.md) as needed.
 
-The `config.json` file has an `id` field, which identifies the specific configuration. Furthermore, `secrets.env` has the same field with the identical value, allowing the deployer to verify that the two files match. For this to work, you are recommended to choose a unique value for this field for each `config.json`/`secrets.env` you create (e.g., use a UUID).
+There are four categories of secrets.
 
-## Creating `secrets.env`
+- AWS_ACCESS_KEY_ID and AWS_SECRET_KEY: from your AWS account.
+- MASTER_KEY_MNEMONIC: the wallet MNEMONIC that will be used by the Airnode.
+- CP_{chainType}\_{chainId}_{name}: chain provider URLs.
+- SS_{oisTitle}_{name}: security schemes.
 
-<Todo>
+The last two categories above (CP_, SS_) are environment variable names that are declared in the [`environment.chainProviders`](configuring-airnode.md#chainproviders) or [`environment.securitySchemes`](configuring-airnode.md#securityschemes) objects. Use the values of the fields `envName` for the environment variable names.
 
-Needs conversion to secrets.env when finalized.
-
-</Todo>
-
-The `secrets.env` file is where you store secrets such as a chain provider url, cloud provider keys, etc. Make sure to download the [`secrets` template](../templates/secrets.md) and refer to the [docs](../../../technology/specifications/secrets.md) as needed.
+For each securityScheme and chainProvider create an entry in `secrets.env` that includes its value.
 
 ```bash
-MASTER_KEY_MNEMONIC=""
-AWS_ACCESS_KEY_ID=""
-AWS_SECRET_KEY=""
-CP_EVM_31337_EVM_LOCAL=""
-SS_CURRENCY_CONVERTER_API_CURRENCY_CONVERTER_SECURITY_SCHEME=""
+AWS_ACCESS_KEY_ID="XYZ...123"
+AWS_SECRET_KEY="ABC7...89"
+MASTER_KEY_MNEMONIC="achieve climb ... reduce foil echo"
+SS_MYOISTITLE_MY_SECURITY_SCHEME="FRACZKMH4F32BZ8X5uTd"
+CP_EVM_3_INFURA_ROPSTEN="https://ropsten.infura.io/v3/75745CVDG834834"
 ```
-
-For each security scheme you have defined in your `config.json`, you need to create an entry in `security.json` that includes its value. Feel free to duplicate the OIS entries under `apiCredentials` or security scheme entries under these OIS entries as needed. Finally, make sure that you use the same `id` that you have used in `config.json`.
 
 ## Conclusion
 
