@@ -262,7 +262,7 @@ Contents of an `environment` object can be seen below.
 ]
 ```
 
-### evnName
+### envName
 
 The value of the `envName` field is the actual environment variable name that must exist in secrets.env. The recommended naming conventions are below. Replace any unsupported characters (whitespace, dash, etc.) with underscores. All characters are uppercase.
 

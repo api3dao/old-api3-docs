@@ -29,8 +29,6 @@
 </template>
 
 <script>
-
-
   export default {
       name: 'todo',
       props: {issueID:Number
@@ -54,24 +52,20 @@
 </script>
 
 <style scoped>
-
 .borderRed{
   padding-top:5px;
   color:#404040;
   border:dotted red 2px;
   padding-left:5px;
 }
-
 .badgeCnt {
   position:fixed;
   top:59px;
   right:10px;
   z-index:999;
 }
-
 a{
   float:right;
   padding-right:20px;
 }
-
 </style>
