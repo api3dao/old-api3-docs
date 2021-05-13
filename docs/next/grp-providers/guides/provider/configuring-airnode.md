@@ -339,18 +339,24 @@ The `config.json` file needs a unique `id` field, which identifies the specific 
 
 ## Creating secrets.env
 
-The `secrets.env` file stores secrets such as chain provider urls, cloud provider keys, etc. Make sure to download the template [secrets.env](../templates/secrets-env.md) and refer to [Technology > Deployment Files > secrets.env](../../../technology/deployment-files/secrets-env.md) as needed.
+The `secrets.env` file contains environment variables (secrets) such as blockchain provider urls, cloud provider keys, etc. Make sure to download the [secrets.env](../templates/secrets-env.md) template and refer to [Technology > Deployment Files > secrets.env](../../../technology/deployment-files/secrets-env.md) as needed.
 
-There are four categories of secrets.
+**There are four categories of secrets.**
 
-- AWS_ACCESS_KEY_ID and AWS_SECRET_KEY: from your AWS account.
-- MASTER_KEY_MNEMONIC: the wallet MNEMONIC that will be used by the Airnode.
-- CP_{chainType}\_{chainId}_{name}: chain provider URLs.
-- SS_{oisTitle}_{name}: security schemes.
+|||
+|-|-|
+|AWS_ACCESS_KEY_ID - AWS_SECRET_KEY|AWS account credentials|
+|MASTER_KEY_MNEMONIC|The wallet MNEMONIC that will be used by the Airnode|
+|CP_${chainType}\_${chainId}_${name}|blockchain provider urls|
+|SS_${oisTitle}_${name}|securitySchemes|
 
-The last two categories above (CP_, SS_) are environment variable names that are declared in the [`environment.chainProviders`](configuring-airnode.md#chainproviders) or [`environment.securitySchemes`](configuring-airnode.md#securityschemes) objects. Use the values of the fields `envName` for the environment variable names.
+The wallet mnemonic and AWS credentials are known values you can add directly to secrets.env.
 
-For each securityScheme and chainProvider create an entry in `secrets.env` that includes its value.
+The last two categories above (CP_ and  SS_) are environment variable names that are declared in the [`environment.chainProviders`](configuring-airnode.md#chainproviders) or [`environment.securitySchemes`](configuring-airnode.md#securityschemes) objects from the config.json file. Use the values of the fields `envName` for the environment variable names.
+
+  > The  (CP_, SS_) environment variable names have formatting requirements. Correct them here and in the `environment` object if needed. Replace any unsupported characters (whitespace, dash, etc.) with underscores. All characters are uppercase. Supported characters; (A-Z, 0-9, _). While not required consider using the following naming conventions for better readability in logs.
+  > - `CP_${chainType}_${chainId}_${name}`
+  > - `SS_${oisTitle}_${name}`
 
 ```bash
 AWS_ACCESS_KEY_ID="XYZ...123"
@@ -362,12 +368,6 @@ CP_EVM_3_INFURA_ROPSTEN="https://ropsten.infura.io/v3/75745CVDG834834"
 
 ## Conclusion
 
-<Todo>
-
-There is some confusion here. Can the config.json file be made public? Here it implies no since chain provider info may be present that should not be released. Are these now in secrets.env? If not then the diagram at the top of this page needs to be changed.
-
-</Todo>
-
-In this guide, we created the `config.json` and `secrets.env` files required to deploy an Airnode. Note that `config.json` is user-specific, so the `config.json` file is probably of not much use to others Furthermore, it contains your Ethereum provider URLs, which tend to include security credentials/keys The `secrets.env` file contains API keys, so it should definitely be kept secret. Therefore, even though you can safely share your OIS, you should avoid publishing your configuration files/pushing them to repos.
+In this guide, we created the `config.json` and `secrets.env` files required to deploy an Airnode. Note that `config.json` is user-specific, so the `config.json` file is probably of not much use to others. The `secrets.env` file contains API keys and blockchain provider urls, so it should definitely be kept secret.
 
 Now that we have our Airnode configuration files, the next step is [Deploying Airnode](deploying-airnode.md).

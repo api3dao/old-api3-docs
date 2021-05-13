@@ -249,7 +249,7 @@ Contents of an `environment` object can be seen below.
   {
     "oisTitle": "...",
     "name": "...",
-    "envName": "..."
+    "envName": "..."   // ENV name used in secrets.env
   }
 ],
 "chainProviders": [    // Maps back to the chains field
@@ -257,7 +257,7 @@ Contents of an `environment` object can be seen below.
     "chainType": "...",
     "chainId": "...",
     "name": "...",
-    "envName": "..."
+    "envName": "..."   // ENV name used in secrets.env
   }
 ]
 ```
@@ -273,26 +273,21 @@ The value of the `envName` field is the actual environment variable name that mu
 
 ### securitySchemes
   
-Each entry in `environment.securitySchemes` maps to a security scheme defined in an OIS, where `oisTitle` is the `title` field of the related OIS, and `name` is the name of the respective security scheme (these would be `myOisTitle` and `mySecurityScheme` in the example in the [OIS docs](../specifications/ois.md)). `envName` is the environment variable name that the security scheme value (e.g., the API key) will be found under.
-
-
-<Todo>
-
-Need to add code block showing the mapping much like chainProviders below.
-
-</Todo>
+Each entry in `environment.securitySchemes` maps to a security scheme defined in an OIS, where `oisTitle` is the `title` field of the related OIS, and `name` is the name of the respective security scheme (these would be `myOisTitle` and `mySecurityScheme` in the example in the [OIS docs](../specifications/ois.md)). `envName` is the environment variable name used in secrets.env whose value is the security scheme value (e.g., the API key).
 
 ```json
-"securitySchemes": [
-
+"securitySchemes":[
+  {                             // Maps to:
+    "oisTitle": "myOisTitle",   // ois[n].title
+    "name": "mySecurityScheme", // ois[n].apiSpecifications.security[n]
+    "envName": "SS_MYOISTITLE_MY_SECURITY_SCHEME" // ENV name used in secrets.env
+  }
 ]
 ```
 
 ### chainProviders
 
-Each entry in `environment.chainProviders[n]` maps to an entry in `chains[n]`. The following code block illustrates this a relationship with the `chains` object shown above in the section [chains](config-json.md#chains). 
-
-Note that the value of `envName` is the name of the environment variable (from secrets.env) which holds the respective blockchain provider URL. 
+Each entry in `environment.chainProviders[n]` maps to an entry in `chains[n]`. The following code block illustrates this a relationship with the `chains` object shown above in the section [chains](config-json.md#chains). `envName` is the environment variable name used in secrets.env whose value is the chain provider URL.
 
 ```json
 "chainProviders": [
@@ -306,13 +301,13 @@ Note that the value of `envName` is the name of the environment variable (from s
     "chainType": "evm",            // chains[0].type
     "chainId": "1",                // chains[0].id
     "name": "infura_mainnet",      // chains[0].providerNames[1]
-    "envName": "CP_EVM_1_INFURA_MAINNET"
+    "envName": "CP_EVM_1_INFURA_MAINNET"   // ENV name used in secrets.env
   },
   {                                // Maps to:
     "chainType": "evm",            // chains[1].type
     "chainId": "3",                // chains[1].id
     "name": "infura_ropsten",      // chains[1].providerNames[0]
-    "envName": "CP_EVM_1_INFURA_ROPSTEN"
+    "envName": "CP_EVM_1_INFURA_ROPSTEN"   // ENV name used in secrets.env
   }
 ]
 ```
