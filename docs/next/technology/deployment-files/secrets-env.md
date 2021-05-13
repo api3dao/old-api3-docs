@@ -4,21 +4,27 @@ title: secrets.env
 
 # {{$frontmatter.title}}
 
-<Todo>
-
-The docs are outdated here. Decided that the environment variables should be all uppercase not contain any hyphens because of https://unix.stackexchange.com/a/23714. The provider name is also a part of the environment variable name in the first example (evm-local). The environment field in config.json maps an environment variable name to each blockchain provider. The environment variable can be specified to be anything, but ChainAPI will use the following convention CP_<CHAIN_TYPE>_<CHAIN_ID>_<PROVIDER_NAME> where the whitespaces and any non-alphanumeric characters in <PROVIDER_NAME> are replaced with _.
-
-</Todo>
-
 The `secrets.env` file is bundled with a [`config.json`](config-json.md) file and contains the secrets that the respective Airnode deployments will need.
 All variables defined in a `secrets.env` file will be set as the environment variables of all deployments specified in the `config.json` file.
 
-A `secrets.env` file is composed of three main groups of variables:
-- [Cloud provider credentials](../../grp-providers/guides/provider/deploying-airnode.md#creating-cloud-credentials) that are used by the deployer
-- `MASTER_KEY_MNEMONIC` that gives access to the Airnode master wallet and [designated wallets](../protocols/request-response/designated-wallet.md)
-- Environment variables [referred to in `config.json`](config-json.md#environment) with the names `envName`
+**There are four categories of secrets.**
 
-The contents of an example `secrets.env` file is given below:
+|||
+|-|-|
+|AWS_ACCESS_KEY_ID - AWS_SECRET_KEY|AWS account credentials|
+|MASTER_KEY_MNEMONIC|The wallet MNEMONIC that will be used by the Airnode|
+|CP_${chainType}\_${chainId}_${name}|blockchain provider urls|
+|SS_${oisTitle}_${name}|securitySchemes|
+
+The wallet mnemonic and AWS credentials are known values you can add directly to secrets.env.
+
+The last two categories above (CP_ and  SS_) are environment variable names that are declared in the [`environment.chainProviders`](configuring-airnode.md#chainproviders) or [`environment.securitySchemes`](configuring-airnode.md#securityschemes) objects from the config.json file. Use the values of the fields `envName` for the environment variable names.
+
+  > The  (CP_, SS_) environment variable names have formatting requirements. Correct them here and in the `environment` object if needed. Replace any unsupported characters (whitespace, dash, etc.) with underscores. All characters are uppercase. Supported characters; (A-Z, 0-9, _). While not required consider using the following naming conventions for better readability in logs.
+  > - `CP_${chainType}_${chainId}_${name}`
+  > - `SS_${oisTitle}_${name}`
+
+Below is an example of `secrets.env`.
 
 ```
 AWS_ACCESS_KEY_ID="JSDYNDRUA1XAF2W3UGPA"
