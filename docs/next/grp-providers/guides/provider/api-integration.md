@@ -5,7 +5,7 @@ title: API Integration
 # {{$frontmatter.title}}
 
 <TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TOC class="table-of-contents" :include-level="[2,4]" />
 
 A successful integration of an API with an Airnode requires the mapping of each other's interface. This is accomplished using an OIS ([Oracle Integration Specifications](../../../technology/specifications/ois.md)) json object, found in the config.json file, that is designed to follow three basic steps.
 
@@ -176,7 +176,7 @@ After specifying the path and method of an API operation, the final step is to s
 Each parameter is an object in the `apiSpecifications.paths.{PATH}.{METHOD}.parameters` array, with the fields `in` and `name`.
 `in` tells where the parameter goes in the HTTP request, and `name` tells the name that the parameter value will be sent under.
 
-It is not necessary to specify all API operation parameters, but only the ones the on-chain requester will need to be able to provide (see Airnode endpoint [parameters](#parameters)), and the ones that you want to hard-code a value for (see Airnode endpoint [fixed operation parameters](#fixedoperationparameters)).
+It is not necessary to specify all API operation parameters, but only the ones the on-chain requester will need to be able to provide (see Airnode endpoint [parameters](api-integration.md#parameters)), and the ones that you want to hard-code a value for (see Airnode endpoint [fixed operation parameters](api-integration.md#fixedoperationparameters)).
 
 Currently Airnode supports the following parameter types. For POST methods use the type `query` for requestBody parameters, Airnode will convert all `query` types to `requestBody` when calling the API operation.
 

@@ -11,8 +11,8 @@ A requester can pass request parameters either by referencing a [template](../pr
 In either case, these parameters are encoded in a `bytes`-type variable using [Airnode ABI](airnode-abi-specifications.md).
 There are two types of parameters:
 
-1. [Endpoint parameters](https://api3dao.github.io/api3-docs/pre-alpha/airnode/specifications/ois.html#_5-5-parameters) mapped to API operation parameters
-1. [Reserved parameters](https://api3dao.github.io/api3-docs/pre-alpha/airnode/specifications/ois.html#_5-4-reservedparameters)
+1. [Endpoint parameters](ois.md#_5-5-parameters) mapped to API operation parameters
+2. [Reserved parameters](ois.md#_5-4-reservedparameters)
 
 Reserved parameters signal to the provider to perform a specific operation while fulfilling the request.
 Reserved parameter names start with `_`.

@@ -113,7 +113,7 @@ After specifying the path and method of an operation, the final step is to speci
 Each parameter is an object in `apiSpecifications.path.{PATH}.{METHOD}.parameters`, with the fields `in` and `name`.
 `in` tells where the parameter goes in the HTTP request to the API, and `name` tells the name that the parameter value will be sent under.
 
-Note that you do not have to specify all operation parameters, but only the ones that you want the on-chain requester to be able to provide (see [endpoint parameters](#parameters)), and the ones that you want to hardcode a value to (see [fixed operation parameters](#fixedoperationparameters)).
+Note that you do not have to specify all operation parameters, but only the ones that you want the on-chain requester to be able to provide (see [endpoint parameters](api-integration.md#parameters)), and the ones that you want to hardcode a value to (see [fixed operation parameters](api-integration.md#fixedoperationparameters)).
 
 ### Security schemes
 
@@ -145,7 +145,7 @@ Then, it is the integrator's job to define what this service is.
 
 For example, if your API operation returns an asset price given its ticker (e.g., `BTC`), you can specify the endpoint such that the requester provides the ticker as a parameter.
 The resulting endpoint would be a general one that returns prices for any kind of asset.
-On the other hand, you can hardcode `BTC` as the asset whose price will be returned (using [fixed operation parameters](#fixedoperationparameters)), which would make your endpoint a specific one that only returns the BTC price.
+On the other hand, you can hardcode `BTC` as the asset whose price will be returned (using [fixed operation parameters](api-integration.md#fixedoperationparameters)), which would make your endpoint a specific one that only returns the BTC price.
 
 The recommended endpoint definition pattern is to create an endpoint for each API operation, and allow the requesters to provide all operation parameters themselves.
 This results in optimal flexibility, and essentially allows the requesters to use the entire API functionality on-chain.

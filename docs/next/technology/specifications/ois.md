@@ -16,11 +16,11 @@ These prepopulated fields are expected to be reviewed and customized by the inte
 
 *All URLs are absolute (i.e., [relative URLs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#relative-references-in-urls) are not supported).*
 
-- [`oisFormat`](#1-oisFormat)
-- [`title`](#2-title)
-- [`version`](#3-version)
-- [`apiSpecifications`](#4-apiSpecifications)
-- [`endpoints`](#5-endpoints)
+- [`oisFormat`](ois.md#_1-oisformat)
+- [`title`](ois.md#_2-title)
+- [`version`](ois.md#_3-version)
+- [`apiSpecifications`](ois.md#_4-apispecifications)
+- [`endpoints`](ois.md#_5-endpoints)
 
 ```json
 {
@@ -54,10 +54,10 @@ OAS equivalent: `info.title`
 
 (Required) An object specifying the API with the following fields:
 
-- [`servers`](#41-servers)
-- [`components`](#42-components)
-- [`security`](#43-security)
-- [`paths`](#44-paths)
+- [`servers`](ois.md#_4-1-servers)
+- [`components`](ois.md#_4-2-components)
+- [`security`](ois.md#_4-3-security)
+- [`paths`](ois.md#_4-4-paths)
 
 ```json
 {
@@ -105,10 +105,10 @@ OAS equivalent: `servers.0` (raise warning during conversion if `servers` has mu
 
 (Required) An object where security schemes can be found under `securitySchemes.{securitySchemeName}` with the following elements:
 
-- [`type`](#421-type)
-- [`name`](#422-name)
-- [`in`](#423-in)
-- [`scheme`](#424-scheme)
+- [`type`](ois.md#_4-2-1-type)
+- [`name`](ois.md#_4-2-2-name)
+- [`in`](ois.md#_4-2-3-in)
+- [`scheme`](ois.md#_4-2-4-scheme)
 
 #### 4.2.1. `type`
 
@@ -166,8 +166,8 @@ OAS equivalent: `security`, or `security.0` if `security` is a list (raise warni
 
 (Required) A list of operation parameters, each with the following fields:
 
-- [`name`](#4411-name)
-- [`in`](#4412-in)
+- [`name`](ois.md#_4-4-1-1-name)
+- [`in`](ois.md#_4-4-1-2-in)
 
 ##### 4.4.1.1. `name`
 
@@ -187,14 +187,14 @@ OAS equivalent: `paths.{path}.{method}.parameters.{#}.in`
 
 (Required) A list of objects, each specifying an oracle endpoint with the following fields:
 
-- [`name`](#51-name)
-- [`operation`](#52-operation)
-- [`fixedOperationParameters`](#53-fixedOperationParameters)
-- [`reservedParameters`](#54-reservedParameters)
-- [`parameters`](#55-parameters)
-- [`summary`*](#56-summary*)
-- [`description`*](#57-description*)
-- [`externalDocs`*](#58-externalDocs*)
+- [`name`](ois.md#_5-1-name)
+- [`operation`](ois.md#_5-2-operation)
+- [`fixedOperationParameters`](ois.md#_5-3-fixedoperationparameters)
+- [`reservedParameters`](ois.md#_5-4-reservedparameters)
+- [`parameters`](ois.md#_5-5-parameters)
+- [`summary`*](ois.md#_5-6-summary)
+- [`description`*](ois.md#_5-7-description)
+- [`externalDocs`*](ois.md#_5-8-externaldocs)
 
 ```json
 [
@@ -250,8 +250,8 @@ OAS equivalent: `paths.{path}.{method}.operationId` of the corresponding operati
 
 (Required) An object that refers to an operation defined in `apiSpecifications.paths`, has the following elements:
 
-- [`path`](#521-path)
-- [`method`](#522-method)
+- [`path`](ois.md#_5-2-1-path)
+- [`method`](ois.md#_5-2-2-method)
 
 #### 5.2.1. `path`
 
@@ -271,15 +271,15 @@ OAS equivalent: The `{method}` parameter in the `paths.{path}.{method}` for the 
 
 (Required) A list of objects specifying fixed operation parameters. While required, the fixedOperationParameters array can be left empty. Each object has the following elements:
 
-- [`operationParameter`](#531-operationParameter)
-- [`value`](#532-value)
+- [`operationParameter`](ois.md#_5-3-1-operationparameter)
+- [`value`](ois.md#_5-3-2-value)
 
 #### 5.3.1. `operationParameter`
 
 (Required) An object that refers to an operation parameter, has the following elements:
 
-- [`name`](#4411-name)
-- [`in`](#4412-in)
+- [`name`](ois.md#_4-4-1-1-name)
+- [`in`](ois.md#_4-4-1-2-in)
 
 #### 5.3.2. `value`
 
@@ -290,9 +290,9 @@ OAS equivalent: The `{method}` parameter in the `paths.{path}.{method}` for the 
 (Optional) A list of objects that specify reserved endpoint parameters that do not map to operation parameters, but used for special purposes by the oracle node.
 Each object has the following elements:
 
-- [`name`](#541-name)
-- [`fixed`](#542-fixed)
-- [`default`](#543-default)
+- [`name`](ois.md#_5-4-1-name)
+- [`fixed`](ois.md#_5-4-2-fixed)
+- [`default`](ois.md#_5-4-3-default)
 
 #### 5.4.1. `name`
 
@@ -315,19 +315,19 @@ Used when no value is provided.
 (Optional) A list of objects that specify endpoint parameters that map to operation parameters.
 Each object has the following elements:
 
-- [`operationParameter`](#551-operationParameter)
-- [`name`](#552-name)
-- [`default`](#553-default)
-- [`description`*](#554-description*)
-- [`required`*](#555-required*)
-- [`example`*](#556-example*)
+- [`operationParameter`](ois.md#_5-5-1-operationparameter)
+- [`name`](ois.md#_5-5-2-name)
+- [`default`](ois.md#_5-5-3-default)
+- [`description`*](ois.md#_5-5-4-description)
+- [`required`*](ois.md#_5-5-5-required)
+- [`example`*](ois.md#_5-5-6-example)
 
 #### 5.5.1. `operationParameter`
 
 (Required) An object that refers to an operation parameter, has the following elements:
 
-- [`name`](#4411-name)
-- [`in`](#4412-in)
+- [`name`](ois.md#_4-4-1-1-name)
+- [`in`](ois.md#_4-4-1-2-in)
 
 #### 5.5.2. `name`
 
