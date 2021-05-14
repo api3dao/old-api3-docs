@@ -14,7 +14,7 @@ docker build . -t api3/airnode-deployer:pre-alpha
 
 2. Ensure that your `.env` file looks like [.env.example](https://github.com/api3dao/airnode/blob/pre-alpha/packages/deployer/.env.example) and is the current working directory.
 
-3. If you will be running [deploy-first-time](#deploy-first-time) or [redeploy](#redeploy), your `config.json` and `security.json` must be in the current working directory.
+3. If you will be running [deploy-first-time](deployer-image.md#deploy-first-time) or [redeploy](deployer-image.md#redeploy), your `config.json` and `security.json` must be in the current working directory.
 (They are also needed for other commands temporarily.)
 
 4. Run the image with one of the following commands:
