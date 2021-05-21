@@ -7,7 +7,54 @@ title: Deploying Airnode
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-After integrating your API ([API Integration](api-integration.md)) and creating the configuration files ([Configuring Airnode](configuring-airnode.md)), the next step is to deploy your Airnode. Airnode comes with a [deployer](https://github.com/api3dao/airnode/tree/pre-alpha/packages/deployer), which uses [Terraform](https://www.terraform.io/) and [Serverless Framework](https://www.serverless.com/) to automate the entire deployment process. Rather than using the deployer directly it is recommended to use the provided Docker image.
+<Todo title="Airnode packages are morphing for 0.1.0">
+As at 05-18-2021 the Airnode packages are still changing.
+
+To get the Airnode repo to build on a Mac there is a change.
+
+```bash
+# Change package >protocol > package.json > build:fix-contracts-dts
+
+echo \"export { TypedEventFilter } from './commons'\n\" >> src/contracts/index.ts && grep -rl 'extends ethers.utils.Interface' src/contracts | xargs sed -i '' 's/ethers\\.utils\\.Interface/Interface/g' && grep -rl 'Result ' src/contracts | xargs sed -i '' 's/Result /Result, Interface /g'
+
+```
+
+Next make changes to `packages/deployer/src/handlers/aws/index.ts`
+
+```js
+// Line 19
+- const [err, initializedState] = await node.promiseUtils.go(node.handlers.initializeProvider(stateWithConfig));
++ const [err, initializedState] = await node.promiseUtils.go(() => node.handlers.initializeProvider(stateWithConfig));
+
+// Line 42
+- const [err, updatedState] = await node.promiseUtils.go(node.handlers.processTransactions(stateWithConfig));
++ const [err, updatedState] = await node.promiseUtils.go(() => node.handlers.processTransactions(stateWithConfig));
+```
+
+After these changes there will be 2 warnings. Not sure of their impact.
+
+</Todo>
+
+
+
+
+After integrating your API ([API Integration](api-integration.md)) and creating the configuration files ([Configuring Airnode](configuring-airnode.md)), the next step is to deploy your Airnode. Airnode comes with a [deployer](https://github.com/api3dao/airnode/tree/pre-alpha/packages/deployer), which uses [Terraform](https://www.terraform.io/) to automate the entire deployment process. Rather than using the deployer directly it is recommended to use the provided Docker image.
+
+---
+## Temporary instructions to deploy using deployer
+
+- Install Terraform
+- Build the Airnode repo locally
+- `git clone git@github.com:api3dao/airnode.git`
+- Place config.json and secrets.env in airnode > packages > deployer > src > config-data
+- `yarn run bootstrap`
+- `yarn run build-all`
+- Set (export) AWS environment variables
+- To deploy: `yarn cli:deployer deploy`
+- The `receipt.json` file will appear in the root of the deployer package
+- To remove the deployment: `yarn cli:deployer remove-with-receipt`
+
+---
 
 ## Install Docker
 
