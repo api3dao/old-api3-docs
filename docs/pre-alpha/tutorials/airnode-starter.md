@@ -49,10 +49,15 @@ In preparation to run Steps 1 & 2 the`airnode-starter`several items need to be a
     ```sh
     npm run build
     ```
-5. Run the following to generate a wallet, whose mnemonic phrase will be displayed on the terminal and recorded in a `.env` file at the project root.
-    ```sh
-    npm run generate-wallet
-    ```
+
+### Create Wallet
+
+You will need a wallet to hold funds for a testnet such as Ropsten. These funds will be used to pay fees to setup an Airnode. Funds on a testnet are free. If you already have a wallet for your desired testnet you can use it by entering its MNEMONIC manually into `.env` at the project root.
+
+Run the following to generate a new wallet, whose mnemonic phrase will be displayed on the terminal and recorded in a `.env` file at the project root.
+```sh
+npm run generate-wallet
+```
 
 ### Metamask
 
