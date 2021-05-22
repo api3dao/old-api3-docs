@@ -22,49 +22,65 @@ Currently supported chains:
 - xDai
 - Fantom
 
-You can skip the first step and use the Airnode that we have deployed on **Ropsten** as well.
-You are recommended to read the contents of the scripts as you run them, and read the entire readme before starting.
+You can skip [Step #1: Deploy an Airnode](airnode-starter.md#step-1-deploy-an-airnode) and use the Airnode that we have deployed on **Ropsten** as well. You are recommended to read the contents of the scripts as you run them, and read the entire readme before starting.
 
 ## Setup
 
-First, you need to create a wallet and fund it.
+In preparation to run Steps 1 & 2 the`airnode-starter`several items need to be acquired.
+- Build the`airnode-starter`repo.
+- Create a wallet and fund it.
+- Install/setup Metamask.
+- Get a blockchain provider account/URL.
+- Get AWS (cloud provider) credential.
 
-1. Clone this repo
-2. Run the following to install the dependencies
-```sh
-npm install
-```
-3. Run the following to build the contracts
-```sh
-npm run build
-```
-4. Run the following to generate a wallet, whose mnemonic phrase will be displayed on the terminal and recorded in a `.env` file at the project root.
-```sh
-npm run generate-wallet
-```
-5. Install [Metamask](https://metamask.io/) to your web browser
-6. Import the mnemonic phrase to Metamask
-7. Use the [faucet](https://faucet.metamask.io/) to get some Ropsten ETH, or use any other appropriate source for the chain you will be working on
+### airnode-starter repo
 
-Then, you need to get a provider URL.
-This will be used both by the deployed Airnode and by you while interacting with contracts.
-If you will be working on Ropsten:
+1. Clone the [airnode-starter](https://github.com/api3dao/airnode-starter/tree/pre-alpha) repo.
+    ```bash
+    git clone git@github.com:api3dao/airnode-starter.git
+    ```
+2. Be sure to use the pre-alpha branch `git switch pre-alpha`.
+3. Run the following to install the dependencies.
+    ```sh
+    cd airnode-starter
+    npm install
+    ```
+4. Run the following to build the contracts.
+    ```sh
+    npm run build
+    ```
+5. Run the following to generate a wallet, whose mnemonic phrase will be displayed on the terminal and recorded in a `.env` file at the project root.
+    ```sh
+    npm run generate-wallet
+    ```
+
+### Metamask
+
+1. Install [Metamask](https://metamask.io/) to your web browser.
+2. Import the mnemonic phrase to Metamask.
+3. Use the [faucet](https://faucet.metamask.io/) to get some Ropsten ETH, or use any other appropriate source for the chain you will be working on.
+
+### Ropsten
+
+You need to get a provider URL. This will be used both by the deployed Airnode and by you while interacting with contracts. If you will be working on Ropsten:
+
 1. Go to [Infura](https://infura.io/), create an account and get a Ropsten provider URL
 2. Replace `https://ropsten.infura.io/v3/{YOUR_KEY}` in your `.env` file with the URL you got from Infura
 
-Adapt the steps above if you will be using another chain.
-Note that you can use any other provider or your own node.
-However, if you will be deploying your own Airnode, the provider endpoint must be publicly accessible (i.e., `127.0.0.1:8545` will not work).
+Adapt the steps above if you will be using another chain. Note that you can use any other provider or your own node. However, if you will be deploying your own Airnode, the provider endpoint must be publicly accessible (i.e., `127.0.0.1:8545` will not work).
 
-*(You only need cloud credentials if you will not be skipping Step 1.)*
+### AWS Cloud Credentials
+
+*(If you wish to skip Step: #1 you do not need AWS cloud credentials.)*
 
 Follow the [docs](https://api3dao.github.io/api3-docs/pre-alpha/guides/provider/deploying-airnode.html#creating-cloud-credentials) to create your cloud credentials.
 Place them at `/config/.env`, similar to [/config/example.env](config-examples/example-env.md).
 Do not confuse this `.env` file with the one in the project root that keeps your mnemonic phrase and provider URL.
 
-**Following these instructions to deploy an Airnode on AWS is [free](https://aws.amazon.com/free/) at the time this is being written.**
-
 ## Step 1: Deploy an Airnode
+
+_Following these instructions to deploy an Airnode on AWS is [free](https://aws.amazon.com/free/) as at May 22nd, 2021._
+
 
 Normally, you would need to do two things before you deploy an Airnode:
 1. [Specify the API integration](https://api3dao.github.io/api3-docs/pre-alpha/guides/provider/api-integration.html)
@@ -80,9 +96,7 @@ You can make test calls over the [CoinGecko API docs](https://www.coingecko.com/
   <img src="https://user-images.githubusercontent.com/19530665/103151070-be14ea00-478b-11eb-9608-a967c4282d9f.png" width="1024" />
 </p>
 
-See [config.example.json](config-examples/config-example-json.md) for how this integration is achieved.
-We fixed the [reserved parameters](https://api3dao.github.io/api3-docs/pre-alpha/guides/provider/api-integration.html#reservedparameters) to read the value from `market_data.current_price.usd`, cast it as an `int256` and multiply it by `1,000,000` before returning.
-No security scheme (i.e., API key) is defined in `config.json` or [security.json](config-examples/security-json.md) because the CoinGecko API is publicly accessible.
+See [config.example.json](config-examples/config-example-json.md) for how this integration is achieved. We fixed the [reserved parameters](../guides/provider/api-integration.html#reservedparameters) to read the value from `market_data.current_price.usd`, cast it as an `int256` and multiply it by `1,000,000` before returning. No security scheme (i.e., API key) is defined in `config.json` or [security.json](config-examples/security-json.md) because the CoinGecko API is publicly accessible.
 
 ### Customize your `config.json`
 
@@ -93,8 +107,7 @@ npm run customize-config
 
 ### Deploy
 
-Now your `/config` directory should have the required [config.json](https://api3dao.github.io/api3-docs/pre-alpha/airnode/specifications/config-json.html), [security.json](https://api3dao.github.io/api3-docs/pre-alpha/airnode/specifications/security-json.html) and [.env](https://api3dao.github.io/api3-docs/pre-alpha/guides/provider/deploying-airnode.html#creating-cloud-credentials) files.
-Run the following to deploy your node:
+Now your `/config` directory should have the required [config.json](../airnode/specifications/config-json.html), [security.json](../airnode/specifications/security-json.html) and [.env](../guides/provider/deploying-airnode.html#creating-cloud-credentials) files. Run the following to deploy your node:
 
 ```sh
 cd config
@@ -110,7 +123,7 @@ This will output a receipt file with the extension `.receipt.json`.
 
 ### Fund your master wallet
 
-Run the following to send your master wallet 0.1 ETH for it to [create a provider record](https://api3dao.github.io/api3-docs/pre-alpha/protocols/request-response/provider.html#creating-a-provider-record) for you on-chain.
+Run the following to send your master wallet 0.1 ETH for it to [create a provider record](../protocols/request-response/provider.html#creating-a-provider-record) for you on-chain.
 ```sh
 npm run fund-master-wallet
 ```
@@ -120,9 +133,7 @@ Your deployed Airnode will use these funds to make the transaction that will cre
 
 ### Make your endpoint publicly accessible
 
-`config.json` defines an [endpoint](https://api3dao.github.io/api3-docs/pre-alpha/protocols/request-response/endpoint.html) named `coinMarketData`, whose [endpoint ID](https://api3dao.github.io/api3-docs/pre-alpha/protocols/request-response/endpoint.html#endpointid) is `0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c`.
-Endpoints are not publicly accessible by default, so you will have to make a transaction for this.
-Run the following to set your endpoint's [authorizers](https://api3dao.github.io/api3-docs/pre-alpha/protocols/request-response/authorizer.html) to `[0x0000000000000000000000000000000000000000]`, which makes it [publicly accessible](https://api3dao.github.io/api3-docs/pre-alpha/guides/provider/setting-authorizers.html#allow-all):
+`config.json` defines an [endpoint](../protocols/request-response/endpoint.html) named `coinMarketData`, whose [endpoint ID](../protocols/request-response/endpoint.html#endpointid) is `0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c`. Endpoints are not publicly accessible by default, so you will have to make a transaction for this. Run the following to set your endpoint's [authorizers](../protocols/request-response/authorizer.html) to `[0x0000000000000000000000000000000000000000]`, which makes it [publicly accessible](../guides/provider/setting-authorizers.html#allow-all):
 ```sh
 npm run update-authorizers
 ```
@@ -131,11 +142,11 @@ npm run update-authorizers
 
 The scripts in this step will use the Airnode you have deployed if you have completed Step 1.
 Otherwise, it will use the `providerId` of the Airnode that we have deployed given in `src/parameters.js`.
-Note that the `endpointId` will be the same either way because it is [derived from the OIS and endpoint name](https://api3dao.github.io/api3-docs/pre-alpha/protocols/request-response/endpoint.html#endpointid).
+Note that the `endpointId` will be the same either way because it is [derived from the OIS and endpoint name](../protocols/request-response/endpoint.html#endpointid).
 
 ### Create a requester
 
-Run the following to create an on-chain [requester](https://api3dao.github.io/api3-docs/pre-alpha/protocols/request-response/requester.html) record:
+Run the following to create an on-chain [requester](../protocols/request-response/requester.html) record:
 ```sh
 npm run create-requester
 ```
@@ -152,14 +163,14 @@ npm run deploy-client
 
 ### Endorse the client
 
-Run the following to [endorse](https://api3dao.github.io/api3-docs/pre-alpha/protocols/request-response/endorsement.html) your deployed [client](https://api3dao.github.io/api3-docs/pre-alpha/protocols/request-response/client.html) contract using the requester you have created:
+Run the following to [endorse](../protocols/request-response/endorsement.html) your deployed [client](../protocols/request-response/client.html) contract using the requester you have created:
 ```sh
 npm run endorse-client
 ```
 
 ### Derive and fund the designated wallet
 
-First run the following to derive the [designated wallet](https://api3dao.github.io/api3-docs/pre-alpha/protocols/request-response/designated-wallet.html) for the provider–requester pair:
+First run the following to derive the [designated wallet](../protocols/request-response/designated-wallet.html) for the provider–requester pair:
 ```sh
 npm run derive-designated-wallet-address
 ```
@@ -183,21 +194,9 @@ Note that now that the price is on-chain, you can use it in your contract to imp
 Try replacing the `coinId` value in `/scripts/make-request` from `"ethereum"` to `"bitcoin"` and make another request.
 You can see the API docs to find out which coin IDs are supported.
 
-## Conclusion
+## Step 3: Remove Airnode
 
-You deployed an Airnode, made a request to it and received the response at the contract.
-If you want to learn more, see the following resources:
-
-- [API3 whitepaper](https://github.com/api3dao/api3-whitepaper) will give you a broad overview of the project
-- [Medium posts](https://api3dao.github.io/api3-docs/pages/medium.html) are a more digestible version of the whitepaper
-- [API3 docs](https://api3dao.github.io/api3-docs/pre-alpha/) will provide you with the theory of how Airnode and its protocol works
-- [@api3/airnode-admin](https://github.com/api3dao/airnode/tree/pre-alpha/packages/admin) lets you interact with the Airnode contract (to create a request, endorse a client, etc.) using a CLI tool
-- [Airnode client examples](https://github.com/api3dao/airnode-client-examples/tree/pre-alpha) demonstrate different request patterns that the Airnode protocol supports (for example, we used a full request in this starter project)
-
-## Taking down your Airnode
-
-It is very unlikely for you to forget to take down your Airnode because it is designed to be *set-and-forget*.
-When you are done with this project, go to `config/` as your working directory and use the command below where `$RECEIPT_FILENAME` is replaced with the name of your receipt file ending with `.receipt.json` (you can refer to our [Docker instructions](https://github.com/api3dao/airnode/blob/pre-alpha/Docker.md) for more information)
+Don't forget to take down your Airnode as it is designed to be *set-and-forget*. When you are done with this project, go to `config/` as your working directory and use the command below where `$RECEIPT_FILENAME` is replaced with the name of your receipt file ending with `.receipt.json` (you can refer to our [Docker instructions](../guides/docker/deployer-image.md) for more information).
 
 ```sh
 docker run -it --rm \
@@ -207,3 +206,14 @@ docker run -it --rm \
   -v $(pwd):/airnode/out \
   api3/airnode-deployer:pre-alpha
 ```
+
+## Conclusion
+
+You deployed an Airnode, made a request to it and received the response at the contract.
+If you want to learn more, see the following resources:
+
+- [API3 whitepaper](https://github.com/api3dao/api3-whitepaper) will give you a broad overview of the project.
+- [Medium posts](../#learn-more-about-api3) are a more digestible version of the whitepaper.
+- [@api3/airnode-admin](https://github.com/api3dao/airnode/tree/pages/packages/admin) lets you interact with the Airnode contract (to create a request, endorse a client, etc.) using a CLI tool.
+- [Airnode client examples](https://github.com/api3dao/airnode-client-examples/tree/pre-alpha) demonstrate different request patterns that the Airnode protocol supports (for example, we used a full request in this starter project).
+
