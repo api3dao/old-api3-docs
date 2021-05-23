@@ -7,31 +7,23 @@ title: Airnode starter
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-> A starter project for deploying an Airnode and making requests to it
+Using the [airnode-starter](https://github.com/api3dao/airnode-starter/tree/pre-alpha) project you will  deploy an Airnode and make requests to it. This project is composed of setup and three steps.
 
-See the code [here](https://github.com/api3dao/airnode-starter/tree/pre-alpha)
+- Prepare tutorial requirements.
+- Deploy an Airnode on a supported chain.
+- Make a request to the deployed Airnode in a contract.
+- Undeploy the Airnode.
 
-This project is composed of two steps:
-1. Deploy an Airnode on a supported chain
-1. Make a request to the deployed Airnode in a contract
-
-Currently supported chains:
-- Ropsten
-- Rinkeby
-- Goerli
-- xDai
-- Fantom
-
-You can skip [Step #1: Deploy an Airnode](airnode-starter.md#step-1-deploy-an-airnode) and use the Airnode that we have deployed on **Ropsten** as well. You are recommended to read the contents of the scripts as you run them, and read the entire readme before starting.
+You can skip [Step #1: Deploy an Airnode](airnode-starter.md#step-1-deploy-an-airnode) and use the Airnode that we have deployed on **Ropsten** if preferred. You are recommended to read the contents of the [scripts](https://github.com/api3dao/airnode-starter/tree/pre-alpha/scripts) as you run them, and read the entire readme before starting.
 
 ## Setup
 
-In preparation to run Steps 1 & 2 the`airnode-starter`several items need to be acquired.
+In preparation to deploy an Airnode a few items need to be prepared.
 - Build the`airnode-starter`repo.
 - Create a wallet and fund it.
 - Install/setup Metamask.
 - Get a blockchain provider account/URL.
-- Get AWS (cloud provider) credential.
+- Get AWS (cloud provider) credentials.
 
 ### airnode-starter repo
 
@@ -39,7 +31,7 @@ In preparation to run Steps 1 & 2 the`airnode-starter`several items need to be a
     ```bash
     git clone git@github.com:api3dao/airnode-starter.git
     ```
-2. Be sure to use the pre-alpha branch `git switch pre-alpha`.
+2. Be sure to use the pre-alpha branch`git switch pre-alpha`.
 3. Run the following to install the dependencies.
     ```sh
     cd airnode-starter
@@ -52,9 +44,9 @@ In preparation to run Steps 1 & 2 the`airnode-starter`several items need to be a
 
 ### Create Wallet
 
-You will need a wallet to hold funds for a testnet such as Ropsten. These funds will be used to pay fees to setup an Airnode. Funds on a testnet are free. If you already have a wallet for your desired testnet you can use it by entering its MNEMONIC manually into `.env` at the project root.
+You will need a wallet to hold funds for a testnet such as Ropsten. These funds will be used to pay fees to setup an Airnode. Funds on a testnet are free. 
 
-Run the following to generate a new wallet, whose mnemonic phrase will be displayed on the terminal and recorded in a `.env` file at the project root.
+Run the following to generate a new wallet, whose mnemonic phrase will be displayed on the terminal and recorded in a `.env` file at the project root. If you already have a wallet for your desired testnet you can use it by entering its MNEMONIC manually into `.env` at the project root.
 ```sh
 npm run generate-wallet
 ```
@@ -67,16 +59,23 @@ npm run generate-wallet
 
 ### Ropsten
 
-You need to get a provider URL. This will be used both by the deployed Airnode and by you while interacting with contracts. If you will be working on Ropsten:
+You need to get a provider URL. This will be used both by the deployed Airnode and by you while interacting with contracts. If you will be working on Ropsten follow these two steps.
 
 1. Go to [Infura](https://infura.io/), create an account and get a Ropsten provider URL
 2. Replace `https://ropsten.infura.io/v3/{YOUR_KEY}` in your `.env` file with the URL you got from Infura
 
 Adapt the steps above if you will be using another chain. Note that you can use any other provider or your own node. However, if you will be deploying your own Airnode, the provider endpoint must be publicly accessible (i.e., `127.0.0.1:8545` will not work).
 
+This tutorial can be run on these supported chains.
+- Ropsten
+- Rinkeby
+- Goerli
+- xDai
+- Fantom
+
 ### AWS Cloud Credentials
 
-*(If you wish to skip Step: #1 you do not need AWS cloud credentials.)*
+*If you wish to skip Step: #1 then you do not need AWS cloud credentials.*
 
 Read [Creating cloud credentials](../guides/provider/deploying-airnode.md#creating-cloud-credentials) to create your cloud credentials. Place them at `/config/.env`, similar to [/config/example.env](config-examples/example-env.md). Do not confuse this `.env` file with the one in the project root that keeps your mnemonic phrase and provider URL.
 
@@ -110,7 +109,7 @@ npm run customize-config
 
 ### Deploy
 
-Now your `/config` directory should have the required [config.json](../airnode/specifications/config-json.md), [security.json](../airnode/specifications/security-json.md) and [.env](../guides/provider/deploying-airnode.md#creating-cloud-credentials) files. Run the following to deploy your node:
+Now your`/config`directory should have the required [config.json](../airnode/specifications/config-json.md), [security.json](../airnode/specifications/security-json.md) and [.env](../guides/provider/deploying-airnode.md#creating-cloud-credentials) files. Run the following to deploy your node.
 
 ```sh
 cd config
@@ -122,7 +121,7 @@ docker run -it --rm \
   api3/airnode-deployer:pre-alpha
 ```
 
-This will output a receipt file with the extension `.receipt.json`.
+This will output a receipt file with the extension`.receipt.json`.
 
 ### Fund your master wallet
 
@@ -136,7 +135,7 @@ Your deployed Airnode will use these funds to make the transaction that will cre
 
 ### Make your endpoint publicly accessible
 
-`config.json` defines an [endpoint](../protocols/request-response/endpoint.md) named `coinMarketData`, whose [endpoint ID](../protocols/request-response/endpoint.md#endpointid) is `0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c`. Endpoints are not publicly accessible by default, so you will have to make a transaction for this. Run the following to set your endpoint's [authorizers](../protocols/request-response/authorizer.md) to `[0x0000000000000000000000000000000000000000]`, which makes it [publicly accessible](../guides/provider/setting-authorizers.md#allow-all):
+`config.json`defines an [endpoint](../protocols/request-response/endpoint.md) named`coinMarketData`, whose [endpoint ID](../protocols/request-response/endpoint.md#endpointid) is `0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c`. Endpoints are not publicly accessible by default, so you will have to make a transaction for this. Run the following to set your endpoint's [authorizers](../protocols/request-response/authorizer.md) to `[0x0000000000000000000000000000000000000000]`, which makes it [publicly accessible](../guides/provider/setting-authorizers.md#allow-all):
 ```sh
 npm run update-authorizers
 ```
@@ -149,7 +148,7 @@ Note that the `endpointId` will be the same either way because it is [derived fr
 
 ### Create a requester
 
-Run the following to create an on-chain [requester](../protocols/request-response/requester.md) record:
+Run the following to create an on-chain [requester](../protocols/request-response/requester.md) record.
 ```sh
 npm run create-requester
 ```
@@ -159,25 +158,25 @@ Note that `requesterIndex` is chain-specific, so you will have to create another
 
 ### Deploy the client contract
 
-Run the following to deploy `ExampleClient.sol`:
+Run the following to deploy`ExampleClient.sol`.
 ```sh
 npm run deploy-client
 ```
 
 ### Endorse the client
 
-Run the following to [endorse](../protocols/request-response/endorsement.md) your deployed [client](../protocols/request-response/client.md) contract using the requester you have created:
+Run the following to [endorse](../protocols/request-response/endorsement.md) your deployed [client](../protocols/request-response/client.md) contract using the requester you have created.
 ```sh
 npm run endorse-client
 ```
 
 ### Derive and fund the designated wallet
 
-First run the following to derive the [designated wallet](../protocols/request-response/designated-wallet.md) for the provider–requester pair:
+First run the following to derive the [designated wallet](../protocols/request-response/designated-wallet.md) for the provider–requester pair.
 ```sh
 npm run derive-designated-wallet-address
 ```
-and then fund this designated wallet with 0.1 ETH:
+Then fund this designated wallet with 0.1 ETH.
 ```sh
 npm run fund-designated-wallet
 ```
@@ -187,19 +186,16 @@ Note that you may have to run `fund-designated-wallet` again if you make too man
 
 ### Make a request
 
-Run the following to make a request:
+Run the following to make a request. The request will be fulfilled by the Airnode and printed out on the terminal. Now that the price is on-chain, you can use it in your contract to implement any arbitrary logic.
 ```
 npm run make-request
 ```
-which should be fulfilled by the Airnode and printed out on the terminal.
-Note that now that the price is on-chain, you can use it in your contract to implement any arbitrary logic.
 
 Try replacing the `coinId` value in `/scripts/make-request` from `"ethereum"` to `"bitcoin"` and make another request.
-You can see the API docs to find out which coin IDs are supported.
 
 ## Step 3: Remove Airnode
 
-Don't forget to take down your Airnode as it is designed to be *set-and-forget*. When you are done with this project, go to `config/` as your working directory and use the command below where `$RECEIPT_FILENAME` is replaced with the name of your receipt file ending with `.receipt.json` (you can refer to our [Docker instructions](../guides/docker/deployer-image.md) for more information).
+Don't forget to take down your Airnode as it is designed to be *set-and-forget*. When you are done with this project, go to`config/`as your working directory and use the command below where`$RECEIPT_FILENAME`is replaced with the name of your receipt file ending with`.receipt.json`. You can refer to our [Docker instructions](../guides/docker/deployer-image.md) for more information.
 
 ```sh
 docker run -it --rm \
