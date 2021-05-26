@@ -1,5 +1,6 @@
 <template>
   <div>
+    
     <table v-show="version=='0.1.0'">
       <tr>
         <th>Blockchain</th>
@@ -25,6 +26,10 @@
         <td>xdai</td><td>100</td><td>...</td>
       </tr>
     </table>
+    <h5 style="margin-top:-14px;color:gray;max-width:550px;">
+      Airnode version: {{version}}. This table shows EVM-compatible blockchains that 
+      the protocol contract has been deployed to as well as the contract ID of each.
+      </h5>
   </div>
 </template>
 

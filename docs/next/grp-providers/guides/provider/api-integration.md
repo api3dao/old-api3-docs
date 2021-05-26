@@ -37,7 +37,7 @@ Therefore, only thing needed to integrate an API to Airnode is to create an OIS 
 
 ## OIS Template
 
-An _OIS_ is a json object that is added to an Airnode's [config.json](../templates/config-json.md) file as the (`ois`) _key_, sometimes called a _field_. Try using the [OIS template](../templates/ois-json.md) to construct an OIS and add it to the Airnode's config.json file later.
+An _OIS_ is a json object that is added to an Airnode's [config.json](../../../technology/templates/config-json.md) file as the (`ois`) _key_, sometimes called a _field_. Try using the [OIS template](../../../technology/templates/ois-json.md) to construct an OIS and add it to the Airnode's config.json file later.
 
 In the OIS template, there are some fields that contain `{FILL_*}`. This means that the value added is independent from other fields. On the other hand, if two fields contain the same expression  (e.g., `{FILL_OPERATION_PARAMETER_1_NAME}`), you must use the same value in them, because they are referencing each other.
 
@@ -148,7 +148,7 @@ In the examples below, `GET` refers to an [HTTP request method](https://develope
 
 Therefore, a path is not enough to specify an API operation by itself, we must also provide a method. If a new path is needed then it must start a new object in paths with its own methods. Currently only the GET and POST methods are supported by Airnode.
 
-With regards to the [OIS template](../templates/ois-json.md), the name of the element (denoted as `{FILL_PATH}`) should be replaced with the path (e.g., `/data`). Similarly, `{FILL_METHOD}` should be replaced with the method of the operation you want to integrate (e.g., `get`). The method must be lowercase.
+With regards to the [OIS template](../../../technology/templates/ois-json.md), the name of the element (denoted as `{FILL_PATH}`) should be replaced with the path (e.g., `/data`). Similarly, `{FILL_METHOD}` should be replaced with the method of the operation you want to integrate (e.g., `get`). The method must be lowercase.
 
 The following example illustrates three operations, `GET /data`, `POST /data`, `GET /tokens`.
 
@@ -260,7 +260,7 @@ Security is implemented using the securitySchemes and security fields. You use `
 ]
 ```
 
-You can create a securityScheme by copying the code above or using the template code below. Just follow the steps below. Or use the full [OIS Template](../templates/ois-json.md). 
+You can create a securityScheme by copying the code above or using the template code below. Just follow the steps below. Or use the full [OIS Template](../../../technology/templates/ois-json.md). 
 
 ```json
 "components": {

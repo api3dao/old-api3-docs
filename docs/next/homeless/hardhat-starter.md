@@ -114,7 +114,7 @@ Hardhat comes with a local blockchain built-in, the Hardhat Network. Upon startu
 ```bash
 % npx hardhat node
 ```
-Hardhat Network will print out its address, http://127.0.0.1:8545, along with a list of available accounts and their private keys.
+Hardhat Network will print out its address, `http://127.0.0.1:8545`, along with a list of available accounts and their private keys.
 
 Keep in mind that every time you run Hardhat Network, it will create a brand new local blockchain - the state of previous runs is not preserved. This is fine for short-lived experiments, but it means that you will need to have a window open running Hardhat Network for the duration of this tutorial.
 

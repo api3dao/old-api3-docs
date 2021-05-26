@@ -1,5 +1,5 @@
 ---
-title: Airnode design philosophy
+title: Design Philosophy
 ---
 
 # {{$frontmatter.title}}

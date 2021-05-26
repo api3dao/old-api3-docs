@@ -18,7 +18,7 @@ All variables defined in a `secrets.env` file will be set as the environment var
 
 The wallet mnemonic and AWS credentials are known values you can add directly to secrets.env.
 
-The last two categories above (CP_ and  SS_) are environment variable names that are declared in the [`environment.chainProviders`](configuring-airnode.md#chainproviders) or [`environment.securitySchemes`](configuring-airnode.md#securityschemes) objects from the config.json file. Use the values of the fields `envName` for the environment variable names.
+The last two categories above (CP_ and  SS_) are environment variable names that are declared in the [`environment.chainProviders`](../../grp-providers/guides/provider/configuring-airnode.md#chainproviders) or [`environment.securitySchemes`](../../grp-providers/guides/provider/configuring-airnode.md#securityschemes) objects from the config.json file. Use the values of the fields `envName` for the environment variable names.
 
   > The  (CP_, SS_) environment variable names have formatting requirements. Correct them here and in the `environment` object if needed. Replace any unsupported characters (whitespace, dash, etc.) with underscores. All characters are uppercase. Supported characters; (A-Z, 0-9, _). While not required consider using the following naming conventions for better readability in logs.
   > - `CP_${chainType}_${chainId}_${name}`

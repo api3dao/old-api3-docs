@@ -24,7 +24,7 @@ Make sure to refer to the [OIS docs](../../../technology/specifications/ois.md) 
 
 ## OIS Template
 
-We will be working on the [OIS template](../templates/ois-json.md), so first download that and let us go over the notation.
+We will be working on the [OIS template](../../../technology/templates/ois-json.md), so first download that and let us go over the notation.
 An OIS is a [JSON](https://www.json.org) file.
 This guide will assume that you are already familiar with the JSON format, but you can probably work off of the OIS template even if this is the first time you are using it.
 
