@@ -33,21 +33,14 @@ module.exports = [
           //'grp-providers/guides/provider/deploying-airnode-orig',
           'grp-providers/guides/provider/setting-authorizers',
           //'grp-providers/guides/provider/setting-authorizers-orig',
-          {
-            title: 'Docker',
-            children:[
-              'grp-providers/guides/docker/client-image',
-              'grp-providers/guides/docker/deployer-image'
-            ]
-          },
-          {
-            title: 'Templates',
-            children:[
-              'grp-providers/guides/templates/ois-json',
-              'grp-providers/guides/templates/config-json',
-              'grp-providers/guides/templates/secrets-env'
-            ]
-          },
+          
+        ]
+      },
+      {
+        title: 'Docker',
+        children:[
+          'grp-providers/guides/docker/client-image',
+          'grp-providers/guides/docker/deployer-image'
         ]
       },
       {
@@ -73,20 +66,24 @@ module.exports = [
   {
     title: 'Requesters', initialOpenGroupIndex: 0, collapsable: true,
     children:[
-      {
-        title: 'Requester', collapsable: false,
+      ['grp-requesters/creating-a-requester','Create a Requester'],
+      ['grp-requesters/developing-a-client-contract','Develope a Client Contract'],
+      'grp-requesters/self-serve-platforms',
+      /*{
+        
+        title: '(x) Requester', collapsable: false,
         children:[
           'grp-requesters/guides/requester/creating-a-requester',
           'grp-requesters/guides/requester/developing-a-client-contract',
         ]
       },
       {
-        title: 'Smart Contracts Platform', collapsable: false,
+        title: '(x) Smart Contracts Platform', collapsable: false,
         children:[
-          'grp-requesters/guides/smart-contracts-platform/is-my-platform-compatible',
-          'grp-requesters/guides/smart-contracts-platform/self-serve-integration'
+          ['grp-requesters/guides/smart-contracts-platform/is-my-platform-compatible','Is my platform compatible?'],
+          ['grp-requesters/guides/smart-contracts-platform/self-serve-integration', 'Self-serve integration ']
         ]
-      },
+      },*/
     ]
   },
   {
@@ -98,13 +95,14 @@ module.exports = [
     children: [
       {title:'API3 DAO', path:'grp-members/'},
       {title:'The DAO Pool', path:'grp-members/dao-pool'},
-      {title: 'Dashboard', collapsable: true,
+      'grp-members/faqs',
+      /*{title: 'Dashboard', collapsable: true,
       children: [
         {title:'Monitor the DAO Pool', path:'grp-members/dashboard/pool'},
         {title:'Stake your Tokens', path:'grp-members/dashboard/staking-tokens'},
         {title:'Vote', path:'grp-members/dashboard/vote'},
         {title:'Submit Proposals', path:'grp-members/dashboard/submit-proposals'},
-      ]}
+      ]}*/
     ]
   },
   {
@@ -128,6 +126,14 @@ module.exports = [
         ],
       },
       {
+        title: 'Templates',
+        children:[
+          'technology/templates/ois-json',
+          'technology/templates/config-json',
+          'technology/templates/secrets-env'
+        ]
+      },
+      {
         title: 'Request-Response Protocol', collapsable: true, initialOpenGroupIndex: -1,
         children:[
           'technology/protocols/request-response/general-structure',
@@ -145,7 +151,7 @@ module.exports = [
     ]
   },
   {
-    title: '- Homeless', initialOpenGroupIndex: 0, collapsable: true,
+    title: '(x) Homeless', initialOpenGroupIndex: 0, collapsable: true,
     children:[
       'homeless/hardhat-starter',
       {title:'RRP Flow Chart', path:'technology/rrp-flowdiagram'},

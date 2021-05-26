@@ -13,7 +13,7 @@ An Airnode is deployed or redeployed using configuration values from its `config
 
 ---
 
-It is assumed that you have already read the guide [API Integration](api-integration.md) and created an OIS json object. The [ois.json](../templates/ois-json.md), [config.json](../templates/config-json.md) and [secrets.env](../templates/secrets-env.md) templates are useful for this guide.
+It is assumed that you have already read the guide [API Integration](api-integration.md) and created an OIS json object. The [ois.json](../../../technology/templates/ois-json.md), [config.json](../../../technology/templates/config-json.md) and [secrets.env](../../../technology/templates/secrets-env.md) templates are useful for this guide.
 
 <details class="collapse-box">
   <summary class="collapse-box-summary">
@@ -22,9 +22,9 @@ It is assumed that you have already read the guide [API Integration](api-integra
 
   - Refer to the [config.json](../../../technology/deployment-files/config-json.md) and [secrets.env](../../../technology/deployment-files/secrets-env.md) _reference_ while using this guide.
 
-  - Open the _template_ [config.json](../templates/config-json.md) in another browser window to follow along. 
+  - Open the _template_ [config.json](../../../technology/templates/config-json.md) in another browser window to follow along. 
 
-  - View the _example_ [config.json](../../tutorial/config-json.md) file from the [Airnode Starter tutorial](../../tutorial/airnode-starter.md).
+  - View the _example_ [config.json](../../../technology/templates/config-json.md) file from the [Airnode Starter tutorial](../../tutorial/airnode-starter.md).
 
 </details>
 
@@ -339,7 +339,7 @@ The `config.json` file needs a unique `id` field, which identifies the specific 
 
 ## Creating secrets.env
 
-The `secrets.env` file contains environment variables (secrets) such as blockchain provider urls, cloud provider keys, etc. Make sure to download the [secrets.env](../templates/secrets-env.md) template and refer to [Technology > Deployment Files > secrets.env](../../../technology/deployment-files/secrets-env.md) as needed.
+The `secrets.env` file contains environment variables (secrets) such as blockchain provider urls, cloud provider keys, etc. Make sure to download the [secrets.env](../../../technology/templates/secrets-env.md) template and refer to [Technology > Deployment Files > secrets.env](../../../technology/deployment-files/secrets-env.md) as needed.
 
 **There are four categories of secrets.**
 

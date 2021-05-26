@@ -14,7 +14,7 @@ Both [config.json](../../../technology/deployment-files/config-json.md) and [sec
 This guide aims to follow a more instructive approach and give some tips along the way.
 
 We assume that you have already followed the [API integration guide](api-integration.md) and created your OIS.
-Similar to the [OIS template](../templates/ois-json.md) we have provided in the previous guide, we have a [config.json template](../templates/config-json.md) and a [security.json template](../templates/security-json.md) for this guide.
+Similar to the [OIS template](../../../technology/templates/ois-json.md) we have provided in the previous guide, we have a [config.json template](../../../technology/templates/config-json.md) and a [security.json template](../../../technology/templates/security-json.md) for this guide.
 Download these files and see the [template notation information](api-integration.md#ois-template).
 
 ## Creating `config.json`
@@ -114,7 +114,7 @@ For this to work, you are recommended to choose a unique value for this field fo
 <!-- markdown-link-check-disable -->
 <!-- Once these security links get changed to secrets, remove the link-check-disable. -->
 `security.json` is where we will store our API keys.
-Make sure to download the [`security.json` template](../templates/security-json.md) and refer to the [docs](../../../technology/specifications/security-json.md) as needed.
+Make sure to download the [`security.json` template](../../../technology/templates/security-json.md) and refer to the [docs](../../../technology/specifications/security-json.md) as needed.
 <!-- markdown-link-check-enable -->
 
 For each security scheme you have defined in your `config.json`, you need to create an entry in `security.json` that includes its value.

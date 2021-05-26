@@ -74,7 +74,7 @@ AWS_SECRET_KEY="q4JiOfPP4wQOuRj01///7RAodTAg6lFb99IoB4XH"
 ...
 ```
 
-Here is an [example file](../templates/secrets-env.md) that is left blank. Make sure that you do not push your credentials to a repository or otherwise expose them as these credentials can be used to gain access to your Airnode's private key.
+Here is an [example file](../../../technology/templates/secrets-env.md) that is left blank. Make sure that you do not push your credentials to a repository or otherwise expose them as these credentials can be used to gain access to your Airnode's private key.
 
 ## Deployment
 
