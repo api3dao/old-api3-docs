@@ -1,5 +1,5 @@
 ---
-title: Developing a client contract
+title: Developing a Client Contract
 ---
 
 # {{$frontmatter.title}}
