@@ -20,6 +20,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.2",
     "@vuepress/plugin-back-to-top": "^1.8.2",
     "@vuepress/plugin-medium-zoom": "^1.8.2",
+    "ethers": "^5.2.0",
     "markdown-link-check": "^3.8.6",
     "v-click-outside": "^3.1.2",
     "vuepress": "^1.8.2",

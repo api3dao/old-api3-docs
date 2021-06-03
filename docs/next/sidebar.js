@@ -66,8 +66,10 @@ module.exports = [
   {
     title: 'Requesters', initialOpenGroupIndex: 0, collapsable: true,
     children:[
-      ['grp-requesters/creating-a-requester','Create a Requester'],
-      ['grp-requesters/developing-a-client-contract','Develope a Client Contract'],
+      'grp-requesters/become-a-requester',
+      'grp-requesters/call-an-airnode',
+      'grp-requesters/fees',
+      'grp-requesters/developing-a-client-contract',
       'grp-requesters/self-serve-platforms',
       /*{
         
@@ -106,8 +108,9 @@ module.exports = [
     ]
   },
   {
-    title: 'Technology', initialOpenGroupIndex: 2, collapsable: true,
+    title: 'Technology', initialOpenGroupIndex: -1, collapsable: true,
     children: [
+      
       {
         title: 'Specification Files', collapsable: true,
         children: [
@@ -148,6 +151,7 @@ module.exports = [
           'technology/protocols/request-response/request'
         ],
       },
+      'technology/cli-commands',
     ]
   },
   {
