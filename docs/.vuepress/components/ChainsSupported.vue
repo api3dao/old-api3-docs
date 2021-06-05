@@ -5,7 +5,7 @@
       <tr>
         <th>Blockchain</th>
         <th>ID</th>
-        <th>AirnodeRRP Contract ID</th>
+        <th>AirnodeRrp.sol (contract ID)</th>
       </tr>
       <tr>
         <td>mainnet</td><td>1</td><td>...</td>
@@ -26,9 +26,9 @@
         <td>xdai</td><td>100</td><td>...</td>
       </tr>
     </table>
-    <h5 style="margin-top:-14px;color:gray;max-width:550px;">
+    <h5 style="margin-top:-14px;color:gray;max-width:580px;">
       Airnode version: {{version}}. This table shows EVM-compatible blockchains that 
-      the protocol contract has been deployed to as well as the contract ID of each.
+      the AirnodeRrp.sol protocol contract has been deployed to as well as the contract ID of each.
       </h5>
   </div>
 </template>

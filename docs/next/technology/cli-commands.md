@@ -7,7 +7,7 @@ title: CLI Commands
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-> A package/CLI tool to interact with the Airnode contracts across chains
+A package/CLI tool to interact with Airnode across blockchains. There are commands for both requesters and API providers. Requesters can endorse [client contracts](protocols/request-response/client.md) and fund Airnodes. API providers can build [Airnodes](protocols/request-response/airnode.md) that serve their API data to requester client contracts.
 
 Almost all commands require you to provide a `providerUrl` such as `https://ropsten.infura.io/v3/<KEY>`, `https://xdai.poanetwork.dev`, etc.
 The CLI connects to [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/AirnodeRrp.sol) contract, which address is derived from the current chain.
@@ -18,18 +18,18 @@ The application will derive the account from the mnemonic with default ethereum 
 Make sure that the wallet that is associated with the mnemonic is funded on the target chain.
 The application will not exit until the transaction is confirmed.
 
-To see all commands:
+**View all commands:**
 ```sh
 npx @api3/airnode-admin --help
 ```
-To see the parameters of a command:
+**View the parameters of a command:**
 ```sh
 npx @api3/airnode-admin $COMMAND --help
 ```
 
 ## SDK
 
-You can also use the package programatically. The SDK exports respective functions for all CLI commands as
+You can also use the package programmatically. The SDK exports respective functions for all CLI commands as
 well as helper functions for obtaining the contract instance on the targeted chain.
 
 ```js
@@ -222,4 +222,4 @@ npx @api3/airnode-admin derive-endpoint-id \
 
 ## More examples
 
-You can find more examples in the test files.
+You can find more examples in the _@api3-dao/airnode/package/admin_ [test files](https://github.com/api3dao/airnode/tree/master/packages/admin/test).
