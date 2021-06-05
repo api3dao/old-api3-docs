@@ -7,23 +7,23 @@ title: Self-Serve Smart Contract Platforms
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Airnode is composed of two parts: the **protocol contract** and the **node application**. API3 has deployed the protocol contract to several EVM-compatible blockchains. A node application is deployed by an API provider to AWS and can communicate with one or more protocol contracts on different chains.
+Airnode is composed of two parts: the **AirnodeRrp.sol** (on-chain protocol contract) and the **Airnode Application** (cloud provider functions, e.g., AWS). API3 has deployed the AirnodeRrp.sol protocol contract to several EVM-compatible blockchains. An API provider deploys an Airnode application to a cloud provider which can communicate with one or more AirnodeRrp.sol protocol contracts on different blockchains.
 
 > ![2-parts](../assets/images/airnode-is-2-parts.png)
 
 ## Is my platform compatible?
 
-The table below shows a list of EVM compatible blockchains (smart contract platforms) that API3 has deployed the _protocol contract_ on. A _node application_ can see the _protocol contract_ using its contract ID. 
+The table below shows a list of EVM compatible blockchains (smart contract platforms) that API3 has deployed the _AirnodeRrp.sol protocol contract_ on. An _Airnode application_ can see the _protocol contract_ using its contract ID. 
  
 <ChainsSupported :version="'0.1.0'" />
 
-This does not mean only these chains can be used. If you are using a smart contract platform that does not have the _protocol contract_ deployed by API3 you could add the _protocol contract_ yourself. API3 has received requests by teams of smart contract platforms and decentralized applications built on them to integrate Airnode and thus gaining access to API data and services. A lot of the smart contract platforms are directly compatible with Airnode, meaning that the integration effort will be trivial and can even be done with minimal support from API3.
+This does not mean only these chains can be used. If you are using a smart contract platform that does not have the _AirnodeRrp.sol protocol contract_ deployed by API3 you could add it yourself. API3 has received requests by teams of smart contract platforms and decentralized applications built on them to integrate Airnode and thus gaining access to API data and services. A lot of the smart contract platforms are directly compatible with Airnode, meaning that the integration effort will be trivial and can even be done with minimal support from API3.
 
 This document enables you to "self-serve" and assess the feasibility of an integration, and even prototype the integration yourself. 
 
 ## EVM Support
 
-Let's go over different factors that determine compatibility. Airnode is composed of two parts: the _protocol contract_ and the _node application_. The protocol contract is implemented in Solidity.
+Let's go over different factors that determine compatibility. Airnode is composed of two parts: the _AirnodeRrp.sol protocol contract_ and the _Airnode application_. The protocol contract is implemented in Solidity.
 
 Solidity typically compiles to EVM bytecode, which means that your smart contract platform should be EVM-compatible. In theory, you can also compile Solidity into other types of bytecode (e.g., WASM) that would run natively on your smart contract platform, yet the resulting integration will need to be tested extensively. So if your smart contract platform runs Solidity contracts, you are good.
 If it does not, the protocol will have to be implemented in the native smart contract language.
@@ -36,7 +36,7 @@ If your platform is not directly compatible, this means that a significant amoun
 
 ## Ethereum JSON-RPC API Compatibility
 
-The node application part of Airnode uses `ethers.js` to interact with the blockchain, which expects to communicate with an Ethereum JSON-RPC API-compatible endpoint.
+The Airnode application part of Airnode uses `ethers.js` to interact with the blockchain, which expects to communicate with an Ethereum JSON-RPC API-compatible endpoint.
 
 Typically, chains that do not support EVM will also not be compatible in this regard.
 However, EVM support does not guarantee blockchain node API compatibility. You can compare your blockchain node API with the [ Ethereum JSON-RPC API](https://eth.wiki/json-rpc/API) to see if it is any different.
@@ -45,11 +45,11 @@ The most obvious sign of a chain supporting the required API functionality is it
 
 ## HTTP vs WSS
 
-Airnode uses the HTTP endpoint to access the JSON-RPC API. Therefore, not supporting WSS endpoints/not having them widely available is not a problem. So if your users can use Metamask to interact with your smart contract platform, you are good. Otherwise, the parts of Airnode that interacts with the chain will need to be customized.
+The Airnode application uses the HTTP endpoint to access the JSON-RPC API. Therefore, not supporting WSS endpoints/not having them widely available is not a problem. So if your users can use Metamask to interact with your smart contract platform, you are good. Otherwise, the parts of Airnode application that interacts with the chain will need to be customized.
 
 ## Next Steps
 
-Assuming you have determined that your smart contract platform, you can attempt the integration yourself by following the steps below. Do not hesitate to drop by [our Discord](https://discord.gg/qnRrcfnm5W) and ask for support.
+Assuming you have determined that your smart contract platform can support Airnode, you can attempt the integration yourself by following the steps below. Do not hesitate to drop by [our Discord](https://discord.gg/qnRrcfnm5W) and ask for support.
 
 ### Part 1: Protocol contract deployment
 
@@ -120,11 +120,11 @@ yarn run deploy:$CHAIN_NAME
 
 If your chain has a customized flow for deploying contracts, you can find the bytecodes of the compiled contracts in the `artifacts/` directory.
 
-Note that you will need to deploy both [AirnodeRRP.sol](../../../technology/protocols/request-response/general-structure.md#airnode-sol) and [Convenience.sol](../../../technology/protocols/request-response/general-structure.md#convenience-sol).
+Note that you will need to deploy both [AirnodeRrp.sol](../technology/protocols/request-response/general-structure.md#airnoderrp-sol) and [Convenience.sol](../technology/protocols/request-response/general-structure.md#convenience-sol).
 
 ### Part 2: Make a test call
 
-After completing Part 1, you must have two contract addresses, one for `AirnodeRRP.sol` and one for `Convenience.sol`.
+After completing Part 1, you must have two contract addresses, one for `AirnodeRrp.sol` and one for `Convenience.sol`.
 Now follow the steps below to make a test call:
 
 1. Clone the [airnode-starter](https://github.com/api3dao/airnode-starter/tree/pre-alpha) repo
@@ -142,4 +142,4 @@ Replace the following values:
 
 3. Follow the [instructions](https://github.com/api3dao/airnode-starter/tree/pre-alpha#setup#setup) (both Step 1 and 2). Note that you can use the `$MNEMONIC` and the `$PROVIDER_URL` you have used while deploying the contracts in your `.env` file.
 
-The final step of the instructions is to run the `make-request` script, which will make a request on your chain for the Airnode to fulfill it. This example project working as intended is a very good indicator that the integration has succeeded.After doing this, you are recommended to take a deep dive into [our docs](https://github.com/api3dao/api3-docs) next to learn more about Airnode and its protocol.
+The final step of the instructions is to run the `make-request` script, which will make a request on your chain for the Airnode to fulfill it. This example project working as intended is a very good indicator that the integration has succeeded. After doing this, you are recommended to take a deep dive into more of these docs to learn more about Airnode.
