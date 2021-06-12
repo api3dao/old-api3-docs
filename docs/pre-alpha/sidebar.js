@@ -17,6 +17,20 @@ module.exports = [
   },
   
   {
+    /** 
+     * When adding a new doc or group before the "Dashboard" group
+     * you must change the value of initialOpenGroupIndex to match the doc to
+     * display first when the folder opens, -1 will display the README.md.
+     */
+    title: 'API3 Members', initialOpenGroupIndex: -1, collapsable: true,
+    children: [
+      'members/', // Will display the README.md in root of "members/"."
+      'members/another-file', // Displays a file from hte path, uses its frontmatter title as the display name.
+    ]
+  },
+
+
+  {
     title: 'Airnode', collapsable: false,
     children: [
         {title:'Design Philosophy', path:'airnode/design-philosophy'},
