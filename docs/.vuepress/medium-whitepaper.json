@@ -29,6 +29,12 @@
       {"date":"Apr 22, 2021", "title":"Lessons from DAOv1", "url":"https://medium.com/api3/lessons-from-daov1-da106f2f1fd9"}
     ]},
 
+    {"tag":"API3 DAO", "posts":[
+      {"date":"Apr 17, 2021", "title":"Significance of the DAO and staking", "url":"https://medium.com/api3/significance-of-the-dao-and-staking-b8feeaf93804"},
+      {"date":"Apr 22, 2021", "title":"Lessons from DAOv1", "url":"https://medium.com/api3/lessons-from-daov1-da106f2f1fd9"},
+      {"date":"Apr 28, 2021", "title":"Fractal scaling of API3", "url":"https://medium.com/api3/fractal-scaling-of-api3-b3ba78c9dcb7"}
+    ]},
+
     {"tag":"Redefining Trust", "posts":[
       {"date":"Apr 13, 2021", "title":"Redefining Trust: Aviation Finance", "url":"https://medium.com/api3/broken-processes-how-to-fix-them-aviation-finance-3ceed6a2089f"}
     ]},
