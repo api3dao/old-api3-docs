@@ -49,7 +49,7 @@ It is assumed that the **/next** folder is the work in progress that will become
 
 1. Make a copy of the **/next** folder and name it (e.g. 0.2.0).
 
-1. Update the **versions** key in .vuepress/config.json. Provide the version name and url. The url is the first markdown file to show when a version is selected in the navbar. A url without a file will load the root README.md file of the base route by default.
+2. Update the **versions** key in .vuepress/config.json. Provide the version name and url. The url is the first markdown file to show when a version is selected in the navbar. A url without a file will load the root README.md file of the base route by default.
 
     ```json
     versions:[
@@ -60,7 +60,14 @@ It is assumed that the **/next** folder is the work in progress that will become
     ],
     ```
 
-2. The **/next** version probably contained hyperlinks to remote GitHub repos. More than likely these links will need updating in the version just created.
+3. The **/next** version probably contained hyperlinks to remote GitHub repos. More than likely these links will need updating in the version just created.
+
+4. Point all redirects, when relevant, to the new version in the `docs/.vuepress.redirects` file. Usually this is related to redirects for items such as `/latest/members` that want to display docs for the latest version.
+
+    ```bash
+    /latest /pre-alpha
+    /latest/members /pre-alpha/members
+    ```
 
 ## Update Older Versions
 

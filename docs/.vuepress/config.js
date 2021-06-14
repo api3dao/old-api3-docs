@@ -62,21 +62,22 @@ module.exports = {
         a: 'href'
       };
   },
-  plugins: [
-      ['vuepress-plugin-table-of-contents'],
-      ['vue-pdf'],
-      ['@vuepress/medium-zoom'],
-      ['vuepress-plugin-element-tabs'],
-      ['@vuepress/last-updated'],
-      ['@vuepress/back-to-top', true],
-      ['@vuepress/search', {
-          searchMaxSuggestions: 15,
-          /*
-            2021-03-10: wkande:  Do not use "test:", version filtering has been 
-            added to .vuepress.components/SearchBox.vue
-          */
-        }
-      ],
-      
-  ]
+  plugins: 
+  [   
+    ['@vuepress/html-redirect'],
+    ['vuepress-plugin-table-of-contents'],
+    ['vue-pdf'],
+    ['@vuepress/medium-zoom'],
+    ['vuepress-plugin-element-tabs'],
+    ['@vuepress/last-updated'],
+    ['@vuepress/back-to-top', true],
+    ['@vuepress/search', {
+        searchMaxSuggestions: 15,
+        /*
+          2021-03-10: wkande:  Do not use "test:", version filtering has been 
+          added to .vuepress.components/SearchBox.vue
+        */
+      }
+    ],
+  ],
 }

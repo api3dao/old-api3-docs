@@ -29,42 +29,42 @@ yarn test:links:next
 
 1. Builds a static website and places it in **.vuepress/dist**. The **/dist** folder is deleted if it exists and re-created.
 
-```bash
-# build the docs
-npm run docs:build
-```
+    ```bash
+    # build the docs
+    npm run docs:build
+    ```
 
-1. The deployment must be run from the .vuepress/dist folder.
+2. The deployment must be run from the .vuepress/dist folder.
 
-```bash
-# navigate to the build output directory
-cd docs/.vuepress/dist
-```
+    ```bash
+    # navigate to the build output directory
+    cd docs/.vuepress/dist
+    ```
 
-1. The .vuepress/dist folder is staged to be pushed.
+3. The .vuepress/dist folder is staged to be pushed.
 
-```bash
-# api3dao/api3-doc uses the main branch as default.
-# git init must start with a main branch so gh-pages will
-# "hang" off of it.
-git init --initial-branch=main
-git add -A
-git commit -m 'Deploying a locally built /dist folder to main:gh-pages as its own commit history.'
-```
+    ```bash
+    # api3dao/api3-doc uses the main branch as default.
+    # git init must start with a main branch so gh-pages will
+    # "hang" off of it.
+    git init --initial-branch=main
+    git add -A
+    git commit -m 'Deploying a locally built /dist folder to main:gh-pages as its own commit history.'
+    ```
 
-1. A git push is *forced* onto the remote branch gh-pages.
+4. A git push is *forced* onto the remote branch gh-pages.
 
-```bash
-# If you are deploying to https://<USERNAME>.github.io/<REPO>
-# NEVER push to main, use main:gh-pages.
-git push -f git@github.com:api3dao/api3-docs.git main:gh-pages
-```
+    ```bash
+    # If you are deploying to https://<USERNAME>.github.io/<REPO>
+    # NEVER push to main, use main:gh-pages.
+    git push -f git@github.com:api3dao/api3-docs.git main:gh-pages
+    ```
 
 ## Deploying
 
 It is important to pull down the **main branch** (step 3) after the remote master repo has been merged with all contributions. This insures the local build of the /dist folder gets the latest from all contributors.
 
-1. Verify the repo target in `deploy.sh` is set to `api3dao/api3-docs`.
+1. Verify the repo target in `deploy.sh` is set to `api3dao/api3-docs`. It is unlikely this has changed since the script went through final testing back in Feb 2021.
   
     ```bash
     # Verify only, do not execute outside the deploy.sh script.
@@ -76,14 +76,13 @@ It is important to pull down the **main branch** (step 3) after the remote maste
 3. Git
     - Commit and push local work to the remote repo.
     - From the remote repo, merge contributing branches to main.
-    - Switch to local main branch.
-    - Pull remote main to local repo.
+    - Return to your local repo and switch to the main branch.
+    - Pull remote main to local main.
 
-4. Verify the proper versions (**versions key**) are listed in config.json.
+4. Verify the proper versions (**versions key**) are listed in config.json. Currently there is only one version `pre-alpha`.
 
     ```json
       versions:[
-        {name:'0.1.0', url:'/0.1.0/'},
         {name:'pre-alpha', url:'/pre-alpha/'},
       ],
     ```

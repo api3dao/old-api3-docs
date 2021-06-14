@@ -1,5 +1,5 @@
 export default ({ Vue, router, options }) => {
-  //router.addRoute({ path: '/next', redirect: '/next/grp-providers/'})
+  //router.addRoute({ path: '/latest/', redirect: '/next/grp-providers/airnode/design-philosophy.html'})
   //console.log('enhanceApp.js > router:',router.getRoutes())
 }
 
