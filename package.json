@@ -19,6 +19,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/vue-fontawesome": "^2.0.2",
     "@vuepress/plugin-back-to-top": "^1.8.2",
+    "@vuepress/plugin-html-redirect": "^0.1.4",
     "@vuepress/plugin-medium-zoom": "^1.8.2",
     "ethers": "^5.2.0",
     "markdown-link-check": "^3.8.6",
@@ -26,6 +27,5 @@
     "vuepress": "^1.8.2",
     "vuepress-plugin-element-tabs": "^0.2.8",
     "vuepress-plugin-table-of-contents": "^1.1.7"
-  },
-  "dependencies": {}
+  }
 }
