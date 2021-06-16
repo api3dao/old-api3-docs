@@ -63,3 +63,21 @@ _times: 100
 ```
 the request will be fulfilled with the value `123`.
 Note that the number gets multiplied by `100`, and then gets floored.
+
+## `_relay_metadata`
+
+By setting this reserved parameter to a specific version string then Airnode will attach its metadata as request parameters before performing the API call.
+
+For example `v1` will add the following request parameters with their corresponding values:
+```
+_airnode_airnode_id: '0x19255a4ec31e89cea54d1f125db7536e874ab4a96b4d4f6438668b6bb10a6adb',
+_airnode_client_address: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',
+_airnode_designated_wallet: '0x1c5b7e13fe3977a384397b17b060Ec96Ea322dEc',
+_airnode_endpoint_id: '0xeddc421714e1b46ef350e8ecf380bd0b38a40ce1a534e7ecdf4db7dbc9319353',
+_airnode_requester_index: 10,
+_airnode_request_id: '0xd1984b7f40c4b5484b756360f56a41cb7ee164d8acd0e0f18f7a0bbf5a353e65',
+_airnode_chain_id: '31337',
+_airnode_chain_type: 'evm',
+_airnode_airnode_rrp: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
+```
+Available values: `v1`

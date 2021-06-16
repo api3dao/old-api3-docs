@@ -121,6 +121,10 @@ title: config.example.json
             {
               "name": "_times",
               "fixed": "1000000"
+            },
+            {
+              "name": "_relay_metadata",
+              "default": "v1"
             }
           ],
           "parameters": [
