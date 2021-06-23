@@ -71,6 +71,9 @@ title: config.json
             },
             {
               "name": "{FILL_*}"
+            },
+            {
+              "name": "{FILL_*}"
             }
           ],
           "parameters": [
