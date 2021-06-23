@@ -27,10 +27,10 @@ Each requester needs to create a requester record and get assigned a requester i
 
 - A blockchain providerURL such as the URL with your Infura providerID on the Ropsten network.
 - A mnemonic for gas to fund the record creation.
-- An address that will be used to administer the requester record in the future, keep it secret. 
+- An address that will be used to administer the requester record (requesterAdmin) in the future, use the default public address of the mnemonic. 
 
 ::: tip mnemonic
-Use this wallet for maintenance costs at API3 keeping a minimal amount of eth in it. This wallet pays the transaction gas costs to write the requester record and client contract endorsements. This is not the wallet(s) that will pay gas costs to actually execute any Airnodes, for that the Airnodes themselves will create designated wallets on behalf of your requester record. [Part 3](become-a-requester.md#part-3-funding-airnodes) will explain more about designated wallets.
+This wallet pays the transaction gas costs to write the requester record. This is not the wallet(s) that will pay gas costs to actually execute any Airnodes, for that the Airnodes themselves will create designated wallets on behalf of your requester record. [Part 3](become-a-requester.md#part-3-funding-airnodes) will explain more about designated wallets.
 :::
 
 [@api3/airnode-admin create-requester](../technology/cli-commands.md#create-requester)
@@ -39,7 +39,7 @@ Use this wallet for maintenance costs at API3 keeping a minimal amount of eth in
 npx @api3/airnode-admin create-requester \
   --providerUrl https://ropsten.infura.io/v3/<KEY> \
   --mnemonic "cricket oppose ..." \ # Used to pay the gas costs for this transaction.
-  --requesterAdmin 0xaBd9daAdf...   # A secret admin address.
+  --requesterAdmin 0xaBd9daAdf...   # The admin address, mnemonic public key.
 
   # Returns
   Created requester with index 6 
@@ -113,7 +113,7 @@ During and after creating/managing your requester record there are some items yo
 |-|-|
 |Maintenance wallet (mnemonic)|A minimally funded mnemonic used to change your requester record, client contract endorsements, etc. in the future.|
 |requesterIndex|* An identifer (number) you received when creating a requester record.|
-|requesterAdmin|An address you created when creating a requester record.|
+|requesterAdmin|Usually the default public address of the mnemonic you used when creating a requester record.|
 |Airnode designated wallets|** For each Airnode you have funded a custodial designated wallet was created. The Airnode keeps the private key and returns you the public address which you use to add funds. |
 
 
