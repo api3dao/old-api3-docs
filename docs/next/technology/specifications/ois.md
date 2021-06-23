@@ -224,6 +224,10 @@ OAS equivalent: `paths.{path}.{method}.parameters.{#}.in`
       },
       {
         "name": "_times"
+      },
+      {
+        "name": "_relay_metadata",
+        "default": "v1"
       }
     ],
     "parameters": [
@@ -299,7 +303,7 @@ Each object has the following elements:
 (Required) The name of the reserved parameter.
 Always starts with `_`.
 
-Allowed values: `_type`, `_path`, `_times`
+Allowed values: `_type`, `_path`, `_times`, `_relay_metadata`
 
 #### 5.4.2. `fixed`
 
