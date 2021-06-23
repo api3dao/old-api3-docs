@@ -73,6 +73,9 @@
               {
                 "name": "{FILL_*}",
                 "default": "{FILL_*}"
+              },
+              {
+                "name": "{FILL_*}"
               }
             ],
             "parameters": [
