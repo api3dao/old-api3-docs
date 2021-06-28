@@ -69,7 +69,7 @@ module.exports = [
       'grp-requesters/become-a-requester',
       'grp-requesters/call-an-airnode',
       'grp-requesters/fees',
-      'grp-requesters/developing-a-client-contract',
+      /*'grp-requesters/developing-a-client-contract',*/
       'grp-requesters/self-serve-platforms',
       /*{
         
