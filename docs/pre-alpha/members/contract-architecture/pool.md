@@ -14,7 +14,7 @@ The API3 Pool contract is where API3 token holders can stake their tokens to gai
 ### Depositing, Staking, Unstaking, and Withdrawing
 |Signature | Description|
 |--- |--- |
-|`depositRegular(uint256 amount)` |Delegates a member's voting power, as decided by their share of the staking pool, to another address. |
+|`depositRegular(uint256 amount)` |Deposits your API3 tokens into the pool. Tokens must be deposited before they can be staked. |
 |`stake(uint256 amount)`|Stakes deposited API3 tokens. Staked tokens will earn rewards, grant voting power (and may be slashed if there is a claim on the pool—not yet implemented). |
 |`depositAndStake(address source, uint256 amount)` |Deposits and stakes API3 tokens in one transaction. |
 |`scheduleUnstake(uint256 shares)` |Schedules staked tokens to be unstaked. In order to unstake API3 tokens, members must first schedule an unstake and wait the scheduled period before unstaking (currently ~1 week). Tokens scheduled to be unstaked no longer grant voting power or earn rewards.  |
@@ -40,5 +40,5 @@ The API3 Pool contract is where API3 token holders can stake their tokens to gai
 |Signature | Description|
 |--- |--- |
 |`setProposalVotingPowerThreshold(uint256 _proposalVotingPowerThreshold)` |Sets the minimum voting power required for a member to create a new proposal. Can only be adjusted by the primary voting app. |
-|`mintReward()` |Distributes new API3 tokens into the staking pool, where they can be unstaked and withdrawn by members using their share of the pool |
+|`mintReward()` |Distributes new API3 tokens into the staking pool, where they can be unstaked and withdrawn by members using their share of the pool. TODO -- 1-year lock on rewards |
 |`payOutClaim(address recipient, uint256 amount)`|A special function callable only by approved claims manager contracts to pay out claims directly from the pool. |

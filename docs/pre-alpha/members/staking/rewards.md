@@ -19,7 +19,7 @@ Rewards are added as staked API3 tokens into the staking pool each time the `min
 
 In other words, *the reward is the annual percentage (APR) increase divided by the number of epochs per year (currenly ~52)*.
 
-In addition, each time `mintReward` is called, the annual percentage (the reward rate) is updated up or down by by APR update step size (1%), according to whether the total number of staked tokens is above or below its target. The initial target is 50%, so if the total number of staked tokens is less than 50% of the total token supply when `mintReward` is called, APR will be raised by 1% for the next reward payout (and vice versa). Thus, APR will constantly be adjusted, but it will always stay between a designated maximum and minimum -- currently 75% and 2.5% respectively.
+In addition, each time `mintReward` is called, the annual percentage (the reward rate) is updated up or down by APR update step size (1%), according to whether the total number of staked tokens is above or below its target. The initial target is 50%, so if the total number of staked tokens is less than 50% of the total token supply when `mintReward` is called, APR will be raised by 1% for the next reward payout (and vice versa). Thus, APR will constantly be adjusted, but it will always stay between a designated maximum and minimum -- currently 75% and 2.5% respectively.
 
 ## Reward Withdrawal
 Rewards withdrawals are baked into default withdrawals. As a staker, your pool shares will always reflect a proportional right to the pool of staked tokens, including any rewards that have been minted. When you unstake and withdraw your tokens, you will receive any share of the rewards you earned.
