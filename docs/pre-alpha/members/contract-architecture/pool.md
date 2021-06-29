@@ -40,5 +40,5 @@ The API3 Pool contract is where API3 token holders can stake their tokens to gai
 |Signature | Description|
 |--- |--- |
 |`setProposalVotingPowerThreshold(uint256 _proposalVotingPowerThreshold)` |Sets the minimum voting power required for a member to create a new proposal. Can only be adjusted by the primary voting app. |
-|`mintReward()` |Distributes new API3 tokens into the staking pool, where they can be unstaked and withdrawn by members using their share of the pool. TODO -- 1-year lock on rewards |
+|`mintReward()` |Distributes new API3 tokens into the staking pool, where they can be unstaked and withdrawn by members using their share of the pool after 1 year. |
 |`payOutClaim(address recipient, uint256 amount)`|A special function callable only by approved claims manager contracts to pay out claims directly from the pool. |
