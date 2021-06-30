@@ -108,57 +108,57 @@ module.exports = [
     ]
   },
   {
-    title: 'Technology', initialOpenGroupIndex: -1, collapsable: true,
+    title: 'Reference', initialOpenGroupIndex: -1, collapsable: true,
     children: [
       
       {
         title: 'Specification Files', collapsable: true,
         children: [
-            {title:'Oracle Integration Specifications (OIS)', path:'technology/specifications/ois'},
-            'technology/specifications/airnode-abi-specifications',
-            'technology/specifications/reserved-parameters'
+            {title:'Oracle Integration Specifications (OIS)', path:'reference/specifications/ois'},
+            'reference/specifications/airnode-abi-specifications',
+            'reference/specifications/reserved-parameters'
         ]
       },
       {
         title: 'Deployment Files', collapsable: true,
         children: [
-            {title:'Overview', path:'technology/deployment-files/overview'},
-            {title:'config.json', path:'technology/deployment-files/config-json'},
-            {title:'secrets.env', path:'technology/deployment-files/secrets-env'},
-            {title:'receipt.json', path:'technology/deployment-files/receipt-json'},
+            {title:'Overview', path:'reference/deployment-files/overview'},
+            {title:'config.json', path:'reference/deployment-files/config-json'},
+            {title:'secrets.env', path:'reference/deployment-files/secrets-env'},
+            {title:'receipt.json', path:'reference/deployment-files/receipt-json'},
         ],
       },
       {
         title: 'Templates',
         children:[
-          'technology/templates/ois-json',
-          'technology/templates/config-json',
-          'technology/templates/secrets-env'
+          'reference/templates/ois-json',
+          'reference/templates/config-json',
+          'reference/templates/secrets-env'
         ]
       },
       {
         title: 'Request-Response Protocol', collapsable: true, initialOpenGroupIndex: -1,
         children:[
-          'technology/protocols/request-response/general-structure',
-          'technology/protocols/request-response/airnode',
-          'technology/protocols/request-response/endpoint',
-          'technology/protocols/request-response/authorizer',
-          'technology/protocols/request-response/requester',
-          'technology/protocols/request-response/client',
-          'technology/protocols/request-response/designated-wallet',
-          'technology/protocols/request-response/endorsement',
-          'technology/protocols/request-response/template',
-          'technology/protocols/request-response/request'
+          'reference/protocols/request-response/general-structure',
+          'reference/protocols/request-response/airnode',
+          'reference/protocols/request-response/endpoint',
+          'reference/protocols/request-response/authorizer',
+          'reference/protocols/request-response/requester',
+          'reference/protocols/request-response/client',
+          'reference/protocols/request-response/designated-wallet',
+          'reference/protocols/request-response/endorsement',
+          'reference/protocols/request-response/template',
+          'reference/protocols/request-response/request'
         ],
       },
-      'technology/cli-commands',
+      'reference/cli-commands',
     ]
   },
-  {
+  /*{
     title: '(x) Homeless', initialOpenGroupIndex: 0, collapsable: true,
     children:[
       'homeless/hardhat-starter',
-      {title:'RRP Flow Chart', path:'technology/rrp-flowdiagram'},
+      {title:'RRP Flow Chart', path:'reference/rrp-flowdiagram'},
     ]
-  },
+  },*/
 ]

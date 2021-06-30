@@ -8,13 +8,13 @@ title: Configuring Airnode (orig)
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 Users configure their Airnodes by providing a `config.json` and a `security.json` file during deployment/redeployment.
-`config.json` specifies the API–oracle integration specifications in the form of [OIS](../../../technology/specifications/ois.md)es, but also user-specific configuration details.
+`config.json` specifies the API–oracle integration specifications in the form of [OIS](../../../reference/specifications/ois.md)es, but also user-specific configuration details.
 `security.json` includes security credentials such as API keys.
-Both [config.json](../../../technology/deployment-files/config-json.md) and [security.json](../../../technology/deployment-files/secrets-env.md) formats are documented, which you can follow to create these files.
+Both [config.json](../../../reference/deployment-files/config-json.md) and [security.json](../../../reference/deployment-files/secrets-env.md) formats are documented, which you can follow to create these files.
 This guide aims to follow a more instructive approach and give some tips along the way.
 
 We assume that you have already followed the [API integration guide](api-integration.md) and created your OIS.
-Similar to the [OIS template](../../../technology/templates/ois-json.md) we have provided in the previous guide, we have a [config.json template](../../../technology/templates/config-json.md) and a [security.json template](../../../technology/templates/security-json.md) for this guide.
+Similar to the [OIS template](../../../reference/templates/ois-json.md) we have provided in the previous guide, we have a [config.json template](../../../reference/templates/config-json.md) and a [security.json template](../../../reference/templates/security-json.md) for this guide.
 Download these files and see the [template notation information](api-integration.md#ois-template).
 
 ## Creating `config.json`
@@ -101,7 +101,7 @@ Enter the `name` (to be used in logs) and the `url` of the Ethereum provider as 
 Although you can deploy these contracts yourself, you are recommended to use the ones that were deployed by API3.
 You can find them [here](https://github.com/api3dao/airnode/tree/pre-alpha/packages/protocol/deployments).
 
-`providerAdminForRecordCreation` is the address that your Airnode will set as the [provider admin](../../../technology/protocols/request-response/provider.md#provideradmin) while creating the provider record on the respective chain.
+`providerAdminForRecordCreation` is the address that your Airnode will set as the [provider admin](../../../reference/protocols/request-response/provider.md#provideradmin) while creating the provider record on the respective chain.
 You should set this field to an address that only you control.
 
 ### `id`
@@ -114,7 +114,7 @@ For this to work, you are recommended to choose a unique value for this field fo
 <!-- markdown-link-check-disable -->
 <!-- Once these security links get changed to secrets, remove the link-check-disable. -->
 `security.json` is where we will store our API keys.
-Make sure to download the [`security.json` template](../../../technology/templates/security-json.md) and refer to the [docs](../../../technology/specifications/security-json.md) as needed.
+Make sure to download the [`security.json` template](../../../reference/templates/security-json.md) and refer to the [docs](../../../reference/specifications/security-json.md) as needed.
 <!-- markdown-link-check-enable -->
 
 For each security scheme you have defined in your `config.json`, you need to create an entry in `security.json` that includes its value.

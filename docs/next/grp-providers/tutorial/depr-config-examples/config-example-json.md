@@ -4,4 +4,4 @@ title: config.example.json
 
 # {{$frontmatter.title}}
 
-<<< @/docs/next/technology/code/example-config.json
+<<< @/docs/next/reference/code/example-config.json
