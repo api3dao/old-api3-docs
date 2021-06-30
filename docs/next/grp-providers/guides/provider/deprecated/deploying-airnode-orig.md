@@ -54,12 +54,12 @@ Please note this down with pen and paper (do not copy paste to a text file on yo
 
 Another point to mention is that the deployer will display your master wallet address, and ask you to deposit some ETH in it for it to create your provider record.
 Follow the instructions for your Airnode to create your provider record using your master wallet, and it will send any unused ETH to the `providerAdminForRecordCreation` you have set in your `config.json`.
-You can see the [docs](../../../technology/protocols/request-response/provider.md#creating-a-provider-record) for more information about this process.
+You can see the [docs](../../../reference/protocols/request-response/provider.md#creating-a-provider-record) for more information about this process.
 
 A couple minutes after noting down your mnemonic and hitting `ENTER`, you should be done!
 The deployer will output a receipt file ending with `.receipt.json`.
 This file does not include any sensitive information, so feel free to share it as needed.
-The receipt contains your [`providerId`](../../../technology/protocols/request-response/provider.md#providerid), `providerIdShort` and `masterWalletAddress` that you will need to fund for it to create your provider record (if you have not already).
+The receipt contains your [`providerId`](../../../reference/protocols/request-response/provider.md#providerid), `providerIdShort` and `masterWalletAddress` that you will need to fund for it to create your provider record (if you have not already).
 You will need to add your `providerIdShort` to your `config.json` to be able to redeploy your node with updated configurations.
 
 To find out how to redeploy your node or remove it from your cloud provider account, see the [deployer image docs](https://github.com/api3dao/airnode/blob/pre-alpha/Docker.md).

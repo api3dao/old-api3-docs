@@ -11,4 +11,4 @@ Below is a template for an Airnode's configuration file (config.json). There are
 
 See [config.json](../deployment-files/config-json.md) under Technology > Deployment Files as a reference while building a config.json file.
 
-<<< @/docs/next/technology/code/template-config.json
+<<< @/docs/next/reference/code/template-config.json

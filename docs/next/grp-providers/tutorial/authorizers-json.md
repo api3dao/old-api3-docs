@@ -6,5 +6,5 @@ title: authorizers.json
 
 Example secrets.env file for the Airnode starter tutorial.
 
-<<< @/docs/next/technology/code/tutorial-authorizers.json
+<<< @/docs/next/reference/code/tutorial-authorizers.json
 

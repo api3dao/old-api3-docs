@@ -47,7 +47,7 @@ Note the constructor parameter `airnodeAddress` which is the public address of t
 
 ## Step #2: Make a Request
 
-There are three types of requests provided by the AirnodeRrp contract for use by a client contract to make a request. See [Request Types](../technology/protocols/request-response/request.html#request-types) in the Technology section for information related to each request type. 
+There are three types of requests provided by the AirnodeRrp contract for use by a client contract to make a request. See [Request Types](../reference/protocols/request-response/request.html#request-types) in the Technology section for information related to each request type. 
 
 This example will use a _full request_ type (note the `makeFullRequest` function in the code below) which is called from the client contract's own function `callTheAirnode`. The function `makeFullRequest` requires the client contract pass all parameters needed by the Airnode application to call its underlying API.
 
@@ -114,7 +114,7 @@ Need to expand on the parameters. Need to set the link.
 - **fulfillAddress** and **fulfillFunctionId**: Specifies the contract and which function will be called to fulfill the request.
 - **parameters**: Specify and the API and reserved parameters, these must be encoded. See [Airnode ABI specifications]() for how these are encoded.
 
-For additional information on request parameters see [Request Parameters](../technology/protocols/request-response/request.html#request-parameters) in the Technology section.
+For additional information on request parameters see [Request Parameters](../reference/protocols/request-response/request.html#request-parameters) in the Technology section.
 
 ## Step #3: Capture the Response
 

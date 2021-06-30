@@ -7,7 +7,7 @@ title: API Integration
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,4]" />
 
-A successful integration of an API with an Airnode requires the mapping of each other's interface. This is accomplished using an OIS ([Oracle Integration Specifications](../../../technology/specifications/ois.md)) json object, found in the config.json file, that is designed to follow three basic steps.
+A successful integration of an API with an Airnode requires the mapping of each other's interface. This is accomplished using an OIS ([Oracle Integration Specifications](../../../reference/specifications/ois.md)) json object, found in the config.json file, that is designed to follow three basic steps.
 
 - API operations are specified
 - Airnode endpoints are specified
@@ -17,7 +17,7 @@ A successful integration of an API with an Airnode requires the mapping of each 
 
 OIS is a mapping of API operations, such as  `GET /token/{id}`, to Airnode endpoints. When a client contract calls an AirnodeRRP contract request function, such as `makeRequest(..., callData)`, the callData is communicated to the off-chain Airnode which uses OIS mappings to translate the callData into a valid HTTP request for the appropriate API operation.
 
-Therefore, only thing needed to integrate an API to Airnode is to create an OIS json object which lives in an Airnode's config.json file. This guide is an instructive approach to creating an OIS. As a point of reference, refer to [Oracle Integration Specifications (OIS)](../../../technology/specifications/ois.md) in the Technology section of these docs for additional input and understanding. It may be useful, but not necessary, to reference the [OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
+Therefore, only thing needed to integrate an API to Airnode is to create an OIS json object which lives in an Airnode's config.json file. This guide is an instructive approach to creating an OIS. As a point of reference, refer to [Oracle Integration Specifications (OIS)](../../../reference/specifications/ois.md) in the Technology section of these docs for additional input and understanding. It may be useful, but not necessary, to reference the [OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
 
 <!-- markdownlint-disable -->
 <details class="collapse-box">
@@ -25,7 +25,7 @@ Therefore, only thing needed to integrate an API to Airnode is to create an OIS 
   Other tips while this guide.
   </summary>
   
-  - Refer to the [Oracle Integration Specifications (OIS)](../../../technology/specifications/ois.md) reference while using this guide.
+  - Refer to the [Oracle Integration Specifications (OIS)](../../../reference/specifications/ois.md) reference while using this guide.
 
   - Open the [OIS template](https://docs.api3.org/next/grp-providers/guides/templates/ois-json.html) in another browser window to follow along. 
 
@@ -37,7 +37,7 @@ Therefore, only thing needed to integrate an API to Airnode is to create an OIS 
 
 ## OIS Template
 
-An _OIS_ is a json object that is added to an Airnode's [config.json](../../../technology/templates/config-json.md) file as the (`ois`) _key_, sometimes called a _field_. Try using the [OIS template](../../../technology/templates/ois-json.md) to construct an OIS and add it to the Airnode's config.json file later.
+An _OIS_ is a json object that is added to an Airnode's [config.json](../../../reference/templates/config-json.md) file as the (`ois`) _key_, sometimes called a _field_. Try using the [OIS template](../../../reference/templates/ois-json.md) to construct an OIS and add it to the Airnode's config.json file later.
 
 In the OIS template, there are some fields that contain `{FILL_*}`. This means that the value added is independent from other fields. On the other hand, if two fields contain the same expression  (e.g., `{FILL_OPERATION_PARAMETER_1_NAME}`), you must use the same value in them, because they are referencing each other.
 
@@ -148,7 +148,7 @@ In the examples below, `GET` refers to an [HTTP request method](https://develope
 
 Therefore, a path is not enough to specify an API operation by itself, we must also provide a method. If a new path is needed then it must start a new object in paths with its own methods. Currently only the GET and POST methods are supported by Airnode.
 
-With regards to the [OIS template](../../../technology/templates/ois-json.md), the name of the element (denoted as `{FILL_PATH}`) should be replaced with the path (e.g., `/data`). Similarly, `{FILL_METHOD}` should be replaced with the method of the operation you want to integrate (e.g., `get`). The method must be lowercase.
+With regards to the [OIS template](../../../reference/templates/ois-json.md), the name of the element (denoted as `{FILL_PATH}`) should be replaced with the path (e.g., `/data`). Similarly, `{FILL_METHOD}` should be replaced with the method of the operation you want to integrate (e.g., `get`). The method must be lowercase.
 
 The following example illustrates three operations, `GET /data`, `POST /data`, `GET /tokens`.
 
@@ -260,7 +260,7 @@ Security is implemented using the securitySchemes and security fields. You use `
 ]
 ```
 
-You can create a securityScheme by copying the code above or using the template code below. Just follow the steps below. Or use the full [OIS Template](../../../technology/templates/ois-json.md). 
+You can create a securityScheme by copying the code above or using the template code below. Just follow the steps below. Or use the full [OIS Template](../../../reference/templates/ois-json.md). 
 
 ```json
 "components": {
@@ -276,11 +276,11 @@ You can create a securityScheme by copying the code above or using the template 
   "{FILL_SECURITY_SCHEME_NAME}": []
 }
 ```
-1. First, name the security scheme by replacing `{FILL_SECURITY_SCHEME_NAME}` under `apiSpecifications.components.securitySchemes`. Note that you will also need to use the same name under `apiSpecifications.security`. Make sure to choose a descriptive name, such as `myApiKeyScheme`. This name will also be referred in the [secrets.env](../../../technology/deployment-files/secrets-env.md) file in a later step.
+1. First, name the security scheme by replacing `{FILL_SECURITY_SCHEME_NAME}` under `apiSpecifications.components.securitySchemes`. Note that you will also need to use the same name under `apiSpecifications.security`. Make sure to choose a descriptive name, such as `myApiKeyScheme`. This name will also be referred in the [secrets.env](../../../reference/deployment-files/secrets-env.md) file in a later step.
 
-    > Note that we will not be entering the API key itself in the OIS, because the OIS is not meant to include any user-specific information. Security credentials such as API keys go in [secrets.env](../../../technology/deployment-files/secrets-env.md) file.
+    > Note that we will not be entering the API key itself in the OIS, because the OIS is not meant to include any user-specific information. Security credentials such as API keys go in [secrets.env](../../../reference/deployment-files/secrets-env.md) file.
 
-2. Enter values for `in`, `type` and `name`. You can refer to the [OIS](../../../technology/specifications/ois.md#_4-2-components) document for more details or reference the following table for acceptable values.
+2. Enter values for `in`, `type` and `name`. You can refer to the [OIS](../../../reference/specifications/ois.md#_4-2-components) document for more details or reference the following table for acceptable values.
 
     | type        | in           | name     |
     | ----------- | ------------ | -------- |
@@ -291,7 +291,7 @@ You can create a securityScheme by copying the code above or using the template 
 3. Make sure to insert the name of your securityScheme under `security`. 
 
 
-4. Security credentials such as API keys go in [secrets.env](../../../technology/deployment-files/secrets-env.md) file. This step will actually be discussed in the next Guide document [Configuring Airnode](configuring-airnode.md#creating-secrets-env) which will discuss how to link your securityScheme(s) to the secrets.env file via the environment field. For now the following shows what the type `apiKey` named `myApiKeyScheme` might look like in secrets.env.
+4. Security credentials such as API keys go in [secrets.env](../../../reference/deployment-files/secrets-env.md) file. This step will actually be discussed in the next Guide document [Configuring Airnode](configuring-airnode.md#creating-secrets-env) which will discuss how to link your securityScheme(s) to the secrets.env file via the environment field. For now the following shows what the type `apiKey` named `myApiKeyScheme` might look like in secrets.env.
 
     ```bash
     MASTER_KEY_MNEMONIC=""
@@ -347,7 +347,7 @@ An Airnode endpoint is a service that Airnode exposes to on-chain clients. It ma
 
 For example, if your API operation returns an asset price given its ticker (e.g., `BTC`), you can specify the endpoint such that the requester provides the ticker as a parameter. The resulting endpoint would be a general one that returns prices for any kind of asset. On the other hand, you can hardcode `BTC` as the asset whose price will be returned (using [fixed operation parameters](./api-integration.md#fixedoperationparameters)), which would make your endpoint a specific one that only returns the BTC price.
 
-The recommended endpoint definition pattern is to create an Airnode endpoint for each API operation, and allow the requesters to provide all operation parameters themselves. This results in optimal flexibility, and essentially allows the requesters to use the entire API functionality on-chain. Normally, oracle integrations strive to hard-code as many API parameters as possible because passing these parameters on-chain results in a gas cost overhead. However, the Airnode protocol uses [templates](../../../technology/protocols/request-response/template.md) (not to be confused with the OIS template we are using for this guide), which allow requesters to specify a large number of endpoint parameters at no additional gas cost.
+The recommended endpoint definition pattern is to create an Airnode endpoint for each API operation, and allow the requesters to provide all operation parameters themselves. This results in optimal flexibility, and essentially allows the requesters to use the entire API functionality on-chain. Normally, oracle integrations strive to hard-code as many API parameters as possible because passing these parameters on-chain results in a gas cost overhead. However, the Airnode protocol uses [templates](../../../reference/protocols/request-response/template.md) (not to be confused with the OIS template we are using for this guide), which allow requesters to specify a large number of endpoint parameters at no additional gas cost.
 
 Note that there are some cases where you may not want to map endpoints to API operations one-to-one. For example, an API operation can have a `header` parameter, `Accept`, that can take the values `application/json` or `applicatino/xml` to determine how to  format the data that the API will respond to the call.
 Airnode expects responses to be in JSON format, and thus hard-coding this parameter as `JSON` would be more suitable than letting the requester decide, as there is only one valid choice.
@@ -379,10 +379,10 @@ The explanation of reservedParameters needs work. It jumps the user around. At l
 
 The requester can provide some parameters that are not mapped to API operation parameters.
 These parameters are called "reserved parameters", and their names start with an underscore.
-See the [related OIS docs](../../../technology/specifications/ois.md#_5-4-reservedparameters) for more information.
+See the [related OIS docs](../../../reference/specifications/ois.md#_5-4-reservedparameters) for more information.
 
 The current list of reserved parameters are `_type`, `_path`, `_times` and `_relay_metadata`.
-See the [reserved parameters guide](../../../technology/specifications/reserved-parameters.md) to see what each of these parameters are for.
+See the [reserved parameters guide](../../../reference/specifications/reserved-parameters.md) to see what each of these parameters are for.
 In most cases, all three should be defined as reserved parameters with no fixed/default values, as doing so provides the requester with the most flexibility.
 
 #### parameters

@@ -6,4 +6,4 @@ title: secrets.env
 
 Example secrets.env file for the Airnode starter tutorial.
 
-<<< @/docs/next/technology/code/tutorial-secrets.env
+<<< @/docs/next/reference/code/tutorial-secrets.env

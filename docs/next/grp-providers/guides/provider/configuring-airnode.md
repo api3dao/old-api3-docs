@@ -7,24 +7,24 @@ title: Configuring Airnode
 <TocHeader />
 <TOC class="table-of-contents" :include-level=[2,5] />
 
-An Airnode is deployed or redeployed using configuration values from its `config.json` and `secrets.env` files. The  `config.json` specifies the [OIS](../../../technology/specifications/ois.md) (Oracle Integration Specifications) and other specific configuration details. The `secrets.env` file includes security credentials such as API keys and chain provider URLs.
+An Airnode is deployed or redeployed using configuration values from its `config.json` and `secrets.env` files. The  `config.json` specifies the [OIS](../../../reference/specifications/ois.md) (Oracle Integration Specifications) and other specific configuration details. The `secrets.env` file includes security credentials such as API keys and chain provider URLs.
 
 > ![config-json](../../../assets/images/config-json.png)
 
 ---
 
-It is assumed that you have already read the guide [API Integration](api-integration.md) and created an OIS json object. The [ois.json](../../../technology/templates/ois-json.md), [config.json](../../../technology/templates/config-json.md) and [secrets.env](../../../technology/templates/secrets-env.md) templates are useful for this guide.
+It is assumed that you have already read the guide [API Integration](api-integration.md) and created an OIS json object. The [ois.json](../../../reference/templates/ois-json.md), [config.json](../../../reference/templates/config-json.md) and [secrets.env](../../../reference/templates/secrets-env.md) templates are useful for this guide.
 
 <details class="collapse-box">
   <summary class="collapse-box-summary">
   Other tips while using this guide.
   </summary>
 
-  - Refer to the [config.json](../../../technology/deployment-files/config-json.md) and [secrets.env](../../../technology/deployment-files/secrets-env.md) _reference_ while using this guide.
+  - Refer to the [config.json](../../../reference/deployment-files/config-json.md) and [secrets.env](../../../reference/deployment-files/secrets-env.md) _reference_ while using this guide.
 
-  - Open the _template_ [config.json](../../../technology/templates/config-json.md) in another browser window to follow along. 
+  - Open the _template_ [config.json](../../../reference/templates/config-json.md) in another browser window to follow along. 
 
-  - View the _example_ [config.json](../../../technology/templates/config-json.md) file from the [Airnode Starter tutorial](../../tutorial/airnode-starter.md).
+  - View the _example_ [config.json](../../../reference/templates/config-json.md) file from the [Airnode Starter tutorial](../../tutorial/airnode-starter.md).
 
 </details>
 
@@ -84,7 +84,7 @@ The complete 0.1.0 list of Ethereum providers and their AirnodeRRP contractIDs d
 
 <ChainsSupported :version="'0.1.0'" />
 
-For additional information about chain parameters see the [Technology > Deployment Files > config.json](../../../technology/deployment-files/config-json.html#chains).
+For additional information about chain parameters see the [Technology > Deployment Files > config.json](../../../reference/deployment-files/config-json.html#chains).
 
 ```json
   "chains": [
@@ -126,11 +126,11 @@ Airnode can use multiple Ethereum providers per chain. These could be a private 
 
 #### airnodeAdmin
 
-`airnodeAdmin` is the address that your Airnode will set as the [airnodeAdmin](../../../technology/protocols/request-response/airnode.md#airnodeAdmin) while creating the Airnode record on the respective chain. You should set this field to an address that only you control.
+`airnodeAdmin` is the address that your Airnode will set as the [airnodeAdmin](../../../reference/protocols/request-response/airnode.md#airnodeAdmin) while creating the Airnode record on the respective chain. You should set this field to an address that only you control.
 
 #### authorizers
 
-The list of authorizer contract addresses the Airnode deployment will set on-chain. See the [protocol docs](../../../technology/protocols/request-response/airnode.md#setting-endpoint-authorizers) for more information. Note that the Airnode master wallet has to be funded (on the respective chain) to be able to make the transaction that will set or update this value.
+The list of authorizer contract addresses the Airnode deployment will set on-chain. See the [protocol docs](../../../reference/protocols/request-response/airnode.md#setting-endpoint-authorizers) for more information. Note that the Airnode master wallet has to be funded (on the respective chain) to be able to make the transaction that will set or update this value.
 
 #### blockHistoryLimit
 
@@ -200,7 +200,7 @@ Set one of four possible log levels.
 
 ### environment
 
-Airnode deployments need secrets such as security scheme values (i.e., API keys) and blockchain provider URLs. The secrets.env file stores these secrets which are used to set the environment variables. The `environment` field is used by Airnode to access the environment variables (secrets) for securitySchemes and blockchain provider URLs. These variables have arbitrary names and need to be declared. See the reference [Technology > Deployment Files > config.json > environment](../../../technology/deployment-files/config-json.md#environment) for additional input.
+Airnode deployments need secrets such as security scheme values (i.e., API keys) and blockchain provider URLs. The secrets.env file stores these secrets which are used to set the environment variables. The `environment` field is used by Airnode to access the environment variables (secrets) for securitySchemes and blockchain provider URLs. These variables have arbitrary names and need to be declared. See the reference [Technology > Deployment Files > config.json > environment](../../../reference/deployment-files/config-json.md#environment) for additional input.
 
 Note the following steps Airnode takes related to environment variables during deployment and redeployment.
 
@@ -339,7 +339,7 @@ The `config.json` file needs a unique `id` field, which identifies the specific 
 
 ## Creating secrets.env
 
-The `secrets.env` file contains environment variables (secrets) such as blockchain provider urls, cloud provider keys, etc. Make sure to download the [secrets.env](../../../technology/templates/secrets-env.md) template and refer to [Technology > Deployment Files > secrets.env](../../../technology/deployment-files/secrets-env.md) as needed.
+The `secrets.env` file contains environment variables (secrets) such as blockchain provider urls, cloud provider keys, etc. Make sure to download the [secrets.env](../../../reference/templates/secrets-env.md) template and refer to [Technology > Deployment Files > secrets.env](../../../reference/deployment-files/secrets-env.md) as needed.
 
 **There are four categories of secrets.**
 
