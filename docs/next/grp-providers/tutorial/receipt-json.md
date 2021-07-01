@@ -6,4 +6,4 @@ title: receipt.json
 
 Example receipt.json file for the Airnode starter tutorial.
 
-<<< @/docs/next/technology/code/tutorial-receipt.json
+<<< @/docs/next/reference/code/tutorial-receipt.json

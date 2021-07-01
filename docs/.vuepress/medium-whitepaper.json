@@ -42,8 +42,10 @@
     {"tag":"Development", "posts":[
       {"date":"Jan 31, 2021", "title":"API3 DAO Development Update, Operations Cycle #1", "url":"https://medium.com/api3/api3dao-development-update-operations-cycle-1-ee26231ba4f"},
       {"date":"Feb 28, 2021", "title":"API3 DAO Development Update, February 2021", "url":"https://medium.com/api3/api3-dao-development-update-february-2021-8e3d6e673130"},
-      {"date":"Mar 31, 2021", "title":"API3DAO Development Report, March 2021", "url":"https://medium.com/api3/api3dao-development-update-march-2021-7cae9265fdd3"},
-      {"date":"Apr 30, 2021", "title":"API3DAO Development Report, April 2021", "url":"https://medium.com/api3/api3dao-development-report-april-2021-f921b7f35a35"}
+      {"date":"Mar 31, 2021", "title":"API3 DAO Development Report, March 2021", "url":"https://medium.com/api3/api3dao-development-update-march-2021-7cae9265fdd3"},
+      {"date":"Apr 30, 2021", "title":"API3 DAO Development Report, April 2021", "url":"https://medium.com/api3/api3dao-development-report-april-2021-f921b7f35a35"},
+      {"date":"May 31, 2021", "title":"API3 DAO Core Technical Team Development Report, May 2021", "url":"https://medium.com/api3/api3dao-core-technical-team-development-report-may-2021-e0ad5f8d22b8"},
+      {"date":"Jun 30, 2021", "title":"API3 DAO Core Technical Team Development Report, June 2021", "url":"https://medium.com/api3/api3-dao-core-technical-team-development-report-june-2021-91b06f263b40"}
     ]},
 
     {"tag":"Standalone Posts", "posts":[

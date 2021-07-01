@@ -15,11 +15,11 @@ The following diagram illustrates how to become a requester.
 
 ![become-requester](../assets/images/become-requester.png)
 
-There are several requester related commands in the [@api3/airnode-admin](../technology/cli-commands.md#create-requester) package. Here we will use three commands to create a requester record, endorse client contracts and fund Airnodes.
+There are several requester related commands in the [@api3/airnode-admin](../reference/cli-commands.md#create-requester) package. Here we will use three commands to create a requester record, endorse client contracts and fund Airnodes.
 
-1. Create a Requester Record:[`create-requester`](../technology/cli-commands.md#create-requester)creates a requester record.
-2. Endorse Client Contracts:[`endorse-client`](../technology/cli-commands.md#endorse-client)endorses a client contract.
-3. Fund Airnodes:[`derive-designated-wallet`](../technology/cli-commands.md#derive-designated-wallet)creates a requester specific wallet associated with an Airnode.
+1. Create a Requester Record:[`create-requester`](../reference/cli-commands.md#create-requester)creates a requester record.
+2. Endorse Client Contracts:[`endorse-client`](../reference/cli-commands.md#endorse-client)endorses a client contract.
+3. Fund Airnodes:[`derive-designated-wallet`](../reference/cli-commands.md#derive-designated-wallet)creates a requester specific wallet associated with an Airnode.
 
 ## Part 1: Create a Requester Record
 
@@ -33,7 +33,7 @@ Each requester needs to create a requester record and get assigned a requester i
 This wallet pays the transaction gas costs to write the requester record. This is not the wallet(s) that will pay gas costs to actually execute any Airnodes, for that the Airnodes themselves will create designated wallets on behalf of your requester record. [Part 3](become-a-requester.md#part-3-funding-airnodes) will explain more about designated wallets.
 :::
 
-[@api3/airnode-admin create-requester](../technology/cli-commands.md#create-requester)
+[@api3/airnode-admin create-requester](../reference/cli-commands.md#create-requester)
 
 ```bash
 npx @api3/airnode-admin create-requester \
@@ -59,12 +59,12 @@ To endorse a client contract you will need the following.
 - The requesterIndex returned from the call to create-requester. (Part #1 above)
 - The public address of the client contract.
 
-[@api3/airnode-admin endorse-client](../technology/cli-commands.md#endorse-client)
+[@api3/airnode-admin endorse-client](../reference/cli-commands.md#endorse-client)
 
 ```bash
 npx @api3/airnode-admin endorse-client \
   --providerUrl https://ropsten.infura.io/v3/<KEY> \
-  --mnemonic "nature about salad..." \ # Used to pay the gas costs for this transaction.
+  --mnemonic "cricket oppose ...." \ # Used to pay the gas costs for this transaction.
   --requesterIndex 6 \                 # The requesterIndex of the requester record.
   --clientAddress 0x2c2e12...          # The public address of the contract to endorse.
 
@@ -75,14 +75,14 @@ npx @api3/airnode-admin endorse-client \
 
 ## Part 3: Funding Airnodes
 
-To fund a particular Airnode, a requester instructs the Airnode to derive a _designated wallet_ for the requester  using the Airnode's ID and the requester's requesterIndex. Once the wallet is created it must be funded using the public address returned by the command`derive-designated-wallet`. Each Airnode keeps a list of requester designated wallets that can access the Airnode. Learn more about [designated wallets](../technology/protocols/request-response/designated-wallet.md).
+To fund a particular Airnode, a requester instructs the Airnode to derive a _designated wallet_ for the requester  using the Airnode's ID and the requester's requesterIndex. Once the wallet is created it must be funded using the public address returned by the command`derive-designated-wallet`. Each Airnode keeps a list of requester designated wallets that can access the Airnode. Learn more about [designated wallets](../reference/protocols/request-response/designated-wallet.md).
 
-Client contracts endorsed by a requester will have access to all Airnodes the requester has funded. This allows the requester to cover the gas cost when accessing an Airnode. However this does not cover the cost of API data that the Airnode serves, see [API Provider Fees](fees.md#api-provider-fees). Requesters need to keep their designated wallets topped off if they want the Airnodes to fulfill requests made by their endorsed client contracts.
+Client contracts endorsed by a requester will have access to all Airnodes the requester has funded. This allows the requester to cover the gas cost when executing an Airnode. However this does not cover the cost of API data that the Airnode serves, see [API Provider Fees](fees.md#api-provider-fees). Requesters need to keep their designated wallets topped off if they want the Airnodes to fulfill requests made by their endorsed client contracts.
 
 Since the designated wallet is recorded in the cloud provider (i.g., AWS) where Airnode functions live, there are no on-chain transaction gas costs when deriving a designated wallet.
 
-::: tip Custodial Wallet
-The requester should keep in mind that a designated wallet is custodial, i.e., the Airnode keeps the private key, and the funds are trusted with the Airnode. Therefore, a requester should not fund a designated wallet with more then they can trust the Airnode with. Learn more about custodial designated wallets in [Fees](fees.md#airnode-execution-fees).
+::: warning Designated Wallets are custodial
+The requester should keep in mind that a designated wallet is custodial, i.e., the Airnode keeps the private key, and the funds are trusted with the Airnode. Therefore, a requester should not fund a designated wallet with more then they can trust the Airnode with. Learn more about custodial designated wallets in [Fees > Airnode Fees](fees.md#airnode-fees).
 :::
 
 To fund an Airnode simply tell any Airnode to derive a _designated wallet_ for your requesterIndex. This will return the public address of the wallet so you can fund it.
@@ -91,7 +91,7 @@ To fund an Airnode simply tell any Airnode to derive a _designated wallet_ for y
 - The desired Airnode's ID, airnodeId.
 - The requester's requesterIndex that was generated when creating a requester record.
 
-[@api3/airnode-admin derive-designated-wallet](../technology/cli-commands.md#derive-designated-wallet)
+[@api3/airnode-admin derive-designated-wallet](../reference/cli-commands.md#derive-designated-wallet)
 
 ```bash
 npx @api3/airnode-admin derive-designated-wallet \

@@ -17,7 +17,7 @@ module.exports = [
   },
   
   {
-    /** 
+    /**
      * When adding a new doc or group before the "Dashboard" group
      * you must change the value of initialOpenGroupIndex to match the doc to
      * display first when the folder opens, -1 will display the README.md.

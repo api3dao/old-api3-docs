@@ -6,4 +6,4 @@ title: config.json
 
 Example config.json file for the Airnode starter tutorial.
 
-<<< @/docs/next/technology/code/tutorial-config.json
+<<< @/docs/next/reference/code/tutorial-config.json
