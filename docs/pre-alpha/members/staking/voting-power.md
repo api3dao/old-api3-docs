@@ -10,7 +10,7 @@ title: Voting Power
 ## Deposit & Stake Tokens
 
 Users must stake API3 tokens to be eligible for rewards, to vote, and to create proposals. To stake: 
-1. Visit the **"Staking" tab** in one of the [DAO front ends](../overview.md#frontends).
+1. Visit the **"Staking" tab** in one of the [DAO front ends](../README.md#frontends).
 2. **Deposit tokens.**
 <p align="center">
   <img src="../../figures/deposit.png" width="300" />
@@ -24,7 +24,7 @@ Users must stake API3 tokens to be eligible for rewards, to vote, and to create 
 ## Unstake and Withdraw Tokens
 
 To unstake and withdraw tokens from the pool:
-1. Visit the **"Staking" tab** in one of the [DAO front ends](../overview.md#frontends).
+1. Visit the **"Staking" tab** in one of the [DAO front ends](../README.md#frontends).
 2. **Schedule an unstake.** This immediately reduces your voting power proportionally to the number of tokens you schedule to unstake. 
 <p align="center">
   <img src="../../figures/unstake.png" width="400" />
