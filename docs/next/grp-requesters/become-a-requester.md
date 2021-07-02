@@ -81,9 +81,9 @@ Client contracts endorsed by a requester will have access to all Airnodes the re
 
 Since the designated wallet is recorded in the cloud provider (i.g., AWS) where Airnode functions live, there are no on-chain transaction gas costs when deriving a designated wallet.
 
-::: warning Designated Wallets are custodial
-The requester should keep in mind that a designated wallet is custodial, i.e., the Airnode keeps the private key, and the funds are trusted with the Airnode. Therefore, a requester should not fund a designated wallet with more then they can trust the Airnode with. Learn more about custodial designated wallets in [Fees > Airnode Fees](fees.md#airnode-fees).
-:::
+<DesignatedWalletWarning/>
+
+Learn more about [designated wallets](../reference/protocols/request-response/designated-wallet.md) in the reference section.
 
 To fund an Airnode simply tell any Airnode to derive a _designated wallet_ for your requesterIndex. This will return the public address of the wallet so you can fund it.
 

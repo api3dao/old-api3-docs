@@ -27,9 +27,11 @@ In the above example `xpub` is retrieved from `AirnodeParameterStore.sol` using 
 
 The path of a designated wallet for the request–response protocol is `m/0/${requesterIndex}`. This means that we assume that `requesterIndex` will be less than `2^31` (yet this can be extended by using schemes such as `m/0/${requestInd % 2^31}/${requestInd / 2^31}`). Other branches such as `m/1/...`, `m/2/...`, etc. are reserved for other protocols (e.g., the pub–sub protocol).
 
-## The custodial nature of the designated wallets
+## Custodial nature of designated wallets
 
-The requester must keep it in mind that a designated wallet is custodial, i.e., the Airnode keeps the requester's private key, and the funds are trusted with the Airnode. Therefore, a requester should not fund their designated wallet of an Airnode more than an amount that they can trust the Airnode with. This risk becomes negligible when:
+<DesignatedWalletWarning/>
+
+Requesters should not fund a designated wallet with more then they can trust the Airnode with. This risk becomes negligible when:
 
 1. The Airnode is a first-party oracle, because first-party oracles are trustworthy
 2. The Airnode is being used for a high value use-case, which already implies a high level of trust
