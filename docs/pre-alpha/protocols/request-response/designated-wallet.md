@@ -33,12 +33,12 @@ Other branches such as `m/1/...`, `m/2/...`, etc. are reserved for other protoco
 
 ## The custodial nature of the designated wallets
 
-The requester must keep it in mind that a designated wallet is custodial, i.e., the provider keeps their private key, and the funds are trusted with them.
-Therefore, a requester should not fund their designated wallet of a provider more than an amount that they can trust the provider with.
-This risk becomes negligible when:
+<DesignatedWalletWarning/>
+
+Requesters should not fund a designated wallet with more then they can trust the Airnode with. This risk becomes negligible when:
 
 1. The provider is a first-party oracle, because first-party oracles are trustworthy
-1. The provider is being used for a high value use-case, which already implies a high level of trust
+2. The provider is being used for a high value use-case, which already implies a high level of trust
 
 If the requester does not trust the provider at all, they can fund the designated just enough to cover a single fulfillment for each request.
 Therefore, this scheme both supports the traditional per-call payments, but also allows the protocol to leverage the trustworthiness of providers to reduce unnecessary gas costs caused by microtransactions.
