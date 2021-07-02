@@ -22,7 +22,7 @@ Proposals can be submitted to either the *Primary* or *Secondary* voting app. Th
 In general, the Primary voting app has a larger treasury and more permissions but has more stringent voting settings. For a technical breakdown of the different permissions granted to the DAO's two voting apps (and corresponding Agents) see this [README](https://github.com/api3dao/api3-dao/blob/develop/packages/dao/README.md#permissions).
 
 ### Proposal Types
-The following parameters can be updated via DAO proposal, by proposing to call functions in the [pool contract](../overview.md):
+The following parameters can be updated via DAO proposal, by proposing to call functions in the [pool contract](../README.md):
 
 |Parameter Name |Initial Value (units) |Function Signature |Description |
 |--- |--- |--- |--- |

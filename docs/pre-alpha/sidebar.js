@@ -24,7 +24,7 @@ module.exports = [
      */
     title: 'API3 Members', collapsable: false,
     children: [
-      {title:'Overview', path:'members/overview'},
+      {title:'Overview', path:'members/'},
       {
         title:'Contract Architecture',
         children: [
