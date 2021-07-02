@@ -15,7 +15,7 @@ Airnode is composed of two parts: the on-chain **AirnodeRrp.sol** protocol contr
 ---
   >![call](../assets/images/call-an-airnode.png)
 
-  In the above diagram a client contract makes a request to the AirnodeRrp contract. When the request has been filled by the Airnode application it performs a  callback to the  **fulfill** function in the client contract via the AirnodeRrp contract.
+  In the above diagram a client contract makes a request to the AirnodeRrp contract. When the request has been filled by the Airnode application it performs a  callback to the  `fulfill()` function in the client contract via the AirnodeRrp contract.
 
 The AirnodeRrp protocol is designed to be flexible and is meant to serve a variety of use cases. See the Airnode [client examples](https://github.com/api3dao/airnode-starter/blob/main/contracts/ExampleClient.sol) for some potential design patterns. Requesters need to create a client contract that builds on the following items.
 
@@ -24,7 +24,7 @@ The AirnodeRrp protocol is designed to be flexible and is meant to serve a varie
 3. Deploy the client contract
 4. [Endorse](become-a-requester.md#part-2-endorse-client-contracts) the client contract
 
-This document focuses on making a request and capturing the response in  your client contract.
+This document focuses items 1 & 2 above, on making a request and capturing the response from an Airnode in  your client contract.
 
 ## Step #1: Inherit AirnodeRrpClient.sol
 

@@ -64,7 +64,7 @@ module.exports = {
   },
   plugins: 
   [   
-    ['@vuepress/html-redirect'],
+    ['@vuepress/html-redirect', {duration: 0}],
     ['vuepress-plugin-table-of-contents'],
     ['vue-pdf'],
     ['@vuepress/medium-zoom'],
