@@ -17,7 +17,7 @@ Rewards are added as staked API3 tokens into the staking pool each time the `min
 
 > `rewardAmount = totalStakedTokens * APR * epochLength / epochsPerYear / 100`
 
-In other words, *the reward is the annual percentage (APR) increase divided by the number of epochs per year (currenly ~52)*.
+In other words, *the reward is the annual percentage (APR) increase divided by the number of epochs per year (currently ~52)*.
 
 In addition, each time `mintReward` is called, the annual percentage (the reward rate) is updated up or down by APR update step size (1%), according to whether the total number of staked tokens is above or below its target. The initial target is 50%, so if the total number of staked tokens is less than 50% of the total token supply when `mintReward` is called, APR will be raised by 1% for the next reward payout (and vice versa). Thus, APR will constantly be adjusted, but it will always stay between a designated maximum and minimum -- currently 75% and 2.5% respectively.
 
