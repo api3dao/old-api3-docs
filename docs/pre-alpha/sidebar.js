@@ -4,6 +4,7 @@ module.exports = [
     children: [
         {title:'What is API3?', path:'/pre-alpha/'},
         'introduction/contributing',
+        'introduction/blog-posts'
     ]
   },
   {

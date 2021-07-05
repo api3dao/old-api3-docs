@@ -15,7 +15,7 @@ Therefore, you are recommended to do all of the below before attempting to contr
 - If you do not have any blockchain development experience, read [Mastering Ethereum](https://github.com/ethereumbook/ethereumbook) cover to cover.
 It is a light read that touches on all subjects that you will need to know about superficially.
 
-- To get a general grasp of the project, read the [API3 whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf) and [our Medium posts](../../pages/medium.md).
+- To get a general grasp of the project, read the [API3 whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf) and [our Medium posts](blog-posts.md).
 See the [roadmap](https://trello.com/b/sYVOAa5O/api3-roadmap).
 
 - Read the entirety of the [API3 docs](https://github.com/api3dao/api3-docs).

@@ -62,7 +62,7 @@ Staked API3 tokens will be used as collateral for the on-chain insurance service
 ::: tab Blog Posts
 Not comfortable with academic-style papers? The following Blog Posts explain the Whitepaper in smaller digestible articles.
 
-<medium-whitepaper />
+<blog-posts :tab="'byGroup'"/>
 
 **All the Blog Posts**
 
