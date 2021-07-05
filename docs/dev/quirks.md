@@ -23,3 +23,7 @@ When running the `test:links:prod` or `test:links:next` scripts the following er
 ```bash
 ERROR: File not found! Please provide a valid filename as an argument.
 ```
+
+## @vuepress/plugin-html-redirect 
+
+Note that a redirect is to a directory path and not to a file. There must be a README.md file in the directory that Vuepress can display. Going to an file will cause a problem in production and display a counter. However this will not happen in development. Most likely this is a problem with the plugin as at Jul, 5th 2021.

@@ -29,19 +29,21 @@ All plugins are installed as devDependencies.
 "dependencies": {}
 ```
 
-## Vue and VuePress Plugins
+## VuePress Plugins
 
-These plugins are used and added by VuePress when a project is created. They only need to be updated as new releases come forward. The versions of each should always be in sync (the same). These plugins are not explained further in this document.
+There Vuepress plugins are used and added by VuePress when a project is created. They only need to be updated as new releases come forward. The versions of each should always be in sync (the same). These plugins are not explained further in this document.
 
 - @vuepress/plugin-back-to-top
 - @vuepress/plugin-medium-zoom
 - vuepress
 
-The following plugin is used to establish redirects for external sites that wish to target a particular page in the docs while using a permanent link in its code. 
+### @vuepress/plugin-html-redirect 
+
+The following Vuepress plugin is used to establish redirects for external sites that wish to target a particular page in the docs while using a permanent link in its code. 
 
 - @vuepress/plugin-html-redirect
 
-For example: `/latest/members` will always be pointed to the latest version of the docs. These mappings are in the `docs/.vuepress/redirects` file.
+For example: `/latest/members` will always be pointed to the latest version of the docs. These mappings are in the `docs/.vuepress/redirects` file. 
 
 ```bash
 /latest /pre-alpha
@@ -52,6 +54,8 @@ For example: `/latest/members` will always be pointed to the latest version of t
 /latest /0.1.0
 /latest/members /0.1.0/members
 ```
+
+Note that a redirect is to a directory path and not to a file. There must be a README.md file in the directory that Vuepress can display. Going to an file will cause a problem in production and display a counter. However this will not happen in development. Most likely this is a problem with the plugin as at Jul, 5th 2021.
 
 ## Community Plugins
 
