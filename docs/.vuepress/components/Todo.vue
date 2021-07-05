@@ -30,9 +30,8 @@
 
 <script>
   export default {
-      name: 'todo',
-      props: {issueID:Number
-    },
+    name: 'todo',
+    props: {issueID:Number},
     data: () => ({
       githubURL:String,
     }),

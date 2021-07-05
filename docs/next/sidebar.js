@@ -4,7 +4,7 @@ module.exports = [
     children: [
       '',
       'contributing',
-      'medium-posts',
+      'blog-posts',
       'fundamentals/apis',
       'fundamentals/first-party-oracles',
       'fundamentals/decentrally-governed-oracle-networks',
