@@ -13,6 +13,12 @@ The API3 project has a completely open, decentralized and direct governance mode
 
 The DAO votes on high-level matters such as staking incentives and collateralization. Additionally, the DAO will give out grants from the DAO bank and decide on the general direction of the project.
 
+<Todo>
+
+The image below may have an issue with the arrow where the dApp pays subscription fees to the pool. Should that say pay insurance fees? Also should it say DAO Staking Pool?
+
+</Todo>
+
 ![dao](../assets/images/dao.png)
 
 ## DAO Structure

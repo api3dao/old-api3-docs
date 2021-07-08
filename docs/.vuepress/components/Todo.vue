@@ -23,7 +23,9 @@
         <a v-show="issueID" :href="githubURL" target="github">
           GitHub Issue: #{{issueID}}
         </a>
-        <div style="margin-top:-10px;margin-bottom:-10px;"><slot>Todo:</slot></div>
+        <div style="margin-top:-10px;margin-bottom:-10px;">
+          <slot></slot>
+        </div>
       </div>
   </div>
 </template>
@@ -37,14 +39,13 @@
     }),
     mounted() {
       this.$nextTick(function () {
-        this.$page.todoCnt = 0 // Needed here and beforeMount
+        this.$page.todoCnt = 0 // Needed here and in beforeMount()
         this.githubURL = "https://github.com/api3dao/api3-docs/issues/"+this.issueID
       })
     },
     beforeUpdate() {
       this.$nextTick(function () {
-        this.$page.todoCnt = 0 // Needed here and mounted
-        //console.log('> beforeUpdate', this.$page)
+        this.$page.todoCnt = 0 // Needed here and in mounted()
       })
     }
   }
