@@ -32,7 +32,7 @@ title: Contracts Overview
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 <p align="center">
-  <img src="../../figures/dao-contract-structure.png" width="700" />
+  <img src="../assets/images/dao-contract-structure.png" width="700" />
 </p>
 
 The core of the DAO is a set of smart contracts based on Aragon's [aragonOS](https://github.com/aragon/aragonOS). The code for these contracts can be found [here](https://github.com/api3dao/api3-dao/), along with instructions for how to deploy a copy of the DAO.
