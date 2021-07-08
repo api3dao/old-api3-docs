@@ -37,11 +37,16 @@ title: Contracts Overview
 
 The core of the DAO is a set of smart contracts based on Aragon's [aragonOS](https://github.com/aragon/aragonOS). The code for these contracts can be found [here](https://github.com/api3dao/api3-dao/), along with instructions for how to deploy a copy of the DAO.
 
-|Role             |Contract Name |  Mainnet Address | Rinkeby Testnet Address                   |
-|---              |---           |---               |---                                        |
-|Pool             |Api3Pool      |                  |0xf10952f418da8da5ece292b1b82a20479633f173 |
-|Primary Voting   |Api3Voting    |                  |0x2c5c6557d4b9874411adf1c126cb3bae7242c1c0 |
-|Secondary Voting |Api3Voting    |                  |0x51e9737734b7ae1456ce174f046fb784c3a8d8b1 |
+|Name             |Mainnet Address                              |
+|:--              |:--                                          |
+|DAO Kernel       |`0x593ea926ee9820a933488b6a288433c387d06dba` |
+|ACL              |`0x1e7ecc6d3b5b4cfdfc71cb7c3ea9ac4a55f4195a` |
+|DAO Pool         |`0x6dd655f10d4b9e242ae186d9050b68f725c76d76` |
+|Primary Voting   |`0xdb6c812e439ce5c740570578681ea7aadba5170b` |
+|Secondary Voting |`0x1c8058e72e4902b3431ef057e8d9a58a73f26372` |
+|Primary agent    |`0xd9f80bdb37e6bad114d747e60ce6d2aaf26704ae` |
+|Secondary agent  |`0x556ecbb0311d350491ba0ec7e019c354d7723ce0` |
+|Convenience      |`0x95087266018b9637aff3d76d4e0cad7e52c19636` |
 
 <!-- Add mainnet addresses to this list -->
 <!-- Add the main DAO contract to this list -->
