@@ -1,0 +1,140 @@
+---
+title: DAO Contracts
+---
+
+# {{$frontmatter.title}}
+
+<TocHeader />
+<TOC class="table-of-contents" :include-level="[2,3]" />
+
+<p align="center">
+  <img src="../figures/dashboard/dao-contract-structure.png" width="700" />
+</p>
+
+The core of the DAO is a set of smart contracts based on Aragon's [aragonOS](https://github.com/aragon/aragonOS). The code for these contracts can be found [here](https://github.com/api3dao/api3-dao/), along with instructions for how to deploy a copy of the DAO.
+
+<Todo>
+
+2021-07-06 wkande:
+Note from Curve Labs
+Add mainnet addresses to this list.
+Add the main DAO contract to this list.
+
+</Todo>
+
+---
+title: Contracts Overview
+---
+
+# {{$frontmatter.title}}
+
+<TocHeader />
+<TOC class="table-of-contents" :include-level="[2,3]" />
+
+<p align="center">
+  <img src="../../figures/dao-contract-structure.png" width="700" />
+</p>
+
+The core of the DAO is a set of smart contracts based on Aragon's [aragonOS](https://github.com/aragon/aragonOS). The code for these contracts can be found [here](https://github.com/api3dao/api3-dao/), along with instructions for how to deploy a copy of the DAO.
+
+|Role             |Contract Name |  Mainnet Address | Rinkeby Testnet Address                   |
+|---              |---           |---               |---                                        |
+|Pool             |Api3Pool      |                  |0xf10952f418da8da5ece292b1b82a20479633f173 |
+|Primary Voting   |Api3Voting    |                  |0x2c5c6557d4b9874411adf1c126cb3bae7242c1c0 |
+|Secondary Voting |Api3Voting    |                  |0x51e9737734b7ae1456ce174f046fb784c3a8d8b1 |
+
+<!-- Add mainnet addresses to this list -->
+<!-- Add the main DAO contract to this list -->
+
+## Pool (Api3Pool.sol)
+
+The API3 Pool contract is where API3 token holders can stake their tokens to acquire voting power in the DAO. Stakers receive rewards in API3 tokens and can optionally delegate their voting power to another user. 
+
+::: tip
+The pool contract will also be used to pay insurance claims out of the staking pool. As at July 7th, 2021 this functionality has yet to be implemented.
+:::
+
+See the [API3Pool.sol](https://github.com/api3dao/api3-dao/tree/main/packages/pool/contracts) contract code and the list of contracts it inherits from.
+
+- TimelockUtils.sol
+- ClaimUtils.sol
+- StakeUtils.sol
+- TransferUtils.sol
+- DelegationUtils.sol
+- RewardUtils.sol
+- GetterUtils.sol
+- StateUtils.sol
+
+
+### Depositing, Staking, Unstaking, and Withdrawing
+|Signature | Description|
+|--- |--- |
+|`depositRegular(uint256 amount)` |Deposits your API3 tokens into the pool. Tokens must be deposited before they can be staked. |
+|`stake(uint256 amount)`|Stakes deposited API3 tokens. Staked tokens will earn rewards, grant voting power (and may be slashed if there is a claim on the pool—not yet implemented). |
+|`depositAndStake(address source, uint256 amount)` |Deposits and stakes API3 tokens in one transaction. |
+|`scheduleUnstake(uint256 shares)` |Schedules staked tokens to be unstaked. In order to unstake API3 tokens, members must first schedule an unstake and wait the scheduled period before unstaking (currently ~1 week). Tokens scheduled to be unstaked no longer grant voting power or earn rewards.  |
+|`unstake(address userAddress) returns(uint256)` |Unstakes API3 tokens, allowing them to be withdrawn from the pool (unstaking and withdrawing are separate steps). Can only be called after scheduling an unstake and waiting the scheduled amount of time. |
+|`withdrawRegular(uint256 amount)` |Withdraws your API3 tokens from the Pool contract. |
+|`unstakeAndWithdraw(address destination)` |Unstakes and withdraws tokens in one transaction. |
+
+### Timelock Functions
+|Signature | Description|
+|--- |--- |
+|`function deposit(address source, uint256 amount, address userAddress)` |Callable only by the Timelock Manager contract. Deposits tokens on behalf of a user. |
+|`function depositWithVesting(address source, uint256 amount, address userAddress, uint256 releaseStart, uint256 releaseEnd)` |Callable only by the Timelock Manager contract. Deposits tokens on a vesting schedule on behalf of a user. These vesting tokens cannot be withdrawn by the user until they have vested, but they *can* be staked. |
+|`function updateTimelockStatus(address userAddress, address timelockManagerAddress)` |Updates the vesting status of a user's deposited vesting tokens (i.e. unlocks tokens) according to the schedule in the Timelock Manager contract. |
+
+### Voting Power
+|Signature | Description|
+|--- |--- |
+|`userVotingPowerAt(address userAddress, uint256 _block)`|Returns a user's current voting power (0 if they have delegated it). |
+|`delegateVotingPower(address delegate)` |Delegates a member's voting power, as decided by their share of the staking pool, to another address. It is not necessary to undelegate before redelegating to a new address. |
+|`undelegateVotingPower()` |Undelegates a member's voting power. |
+
+### Other
+|Signature | Description|
+|--- |--- |
+|`mintReward()` |Distributes new API3 tokens into the staking pool, where they can be unstaked and withdrawn by members using their share of the pool. |
+|`payOutClaim(address recipient, uint256 amount)`|A special function callable only by approved claims manager contracts to pay out claims directly from the pool. |
+
+## DAO (Api3Template.sol)
+
+The API3 DAO contract is the core DAO contract, and it serves a coordinating and setup role. It holds the admin role in API3's contracts including the staking pool, and it delegates some of this responsibility to the DAO's other contracts (its voting apps and [Aragon Agents](https://aragon.org/agent)).
+
+The base Aragon DAO template contract used by API3 DAO can be found [here](https://github.com/aragon/dao-templates/blob/master/shared/contracts/BaseTemplate.sol).
+
+See the [Api3Template.sol](https://github.com/api3dao/api3-dao/tree/main/packages/dao/contracts) contract code and the list of contracts it inherits from.
+
+- BaseTemplate.sol
+
+## Voting (Api3Voting.sol)
+
+API3's voting app implements a simple quorum-based voting mechanism with:
+
+- a minimum required voting power to create a new proposal (defined in the Pool contract)
+- a minimum required quorum for passing a proposal (after a waiting period)
+- a quorum percentage to pass a proposal instantly
+
+Proposals include an execution script, which can be executed if the proposal passes.
+
+The API3 DAO has installed two instances of its voting app, primary and secondary versions, along with two Aragon Agents that they control. The primary app commands a larger treasury and can update all DAO settings, while the secondary commands a much smaller treasury and can update some of the DAO settings.
+
+See the [Api3Voting.sol](https://github.com/api3dao/api3-dao/tree/main/packages/dao/contracts) contract code and the Aragon contracts it inherits from.
+
+|Signature | Description|
+|--- |--- |
+|`newVote(bytes _executionScript, string _metadata, bool _castVote, bool _executesIfDecided) returns (uint256 voteId)` |Create a new proposal in the DAO. Requires a minimum percentage of voting power (currently 0.1%). |
+|`vote(uint256 _voteId, bool _supports, bool _executesIfDecided)` |Vote yes or no on an existing proposal. |
+|`executeVote(uint256 _voteId)` |Execute a proposal, if it is ready for execution. |
+
+A proposal is ready for execution if:
+1. the proposal hasn't already been executed, and 
+2. greater than 50% of all voting power has voted "yes" on the proposal,
+
+OR
+
+1. the proposal hasn't already been executed, and 
+2. the proposal's voting period has ended, and
+3. the total "yes" vote exceeds the "no" vote, and
+4. at least 50% (for Primary voting app proposals) or 15% (for Secondary voting app proposals) of all voting power has voted "yes" on the proposal.
+

@@ -15,10 +15,14 @@ Decentralized governance requires well-balanced incentive mechanisms that accura
 
 _Main utilities of the API3 token._
 
-1. [Staking](#staking): Grants membership in the API3 DAO and rights to [inflationary rewards](#inflationary-rewards).
-1. [Collateral](#collateral): Backs insurance services that protect users from damages caused
+> ![dao-pool-pool-utils](../assets/images/dao-pool-token-utils.png)
+
+1. [Staking](dao-pool.md#staking): Grants membership in the API3 DAO and rights to [inflationary rewards](dao-pool.md#inflationary-rewards).
+1. [Collateral](dao-pool.md#collateral): Backs insurance services that protect users from damages caused
 by dAPI malfunctions.
-1. [Governance](#governance): Grants direct representation in the API3 DAO.
+1. [Governance](dao-pool.md#governance): Grants direct representation in the API3 DAO.
+
+
 
 Note that it is critical for these three utilities to coincide. All governing entities must receive staking rewards for them to govern in a way that maximizes revenue. All governing entities must have their funds used as collateral for them to govern in a way that minimizes **_security_** risks. "_Security_" refers to a "guarantee or reliability of dAPI service"
 
@@ -26,7 +30,7 @@ Reference <a href="/api3-whitepaper-v1.0.1.pdf#API3 tokenomics" target="api3-doc
 
 ### Staking
 
-The staking utility incentivizes participation in the DAO and alignment of incentives. By [staking](tokens.md#staked-tokens) your API3 tokens into the pool, you receive governance voting rights and take part in providing API3 users with quantifiable _security_ in the form of insurance. The pool also grants you inflationary rewards and exposes you to insurance claim risks.
+The staking utility incentivizes participation in the DAO and alignment of incentives. By [staking](tokens.md#staked-tokens) your API3 tokens into the DAO pool, you receive governance voting rights and take part in providing API3 users with quantifiable _security_ in the form of insurance. The DAO pool also grants you inflationary rewards and exposes you to insurance claim risks.
 
 > ![dao-pool-staking](../assets/images/dao-pool-staking.png)
 
@@ -37,9 +41,9 @@ The staking utility incentivizes participation in the DAO and alignment of incen
 - Voting privileges on DAO proposals.
   
 **Risks:**
-- Staked tokens in the pool are used to cover potential financial losses from dAPI malfunctions that the dAPI consumer might incur.
+- Staked tokens in the DAO pool are used to cover potential financial losses from dAPI malfunctions that the dAPI consumer might incur.
 
-To stake your tokens use the [Dashboard](dashboard/staking-tokens.md). You can stake as many times as you’d like. Your percentage of all the tokens in the insurance pool are directly related to your percentage of the rewards and the risks. If you stake 10% of the pool you earn 10% of rewards and will pay 10% of insurance claims.
+To stake your tokens use the [Dashboard](dashboard/staking.md). You can stake as many times as you’d like. Your percentage of all the tokens in the DAO pool are directly related to your percentage of the rewards and the risks. If you stake 10% of the pool you earn 10% of rewards and will pay 10% of insurance claims.
 
 ### Collateral
 

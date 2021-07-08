@@ -26,6 +26,8 @@ module.exports = [
     title: 'API3 Members', collapsable: false,
     children: [
       {title:'Overview', path:'members/'},
+      {title:'DOA Dashboard', path:'https://api3.eth.link/'},
+      'members/videos',
       {
         title:'Contract Architecture',
         children: [

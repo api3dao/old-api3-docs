@@ -97,20 +97,32 @@ module.exports = [
     children: [
       {title:'API3 DAO', path:'grp-members/'},
       {title:'The DAO Pool', path:'grp-members/dao-pool'},
-      'grp-members/faqs',
-      /*{title: 'Dashboard', collapsable: true,
-      children: [
-        {title:'Monitor the DAO Pool', path:'grp-members/dashboard/pool'},
-        {title:'Stake your Tokens', path:'grp-members/dashboard/staking-tokens'},
-        {title:'Vote', path:'grp-members/dashboard/vote'},
-        {title:'Submit Proposals', path:'grp-members/dashboard/submit-proposals'},
-      ]}*/
+      'grp-members/tokens',
+      'grp-members/dashboard/rewards',
+      'grp-members/dashboard/insurance',
+      {
+        title: 'Dashboard', collapsable: true,
+        children: [
+            'grp-members/dashboard/staking',
+            'grp-members/dashboard/proposals',
+            'grp-members/dashboard/voting'
+            
+        ]
+      },
     ]
   },
   {
     title: 'Reference', initialOpenGroupIndex: -1, collapsable: true,
     children: [
-      
+      /*{
+        title: 'Dashboard', collapsable: true,
+        children: [
+            'reference/dashboard/overview',
+            'reference/dashboard/pool',
+            'reference/dashboard/dao',
+            'reference/dashboard/voting'
+        ]
+      },*/
       {
         title: 'Specification Files', collapsable: true,
         children: [
@@ -152,6 +164,7 @@ module.exports = [
         ],
       },
       'reference/cli-commands',
+      'reference/dao-contracts'
     ]
   },
   /*{

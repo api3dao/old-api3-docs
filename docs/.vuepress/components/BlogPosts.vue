@@ -6,7 +6,7 @@
 
 <template>
   <div>
-    <!-- By Categories -->
+    <!-- By Group -->
     <div v-show="tab==='byGroup'" v-for="(item, index) in medium" :key="index">
       <div class="medium-heading">{{item.tag}}</div>
       <div class="medium-link" v-for="(post, index) in item.posts" :key="index">
@@ -14,14 +14,12 @@
         - <span class="date">{{post.date}}</span>
       </div>
     </div>
-
+    
     <!-- By Date -->
     <div v-show="tab==='byDate'" class="medium-link" v-for="(post, i) in mediumByDate" :key="'A'+i">
       <a :href=post.url target="api3_docs">{{post.title}}</a>
       - <span class="date">{{post.date}}</span>
     </div>
-
-
   </div>
 </template>
 
@@ -35,24 +33,16 @@ export default {
     medium:medium,
     mediumByDate:[]
   }),
-  methods: {
-    clickMe(ev) {
-      console.log('Click Me')
-    },
-  },
-
   mounted() {
     this.arr = medium;
     this.arr.forEach((group) =>
     {
       group.posts.forEach((post)=>
       {
-        //console.log(post.date, post.title)
         this.mediumByDate.push(post)
       })
     })
     this.mediumByDate.sort(this.sortByDate)
-    console.log('MediumByDate mounted', this.mediumByDate)
   },
   methods: {
     sortByDate( a, b ) {
@@ -65,7 +55,6 @@ export default {
       return 0;
     }
   }
-  
 }
 </script>
 
