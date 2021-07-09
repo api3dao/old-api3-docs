@@ -13,30 +13,6 @@ title: DAO Contracts
 
 The core of the DAO is a set of smart contracts based on Aragon's [aragonOS](https://github.com/aragon/aragonOS). The code for these contracts can be found [here](https://github.com/api3dao/api3-dao/), along with instructions for how to deploy a copy of the DAO.
 
-<Todo>
-
-2021-07-06 wkande:
-Note from Curve Labs
-Add mainnet addresses to this list.
-Add the main DAO contract to this list.
-
-</Todo>
-
----
-title: Contracts Overview
----
-
-# {{$frontmatter.title}}
-
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
-
-<p align="center">
-  <img src="../assets/images/dao-contract-structure.png" width="700" />
-</p>
-
-The core of the DAO is a set of smart contracts based on Aragon's [aragonOS](https://github.com/aragon/aragonOS). The code for these contracts can be found [here](https://github.com/api3dao/api3-dao/), along with instructions for how to deploy a copy of the DAO.
-
 |Name             |Mainnet Address                              |
 |:--              |:--                                          |
 |DAO Kernel       |`0x593ea926ee9820a933488b6a288433c387d06dba` |
@@ -56,10 +32,10 @@ The core of the DAO is a set of smart contracts based on Aragon's [aragonOS](htt
 The API3 Pool contract is where API3 token holders can stake their tokens to acquire voting power in the DAO. Stakers receive rewards in API3 tokens and can optionally delegate their voting power to another user. 
 
 ::: tip
-The pool contract will also be used to pay insurance claims out of the staking pool. As at July 7th, 2021 this functionality has yet to be implemented.
+The DAO pool contract will also be used to pay insurance claims out of the DAO pool. As at July 7th, 2021 this functionality has yet to be implemented.
 :::
 
-See the [API3Pool.sol](https://github.com/api3dao/api3-dao/tree/main/packages/pool/contracts) contract code and the list of contracts it inherits from.
+See the [API3Pool.sol](https://github.com/api3dao/api3-dao/tree/main/packages/pool/contracts) contract code for the list of contracts it inherits from.
 
 - TimelockUtils.sol
 - ClaimUtils.sol
