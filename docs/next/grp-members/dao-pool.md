@@ -22,8 +22,6 @@ _Main utilities of the API3 token._
 by dAPI malfunctions.
 1. [Governance](dao-pool.md#governance): Grants direct representation in the API3 DAO.
 
-
-
 Note that it is critical for these three utilities to coincide. All governing entities must receive staking rewards for them to govern in a way that maximizes revenue. All governing entities must have their funds used as collateral for them to govern in a way that minimizes **_security_** risks. "_Security_" refers to a "guarantee or reliability of dAPI service"
 
 Reference <a href="/api3-whitepaper-v1.0.1.pdf#API3 tokenomics" target="api3-docs">section 5.6 _"API3 Tokenomics"_</a> of the API3 whitepaper.

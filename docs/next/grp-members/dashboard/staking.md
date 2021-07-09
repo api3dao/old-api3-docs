@@ -5,10 +5,15 @@ title: Staking Tokens
 # {{$frontmatter.title}}
 
 <TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TOC class="table-of-contents" :include-level="[2]" />
 
-Users must stake API3 tokens in the [DAO pool](dao-pool.md) to be eligible for rewards, create proposals and to vote.
+Staking API3 tokens in the [DAO pool](dao-pool.md) makes you eligible for rewards and governance rights. 
 
+## Getting Started
+
+1. Access the [DAO Dashboard](https://api3.eth.link/)
+2. Select the **Staking** navigation link in the upper left hand corner.
+3.  Lastly click the **Connect Wallet** button in the upper right hand corner and connect your wallet using mainnet.
 
 
 <TocHeader />
@@ -16,32 +21,46 @@ Users must stake API3 tokens in the [DAO pool](dao-pool.md) to be eligible for r
 
 ## Deposit and Withdraw Tokens
 
+Before tokens can be staked you must deposit them in the DAO pool. Doing so will remove them from your wallet and place them into the DAO pool under the control of its smart contracts. Deposited tokens (that are unstaked) can be withdrawn from the DAO pool at any time and returned to your wallet. 
+
 :::: tabs
+::: tab Read & Learn
+#### Deposit
+1. Select the **_Deposit_** button.
+> If this is your first deposit you will need to authorize the DAO pool smart contract first. Use step #2 then step #3. Otherwise skip to step 4.
+2. (First time depositors) Enter the number of tokens to deposit and click the **_Approve_** button.
+3. Enter the number of tokens to deposit and click the **_Deposit_** button.
+> Note that deposited tokens are not staked. They will not earn rewards or grant you governance rights.
 
-::: tab Read and Learn
+#### Withdraw
+You can only withdraw unstaked tokens. The max amount that can be withdrawn is displayed (labeled WITHDRAWABLE) on the staking page.
+1. Select the **_Withdraw_** link.
+2. Enter the number of tokens to withdraw and click the **_Withdraw_** button.
+> The tokens withdrawn are returned to your wallet.
 :::
 
-::: tab Watch and Learn
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PdSE-SiUx3M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+::: tab Watch & Learn
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/PdSE-SiUx3M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 :::
-
 ::::
 
 
-## Deposit & Stake Tokens
+## Stake & Earn
 
- To stake: 
-1. Visit the **"Staking" tab** in one of the [DAO front ends](../README.md#frontends).
-2. **Deposit tokens.**
-<p align="center">
-  <img src="../../figures/dashboard/deposit.png" width="250" />
-  <img src="../../figures/dashboard/stake.png" width="250" />
-</p>
-3. **Stake tokens** for non-transferable shares, according to the current share price (total shares / total staked tokens). **Your voting power is your shares.** More precisely, voting power is modeled on Aragon's "MiniMe" framework: for each proposal, a user's voting power uses their shares from the most recent stake or unstake action they took prior to the proposal being submitted. Your staked token balance will go up over time as **you earn [rewards](./rewards.md) for staking.**
-<p align="center">
-  <img src="../../figures/dashboard/staking-dash.png" width="500" />
-</p>
+:::: tabs
+::: tab Read & Learn
+When you stake your deposited tokens you will be granted the right to create and vote on proposals. In addition you will earn rewards but also share in the risk of the insurance service. Rewards are updated every seven days and are proportional to the number of tokens you have staked in the DAO pool (as a percentage of the DAO pool).
+
+1. Select the **_Stake_** button.
+> The tokens available to stake depends on the number deposited and are available to withdraw.
+2. Enter the number of tokens to stake (or select the **Max** link) and click the **_Stake_** button.
+
+:::
+::: tab Watch & Learn
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/DQMsgQvkg7k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+::::
+
 
 ## Unstake and Withdraw Tokens
 
@@ -64,17 +83,6 @@ To unstake and withdraw tokens from the pool:
   <img src="../../figures/dashboard/withdraw.png" width="400" />
 </p>
 
-## Delegation
 
-You may delegate your voting power to another address via the **"Delegate" button** in the **"Governance" tab**.
-
-When you delegate, your full voting power will be granted to the address of your choice. You cannot partially delegate, nor can you delegate to an address that is already delegating to someone else.
-<p align="center">
-  <img src="../../figures/dashboard/delegate.png" width="400" />
-</p>
-
-Staking more tokens after delegating will increase the amount of voting power you have delegated (it will not give both your address and the address you delegate to voting power simultaneously).
-
-**You can undelegate your voting power anytime.**
 
 
