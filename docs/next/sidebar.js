@@ -105,7 +105,7 @@ module.exports = [
         children: [
             'grp-members/dashboard/staking',
             'grp-members/dashboard/proposals',
-            'grp-members/dashboard/voting'
+            'grp-members/dashboard/videos'
             
         ]
       },
