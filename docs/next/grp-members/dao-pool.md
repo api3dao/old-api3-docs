@@ -90,7 +90,7 @@ Reference <a href="/api3-whitepaper-v1.0.1.pdf#Insurance process" target="api3-d
 
 API3 aims to set up, maintain, and [monetize](#monetization) dAPIs at scale. Its success in doing so can be estimated by its total revenue, as this will increase with the number of dAPIs and the amount of funds secured by them. API3 generates revenue through subscription fees and insurance fees. The fees can be made in any cryptocurrency, which will be received by the DAO in API3 tokens through a liquidity pool-based decentralized exchange. To align the governance incentives with API3’s success, combined with the inflationary rewards, the net revenue to the DAO will result in burning of API3 tokens. This mechanic will produce positive staking incentives using inflationary rewards and claim risks rather than revenue sharing.
 
-> ![doa-pool-staking-2](../assets/images/dao-pool-staking-2.png)
+> ![dao-pool-staking-2](../assets/images/dao-pool-staking-2.png)
 
 ### Inflationary Rewards
 
@@ -106,11 +106,11 @@ number of tokens minted weekly will be decayed exponentially until annual inflat
 rate becomes 2.5% at the end of year 5. From this point on, the annual inflation
 will stay at a rate of 2.5% for perpetuity. The proposed inflation schedule will be governable.
 
-> ![doa-pool-staking-2](../assets/images/token-weekly-emission.png)
+> ![dao-pool-staking-2](../assets/images/token-weekly-emission.png)
 
 As a result the change in the total supply of API3 tokens is illustrated below.
 
-> ![doa-pool-staking-2](../assets/images/token-total-supply.png)
+> ![dao-pool-staking-2](../assets/images/token-total-supply.png)
 
 :::tip Inflationary Rewards
 User X and Y both stake 500 API3 tokens, so each has 50% ownership in a 1000 token pool. For a particular week the reward payout is 1% (10 total tokens) and the pool is now 1010 tokens. X and Y now own 505 tokens each based on their 50% ownership.

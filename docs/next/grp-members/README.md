@@ -39,7 +39,7 @@ To learn more about hierarchical team structures <a href="/api3-whitepaper-v1.0.
 
 The DAO governs by selectively allocating funds and delegating authority. When a task reaches a scale that can no longer be fulfilled by a team, it is assigned to a subDAO.
 
-> ![doa-subdoa-teams](../assets/images/dao-subdao-teams.png)
+> ![dao-subdao-teams](../assets/images/dao-subdao-teams.png)
 
 ## Effectuation
 
