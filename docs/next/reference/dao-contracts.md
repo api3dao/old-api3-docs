@@ -107,3 +107,22 @@ See the [Api3Voting.sol](https://github.com/api3dao/api3-dao/tree/main/packages/
 |`newVote(bytes _executionScript, string _metadata, bool _castVote, bool _executesIfDecided) returns (uint256 voteId)` |Create a new proposal in the DAO. Requires a minimum percentage of voting power (currently 0.1%). |
 |`vote(uint256 _voteId, bool _supports, bool _executesIfDecided)` |Vote yes or no on an existing proposal. |
 |`executeVote(uint256 _voteId)` |Execute a proposal, if it is ready for execution. |
+
+## Dashboard Attributes
+
+The following parameters can be updated via DAO proposal, by calling functions in the [DAO pool contract](../README.md):
+
+<Todo>
+
+What is the name of the contract(s) mentions above. Link to it in its repo if it makes sense.
+
+</Todo>
+
+|Parameter Name |Initial Value (units) |Function Signature |Description |
+|--- |--- |--- |--- |
+|stakeTarget |50 * 10^16 (%*10^16) |`setStakeTarget(uint256 _stakeTarget)`|Percentage of all tokens targeted to be staked |
+|aprUpdateStep |1 * 10^16 (%*10^16) |`setAprUpdateStep(uint256 _aprUpdateStep)` |Percentage reward APR will be increased or decreased by |
+|maxApr |75 * 10^16 (%*10^16) |`setMaxApr(uint256 _maxApr)` |Maximum reward APR |
+|minApr |2.5 * 10^16 (%*10^16) |`setMinApr(uint256 _minApr)` |Minimum reward APR |
+|proposalVotingPowerThreshold |1 * 10^17 (%*10^16) |`setProposalVotingPowerThreshold(uint256 _proposalVotingPowerThreshold)` |Percentage of all shares that must be held to create a new proposal |
+|unstakeWaitPeriod |604800 (seconds) |`setUnstakeWaitPeriod(uint256 _unstakeWaitPeriod)` |Length of time a member must wait after scheduling unstake before unstaking tokens from the pool |

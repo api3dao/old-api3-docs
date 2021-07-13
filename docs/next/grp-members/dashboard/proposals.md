@@ -1,5 +1,5 @@
 ---
-title: Proposals and Voting
+title: Working with Proposals
 ---
 
 # {{$frontmatter.title}}
@@ -21,7 +21,7 @@ Staking tokens in the DAO pool gives you governance rights to create and vote on
 
   :::: tabs
   ::: tab Read & Learn
-  1. Select **Governance** page in the upper left hand corner.
+  1. Navigate to the **Governance** page.
 
   Here you can browse and write proposals, view the treasury and delegate your votes.  The **Active proposals** list displays all proposals open for voting. There are two types of proposals, primary and secondary. Primary proposals require an absolute majority vote while secondary proposals require a 15% vote to pass. For each proposal in the list you can see the title, proposal type, vote deadline and vote status.
 
@@ -45,20 +45,12 @@ Staking tokens in the DAO pool gives you governance rights to create and vote on
   - you must hold at least 0.1% of the total pool shares
   - you have not created a proposal in the last seven days
 
-  Please note that primary and secondary proposals have separate cool down periods.
-
-  <Todo>
-
-  What are the periods mentioned above.
-
-  </Todo>
-
   In general, the Primary voting app has a larger treasury and more permissions but has more stringent voting settings. For a technical breakdown of the different permissions granted to the DAO's two voting apps (and corresponding Agents) see this [README](https://github.com/api3dao/api3-dao/blob/develop/packages/dao/README.md#permissions).
 
   :::: tabs
   ::: tab Read & Learn
 
-  1. Select the **New Proposal** button on the Governance page.
+  1. Click the **New Proposal** button on the Governance page.
 
   2. Select the **Proposal Type** on the proposal form.
 
@@ -76,7 +68,7 @@ Staking tokens in the DAO pool gives you governance rights to create and vote on
   > You can use zero if the target function is not payable.
   8. Enter **Parameters** which are the arguments that will be used to satisfy the signature of the target function.
   > The arguments must be provided in JSON array format where the values are stringified.
-  9. When you are ready ,select the **Create** button at the bottom of the page.
+  9. When you are ready, click the **Create** button at the bottom of the page.
   > After the proposal is created it is added to the proposal list and ready for voting.
 
 
@@ -85,19 +77,6 @@ Staking tokens in the DAO pool gives you governance rights to create and vote on
   > <iframe width="560" height="315" src="https://www.youtube.com/embed/XO1iA3wSYMQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   :::
   ::::
-
-### Proposal Types
-The following parameters can be updated via DAO proposal, by proposing to call functions in the [pool contract](../README.md):
-
-|Parameter Name |Initial Value (units) |Function Signature |Description |
-|--- |--- |--- |--- |
-|stakeTarget |50 * 10^16 (%*10^16) |`setStakeTarget(uint256 _stakeTarget)`|Percentage of all tokens targeted to be staked |
-|aprUpdateStep |1 * 10^16 (%*10^16) |`setAprUpdateStep(uint256 _aprUpdateStep)` |Percentage reward APR will be increased or decreased by |
-|maxApr |75 * 10^16 (%*10^16) |`setMaxApr(uint256 _maxApr)` |Maximum reward APR |
-|minApr |2.5 * 10^16 (%*10^16) |`setMinApr(uint256 _minApr)` |Minimum reward APR |
-|proposalVotingPowerThreshold |1 * 10^17 (%*10^16) |`setProposalVotingPowerThreshold(uint256 _proposalVotingPowerThreshold)` |Percentage of all shares that must be held to create a new proposal |
-|unstakeWaitPeriod |604800 (seconds) |`setUnstakeWaitPeriod(uint256 _unstakeWaitPeriod)` |Length of time a member must wait after scheduling unstake before unstaking tokens from the pool |
-
 
 ## Proposal Execution
 
@@ -117,3 +96,4 @@ OR
 >  <img src="../../figures/dashboard/executable-proposal.png" width="400" />
 > <br/>Click image to enlarge.
 > </p>
+
