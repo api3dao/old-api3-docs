@@ -15,6 +15,10 @@ Staking API3 tokens in the [DAO pool](dao-pool.md) makes you eligible for reward
 2. Select **Staking** page from the navigation bar in the upper left hand corner.
 3. Proceed to [Staking Overview](staking.md#staking-overview) section below and connect to your wallet.
 
+::: tip Videos
+Access the [Videos](videos.md) page for a faster walk-through of the DAO dashboard.
+::: 
+
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
@@ -27,10 +31,12 @@ Staking API3 tokens in the [DAO pool](dao-pool.md) makes you eligible for reward
   ::: tab Read & Learn
 
 
-  1. Connect your wallet by clicking the **Connect Wallet** button in the upper right hand corner. Select your wallet from the popup. Be sure your wallet is connect to the mainnet.
+  1. Connect your wallet by clicking the **Connect Wallet** button in the upper right hand corner. Select your wallet from the popup. Be sure your wallet is connected to the mainnet for production use.
+  
   > Once connected you can view the DAO dashboard showing stake and reward status. Click the image below to see the dashboard.
   ><p align="left"><br/>
-  ><img src="../../assets/images/dashboard/dashboard-stake-overview.png" width="200" />
+  ><img src="../../assets/images/dashboard/dashboard.png" width="200" />
+  > <br/>Click image to enlarge.
   ></p>
 
   On the left is the annual percentage yield which is the return on investment after one year. Below that is current inflation rate. Rewards are updated weekly based on the percentage of the staking target met, which is calculated by the staked amount divided by the staking target. 
@@ -51,15 +57,17 @@ Staking API3 tokens in the [DAO pool](dao-pool.md) makes you eligible for reward
   :::: tabs
   ::: tab Read & Learn
   #### Deposit
-  1. Select the **_Deposit_** button.
+  1. Click the **_Deposit_** button.
   > If this is your first deposit you will need to authorize the DAO pool smart contract first. Use step #2 then step #3. Otherwise skip to step 4.
   2. (First time depositors) Enter the number of tokens to deposit and click the **_Approve_** button.
   3. Enter the number of tokens to deposit and click the **_Deposit_** button.
   > Note that deposited tokens are not staked. They will not earn rewards or grant you governance rights.
 
+  ---
+  
   #### Withdraw
   You can only withdraw unstaked tokens. The max amount that can be withdrawn is displayed as WITHDRAWABLE.
-  1. Select the **_Withdraw_** link.
+  1. Click the **_Withdraw_** link.
   2. Enter the number of tokens to withdraw (or select the **Max** link) and click the **_Withdraw_** button.
   > The tokens withdrawn are returned to your wallet.
   :::
@@ -77,7 +85,7 @@ Staking API3 tokens in the [DAO pool](dao-pool.md) makes you eligible for reward
   :::: tabs
   ::: tab Read & Learn
 
-  1. Select the **_Stake_** button.
+  1. Click the **_Stake_** button.
   > The tokens available to stake depends on the number deposited and are available to withdraw as displayed in the **Balance** box as WITHDRAWABLE.
   2. Enter the number of tokens to stake (or select the **Max** link) and click the **_Stake_** button.
   
@@ -97,9 +105,9 @@ Staking API3 tokens in the [DAO pool](dao-pool.md) makes you eligible for reward
   :::: tabs
   ::: tab Read & Learn
   
-  1. Select the **_Initiate Unstake_** link.
+  1. Click the **_Initiate Unstake_** link.
   2. Enter the number of tokens to unstake (or select the **Max** link) and click the **_Initiate Unstaking_** button.
-  3. Confirm the transaction by selecting the **Initiate Unstaking** button in the popup. 
+  3. Confirm the transaction by clicking the **Initiate Unstaking** button in the popup. 
 
   :::
   ::: tab Watch & Learn
