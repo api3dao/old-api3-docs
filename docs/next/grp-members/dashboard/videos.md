@@ -7,7 +7,7 @@ title: Videos
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-The DAO dashboard videos have been incorporated the [Staking Token](staking.md) and [Proposals and Voting](proposals.md)  pages. This page allows quick access to all available dashboard videos.
+The DAO dashboard videos have been incorporated the [Staking Tokens](staking.md), [Working with Proposals](proposals.md) and [How to Vote](voting.md) pages. This page allows quick access to all available dashboard videos.
 
 ## Staking Page Overview
 
