@@ -17,7 +17,7 @@ Staking grants DAO members the ability to vote on proposals. Your voting power i
 <!-------------------------->
 ## Vote and Delegate
 
-  The **Governance** page displays a list of active proposals to vote on.
+  The **Governance** page displays a list of active proposals to vote on and a link to delegate your voting power.
 
   :::: tabs
   ::: tab Read & Learn
@@ -39,7 +39,13 @@ Staking grants DAO members the ability to vote on proposals. Your voting power i
   ---
   #### Delegating
 
-  1. 
+  1. Navigate to the  **Governance** page.
+  2. Click the **Delegate** link.
+  3. Enter the address of the user you wish to delegate your votes to.
+  4. Click the **Delegate** button to finalize the delegation.
+  > After delegating your voting power you will see the delegatee the on governance page next to the **Delegated to:** label.
+
+  When you delegate your vote to another user only that person can vote for you. However, if the person you delegated to has also delegated to someone your voting power is discarded. You can update your delegatee after seven days have passed since your last delegation.
 
   :::
 

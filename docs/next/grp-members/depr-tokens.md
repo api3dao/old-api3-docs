@@ -9,14 +9,6 @@ title: Tokens
 
 API3 is the native token of the API3 project. The API3 ecosystem is a single token environment. Check out the Medium post [API3 Tokenomics Update](https://medium.com/api3/api3-tokenomics-update-f032d6e49b30) for an in-depth overview on API3 tokenomics.
 
-## Acquiring Tokens
-
-<Todo>
-
-To what extent do we describe how to acquire tokens, if at all?
-
-</Todo>
-
 ## Unstaked Tokens
 
 Unstaked tokens are simply owned by an entity and do not generate revenue or have voting rights. They are subject to market value and inflation.
@@ -28,7 +20,7 @@ Staked API3 tokens are used as collateral for the on-chain insurance service tha
 Staking simply means you are placing API3 tokens into the [DAO pool](dao-pool.md). When staking tokens to the DAO pool you gain access to weekly staking rewards but also share in the risk of dAPI insurance.
 You are also granted voting rights on active DAO proposals and inflationary rewards.
 
-To stake your tokens see [Deposit and Stake Tokens](./dashboard/staking.md). You can stake as many times as you’d like. Your percentage of all the tokens in the DAO pool are directly related to your percentage of the rewards and the risks. If you stake 10% of the pool you earn 10% of rewards and will pay 10% of insurance claims.
+To stake your tokens see [StakingTokens](./dashboard/staking.md). You can stake as many times as you’d like. Your percentage of all the tokens in the DAO pool are directly related to your percentage of the rewards and the risks. If you stake 10% of the pool you earn 10% of rewards and will pay 10% of insurance claims.
 
 ## Governance
 

@@ -69,18 +69,18 @@ See the [API3Pool.sol](https://github.com/api3dao/api3-dao/tree/main/packages/po
 |Signature | Description|
 |--- |--- |
 |`userVotingPowerAt(address userAddress, uint256 _block)`|Returns a user's current voting power (0 if they have delegated it). |
-|`delegateVotingPower(address delegate)` |Delegates a member's voting power, as decided by their share of the staking pool, to another address. It is not necessary to undelegate before redelegating to a new address. |
+|`delegateVotingPower(address delegate)` |Delegates a member's voting power, as decided by their share of the DAO pool, to another address. It is not necessary to undelegate before redelegating to a new address. |
 |`undelegateVotingPower()` |Undelegates a member's voting power. |
 
 ### Other
 |Signature | Description|
 |--- |--- |
-|`mintReward()` |Distributes new API3 tokens into the staking pool, where they can be unstaked and withdrawn by members using their share of the pool. |
+|`mintReward()` |Distributes new API3 tokens into the DAO pool, where they can be unstaked and withdrawn by members using their share of the pool. |
 |`payOutClaim(address recipient, uint256 amount)`|A special function callable only by approved claims manager contracts to pay out claims directly from the pool. |
 
 ## DAO (Api3Template.sol)
 
-The API3 DAO contract is the core DAO contract, and it serves a coordinating and setup role. It holds the admin role in API3's contracts including the staking pool, and it delegates some of this responsibility to the DAO's other contracts (its voting apps and [Aragon Agents](https://aragon.org/agent)).
+The API3 DAO contract is the core DAO contract, and it serves a coordinating and setup role. It holds the admin role in API3's contracts including the DAO pool, and it delegates some of this responsibility to the DAO's other contracts (its voting apps and [Aragon Agents](https://aragon.org/agent)).
 
 The base Aragon DAO template contract used by API3 DAO can be found [here](https://github.com/aragon/dao-templates/blob/master/shared/contracts/BaseTemplate.sol).
 

@@ -8,7 +8,7 @@ title: Pool
 <TOC class="table-of-contents" :include-level="[2,3]" />
 ([contract code](https://github.com/api3dao/api3-dao/tree/main/packages/pool/contracts))
 
-The API3 Pool contract is where API3 token holders can stake their tokens to gain voting power in the DAO. Stakers receive rewards in API3 tokens for staking, and they can also delegate their voting power to another user, if they wish. Lastly, the pool contract will be responsible for paying claims out of the staking pool—*not yet implemented*.
+The API3 Pool contract is where API3 token holders can stake their tokens to gain voting power in the DAO. Stakers receive rewards in API3 tokens for staking, and they can also delegate their voting power to another user, if they wish. Lastly, the pool contract will be responsible for paying claims out of the DAO pool — *not yet implemented*.
 
 ## Key Functions
 ### Depositing, Staking, Unstaking, and Withdrawing
@@ -33,11 +33,11 @@ The API3 Pool contract is where API3 token holders can stake their tokens to gai
 |Signature | Description|
 |--- |--- |
 |`userVotingPowerAt(address userAddress, uint256 _block)`|Returns a user's current voting power (0 if they have delegated it). |
-|`delegateVotingPower(address delegate)` |Delegates a member's voting power, as decided by their share of the staking pool, to another address. It is not necessary to undelegate before redelegating to a new address. |
+|`delegateVotingPower(address delegate)` |Delegates a member's voting power, as decided by their share of the DAO pool, to another address. It is not necessary to undelegate before redelegating to a new address. |
 |`undelegateVotingPower()` |Undelegates a member's voting power. |
 
 ### Other
 |Signature | Description|
 |--- |--- |
-|`mintReward()` |Distributes new API3 tokens into the staking pool, where they can be unstaked and withdrawn by members using their share of the pool |
+|`mintReward()` |Distributes new API3 tokens into the DAO pool, where they can be unstaked and withdrawn by members using their share of the pool |
 |`payOutClaim(address recipient, uint256 amount)`|A special function callable only by approved claims manager contracts to pay out claims directly from the pool. |

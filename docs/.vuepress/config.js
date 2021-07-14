@@ -64,9 +64,9 @@ module.exports = {
   },
   plugins: 
   [   
-    ['@vuepress/html-redirect', {
-      countdown: 0,
-    }],
+    //['@vuepress/html-redirect', {
+    //  countdown: 0,
+    //}],
     ['vuepress-plugin-table-of-contents'],
     ['vue-pdf'],
     ['@vuepress/medium-zoom'],
