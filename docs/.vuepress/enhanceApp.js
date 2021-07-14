@@ -1,23 +1,16 @@
 export default ({ Vue, router, options }) => {
-  //router.addRoute({ path: '/latest/', redirect: '/next/grp-providers/airnode/design-philosophy.html'})
+
+  router.addRoutes([
+
+    // Takes the user to the current release
+    { path: '/latest', redirect: '/pre-alpha' },
+
+    // So the DAO dashboard can find its way to the current release for the role API3 members
+    { path: '/latest/members', redirect: '/pre-alpha/members' },
+
+    // "/technology" has been changed to "/reference"
+    { path: '/next/technology/*', redirect: '/next' }
+  ])
+
   //console.log('enhanceApp.js > router:',router.getRoutes())
 }
-
-
-// Here is an example of bringing in Vuetify.
-// https://stackoverflow.com/questions/53400194/how-to-use-a-vue-plugin-to-vuepress
-// .vuepress/enhanceApp.js
-
-/*import Vuetify from 'vuetify'
-
-export default ({
-    Vue,
-    options,
-    router,
-    siteData
-}) => {
-    Vue.use(Vuetify)
-    options.vuetify = new Vuetify({});
-}*/
-
-//https://github.com/Egorvah/vudal - Modal

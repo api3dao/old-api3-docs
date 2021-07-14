@@ -32,7 +32,7 @@ Connect your wallet by clicking the **Connect Wallet** button in the upper right
 
 ## Navigation
 
-The DAO dashboard has three simple views as seen in the navigation menu in the upper left hand corner. Each of these are covered in the [Staking Tokens](staking.md), [Proposals](proposals.md) and [Voting](voting.md) pages. 
+The DAO dashboard has three simple views as seen in the navigation menu in the upper left hand corner. Each of these are covered in the [Staking Tokens](staking.md), [Working with Proposals](proposals.md) and [How to Vote](voting.md) pages. 
 
 - Staking
 - Governance
@@ -40,7 +40,7 @@ The DAO dashboard has three simple views as seen in the navigation menu in the u
 
 ## Dashboard Attributes
 
-Some attributes that determine values displayed on the DAO dashboard (such as the STAKING TARGET) can be changed by creating a proposal and calling the appropriate function on the DAO pool contract. See [Dashboard Attributes](../../reference/dao-contracts.md#dashboard-attributes) on the **DAO Contract** page in the reference section for more details on the available function calls.
+Some attributes that determine values displayed on the DAO dashboard (such as the STAKING TARGET) can be changed by creating a proposal and calling the appropriate function on the DAO pool contract. See [Dashboard Attributes](../../reference/dao-contracts.md#dashboard-attributes) on the **DAO Contracts** page in the reference section for more details on the available function calls.
 
 <Todo>
 

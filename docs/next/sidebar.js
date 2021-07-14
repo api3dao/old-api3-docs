@@ -97,9 +97,6 @@ module.exports = [
     children: [
       {title:'API3 DAO', path:'grp-members/'},
       {title:'The DAO Pool', path:'grp-members/dao-pool'},
-      'grp-members/tokens',
-      'grp-members/dashboard/rewards',
-      'grp-members/dashboard/insurance',
       {
         title: 'Dashboard', collapsable: true,
         children: [
