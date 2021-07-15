@@ -13,8 +13,8 @@ Parameters from parent
 
 <template>
     <div class="modal" v-if="showModal" v-click-outside="onClickOutside">
-        <div v-if="showModal" class="modal-content">
-            <div class="modal-body">
+        <div v-if="showModal">
+            <div>
                 <div style="border-bottom:1px solid lightgrey;">Versions</div>
                   <div v-for="(vrs, index) in versions" :key="index" v-on:click="onClickOutside(vrs.url, $event)">
                     <router-link  :to="vrs.url">

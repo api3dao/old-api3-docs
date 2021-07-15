@@ -78,7 +78,7 @@ The `chains` field (array) lists the blockchains the Airnode deployment will ser
 
 <Todo>
 
-The complete 0.1.0 list of Ethereum providers and their AirnodeRRP contractIDs does not appear to be ready. [See the list](https://github.com/api3dao/airnode/tree/master/packages/protocol/deployments)
+The complete 0.1.0 list of Ethereum providers and their AirnodeRRP public addresses does not appear to be ready. [See the list](https://github.com/api3dao/airnode/tree/master/packages/protocol/deployments)
 
 </Todo>
 

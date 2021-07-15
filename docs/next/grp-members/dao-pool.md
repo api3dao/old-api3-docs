@@ -99,6 +99,12 @@ API3 aims to set up, maintain, and [monetize](dao-pool.md#monetization) dAPIs at
 ### Earning Rewards
 Earning rewards is simple: everyone who owns [shares of the DAO pool](./voting-power.md) (everyone who has staked API3 tokens into the DAO pool contract) will earn rewards as they are added to the DAO pool. When you schedule tokens to be unstaked, you stop earning rewards for those tokens.
 
+<Todo>
+
+The statement below does not seem to sync with the way the dashboard displays, which is by tokens and not shares.
+
+</Todo>
+
 Remember that when you stake, you receive non-transferable pool shares equal to the current total number of issued shares divided by the total number of tokens staked. Since the reward adds additional tokens to the pool, the "price" for one share will not always be one token.
 
 ### Inflationary Rewards
@@ -106,37 +112,46 @@ Remember that when you stake, you receive non-transferable pool shares equal to 
 In essence, inflationary rewards force token holders to stake and preserve the value of
 their tokens. However, staking is risky due to the funds being used as collateral for the [Insurance Service](dao-pool.md#insuracne-service), and forces the staker to participate in governance to ensure that the risk is minimized. As a combination of the two, an inflationary governance token used as collateral forces all token holders to participate in governance, which is ideal because it maximizes the decentralization of governance. Inflationary rewards are paid weekly by an implicit and automatic process through an on-chain contract.  Furthermore, inflationary rewards are vested for a year, which results in governing parties sharing the project’s long term interests.
 
-The inflationary rewards start at a 75% annual rate (1.44% weekly), and the
-number of tokens minted weekly will be decayed exponentially until annual inflation
-rate becomes 2.5% at the end of year 5. From this point on, the annual inflation
-will stay at a rate of 2.5% for perpetuity. The proposed inflation schedule will be governable.
-
+<!--
 > ![dao-pool-staking-2](../assets/images/token-weekly-emission.png)
 
 As a result the change in the total supply of API3 tokens is illustrated below.
 
 > ![dao-pool-staking-2](../assets/images/token-total-supply.png)
-
-:::tip Inflationary Rewards
-User X and Y both stake 500 API3 tokens, so each has 50% ownership in a 1000 token pool. For a particular week the reward payout is 1% (10 total tokens) and the pool is now 1010 tokens. X and Y now own 505 tokens each based on their 50% ownership. Remember that the 10 reward tokens will not vest for a period of one year.
-:::
+> -->
 
 ### Reward Calculation And Distribution
+
+The staking reward will float to have the total staked amount reach equilibrium at the target. In other words, the staking reward will increase while the staked amount is below the target, and vice versa. It will not have a pre-determined schedule.
+
+Reward amount is represented as APR (annual percentage rate). You can derive APY (annual percentage yield) using an [online calculator](https://www.aprtoapy.com/). Each week, stakers get paid roughly APR/52. There is a governable "APR update step", which is the step size each week the APR will be updated with. Also there are governable minimum and maximum APR values, but these (especially maximum APR) are there as safety measures and should not affect rewards in day-to-day operation. In general, governing the stake target will be the primary tool for regulating rewards.
+
 Rewards are added as staked API3 tokens into the DAO pool each time the `mintReward` function is called. `mintReward` is callable by anyone, once per "epoch" (currently 1 week). When it is called, an amount of API3 tokens is minted and added to the DAO pool:
 
 > `rewardAmount = totalStakedTokens * APR * epochLength / epochsPerYear / 100`
 
 In other words, *the reward is the annual percentage (APR) increase divided by the number of epochs per year (currently ~52)*.
 
-In addition, each time `mintReward` is called, the annual percentage (the reward rate) is updated up or down by APR update step size (1%), according to whether the total number of staked tokens is above or below its target. The initial target is 50%, so if the total number of staked tokens is less than 50% of the total token supply when `mintReward` is called, APR will be raised by 1% for the next reward payout (and vice versa). Thus, APR will constantly be adjusted, but it will always stay between a designated maximum and minimum -- currently 75% and 2.5% respectively.
+In addition, each time `mintReward` is called, the annual percentage (the reward rate) is updated up or down by the APR update step size (1%), according to whether the total number of staked tokens is above or below its target. The initial target is 50%, so if the total number of staked tokens is less than 50% of the total token supply when `mintReward` is called, APR will be raised by 1% for the next reward payout (and vice versa). Thus, APR will constantly be adjusted, but it will always stay between a designated maximum and minimum.
+
+:::tip Example: Rewards Distribution
+User X stakes 600 tokens and user Y stakes 400, so there is a 60% (X) 40% (Y) split ownership in the 1000 token DAO pool. For a particular week the reward payout is 1% (10 total tokens) and the pool is now 1010 tokens. X at 60% now has 606 tokens and and Y has 404. Remember that the 10 reward tokens will not vest for a period of one year.
+:::
 
 ### Reward Withdrawal
 Rewards withdrawals are baked into default withdrawals, except that rewards are locked for 1 year after minting. As a staker, your pool shares will always reflect a proportional right to the pool of staked tokens, including any rewards that have been minted. When you unstake and withdraw your tokens, you will receive:
+
  - your tokens,
  - plus any share of the rewards you earned,
  - minus rewards that were added to the pool within the last year, which will remain staked.
 
+*To summarize reward withdrawal:* you will not be able to withdraw your rewards for a year. Since rewards get paid out every week, you can think of this as a rolling unlock (the rewards you receive this week will get unlocked 1 year later, the rewards you will receive next week will get unlocked 1 year 1 week later, etc.) This 1 year-lock is the secret sauce to good decentralized governance, it essentially aligns the incentives of the stakers/governors with the ones of the DAO/project/token for a whole year.
+
 ## Insurance Service
+
+::: warning Please note 
+ Insurance products are not implemented yet. Before they are, a proposal with a 50% quorum requirement will have to be passed for them to go active
+:::
 
 API3 provides dAPI users with a quantifiable level of _security_ in the form of an on-chain insurance service. Staked tokens in the DAO pool are used to cover potential financial losses from dAPI malfunctions that the dAPI consumer might incur. This accomplishes two goals.
 
@@ -152,14 +167,10 @@ The proposed insurance service is special in the way that it is collateralized b
 The staked tokens in the pool are used as collateral for insurance claims. Any payout results in the reduction of the total token count in the pool. The reduction is charged against each entity's percentage of tokens in the pool.
 
 :::tip Claim Risks
-User X and Y both stake 500 API3 tokens, so each has 50% ownership in a 1000 token pool. There is an insurance claim payout of 3.4 tokens and the pool is now 996.6 tokens. X and Y now own 498.3 tokens each based on their 50% ownership.
+User X and Y both stake 500 API3 tokens, so each has 50% ownership in a 1000 token DAO pool. There is an insurance claim payout of 3.4 tokens and the pool is now 996.6 tokens. X and Y now own 498.3 tokens each based on their 50% ownership.
 :::
 
 ### ClaimManager
-
-::: warning Please note:
-*ClaimsManager has not been implemented or approved by the DAO pool contract as of July 15th, 2021 and is schedule for approval at a later date.*
-:::
 
 To insure against potential system failures, the DAO pool can empower special `ClaimsManager` contracts to withdraw staked tokens directly. Approved `ClaimsManager` contracts do this by calling `payOutClaim(address recipient, uint256 amount)` in the DAO pool contract, which transfers tokens from the DAO pool to the recipient. When this occurs, the total number of staked tokens goes down, and pool share value goes down in turn.
 
