@@ -24,7 +24,7 @@ The AirnodeRrp protocol is designed to be flexible and is meant to serve a varie
 3. Deploy the client contract
 4. [Endorse](become-a-requester.md#part-2-endorse-client-contracts) the client contract
 
-This document focuses items 1 & 2 above, on making a request and capturing the response from an Airnode in  your client contract.
+This document focuses items 1 & 2 above, making a request and capturing the response from an Airnode. See [Endorse Client Contracts](become-a-requester.md#part-2-endorse-client-contracts) to learn more about client contract endorsements. Deploying your client contract is beyond the scope of this doc.
 
 ## Step #1: Inherit AirnodeRrpClient.sol
 
@@ -33,7 +33,7 @@ To get started a client contract inherits from the [AirnodeRrpClient](https://gi
 ```solidity
 import "@api3/airnode-protocol/contracts/AirnodeRrpClient.sol";
 
-contract ExampleClient is AirnodeRrpClient {
+contract ExampleClientContract is AirnodeRrpClient {
   ...
   constructor (address airnodeAddress)
       public
@@ -42,7 +42,9 @@ contract ExampleClient is AirnodeRrpClient {
   ...
 }
 ```
-Note the constructor parameter `airnodeAddress` which is the public address of the AirnodeRrp contract on the blockchain you wish to use. It is used by AirnodeRrpClient to point itself to the AirnodeRrp contract on-chain.
+Note the constructor parameter `airnodeAddress` which is the public address of the AirnodeRrp contract on the blockchain you wish to use. It is used by AirnodeRrpClient to point itself to the AirnodeRrp contract on-chain. See the the list of available addresses below.
+
+> <ChainsSupported :version="'0.1.0'" />
 
 
 ## Step #2: Make a Request
@@ -56,7 +58,7 @@ Once the request has been made the AirnodeRrp contract will return a `requestId`
 ```solidity
 import "@api3/airnode-protocol/contracts/AirnodeRrpClient.sol";
 
-contract ExampleClient is AirnodeRrpClient {
+contract ExampleClientContract is AirnodeRrpClient {
   mapping(bytes32 => bool) public incomingFulfillments;
   mapping(bytes32 => int256) public fulfilledData;
 
@@ -74,7 +76,7 @@ contract ExampleClient is AirnodeRrpClient {
       )
       external
   {
-      bytes32 requestId = airnode.makeFullRequest( // Make the request 
+      bytes32 requestId = airnode.makeFullRequest( // Make the Airnode request 
           airnodeId,              // airnodeId
           endpointId,             // endpointId
           requesterInd,           // requesterIndex

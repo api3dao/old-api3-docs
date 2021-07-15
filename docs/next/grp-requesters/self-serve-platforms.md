@@ -13,9 +13,9 @@ Airnode is composed of two parts: the **AirnodeRrp.sol** (on-chain protocol cont
 
 ## Is my platform compatible?
 
-The table below shows a list of EVM compatible blockchains (smart contract platforms) that API3 has deployed the _AirnodeRrp.sol protocol contract_ on. An _Airnode application_ can see the _protocol contract_ using its contract ID. 
+The table below shows a list of EVM compatible blockchains (smart contract platforms) that API3 has deployed the _AirnodeRrp.sol protocol contract_ on. An _Airnode application_ can see the _protocol contract_ using its public address. 
  
-<ChainsSupported :version="'0.1.0'" />
+> <ChainsSupported :version="'0.1.0'" />
 
 This does not mean only these chains can be used. If you are using a smart contract platform that does not have the _AirnodeRrp.sol protocol contract_ deployed by API3 you could add it yourself. API3 has received requests by teams of smart contract platforms and decentralized applications built on them to integrate Airnode and thus gaining access to API data and services. A lot of the smart contract platforms are directly compatible with Airnode, meaning that the integration effort will be trivial and can even be done with minimal support from API3.
 

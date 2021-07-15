@@ -7,13 +7,15 @@ title: Become a Requester
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Become a _requester_ to consume the off-chain API data that an Airnode provides. A _requester_ is an entity (individual, business, etc.) whose contracts make requests to Airnodes. These contracts are called clients. A _requester_ should not be confused with an _end user_ who is someone that uses a requester's client contracts, usually as part of a dApp.
+Become a _requester_ to consume the off-chain API data that an Airnode provides. A _requester_ is an entity (individual, business, etc.) whose contracts make requests to Airnodes. These contracts are called clients or client contracts. A _requester_ should not be confused with an _end user_ who is someone that uses a requester's client contracts, usually as part of a dApp.
 
 Setting up a requester record is needed to allow client contracts access to one or more Airnodes. A requester record is used to endorse client contracts and fund Airnodes.
 
 The following diagram illustrates how to become a requester.
 
 ![become-requester](../assets/images/become-requester.png)
+
+## Requester Admin Commands
 
 There are several requester related commands in the [@api3/airnode-admin](../reference/cli-commands.md#create-requester) package. Here we will use three commands to create a requester record, endorse client contracts and fund Airnodes.
 
@@ -46,18 +48,20 @@ npx @api3/airnode-admin create-requester \
   and admin address 0xaBd9daAdf...
 ```
 
+The command `create-requester` will return a `requester index` and the `requesterAdmin` address that were passed to execute the command. It is important to remember the requester index for future use.
+
 ## Part 2: Endorse Client Contracts
 
 A requester endorses a client contract allowing it make Airnode requests on behave of the requester. Your client contract should already be deployed. 
 
-Endorsing a client contract means it can make Airnode requests, paid for by the designated wallet associated with the Airnode and the requesterIndex of your requester record. [Part 3](become-a-requester.md#part-3-funding-airnodes) will explain more about designated wallets.
+Endorsing a client contract means it can make Airnode requests, paid for by a designated wallet associated with the Airnode and the requesterIndex from your requester record. [Part 3](become-a-requester.md#part-3-funding-airnodes) will explain more about designated wallets.
 
 To endorse a client contract you will need the following.
 
 - A blockchain providerURL such as the URL with your Infura providerID on the Ropsten network.
 - A mnemonic for gas to fund the endorsement.
-- The requesterIndex returned from the call to create-requester. (Part #1 above)
-- The public address of the client contract.
+- The `requesterIndex` returned from the call to create-requester. (Part #1 above)
+- The `clientAddress` which is the public address of the client contract.
 
 [@api3/airnode-admin endorse-client](../reference/cli-commands.md#endorse-client)
 
@@ -73,11 +77,13 @@ npx @api3/airnode-admin endorse-client \
   by requester with index 6
 ```
 
+The command `endorse-client` will return the client contract address and the requester index that were passed to execute the command. 
+
 ## Part 3: Funding Airnodes
 
-To fund a particular Airnode, a requester instructs the Airnode to derive a _designated wallet_ for the requester  using the Airnode's ID and the requester's requesterIndex. Once the wallet is created it must be funded using the public address returned by the command`derive-designated-wallet`. Each Airnode keeps a list of requester designated wallets that can access the Airnode. Learn more about [designated wallets](../reference/protocols/request-response/designated-wallet.md).
+To fund a particular Airnode, a requester instructs the Airnode to derive a _designated wallet_ on behave of the requester  using the Airnode's ID and the requester's requesterIndex. Once the wallet is created it must be funded using the public address returned by the command`derive-designated-wallet`. Each Airnode keeps a list of requester designated wallets that can access the Airnode. Learn more about [designated wallets](../reference/protocols/request-response/designated-wallet.md).
 
-Client contracts endorsed by a requester will have access to all Airnodes the requester has funded. This allows the requester to cover the gas cost when executing an Airnode. However this does not cover the cost of API data that the Airnode serves, see [API Provider Fees](fees.md#api-provider-fees). Requesters need to keep their designated wallets topped off if they want the Airnodes to fulfill requests made by their endorsed client contracts.
+Client contracts endorsed by a requester will have access to all Airnodes the requester has funded using the designated wallet. This allows the requester to cover the gas cost when executing an Airnode. However this does not cover the cost of API data that the Airnode serves, see [API Provider Fees](fees.md#api-provider-fees). Requesters need to keep their designated wallets topped off if they want the Airnodes to fulfill requests made by their endorsed client contracts.
 
 Since the designated wallet is recorded in the cloud provider (i.g., AWS) where Airnode functions live, there are no on-chain transaction gas costs when deriving a designated wallet.
 
@@ -85,11 +91,13 @@ Since the designated wallet is recorded in the cloud provider (i.g., AWS) where 
 
 Learn more about [designated wallets](../reference/protocols/request-response/designated-wallet.md) in the reference section.
 
-To fund an Airnode simply tell any Airnode to derive a _designated wallet_ for your requesterIndex. This will return the public address of the wallet so you can fund it.
+To fund an Airnode simply tell any Airnode to derive a _designated wallet_ for your requesterIndex. This will return the public address of the designated wallet so you can fund it.
+
+To derive a designated wallet for an Airnode and fund it, you will need the following.
 
 - A blockchain providerURL such as the URL with your Infura providerID on the Ropsten network.
-- The desired Airnode's ID, airnodeId.
-- The requester's requesterIndex that was generated when creating a requester record.
+- The `airnodeId` of the desired Airnode.
+- The requester's `requesterIndex` that was generated when creating a requester record.
 
 [@api3/airnode-admin derive-designated-wallet](../reference/cli-commands.md#derive-designated-wallet)
 
@@ -105,6 +113,8 @@ npx @api3/airnode-admin derive-designated-wallet \
   to be 0xa5C073E31fAb1F8acf... # Here is the wallet's public address.
 ```
 
+The command derive-designated-wallet will return the public address of the designated wallet to be funded.
+
 ## Record Keeping
 
 During and after creating/managing your requester record there are some items you should write down for future use.
@@ -119,4 +129,4 @@ During and after creating/managing your requester record there are some items yo
 
 \* Do not loose your requesterIndex, it cannot be recovered.
 
-\** You can acquire the public address later should you forget it by running the command`derive-designated-wallet`again. Since the designated wallet was already created for the requesterIndex/airnodeId pair, the command will only return the known public address for the wallet.
+\** You can acquire the public address of a designated wallet later, if you loose it, by running the command`derive-designated-wallet`again. Since the designated wallet was already created for the requesterIndex/airnodeId pair, the command will only return the known public address for the wallet.
