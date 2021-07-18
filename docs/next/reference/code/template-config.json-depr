@@ -107,8 +107,7 @@
         "Airnode": "{FILL_*}",
         "Convenience": "{FILL_*}"
       },
-      "providerAdminForRecordCreation": "{FILL_*}"
+      "airnodeAdminForRecordCreation": "{FILL_*}"
     }
-  },
-  "id": "{FILL_ID}"
+  }
 }

@@ -15,7 +15,7 @@ APIs are composed of [operations](../../specifications/ois.md#_4-4-paths), which
 `endpointId` identifies specific endpoints that an Airnode serves, and is computed in JS (using ethers.js) as follows:
 
 ```js
-endpointId = ethers.utils.keccak256(ethers.utils.defaultAbiCoder.encode(['string'], [`${OIS_NAME}/${ENDPOINT_NAME}`]));
+ethers.utils.keccak256(ethers.utils.defaultAbiCoder.encode(['string', 'string'], [oisTitle, endpointName]));
 ```
 
 Note that this means that an `endpointId` is not unique, and two Airnodes can serve equivalent endpoints using the same ID (in fact, this is the desired outcome).This is not an issue, as requests are made with a `airnodeId` and `endpointId` pair.

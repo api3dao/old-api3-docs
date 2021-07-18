@@ -39,7 +39,6 @@ Use the [config.json template](../../guides/templates/config-json.html) to build
 - `chains`
 - `nodeSettings`
 - `environment`
-- `id`
 
 ### ois
 
@@ -76,13 +75,7 @@ Next add an `endpointId` to the trigger which is the ID that the requester will 
 
 The `chains` field (array) lists the blockchains the Airnode deployment will serve on and specifies respective parameters. Currently Airnode only supports Ethereum blockchains as denoted by `type: "evm"`. Each row in the `chains` represents an Ethereum blockchain the Airnode will serve as identified by the `id`. There are several supported blockchains.
 
-<Todo>
-
-The complete 0.1.0 list of Ethereum providers and their AirnodeRRP public addresses does not appear to be ready. [See the list](https://github.com/api3dao/airnode/tree/master/packages/protocol/deployments)
-
-</Todo>
-
-<ChainsSupported :version="'0.1.0'" />
+> <ChainsSupported :version="'0.1.0'" />
 
 For additional information about chain parameters see the [Technology > Deployment Files > config.json](../../../reference/deployment-files/config-json.html#chains).
 
@@ -333,9 +326,6 @@ headers: {
 ```
 
 
-### id
-
-The `config.json` file needs a unique `id` field, which identifies the specific configuration. 
 
 ## Creating secrets.env
 

@@ -131,7 +131,7 @@ npm run update-authorizers
 ## Step 2: Make a request
 
 The scripts in this step will use the Airnode you have deployed if you have completed Step 1.
-Otherwise, it will use the `providerId` of the Airnode that we have deployed given in `src/parameters.js`.
+Otherwise, it will use the `airnodeId` of the Airnode that we have deployed given in `src/parameters.js`.
 Note that the `endpointId` will be the same either way because it is [derived from the OIS and endpoint name](https://api3dao.github.io/api3-docs/pre-alpha/protocols/request-response/endpoint.html#endpointid).
 
 ### Create a requester
@@ -190,8 +190,7 @@ You deployed an Airnode, made a request to it and received the response at the c
 If you want to learn more, see the following resources:
 
 - [API3 whitepaper](https://github.com/api3dao/api3-whitepaper) will give you a broad overview of the project
-- [Medium posts](https://api3dao.github.io/api3-docs/pages/medium.html) are a more digestible version of the whitepaper
-- [API3 docs](https://api3dao.github.io/api3-docs/pre-alpha/) will provide you with the theory of how Airnode and its protocol works
+- [Blog (Medium) posts](/next/blog-posts.md) are a more digestible version of the whitepaper
 - [@api3/airnode-admin](https://github.com/api3dao/airnode/tree/pre-alpha/packages/admin) lets you interact with the Airnode contract (to create a request, endorse a client, etc.) using a CLI tool
 - [Airnode client examples](https://github.com/api3dao/airnode-client-examples/tree/pre-alpha) demonstrate different request patterns that the Airnode protocol supports (for example, we used a full request in this starter project)
 

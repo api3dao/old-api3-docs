@@ -4,7 +4,8 @@ title: config.json
 
 # {{$frontmatter.title}}
 
-```json{
+```json
+{
   "ois": [
     {
       "oisFormat": "1.0.0",
@@ -113,9 +114,8 @@ title: config.json
         "Airnode": "{FILL_*}",
         "Convenience": "{FILL_*}"
       },
-      "providerAdminForRecordCreation": "{FILL_*}"
+      "airnodeAdminForRecordCreation": "{FILL_*}"
     }
-  },
-  "id": "{FILL_ID}"
+  }
 }
 ```

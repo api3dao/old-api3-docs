@@ -40,7 +40,7 @@ If the requester does not trust the Airnode at all, they can fund the designated
 
 ## Withdrawals
 
-If the requester decides that they will not use a designated wallet any longer, they can make a request to withdraw funds from it. The Airnode listens for withdrawal requests and fulfills them automatically. Therefore, the requester should be able to receive their funds from their designated wallet in a few minutes notice. The designated wallet does not get deleted, and can be used in the future simply by funding it again.
+If the requester decides that they will not use a designated wallet any longer, they can make a request to withdraw funds from it, see the [`request-withdrawal`](../../cli-commands.md#request-withdrawal) command. The Airnode listens for withdrawal requests and fulfills them automatically. Therefore, the requester should be able to receive their funds from their designated wallet in a few minutes notice. The designated wallet does not get deleted, and can be used in the future simply by funding it again.
 
 ## How to have the Airnode cover the gas costs?
 

@@ -17,7 +17,7 @@ The endpoints that an Airnode will serve over the request–response protocol ar
 `endpointId` identifies specific endpoints that a provider serves, and is computed in JS (using ethers.js) as follows:
 
 ```js
-endpointId = ethers.utils.keccak256(ethers.utils.defaultAbiCoder.encode(['string'], [`${OIS_NAME}/${ENDPOINT_NAME}`]));
+endpointId = ethers.utils.keccak256(ethers.utils.defaultAbiCoder.encode(['string'], [`${OIS_TITLE}/${ENDPOINT_NAME}`]));
 ```
 
 Note that this means that `endpointId`s are not unique, and two providers can serve equivalent endpoints using the same ID (in fact, this is the desired outcome).
