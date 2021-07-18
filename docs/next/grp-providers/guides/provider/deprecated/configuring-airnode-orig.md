@@ -58,11 +58,11 @@ If you are not using the recommended convention, make sure that your endpoints h
 ### `nodeSettings`
 
 `nodeSettings` are node-specific configuration parameters.
-The first of these is `providerIdShort`, which is used as a label by the deployer to detect previous deployments.
-Therefore, you must not have the `providerIdShort` field in your `config.json` during the first deployment.
+The first of these is `airnodeIdShort`, which is used as a label by the deployer to detect previous deployments.
+Therefore, you must not have the `airnodeIdShort` field in your `config.json` during the first deployment.
 On the other hand, you must have it for the following redeployments.
-You can find your `providerIdShort` in the receipt file outputted after deployment.
-This guide assumes that you have not deployed Airnode yet, so we did not include the `providerIdShort` field in the `config.json` template.
+You can find your `airnodeIdShort` in the receipt file outputted after deployment.
+This guide assumes that you have not deployed Airnode yet, so we did not include the `airnodeIdShort` field in the `config.json` template.
 
 `nodeVersion` indicates which node version this `config.json` is prepared for.
 Since the `config.json` format can be expected to change with node versions, using a `config.json` prepared for one Airnode version with another may result in unexpected issues.
@@ -101,7 +101,7 @@ Enter the `name` (to be used in logs) and the `url` of the Ethereum provider as 
 Although you can deploy these contracts yourself, you are recommended to use the ones that were deployed by API3.
 You can find them [here](https://github.com/api3dao/airnode/tree/pre-alpha/packages/protocol/deployments).
 
-`providerAdminForRecordCreation` is the address that your Airnode will set as the [provider admin](../../../reference/protocols/request-response/provider.md#provideradmin) while creating the provider record on the respective chain.
+`airnodeAdminForRecordCreation` is the address that your Airnode will set as the [Airnode admin](../../../reference/protocols/request-response/provider.md#airnodeadmin) while creating the provider record on the respective chain.
 You should set this field to an address that only you control.
 
 ### `id`

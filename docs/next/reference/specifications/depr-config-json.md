@@ -41,15 +41,15 @@ Contents of a `config.json` file:
 
 `ois` is a list of OIS objects as described in [OIS](ois.md).
 Since each OIS defines the integration of a single API to an oracle, this means that a node can serve multiple APIs.
-However, this does not mean that nodes can be shared between multiple providers.
-Each node serves the APIs of a single provider.
+However, this does not mean that nodes can be shared between multiple API providers.
+Each node serves the APIs of a single API provider.
 
 ## `triggers`
 
 `triggers` are events that trigger an API call and an Ethereum transaction by Airnode.
 Triggers of different types are kept in lists under their respective keys:
 
-- `request` - When the node sees an event with its `providerId` and this trigger's `endpointId` emitted from the central Airnode contract, it responds to it with the respective endpoint defined in the OIS.
+- `request` - When the node sees an event with its `airnodeId` and this trigger's `endpointId` emitted from the central Airnode contract, it responds to it with the respective endpoint defined in the OIS.
   - `endpointId`
   - `oisTitle`
   - `endpointName`
@@ -73,9 +73,9 @@ Triggers of different types are kept in lists under their respective keys:
 
 An object containing the following configuration parameters:
 
-- `providerIdShort` - The label used to identify this specific provider among the cloud deployments.
-The deployer uses the first 7 characters of the full `providerId` by default.
-For example, if the `providerId` is `0x9e5a89de5a7e780b9eb5a61425a3a656f0c891ac4c56c07037d257724af490c9`, `providerIdShort` would be `9e5a89d`.
+- `airnodeIdShort` - The label used to identify this specific Airnode among the cloud deployments.
+The deployer uses the first 7 characters of the full `airnodeId` by default.
+For example, if the `airnodeId` is `0x9e5a89de5a7e780b9eb5a61425a3a656f0c891ac4c56c07037d257724af490c9`, `airnodeIdShort` would be `9e5a89d`.
 **This field must not exist for the first deployment, and must exist for redeployments.**
 
 - `nodeVersion` - The node version this `config.json` is supposed to be used with.
@@ -87,7 +87,7 @@ Can be `aws`.
 - `region` - The cloud provider region that the node will be deployed at.
 
 - `stage` - The label used to distinguish between multiple deployments of the same provider on a cloud provider.
-For example, the provider may make multiple deployments with `stage`s set as `dev`, `ropsten`, `mainnet`, where each of these deployments would use the same private key and have the same `providerId`.
+For example, the provider may make multiple deployments with `stage`s set as `dev`, `ropsten`, `mainnet`, where each of these deployments would use the same private key and have the same `airnodeId`.
 
 - `logFormat` - The format that Airnode should use to output logs. Either `json` or `plain`.
 
@@ -119,7 +119,7 @@ It has to include the following contract addresses:
 
 **Optional**
 
-- `providerAdminForRecordCreation` - the master address that will be authorized to update the authorizers of the provider's endpoints (see the [protocol docs](../protocols/request-response/general-structure.md) for more information).
+- `airnodeAdminForRecordCreation` - the master address that will be authorized to update the authorizers of the provider's endpoints (see the [protocol docs](../protocols/request-response/general-structure.md) for more information).
 Note that the node only uses this while creating the provider record.
 Changing this after the provider record is created will not have any effect.
 This field is optional, but not having it means that the node will not be able to create a provider record on the respective chain.
@@ -150,7 +150,7 @@ An example object from the `chains` list:
     "Airnode": "0xf1d4...0bd1",
     "Convenience": "0x12ab...de56"
   },
-  "providerAdminForRecordCreation": "0x5e00...F410",
+  "airnodeAdminForRecordCreation": "0x5e00...F410",
   "blockHistoryLimit": 600,
   "minConfirmations": 6,
   "ignoreBlockedRequestsAfterBlocks": 20,
@@ -163,7 +163,7 @@ A more complete example of a `nodeSettings` configuration:
 
 ```json
 {
-  "providerIdShort": "9e5a89d",
+  "airnodeIdShort": "9e5a89d",
   "nodeVersion": "0.1.0",
   "cloudProvider": "aws",
   "region": "us-east-1",
@@ -179,7 +179,7 @@ A more complete example of a `nodeSettings` configuration:
           "url": "https://mainnet.infura.io/v3/<your key>"
         }
       ],
-      "providerAdminForRecordCreation": "0x5e00...F410",
+      "airnodeAdminForRecordCreation": "0x5e00...F410",
       "blockHistoryLimit": 600,
       "minConfirmations": 0,
       "ignoreBlockedRequestsAfterBlocks": 20
@@ -196,7 +196,7 @@ A more complete example of a `nodeSettings` configuration:
       "contracts": {
         "Airnode": "0xf1d4...0bd1"
       },
-      "providerAdminForRecordCreation": "0x5e00...F410"
+      "airnodeAdminForRecordCreation": "0x5e00...F410"
     }
   ]
 }

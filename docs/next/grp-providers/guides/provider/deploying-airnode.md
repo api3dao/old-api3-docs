@@ -95,20 +95,10 @@ docker run -it --rm \
   api3/airnode-deployer:0.1.0
 ```
 
-This will first download the deployer image, which may take a few minutes depending on the speed of your Internet connection.
-Then, it will read your configuration files and start deployment.
-This process will be entirely automatic, with the exception that at one stage, the deployer will display the mnemonic of your Airnode's private key.
-Please note this down with pen and paper (do not copy paste to a text file on your computer) and keep it in a secure place.
+This will first download the deployer image, which may take a few minutes depending on the speed of your Internet connection. Then, it will read your configuration files and start deployment. This process will be entirely automatic, with the exception that at one stage, the deployer will display the mnemonic of your Airnode's private key. Please note this down with pen and paper (do not copy paste to a text file on your computer) and keep it in a secure place.
 
-Another point to mention is that the deployer will display your master wallet address, and ask you to deposit some ETH in it for it to create your provider record.
-Follow the instructions for your Airnode to create your provider record using your master wallet, and it will send any unused ETH to the `providerAdminForRecordCreation` you have set in your `config.json`.
-You can see the [docs](../../../reference/protocols/request-response/provider.md#creating-a-provider-record) for more information about this process.
+Another point to mention is that the deployer will display your master wallet address, and ask you to deposit some ETH in it for it to create your provider record. Follow the instructions for your Airnode to create your provider record using your master wallet, and it will send any unused ETH to the `airnodeAdminForRecordCreation` you have set in your `config.json`. You can see the [docs](../../../reference/protocols/request-response/airnode.md#creating-an-airnode-record) for more information about this process.
 
-A couple minutes after noting down your mnemonic and hitting `ENTER`, you should be done!
-The deployer will output a receipt file ending with `.receipt.json`.
-This file does not include any sensitive information, so feel free to share it as needed.
-The receipt contains your [`providerId`](../../../reference/protocols/request-response/provider.md#providerid), `providerIdShort` and `masterWalletAddress` that you will need to fund for it to create your provider record (if you have not already).
-You will need to add your `providerIdShort` to your `config.json` to be able to redeploy your node with updated configurations.
+A couple minutes after noting down your mnemonic and hitting `ENTER`, you should be done! The deployer will output a receipt file ending with `.receipt.json`. This file does not include any sensitive information, so feel free to share it as needed. The receipt contains your [`airnodeId`](../../../reference/protocols/request-response/airnode.md#airnodeid), `airnodeIdShort` and `masterWalletAddress` that you will need to fund for it to create your provider record (if you have not already). You will need to add your `airnodeIdShort` to your `config.json` to be able to redeploy your node with updated configurations.
 
-To find out how to redeploy your node or remove it from your cloud provider account, see the [deployer image docs](https://github.com/api3dao/airnode/blob/pre-alpha/Docker.md).
-Now, the next step is to configure the authorization policies for the endpoints you will be serving.
+To find out how to redeploy your node or remove it from your cloud provider account, see the [deployer image docs](https://github.com/api3dao/airnode/blob/pre-alpha/Docker.md). Now, the next step is to configure the authorization policies for the endpoints you will be serving.

@@ -41,14 +41,14 @@ A newly created Airnode defaults to **Deny All** for all its endpoints. The auth
 
 <Todo>
 
-Pretty sure the providerAdmin should be airnodeAdmin. Just need to find the code behind all this for version 0.1.0. Same for providerId as airnodeId.
+Pretty sure the airnodeAdmin should be airnodeAdmin. Just need to find the code behind all this for version 0.1.0. Same for providerId as airnodeId.
 
 </Todo>
 
-The simplest authorization policy is opening the endpoint to the public, so let us see how to do that first. Authorizers being set to `[0]` means that all requests made to it will be authorized (i.e., will be responded to by Airnode). Only the `providerAdmin` of a provider can update the authorizers of its endpoints. Therefore, you will need to make a transaction using the provider admin address (that you have set in `config.json` as `providerAdminForRecordCreation`) to [EndpointStore.sol](../../../reference/protocols/request-response/general-structure.md#endpointstore-sol). In JS (using ethers.js):
+The simplest authorization policy is opening the endpoint to the public, so let us see how to do that first. Authorizers being set to `[0]` means that all requests made to it will be authorized (i.e., will be responded to by Airnode). Only the `airnodeAdmin` of a provider can update the authorizers of its endpoints. Therefore, you will need to make a transaction using the provider admin address (that you have set in `config.json` as `airnodeAdminForRecordCreation`) to [EndpointStore.sol](../../../reference/protocols/request-response/general-structure.md#endpointstore-sol). In JS (using ethers.js):
 
 ```js
-airnode.connect(providerAdmin).updateEndpointAuthorizers(providerId, endpointId, [ethers.constants.AddressZero]);
+airnode.connect(airnodeAdmin).updateEndpointAuthorizers(airnodeId, endpointId, [ethers.constants.AddressZero]);
 ```
 
 You can also use [@api3/airnode-admin](https://github.com/api3dao/airnode/tree/pre-alpha/packages/admin#update-authorizers) to update endpoint authorizers.
@@ -57,13 +57,13 @@ You can also use [@api3/airnode-admin](https://github.com/api3dao/airnode/tree/p
 npx @api3/airnode-admin update-authorizers \
   --providerUrl https://ropsten.infura.io/v3/<KEY> \
   --mnemonic "nature about salad..." \
-  --providerId 0xe1e0dd... \
+  --airnodeId 0xe1e0dd... \
   --endpointId 0x260558... \
   --authorizersFilePath ./authorizers.json
 ```
 
 After making this transaction, your Airnode will respond to all requests.
-Note that being able to do this on-chain through `providerAdmin` allows you to update your authorization policies without interacting with your Airnode or having to redeploy it.
+Note that being able to do this on-chain through `airnodeAdmin` allows you to update your authorization policies without interacting with your Airnode or having to redeploy it.
 
 ## Custom authorization policies
 

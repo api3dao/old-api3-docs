@@ -5,10 +5,10 @@ title: config.json
 # {{$frontmatter.title}}
 
 <TocHeader />
-<TOC class="table-of-contents" :include-level="[2, 3, 4]" />
+<TOC class="table-of-contents" :include-level="[2, 3]" />
 
 The `config.json` specifies one or multiple deployments.
-All of these deployments will belong to the same Airnode (will have the same [`airnodeId`](../protocols/request-response/provider.md#providerid), master private key, [designated wallets](../protocols/request-response/designated-wallet.md), etc.).
+All of these deployments will belong to the same Airnode (will have the same [`airnodeId`](../protocols/request-response/airnode.md#airnodeid), master private key, [designated wallets](../protocols/request-response/designated-wallet.md), etc.).
 
 For a single deployment, the file contents will be in the format below:
 
@@ -59,8 +59,7 @@ Its contents can be seen below:
   },
   "environment": {
     ...
-  },
-  "id": "..."
+  }
 }
 ```
 
@@ -73,8 +72,6 @@ Its contents can be seen below:
 - [`nodeSettings`](#nodesettings): General deployment parameters such as node version and deployment configuration
 
 - [`environment`](#environment): Mapping of secrets to environment variables
-
-- [`id`](#id): Unique identifier for this config object
 
 ## ois
 
@@ -120,8 +117,8 @@ Contents of a `triggers` object can be seen below:
 
 According to the example above, the Airnode deployment has an OIS with the title `myOisTitle`. 
 This OIS has an endpoint with the name `myEndpointName`.
-When the Airnode deployment detects a [request](../protocols/request-response/request.md) that references its [`airnodeId`](../protocols/request-response/provider.md#providerid) and `0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5` as the [`endpointId`](../protocols/request-response/endpoint.md#endpointid), it will call the specified endpoint (`myOisTitle`-`myEndpointName`) with the parameters provided in the request to fulfill it.
-See the [docs](../protocols/request-response/endpoint.md#endpointid) for the default convention for setting the `endpointId`.
+When the Airnode deployment detects a [request](../protocols/request-response/request.md) that references its [`airnodeId`](../protocols/request-response/airnode.md#airnodeid) and `0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5` as the [`endpointId`](../protocols/request-response/endpoint.md#endpointid), it will call the specified endpoint (`myOisTitle`-`myEndpointName`) with the parameters provided in the request to fulfill it.
+See the [Endpoints](../protocols/request-response/endpoint.md#endpointid) for the default convention for setting the `endpointId`.
 
 ## chains
 
@@ -188,7 +185,7 @@ It has to include the following contract addresses:
   - `AirnodeRRP`
 
 - `airnodeAdmin` (required) - the admin address the Airnode deployment will set on-chain.
-See the [protocol docs](../protocols/request-response/provider.md#provideradmin) for more information.
+See the [protocol docs](../protocols/request-response/provider.md#airnodeadmin) for more information.
 Note that the Airnode master wallet has to be funded (on the respective chain) to be able to make the transaction that will set or update this value.
 
 - `authorizers` (required) - the list of authorizer contract addresses the Airnode deployment will set on-chain.
@@ -311,6 +308,3 @@ Each entry in `environment.chainProviders[n]` maps to an entry in `chains[n]`. T
   }
 ]
 ```
-## id
-
-`id` is a unique identifier for the config object (e.g., a [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)).
