@@ -5,7 +5,7 @@ title: Request
 # {{$frontmatter.title}}
 
 <TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TOC class="table-of-contents" :include-level="[2,3,4]" />
 
 When a client makes a request using `Airnode.sol`, it is returned a `requestId`. This `requestId` is a hash of all request parameters and a nonce. This allows Airnode to verify that the request parameters are not tampered with.
 
@@ -57,49 +57,72 @@ A full request does not refer to a template at all. They are useful if the clien
 
 A request made to an Airnode has three possible outcomes:
 
-### 1. Fulfill
+- Fulfill
+- Fail
+- Ignore
 
-If the node encountered no errors at any step, it calls the `fulfill()` method that will call back the method `fulfillFunctionId` at `fulfillAddress` to deliver `data` and 0 as the `statusCode`.
+### Fulfill
 
-If the node encountered an error, it will do the same, but [`statusCode`](https://github.com/api3dao/airnode/blob/6f31a4c27d40e86101673bf37d223fef6625dfdd/packages/protocol/contracts/AirnodeRrp.sol#L148) (shown in the [Codes](request.md#codes) table below) will be non-0, indicating to the client that the request has failed. The client can then handle this error as it sees fit (e.g., ignore it, make a request to an alternative provider, etc.)
+`fulfill()` is the desired outcome and comes as _success_ (statusCode = 0) or as _errored_ ([statusCode](request.md#statuscode) > 0). This is the only outcome that returns results to a client contract.
 
-### 2. Fail
+For a successful request, Airnode  calls the `fulfill()` function in `AirnodeRRP.sol` that will in turn call back the client contract at `fulfillAddress` using function `fulfillFunctionId` to deliver `data` and a [`statusCode`](https://github.com/api3dao/airnode/blob/6f31a4c27d40e86101673bf37d223fef6625dfdd/packages/protocol/contracts/AirnodeRrp.sol#L148) of 0. If there was an error then statusCode will be non-0. The client contract can then handle this error as it sees fit (e.g., ignore it, make a request to an alternative provider, etc.)
 
-If `fulfill()` reverts, the node calls the `fail()` method to report this. The node will not attempt to fulfill a failed request afterwards.
+> ![request-outcomes](../../../assets/images/request-outcomes.png)
 
-### 3. Ignore
+### Fail
 
-If the node cannot even fail a request (e.g., the client is not endorsed by the requester), the request gets ignored.
+As noted in the diagram above, if the transaction that calls `fulfill()` reverts, the node calls the `fail()` method to report the failure. The node will not attempt to fulfill a failed request afterwards.
 
-### Statuses
-|Status | Description|
-| --- | --- |
-|Pending    |The request has no current issues and can be fulfilled |
-|Fulfilled  |The transaction that fulfilled the request has been confirmed onchain	|
-|Blocked    |A required piece of data was not able to be loaded or something else is preventing the request from being fulfilled now:<ul><li>The request is not fulfilled</li><li>Requests ordered after this one are not fulfilled</li><li>After a preconfigured number of blocks (default 20), the request will be ignored</li></ul>|
-|Ignored    |The request is not fulfilled or actioned any further |
-|Errored    |No further action is taken on the request. It is fulfilled as "errored" with the relevant error code |
+<Todo :issueID="108">
 
+The following three paragraphs are a little dense.
 
- 
+</Todo>
 
-### Codes
-|Code | Name | Status | Description |
-| --: | --- | --- | --- |
-|1    |RequestParameterDecodingFailed |Errored   |The request contains invalid parameters |
-|2    |RequestInvalid                 |Ignored   |The request ID cannot be verified against the other fields |
-|3    |TemplateNotFound               |Blocked   |The API call template could not be loaded |
-|4    |TemplateParameterDecodingFailed|Errored   |The API call template contains invalid parameters |
-|5    |TemplateInvalid                |Ignored   |The API call template cannot be verified against the other fields |
-|6    |DesignatedWalletInvalid        |Ignored   |The request's designated wallet differs from the expected designated wallet |
-|7    |AuthorizationNotFound          |Blocked   |The API call authorization status could not be loaded |
-|8    |Unauthorized                   |Errored   |The client contract submitting the API call request is not authorized |
-|9    |PendingWithdrawal              |Ignored   |The request cannot be actioned while there is a pending withdrawal |
-|10   |UnknownOIS                     |Errored   |The API call endpointId does not match a known OIS |
-|11   |UnknownEndpoint                |Errored   |The API call endpointId does not match a known endpoint |
-|12   |NoMatchingAggregatedCall       |Ignored   |The individual API call cannot be matched to an aggregated API call |
-|13   |ApiCallFailed                  |Errored   |The API call failed |
-|14   |ResponseParametersInvalid      |Errored   |The API call is missing a "_type" parameter |
-|15   |ResponseValueNotFound          |Errored   |A value could not be extracted from the API call response using the "_path" parameter |
-|16   |ResponseValueNotCastable       |Errored   |The API call response value could not be cast successfully using the "_type" parameter |
-|17   |FulfillTransactionFailed       |Errored   |The fulfill transaction could not be submitted successfully |
+Airnode is stateless, which means that there is no database storing which requests have been fulfilled or failed, 
+which are waiting on confirmations and which are still pending. This information is retrieved from the chain on 
+each request-response cycle (roughly every minute). During each cycle, retrieved requests need to be ordered in 
+the same way to ensure they are submitted using the same nonce. This is important because it's possible for a 
+transaction to not have been confirmed by the time the next cycle runs. If this happens, the transaction is 
+re-submitted with a "faster" transaction fee, overwriting the previous transaction.
+
+However, Airnode is also dependent on the blockchain provider to supply it with the onchain data. If the 
+blockchain provider is unavailable for whatever reason, it is possible that a request cannot be fully validated, 
+which means that it cannot be submitted back to the blockchain. As mentioned above, keeping requests in the 
+same order, using the same nonce is critical. Therefore, any request that cannot be fully validated due to a 
+blockchain provider error becomes "blocked". This means that it and any requests after it are unable to be 
+submitted during the current cycle and will be retried during the following cycle. It is important to note 
+that this is specific to each requester. e.g. a request sent from requester A that becomes "blocked", will 
+not block requests sent from requester B.
+
+After X blocks (20 by default for EVM chains), any requests that would become "blocked", will instead become "ignored". 
+This means that Airnode will stop attempting to process the request in order to process later requests.
+
+### Ignore
+
+If the Airnode cannot even fail a request (e.g., the client is not endorsed by the requester), the request gets ignored.
+
+## statusCode
+
+Airnodes will return a `statusCode` when responding to a request. A non-0 statusCode is an error.
+
+  |Code | Name | Status | Description |
+  | --: | --- | --- | --- |
+  |1    |RequestParameterDecodingFailed |Errored   |The request contains invalid parameters |
+  |2    |RequestInvalid                 |Ignored   |The request ID cannot be verified against the other fields |
+  |3    |TemplateNotFound               |Blocked   |The API call template could not be loaded |
+  |4    |TemplateParameterDecodingFailed|Errored   |The API call template contains invalid parameters |
+  |5    |TemplateInvalid                |Ignored   |The API call template cannot be verified against the other fields |
+  |6    |DesignatedWalletInvalid        |Ignored   |The request's designated wallet differs from the expected designated wallet |
+  |7    |AuthorizationNotFound          |Blocked   |The API call authorization status could not be loaded |
+  |8    |Unauthorized                   |Errored   |The client contract submitting the API call request is not authorized |
+  |9    |PendingWithdrawal              |Ignored   |The request cannot be actioned while there is a pending withdrawal |
+  |10   |UnknownOIS                     |Errored   |The API call endpointId does not match a known OIS |
+  |11   |UnknownEndpoint                |Errored   |The API call endpointId does not match a known endpoint |
+  |12   |NoMatchingAggregatedCall       |Ignored   |The individual API call cannot be matched to an aggregated API call |
+  |13   |ApiCallFailed                  |Errored   |The API call failed |
+  |14   |ResponseParametersInvalid      |Errored   |The API call is missing a "_type" parameter |
+  |15   |ResponseValueNotFound          |Errored   |A value could not be extracted from the API call response using the "_path" parameter |
+  |16   |ResponseValueNotCastable       |Errored   |The API call response value could not be cast successfully using the "_type" parameter |
+  |17   |FulfillTransactionFailed       |Errored   |The fulfill transaction could not be submitted successfully |
+

@@ -13,7 +13,8 @@ Setting up a requester record is needed to allow client contracts access to one 
 
 The following diagram illustrates how to become a requester.
 
-![become-requester](../assets/images/become-requester.png)
+---
+> ![become-requester](../assets/images/become-requester.png)
 
 ## Requester Admin Commands
 

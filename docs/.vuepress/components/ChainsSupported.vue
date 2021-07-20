@@ -1,13 +1,15 @@
 <template>
   <div>
+    <h4>AirnodeRRP.sol</h4>
     <table v-show="version=='0.1.0'">
       <tr>
         <th>Blockchain</th>
         <th>ID</th>
-        <th>AirnodeRrp.sol (public address)</th>
+        <th style="min-width:390px;">Public Address</th>
       </tr>
       <tr>
-        <td style="width:100px;">mainnet</td><td style="width:27px;">1</td><td>...</td>
+        <td style="min-width:100px;">mainnet</td>
+        <td style="min-width:27px;">1</td><td>...</td>
       </tr>
     </table>
     <details class="collapse-chain-box">
@@ -15,7 +17,9 @@
       <table v-show="version=='0.1.0'">
 
         <tr style="margin-top:20px;">
-          <td style="width:100px;">ropsten</td><td style="width:27px;">3</td><td>0xF6d2675468989387e96127546e0CBC9A384fa418</td>
+          <td style="min-width:100px;">ropsten</td>
+          <td style="min-width:27px;">3</td>
+          <td>0xF6d2675468989387e96127546e0CBC9A384fa418</td>
         </tr>
         <tr>
           <td>rinkeby</td><td>4</td><td>...</td>
