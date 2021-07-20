@@ -1,0 +1,32 @@
+GitHub issue #108
+
+The 5 statuses from the Google sheet are internal Airnode statuses that get assigned to each request. There are 
+actually 6 statuses now - "Submitted" was added for requests that were pending/valid, have a response from the 
+API and were submitted as a transaction back to the chain.
+
+The important thing is the statusCode as this answers the question "why did the request fail". Both the requester 
+and API provider might want to know this.
+
+Both should also know about the "blocked" and "ignored" behaviour as this is unique. I would probably drop the 
+table and just have a section explaining the process. Having the other statuses there will probably just end up 
+confusing users. How about something like:
+
+"""
+Airnode is stateless, which means that there is no database storing which requests have been fulfilled or failed, 
+which are waiting on confirmations and which are still pending. This information is retrieved from the chain on 
+each request-response cycle (roughly every minute). During each cycle, retrieved requests needs to be ordered in 
+the same way to ensure they are submitted using the same nonce. This is important because it's possible for a 
+transaction to not have been confirmed by the time the next cycle runs. If this happens, the transaction is 
+re-submitted with a "faster" transaction fee, overwriting the previous transaction.
+
+However, Airnode is also dependent on the blockchain provider to supply it with the onchain data. If the 
+blockchain provider is unavailable for whatever reason, it is possible that a request cannot be fully validated, 
+which means that it cannot be submitted back to the blockchain. As mentioned above, keeping requests in the 
+same order, using the same nonce is critical. Therefore, any request that cannot be fully validated due to a 
+blockchain provider error becomes "blocked". This means that it and any requests after it are unable to be 
+submitted during the current cycle and will be retried during the following cycle. It is important to note 
+that this is specific to each requester. e.g. a request sent from requester A that becomes "blocked", will 
+not block requests sent from requester B.
+
+After X blocks (20 by default for EVM chains), any requests that would become "blocked", will instead become "ignored". 
+This means that Airnode will stop attempting to process the request in order to process later requests.

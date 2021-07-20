@@ -15,7 +15,8 @@ Airnode is composed of two parts: the on-chain **AirnodeRrp.sol** protocol contr
 ---
   >![call](../assets/images/call-an-airnode.png)
 
-  In the above diagram a client contract makes a request to the AirnodeRrp contract. When the request has been filled by the Airnode application it performs a  callback to the  `fulfill()` function in the client contract via the AirnodeRrp contract.
+In the above diagram a client contract makes a request to the AirnodeRrp contract which is retrieved by the Airnode during its next run cycle. Airnode then gathers the requested data from the API and creates a transaction to call the function `fulfill()` in AirnodeRRP.sol which in turn makes a callback to the function `clientFulFill` in the client contract.
+
 
 The AirnodeRrp protocol is designed to be flexible and is meant to serve a variety of use cases. See the Airnode [client examples](https://github.com/api3dao/airnode-starter/blob/main/contracts/ExampleClient.sol) for some potential design patterns. Requesters need to create a client contract that builds on the following items.
 
@@ -28,7 +29,7 @@ This document focuses items 1 & 2 above, making a request and capturing the resp
 
 ## Step #1: Inherit AirnodeRrpClient.sol
 
-To get started a client contract inherits from the [AirnodeRrpClient](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/AirnodeRrpClient.sol) contract. This will expose the AirnodeRrp contract to the client contract.
+To get started a client contract inherits from the [AirnodeRrpClient](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/AirnodeRrpClient.sol) contract. This will expose the AirnodeRrp.sol protocol contract to the client contract.
 
 ```solidity
 import "@api3/airnode-protocol/contracts/AirnodeRrpClient.sol";
@@ -42,10 +43,9 @@ contract ExampleClientContract is AirnodeRrpClient {
   ...
 }
 ```
-Note the constructor parameter `airnodeAddress` which is the public address of the AirnodeRrp contract on the blockchain you wish to use. It is used by AirnodeRrpClient to point itself to the AirnodeRrp contract on-chain. See the the list of available addresses below.
+Note the constructor parameter `airnodeAddress` which is the public address of the AirnodeRrp.sol protocol contract on the blockchain you wish to use. It is used by AirnodeRrpClient.sol to point itself to AirnodeRrp.sol. See the the list of available addresses below.
 
 > <ChainsSupported :version="'0.1.0'" />
-
 
 ## Step #2: Make a Request
 
@@ -77,17 +77,20 @@ contract ExampleClientContract is AirnodeRrpClient {
       external
   {
       bytes32 requestId = airnode.makeFullRequest( // Make the Airnode request 
-          airnodeId,              // airnodeId
-          endpointId,             // endpointId
-          requesterInd,           // requesterIndex
-          designatedWallet,       // designatedWallet
-          address(this),          // fulfillAddress
-          this.fulfill.selector,  // fulfillFunctionId
-          parameters              // API parameters
+          airnodeId,                      // airnodeId
+          endpointId,                     // endpointId
+          requesterInd,                   // requesterIndex
+          designatedWallet,               // designatedWallet
+          address(this),                  // fulfillAddress
+          this.airnodeCallback.selector,  // fulfillFunctionId
+          parameters                      // API parameters
           );
       incomingFulfillments[requestId] = true;
   }
-  ...
+  
+  function airnodeCallback(...){ // The AirnodeRRP.sol protocol contract will callback here.
+    ...
+  }
 }
 ```
 
@@ -138,7 +141,7 @@ contract ExampleClient is AirnodeClient {
         ...
     }
 
-    function fulfill(
+    function airnodeCallback(        // The AirnodeRRP.sol protocol contract will callback here.
         bytes32 requestId,
         uint256 statusCode,
         bytes calldata data
@@ -153,22 +156,20 @@ contract ExampleClient is AirnodeClient {
             int256 decodedData = abi.decode(data, (int256));
             fulfilledData[requestId] = decodedData;
         }
+        else  // There was an error
+        {
+          ...
+        }
     }
 }
 ```
 
 ### Response Parameters
 
-<Todo>
-
-Point to a list of status codes.
-
-</Todo>
-
 - **requestId**: First acquired when making the request and passed here as a reference to identify which request the response is for.
-- **statusCode**: A status code of `0` indicates a successful response. See [codes]() for a list of otherstatus codes.
-- **calldata**: For a successful response the requested data which has been encoded. Decode it using the function `decode()` from the `abi` object .
+- **statusCode**: A statusCode of `0` indicates a successful response and a `non-0` statusCode an error. See [statusCode](../reference/protocols/request-response/request.md#statuscode) for a list of error statusCodes.
 
+- **calldata**: For a successful response the requested data which has been encoded. Decode it using the function `decode()` from the `abi` object .
 
 ## Using Templates
 
