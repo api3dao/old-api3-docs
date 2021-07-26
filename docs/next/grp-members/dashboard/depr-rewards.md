@@ -8,7 +8,7 @@ title: Rewards
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 ## Earning Rewards
-Earning rewards is simple: everyone who owns [shares of the DAO pool](./voting-power.md) (everyone who has staked API3 tokens into the DAO pool contract) will earn rewards as they are added to the DAO pool. When you schedule tokens to be unstaked, you stop earning rewards for those tokens.
+Earning rewards is simple: everyone who owns shares of the DAO pool (everyone who has staked API3 tokens into the DAO pool contract) will earn rewards as they are added to the DAO pool. When you schedule tokens to be unstaked, you stop earning rewards for those tokens.
 
 Remember that when you stake, you receive non-transferable pool shares equal to the current total number of issued shares divided by the total number of tokens staked. Since the reward adds additional tokens to the pool, the "price" for one share will not always be one token.
 

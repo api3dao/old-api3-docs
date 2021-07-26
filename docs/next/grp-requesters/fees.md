@@ -17,7 +17,7 @@ A requester will have three types of fees to consider.
 
 ## Requester Record Fees
 
-Fees are encountered when managing a requester's record, client contract endorsements and more. These are per call transaction gas costs and are relatively small. Funds will come from the wallet mnemonic that the requester supplies when calling certain [admin commands](../reference/cli-commands.html) as shown below. 
+Fees are encountered when managing a requester's record, client contract endorsements and more. These are per call transaction gas costs and are relatively small. Funds will come from the wallet mnemonic that the requester supplies when calling certain [admin commands](../reference/cli-commands.md) as shown below. 
 
 - [create-requester](../reference/cli-commands.md#create-requester)
 - [set-requester-admin](../reference/cli-commands.md#set-requester-admin)
@@ -30,7 +30,7 @@ Fees are encountered when managing a requester's record, client contract endorse
 
 Fees are encountered, as transaction gas costs, when funding a requester's designated wallet for an Airnode and when executing the Airnode.
 
-- [Funding](become-a-requester.md#part-3-funding-airnodes) a designated wallet.
+- [Funding](become-a-sponsor.md#part-3-funding-airnodes) a designated wallet.
   A designated wallet is funded manually by a requester using their preferred wallet management tool such as MetaMask.
 
 - [Executing](../grp-requesters/call-an-airnode.md) an Airnode.

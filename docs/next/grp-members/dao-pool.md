@@ -45,7 +45,7 @@ Reference <a href="/api3-whitepaper-v1.0.1.pdf#API3 tokenomics" target="api3-doc
 
 ### Staking
 
-The staking utility incentivizes participation in the DAO and alignment of incentives. By [staking](tokens.md#staked-tokens) your API3 tokens into the DAO pool, you receive governance voting rights and take part in providing API3 users with quantifiable _security_ in the form of insurance. The DAO pool also grants you inflationary rewards and exposes you to insurance claim risks.
+The staking utility incentivizes participation in the DAO and alignment of incentives. By staking your API3 tokens into the DAO pool, you receive governance voting rights and take part in providing API3 users with quantifiable _security_ in the form of insurance. The DAO pool also grants you inflationary rewards and exposes you to insurance claim risks.
 
 > ![dao-pool-staking](../assets/images/dao-pool-staking.png)
 
@@ -97,7 +97,7 @@ API3 aims to set up, maintain, and [monetize](dao-pool.md#monetization) dAPIs at
 > ![dao-pool-staking-2](../assets/images/dao-pool-staking-2.png)
 
 ### Earning Rewards
-Earning rewards is simple: everyone who owns [shares of the DAO pool](./voting-power.md) (everyone who has staked API3 tokens into the DAO pool contract) will earn rewards as they are added to the DAO pool. When you schedule tokens to be unstaked, you stop earning rewards for those tokens.
+Earning rewards is simple: everyone who owns shares of the DAO pool (everyone who has staked API3 tokens into the DAO pool contract) will earn rewards as they are added to the DAO pool. When you schedule tokens to be unstaked, you stop earning rewards for those tokens.
 
 <Todo>
 

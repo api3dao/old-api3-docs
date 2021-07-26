@@ -185,11 +185,11 @@ It has to include the following contract addresses:
   - `AirnodeRRP`
 
 - `airnodeAdmin` (required) - the admin address the Airnode deployment will set on-chain.
-See the [protocol docs](../protocols/request-response/provider.md#airnodeadmin) for more information.
+See the [protocol docs](../protocols/request-response/airnode.md#airnodeadmin) for more information.
 Note that the Airnode master wallet has to be funded (on the respective chain) to be able to make the transaction that will set or update this value.
 
 - `authorizers` (required) - the list of authorizer contract addresses the Airnode deployment will set on-chain.
-See the [protocol docs](../protocols/request-response/provider.md#setting-endpoint-authorizers) for more information.
+See the [protocol docs](../protocols/request-response/airnode.md#setting-endpoint-authorizers) for more information.
 Note that the Airnode master wallet has to be funded (on the respective chain) to be able to make the transaction that will set or update this value.
 
 - `blockHistoryLimit` (optional) - the number of blocks in the past that the Airnode deployment should search for requests.

@@ -7,13 +7,13 @@ title: Request
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3,4]" />
 
-When a client makes a request using `Airnode.sol`, it is returned a `requestId`. This `requestId` is a hash of all request parameters and a nonce. This allows Airnode to verify that the request parameters are not tampered with.
+When a client makes a request using `AirnodeRrp.sol`, it is returned a `requestId`. This `requestId` is a hash of all request parameters and a nonce. This allows Airnode to verify that the request parameters are not tampered with.
 
 ## Request parameters
 
 - `airnodeId` and `endpointId` specify the endpoint
 - `requesterIndex` and `designatedWallet` specify which wallet will be used to fulfill the request
-- `fulfillAddress` and `fulfillFunctionId` specify which method will be called to fulfill the request
+- `fulfillAddress` and `fulfillFunctionId` specify which function will be called to fulfill the request
 - `parameters` specify the API and [reserved](../../specifications/ois.md#_5-4-reservedparameters
 ) parameters (see [Airnode ABI specifications](../../specifications/airnode-abi-specifications.md) for how these are encoded)
 

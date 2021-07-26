@@ -32,7 +32,7 @@ It is assumed that you have already read the guide [API Integration](api-integra
 
 ## Creating `config.json`
 
-Use the [config.json template](../../guides/templates/config-json.html) to build your own Airnode configuration file. In the template, `config.json` has 6 fields:
+Use the [config.json template](../../../reference/templates/config-json.md) to build your own Airnode configuration file. In the template, `config.json` has 6 fields:
 
 - `ois`
 - `triggers`
@@ -77,7 +77,7 @@ The `chains` field (array) lists the blockchains the Airnode deployment will ser
 
 > <ChainsSupported :version="'0.1.0'" />
 
-For additional information about chain parameters see the [Technology > Deployment Files > config.json](../../../reference/deployment-files/config-json.html#chains).
+For additional information about chain parameters see the [Technology > Deployment Files > config.json](../../../reference/deployment-files/config-json.md#chains).
 
 ```json
   "chains": [

@@ -27,9 +27,9 @@ Therefore, only thing needed to integrate an API to Airnode is to create an OIS 
   
   - Refer to the [Oracle Integration Specifications (OIS)](../../../reference/specifications/ois.md) reference while using this guide.
 
-  - Open the [OIS template](https://docs.api3.org/next/grp-providers/guides/templates/ois-json.html) in another browser window to follow along. 
+  - Open the [OIS template](https://docs.api3.org/next/reference/templates/ois-json.html) in another browser window to follow along. 
 
-  - View an example of an [Airnode config.json file](../../tutorials/config-examples/config-example-json.md) from the Airnode Starter tutorial.
+  - View an example of an [Airnode config.json file](../../tutorial/config-json.md) from the Airnode Starter tutorial.
 
 </details>
 <!-- markdownlint-enable -->
@@ -92,27 +92,31 @@ The `apiSpecifications` field is used to describe the API and its operations.
 
 The first step of specifying your API is to enter its _baseURL_ in the `apiSpecifications.servers[0].url` field. Only one object (i.e., url) is allowed in the `apiSpecifications.servers` array. A warning is raised during conversion if servers has multiple elements. This baseURL will apply to all operations.
 
+
 #### Choosing a Base URL
 
 Consider the following full URL to execute an API operation that returns all know tokens.
 
+<!-- markdown-link-check-disable-next-line -->
 > https://www.myapi.com/v1/tokens
-
 
 There are two ways to segment this.
 
+<!-- markdown-link-check-disable-next-line -->
 > **baseURL:** https://www.myapi.com
 >
 > **path:**     /v1/data
 
 or
 
+<!-- markdown-link-check-disable-next-line -->
 > **baseURL**: https://www.myapi.com/v1
 >
 > **path:** /data
 
 Because the call will be made to <`baseURL+path`> both will result in the same full URL.
 
+<!-- markdown-link-check-disable-next-line -->
 Set the baseURL as the section of the full URL that you expect to be shared by all operations. From the examples above it is recommended to use `https://www.myapi.com`, in case additional paths starting with `/v2` get added to the API in the future. As you can tell, API integration requires many subjective choices, and is more art than science.
 
 ```json

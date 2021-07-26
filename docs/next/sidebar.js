@@ -66,8 +66,9 @@ module.exports = [
   {
     title: 'Requesters', initialOpenGroupIndex: 0, collapsable: true,
     children:[
-      'grp-requesters/become-a-requester',
+      'grp-requesters/become-a-sponsor',
       'grp-requesters/call-an-airnode',
+      'grp-requesters/using-templates',
       'grp-requesters/fees',
       /*'grp-requesters/developing-a-client-contract',*/
       'grp-requesters/self-serve-platforms',

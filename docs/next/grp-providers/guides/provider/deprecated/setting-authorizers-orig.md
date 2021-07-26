@@ -7,6 +7,8 @@ title: Setting authorizers (orig)
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
+<!-- markdown-link-check-disable -->
+
 We are assuming that you have [configured your Airnode](configuring-airnode.md) (and set `endpointId`s of your endpoints), and [deployed your Airnode](deploying-airnode.md) and received your `airnodeId` in your receipt file.
 Requesters who know your `airnodeId` and `endpointId`s should now be able to make requests to your endpoints.
 However, you probably do not want to serve the entire public with your Airnode, but rather

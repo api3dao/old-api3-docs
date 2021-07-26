@@ -15,6 +15,7 @@
     "docs:build": "yarn copy:navbar; yarn copy:searchbox; vuepress build docs"
   },
   "devDependencies": {
+    "@api3/airnode-abi": "^0.1.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/vue-fontawesome": "^2.0.2",
@@ -22,6 +23,7 @@
     "@vuepress/plugin-html-redirect": "^0.1.4",
     "@vuepress/plugin-medium-zoom": "^1.8.2",
     "ethers": "^5.2.0",
+    "keccak256": "^1.0.3",
     "markdown-link-check": "^3.8.6",
     "v-click-outside": "^3.1.2",
     "vuepress": "^1.8.2",

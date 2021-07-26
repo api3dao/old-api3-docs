@@ -7,7 +7,7 @@ title: Staking Tokens
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2]" />
 
-Staking API3 tokens in the [DAO pool](dao-pool.md) makes you eligible for rewards and governance rights. 
+Staking API3 tokens in the [DAO pool](../dao-pool.md) makes you eligible for rewards and governance rights. 
 
 ## Getting Started
 

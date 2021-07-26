@@ -60,7 +60,7 @@ However, if you will be deploying your own Airnode, the provider endpoint must b
 *(You only need cloud credentials if you will not be skipping Step 1.)*
 
 Follow the [docs](https://api3dao.github.io/api3-docs/pre-alpha/guides/provider/deploying-airnode.html#creating-cloud-credentials) to create your cloud credentials.
-Place them at `/config/.env`, similar to [/config/example.env](config-examples/example-env.md).
+Place them at `/config/.env`, similar to /config/example.env.
 Do not confuse this `.env` file with the one in the project root that keeps your mnemonic phrase and provider URL.
 
 **Following these instructions to deploy an Airnode on AWS is [free](https://aws.amazon.com/free/) at the time this is being written.**
@@ -81,9 +81,9 @@ You can make test calls over the [CoinGecko API docs](https://www.coingecko.com/
   <img src="https://user-images.githubusercontent.com/19530665/103151070-be14ea00-478b-11eb-9608-a967c4282d9f.png" width="1024" />
 </p>
 
-See [config.example.json](config-examples/config-example-json.md) for how this integration is achieved.
+See [config.example.json](config-json.md) for how this integration is achieved.
 We fixed the [reserved parameters](https://api3dao.github.io/api3-docs/pre-alpha/guides/provider/api-integration.html#reservedparameters) to read the value from `market_data.current_price.usd`, cast it as an `int256` and multiply it by `1,000,000` before returning.
-No security scheme (i.e., API key) is defined in `config.json` or [security.json](config-examples/security-json.md) because the CoinGecko API is publicly accessible.
+No security scheme (i.e., API key) is defined in `config.json` or [security.json](secrets-env.md) because the CoinGecko API is publicly accessible.
 
 ### Customize your `config.json`
 
@@ -190,7 +190,7 @@ You deployed an Airnode, made a request to it and received the response at the c
 If you want to learn more, see the following resources:
 
 - [API3 whitepaper](https://github.com/api3dao/api3-whitepaper) will give you a broad overview of the project
-- [Blog (Medium) posts](/next/blog-posts.md) are a more digestible version of the whitepaper
+- [Blog (Medium) posts](../../blog-posts.md) are a more digestible version of the whitepaper
 - [@api3/airnode-admin](https://github.com/api3dao/airnode/tree/pre-alpha/packages/admin) lets you interact with the Airnode contract (to create a request, endorse a client, etc.) using a CLI tool
 - [Airnode client examples](https://github.com/api3dao/airnode-client-examples/tree/pre-alpha) demonstrate different request patterns that the Airnode protocol supports (for example, we used a full request in this starter project)
 
