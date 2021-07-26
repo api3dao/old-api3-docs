@@ -9,7 +9,7 @@ title: API3 DAO
 
 API3 is governed by a Decentralized Autonomous Organization, DAO. The DAO is a collaborative effort to build, manage and monetize dAPIs at scale. To achieve this in a fully decentralized way, the incentives of the participants are reconciled through the governance, security, and [value capture utilities](dao-pool.md#token-utilities) of the API3 token.
 
-The API3 project has a completely open, decentralized and direct governance model. Any API3 token holder can stake the DAO pool and obtain direct voting privileges in the DAO and thus participate in the governance of the project directly. In addition, stakers receive [inflationary rewards](dao-pool.html#inflationary-rewards) and any additional benefits that the DAO may decide on in the future. The staked API3 tokens will back an on-chain [insurance service](dao-pool.html#insurance-service) as collateral to provide dAPI users with quantifiable and trustless security guarantees.
+The API3 project has a completely open, decentralized and direct governance model. Any API3 token holder can stake the DAO pool and obtain direct voting privileges in the DAO and thus participate in the governance of the project directly. In addition, stakers receive [inflationary rewards](dao-pool.md#inflationary-rewards) and any additional benefits that the DAO may decide on in the future. The staked API3 tokens will back an on-chain [insurance service](dao-pool.md#insurance-service) as collateral to provide dAPI users with quantifiable and trustless security guarantees.
 
 The DAO votes on high-level matters such as staking incentives and collateralization. Additionally, the DAO will give out grants from the DAO bank and decide on the general direction of the project.
 

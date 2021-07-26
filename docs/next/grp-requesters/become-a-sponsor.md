@@ -33,7 +33,7 @@ Each requester needs to create a requester record and get assigned a requester i
 - An address that will be used to administer the requester record (requesterAdmin) in the future, use the default public address of the mnemonic. 
 
 ::: tip mnemonic
-This wallet pays the transaction gas costs to write the requester record. This is not the wallet(s) that will pay gas costs to actually execute any Airnodes, for that the Airnodes themselves will create designated wallets on behalf of your requester record. [Part 3](become-a-requester.md#part-3-funding-airnodes) will explain more about designated wallets.
+This wallet pays the transaction gas costs to write the requester record. This is not the wallet(s) that will pay gas costs to actually execute any Airnode, for that the Airnode themselves will create sponsor wallets on behalf of your sponsor record. [Part 3](become-a-sponsor.md#part-3-funding-airnodes) will explain more about sponsor wallets.
 :::
 
 [@api3/airnode-admin create-requester](../reference/cli-commands.md#create-requester)
@@ -55,7 +55,7 @@ The command `create-requester` will return a `requester index` and the `requeste
 
 A requester endorses a client contract allowing it make Airnode requests on behave of the requester. Your client contract should already be deployed. 
 
-Endorsing a client contract means it can make Airnode requests, paid for by a designated wallet associated with the Airnode and the requesterIndex from your requester record. [Part 3](become-a-requester.md#part-3-funding-airnodes) will explain more about designated wallets.
+Endorsing a client contract means it can make Airnode requests, paid for by a designated wallet associated with the Airnode and the requesterIndex from your requester record. [Part 3](become-a-sponsor.md#part-3-funding-airnodes) will explain more about designated wallets.
 
 To endorse a client contract you will need the following.
 

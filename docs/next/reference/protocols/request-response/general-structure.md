@@ -35,6 +35,12 @@ This contract sits between a client contract and the Airnode. It inherits from f
 - Used by clients to make requests.
 - Used by Airnodes to fulfill requests.
 
+To use AirnodeRrp.sol a client contract must import AirnodeClient.sol.
+
+```
+import "@api3/airnode-protocol/contracts/AirnodeClient.sol";
+```
+
 ### Convenience.sol
 
 [Convenience.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/Convenience.sol)
