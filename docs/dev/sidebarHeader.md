@@ -26,7 +26,7 @@ docs/
 
 - /docs/0.1.0
 - /docs/0.1.0/grp-members
-- /docs/0.1.0/grp-requesters
+- /docs/0.1.0/grp-developers
 - /docs/0.1.0/grp-providers
 
 ```text
@@ -36,7 +36,7 @@ docs/
       |- ...folders
       | README.md
       |- sidebar.js
-   |- grp-requesters
+   |- grp-developers
       |- ...folders
       | README.md
       |- sidebar.js
@@ -69,13 +69,13 @@ sidebarHeaders:[
   {vrs:'0.1.0', buttons:[
     {isActive: false, info:true,          baseUrl:'/next/', img:'info-circle'},
     {isActive: false, label:'Members',    baseUrl:'/next/grp-members/', img:'users'},
-    {isActive: false, label:'Requesters', baseUrl:'/next/grp-requesters/', img:'eye'},
+    {isActive: false, label:'Requesters', baseUrl:'/next/grp-developers/', img:'eye'},
     {isActive: true,  label:'Providers',  baseUrl:'/next/grp-providers/', img:'sitemap'}
   ]}
   {vrs:'next', buttons:[
     {isActive: false, info:true,          baseUrl:'/next/', img:'info-circle'},
     {isActive: false, label:'Members',    baseUrl:'/next/grp-members/', img:'users'},
-    {isActive: false, label:'Requesters', baseUrl:'/next/grp-requesters/', img:'eye'},
+    {isActive: false, label:'Requesters', baseUrl:'/next/grp-developers/', img:'eye'},
     {isActive: true,  label:'Providers',  baseUrl:'/next/grp-providers/', img:'sitemap'}
   ]}
 ],,

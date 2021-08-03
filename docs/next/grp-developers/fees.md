@@ -7,6 +7,10 @@ title: Fees
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
+<Todo>
+<p>This doc needs updating once the new repo README(s) are ready for the Airnode (beta) re-writes.</p>
+</Todo>
+
 A requester will have three types of fees to consider.
 
 1. Requester Record Fees: transaction gas costs to maintain a requester record and client contract endorsements.
@@ -33,7 +37,7 @@ Fees are encountered, as transaction gas costs, when funding a requester's desig
 - [Funding](become-a-sponsor.md#part-3-funding-airnodes) a designated wallet.
   A designated wallet is funded manually by a requester using their preferred wallet management tool such as MetaMask.
 
-- [Executing](../grp-requesters/call-an-airnode.md) an Airnode.
+- [Executing](../grp-developers/call-an-airnode.md) an Airnode.
   Transaction gas fees are withdrawn from the designated wallet of the requester related to the Airnode being called. 
 
 <DesignatedWalletWarning/>

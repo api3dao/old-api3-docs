@@ -7,6 +7,9 @@ title: Calling an Airnode
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
+<Todo>
+<p>This doc needs updating once the new repo README(s) are ready for the Airnode (beta) re-writes.</p>
+</Todo>
 
 Client contracts that have been endorsed by a requester can call an Airnode. See [Become a Requester](become-a-sponsor.md) to set up a requester record, endorse a client contract and fund an Airnode.
 
@@ -106,7 +109,7 @@ Since the `callTheAirnode` function is going to make a full request it must gath
 
 - **airnodeId** and **endpointId**: As a pair these uniquely identify the endpoint desired at a particular Airnode.
 
-- **requesterIndex** and **designatedWallet**: The [requesterIndex](../grp-requesters/become-a-sponsor.md#part-1-create-a-requester-record) from the requester's record and the [designated wallet](become-a-sponsor.md#part-3-funding-airnodes) that the requester received when endorsing the Airnode being called. The designated wallet must belong to the requesterId.
+- **requesterIndex** and **designatedWallet**: The [requesterIndex](../grp-developers/become-a-sponsor.md#part-1-create-a-requester-record) from the requester's record and the [designated wallet](become-a-sponsor.md#part-3-funding-airnodes) that the requester received when endorsing the Airnode being called. The designated wallet must belong to the requesterId.
   
 - **fulfillAddress** and **fulfillFunctionId**: The public address of your client contract and its function that will be called when the request is returned.
 

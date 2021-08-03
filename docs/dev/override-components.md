@@ -44,7 +44,7 @@ actionLink () {
 
 ## Navbar.vue
 
-The override component Navbar.use is a replacement for the VuePress Navbar.vue. The custom component [Versions.vue](./custom-components.md#versions.vue) has been added to **Navbar.vue**.
+The override component Navbar.use is a replacement for the VuePress Navbar.vue. The custom component [Versions.vue](./custom-components.md#versions-vue-and-versionsmodal-vue) has been added to **Navbar.vue**.
 
 
 #### Changes

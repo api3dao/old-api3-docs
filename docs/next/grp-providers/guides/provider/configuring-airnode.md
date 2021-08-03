@@ -119,7 +119,7 @@ Airnode can use multiple Ethereum providers per chain. These could be a private 
 
 #### airnodeAdmin
 
-`airnodeAdmin` is the address that your Airnode will set as the [airnodeAdmin](../../../reference/protocols/request-response/airnode.md#airnodeAdmin) while creating the Airnode record on the respective chain. You should set this field to an address that only you control.
+`airnodeAdmin` is the address that your Airnode will set as the [airnodeAdmin](../../../reference/protocols/request-response/airnode.md#airnodeadmin) while creating the Airnode record on the respective chain. You should set this field to an address that only you control.
 
 #### authorizers
 

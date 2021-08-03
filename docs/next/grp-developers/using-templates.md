@@ -45,7 +45,7 @@ There are just a few steps to create and place a template on-chain for a request
 First create a file that contains a template object. Below is an example. You will need the address of the Airnode and its  endpointId to be called. Below are links that discuss request parameters if you need help.
 
 - [Reference > Reqeust-Response Protocol > Request](../reference/protocols/request-response/request.md)
-- [Calling an Airnode](../grp-requesters/call-an-airnode.md#request-parameters)
+- [Calling an Airnode](../grp-developers/call-an-airnode.md#request-parameters)
 
 
 <Caption title="Sample Template File"/>

@@ -78,7 +78,7 @@ yarn run deploy:$CHAIN_NAME
 
 If your chain has a customized flow for deploying contracts, you can find the bytecodes of the compiled contracts in the `artifacts/` directory.
 
-Note that you will need to deploy both [Airnode.sol](../../../reference/protocols/request-response/general-structure.md#airnode-sol) and [Convenience.sol](../../../reference/protocols/request-response/general-structure.md#convenience-sol).
+Note that you will need to deploy both [Airnode.sol](../../../reference/protocols/request-response/general-structure.md#airnoderrp-sol) and [Convenience.sol](../../../reference/protocols/request-response/general-structure.md#convenience-sol).
 
 ## Part 2: Make a test call
 

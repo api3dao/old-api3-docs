@@ -59,7 +59,7 @@ You can see the [docs](../../protocols/request-response/provider.md#creating-a-p
 A couple minutes after noting down your mnemonic and hitting `ENTER`, you should be done!
 The deployer will output a receipt file ending with `.receipt.json`.
 This file does not include any sensitive information, so feel free to share it as needed.
-The receipt contains your [`providerId`](../../protocols/request-response/provider.md#provideid), `providerIdShort` and `masterWalletAddress` that you will need to fund for it to create your provider record (if you have not already).
+The receipt contains your [`providerId`](../../protocols/request-response/provider.md#providerid), `providerIdShort` and `masterWalletAddress` that you will need to fund for it to create your provider record (if you have not already).
 You will need to add your `providerIdShort` to your `config.json` to be able to redeploy your node with updated configurations.
 
 To find out how to redeploy your node or remove it from your cloud provider account, see the [deployer image docs](https://github.com/api3dao/airnode/blob/pre-alpha/Docker.md).

@@ -1,3 +1,11 @@
+<!--
+  The caller should wrap their slot content with <p></p> tags to prevent errors 
+  when using from markdown.
+
+  2021-08-03: wkande: Commented out the GitHub link feature that was displayed 
+  in the upper right hand corner.
+-->
+
 <template>
   <div>
       <!-- This hidden block calculates the running badge total for the page -->
@@ -20,12 +28,12 @@
           type="tip" :text="'Todo: '+$page.todoCnt" 
           vertical="top" />
         </span>
-        <a v-show="issueID" :href="githubURL" target="github">
+        <!--a v-show="issueID" :href="githubURL" target="github">
           GitHub Issue: #{{issueID}}
-        </a>
-        <div style="margin-top:-10px;margin-bottom:-10px;">
+        </a-->
+        <span style="margin-top:-10px;margin-bottom:-10px;">
           <slot></slot>
-        </div>
+        </span>
       </div>
   </div>
 </template>
@@ -33,14 +41,14 @@
 <script>
   export default {
     name: 'todo',
-    props: {issueID:Number},
+    //props: {issueID:Number},
     data: () => ({
       githubURL:String,
     }),
     mounted() {
       this.$nextTick(function () {
         this.$page.todoCnt = 0 // Needed here and in beforeMount()
-        this.githubURL = "https://github.com/api3dao/api3-docs/issues/"+this.issueID
+        //this.githubURL = "https://github.com/api3dao/api3-docs/issues/"+this.issueID
       })
     },
     beforeUpdate() {
@@ -55,7 +63,8 @@
 .borderRed{
   padding-top:5px;
   color:#404040;
-  border:dotted red 2px;
+  border:solid green 2px;
+  background-color:rgb(209, 238, 209);
   padding-left:5px;
 }
 .badgeCnt {
@@ -64,8 +73,8 @@
   right:10px;
   z-index:999;
 }
-a{
+/*a{
   float:right;
   padding-right:20px;
-}
+}*/
 </style>
