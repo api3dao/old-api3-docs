@@ -64,27 +64,27 @@ module.exports = [
     ]
   },
   {
-    title: 'Requesters', initialOpenGroupIndex: 0, collapsable: true,
+    title: 'Developers', initialOpenGroupIndex: 0, collapsable: true,
     children:[
-      'grp-requesters/become-a-sponsor',
-      'grp-requesters/call-an-airnode',
-      'grp-requesters/using-templates',
-      'grp-requesters/fees',
-      /*'grp-requesters/developing-a-client-contract',*/
-      'grp-requesters/self-serve-platforms',
+      'grp-developers/become-a-sponsor',
+      'grp-developers/call-an-airnode',
+      'grp-developers/using-templates',
+      'grp-developers/fees',
+      /*'grp-developers/developing-a-client-contract',*/
+      'grp-developers/self-serve-platforms',
       /*{
         
         title: '(x) Requester', collapsable: false,
         children:[
-          'grp-requesters/guides/requester/creating-a-requester',
-          'grp-requesters/guides/requester/developing-a-client-contract',
+          'grp-developers/guides/requester/creating-a-requester',
+          'grp-developers/guides/requester/developing-a-client-contract',
         ]
       },
       {
         title: '(x) Smart Contracts Platform', collapsable: false,
         children:[
-          ['grp-requesters/guides/smart-contracts-platform/is-my-platform-compatible','Is my platform compatible?'],
-          ['grp-requesters/guides/smart-contracts-platform/self-serve-integration', 'Self-serve integration ']
+          ['grp-developers/guides/smart-contracts-platform/is-my-platform-compatible','Is my platform compatible?'],
+          ['grp-developers/guides/smart-contracts-platform/self-serve-integration', 'Self-serve integration ']
         ]
       },*/
     ]

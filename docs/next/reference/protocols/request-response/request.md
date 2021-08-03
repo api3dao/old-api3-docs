@@ -73,9 +73,9 @@ For a successful request, Airnode  calls the `fulfill()` function in `AirnodeRRP
 
 As noted in the diagram above, if the transaction that calls `fulfill()` reverts, the node calls the `fail()` method to report the failure. The node will not attempt to fulfill a failed request afterwards.
 
-<Todo :issueID="108">
+<Todo>
 
-The following three paragraphs are a little dense.
+The following three paragraphs are a little dense. See Github issue: https://github.com/api3dao/api3-docs/issues/108
 
 </Todo>
 

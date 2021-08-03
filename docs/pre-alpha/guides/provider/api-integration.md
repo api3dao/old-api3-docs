@@ -127,7 +127,7 @@ Note that you will also need to use the same name under `apiSpecifications.secur
 Make sure to choose a descriptive name, such as `myapi_apikey`.
 This name will also be referred to in [`security.json`](../../airnode/specifications/security-json.md).
 
-Next, fill in `type`, `name` and `in` by referring to the [`components` section of OIS](../../airnode/specifications/ois.md#42-components).
+Next, fill in `type`, `name` and `in` by referring to the [`components` section of OIS](../../airnode/specifications/ois.md#_4-2-components).
 [OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#securitySchemeObject) is also a good source for further details.
 
 As noted above, make sure to insert the name of your security scheme under `apiSpecifications.security`.

@@ -1,11 +1,15 @@
 ---
-title: Become a Requester
+title: Become a Sponsor
 ---
 
 # {{$frontmatter.title}}
 
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
+
+<Todo>
+<p>This doc needs updating once the new repo README(s) are ready for the Airnode (beta) re-writes.</p>
+</Todo>
 
 Become a _requester_ to consume the off-chain API data that an Airnode provides. A _requester_ is an entity (individual, business, etc.) whose contracts make requests to Airnodes. These contracts are called clients or client contracts. A _requester_ should not be confused with an _end user_ who is someone that uses a requester's client contracts, usually as part of a dApp.
 
@@ -14,7 +18,7 @@ Setting up a requester record is needed to allow client contracts access to one 
 The following diagram illustrates how to become a requester.
 
 ---
-> ![become-requester](../assets/images/become-requester.png)
+> ![become-requester](../assets/images/become-sponsor.png)
 
 ## Requester Admin Commands
 
