@@ -9,6 +9,7 @@ module.exports = [
         '/dev/custom-components',
         '/dev/versioning',
         '/dev/github-actions',
+        '/dev/link-validator',
         '/dev/deployment', 
         '/dev/quirks', 
     ]
