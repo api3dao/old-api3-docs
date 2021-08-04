@@ -19,8 +19,11 @@ All plugins are installed as devDependencies.
     "@vuepress/plugin-back-to-top": "^1.8.2",
     "@vuepress/plugin-html-redirect": "^0.1.4",
     "@vuepress/plugin-medium-zoom": "^1.8.2",
-    "ethers": "^5.2.0",
+    "axios": "^0.21.1",
+    "colors": "^1.4.0",
+    "file": "^0.2.2",
     "markdown-link-check": "^3.8.6",
+    "oust": "^1.2.0",
     "v-click-outside": "^3.1.2",
     "vuepress": "^1.8.2",
     "vuepress-plugin-element-tabs": "^0.2.8",
@@ -102,6 +105,15 @@ This package is used to validate hyperlinks in markdown files. There are two scr
 This package is also used in a **GitHub Action** on the remote repo to validate hyperlinks on `git push`, see [GitHub Actions](./github-actions.md#markdown-link-check).
 
 Before running `vuepress "docs:build"` or `sh deploy.sh` be sure to run `vuepress "test:links:prod"` first to validate production hyperlinks. See [Deployment](./deployment.md) to learn more about incorporation of this test.
+
+### Link Validator
+
+This custom Node.js script uses the following packages to validate links. See [Link Validator](link-validator.md) to understand and run the script.
+
+- axios
+- colors
+- file
+- oust
 
 ### v-click-outside
 

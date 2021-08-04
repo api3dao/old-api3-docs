@@ -9,7 +9,7 @@ title: Deployment
 
 The project docs are deployed to the remote repo **gh-pages branch** using the **deploy.sh** bash script. The script is run locally from the **main** branch which will be used for the build. Local **main** must be up-to-date with all changes by contributors.
 
-## Test Links
+## markdown-link-check (optional)
 
 Before building be sure to test all hyperlinks in the project. The test commands are only good for hyperlinks in markdown files. Hyperlinks inside custom Vue components must be tested manually.
 
@@ -24,6 +24,11 @@ A separate command checks the */next* folder which is not considered production 
 ```bash
 yarn test:links:next
 ```
+
+## Link Validator
+
+Link Validator validates links with or without attached anchors. It is more effective than markdown-link-check though it is best not to ignore the use of markdown-link-check. See [Link Validator](link-validator.md) to run its Node.js script.
+
 
 ## Understand deploy.sh
 
@@ -71,7 +76,8 @@ It is important to pull down the **main branch** (step 3) after the remote maste
     git push -f git@github.com:api3dao/api3-docs.git main:gh-pages
     ```
 
-2. Run `yarn test:links:prod` to verify hyperlinks.
+2a. (optional) Run `yarn test:links:prod` to verify hyperlinks.
+2a. Run the [Link Validator](link-validator.md) to verify hyperlinks and any anchors.
 
 3. Git
     - Commit and push local work to the remote repo.
