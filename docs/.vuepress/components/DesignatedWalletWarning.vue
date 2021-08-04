@@ -1,7 +1,7 @@
 <template>
   <div style="color:#6b5900; 
       backgroundColor: rgba(255,229,100,0.3);
-      border-left:8px solid #e7c000;
+      border-left:6px solid #e7c000;
       padding:20px;
       display: block;
       margin-block-start: 1em;

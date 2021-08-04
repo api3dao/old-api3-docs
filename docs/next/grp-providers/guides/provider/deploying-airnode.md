@@ -85,15 +85,29 @@ Deployment" needs to be updated when vrs 0.1.0 is ready. Not sure which Airnode 
 </Todo>
 
 Get the `config.json` and `security.json` files you have created while [configuring your Airnode](configuring-airnode.md), your `.env` file with your [cloud provider credentials](deploying-airnode.md#creating-cloud-credentials), and place these three files in the same directory.
-Then, in this same directory, run the following command (if you are on Windows, use CMD, replace `\` with `^`, `$(pwd)` with `%cd%`):
+Then, in this same directory, run the following command.
 
-```sh
-docker run -it --rm \
-  --env-file .env \
-  --env COMMAND=deploy-first-time \
-  -v $(pwd):/airnode/out \
-  api3/airnode-deployer:0.1.0
-```
+
+:::: tabs
+::: tab Linux/Mac
+  ```sh
+  docker run -it --rm \
+    --env-file .env \
+    --env COMMAND=deploy-first-time \
+    -v $(pwd):/airnode/out \
+    api3/airnode-deployer:0.1.0
+  ```
+:::
+::: tab Windows
+  ```sh
+  docker run -it --rm ^
+    --env-file .env ^
+    --env COMMAND=deploy-first-time ^
+    -v "%cd%":/airnode/out ^
+    api3/airnode-deployer:0.1.0
+  ```
+:::
+::::
 
 This will first download the deployer image, which may take a few minutes depending on the speed of your Internet connection. Then, it will read your configuration files and start deployment. This process will be entirely automatic, with the exception that at one stage, the deployer will display the mnemonic of your Airnode's private key. Please note this down with pen and paper (do not copy paste to a text file on your computer) and keep it in a secure place.
 
