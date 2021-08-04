@@ -33,12 +33,12 @@ In preparation to deploy an Airnode a few items need to be prepared.
     ```
 2. Be sure to use the pre-alpha branch`git switch pre-alpha`.
 3. Run the following to install the dependencies.
-    ```sh
+    ```bash
     cd airnode-starter
     npm install
     ```
 4. Run the following to build the contracts.
-    ```sh
+    ```bash
     npm run build
     ```
 
@@ -111,6 +111,8 @@ npm run customize-config
 
 Now your`/config`directory should have the required [config.json](../airnode/specifications/config-json.md), [security.json](../airnode/specifications/security-json.md) and [.env](../guides/provider/deploying-airnode.md#creating-cloud-credentials) files. Run the following to deploy your node.
 
+:::: tabs
+::: tab Linux/Mac
 ```sh
 cd config
 # The deployer has to be run in the directory where the configuration files are
@@ -120,6 +122,19 @@ docker run -it --rm \
   -v $(pwd):/airnode/out \
   api3/airnode-deployer:pre-alpha
 ```
+:::
+::: tab Windows
+```sh
+cd config
+# The deployer has to be run in the directory where the configuration files are
+docker run -it --rm ^
+  --env-file .env ^
+  --env COMMAND=deploy-first-time ^
+  -v "%cd%":/airnode/out ^
+  api3/airnode-deployer:pre-alpha
+```
+:::
+::::
 
 This will output a receipt file with the extension`.receipt.json`.
 
@@ -197,6 +212,9 @@ Try replacing the `coinId` value in `/scripts/make-request` from `"ethereum"` to
 
 Don't forget to take down your Airnode as it is designed to be *set-and-forget*. When you are done with this project, go to`config/`as your working directory and use the command below where`$RECEIPT_FILENAME`is replaced with the name of your receipt file ending with`.receipt.json`. You can refer to our [Docker instructions](../guides/docker/deployer-image.md) for more information.
 
+
+:::: tabs
+::: tab Linux/Mac
 ```sh
 docker run -it --rm \
   --env-file .env \
@@ -205,6 +223,18 @@ docker run -it --rm \
   -v $(pwd):/airnode/out \
   api3/airnode-deployer:pre-alpha
 ```
+:::
+::: tab Windows
+```sh
+docker run -it --rm ^
+  --env-file .env ^
+  --env COMMAND=remove-with-receipt ^
+  --env RECEIPT_FILENAME=$RECEIPT_FILENAME ^
+  -v "%cd%":/airnode/out ^
+  api3/airnode-deployer:pre-alpha
+```
+:::
+::::
 
 ## Conclusion
 

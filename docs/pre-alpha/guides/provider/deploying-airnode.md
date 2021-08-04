@@ -37,15 +37,28 @@ These credentials can be used to gain access to your Airnode's private key.
 ## Deployment
 
 Get the `config.json` and `security.json` files you have created while [configuring your Airnode](configuring-airnode.md), your `.env` file with your [cloud provider credentials](deploying-airnode.md#creating-cloud-credentials), and place these three files in the same directory.
-Then, in this same directory, run the following command (if you are on Windows, use CMD, replace `\` with `^`, `$(pwd)` with `%cd%`):
+Then, in this same directory, run the following command.
 
-```sh
-docker run -it --rm \
-  --env-file .env \
-  --env COMMAND=deploy-first-time \
-  -v $(pwd):/airnode/out \
-  api3/airnode-deployer:pre-alpha
-```
+:::: tabs
+::: tab Linux/Mac
+  ```sh
+  docker run -it --rm \
+    --env-file .env \
+    --env COMMAND=deploy-first-time \
+    -v $(pwd):/airnode/out \
+    api3/airnode-deployer:pre-alpha
+  ```
+:::
+::: tab Windows
+  ```sh
+  docker run -it --rm ^
+    --env-file .env ^
+    --env COMMAND=deploy-first-time ^
+    -v "%cd%":/airnode/out ^
+    api3/airnode-deployer:pre-alpha
+  ```
+:::
+::::
 
 This will first download the deployer image, which may take a few minutes depending on the speed of your Internet connection.
 Then, it will read your configuration files and start deployment.
