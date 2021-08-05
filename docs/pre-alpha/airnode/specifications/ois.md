@@ -42,7 +42,7 @@ These prepopulated fields are expected to be reviewed and customized by the inte
 
 ## 2. `title`
 
-(Required) The OIS title.
+(Required) The OIS title. Title field is at most 64 characters, can only include alphanumeric characters, hyphens, underscores and whitespaces.
 
 OAS equivalent: `info.title`
 

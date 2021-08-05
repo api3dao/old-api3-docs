@@ -28,7 +28,7 @@
 
     {"tag":"The DAO & Staking", "posts":[
       {"date":"Apr 17, 2021", "dt":"2021-04-17", "title":"Significance of the DAO and staking, Part I", "url":"https://medium.com/api3/significance-of-the-dao-and-staking-b8feeaf93804"},
-      {"date":"Apr 22, 2021", "dt":"2021-04-22", "title":"Lessons from DAOv1, PArt II", "url":"https://medium.com/api3/lessons-from-daov1-da106f2f1fd9"},
+      {"date":"Apr 22, 2021", "dt":"2021-04-22", "title":"Lessons from DAOv1, Part II", "url":"https://medium.com/api3/lessons-from-daov1-da106f2f1fd9"},
       {"date":"Apr 28, 2021", "dt":"2021-04-28", "title":"Fractal scaling of API3,Part III", "url":"https://medium.com/api3/fractal-scaling-of-api3-b3ba78c9dcb7"},
       {"date":"Jul 04, 2021", "dt":"2021-07-04", "title":"Staking reward mechanics, Part IV", "url":"https://medium.com/api3/staking-reward-mechanics-a3b46b3a3120"},
       {"date":"Jul 08, 2021", "dt":"2021-07-08", "title":"API3 Authoritative DAO & Staking Live on Mainnet", "url":"https://medium.com/api3/api3-authoritative-dao-staking-live-on-mainnet-4732d1e538cb"}
@@ -45,7 +45,9 @@
       {"date":"Mar 31, 2021", "dt":"2021-03-31", "title":"API3 DAO Development Report, March 2021", "url":"https://medium.com/api3/api3dao-development-update-march-2021-7cae9265fdd3"},
       {"date":"Apr 30, 2021", "dt":"2021-04-30", "title":"API3 DAO Development Report, April 2021", "url":"https://medium.com/api3/api3dao-development-report-april-2021-f921b7f35a35"},
       {"date":"May 31, 2021", "dt":"2021-05-31", "title":"API3 DAO Core Technical Team Development Report, May 2021", "url":"https://medium.com/api3/api3dao-core-technical-team-development-report-may-2021-e0ad5f8d22b8"},
-      {"date":"Jun 30, 2021", "dt":"2021-06-30", "title":"API3 DAO Core Technical Team Development Report, June 2021", "url":"https://medium.com/api3/api3-dao-core-technical-team-development-report-june-2021-91b06f263b40"}
+      {"date":"Jun 30, 2021", "dt":"2021-06-30", "title":"API3 DAO Core Technical Team Development Report, June 2021", "url":"https://medium.com/api3/api3-dao-core-technical-team-development-report-june-2021-91b06f263b40"},
+      {"date":"Jul 22, 2021", "dt":"2021-07-22", "title":"Decentrally-governed projects can’t be roadmapped", "url":"https://bbenligiray.medium.com/decentrally-governed-projects-cant-be-roadmapped-9400d56d969f"},
+      {"date":"Jul 31, 2021", "dt":"2021-07-31", "title":"API3 Core Technical Team Report, July 2021, July 2021", "url":"https://bbenligiray.medium.com/api3-core-technical-team-report-july-2021-eb57ea30852e"}
     ]},
 
     {"tag":"Standalone Posts", "posts":[
