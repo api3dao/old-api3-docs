@@ -7,41 +7,23 @@ title: config.json
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2, 3]" />
 
-The `config.json` specifies one or multiple deployments.
-All of these deployments will belong to the same Airnode (will have the same [`airnodeId`](../protocols/request-response/airnode.md#airnodeid), master private key, [designated wallets](../protocols/request-response/designated-wallet.md), etc.).
+The `config.json` defines a single Airnode deployment. The deployment will have an [`airnodeId`](../protocols/request-response/airnode.md#airnodeid), master private key and a  [designated wallet](../protocols/request-response/designated-wallet.md), etc.).
 
-For a single deployment, the file contents will be in the format below:
-
-```json
-[
-  {
-    // config object
-  }
-]
-```
-
-A `config.json` file can also define multiple deployments:
+The file contents will be in the format show below as a single JSON object
 
 ```json
-[
-  {
-    // deployment #1 config object
-  },
-  {
-    // deployment #2 config object
-  }
-]
+{
+  // config object
+}
 ```
 
-Some example use cases for multiple deployments:
+An Airnode, defined by its config.js file, can be used for multple deployments. Below are some example use cases for multiple deployments.
+
 - #1 on AWS `us-east-1` and #2 on AWS `us-west-1` for good availability
 - #1 on AWS and #2 on GCP for even better availability
 - #1 on Ethereum mainnet with a stable node version and a dedicated API key, #2 on testnets with a more experimental configuration
 
----
-
-Each config object can be thought of as the static NoSQL database of an Airnode deployment.
-Its contents can be seen below:
+Each config object can be thought of as the static NoSQL database of an Airnode deployment. It contains five fields as show below.
 
 ```json
 {
@@ -217,29 +199,23 @@ Contents of a `nodeSettings` object can be seen below:
 }
 ```
 
-- `nodeVersion` - The version of the node that will be deployed with this config object.
+- `nodeVersion` - The version of the node (Airnode) that will be deployed with this config object.
 
-- `cloudProvider` - The cloud provider that the node will be deployed at.
-Currently, only `aws` is supported.
+- `cloudProvider` - The cloud provider that the node will be deployed at. Currently, only `aws` is supported.
 
-- `region` - The cloud provider region that the node will be deployed at.
-See the cloud provider documentations for possible values.
+- `region` - The cloud provider region that the node will be deployed at. See the cloud provider's documentation for possible values.
 
-- `stage` - The label used to distinguish between multiple deployments of the same Airnode on a cloud provider.
-For example, the same Airnode may have multiple deployments with `stage`s set as `dev`, `ropsten`, `mainnet`, where each of these deployments would use the same private key and have the same `airnodeId`.
-`stage` cannot be longer than 16 characters and can only include alphanumeric characters (`a–z`, `A–Z`, `0–9`), hyphen (`-`) and underscore (`_`).
+- `stage` - The label used to distinguish between multiple deployments of the same Airnode on a cloud provider. For example, the same Airnode may have multiple deployments with `stage`s set as `dev`, `ropsten`, `mainnet`, where each of these deployments would use the same private key and have the same `airnodeId`. `stage` cannot be longer than 16 characters and can only include alphanumeric characters (`a–z`, `A–Z`, `0–9`), hyphen (`-`) and underscore (`_`).
 
-- `logFormat` - The format that will be used to output logs.
-Either `json` or `plain`.
+- `logFormat` - The format that will be used to output logs. Either `json` or `plain`.
 
-- `logLevel` - The highest verbosity level of the logs that will be outputted.
-`DEBUG`, `INFO`, `WARN` or `ERROR`.
+- `logLevel` - The highest verbosity level of the logs that will be outputted. `DEBUG`, `INFO`, `WARN` or `ERROR`.
 
 ## environment
 
 Airnode deployments utilizes secrets such as security scheme values (i.e., API keys) and blockchain provider URLs. These secrets are loaded from secrets.env as environment variables by Airnode during deployment. `environment` tells the Airnode the relationship each environment variable has to a particular chain provider or security scheme.
 
-Contents of an `environment` object can be seen below.
+Below is the structure of the `environment` object.
 
 ```json
 "securitySchemes": [   // Maps back to the ois field
