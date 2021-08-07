@@ -31,3 +31,17 @@ Note that a redirect is to a directory path and not to a file. There must be a R
 ## config.themeConfig.smoothScroll
 
 See [config.themeConfig.smoothScroll](./theme.md#config-themeconfig-smoothscroll).
+
+## Inline Code File References
+
+When you change a file that holds code and reference it using the VuePress markdown operator <<< and change the code, the changes may not appear.
+
+```markdown
+<<< @/docs/next/reference/code/template-config.json
+```
+
+VuePress uses [cache-loader](https://vuepress.vuejs.org/config/#locales) by default to greatly speed up the compilation of webpack. Remove the cache one time to get the code files changes to appear.
+
+```bash
+yarn docs:dev --no-cache # remove cache before each build.
+```
