@@ -7,13 +7,11 @@ title: CLI Commands
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-<Todo>
-<p>Client in this paragraph need to be changed to requesters but first fix the use of client and requester in the docs grouped for reference > request-response.</p>
-</Todo>
+A package/CLI tool to interact with Airnode across blockchains. There are commands for both requesters and API providers. Requesters can endorse [client contracts](protocols/request-response/client.md) and fund Airnodes. API providers can build [Airnodes](protocols/request-response/airnode.md) that serve their API data to requester client contracts.
 
-Use the CLI tool to interact with Airnode across blockchains. There are commands for both developers (dApp) and API providers. Developers can endorse [requester contracts](protocols/request-response/client.md) and fund Airnodes. API providers can build [Airnodes](protocols/request-response/airnode.md) that serve their API data to requester contracts.
-
-Almost all commands require you to provide a blockchain `providerUrl` such as `https://ropsten.infura.io/v3/<KEY>`. The CLI connects to the [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/AirnodeRrp.sol) contract, which address is derived from the current chain. You can optionally specify the contract address yourself by providing optional `airnodeRrp` command argument with address of the deployed contract on your targeted chain.
+Almost all commands require you to provide a `providerUrl` such as `https://ropsten.infura.io/v3/<KEY>`, `https://xdai.poanetwork.dev`, etc.
+The CLI connects to [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/AirnodeRrp.sol) contract, which address is derived from the current chain.
+You can optionally specify the contract address yourself by providing optional `airnodeRrp` command argument with address of the deployed contract on your targeted chain.
 
 Commands that require `mnemonic` will make an on-chain transaction.
 The application will derive the account from the mnemonic with default ethereum derivation path `m/44'/60'/0'/0/0`, but you can override this by `derivationPath` flag.
@@ -35,12 +33,12 @@ You can also use the package programmatically. The SDK exports respective functi
 well as helper functions for obtaining the contract instance on the targeted chain.
 
 ```js
-import { endorseRequester, getAirnodeRrpWithSigner } from '@api3/admin';
+import { createRequester, getAirnodeRrpWithSigner } from '@api3/admin';
 
 // First obtain the contract instance on target chain
 const airnodeRrp = await getAirnodeRrpWithSigner(mnemonic, derivationPath, providerUrl, airnodeRrpAddress);
 // Pass the contract instance as the first argument to the SDK function
-const requester = await endorseRequester(airnodeRrp, requester);
+const requesterIndex = await createRequester(airnodeRrp, requesterAdmin);
 ```
 
 If you plan to use multiple commands it might be tedious to pass the contract instance to every function call. For this reason there is also class based `AdminSdk` which you initialize with `AirnodeRrp` contract only once.
@@ -54,7 +52,7 @@ const airnodeRrp = await AdminSdk.getAirnodeRrpWithSigner(mnemonic, derivationPa
 // Create sdk instance
 const adminSdk = new AdminSdk(airnodeRrp);
 // Call the method you need
-const requester = await adminSdk.endorseRequester(requester);
+const requesterIndex = await adminSdk.createRequester(requesterAdmin);
 
 // You can switch the contract instance anytime. E.g. if you are using ethers
 adminSdk.airnodeRrp = airnodeRrp.connect(someOtherWallet);
@@ -65,16 +63,16 @@ Please, refer to the implementation for more details.
 
 ## Requester commands
 
-### `derive-sponsor-wallet`
+### `create-requester`
 
 Creates a [requester](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/requester.md) and returns a requester index.
 Note down your requester index because you will be using it in future interactions.
 
 ```sh
-npx @api3/airnode-admin derive-sponsor-wallet \
+npx @api3/airnode-admin create-requester \
   --providerUrl https://ropsten.infura.io/v3/<KEY> \
   --mnemonic "nature about salad..." \
-  --sponsor 0x9Ec6C4...
+  --requesterAdmin 0x5c17cb...
 ```
 
 ### `set-requester-admin`
