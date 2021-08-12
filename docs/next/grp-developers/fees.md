@@ -34,7 +34,7 @@ Fees are encountered when managing a requester's record, client contract endorse
 
 Fees are encountered, as transaction gas costs, when funding a requester's designated wallet for an Airnode and when executing the Airnode.
 
-- [Funding](become-a-sponsor.md#part-3-funding-airnodes) a designated wallet.
+- [Funding](sponsorship.md#part-3-funding-airnodes) a designated wallet.
   A designated wallet is funded manually by a requester using their preferred wallet management tool such as MetaMask.
 
 - [Executing](../grp-developers/call-an-airnode.md) an Airnode.

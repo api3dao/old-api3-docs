@@ -14,14 +14,18 @@ module.exports = [
   {
     title: 'API Providers', initialOpenGroupIndex: 0, collapsable: true, 
     children: [
-      {
+      'grp-providers/', // Routes to the README.md in grp-providers
+      {title:'Design Philosophy', path:'grp-providers/airnode/design-philosophy'},
+            {title:'Implementation', path:'grp-providers/airnode/implementation'},
+            {title:'Ethereum Providers', path:'grp-providers/airnode/ethereum-providers'},
+      /*{ 
         title: 'Airnode', initialOpenGroupIndex: -1, collapsable: true,
         children: [
             {title:'Design Philosophy', path:'grp-providers/airnode/design-philosophy'},
             {title:'Implementation', path:'grp-providers/airnode/implementation'},
             {title:'Ethereum Providers', path:'grp-providers/airnode/ethereum-providers'},
         ],
-      },
+      },*/
       {
         title: 'Guides', collapsable: true, 
         children:[
@@ -66,8 +70,9 @@ module.exports = [
   {
     title: 'Developers', initialOpenGroupIndex: 0, collapsable: true,
     children:[
-      'grp-developers/become-a-sponsor',
+      'grp-developers/', // Routes to the README.md in grp-developers
       'grp-developers/call-an-airnode',
+      'grp-developers/sponsorship',
       'grp-developers/using-templates',
       'grp-developers/fees',
       /*'grp-developers/developing-a-client-contract',*/
