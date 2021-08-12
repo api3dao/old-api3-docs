@@ -1,5 +1,5 @@
 ---
-title: Become a Sponsor
+title: Sponsorship
 ---
 
 # {{$frontmatter.title}}
@@ -8,7 +8,12 @@ title: Become a Sponsor
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 <Todo>
-<p>This doc needs updating once the new repo README(s) are ready for the Airnode (beta) re-writes.</p>
+<p>This doc needs updating once the new repo README(s) are ready for the Airnode (beta) re-writes.
+
+Who is a sponsor?
+
+A sponsor is you, the developer. Using a wallet you are going to sponsor a requester (your contract) and fund the Airnodes you wish to retrieve data from.
+</p>
 </Todo>
 
 Become a _requester_ to consume the off-chain API data that an Airnode provides. A _requester_ is an entity (individual, business, etc.) whose contracts make requests to Airnodes. These contracts are called clients or client contracts. A _requester_ should not be confused with an _end user_ who is someone that uses a requester's client contracts, usually as part of a dApp.
@@ -37,7 +42,7 @@ Each requester needs to create a requester record and get assigned a requester i
 - An address that will be used to administer the requester record (requesterAdmin) in the future, use the default public address of the mnemonic. 
 
 ::: tip mnemonic
-This wallet pays the transaction gas costs to write the requester record. This is not the wallet(s) that will pay gas costs to actually execute any Airnode, for that the Airnode themselves will create sponsor wallets on behalf of your sponsor record. [Part 3](become-a-sponsor.md#part-3-funding-airnodes) will explain more about sponsor wallets.
+This wallet pays the transaction gas costs to write the requester record. This is not the wallet(s) that will pay gas costs to actually execute any Airnode, for that the Airnode themselves will create sponsor wallets on behalf of your sponsor record. [Part 3](sponsorship.md#part-3-funding-airnodes) will explain more about sponsor wallets.
 :::
 
 [@api3/airnode-admin create-requester](../reference/cli-commands.md#create-requester)
@@ -59,7 +64,7 @@ The command `create-requester` will return a `requester index` and the `requeste
 
 A requester endorses a client contract allowing it make Airnode requests on behave of the requester. Your client contract should already be deployed. 
 
-Endorsing a client contract means it can make Airnode requests, paid for by a designated wallet associated with the Airnode and the requesterIndex from your requester record. [Part 3](become-a-sponsor.md#part-3-funding-airnodes) will explain more about designated wallets.
+Endorsing a client contract means it can make Airnode requests, paid for by a designated wallet associated with the Airnode and the requesterIndex from your requester record. [Part 3](sponsorship.md#part-3-funding-airnodes) will explain more about designated wallets.
 
 To endorse a client contract you will need the following.
 

@@ -7,32 +7,31 @@ title: Calling an Airnode
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-<Todo>
-<p>This doc needs updating once the new repo README(s) are ready for the Airnode (beta) re-writes.</p>
-</Todo>
+A requester (your contract) that has been sponsored can call an Airnode. See [Sponsorships](sponsorship.md) on how to sponsor a requester and fund an Airnode.
 
-Client contracts that have been endorsed by a requester can call an Airnode. See [Become a Requester](become-a-sponsor.md) to set up a requester record, endorse a client contract and fund an Airnode.
+Airnode is composed of two parts: the off-chain **Airnode** (cloud provider functions, e.g., AWS) and the on-chain **protocol contract** ( AirnodeRrp.sol). A requester calls the protocol contract which queues the requester's request. During its next run cycle, Airnode gets the request from the protocol queue and generates a response. The diagram below illustrates the mechanics of the entire process as does the diagram in the [Overview](./) doc for developers.
 
-Airnode is composed of two parts: the off-chain **Airnode** (cloud provider functions, e.g., AWS) and the on-chain **AirnodeRrp.sol** protocol contract.
+Ignoring the mechanics of the overall process, the requester primarily focuses on two tasks as indicated by points A & B in the diagram below when calling an Airnode.
 
----
-  >![call](../assets/images/call-an-airnode.png)
+- <span style="color:red;">A</span>: Make the request
+- <span style="color:red;">B</span>: Accept the response
 
-In the above diagram a client contract makes a request to the AirnodeRrp.sol contract which is retrieved by the Airnode during its next run cycle. Airnode then gathers the requested data from the API and creates a transaction to call the function `fulfill()` in AirnodeRrp.sol which in turn makes a callback to the function `clientFulFill` in the client contract.
+> <img src="../assets/images/call-an-airnode.png"/>
 
+<!--In the above diagram a requester makes a request to the AirnodeRrp.sol contract which is retrieved by the Airnode during its next run cycle. Airnode then gathers the requested data from the API and creates a transaction to call the function `fulfill()` in AirnodeRrp.sol which in turn makes a callback to the function `myFulfill` in the requester.-->
 
-The AirnodeRrp protocol is designed to be flexible and is meant to serve a variety of use cases. See the Airnode [client examples](https://github.com/api3dao/airnode-starter/blob/main/contracts/ExampleClient.sol) for some potential design patterns. Requesters need to create a client contract that builds on the following items.
+The AirnodeRrp protocol is designed to be flexible and is meant to serve a variety of use cases. See the Airnode [requester examples](https://github.com/api3dao/airnode-starter/blob/main/contracts/ExampleClient.sol) for some potential design patterns. Developers will need to create a requester that builds on the following items.
 
-1. Make a request to the AirnodeRrp contract
-2. Capture the response from the Airnode application
-3. Deploy the client contract
-4. [Endorse](become-a-sponsor.md#part-2-endorse-client-contracts) the client contract
+1. Make a request to the AirnodeRrp contract, call `makeRequest()`
+2. Capture the response from the Airnode application, implement `myFulfill()`
+3. Deploy the requester
+4. [Sponsor](sponsorship.md#part-2-endorse-client-contracts) the requester
 
-This document focuses items 1 & 2 above, making a request and capturing the response from an Airnode. See [Endorse Client Contracts](become-a-sponsor.md#part-2-endorse-client-contracts) to learn more about client contract endorsements. Deploying your client contract is beyond the scope of this doc.
+This document focuses items 1 & 2 above, making a request and capturing the response from an Airnode. See [Sponsorship](sponsorship.md#part-2-endorse-client-contracts) to learn more about sponsoring a requester. Deploying your requester is beyond the scope of this doc.
 
 ## Step #1: Inherit AirnodeRrpClient.sol
 
-To get started a client contract inherits from the [AirnodeRrpClient.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/AirnodeRrpClient.sol) contract. This will expose the AirnodeRrp.sol protocol contract to the client contract.
+To get started a requester inherits from the [AirnodeRrpClient.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/AirnodeRrpClient.sol) contract. This will expose the AirnodeRrp.sol protocol contract to the client contract.
 
 ```solidity
 import "@api3/airnode-protocol/contracts/AirnodeRrpClient.sol";
@@ -109,7 +108,7 @@ Since the `callTheAirnode` function is going to make a full request it must gath
 
 - **airnodeId** and **endpointId**: As a pair these uniquely identify the endpoint desired at a particular Airnode.
 
-- **requesterIndex** and **designatedWallet**: The [requesterIndex](../grp-developers/become-a-sponsor.md#part-1-create-a-requester-record) from the requester's record and the [designated wallet](become-a-sponsor.md#part-3-funding-airnodes) that the requester received when endorsing the Airnode being called. The designated wallet must belong to the requesterId.
+- **requesterIndex** and **designatedWallet**: The [requesterIndex](../grp-developers/sponsorship.md#part-1-create-a-requester-record) from the requester's record and the [designated wallet](sponsorship.md#part-3-funding-airnodes) that the requester received when endorsing the Airnode being called. The designated wallet must belong to the requesterId.
   
 - **fulfillAddress** and **fulfillFunctionId**: The public address of your client contract and its function that will be called when the request is returned.
 
