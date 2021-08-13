@@ -18,13 +18,16 @@ In summary you only need to do two things.
 
   > ![call](../assets/images/developer-overview.png)
 
-## The Term Requester
+## What is a Requester?
 
 The term requester is important to remember. It is mentioned in these docs and in the GitHub code. When _requester_ is mentioned, the reference is to your contract that calls an Airnode. As an example see the `myContract.sol` contract in the diagram above, it is a requester.
 
-## Sponsor
+## What is a Sponsor?
 
-<Todo><p>Need better insight here.</p></Todo>
-A requester needs to be sponsored. These docs will cover that in detail as you go. Basically you sponsor a requester with a wallet
+A sponsor is the public address of a wallet you control. You will use the public address to sponsor  requesters and to derive a new "sponsor's wallet" for each Airnode you use. Should you stop using an Airnode the funds from the derived "sponsor's wallet" can be returned to your public address.
 
-A developer decides to build a contract that makes requests to a specific Airnode (we will call this contract requester). Using the xpub of the Airnode and the address of an Ethereum account they control, the developer derives the address of their sponsor wallet (see below for how this is done). The developer funds this sponsor wallet, then calls setSponsorshipStatus() in AirnodeRrp with the address of their requester contract to sponsor it. This means the developer is now the sponsor of their requester contract, i.e., the requester contract can make Airnode requests that will be fulfilled by their sponsor wallet.
+>![image](../assets/images/sponsor-overview.png)
+
+A developer decides to build a requester contract that makes requests to a specific Airnode. Using the xpub of the Airnode and the public address of an Ethereum account they control, the developer derives the address of their "sponsor's wallet" for the Airnode. The developer funds this wallet, then calls setSponsorshipStatus() in AirnodeRrp with the address of their requester contract to sponsor it. This means the developer is now the sponsor of their requester contract, i.e., the requester contract can make Airnode requests that will be fulfilled by their sponsor wallet.
+
+<DesignatedWalletWarning/>
