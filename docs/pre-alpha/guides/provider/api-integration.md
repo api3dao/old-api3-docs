@@ -96,7 +96,7 @@ This means that the OIS template specifies only one API operation, but you can h
 The name of the element (denoted as `{FILL_PATH}`) should be replaced with the path (e.g., `/v1/getdata`).
 Similarly, `{FILL_METHOD}` should be replaced with the method of the operation you want to integrate (e.g., `GET`).
 
-##### Path parameters
+#### Path parameters
 
 Some API operations have path parameters such as the following
 ```
@@ -110,10 +110,18 @@ A request that maps to this operation and does not define this path parameter wi
 #### Operation parameters
 
 After specifying the path and method of an operation, the final step is to specify its parameters.
-Each parameter is an object in `apiSpecifications.path.{PATH}.{METHOD}.parameters`, with the fields `in` and `name`.
-`in` tells where the parameter goes in the HTTP request to the API, and `name` tells the name that the parameter value will be sent under.
+Each parameter is an object in `apiSpecifications.path.{PATH}.{METHOD}.parameters`, with the fields `in` and `name`. `in` tells where the parameter goes in the HTTP request to the API, and `name` tells the name that the parameter value will be sent under.
 
-Note that you do not have to specify all operation parameters, but only the ones that you want the on-chain requester to be able to provide (see [endpoint parameters](api-integration.md#parameters)), and the ones that you want to hardcode a value to (see [fixed operation parameters](api-integration.md#fixedoperationparameters)).
+Currently Airnode supports the following parameter types for use with `in`. 
+
+- query
+- header
+- path
+- cookie
+
+ For POST methods use type `query` for requestBody parameters. Airnode will convert all `query` types to `requestBody` when calling the API operation if the method is POST. 
+
+It is not necessary to specify all API operation parameters, but only the ones that you want the on-chain requester to be able to provide (see [endpoint parameters](api-integration.md#parameters)), and the ones that you want to to hard-code a value for (see [fixed operation parameters](api-integration.md#fixedoperationparameters)).
 
 ### Security schemes
 

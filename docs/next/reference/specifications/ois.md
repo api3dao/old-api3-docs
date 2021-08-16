@@ -183,6 +183,8 @@ Allowed values: `query`, `header`, `path`, `cookie`
 
 OAS equivalent: `paths.{path}.{method}.parameters.{#}.in`
 
+For POST methods use the type `query` for requestBody parameters. Airnode will convert all `query` types to `requestBody` when calling the API operation if the method is POST.
+
 ## 5. `endpoints`
 
 (Required) A list of objects, each specifying an oracle endpoint with the following fields:
