@@ -27,7 +27,7 @@ module.exports = [
         ],
       },*/
       {
-        title: 'Guides', collapsable: true, 
+        title: 'Build an Airnode', collapsable: true, 
         children:[
           'grp-providers/guides/provider/api-integration',
           //'grp-providers/guides/provider/api-integration-orig',
