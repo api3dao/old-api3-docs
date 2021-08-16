@@ -14,6 +14,8 @@ In summary you only need to do two things.
 
 - Call `makeRequest()` on the AirnodeRrp.sol contract which returns a `requestId`.
 - Add a `myFulfill()` function (call it what you like) to your requester (your contract) where the off-chain Airnode can send the requested data when ready. The data includes the same `requestId` returned when the request was made.
+- Sponsor your requester.
+- For the Airnode you wish to access, derive a "sponsor's wallet" and fund the wallet.
 
 
   > ![call](../assets/images/developer-overview.png)
