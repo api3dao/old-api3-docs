@@ -176,15 +176,16 @@ The following example illustrates three operations, `GET /data`, `POST /data`, `
 
 #### Parameters (operation)
 
-After specifying the path and method of an API operation, the final step is to specify its parameters.
-Each parameter is an object in the `apiSpecifications.paths.{PATH}.{METHOD}.parameters` array, with the fields `in` and `name`.
-`in` tells where the parameter goes in the HTTP request, and `name` tells the name that the parameter value will be sent under.
+After specifying the path and method of an API operation, the final step is to specify its parameters. Each parameter is an object in the `apiSpecifications.paths.{PATH}.{METHOD}.parameters` array, with the fields `in` and `name`. `in` tells where the parameter goes in the HTTP request and `name` tells the name that the parameter value will be sent under. Currently Airnode supports the following parameter types for use with `in`. 
+
+- query
+- header
+- path
+- cookie
+
+For POST methods use the type `query` for requestBody parameters. Airnode will convert all `query` types to `requestBody` when calling the API operation if the method is POST.
 
 It is not necessary to specify all API operation parameters, but only the ones the on-chain requester will need to be able to provide (see Airnode endpoint [parameters](api-integration.md#parameters)), and the ones that you want to hard-code a value for (see Airnode endpoint [fixed operation parameters](api-integration.md#fixedoperationparameters)).
-
-Currently Airnode supports the following parameter types. For POST methods use the type `query` for requestBody parameters, Airnode will convert all `query` types to `requestBody` when calling the API operation.
-
-> path, query, header, cookie
 
 ```json
 "paths": {
