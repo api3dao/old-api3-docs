@@ -31,11 +31,11 @@ The path of a designated wallet for the request–response protocol is `m/0/${re
 This means that we assume that `requesterIndex` will be less than `2^31` (yet this can be extended by using schemes such as `m/0/${requestInd % 2^31}/${requestInd / 2^31}`).
 Other branches such as `m/1/...`, `m/2/...`, etc. are reserved for other protocols (e.g., the pub–sub protocol).
 
-## The custodial nature of the designated wallets
+## The Airnode-controlled nature of the designated wallets
 
 <DesignatedWalletWarning/>
 
-Requesters should not fund a designated wallet with more then they can trust the Airnode with. This risk becomes negligible when:
+This risk mentioned above becomes negligible when:
 
 1. The provider is a first-party oracle, because first-party oracles are trustworthy
 2. The provider is being used for a high value use-case, which already implies a high level of trust
