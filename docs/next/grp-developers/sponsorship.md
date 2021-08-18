@@ -97,9 +97,9 @@ Client contracts endorsed by a requester will have access to all Airnodes the re
 
 Since the designated wallet is recorded in the cloud provider (i.g., AWS) where Airnode functions live, there are no on-chain transaction gas costs when deriving a designated wallet.
 
-<DesignatedWalletWarning/>
+<SponsorWalletWarning/>
 
-Learn more about [designated wallets](../reference/protocols/request-response/designated-wallet.md) in the reference section.
+Learn more about [sponsor wallets](../reference/protocols/request-response/sponsor-wallet.md) in the reference section.
 
 To fund an Airnode simply tell any Airnode to derive a _designated wallet_ for your requesterIndex. This will return the public address of the designated wallet so you can fund it.
 
