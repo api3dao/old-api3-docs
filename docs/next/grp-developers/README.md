@@ -15,7 +15,7 @@ In summary you only need to do two things.
 - Call `makeRequest()` on the AirnodeRrp.sol contract which returns a `requestId`.
 - Add a `myFulfill()` function (call it what you like) to your requester (your contract) where the off-chain Airnode can send the requested data when ready. The data includes the same `requestId` returned when the request was made.
 - Sponsor your requester.
-- For the Airnode you wish to access, derive a "sponsor's wallet" and fund the wallet.
+- For the Airnode you wish to access, derive a "sponsor wallet" and fund the wallet.
 
 
   > ![call](../assets/images/developer-overview.png)
@@ -26,10 +26,10 @@ The term requester is important to remember. It is mentioned in these docs and i
 
 ## What is a Sponsor?
 
-A sponsor is the public address of a wallet you control. You will use the public address to sponsor  requesters and to derive a new "sponsor's wallet" for each Airnode you use. Should you stop using an Airnode the funds from the derived "sponsor's wallet" can be returned to your public address.
+A sponsor is the public address of a wallet you control. You will use the public address to sponsor  requesters and to derive a new "sponsor wallet" for each Airnode you use. Should you stop using an Airnode the funds from the derived "sponsor wallet" can be returned to your public address.
 
 >![image](../assets/images/sponsor-overview.png)
 
-A developer decides to build a requester contract that makes requests to a specific Airnode. Using the xpub of the Airnode and the public address of an Ethereum account they control, the developer derives the address of their "sponsor's wallet" for the Airnode. The developer funds this wallet, then calls setSponsorshipStatus() in AirnodeRrp with the address of their requester contract to sponsor it. This means the developer is now the sponsor of their requester contract, i.e., the requester contract can make Airnode requests that will be fulfilled by their sponsor wallet.
+A developer decides to build a requester contract that makes requests to a specific Airnode. Using the xpub of the Airnode and the public address of an Ethereum account they control, the developer derives the address of their "sponsor wallet" for the Airnode. The developer funds this wallet, then calls setSponsorshipStatus() in AirnodeRrp with the address of their requester contract to sponsor it. This means the developer is now the sponsor of their requester contract, i.e., the requester contract can make Airnode requests that will be fulfilled by their sponsor wallet.
 
 <SponsorWalletWarning/>
