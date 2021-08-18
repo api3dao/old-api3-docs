@@ -32,4 +32,4 @@ A sponsor is the public address of a wallet you control. You will use the public
 
 A developer decides to build a requester contract that makes requests to a specific Airnode. Using the xpub of the Airnode and the public address of an Ethereum account they control, the developer derives the address of their "sponsor's wallet" for the Airnode. The developer funds this wallet, then calls setSponsorshipStatus() in AirnodeRrp with the address of their requester contract to sponsor it. This means the developer is now the sponsor of their requester contract, i.e., the requester contract can make Airnode requests that will be fulfilled by their sponsor wallet.
 
-<DesignatedWalletWarning/>
+<SponsorWalletWarning/>

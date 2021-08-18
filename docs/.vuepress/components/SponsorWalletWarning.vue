@@ -11,13 +11,13 @@
       line-height: 1.7;">
 
       <div style="color:#b29400;font-weight:600;font-size:medium;">
-        Designated Wallets
+        Sponsor Wallets
       </div>
-      <div style="padding-top:8px;">Requesters should not fund a designated wallet with 
+      <div style="padding-top:8px;">Sponsors should not fund a sponsor wallet with 
         more then they can trust the Airnode with, as the Airnode controls the private key 
-        to the designated wallet. The deployer of such Airnode undertakes no 
+        to the sponsor wallet. The deployer of such Airnode undertakes no 
         custody obligations, and the risk of loss or misuse of any excess 
-        funds sent to the designated wallet remains with the requester. 
+        funds sent to the sponsor wallet remains with the sponsor.
       </div>
 
   </div>
