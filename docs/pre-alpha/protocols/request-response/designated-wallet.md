@@ -31,16 +31,16 @@ The path of a designated wallet for the request–response protocol is `m/0/${re
 This means that we assume that `requesterIndex` will be less than `2^31` (yet this can be extended by using schemes such as `m/0/${requestInd % 2^31}/${requestInd / 2^31}`).
 Other branches such as `m/1/...`, `m/2/...`, etc. are reserved for other protocols (e.g., the pub–sub protocol).
 
-## The custodial nature of the designated wallets
+## The Airnode-controlled nature of the designated wallets
 
 <DesignatedWalletWarning/>
 
-Requesters should not fund a designated wallet with more then they can trust the Airnode with. This risk becomes negligible when:
+Requesters should not fund a designated wallet with more then they can trust the Airnode with, as the Airnode controls the private key to designated wallet. The deployer of such Airnode undertakes no custody obligations, and the risk of loss or misuse of any excess funds sent to the designated wallet remains with the requester. This risk becomes negligible when:
 
-1. The provider is a first-party oracle, because first-party oracles are trustworthy
+1. The provider is a first-party oracle, because first-party oracles leverage the provider's reputation and avail other legal remedies
 2. The provider is being used for a high value use-case, which already implies a high level of trust
 
-If the requester does not trust the provider at all, they can fund the designated just enough to cover a single fulfillment for each request.
+If the requester does not trust the provider at all, they can fund the designated wallet just enough to cover a single fulfillment for each request.
 Therefore, this scheme both supports the traditional per-call payments, but also allows the protocol to leverage the trustworthiness of providers to reduce unnecessary gas costs caused by microtransactions.
 
 ## Withdrawals
