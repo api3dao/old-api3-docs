@@ -35,7 +35,7 @@ View active proposals you can vote on and view a history list of past proposals.
 
 ## Create a Proposal
 
-Create a new proposal if you have the minimum voting power and you have not created a proposal in hte last seven days.
+Create a new proposal if you have the minimum voting power and you have not created a proposal in the last seven days.
 
 > <iframe width="560" height="315" src="https://www.youtube.com/embed/XO1iA3wSYMQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

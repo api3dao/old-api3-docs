@@ -7,8 +7,18 @@ title: Working with Proposals
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Staking tokens in the DAO pool gives you governance rights to create and vote on proposals. To create a proposal, you must hold at least 0.1% of the total pool shares. This required percentage, set in the [`Api3Pool.sol`](https://github.com/api3dao/api3-dao/blob/main/packages/pool/contracts/Api3Pool.sol) contract, can be adjusted by the DAO. You can vote on all proposals or delegate your voting power to someone else.
+Staking tokens in the DAO pool gives you governance rights to create and vote on proposals. To create a proposal, you must hold at least 0.1% of the total pool shares and not have created a proposal in the last seven days. This required percentage, set in the [`Api3Pool.sol`](https://github.com/api3dao/api3-dao/blob/main/packages/pool/contracts/Api3Pool.sol) contract, can be adjusted by the DAO. You can vote on all proposals or delegate your voting power to someone else.
 
+## Using ENS Names
+
+If you use an ENS name when creating a proposal, the Dashboard contracts will remember the public address assigned to the ENS name at the time of the proposal. If the proposal passes, the payout will go to the public address the ENS name pointed to when the proposal was created.
+
+Therefore changing the address of the ENS after making a proposal can be problematic. Consider the following. 
+- You buy an ENS name and assign it to a public address you own. 
+- You make a proposal that uses the ENS.
+- While the proposal is active, you point your ENS name to another address.
+- The proposal passes. You expect to receive the funds to the new address, but you will receive the funds at the old address.
+  
 ## Getting Started
 
 1. Access the [DAO Dashboard](https://api3.eth.link/)
