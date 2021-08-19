@@ -10,58 +10,93 @@ title: Airnode starter
 
 > A starter project for deploying an Airnode and making requests to it
 
+<Todo>
+<p>This doc is not usable at this time. Waiting on the updated dev README.md. This doc is out of sync with the flow of pre-alpha which probably has a better flow.</p>
+</Todo>
+
 See the code [here](https://github.com/api3dao/airnode-starter/tree/pre-alpha)
 
-This project is composed of two steps:
-1. Deploy an Airnode on a supported chain
-2. Make a request to the deployed Airnode in a contract
+Using the [airnode-starter](https://github.com/api3dao/airnode-starter/tree/pre-alpha) project you will deploy an Airnode and make requests to it. This project is composed of setup and three steps.
 
-Currently supported chains:
+- Prepare tutorial requirements.
+- Deploy an Airnode on a supported testnet chain.
+  - Ropsten
+  - Rinkeby
+  - Goerli
+  - xDai
+  - Fantom
+- Make a request to the deployed Airnode in a contract.
+- Undeploy the Airnode.
+
+You can skip [Step #1: Deploy an Airnode](airnode-starter.md#step-1-deploy-an-airnode) and use the Airnode that we have deployed on **Ropsten** if preferred. You are recommended to read the contents of the [scripts](https://github.com/api3dao/airnode-starter/tree/pre-alpha/scripts) as you run them, and read the entire readme before starting.
+
+## Setup
+
+In preparation to deploy an Airnode a few items need to be prepared.
+- Build the`airnode-starter`repo.
+- Create a wallet and fund it.
+- Install/setup Metamask.
+- Get a blockchain provider account/URL.
+- Get AWS (cloud provider) credentials.
+
+1. Clone the [airnode-starter](https://github.com/api3dao/airnode-starter/tree/pre-alpha) repo.
+    ```bash
+    # Using SSH
+    git clone git@github.com:api3dao/airnode-starter.git
+
+    # Using https
+    git clone https://github.com/api3dao/airnode-starter.git  
+    ```
+2. Be sure to use the pre-alpha branch. 
+    ```bash
+    cd airnode-starter
+    git switch pre-alpha
+    ```
+3. Run the following to install the dependencies from the repo root.
+    ```bash
+    npm install
+    ```
+4. Run the following to build the contracts.
+    ```bash
+    npm run build
+    ```
+### Create Wallet
+
+You will need a wallet to hold funds for a testnet such as Ropsten. These funds will be used to pay fees to setup an Airnode. Funds on a testnet are free. 
+
+Run the following to generate a new wallet, whose mnemonic phrase will be displayed on the terminal and recorded in a `.env` file at the project root. If you already have a wallet for your desired testnet you can use it by entering its MNEMONIC manually into `.env` at the project root.
+```sh
+npm run generate-wallet
+```
+
+### Metamask
+
+1. Install [Metamask](https://metamask.io/) to your web browser.
+2. Import the mnemonic phrase to Metamask.
+3. Use the [faucet](https://faucet.metamask.io/) to get some Ropsten ETH, or use any other appropriate source for the chain you will be working on.
+
+### Ropsten
+
+You need to get a provider URL. This will be used both by the deployed Airnode and by you while interacting with contracts. If you will be working on Ropsten follow these two steps.
+
+1. Go to [Infura](https://infura.io/), create an account and get a Ropsten provider URL
+2. Replace `https://ropsten.infura.io/v3/{YOUR_KEY}` in your `.env` file with the URL you got from Infura
+
+Adapt the steps above if you will be using another chain. Note that you can use any other provider or your own node. However, if you will be deploying your own Airnode, the provider endpoint must be publicly accessible (i.e., `127.0.0.1:8545` will not work).
+
+This tutorial can be run on these supported chains.
 - Ropsten
 - Rinkeby
 - Goerli
 - xDai
 - Fantom
 
-You can skip the first step and use the Airnode that we have deployed on **Ropsten** as well.
-You are recommended to read the contents of the scripts as you run them, and read the entire readme before starting.
+### AWS Cloud Credentials
 
-## Setup
+*If you wish to skip Step: #1 then you do not need AWS cloud credentials.*
 
-First, you need to create a wallet and fund it.
+Read [Creating cloud credentials](../guides/provider/deploying-airnode.md#creating-cloud-credentials) to create your cloud credentials. Place them at `/config/.env`, similar to [/config/example.env](config-examples/example-env.md). Do not confuse this `.env` file with the one in the project root that keeps your mnemonic phrase and provider URL.
 
-1. Clone this repo
-2. Run the following to install the dependencies
-```sh
-npm install
-```
-3. Run the following to build the contracts
-```sh
-npm run build
-```
-4. Run the following to generate a wallet, whose mnemonic phrase will be displayed on the terminal and recorded in a `.env` file at the project root.
-```sh
-npm run generate-wallet
-```
-5. Install [Metamask](https://metamask.io/) to your web browser
-6. Import the mnemonic phrase to Metamask
-7. Use the [faucet](https://faucet.metamask.io/) to get some Ropsten ETH, or use any other appropriate source for the chain you will be working on
-
-Then, you need to get a provider URL.
-This will be used both by the deployed Airnode and by you while interacting with contracts.
-If you will be working on Ropsten:
-1. Go to [Infura](https://infura.io/), create an account and get a Ropsten provider URL
-2. Replace `https://ropsten.infura.io/v3/{YOUR_KEY}` in your `.env` file with the URL you got from Infura
-
-Adapt the steps above if you will be using another chain.
-Note that you can use any other provider or your own node.
-However, if you will be deploying your own Airnode, the provider endpoint must be publicly accessible (i.e., `127.0.0.1:8545` will not work).
-
-*(You only need cloud credentials if you will not be skipping Step 1.)*
-
-Follow the [docs](https://api3dao.github.io/api3-docs/pre-alpha/guides/provider/deploying-airnode.html#creating-cloud-credentials) to create your cloud credentials.
-Place them at `/config/.env`, similar to /config/example.env.
-Do not confuse this `.env` file with the one in the project root that keeps your mnemonic phrase and provider URL.
 
 **Following these instructions to deploy an Airnode on AWS is [free](https://aws.amazon.com/free/) at the time this is being written.**
 

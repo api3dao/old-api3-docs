@@ -7,7 +7,7 @@ title: Airnode starter
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Using the [airnode-starter](https://github.com/api3dao/airnode-starter/tree/pre-alpha) project you will  deploy an Airnode and make requests to it. This project is composed of setup and three steps.
+Using the [airnode-starter](https://github.com/api3dao/airnode-starter/tree/pre-alpha) project you will deploy an Airnode and make requests to it. This project is composed of setup and three steps.
 
 - Prepare tutorial requirements.
 - Deploy an Airnode on a supported chain.
@@ -29,12 +29,19 @@ In preparation to deploy an Airnode a few items need to be prepared.
 
 1. Clone the [airnode-starter](https://github.com/api3dao/airnode-starter/tree/pre-alpha) repo.
     ```bash
+    # Using SSH
     git clone git@github.com:api3dao/airnode-starter.git
+
+    # Using https
+    git clone https://github.com/api3dao/airnode-starter.git  
     ```
-2. Be sure to use the pre-alpha branch`git switch pre-alpha`.
-3. Run the following to install the dependencies.
+2. Be sure to use the pre-alpha branch. 
     ```bash
     cd airnode-starter
+    git switch pre-alpha
+    ```
+3. Run the following to install the dependencies from the repo root.
+    ```bash
     npm install
     ```
 4. Run the following to build the contracts.

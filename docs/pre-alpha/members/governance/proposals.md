@@ -10,6 +10,16 @@ title: Proposals
 ## Requirements
 To create a proposal, you must hold at least 0.1% of the total pool shares. This required percentage is set in the Pool contract can be adjusted by the DAO.
 
+## Using ENS Names
+
+If you use an ENS name when creating a proposal, the Dashboard contracts will remember the public address assigned to the ENS name at the time of the proposal. If the proposal passes, the payout will go to the public address the ENS name pointed to when the proposal was created.
+
+Therefore changing the address of the ENS after making a proposal can be problematic. Consider the following. 
+- You buy an ENS name and assign it to a public address you own. 
+- You make a proposal using the ENS.
+- While the proposal is active, you point your ENS name to another address.
+- The proposal passes. You expect to receive the funds to the new address, but you will receive the funds at the old address.
+
 ## Proposal Creation
 Proposals can be created from the "Governance" tab of the DAO portal. Connect an account with sufficient voting power and click "New Proposal." Then fill out the form. Note the tooltips and the formatting in this example:
 
