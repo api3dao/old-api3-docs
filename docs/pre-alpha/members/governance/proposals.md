@@ -16,7 +16,7 @@ If you use an ENS name when creating a proposal, the Dashboard contracts will re
 
 Therefore changing the address of the ENS after making a proposal can be problematic. Consider the following. 
 - You buy an ENS name and assign it to a public address you own. 
-- You make a proposal using the ENS.
+- You make a proposal that uses the ENS.
 - While the proposal is active, you point your ENS name to another address.
 - The proposal passes. You expect to receive the funds to the new address, but you will receive the funds at the old address.
 
