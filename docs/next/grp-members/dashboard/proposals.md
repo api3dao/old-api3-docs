@@ -73,21 +73,11 @@ Staking tokens in the DAO pool gives you governance rights to create and vote on
   7. Enter an **ETH Value**.
   > You can use zero if the target function is not `payable`.
   8. Enter **Parameters** which are the arguments that will be used to satisfy the signature of the target contract function.
-  > The arguments must be provided in JSON array format where the values are stringified. For example: when calling `transfer()` on the commonly used USDC contract you can use a public address or an ENS name for the first parameter. When using a public address use the checksum version of the address where some alphabetical characters are capitalized. Copy your address to etherscan to get its checksum value.
-  > ```json
-  >[
-  >  "0xF4EB...Fd0d1663d78ddDKP9",
-  >  "753200000000"
-  >]
-  >```
-  >When you create a proposal using an ENS name, the public address of the ENS is recorded on-chain and will be used for the payout should the proposal pass. Therefore changing the address of the ENS after the creation of a proposal will not result in the updated address being used.
-  >```json
-  >[
-  >  "my-ens.eth",
-  >  "753200000000"
-  >]
-  >```
-  >In the examples above (`753200000000`) is the requested amount which is 753,200 USDC. USDC has 6 decimals. You need to add 6 zeros after the amount you are asking for.
+  > The arguments must be provided in JSON array format where the values are stringified. 
+  
+  >For public addresses use the checksum version of the address where some alphabetical characters are capitalized. Copy your address to etherscan to get its checksum value. ENS names are allowed. See the [Using ENS Names](proposals.md#using-ens-names) section below. 
+
+  >When using USDC remember it has 6 decimals. Add 6 zeros after the amount you are asking for.
 
   9. When you are ready, click the **Create** button at the bottom of the page.
   > After the proposal is created it is added to the proposal list and ready for voting.
@@ -117,16 +107,32 @@ OR
 > <br/>Click image to enlarge.
 > </p>
 
+## Using ENS Names
+
+You can use the [ENS app](https://app.ens.domains/) to register a name and associate it with an Ethereum account. Then, while entering your proposal parameters, you can use this ENS name instead of the account address. Before making the transaction that will create the proposal, the DAO dashboard will look up the address that the ENS name is pointing to, and use the raw address in the proposal. Therefore, changing the address that the ENS name is pointing to after this look up operation **WILL NOT** have an affect on the proposal.
+
+If you also want the voters to see the ENS name instead of the raw address to make your proposal more readable, you will have to use the [ENS app](https://app.ens.domains/) to set a reverse record pointing to your ENS name (i.e., you need to have your raw address point to the ENS name). For example, if you are making a proposal to make a `transfer(address,amount)` call to an ERC20 token contract where `address` will be the address of a multisig wallet, you can [set a reverse record with the multisig](https://medium.com/the-ethereum-name-service/you-can-now-manage-ens-names-with-gnosis-safe-9ddcb7e6c4ac) to your ENS name for it to appear on the proposal details page. See Parameters in [this proposal](https://api3.eth.link/#/history/secondary-6) for an example.
+
 ## Using IPFS for Proposals
 
 Consider this use case: You posted on the [API3 forum](https://forum.api3.org/) about a potential proposal. You received positive feedback and decide to formally create a proposal using the DAO dashboard. In the proposal's description field you provide a link back to the forum so people can again see the proposal details. How does the voter know that it's the exact same proposal they had read earlier in the forum? IPFS addressing content by its hash is convenient here, because any change you'll make to your proposal will change its hash.
 
+![image](../../assets/images/ipfs-proposals.png)
+
 1. Create the proposal as a PDF.
 2. Upload the PDF to [Fleek](https://fleek.co) (or your preferred provider). Fleek will provide a hash of the PDF: `bafybeifl4prxv75fgumtjh4ovklfkp7zzt7dwkl4xmndv37gtcalwpam2u`. 
 3. For Fleek append the hash to `https://ipfs.fleek.co/ipfs/` 
-   >[https://ipfs.fleek.co/ipfs/bafybeifl4prxv75fgumtjh4ovklfkp7zzt7dwkl4xmndv37gtcalwpam2u](https://ipfs.fleek.co/ipfs/bafybeifl4prxv75fgumtjh4ovklfkp7zzt7dwkl4xmndv37gtcalwpam2u)
-4. Add the URL to the forum posting and later to your DAO dashboard proposal in the description field.
+    >
+    > <a style="overflow-wrap: break-word;" target="_blank"
+    >  href="https://ipfs.fleek.co/ipfs/bafybeifl4prxv75fgumtjh4ovklfkp7zzt7dwkl4xmndv37gtcalwpam2u">
+    >  https://ipfs.fleek.co/ipfs/bafybeifl4prxv75fgumtjh4ovklfkp7zzt7dwkl4xmndv37gtcalwpam2u
+    >  </a>
+4. Add the URL to the forum posting for feedback and later to your DAO dashboard proposal in the description field.
+
+
    
 Remember that the URL the voter sees in the DAO dashboard proposal description field is final and should match the URL on the forum.
 
-If you need to update your PDF, re-upload it to your IPFS provider and update the link in your forum posting before creating the proposal in the DAO dashboard. Ideally keep a list of versioned proposals. Once a proposal is made on the DAO dashboard using the IPFS hashed link, the PDF is final. Changing the hashed link in the forum at this point would caution the voter.
+**Updating a PDF**
+
+You can update your PDF if needed. Upload it again to your IPFS provider, it will get a new hash. Next update the link in your forum posting before creating the proposal in the DAO dashboard. Ideally keep a list of versioned proposals. Once a proposal is made on the DAO dashboard using the IPFS hashed link in the description field, the PDF should be considered final. Changing the hashed link in the forum at this point would caution the voter.
