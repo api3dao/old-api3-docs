@@ -10,16 +10,6 @@ title: Proposals
 ## Requirements
 To create a proposal, you must hold at least 0.1% of the total pool shares. This required percentage is set in the Pool contract can be adjusted by the DAO.
 
-## Using ENS Names
-
-When you create a proposal using an ENS name, the public address of the ENS is recorded on-chain and will be used for any payout should the proposal pass. Therefore changing the address of the ENS after the creation of a proposal will not result in the updated address being used.
-> ```
->[
->  "my-ens.eth",
->  "753200000000"
->]
->```
-
 ## Proposal Creation
 Proposals can be created from the "Governance" tab of the DAO portal. Connect an account with sufficient voting power and click "New Proposal." Then fill out the form. Note the tooltips and the formatting in this example:
 
@@ -49,3 +39,9 @@ If a proposal is [ready for execution](../contract-architecture/voting.md#key-fu
 <p align="center">
   <img src="../../figures/executable-proposal.png" width="700" />
 </p>
+
+## Using ENS Names
+
+You can use the [ENS app](https://app.ens.domains/) to register a name and associate it with an Ethereum account. Then, while entering your proposal parameters, you can use this ENS name instead of the account address. Before making the transaction that will create the proposal, the DAO dashboard will look up the address that the ENS name is pointing to, and use the raw address in the proposal. Therefore, changing the address that the ENS name is pointing to after this look up operation **WILL NOT** have an affect on the proposal.
+
+If you also want the voters to see the ENS name instead of the raw address to make your proposal more readable, you will have to use the [ENS app](https://app.ens.domains/) to set a reverse record pointing to your ENS name (i.e., you need to have your raw address point to the ENS name). For example, if you are making a proposal to make a `transfer(address,amount)` call to an ERC20 token contract where `address` will be the address of a multisig wallet, you can [set a reverse record with the multisig](https://medium.com/the-ethereum-name-service/you-can-now-manage-ens-names-with-gnosis-safe-9ddcb7e6c4ac) to your ENS name for it to appear on the proposal details page. See Parameters in [this proposal](https://api3.eth.link/#/history/secondary-6) for an example.
