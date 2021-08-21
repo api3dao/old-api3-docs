@@ -88,7 +88,7 @@ Read [Creating cloud credentials](../guides/provider/deploying-airnode.md#creati
 
 ## Step 1: Deploy an Airnode
 
-_Following these instructions to deploy an Airnode on AWS is [free](https://aws.amazon.com/free/) as at May 22nd, 2021._
+_Following these instructions to deploy an Airnode on AWS is [free](https://aws.amazon.com/free/) as of May 22nd, 2021._
 
 
 Normally, you would need to do two things before you deploy an Airnode:
