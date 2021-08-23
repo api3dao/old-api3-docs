@@ -183,7 +183,7 @@ Allowed values: `query`, `header`, `path`, `cookie`
 
 OAS equivalent: `paths.{path}.{method}.parameters.{#}.in`
 
-For POST methods use the type `query` for requestBody parameters. Airnode will convert all `query` types to `requestBody` when calling the API operation if the method is POST.
+When integrating a POST method, define the body parameters with `in: query`. Airnode will convert all `query` types into the `requestBody`. Note that only the non-nested application/json content-type is supported.
 
 ## 5. `endpoints`
 
