@@ -1,5 +1,5 @@
 ---
-title: Sponsorship
+title: Requesters and Sponsors
 ---
 
 # {{$frontmatter.title}}
@@ -7,25 +7,32 @@ title: Sponsorship
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-<Todo>
-<p>This doc needs updating once the new repo README(s) are ready for the Airnode (beta) re-writes.
+As a developer it helps to understand what a **requester** is and what a **sponsor** does. They are both important parts of the Airnode ecosystem. This doc will further define them and walk you through the process to derive a sponsor wallet and to sponsor a requester using the admin CLI commands. 
 
-Who is a sponsor?
+## What is a Requester?
 
-A sponsor is you, the developer. Using a wallet you are going to sponsor a requester (your contract) and fund the Airnodes you wish to retrieve data from.
-</p>
-</Todo>
+The term **requester** is important to remember. It is mentioned in these docs and in the GitHub code. When requester is mentioned, the reference is to your smart contract that calls an Airnode. 
 
-Become a _requester_ to consume the off-chain API data that an Airnode provides. A _requester_ is an entity (individual, business, etc.) whose contracts make requests to Airnodes. These contracts are called clients or client contracts. A _requester_ should not be confused with an _end user_ who is someone that uses a requester's client contracts, usually as part of a dApp.
+> ![image](../assets/images/requesters-sponsors-1.png)
 
-Setting up a requester record is needed to allow client contracts access to one or more Airnodes. A requester record is used to endorse client contracts and fund Airnodes.
+As an example see the `myContract.sol` contract in the diagram within the [Overview](./) doc, it is a requester.
 
-The following diagram illustrates how to become a requester.
+## What is a Sponsor?
 
----
-> ![become-requester](../assets/images/become-sponsor.png)
+Equally important is the term **sponsor** also found thought the docs and code. A sponsor is the public address of a wallet (Ethereum account) you control. Usually you would have just one but can have multiples if desired. You will use the sponsor to derive a separate "sponsor wallet" for each Airnode you use and also to sponsor requesters. 
 
-## Requester Admin Commands
+In the diagram below, a _sponsor_ derives a "sponsor wallet" for a specific Airnode. Then the _sponsor_ sponsors a "requester".
+
+>![image](../assets/images/sponsor-overview.png)
+
+When you sponsor a requester you are giving it permission to use the sponsor wallet
+associated with the Airnode. When the requester makes a request to the Airnode, the Airnode will use funds from the sponsor wallet to pay its on-chain gas cost to make a transaction.
+
+
+
+A developer decides to build a requester contract that makes requests to a specific Airnode. Using a sponsor the developer derives a "sponsor wallet" for the Airnode. The developer funds the sponsor wallet, then calls setSponsorshipStatus() in AirnodeRrp with the address of their requester contract to sponsor it. This means the developer is now the sponsor of their requester contract, i.e., the requester contract can make Airnode requests that will be fulfilled by their sponsor wallet.
+
+## Admin CLI Commands
 
 There are several requester related commands in the [@api3/airnode-admin](../reference/cli-commands.md#create-requester) package. Here we will use three commands to create a requester record, endorse client contracts and fund Airnodes.
 
