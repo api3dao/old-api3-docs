@@ -8,7 +8,7 @@ title: Deploying Airnode
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 <Todo title="Airnode packages are morphing for 0.1.0">
-As at 05-18-2021 the Airnode packages are still changing.
+As of 08-18-2021 the Airnode packages are still changing.
 
 To get the Airnode repo to build on a Mac there is a change.
 
