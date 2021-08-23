@@ -71,8 +71,8 @@ module.exports = [
     title: 'Developers', initialOpenGroupIndex: 0, collapsable: true,
     children:[
       'grp-developers/', // Routes to the README.md in grp-developers
-      'grp-developers/call-an-airnode',
       'grp-developers/sponsorship',
+      'grp-developers/call-an-airnode',
       'grp-developers/using-templates',
       'grp-developers/fees',
       /*'grp-developers/developing-a-client-contract',*/
