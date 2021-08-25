@@ -19,57 +19,83 @@ As an example see the `myContract.sol` contract in the diagram within the [Overv
 
 ## What is a Sponsor?
 
-Equally important is the term **sponsor** also found thought the docs and code. A sponsor is the public address of a wallet (Ethereum account) you control. Usually you would have just one but can have multiples if desired. You will use the sponsor to derive a separate "sponsor wallet" for each Airnode you use and also to sponsor requesters. 
+Equally important is the term **sponsor** also found throughout the docs and code. A sponsor is an entity such as yourself, an organization, etc. 
 
-In the diagram below, a _sponsor_ derives a "sponsor wallet" for a specific Airnode. Then the _sponsor_ sponsors a "requester".
+As a sponsor you will use the address of an Ethereum account _(called a sponsorAddress)_ to "derive a sponsor wallet" for an Airnode, fund the wallet and then "sponsor a requester" with the same sponsorAddress. 
+
+You do this because a sponsor is the entity that pays for the fulfillment of a request, the gas costs the Airnode will incur. These costs will be withdrawn from the sponsor wallet of the Airnode you have sponsored when the requester calls it.
+
+In the diagram below a sponsor uses a sponsorAddress to "derive a sponsor wallet" for a specific Airnode and fund it. Then the sponsor uses the same sponsorAddress to "sponsor a requester". Because the requester was sponsored with the same sponsorAddress that was used to derive the sponsor wallet of the Airnode, the requester can now make requests of the Airnode.
 
 >![image](../assets/images/sponsor-overview.png)
 
-When you sponsor a requester you are giving it permission to use the sponsor wallet
-associated with the Airnode. When the requester makes a request to the Airnode, the Airnode will use funds from the sponsor wallet to pay its on-chain gas cost to make a transaction.
+---
 
+In the above diagram it is possible to use the same sponsorAddress `(0xF4...dDyu9)` to derive other sponsor wallets for other Airnodes. And it is possible to sponsor more than one requester with this same sponsorAddress. However it is important to remember that all requesters can now access all the  Airnodes regardless if they need to. There is no harm in this scenario.
 
+**Some unique and more advanced scenarios.**
+- Two requesters sponsored with the same sponsorAddress `(0xF4...dDyu9)` could access the same Airnode having a sponsor wallet derived by sponsorAddress `(0xF4...dDyu9)`.
 
-A developer decides to build a requester contract that makes requests to a specific Airnode. Using a sponsor the developer derives a "sponsor wallet" for the Airnode. The developer funds the sponsor wallet, then calls setSponsorshipStatus() in AirnodeRrp with the address of their requester contract to sponsor it. This means the developer is now the sponsor of their requester contract, i.e., the requester contract can make Airnode requests that will be fulfilled by their sponsor wallet.
+- Using two separate sponsorAddresses (from two different Ethereum accounts), you can derive two separate sponsor wallets for the same Airnode, say `(0xF4...dDyu9)` and `(0xG9...fFzc5)`. Then you can sponsor one requester each with `(0xF4...dDyu9)` and the other with `(0xG9...fFzc5)`. Now each requester will deplete funds from a separate sponsor wallet. 
 
+- You have derived two sponsor wallets for two different Airnodes using different sponsorAddresses, say `(0xF4...dDyu9)` and `(0xG9...fFzc5)`. You have one requester that needs to makes requests from each Airnode. Simply sponsor the requester twice with both sponsorAddresses.
+
+**Things to remember:**
+
+When you sponsor a requester with a sponsorAddress, you are giving it permission to use the sponsor wallet associated with the Airnode (created with the same sponsorAddress). 
+
+When the requester makes a request to the Airnode, the Airnode will use funds from the correct sponsor wallet to pay gas costs in response to the request. Therefore the sponsor pays for teh fulfillment of the request.
+
+<Fix> -----------> Marker: continue here to the end.</Fix>
 ## Admin CLI Commands
 
-There are several requester related commands in the [@api3/airnode-admin](../reference/cli-commands.md#create-requester) package. Here we will use three commands to create a requester record, endorse client contracts and fund Airnodes.
+There are several sponsor and requester related commands in the [@api3/airnode-admin](../reference/cli-commands.md#create-requester) package. You can also see a list of available commands using `npx @api3/airnode-admin --help`.
 
-1. Create a Requester Record:[`create-requester`](../reference/cli-commands.md#create-requester)creates a requester record.
-2. Endorse Client Contracts:[`endorse-client`](../reference/cli-commands.md#endorse-client)endorses a client contract.
-3. Fund Airnodes:[`derive-designated-wallet`](../reference/cli-commands.md#derive-designated-wallet)creates a requester specific wallet associated with an Airnode.
+In the next two sections of this doc you will use two commands from the @api3/airnode-admin package to _derive a sponsor wallet_ and to _sponsor a requester_.
 
-## Part 1: Create a Requester Record
+<Fix>These links need fixing when CLI doc is ready.</Fix>
 
-Each requester needs to create a requester record and get assigned a requester index. To create a new requester record you will need the following.
+1. [`derive-sponsor-wallet`](../reference/cli-commands.md#derive-designated-wallet)creates a sponsor wallet associated with an Airnode.
+2. [`sponsor-requester`](../reference/cli-commands.md#endorse-client) sponsors a requester.
 
-- A blockchain providerURL such as the URL with your Infura providerID on the Ropsten network.
-- A mnemonic for gas to fund the record creation.
-- An address that will be used to administer the requester record (requesterAdmin) in the future, use the default public address of the mnemonic. 
 
-::: tip mnemonic
-This wallet pays the transaction gas costs to write the requester record. This is not the wallet(s) that will pay gas costs to actually execute any Airnode, for that the Airnode themselves will create sponsor wallets on behalf of your sponsor record. [Part 3](sponsorship.md#part-3-funding-airnodes) will explain more about sponsor wallets.
-:::
+## How to Derive a Sponsor Wallet
 
-[@api3/airnode-admin create-requester](../reference/cli-commands.md#create-requester)
+<Fix>Again the use of sponsor here is confusing</Fix>
+To use a particular Airnode, derive a _sponsor wallet_ using an `airnodeAddress` and a `sponsor`. Once the wallet is created it must be funded using the public address returned by the command`derive-sponsor-wallet`. Each Airnode keeps a list of sponsor wallets that can access the Airnode. Learn more about [sponsor wallets](../reference/protocols/request-response/sponsor-wallet.md).
+
+Since the sponsor wallet is recorded in the cloud provider (i.g., AWS) where Airnode functions live, there are no on-chain transaction gas costs when deriving a sponsor wallet.
+
+To derive a sponsor wallet for an Airnode execute the `sponsor-designated-wallet` command using the parameters detailed in the list below.
+
+<Fix>Below the use of sponsor is just confusing because it really means address and I feel compelled to say so.</Fix>
+- A blockchain `providerURL` such as the URL with your Infura providerID on the Ropsten network.
+- The `airnodeAddress` of the desired Airnode.
+- A `sponsor` (public address of a wallet you control).
+
+[@api3/airnode-admin sponsor-designated-wallet](../reference/cli-commands.md#derive-designated-wallet)
 
 ```bash
-npx @api3/airnode-admin create-requester \
+npx @api3/airnode-admin derive-designated-wallet \
   --providerUrl https://ropsten.infura.io/v3/<KEY> \
-  --mnemonic "cricket oppose ..." \ # Used to pay the gas costs for this transaction.
-  --requesterAdmin 0xaBd9daAdf...   # The admin address, mnemonic public key.
+  --airnodeId 0xe1e0dd... \ # The ID of the Airnode the requester wants access to.
+  --requesterIndex 6        # The requesterIndex identifies the requester record.
 
   # Returns
-  Created requester with index 6 
-  and admin address 0xaBd9daAdf...
+  Derived the address of the wallet designated for requester with index 6 
+  by Airnode with ID 0xaebd88bf458dfc4899d... 
+  to be 0xa5C073E31fAb1F8acf... # Here is the wallet's public address.
 ```
 
-The command `create-requester` will return a `requester index` and the `requesterAdmin` address that were passed to execute the command. It is important to remember the requester index for future use.
+The command derive-sponsor-wallet will return the public address of the sponsor wallet to be funded.
 
-## Part 2: Endorse Client Contracts
+<SponsorWalletWarning/>
 
-A requester endorses a client contract allowing it make Airnode requests on behave of the requester. Your client contract should already be deployed. 
+## How to Sponsor a Requester
+
+You sponsor a requester allowing it make Airnode requests on behave of the requester. Your client contract should already be deployed. 
+
+Requesters that have been sponsored by the same `sponsor` that derived the sponsor wallet of an Airnode by a requester will have access to all Airnodes the requester has funded using the designated wallet. This allows the requester to cover the gas cost when executing an Airnode. However this does not cover the cost of API data that the Airnode serves, see [API Provider Fees](fees.md#api-provider-fees). Developers need to keep their sponsor wallets topped off if they want the Airnodes to fulfill requests made by their requesters.
 
 Endorsing a client contract means it can make Airnode requests, paid for by a designated wallet associated with the Airnode and the requesterIndex from your requester record. [Part 3](sponsorship.md#part-3-funding-airnodes) will explain more about designated wallets.
 
@@ -81,6 +107,10 @@ To endorse a client contract you will need the following.
 - The `clientAddress` which is the public address of the client contract.
 
 [@api3/airnode-admin endorse-client](../reference/cli-commands.md#endorse-client)
+
+::: tip mnemonic
+This wallet pays the transaction gas costs to write the requester record. This is not the wallet(s) that will pay gas costs to actually execute any Airnode, for that the Airnode themselves will create sponsor wallets on behalf of your sponsor record. [Part 3](sponsorship.md#part-3-funding-airnodes) will explain more about sponsor wallets.
+:::
 
 ```bash
 npx @api3/airnode-admin endorse-client \
@@ -96,54 +126,13 @@ npx @api3/airnode-admin endorse-client \
 
 The command `endorse-client` will return the client contract address and the requester index that were passed to execute the command. 
 
-## Part 3: Funding Airnodes
-
-To fund a particular Airnode, a requester instructs the Airnode to derive a _designated wallet_ on behave of the requester  using the Airnode's ID and the requester's requesterIndex. Once the wallet is created it must be funded using the public address returned by the command`derive-designated-wallet`. Each Airnode keeps a list of requester designated wallets that can access the Airnode. Learn more about [designated wallets](../reference/protocols/request-response/designated-wallet.md).
-
-Client contracts endorsed by a requester will have access to all Airnodes the requester has funded using the designated wallet. This allows the requester to cover the gas cost when executing an Airnode. However this does not cover the cost of API data that the Airnode serves, see [API Provider Fees](fees.md#api-provider-fees). Requesters need to keep their designated wallets topped off if they want the Airnodes to fulfill requests made by their endorsed client contracts.
-
-Since the designated wallet is recorded in the cloud provider (i.g., AWS) where Airnode functions live, there are no on-chain transaction gas costs when deriving a designated wallet.
-
-<SponsorWalletWarning/>
-
-Learn more about [sponsor wallets](../reference/protocols/request-response/sponsor-wallet.md) in the reference section.
-
-To fund an Airnode simply tell any Airnode to derive a _designated wallet_ for your requesterIndex. This will return the public address of the designated wallet so you can fund it.
-
-To derive a designated wallet for an Airnode and fund it, you will need the following.
-
-- A blockchain providerURL such as the URL with your Infura providerID on the Ropsten network.
-- The `airnodeId` of the desired Airnode.
-- The requester's `requesterIndex` that was generated when creating a requester record.
-
-[@api3/airnode-admin derive-designated-wallet](../reference/cli-commands.md#derive-designated-wallet)
-
-```bash
-npx @api3/airnode-admin derive-designated-wallet \
-  --providerUrl https://ropsten.infura.io/v3/<KEY> \
-  --airnodeId 0xe1e0dd... \ # The ID of the Airnode the requester wants access to.
-  --requesterIndex 6        # The requesterIndex identifies the requester record.
-
-  # Returns
-  Derived the address of the wallet designated for requester with index 6 
-  by Airnode with ID 0xaebd88bf458dfc4899d... 
-  to be 0xa5C073E31fAb1F8acf... # Here is the wallet's public address.
-```
-
-The command derive-designated-wallet will return the public address of the designated wallet to be funded.
-
 ## Record Keeping
 
-During and after creating/managing your requester record there are some items you should write down for future use.
+During and after deriving a sponsor wallets and sponsoring requesters there are a few things to keep track of.
 
 |Item|Description|
 |-|-|
-|Maintenance wallet (mnemonic)|A minimally funded mnemonic used to change your requester record, client contract endorsements, etc. in the future.|
-|requesterIndex|* An identifer (number) you received when creating a requester record.|
-|requesterAdmin|Usually the default public address of the mnemonic you used when creating a requester record.|
-|Airnode designated wallets|** For each Airnode you have funded a custodial designated wallet was created. The Airnode keeps the private key and returns you the public address which you use to add funds. |
+|sponsors|Sponsors are a public address of a wallet you control. Write down which sponsor you used for each Airnode when you derive its sponsor wallet. Also write down which sponsor you used to sponsor any requesters.|
+|sponsor wallets|* For each Airnode you have derived a sponsor wallet, the Airnode keeps the private key and returns you the public address which you use to add funds.|
 
-
-\* Do not loose your requesterIndex, it cannot be recovered.
-
-\** You can acquire the public address of a designated wallet later, if you loose it, by running the command`derive-designated-wallet`again. Since the designated wallet was already created for the requesterIndex/airnodeId pair, the command will only return the known public address for the wallet.
+\* You can acquire the public address of a sponsor wallet later, if you loose it, by running the command`sponsor-designated-wallet`again. Since the sponsor wallet was already created for the sponsor/airnodeAddress pair, the command will only return the known public address for the wallet. However you must use the same sponsor used when the wallet was first create or a new sponsor wallet wil be created.

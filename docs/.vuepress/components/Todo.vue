@@ -22,18 +22,18 @@
       </span>
 
       <!-- The slot -->
-      <div  class="borderRed">
+      <div class="borderGreen">
         <span><Badge 
-          style="padding-top:0px;backgroundColor:red;" 
+          style="padding-top:0px;" 
           type="tip" :text="'Todo: '+$page.todoCnt" 
-          vertical="top" />
+          vertical="top" /><slot></slot>
         </span>
         <!--a v-show="issueID" :href="githubURL" target="github">
           GitHub Issue: #{{issueID}}
         </a-->
-        <span style="margin-top:-10px;margin-bottom:-10px;">
-          <slot></slot>
-        </span>
+        <!--span style="margin-top:-10px;margin-bottom:-10px;"-->
+          
+        <!--/span-->
       </div>
   </div>
 </template>
@@ -60,7 +60,7 @@
 </script>
 
 <style scoped>
-.borderRed{
+.borderGreen{
   padding-top:5px;
   color:#404040;
   border:solid green 2px;
