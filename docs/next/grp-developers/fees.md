@@ -7,9 +7,8 @@ title: Fees
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-<Todo>
-<p>This doc needs updating once the new repo README(s) are ready for the Airnode (beta) re-writes.</p>
-</Todo>
+<Fix>This doc needs updating once the new repo README(s) are ready for the Airnode (beta) re-writes.
+</Fix>
 
 A requester will have three types of fees to consider.
 
