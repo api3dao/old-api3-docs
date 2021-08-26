@@ -1,5 +1,5 @@
 ---
-title: CLI Commands
+title: Admin CLI Commands
 ---
 
 # {{$frontmatter.title}}
@@ -7,9 +7,7 @@ title: CLI Commands
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-<Todo>
-<p>Client in this paragraph need to be changed to requesters but first fix the use of client and requester in the docs grouped for reference > request-response.</p>
-</Todo>
+<Fix>Client in this paragraph need to be changed to requesters but first fix the use of client and requester in the docs grouped for reference > request-response.</Fix>
 
 Use the CLI tool to interact with Airnode across blockchains. There are commands for both developers (dApp) and API providers. Developers can endorse [requester contracts](protocols/request-response/client.md) and fund Airnodes. API providers can build [Airnodes](protocols/request-response/airnode.md) that serve their API data to requester contracts.
 
