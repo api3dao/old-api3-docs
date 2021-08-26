@@ -7,9 +7,11 @@ title: Calling an Airnode
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-A requester (your contract) that has been sponsored can call an Airnode. See [Sponsorships](sponsorship.md) on how to sponsor a requester and fund an Airnode.
+A [requester](requesters-sponsors.md#what-is-a-requester) (your contract) that has been sponsored can call an Airnode with a matching sponsor wallet. See [Requesters and Sponsors](requesters-sponsors.md) on how to sponsor a requester and derive a sponsor wallet.
 
 Airnode is composed of two parts: the off-chain **Airnode** (cloud provider functions, e.g., AWS) and the on-chain **protocol contract** ( AirnodeRrp.sol). A requester calls the protocol contract which queues the requester's request. During its next run cycle, Airnode gets the request from the protocol queue and generates a response. The diagram below illustrates the mechanics of the entire process as does the diagram in the [Overview](./) doc for developers.
+
+The AirnodeRrp protocol is designed to be flexible and is meant to serve a variety of use cases. See the Airnode [requester examples](https://github.com/api3dao/airnode-starter/blob/main/contracts/ExampleClient.sol) for some potential design patterns.
 
 Ignoring the mechanics of the overall process, the requester primarily focuses on two tasks as indicated by points A & B in the diagram below when calling an Airnode.
 
@@ -20,23 +22,20 @@ Ignoring the mechanics of the overall process, the requester primarily focuses o
 
 <!--In the above diagram a requester makes a request to the AirnodeRrp.sol contract which is retrieved by the Airnode during its next run cycle. Airnode then gathers the requested data from the API and creates a transaction to call the function `fulfill()` in AirnodeRrp.sol which in turn makes a callback to the function `myFulfill` in the requester.-->
 
-The AirnodeRrp protocol is designed to be flexible and is meant to serve a variety of use cases. See the Airnode [requester examples](https://github.com/api3dao/airnode-starter/blob/main/contracts/ExampleClient.sol) for some potential design patterns. Developers will need to create a requester that builds on the following items.
+This remainder of this doc focuses on the following. 
 
-1. Make a request to the AirnodeRrp contract, call `makeRequest()`
-2. Capture the response from the Airnode application, implement `myFulfill()`
-3. Deploy the requester
-4. [Sponsor](sponsorship.md#part-2-endorse-client-contracts) the requester
-
-This document focuses items 1 & 2 above, making a request and capturing the response from an Airnode. See [Sponsorship](sponsorship.md#part-2-endorse-client-contracts) to learn more about sponsoring a requester. Deploying your requester is beyond the scope of this doc.
+- Make a request to the AirnodeRrp contract, call `makeRequest()`
+- Capture the response from the Airnode application, implement `myFulfill()`
+- Sponsoring the requester after it deployment
 
 ## Step #1: Inherit AirnodeRrpClient.sol
 
-To get started a requester inherits from the [AirnodeRrpClient.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/AirnodeRrpClient.sol) contract. This will expose the AirnodeRrp.sol protocol contract to the client contract.
+To get started a requester inherits from the [AirnodeRrpClient.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/AirnodeRrpClient.sol) contract. This will expose the AirnodeRrp.sol protocol contract to the requester.
 
 ```solidity
 import "@api3/airnode-protocol/contracts/AirnodeRrpClient.sol";
 
-contract ExampleClientContract is AirnodeRrpClient {
+contract MyContract is AirnodeRrpClient {
   ...
   constructor (address airnodeAddress)
       public
@@ -60,7 +59,7 @@ Once the request has been made to `airnode.makeFullRequest` the AirnodeRrp.sol c
 ```solidity
 import "@api3/airnode-protocol/contracts/AirnodeRrpClient.sol";
 
-contract ExampleClientContract is AirnodeRrpClient {
+contract MyContract is AirnodeRrpClient {
   mapping(bytes32 => bool) public incomingFulfillments;
   mapping(bytes32 => int256) public fulfilledData;
 
@@ -102,6 +101,8 @@ contract ExampleClientContract is AirnodeRrpClient {
 
 ### Request Parameters
 
+<Fix>The request parameters have changed.</Fix>
+
 A _full request_ using the AirnodeRrp.sol contract `makeFullRequest` function requires all parameters needed by the Airnode application be passed at runtime. This is in contrast to a _regular or short request_ type that would use a template for some or all of the required parameters. See more about [Using Templates](call-an-airnode.md#using-templates) below.
 
 Since the `callTheAirnode` function is going to make a full request it must gather the following parameters to pass on to `airnode.makeFullRequest`.
@@ -114,6 +115,7 @@ Since the `callTheAirnode` function is going to make a full request it must gath
 
 - **parameters**: Specify the API parameters and any [reserved parameters](../reference/specifications/reserved-parameters.md), these must be encoded. See [Airnode ABI specifications]() for how these are encoded.
 
+<Fix>Not sure what to say about the encoding.</Fix>
 
     *More about parameters*
 
@@ -142,18 +144,13 @@ The request you made has been queued in the AirnodeRrp.sol contract. The off-cha
 
 As soon as the Airnode gets a request it will gather the data and start an on-chain transaction responding to the request. The Airnode calls the AirnodeRrp.sol contract function `fulfiil()` which in turn will call the client contract, in this case, at `airnodeCallback`. Recall the request supplied the client contract address and the desired callback function which the AirnodeRrp.sol contract stored with the requestId for the purpose of the callback.
 
-<Todo>
-
-Does the code below need to `import { decode } from '@api3/airnode-abi';`.
-
-And change decode to `int256 decodedData = decode(data, (int256));`.
-
-</Todo>
+<Fix>Does the code below need to `import { decode } from '@api3/airnode-abi';`.</Fix> 
+<Fix>And change decode to `int256 decodedData = decode(data, (int256));`.</Fix>
 
 ```solidity
 import "@api3/airnode-protocol/contracts/AirnodeClient.sol";
 
-contract ExampleClient is AirnodeClient {
+contract MyContract is AirnodeRrpClient {
     mapping(bytes32 => bool) public incomingFulfillments;
     mapping(bytes32 => int256) public fulfilledData;
 
@@ -198,4 +195,8 @@ The callback to a client contract will contain three parameters.
 
 - **calldata**: For a successful response the requested data which has been encoded. Decode it using the function `decode()` from the `abi` object .
 
+
+## Step #4: Deploy and Sponsor the Requester
+
+Deploy the requester to the desired blockchain and then sponsor the requester. See [Requesters and Sponsors](requesters-sponsors.md#how-to-sponsor-a-requester) to learn more about sponsoring a requester. 
 

@@ -19,13 +19,4 @@ In summary you only need to do a few things.
 - Create cloud provider account if you do not have one.
 - Get a blockchain provider URL for the chain you wish to use (mainnet and/or testnet).
 - Create the config.json (with an OIS object) and secrets.env files that defines your Airnode.
-- Run hte Docker image deploy your Airnode.
-
-
-
-
-
-
-## The Term Requester
-
-The term requester is important to remember. It is mentioned in these docs and in the code. When _requester_ is mentioned, the reference is to a contract that calls your Airnode.
+- Run the Docker image to deploy your Airnode.

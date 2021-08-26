@@ -71,7 +71,7 @@ module.exports = [
     title: 'Developers', initialOpenGroupIndex: 0, collapsable: true,
     children:[
       'grp-developers/', // Routes to the README.md in grp-developers
-      'grp-developers/sponsorship',
+      'grp-developers/requesters-sponsors',
       'grp-developers/call-an-airnode',
       'grp-developers/using-templates',
       'grp-developers/fees',
@@ -169,6 +169,7 @@ module.exports = [
         ],
       },
       'reference/cli-commands',
+      'reference/deployer-commands',
       'reference/dao-contracts'
     ]
   },
