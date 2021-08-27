@@ -7,7 +7,7 @@ title: Configuring Airnode
 <TocHeader />
 <TOC class="table-of-contents" :include-level=[2,5] />
 
-An Airnode is deployed or redeployed using configuration values from its `config.json` and `secrets.env` files. The  `config.json` specifies the [OIS](../../../reference/specifications/ois.md) (Oracle Integration Specifications) and other specific configuration details. The `secrets.env` file includes security credentials such as API keys and chain provider URLs.
+An Airnode is deployed or redeployed using configuration values from its `config.json` and `secrets.env` files. The  `config.json` specifies the [OIS](../../../reference/specifications/ois.md) (Oracle Integration Specifications) and other specific configuration details. The `secrets.env` file holds secrets, such as API keys and chain provider URLs, which are referenced within the config.json file using interpolation.
 
 > ![config-json](../../../assets/images/config-json.png)
 
@@ -24,7 +24,7 @@ It is assumed that you have already read the guide [API Integration](api-integra
 
   - Open the _template_ [config.json](../../../reference/templates/config-json.md) in another browser window to follow along. 
 
-  - View the _example_ [config.json](../../../reference/templates/config-json.md) file from the [Airnode Starter tutorial](../../tutorial/airnode-starter.md).
+  - View the _example_ [config.json](../../tutorial/config-json.md) file from the [Airnode Starter tutorial](../../tutorial/airnode-starter.md).
 
 </details>
 
