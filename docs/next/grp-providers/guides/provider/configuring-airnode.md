@@ -90,7 +90,7 @@ For additional information about chain parameters see the [Technology > Deployme
       "contracts": {
         "AirnodeRrp": "0xF6d2675468989387e96127546e0CBC9A384fa418"
       },
-      "airnodeAdmin": "{FILL_AIRNODE_ADMIN}",
+      "airnodeAdmin": "<FILL_AIRNODE_ADMIN>",
       "authorizers": [
         "0x0000000000000000000000000000000000000000"
       ],
@@ -336,7 +336,7 @@ The `secrets.env` file contains environment variables (secrets) such as blockcha
 |||
 |-|-|
 |AWS_ACCESS_KEY_ID - AWS_SECRET_KEY|AWS account credentials|
-|MASTER_KEY_MNEMONIC|The wallet MNEMONIC that will be used by the Airnode|
+|AIRNODE_WALLET_MNEMONIC|The wallet MNEMONIC that will be used by the Airnode|
 |CP_${chainType}\_${chainId}_${name}|blockchain provider urls|
 |SS_${oisTitle}_${name}|securitySchemes|
 
@@ -351,7 +351,7 @@ The last two categories above (CP_ and  SS_) are environment variable names that
 ```bash
 AWS_ACCESS_KEY_ID="XYZ...123"
 AWS_SECRET_KEY="ABC7...89"
-MASTER_KEY_MNEMONIC="achieve climb ... reduce foil echo"
+AIRNODE_WALLET_MNEMONIC="achieve climb ... reduce foil echo"
 SS_MYOISTITLE_MY_SECURITY_SCHEME="FRACZKMH4F32BZ8X5uTd"
 CP_EVM_3_INFURA_ROPSTEN="https://ropsten.infura.io/v3/75745CVDG834834"
 ```

@@ -270,15 +270,15 @@ You can create a securityScheme by copying the code above or using the template 
 ```json
 "components": {
   "securitySchemes": {
-    "{FILL_SECURITY_SCHEME_NAME}": {
-      "in": "{FILL_*}",
-      "type": "{FILL_*}",
-      "name": "{FILL_*}"
+    "<FILL_SECURITY_SCHEME_NAME>": {
+      "in": "<FILL_*>",
+      "type": "<FILL_*>",
+      "name": "<FILL_*>"
     }
   }
 },
 "security": {
-  "{FILL_SECURITY_SCHEME_NAME}": []
+  "<FILL_SECURITY_SCHEME_NAME>": []
 }
 ```
 1. First, name the security scheme by replacing `{FILL_SECURITY_SCHEME_NAME}` under `apiSpecifications.components.securitySchemes`. Note that you will also need to use the same name under `apiSpecifications.security`. Make sure to choose a descriptive name, such as `myApiKeyScheme`. This name will also be referred in the [secrets.env](../../../reference/deployment-files/secrets-env.md) file in a later step.
@@ -299,7 +299,7 @@ You can create a securityScheme by copying the code above or using the template 
 4. Security credentials such as API keys go in [secrets.env](../../../reference/deployment-files/secrets-env.md) file. This step will actually be discussed in the next Guide document [Configuring Airnode](configuring-airnode.md#creating-secrets-env) which will discuss how to link your securityScheme(s) to the secrets.env file via the environment field. For now the following shows what the type `apiKey` named `myApiKeyScheme` might look like in secrets.env.
 
     ```bash
-    MASTER_KEY_MNEMONIC=""
+    AIRNODE_WALLET_MNEMONIC=""
     AWS_ACCESS_KEY_ID=""
     AWS_SECRET_KEY=""
     CP_EVM_31337_EVM_LOCAL=""

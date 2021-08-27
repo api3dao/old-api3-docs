@@ -148,7 +148,7 @@
       "contracts": {
         "AirnodeRrp": "0xF6d2675468989387e96127546e0CBC9A384fa418"
       },
-      "airnodeAdmin": "{FILL_AIRNODE_ADMIN}",
+      "airnodeAdmin": "<FILL_AIRNODE_ADMIN>",
       "authorizers": [
         "0x0000000000000000000000000000000000000000"
       ],
