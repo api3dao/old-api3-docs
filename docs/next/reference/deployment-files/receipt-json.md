@@ -4,36 +4,25 @@ title: receipt.json
 
 # {{$frontmatter.title}}
 
-A `receipt.json` file is outputted after deployment that has (non-sensitive) information about the deployments. The main use of a receipt file is to detect deployments that are now obsolete and need to be removed. For example, the user may have deployed their Airnode on cloud providers A, B and C. In the next deployment, they decide to only deploy on cloud provider A and B. After deployment (which updates the previous deployments on A and B), the deployer needs to refer to the previous deployment's receipt to be able to tell that it also needs to remove the deployment on cloud provider C.
+A `receipt.json` file is outputted after each deployment and contains non-sensitive information about the deployment. The main use of a receipt file is to remove an Airnode deployment when no longer needed. Use the [docker image](../../grp-providers/guides/docker/deployer-image.html#remove) to execute the remove command.
 
-Below is an example receipt:
+Example receipt:
 
 ```json
 {
-  "airnodeId": "0x23722bcdd23e559d7151db284f290fadde9f3cb725859d476ef1f16ab315355e",
-  "airnodeIdShort": "23722bc",
-  "xpub": "xpub661MyMwAqRbcFgefUsJa8UarHveV9dgvW6bKF13GaJFrw7AAcHCtMVuy3ZkFrTWdW2ji9TdjGHFbf3qk9vWvcNVPVZCtDGyASNs2V5SKcmf",
-  "masterWalletAddress": "0x0B8C5Bb520C4807da256A2a2e523d898ccdE6722",
-  "deployments": [
-    {
-      "configId": "bd877060-edc1-4ba9-ad75-c2d3c47b260e",
-      "chainIds": [
-        "1"
-      ],
-      "cloudProvider": "aws",
-      "region": "us-east-1",
-      "stage": "starter-example"
-    },
-    {
-      "configId": "981d57c2-a004-4526-99da-1b04608fb463",
-      "chainIds": [
-        "3",
-        "4"
-      ],
-      "cloudProvider": "aws",
-      "region": "us-east-1",
-      "stage": "starter-example"
-    }
-  ]
+  "airnodeWallet": {
+    "airnodeId": "0x23722bcdd23e559d7151db284f290fadde9f3cb725859d476ef1f16ab315355e",
+    "xpub": "xpub661MyMwAqRbcFgefUsJa8UarHveV9dgvW6bKF13GaJFrw7AAcHCtMVuy3ZkFrTWdW2ji9TdjGHFbf3qk9vWvcNVPVZCtDGyASNs2V5SKcmf"
+  },
+  "deployment": {
+    "airnodeIdShort": "23722b",
+    "cloudProvider": "aws",
+    "region": "us-east-1",
+    "stage": "starter-example",
+    "nodeVersion": "0.1.0"
+  },
+  "api": {
+    "heartbeatId": "74dc44a1ee65",
+    "httpGatewayUrl": "https://some.aws.api.gateway.url/v1/test"
+  }
 }
-```
