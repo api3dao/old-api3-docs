@@ -9,25 +9,25 @@ title: config.json
   "ois": [
     {
       "oisFormat": "1.0.0",
-      "title": "{FILL_OISTITLE}",
-      "version": "{FILL_*}",
+      "title": "<FILL_OISTITLE>",
+      "version": "<FILL_*>",
       "apiSpecifications": {
         "servers": [
           {
-            "url": "{FILL_*}"
+            "url": "<FILL_*>"
           }
         ],
         "paths": {
-          "{FILL_PATH}": {
-            "{FILL_METHOD}": {
+          "<FILL_PATH>": {
+            "<FILL_METHOD>": {
               "parameters": [
                 {
-                  "in": "{FILL_OPERATION_PARAMETER_1_IN}",
-                  "name": "{FILL_OPERATION_PARAMETER_1_NAME}"
+                  "in": "<FILL_OPERATION_PARAMETER_1_IN>",
+                  "name": "<FILL_OPERATION_PARAMETER_1_NAME>"
                 },
                 {
-                  "in": "{FILL_OPERATION_PARAMETER_2_IN}",
-                  "name": "{FILL_OPERATION_PARAMETER_2_NAME}"
+                  "in": "<FILL_OPERATION_PARAMETER_2_IN>",
+                  "name": "<FILL_OPERATION_PARAMETER_2_NAME>"
                 }
               ]
             }
@@ -35,50 +35,50 @@ title: config.json
         },
         "components": {
           "securitySchemes": {
-            "{FILL_SECURITY_SCHEME_NAME}": {
-              "in": "{FILL_*}",
-              "type": "{FILL_*}",
-              "name": "{FILL_*}"
+            "<FILL_SECURITY_SCHEME_NAME>": {
+              "in": "<FILL_*>",
+              "type": "<FILL_*>",
+              "name": "<FILL_*>"
             }
           }
         },
         "security": {
-          "{FILL_SECURITY_SCHEME_NAME}": []
+          "<FILL_SECURITY_SCHEME_NAME>": []
         }
       },
       "endpoints": [
         {
-          "name": "{FILL_ENDPOINTNAME}",
+          "name": "<FILL_ENDPOINTNAME>",
           "operation": {
-            "method": "{FILL_METHOD}",
-            "path": "{FILL_PATH}"
+            "method": "<FILL_METHOD>",
+            "path": "<FILL_PATH>"
           },
           "fixedOperationParameters": [
             {
               "operationParameter": {
-                "in": "{FILL_OPERATION_PARAMETER_1_IN}",
-                "name": "{FILL_OPERATION_PARAMETER_1_NAME}"
+                "in": "<FILL_OPERATION_PARAMETER_1_IN>",
+                "name": "<FILL_OPERATION_PARAMETER_1_NAME>"
               },
-              "value": "{FILL_*}"
+              "value": "<FILL_*>"
             }
           ],
           "reservedParameters": [
             {
-              "name": "{FILL_*}"
+              "name": "<FILL_*>"
             },
             {
-              "name": "{FILL_*}"
+              "name": "<FILL_*>"
             },
             {
-              "name": "{FILL_*}"
+              "name": "<FILL_*>"
             }
           ],
           "parameters": [
             {
-              "name": "{FILL_*}",
+              "name": "<FILL_*>",
               "operationParameter": {
-                "in": "{FILL_OPERATION_PARAMETER_2_IN}",
-                "name": "{FILL_OPERATION_PARAMETER_2_NAME}"
+                "in": "<FILL_OPERATION_PARAMETER_2_IN>",
+                "name": "<FILL_OPERATION_PARAMETER_2_NAME>"
               }
             }
           ]
@@ -89,32 +89,32 @@ title: config.json
   "triggers": {
     "request": [
       {
-        "endpointId": "{FILL_*}",
-        "oisTitle": "{FILL_OISTITLE}",
-        "endpointName": "{FILL_ENDPOINTNAME}"
+        "endpointId": "<FILL_*>",
+        "oisTitle": "<FILL_OISTITLE>",
+        "endpointName": "<FILL_ENDPOINTNAME>"
       }
     ]
   },
   "nodeSettings": {
     "nodeVersion": "0.1.0",
     "cloudProvider": "aws",
-    "region": "{FILL_*}",
-    "stage": "{FILL_*}",
+    "region": "<FILL_*>",
+    "stage": "<FILL_*>",
     "logFormat": "json",
     "chains": {
-      "id": "{FILL_*}",
+      "id": "<FILL_*>",
       "type": "evm",
       "providers": [
         {
-          "name": "{FILL_*}",
-          "url": "{FILL_*}"
+          "name": "<FILL_*>",
+          "url": "<FILL_*>"
         }
       ],
       "contracts": {
-        "Airnode": "{FILL_*}",
-        "Convenience": "{FILL_*}"
+        "Airnode": "<FILL_*>",
+        "Convenience": "<FILL_*>"
       },
-      "airnodeAdminForRecordCreation": "{FILL_*}"
+      "airnodeAdminForRecordCreation": "<FILL_*>"
     }
   }
 }

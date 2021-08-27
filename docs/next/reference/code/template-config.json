@@ -2,28 +2,28 @@
   "ois": [
     {
       "oisFormat": "1.0.0",
-      "version": "{FILL_*}",
-      "title": "{FILL_OIS_TITLE}",      // environment.securitySchemes[n].oisTitle
+      "version": "<FILL_*>",
+      "title": "<FILL_OIS_TITLE>",      // environment.securitySchemes[n].oisTitle
       "apiSpecifications": {            // AND triggers.request[n].oisTitle
         "info": {
-          "title": "{FILL_*}"
+          "title": "<FILL_*>"
         },
         "servers": [
           {
-            "url": "{FILL_*}"
+            "url": "<FILL_*>"
           }
         ],
         "paths": {
-          "{FILL_PATH}": {
-            "{FILL_METHOD}": {
+          "<FILL_PATH>": {
+            "<FILL_METHOD>": {
               "parameters": [ 
                 {
-                  "in": "{FILL_OPERATION_PARAMETER_1_IN}",    // endpoints[n].fixedOperationParameters
-                  "name": "{FILL_OPERATION_PARAMETER_1_NAME}" // endpoints[n].fixedOperationParameters
+                  "in": "<FILL_OPERATION_PARAMETER_1_IN>",    // endpoints[n].fixedOperationParameters
+                  "name": "<FILL_OPERATION_PARAMETER_1_NAME>" // endpoints[n].fixedOperationParameters
                 },
                 {
-                  "in": "{FILL_OPERATION_PARAMETER_2_IN}",    // endpoints[n].parameters
-                  "name": "{FILL_OPERATION_PARAMETER_2_NAME}" // endpoints[n].parameters
+                  "in": "<FILL_OPERATION_PARAMETER_2_IN>",    // endpoints[n].parameters
+                  "name": "<FILL_OPERATION_PARAMETER_2_NAME>" // endpoints[n].parameters
                 }
               ]
             }
@@ -31,59 +31,59 @@
         },
         "components": {
           "securitySchemes": {
-            "{FILL_SECURITY_SCHEME_NAME}": {    // apiSpecifications.security[n]
-              "in": "{FILL_*}",  
-              "type": "{FILL_*}",
-              "name": "{FILL_*}"
+            "<FILL_SECURITY_SCHEME_NAME>": {    // apiSpecifications.security[n]
+              "in": "<FILL_*>",  
+              "type": "<FILL_*>",
+              "name": "<FILL_*>"
             }
           }
         },
         "security": [
           {
-            "{FILL_SECURITY_SCHEME_NAME}": []   // environment.securitySchemes
+            "<FILL_SECURITY_SCHEME_NAME>": []   // environment.securitySchemes
           }                                     // AND apiSpecifications.components.securitySchemes
         ]
       },
       "endpoints": [
         {
-          "name": "{FILL_ENDPOINT_NAME}",       // triggers.request[n].endpointName
+          "name": "<FILL_ENDPOINT_NAME>",       // triggers.request[n].endpointName
           "operation": {
-            "method": "{FILL_METHOD}",
-            "path": "{FILL_PATH}"
+            "method": "<FILL_METHOD>",
+            "path": "<FILL_PATH>"
           },
           "fixedOperationParameters": [
             {
               "operationParameter": {                        
-                "in": "{FILL_OPERATION_PARAMETER_1_IN}",    
-                "name": "{FILL_OPERATION_PARAMETER_1_NAME}"
+                "in": "<FILL_OPERATION_PARAMETER_1_IN>",    
+                "name": "<FILL_OPERATION_PARAMETER_1_NAME>"
               },
-              "value": "{FILL_*}"
+              "value": "<FILL_*>"
             }
           ],
           "reservedParameters": [
             {
-              "name": "{FILL_*}",
-              "fixed": "{FILL_*}"
+              "name": "<FILL_*>",
+              "fixed": "<FILL_*>"
             },
             {
-              "name": "{FILL_*}",
-              "fixed": "{FILL_*}"
+              "name": "<FILL_*>",
+              "fixed": "<FILL_*>"
             },
             {
-              "name": "{FILL_*}",
-              "default": "{FILL_*}"
+              "name": "<FILL_*>",
+              "default": "<FILL_*>"
             },
             {
-              "name": "{FILL_*}"
+              "name": "<FILL_*>"
             }
           ],
           "parameters": [
             {
-              "name": "{FILL_*}",
-              "default": "{FILL_*}",
+              "name": "<FILL_*>",
+              "default": "<FILL_*>",
               "operationParameter": {
-                "in": "{FILL_OPERATION_PARAMETER_2_IN}",
-                "name": "{FILL_OPERATION_PARAMETER_2_NAME}"
+                "in": "<FILL_OPERATION_PARAMETER_2_IN>",
+                "name": "<FILL_OPERATION_PARAMETER_2_NAME>"
               }
             }
           ]
@@ -94,9 +94,9 @@
   "triggers": {
     "request": [
       {
-        "endpointId": "{FILL_*}",              
-        "oisTitle": "{FILL_OIS_TITLE}",        // ois[n].title
-        "endpointName": "{FILL_ENDPOINT_NAME}" // ois[n].apiSpecifications.endpoints[n].name
+        "endpointId": "<FILL_*>",              
+        "oisTitle": "<FILL_OIS_TITLE>",        // ois[n].title
+        "endpointName": "<FILL_ENDPOINT_NAME>" // ois[n].apiSpecifications.endpoints[n].name
       }
     ]
   },
@@ -105,39 +105,39 @@
     "logFormat": "plain",
     "logLevel": "INFO",
     "nodeVersion": "0.1.0",
-    "region": "{FILL_*}",
-    "stage": "{FILL_*}"
+    "region": "<FILL_*>",
+    "stage": "<FILL_*>"
   },
   "chains": [
     {
-      "airnodeAdmin": "{FILL_*}",
+      "airnodeAdmin": "<FILL_*>",
       "authorizers": [
-        "{FILL_*}"
+        "<FILL_*>"
       ],
       "contracts": {
-        "AirnodeRrp": "{FILL_*}"
+        "AirnodeRrp": "<FILL_*>"
       },
-      "id": "{FILL_CHAIN_ID_1}",               // environment.chainProviders[n].chainId
+      "id": "<FILL_CHAIN_ID_1>",               // environment.chainProviders[n].chainId
       "providerNames": [
-        "{FILL_PROVIDER_NAME_1}"               // environment.chainProviders[n].name
+        "<FILL_PROVIDER_NAME_1>"               // environment.chainProviders[n].name
       ],
-      "type": "{FILL_CHAIN_TYPE_1}"            // environment.chainProviders[n].chainType
+      "type": "<FILL_CHAIN_TYPE_1>"            // environment.chainProviders[n].chainType
     }
   ],
   "environment": {
     "chainProviders": [
       {
-        "chainType": "{FILL_CHAIN_TYPE_1}",    // chains[n].type
-        "chainId": "{FILL_CHAIN_ID_1}",        // chains[n].id
-        "name": "{FILL_PROVIDER_NAME_1}",      // chains[n].providerNames[n]
-        "envName": "{FILL_*}"
+        "chainType": "<FILL_CHAIN_TYPE_1>",    // chains[n].type
+        "chainId": "<FILL_CHAIN_ID_1>",        // chains[n].id
+        "name": "<FILL_PROVIDER_NAME_1>",      // chains[n].providerNames[n]
+        "envName": "<FILL_*>"
       }
     ],
     "securitySchemes": [
       {
-        "oisTitle": "{FILL_OIS_TITLE}",        // ois[n].title
-        "name": "{FILL_SECURITY_SCHEME_NAME}", // ois[n].apiSpecifications.security[n]
-        "envName": "{FILL_*}"
+        "oisTitle": "<FILL_OIS_TITLE>",        // ois[n].title
+        "name": "<FILL_SECURITY_SCHEME_NAME>", // ois[n].apiSpecifications.security[n]
+        "envName": "<FILL_*>"
       }
     ]
   }

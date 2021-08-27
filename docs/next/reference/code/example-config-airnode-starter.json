@@ -152,14 +152,14 @@
         "providers": [
           {
             "name": "my-provider",
-            "url": "{FILL_PROVIDER_URL}"
+            "url": "<FILL_PROVIDER_URL>"
           }
         ],
         "contracts": {
           "Airnode": "0xF8d32C3e53F7DA6e7CB82323f2cAB2159776b832",
           "Convenience": "0x1552cF617711D6Da04E0EDC9e5C26eBbA08625ac"
         },
-        "airnodeAdminForRecordCreation": "{FILL_PROVIDER_ADMIN}"
+        "airnodeAdminForRecordCreation": "<FILL_PROVIDER_ADMIN>"
       }
     ]
   }

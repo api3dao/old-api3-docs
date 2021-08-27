@@ -270,15 +270,15 @@ You can create a securityScheme by copying the code above or using the template 
 ```json
 "components": {
   "securitySchemes": {
-    "{FILL_SECURITY_SCHEME_NAME}": {
-      "in": "{FILL_*}",
-      "type": "{FILL_*}",
-      "name": "{FILL_*}"
+    "<FILL_SECURITY_SCHEME_NAME>": {
+      "in": "<FILL_*>",
+      "type": "<FILL_*>",
+      "name": "<FILL_*>"
     }
   }
 },
 "security": {
-  "{FILL_SECURITY_SCHEME_NAME}": []
+  "<FILL_SECURITY_SCHEME_NAME>": []
 }
 ```
 1. First, name the security scheme by replacing `{FILL_SECURITY_SCHEME_NAME}` under `apiSpecifications.components.securitySchemes`. Note that you will also need to use the same name under `apiSpecifications.security`. Make sure to choose a descriptive name, such as `myApiKeyScheme`. This name will also be referred in the [secrets.env](../../../reference/deployment-files/secrets-env.md) file in a later step.
