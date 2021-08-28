@@ -17,7 +17,7 @@
   .slot{
     border-left:red 5px solid;
     color:red;
-    margin-left:-32px;
+
     padding-left:5px;
     font-size:small;
   }
