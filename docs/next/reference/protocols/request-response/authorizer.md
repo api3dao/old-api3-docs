@@ -7,6 +7,8 @@ title: Authorizer
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
+<Fix>This doc has needs a dev update since the entire auth/whitelist contracts have changed.</Fix>
+
 An authorizer is a contract with the following interface:
 
 ```solidity

@@ -7,20 +7,21 @@ title: Airnode
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Use Airnode to serve one or more APIs to smart contracts (clients). Each Airnode has only one private key, which they use across all chains.
+Use Airnode to serve one or more APIs to smart contracts (requesters). Each Airnode has only one private key, which they use across all chains.
 
 ## `airnodeId`
 
-Airnodes are identified by their `airnodeId`, which is of type `bytes32`. An Airnode's `airnodeId` is derived from its owner's private key, and there is a one-to-one mapping between the two. Since the Airnode uses the same private key across all chains, they will have the same `airnodeId` across all chains.
+<Fix>The following paragraph needs review and should be expanded.</Fix>
+Airnodes are identified by their `airnodeId`, which is the default BIP 44 wallet derived from the seed of the respective Airnode (with the path m/44'/60'/0'/0/0). An Airnode will have the same `airnodeId` across all chains.
 
 - To derive `airnodeId` in Solidity:
-
+    <FixInline>Check this code.</FixInline>
     ```solidity
     airnodeId = keccak256(abi.encode(masterWalletAddress));
     ```
 
 - To derive `airnodeId ` in JS (using ethers.js):
-
+    <FixInline>Check this code.</FixInline>
     ```js
     airnodeId = ethers.utils.keccak256(ethers.utils.defaultAbiCoder.encode(['address'], [masterWalletAddress]));
     ```
@@ -33,6 +34,8 @@ masterWalletAddress = masterHdNode.address;
 ```
 
 ## Creating an Airnode record
+
+<Fix>This section needs a dev to review.</Fix>
 
 Before being able to serve on a chain, an Airnode record must be created. To do this, the new Airnode owner's master wallet has to be used to call `setAirnodeParameters()` of `AirnodeParameterStore.sol`, where the contract assigns the corresponding `airnodeId` as follows:
 
