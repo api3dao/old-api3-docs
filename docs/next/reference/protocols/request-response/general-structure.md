@@ -1,5 +1,5 @@
 ---
-title: General structure
+title: General Structure
 ---
 
 # {{$frontmatter.title}}
@@ -14,79 +14,61 @@ An Airnode serving the request–response protocol listens for requests, makes t
 
 The request–response protocol is implemented as a single permissionless contract that all Airnodes interact with, which is named `AirnodeRrp.sol`. This base contract has the following inheritance tree that compartmentalizes the aspects of the protocol.
 
-  >  ![rrp-sol-diagram](./assets/rrp-sol-diagram.png)
-
-<!--
-```
-AirnodeRrp.sol
-└── Convenience.sol
-    ├── TemplateStore.sol
-    └── AirnodeParameterStore.sol
-        └── RequesterStore.sol
-```
--->
+  >  ![rrp-sol-diagram](../../../assets/images/RRP-protocol-contracts.png)
 
 ### AirnodeRrp.sol
 
-[AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/AirnodeRrp.sol)
+The [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/AirnodeRrp.sol) contract sits between a requester and the Airnode. It inherits from four additional contracts as illustrated in the diagram above.
 
-This contract sits between a client contract and the Airnode. It inherits from four additional contracts as illustrated in the diagram above.
-
-- Used by clients to make requests.
+- Used by requesters to make requests.
 - Used by Airnodes to fulfill requests.
 
-To use AirnodeRrp.sol a client contract must import AirnodeClient.sol.
+The [Admin](../../cli-commands.md) (`@api3/airnode-admin`) package is a CLI tool used to interact with `AirnodeRrp.sol` and perform administrative actions for the [concepts](general-structure.md#concepts) discussed below. See the [admin package](https://github.com/api3dao/airnode/tree/master/packages/admin) in GitHub.
 
-```
-import "@api3/airnode-protocol/contracts/AirnodeClient.sol";
-```
+To use AirnodeRrp.sol a requester must import AirnodeRrpClient.sol.
 
-### Convenience.sol
+`import "@api3/airnode-protocol/contracts/AirnodeRrpClient.sol";`
 
-[Convenience.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/Convenience.sol)
 
-This contract is used by Airnodes to make batch-calls to `AirnodeRrp.sol`. For example, instead of making a separate static call to retrieve each template, an Airnode can use `Convenience.sol` to retrieve multiple templates with a single static call. In addition, Airnodes use this contract to check if a request is authorized according to endpoint authorizers.
+### IAirnodeRrp.sol
 
-### TemplateStore.sol
+The [IAirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/interfaces/IAirnodeRrp.sol) contract <FixInline>Add summary, see the pre-alpha docs.</FixInline>
 
-[TemplateStore.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/TemplateStore.sol)
+- <FixInline>add bullet highlights</FixInline>
+- 
 
-- Used by requesters to store request templates.
-- Used by Airnodes to retrieve request templates.
+### AuthorizationUtils.sol
 
-### AirnodeParameterStore.sol
+The [AuthorizationUtils.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/AuthorizationUtils.sol) contract <FixInline>Add summary, see the pre-alpha docs.</FixInline>
 
-[AirnodeParameterStore.sol](https://github.com/api3dao/airnode/blob/pre-alpha/packages/protocol/contracts/ProviderStore.sol)
+- <FixInline>add bullet highlights</FixInline>
 
-- Used by an Airnode owner to manage parameter records.
-- Used by requesters to retrieve the extended public keys of an Airnode to derive their designated wallet addresses.
-- Used by requesters to request withdrawals from their designated wallets.
-- Used by Airnodes to fulfill withdrawal requests.
 
-### RequesterStore.sol
+### WithdrawalUtils.sol
 
-[RequesterStore.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/RequesterStore.sol)
+The [WithdrawalUtils.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/WithdrawalUtils.sol) contract <FixInline>Add summary, see the pre-alpha docs.</FixInline>
 
-- Used by requesters to create requester records.
-- Used by requesters to endorse clients, which allows clients to make requests that will be fulfilled by the requesters' designated wallets.
+- <FixInline>add bullet highlights</FixInline>
+
+
+### TemplateUtils.sol
+
+The [TemplateUtils.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/TemplateUtils.sol) contract <FixInline>Add summary, see the pre-alpha docs.</FixInline>
+
+- <FixInline>add bullet highlights</FixInline>
+- 
 
 ## Concepts
 
-::: tip
-Click the links below for the page of the specific concept. It is recommended to read these in their given order.
-:::
+The remainder of the Request-Response Protocol directory contains details about the concepts of the protocol. Click the links below (or in the sidebar navigator) for the page of the specific concept. It is recommended to read these in the given order.
+
 
 1. An [Airnode](airnode.md) serves one or more APIs to smart contracts.
 
-1. Each of the API operations that the Airnode serves is accessible over an [endpoint](endpoint.md).
-The Airnode sets [authorizers](authorizer.md) for these endpoints, which are contracts that implement authorization policies.
+1. Each of the API operations that the Airnode serves is accessible over an [endpoint](endpoint.md). The Airnode sets [authorizers](authorizer.md) for these endpoints, which are contracts that implement authorization policies.
 
-1. A [requester](requester.md) owns contracts that make requests to Airnodes. Each of these contracts is called a [client](client.md).
+1. A [sponsor](sponsor.md) owns contracts that make requests to Airnodes. Each of these contracts is called a [requester](requester.md).
 
-1. Each Airnode keeps a [designated wallet](designated-wallet.md) for each requester. The requester [endorses](endorsement.md) their clients allowing them to make requests that will be fulfilled by the requester's designated wallet.
+1. Each Airnode keeps a [sponsor wallet](sponsor-wallet.md) for each sponsor that creates one. The requester [sponsors](sponsor.md) their requesters allowing them to make requests that will be fulfilled by the sponsor's designated wallet.
 
 1. A requester can create a request [template](template.md), which is an on-chain record that they can refer to while making [requests](request.md).
-
-## @api3/airnode-admin
-
-[`@api3/airnode-admin`](https://github.com/api3dao/airnode/tree/master/packages/admin) is a package and a CLI tool used to interact with `AirnodeRrp.sol` and perform administrative actions for the concepts mentioned above.
