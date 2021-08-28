@@ -27,7 +27,7 @@ module.exports = [
         ],
       },*/
       {
-        title: 'Build and Deploy an Airnode', collapsable: true, 
+        title: 'Build an Airnode', collapsable: true, 
         children:[
           'grp-providers/guides/provider/api-integration',
           //'grp-providers/guides/provider/api-integration-orig',
@@ -162,7 +162,8 @@ module.exports = [
           'reference/protocols/request-response/endpoint',
           'reference/protocols/request-response/authorizer',
           'reference/protocols/request-response/requester',
-          'reference/protocols/request-response/client',
+          'reference/protocols/request-response/sponsor',
+          
           'reference/protocols/request-response/sponsor-wallet',
           'reference/protocols/request-response/endorsement',
           'reference/protocols/request-response/template',
