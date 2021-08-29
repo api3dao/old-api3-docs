@@ -41,13 +41,14 @@ module.exports = [
           
         ]
       },
-      {
+      'grp-providers/using-docker',
+      /*{
         title: 'Docker',
         children:[
           'grp-providers/guides/docker/client-image',
           'grp-providers/guides/docker/deployer-image'
         ]
-      },
+      },*/
       {
         title: 'Tutorial', collapsable: true,
         children: [
@@ -162,10 +163,9 @@ module.exports = [
           'reference/protocols/request-response/endpoint',
           'reference/protocols/request-response/authorizer',
           'reference/protocols/request-response/requester',
-          'reference/protocols/request-response/sponsor',
-          
           'reference/protocols/request-response/sponsor-wallet',
-          'reference/protocols/request-response/endorsement',
+          'reference/protocols/request-response/sponsor',
+          //'reference/protocols/request-response/endorsement',
           'reference/protocols/request-response/template',
           'reference/protocols/request-response/request'
         ],
