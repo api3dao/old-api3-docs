@@ -18,7 +18,8 @@ See [Deploying Airnode](../grp-providers/guides/provider/deploying-airnode.md) t
 
 ## Prerequisites
 * Install [Terraform >= v0.15.x](https://www.terraform.io/downloads.html) and make sure that the `terraform` binary is available in your `PATH`
-* Make sure your AWS credentials are stored in the [configuration file](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html#cli-configure-files-where) or exported as [environment variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html#envvars-set)
+* Make sure your AWS credentials are stored in the [configuration file](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html#cli-configure-files-where) or exported as [environment variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html#envvars-set). If you need help setting up an AWS IAM user you can follow [this video tutorial](https://www.youtube.com/watch?v=bT19B3IBWHE).
+
 
 ## Setup
 * Build all the Airnode packages
@@ -49,16 +50,16 @@ cp config/secrets.env.example config/secrets.env
 ## Commands
 ### deploy
 ```bash
-Deploys an Airnode instance using the `config.json` and `secrets.env` files. This can be used for a new deployment or to update an existing deployment.
+Deploys an Airnode instance using the `config.json` and `secrets.env` files. 
+This can be used for a new deployment or to update an existing deployment.
 
 Options:
-      --version                          Show version number                                                   [boolean]
-      --debug                            Run in debug mode                                    [boolean] [default: false]
-      --help                             Show help                                                             [boolean]
-  -c, --configuration, --config, --conf  Path to configuration file             [string] [default: "config/config.json"]
-  -s, --secrets                          Path to secrets file                   [string] [default: "config/secrets.env"]
-  -r, --receipt                          Output path for receipt file          [string] [default: "output/receipt.json"]
-      --interactive                      Run in interactive mode                               [boolean] [default: true]
+      --version                          Show version number          [boolean]
+      --debug                            Run in debug mode            [boolean] [default: false]
+      --help                             Show help                    [boolean]
+  -c, --configuration, --config, --conf  Path to configuration file   [string] [default: "config/config.json"]
+  -s, --secrets                          Path to secrets file         [string] [default: "config/secrets.env"]
+  -r, --receipt                          Output path for receipt file [string] [default: "output/receipt.json"]
 ```
 
 ### remove
@@ -66,12 +67,12 @@ Options:
 Removes a deployed Airnode instance
 
 Options:
-      --version         Show version number                                                                    [boolean]
-      --debug           Run in debug mode                                                     [boolean] [default: false]
-      --help            Show help                                                                              [boolean]
-  -r, --receipt         Path to receipt file                                                                    [string]
-  -a, --airnodeIdShort  Airnode ID (short version)                                                              [string]
-  -s, --stage           Stage (environment)                                                                     [string]
-  -c, --cloudProvider   Cloud provider                                                                          [string]
-  -e, --region          Region                                                                                  [string]
+      --version         Show version number           [boolean]
+      --debug           Run in debug mode             boolean] [default: false]
+      --help            Show help                     [boolean]
+  -r, --receipt         Path to receipt file          [string]
+  -a, --airnodeIdShort  Airnode ID (short version)    [string]
+  -s, --stage           Stage (environment)           [string]
+  -c, --cloudProvider   Cloud provider                [string]
+  -e, --region          Region                        [string]
 ```
