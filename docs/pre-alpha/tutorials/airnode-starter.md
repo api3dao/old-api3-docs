@@ -95,11 +95,10 @@ Normally, you would need to do two things before you deploy an Airnode:
 1. [Specify the API integration](https://api3dao.github.io/api3-docs/pre-alpha/guides/provider/api-integration.html)
 1. [Configure your Airnode](https://api3dao.github.io/api3-docs/pre-alpha/guides/provider/configuring-airnode.html)
 
-For this project, we specified a minimal integration to the popular and free [CoinGecko API](https://www.coingecko.com/en/api), and prepared the configuration files.
-We only integrated a single API operation, `GET` for `/coins/{id}`, which you can see below.
-The `localization`, `tickers`, `community_data`, `developer_data` and `sparkline` parameters are [fixed](../guides/provider/api-integration.md#fixedoperationparameters) as `"false"`, while `market_data` is fixed as `"true"`.
-The `id` parameter will be provided by the requester (e.g., `"ethereum"`) under the name `coinId`.
-You can make test calls over the [CoinGecko API docs](https://www.coingecko.com/en/api) to see the response format.
+<!-- markdown-link-check-disable -->
+<!-- The CoinGecko API docs have been returning a 503 but they are there. -->
+For this project, we specified a minimal integration to the popular and free [CoinGecko API](https://www.coingecko.com/en/api/documentation), and prepared the configuration files. We only integrated a single API operation, `GET` for `/coins/{id}`, which you can see below. The `localization`, `tickers`, `community_data`, `developer_data` and `sparkline` parameters are [fixed](../guides/provider/api-integration.md#fixedoperationparameters) as `"false"`, while `market_data` is fixed as `"true"`. The `id` parameter will be provided by the requester (e.g., `"ethereum"`) under the name `coinId`. You can make test calls over the [CoinGecko API docs](https://www.coingecko.com/en/api/documentation) to see the response format.
+<!-- markdown-link-check-enable -->
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/19530665/103151070-be14ea00-478b-11eb-9608-a967c4282d9f.png" width="1024" />
