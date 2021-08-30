@@ -163,9 +163,9 @@ module.exports = [
           'reference/protocols/request-response/endpoint',
           'reference/protocols/request-response/authorizer',
           'reference/protocols/request-response/requester',
-          'reference/protocols/request-response/sponsor-wallet',
           'reference/protocols/request-response/sponsor',
-          //'reference/protocols/request-response/endorsement',
+          'reference/protocols/request-response/sponsor-wallet',
+          'reference/protocols/request-response/sponsorship',
           'reference/protocols/request-response/template',
           'reference/protocols/request-response/request'
         ],
