@@ -7,12 +7,12 @@ title: Request
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3,4]" />
 
-When a client makes a request using `AirnodeRrp.sol`, it is returned a `requestId`. This `requestId` is a hash of all request parameters and a nonce. This allows Airnode to verify that the request parameters are not tampered with.
+When a requester makes a request using `AirnodeRrp.sol`, it is returned a `requestId`. This `requestId` is a hash of all request parameters and a nonce. This allows Airnode to verify that the request parameters are not tampered with.
 
 ## Request parameters
-
+<Fix>airnodeId > airnodeAddress? Is sponsorAddress correct here></Fix> 
 - `airnodeId` and `endpointId` specify the endpoint
-- `requesterIndex` and `designatedWallet` specify which wallet will be used to fulfill the request
+- `sponsorAddress` and `sponsorWallet` specify which wallet will be used to fulfill the request
 - `fulfillAddress` and `fulfillFunctionId` specify which function will be called to fulfill the request
 - `parameters` specify the API and [reserved](../../specifications/ois.md#_5-4-reservedparameters
 ) parameters (see [Airnode ABI specifications](../../specifications/airnode-abi-specifications.md) for how these are encoded)
@@ -20,22 +20,22 @@ When a client makes a request using `AirnodeRrp.sol`, it is returned a `requestI
 ## How templates are used in requests
 
 A template includes the following fields:
-
+<Fix>airnodeID? sponsorAddress?</Fix>
 ```solidity
 struct Template {
     bytes32 airnodeId;
     bytes32 endpointId;
-    uint256 requesterIndex;
-    address designatedWallet;
+    uint256 sponsorAddress;
+    address sponsorWallet;
     address fulfillAddress;
     bytes4 fulfillFunctionId;
     bytes parameters;
     }
 ```
 
-The client can refer to the `templateId` of a template while making the request, and the Airnode will fetch these and use them in the request. Among these, `requesterIndex`, `designatedWallet`, `fulfillAddress`, `fulfillFunctionId` can be overridden by parameters defined at request-time.
+The requester can refer to the `templateId` of a template while making the request, and the Airnode will fetch these and use them in the request. Among these, `sponsorAddress`, `sponsorWallet`, `fulfillAddress`, `fulfillFunctionId` can be overridden by parameters defined at request-time.
 
-When a template is used to make a request, both the parameters encoded in `parameters` of the template and `parameters` provided at request-time by the client will be used by the Airnode. In case the two include a parameter with the same name, the one provided at request-time will be used.
+When a template is used to make a request, both the parameters encoded in `parameters` of the template and `parameters` provided at request-time by the requester will be used by the Airnode. In case the two include a parameter with the same name, the one provided at request-time will be used.
 
 ## Request types
 
