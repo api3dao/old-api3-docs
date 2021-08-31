@@ -115,13 +115,14 @@ Since the `callTheAirnode` function is going to make a full request it must gath
 
 - **parameters**: Specify the API parameters and any [reserved parameters](../reference/specifications/reserved-parameters.md), these must be encoded. See [Airnode ABI specifications]() for how these are encoded.
 
+
+
+*More about parameters*
+
 <Fix>Not sure what to say about the encoding.</Fix>
+In most cases the parameters will be encoded off-chain and passed to the client contract. Most APIs will have some sort of security such as an apiKey which cannot be made public inside a client contract. Consider the following example which encodes the parameters off-chain before calling a client contract. This is done using  the [@api3/airnode-abi](https://github.com/api3dao/airnode/tree/master/packages/airnode-abi) library.
 
-    *More about parameters*
-
-    In most cases the parameters will be encoded off-chain and passed to the client contract. Most APIs will have some sort of security such as an apiKey which cannot be made public inside a client contract. Consider the following example which encodes the parameters off-chain before calling a client contract. This is done using  the [@api3/airnode-abi](https://github.com/api3dao/airnode/tree/master/packages/airnode-abi) library.
-
-    <h4 style="color:gray;margin-bottom:-12px">Off-chain parameter encoding using @api3/airnode-abi:</h4>
+<h4 style="color:gray;margin-bottom:-12px">Off-chain parameter encoding using @api3/airnode-abi:</h4>
 
     ```solidity
     import { encode } from '@api3/airnode-abi';
