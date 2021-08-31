@@ -1,5 +1,5 @@
 ---
-title: Sponsor wallet
+title: Sponsor Wallet
 ---
 
 # {{$frontmatter.title}}
@@ -7,14 +7,14 @@ title: Sponsor wallet
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Each [Airnode](Airnode.md) can keep a sponsor wallet for each [sponsor](requester.md) which is identified by a sponsorAddress/AirnodeAddress pair. [Requesters](requester.md) that have been  [sponsored](sponsorship.md) by a sponsor, can specify their requests be fulfilled by the  sponsor wallet belonging to the sponsor. This allows the sponsor to cover the gas cost of request fulfillments by the Airnode.
+Each [Airnode](Airnode.md) can keep a sponsor wallet for each [sponsor](requester.md) which is identified by a sponsorAddress/airnodeAddress pair. [Requesters](requester.md) that have been  [sponsored](sponsorship.md) by a sponsor, can specify their requests be fulfilled by the  sponsor wallets belonging to the sponsor. This allows the sponsor to cover the gas cost of request fulfillments by the Airnode.
 
 ## Deriving the address of the sponsor wallet
 
 Sponsors need to keep their sponsor wallet topped up if they want the Airnode to be able to fulfill requests made by their requesters. A sponsor can derive their sponsor wallet for a specific Airnode in JS (using ethers.js).
 
 
-<Fix>Does this code need any corrections.</Fix>
+<Fix>Does this code need any corrections. Why are we not using the admin package here?</Fix>
 ```js
 hdNode = ethers.utils.HDNode.fromExtendedKey(xpub);
 sponsorWalletNode = hdNode.derivePath(`m/0/${requesterIndex}`);
@@ -42,7 +42,7 @@ If the sponsor does not trust the Airnode at all, they can fund the sponsor wall
 
 ## Withdrawals
 
-<Fix>Does the mnemonic here have the sponsorAddress at m/44'/60'/0'/0/0 or a derivationPath must be used to tell the function which address to use?</Fix>
+<Fix>Where are the funds sent, to the sponsorAddress? Should we be using admin commands here or contract calls as other RRP files are doing?</Fix>
 
 If the sponsor decides not use a particular sponsor wallet any longer, they can make a request to withdraw funds from it, see the [`request-withdrawal`](../../cli-commands.md#request-withdrawal) command. The Airnode listens for withdrawal requests and fulfills them automatically. Therefore, the sponsor should be able to receive their funds from their sponsor wallet in a few minutes notice. The sponsor wallet does not get deleted, and can be used in the future simply by funding it again.
 
