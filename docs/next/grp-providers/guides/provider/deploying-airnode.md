@@ -7,7 +7,7 @@ title: Deploying Airnode
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-<Todo title="Airnode packages are morphing for 0.1.0">
+<Fix>
 As of 08-18-2021 the Airnode packages are still changing.
 
 To get the Airnode repo to build on a Mac there is a change.
@@ -33,7 +33,7 @@ Next make changes to `packages/deployer/src/handlers/aws/index.ts`
 
 After these changes there will be 2 warnings. Not sure of their impact.
 
-</Todo>
+</Fix>
 
 
 
@@ -78,11 +78,7 @@ Here is an [example file](../../../reference/templates/secrets-env.md) that is l
 
 ## Deployment
 
-<Todo>
-
-Deployment" needs to be updated when vrs 0.1.0 is ready. Not sure which Airnode repo branch to pull from.
-
-</Todo>
+<Fix>Deployment" needs to be updated when vrs 0.1.0 is ready. Not sure which Airnode repo branch to pull from.</Fix>
 
 Get the `config.json` and `security.json` files you have created while [configuring your Airnode](configuring-airnode.md), your `.env` file with your [cloud provider credentials](deploying-airnode.md#creating-cloud-credentials), and place these three files in the same directory.
 Then, in this same directory, run the following command.
