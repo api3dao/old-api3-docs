@@ -59,7 +59,7 @@ Note that since `msg.sender` is used to derive the `airnodeId`, no one but the A
 The Airnode parameters record creation is done automatically by Airnode. The Airnode owner only needs to fund their master wallet for it to be able to afford this transaction, and the master wallet will send the remaining funds to `airnodeAdmin` along with this transaction. The Airnode deployment displays instructions for how to do this, and the `masterWalletAddress` is included in the receipt that the deployer outputs for future reference.
 
 ## `airnodeAdmin`
-
+<Fix>airnodeAdmin is no longer needed></Fix>
 `airnodeAdmin` is an address that is authorized to update airnode-related properties (e.g., endpoint authorizers). Airnode sets a `airnodeAdmin` while creating the Airnode parameters record, and this is sourced from [config.json](../../deployment-files/config-json.md) under the name `airnodeAdmin`.
 
 `airnodeAdmin` can transfer its authority to another address. The master wallet can reclaim the authority by calling `setAirnodeParameters()` and setting `admin`.
