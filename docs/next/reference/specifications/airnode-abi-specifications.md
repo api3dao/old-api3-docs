@@ -69,7 +69,7 @@ If we wanted to encode the following API call parameters
 }
 ```
 
-we would to do this in our client contract as:
+we would to do this in our requester contract as:
 ```solidity
 bytes memory parameters = abi.encode(
     bytes32("1BSabiuBa"),

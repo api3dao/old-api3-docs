@@ -10,9 +10,10 @@ title: Airnode starter
 
 > A starter project for deploying an Airnode and making requests to it
 
-<Todo>
-<p>This doc is not usable at this time. Waiting on the updated dev README.md. This doc is out of sync with the flow of pre-alpha which probably has a better flow.</p>
-</Todo>
+<Fix>
+<p>This doc is not usable at this time. Waiting on the updated dev README.md. This doc is out of sync with the flow of pre-alpha which probably has a better flow.
+</p>
+</Fix>
 
 See the code [here](https://github.com/api3dao/airnode-starter/tree/pre-alpha)
 
@@ -170,42 +171,41 @@ Otherwise, it will use the `airnodeId` of the Airnode that we have deployed give
 Note that the `endpointId` will be the same either way because it is [derived from the OIS and endpoint name](https://api3dao.github.io/api3-docs/pre-alpha/protocols/request-response/endpoint.html#endpointid).
 
 ### Create a requester
-
-Run the following to create an on-chain [requester](https://api3dao.github.io/api3-docs/pre-alpha/protocols/request-response/requester.html) record:
+<Fix>This goes away.</Fix>
+~~Run the following to create an on-chain [requester](https://api3dao.github.io/api3-docs/pre-alpha/protocols/request-response/requester.html) record:~~
 ```sh
 npm run create-requester
 ```
 
-You can use this requester denoted with an index in other projects as well.
-Note that `requesterIndex` is chain-specific, so you will have to create another requester record on other chains.
+~~You can use this requester denoted with an index in other projects as well.
+Note that `requesterIndex` is chain-specific, so you will have to create another requester record on other chains.~~
 
-### Deploy the client contract
+### Deploy the requester contract
 
-Run the following to deploy `ExampleClient.sol`:
+Run the following to deploy `ExampleRequester.sol`:
 ```sh
-npm run deploy-client
+npm run deploy-requester
 ```
 
-### Endorse the client
+### Sponsor the requester
 
-Run the following to [endorse](https://api3dao.github.io/api3-docs/pre-alpha/protocols/request-response/endorsement.html) your deployed [client](https://api3dao.github.io/api3-docs/pre-alpha/protocols/request-response/client.html) contract using the requester you have created:
+Run the following to [sponsor](../../grp-developers/requesters-sponsors.md) your deployed [requester](../../grp-developers/requesters-sponsors.md) contract using the requester you have created:
 ```sh
-npm run endorse-client
+npm run sponsor-requester
 ```
 
-### Derive and fund the designated wallet
+### Derive and fund the sponsor wallet
 
-First run the following to derive the [designated wallet](https://api3dao.github.io/api3-docs/pre-alpha/protocols/request-response/designated-wallet.html) for the provider–requester pair:
+First run the following to derive the [sponsor wallet](../../reference/protocols/request-response/sponsor-wallet.md) for the provider–requester pair:
 ```sh
-npm run derive-designated-wallet-address
+npm run derive-sponsor-wallet-address
 ```
-and then fund this designated wallet with 0.1 ETH:
+and then fund this sponsor wallet with 0.1 ETH:
 ```sh
-npm run fund-designated-wallet
+npm run fund-sponsor-wallet
 ```
 
-The requests that the client contract will make will be funded by this 0.1 ETH.
-Note that you may have to run `fund-designated-wallet` again if you make too many requests and use up this 0.1 ETH (very unlikely).
+The requests that the requester contract will make will be funded by this 0.1 ETH. Note that you may have to run `fund-sponsor-wallet` again if you make too many requests and use up this 0.1 ETH (very unlikely).
 
 ### Make a request
 
@@ -221,18 +221,17 @@ You can see the API docs to find out which coin IDs are supported.
 
 ## Conclusion
 
-You deployed an Airnode, made a request to it and received the response at the contract.
-If you want to learn more, see the following resources:
+You deployed an Airnode, made a request to it and received the response at the requester contract. If you want to learn more, see the following resources:
 
 - [API3 whitepaper](https://github.com/api3dao/api3-whitepaper) will give you a broad overview of the project
 - [Blog (Medium) posts](../../blog-posts.md) are a more digestible version of the whitepaper
 - [@api3/airnode-admin](https://github.com/api3dao/airnode/tree/pre-alpha/packages/admin) lets you interact with the Airnode contract (to create a request, endorse a client, etc.) using a CLI tool
-- [Airnode client examples](https://github.com/api3dao/airnode-client-examples/tree/pre-alpha) demonstrate different request patterns that the Airnode protocol supports (for example, we used a full request in this starter project)
+<Fix>Need new URL to requester examples.</Fix>
+- [Airnode requester examples](https://github.com/api3dao/airnode-client-examples/tree/pre-alpha) demonstrate different request patterns that the Airnode protocol supports (for example, we used a full request in this starter project)
 
-## Taking down your Airnode
+## Remove the Airnode
 
-It is very unlikely for you to forget to take down your Airnode because it is designed to be *set-and-forget*.
-When you are done with this project, go to `config/` as your working directory and use the command below where `$RECEIPT_FILENAME` is replaced with the name of your receipt file ending with `.receipt.json` (you can refer to our [Docker instructions](https://github.com/api3dao/airnode/blob/pre-alpha/Docker.md) for more information)
+When you are done with the airnode starter project, set `config/` as the working directory and use the command below where `$RECEIPT_FILENAME` is replaced with the name of your receipt file ending with `.receipt.json`. See [Using Docker](../using-docker.md) for more information) or [Deployer CLI Commands](../../reference/deployer-commands.md) for more information on hte deployer.
 
 ```sh
 docker run -it --rm \
