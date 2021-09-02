@@ -76,8 +76,10 @@ _airnode_designated_wallet: '0x1c5b7e13fe3977a384397b17b060Ec96Ea322dEc',
 _airnode_endpoint_id: '0xeddc421714e1b46ef350e8ecf380bd0b38a40ce1a534e7ecdf4db7dbc9319353',
 _airnode_requester_index: 10,
 _airnode_request_id: '0xd1984b7f40c4b5484b756360f56a41cb7ee164d8acd0e0f18f7a0bbf5a353e65',
-_airnode_chain_id: '31337',
-_airnode_chain_type: 'evm',
-_airnode_airnode_rrp: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
+_airnode_chain_id: 'N/A',
+_airnode_chain_type: 'N/A',
+_airnode_airnode_rrp: 'N/A',
 ```
 Available values: `v1`
+
+Note that requests events emitted by [Airnode.sol](../../protocols/request-response/general-structure.md#airnodesol) do not include the chain id, therefore we cannot map chain information of each request with data configured for each provider in [config.json](../../airnode/specifications/config-json.md#nodesettingschains). That is why `_airnode_chain_id`, `_airnode_chain_type` and `_airnode_airnode_rrp` are set to `"N/A"` by default.
