@@ -90,7 +90,7 @@ npx @api3/airnode-admin set-requester-admin \
 
 ### `derive-sponsor-wallet`
 
-Derives the address of the [wallet designated by an Airnode for a sponsor](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/sponsor-wallet.md).
+Derives the address of the [sponsor wallet](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/sponsor-wallet.md) by an Airnode for a sponsor.
 
 ```sh
 npx @api3/airnode-admin derive-sponsor-wallet \
@@ -156,7 +156,7 @@ npx @api3/airnode-admin get-template \
 
 ### `request-withdrawal`
 
-Requests a [withdrawal](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/sponsor-wallet.md#withdrawals) from the wallet designated by an Airnode for a sponsor, and returns the request ID. The account derived from the `mnemonic` you provide here has to belong to the sponsor.
+Requests a [withdrawal](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/sponsor-wallet.md#withdrawals) from the sponsor wallet managed by an Airnode, and returns the request ID. The account derived from the `mnemonic` you provide here has to belong to the sponsor.
 
 ```sh
 npx @api3/airnode-admin request-withdrawal \

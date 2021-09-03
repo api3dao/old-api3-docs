@@ -69,6 +69,6 @@ The remainder of the Request-Response Protocol directory contains details about 
 
 1. A [sponsor](sponsor.md) owns contracts that make requests to Airnodes. Each of these contracts is called a [requester](requester.md).
 
-1. Each Airnode keeps a [sponsor wallet](sponsor-wallet.md) for each sponsor that creates one. The requester [sponsors](sponsor.md) their requesters allowing them to make requests that will be fulfilled by the sponsor's designated wallet.
+1. Each Airnode keeps a [sponsor wallet](sponsor-wallet.md) for each sponsor that creates one. The sponsor [sponsors](sponsor.md) their requesters allowing them to make requests that will be fulfilled by the sponsor's sponsor wallet.
 
 1. A requester can create a request [template](template.md), which is an on-chain record that they can refer to while making [requests](request.md).

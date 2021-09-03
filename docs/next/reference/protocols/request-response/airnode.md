@@ -66,7 +66,7 @@ The Airnode parameters record creation is done automatically by Airnode. The Air
 
 ## `xpub`
 
-The Airnode owner announces their extended public key (`xpub`) as stored in `AirnodeParameterStore.sol` for requesters to be able to derive their designated wallets. The `xpub` that the owner has announced is not verified on-chain. However, the requester can verify it off-chain. For example, in JS (using ethers.js):
+The Airnode owner announces their extended public key (`xpub`) as stored in `AirnodeParameterStore.sol` for sponsors to be able to derive their sponsor wallets. The `xpub` that the owner has announced is not verified on-chain. However, the sponsor can verify it off-chain. For example, in JS (using ethers.js):
 
 ```js
 hdNode = ethers.utils.HDNode.fromExtendedKey(xpub);
@@ -75,7 +75,7 @@ airnodeIdDerivedFromXpub = keccak256(abi.encode(masterNode.address));
 assert(airnodeIdDerivedFromXpub === airnodeId);
 ```
 
-See the [section about designated wallets](designated-wallet.md) to see how requesters can use `xpub` to derive their designated wallets.
+See the [section about sponsor wallets](sponsor-wallet.md) to see how sponsors can use `xpub` to derive their sponsor wallets.
 
 ## Setting endpoint authorizers
 

@@ -7,7 +7,7 @@ title: config.json
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2, 3]" />
 
-The `config.json` defines a single Airnode deployment. The deployment will have an [`airnodeId`](../protocols/request-response/airnode.md#airnodeid), master private key and a  [designated wallet](../protocols/request-response/designated-wallet.md), etc.).
+The `config.json` defines a single Airnode deployment. The deployment will have an [`airnodeId`](../protocols/request-response/airnode.md#airnodeid), master private key and a  [sponsor wallet](../protocols/request-response/sponsor-wallet.md), etc.).
 
 The file contents will be in the format show below as a single JSON object
 
