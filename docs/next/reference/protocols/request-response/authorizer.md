@@ -51,7 +51,7 @@ An authorizer typically checks for a single condition ("has the requester made t
 
 ## Default behavior: Let everyone through
 
-An authorizer list of `[]` means "let everyone through". If the Airnode wants to deny all access on a chain, it should not operate on it (i.e., not have it in the `chains` list of its `config.json`). If the Airnode wants to give access selective acess, it should use an authorizer that implements that logic.
+An authorizer list of `[]` means "let everyone through". If the Airnode wants to deny all access on a chain, it should not operate on it (i.e., not have it in the `chains` list of its `config.json`). If the Airnode wants to give access selectively, it should use an authorizer that implements that logic.
 
 ## API-side authorization
 
