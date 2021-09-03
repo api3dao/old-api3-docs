@@ -7,28 +7,19 @@ title: Authorizer
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-<Fix>This doc has needs a dev update since the entire auth/whitelist contracts have changed.</Fix>
-
 An authorizer is a contract with the following interface:
 
 ```solidity
-interface IAuthorizer {
-    function authorizerType()
-        external
-        view
-        returns (uint256);
+interface IRrpAuthorizer {
+    function AUTHORIZER_TYPE() external view returns (uint256);
 
     function isAuthorized(
         bytes32 requestId,
-        bytes32 airnodeId,
+        address airnode,
         bytes32 endpointId,
-        uint256 requesterIndex,
-        address designatedWallet,
-        address clientAddress
-        )
-        external
-        view
-        returns (bool);
+        address sponsor,
+        address requester
+    ) external view returns (bool);
 }
 ```
 
@@ -52,33 +43,23 @@ There are two main points to consider about how authorization policies are imple
 1. If the policies are kept off-chain, the requester cannot see them or check if they satisfy them. Furthermore, the Airnode owner updating the policies (e.g., increasing the service fees) requires off-chain coordination with the requester.
 2. Embedding the policies in the request–response loop results in a gas cost overhead.
 
-Based on these considerations, Airnode uses a hybrid method. An Airnode announces its policy for a specific endpoint on-chain by setting a list of authorizers. Whenever the Airnode receives a request, it checks if it should fulfill this request by making a static call that queries this on-chain policy. Similarly, the requester can use this on-chain policy by making a static call to check if they are authorized. This scheme both allows the Airnode to set transparent and flexible policies, and this to be done with no gas overhead.
+Based on these considerations, Airnode uses a hybrid method. An Airnode announces its authorization policy through off-chain channels as the addresses of a list of authorizer contracts. Whenever the Airnode receives a request, it checks if it should fulfill this request by making a static call that queries this on-chain policy. Similarly, the requester can use this on-chain policy by making a static call to check if they are authorized. This scheme both allows the Airnode to set transparent and flexible policies, and this to be done with no gas overhead.
 
 ## Authorizer list
 
-An authorizer typically checks for a single condition ("has the sponsor made their monthly payment", "is this requester address whitelisted", etc.). Authorizers can be combined to enforce more complex policies.
+An authorizer typically checks for a single condition ("has the requester made their monthly payment", "is this client address whitelisted", etc.). Authorizers can be combined to enforce more complex policies. If any of the authorizers in the list gives access, the request will considered to be authorized. From a logical standpoint, the authorization outcomes get `OR`ed.
 
-Say we have authorizer contracts X, Y, Z, T, and the authorizer list is as follows.
+## Default behavior: Let everyone through
 
-```js
-[X, Y, 0, Z, T]
-```
+An authorizer list of `[]` means "let everyone through". If the Airnode wants to deny all access on a chain, it should not operate on it (i.e., not have it in the `chains` list of its `config.json`). If the Airnode wants to give access selectively, it should use an authorizer that implements that logic.
 
-This means that the following must be satisfied for the request to be considered authorized.
+## API-side authorization
 
-```js
-(X AND Y) OR (Z AND T)
-```
+Sometimes the Airnode operator does not want to use on-chain authorizers for reasons such as:
+- the parameter that authorization depends on (e.g., if the requester has paid) should not be made public
+- the Airnode operator does not want to interact with the chain to alter authorization statuses (e.g., does not want to make a transaction to whitelist a new user, which will cost them gas fees)
 
-In other words, consequent authorizer contracts need to verify authorization simultaneously, while `0` represents the start of an independent authorization policy.
-
-From a logical standpoint, consequent authorizers get `AND`ed while `0` acts as an `OR` gate, providing great flexibility in forming a policy out of simple building blocks. We could also define a `NOT` gate here to achieve a full set of universal logic gates, but this not very useful in this context because authorizers tend to check for positive conditions ("have paid", "is whitelisted", etc.) and we generally would not need policies that require these to be false. Note that authorizer lists with multiple elements should not start or end with `0`, and `0`s should not be used consecutively, e.g., `[X, Y, 0, 0, Z, T]`.
-
-It should also be noted that one can implement a single proxy authorizer that does all the required checks.
-
-## Default behavior: Deny all access
-
-An authorizer list of `[]` means "deny everyone", `[0]` means "let everyone through". The authorizers of an endpoint will be `[]` by default, and will deny access to everyone as a safety measure. Therefore, an Airnode cannot serve an endpoint without updating its authorizers first.
+In this case, the Airnode operator can use the `_relay_metadata` parameter for the Airnode to pass-through request metadata, which the API backend can process and respond (or not) accordingly.
 
 ## Authorizer examples
 
