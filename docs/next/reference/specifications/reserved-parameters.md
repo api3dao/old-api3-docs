@@ -7,26 +7,20 @@ title: Reserved parameters
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-A requester can pass request parameters either by referencing a [template](../protocols/request-response/template.md) that contains them, or as an argument of the request-making methods of [Airnode.sol](../protocols/request-response/general-structure.md#airnoderrp-sol).
-In either case, these parameters are encoded in a `bytes`-type variable using [Airnode ABI](airnode-abi-specifications.md).
-There are two types of parameters:
+A requester can pass request parameters either by referencing a [template](../protocols/request-response/template.md) that contains them, or as an argument of the request-making methods of [Airnode.sol](../protocols/request-response/general-structure.md#airnoderrp-sol).In either case, these parameters are encoded in a `bytes`-type variable using [Airnode ABI](airnode-abi-specifications.md). There are two types of parameters:
 
 1. [Endpoint parameters](ois.md#_5-5-parameters) mapped to API operation parameters
 2. [Reserved parameters](ois.md#_5-4-reservedparameters)
 
-Reserved parameters signal to the provider to perform a specific operation while fulfilling the request.
-Reserved parameter names start with `_`.
+Reserved parameters signal to the provider to perform a specific operation while fulfilling the request. Reserved parameter names start with `_`.
 
 ## `_type`
 
-Can be `int256`, `bool`, or `bytes32`.
-Signifies what Solidity type the API response will be typecast to before fulfillment.
-See the [conversion behavior docs](https://github.com/api3dao/airnode/tree/pre-alpha/packages/adapter#conversion-behaviour) for details.
+Can be `int256`, `bool`, or `bytes32`. Signifies what Solidity type the API response will be typecast to before fulfillment. See the [conversion behavior docs](https://github.com/api3dao/airnode/tree/pre-alpha/packages/adapter#conversion-behaviour) for details.
 
 ## `_path`
 
-Assuming that the API response will be a JSON object, defines the field to be used to fulfill the request using dot notation.
-For example, if the API returns
+Assuming that the API response will be a JSON object, defines the field to be used to fulfill the request using dot notation. For example, if the API returns
 ```
 {
   "field1": {
@@ -47,8 +41,8 @@ If the response is a literal value (i.e., not a JSON object) and `_path` is not 
 
 ## `_times`
 
-If `_type` is `int256` and a `_times` parameter is provided, Airnode multiplies the value returned by the API with the `_times` parameter before fulfilling the request.
-For example, if the API returns:
+If `_type` is `int256` and a `_times` parameter is provided, Airnode multiplies the value returned by the API with the `_times` parameter before fulfilling the request. For example, if the API returns:
+
 ```
 {
   "data": "1.238",
@@ -56,11 +50,13 @@ For example, if the API returns:
 }
 ```
 and the reserved parameters are
+
 ```
 _type: int256
 _path: data
 _times: 100
 ```
+
 the request will be fulfilled with the value `123`.
 Note that the number gets multiplied by `100`, and then gets floored.
 
@@ -69,7 +65,7 @@ Note that the number gets multiplied by `100`, and then gets floored.
 By setting this reserved parameter to a specific version string then Airnode will attach its metadata as request parameters before performing the API call.
 
 For example `v1` will add the following request parameters with their corresponding values:
-<Fix>Code below references client and other outdated key names.</Fix>
+<Fix>Code below references client and other outdated field names.</Fix>
 ```
 _airnode_airnode_id: '0x19255a4ec31e89cea54d1f125db7536e874ab4a96b4d4f6438668b6bb10a6adb',
 _airnode_client_address: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',

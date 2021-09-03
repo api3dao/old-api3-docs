@@ -52,9 +52,9 @@ Note the constructor parameter `airnodeAddress` which is the public address of t
 
 There are three types of requests provided by the AirnodeRrp.sol contract. See [Request Types](../reference/protocols/request-response/request.md#request-types) in the Reference section for information related to each request type. 
 
-This example will use a [full request](../reference/protocols/request-response/request.md#_3-full-request) type (note the `airnode.makeFullRequest` function call in the code below) which is called from the client contract's own function `callTheAirnode`. The function `makeFullRequest` requires the client contract pass all parameters needed by Airnode to call its underlying API.
+This example will use a [full request](../reference/protocols/request-response/request.md#_3-full-request) type (note the `airnode.makeFullRequest` function call in the code below) which is called from the requester's own function `callTheAirnode`. The function `makeFullRequest` requires that the requester pass all parameters needed by Airnode to call its underlying API.
 
-Once the request has been made to `airnode.makeFullRequest` the AirnodeRrp.sol contract will return a `requestId` confirming the request has been accepted and is in process of being executed. Your contract would most likely wish to track all requestIds. Note the line `incomingFulfillments[requestId] = true;` in the code below that stores the requestIds in a mapping. This will be useful when the Airnode responds to the request later at the function (`airnodeCallback`) with the requestId, statusCode and the data requested.
+Once the request has been made to `airnode.makeFullRequest` the AirnodeRrp.sol contract will return a `requestId` confirming the request has been accepted and is in process of being executed. Your requester would most likely wish to track all requestIds. Note the line `incomingFulfillments[requestId] = true;` in the code below that stores the requestIds in a mapping. This will be useful when the Airnode responds to the requester later at the function (`airnodeCallback`) with the requestId, statusCode and the data requested.
 
 ```solidity
 import "@api3/airnode-protocol/contracts/AirnodeRrpClient.sol";
@@ -111,7 +111,7 @@ Since the `callTheAirnode` function is going to make a full request it must gath
 
 - **requesterIndex** and **designatedWallet**: The [requesterIndex](../grp-developers/sponsorship.md#part-1-create-a-requester-record) from the requester's record and the [designated wallet](sponsorship.md#part-3-funding-airnodes) that the requester received when endorsing the Airnode being called. The designated wallet must belong to the requesterId.
   
-- **fulfillAddress** and **fulfillFunctionId**: The public address of your client contract and its function that will be called when the request is returned.
+- **fulfillAddress** and **fulfillFunctionId**: The public address of your requester contract and its function that will be called when the request is returned.
 
 - **parameters**: Specify the API parameters and any [reserved parameters](../reference/specifications/reserved-parameters.md), these must be encoded. See [Airnode ABI specifications]() for how these are encoded.
 
@@ -120,7 +120,7 @@ Since the `callTheAirnode` function is going to make a full request it must gath
 *More about parameters*
 
 <Fix>Not sure what to say about the encoding.</Fix>
-In most cases the parameters will be encoded off-chain and passed to the client contract. Most APIs will have some sort of security such as an apiKey which cannot be made public inside a client contract. Consider the following example which encodes the parameters off-chain before calling a client contract. This is done using  the [@api3/airnode-abi](https://github.com/api3dao/airnode/tree/master/packages/airnode-abi) library.
+In most cases the parameters will be encoded off-chain and passed to the requester. Most APIs will have some sort of security such as an apiKey which cannot be made public inside a requester. Consider the following example which encodes the parameters off-chain before executing a requester. This is done using  the [@api3/airnode-abi](https://github.com/api3dao/airnode/tree/master/packages/airnode-abi) library.
 
 <h4 style="color:gray;margin-bottom:-12px">Off-chain parameter encoding using @api3/airnode-abi:</h4>
 
@@ -141,9 +141,9 @@ For additional information on request parameters when calling `airnode.makeFullR
 
 ## Step #3: Capture the Response
 
-The request you made has been queued in the AirnodeRrp.sol contract. The off-chain Airnode you specified runs a continuous cycle and gathers its requests from AirnodeRrp.sol. All off-chain Airnodes gather, on a regular cycle, requests assigned to them from AirnodeRrp.sol.
+The request you made has been queued in the AirnodeRrp.sol contract. The off-chain Airnode you specified runs a continuous cycle and gathers its requests from AirnodeRrp.sol. 
 
-As soon as the Airnode gets a request it will gather the data and start an on-chain transaction responding to the request. The Airnode calls the AirnodeRrp.sol contract function `fulfiil()` which in turn will call the client contract, in this case, at `airnodeCallback`. Recall the request supplied the client contract address and the desired callback function which the AirnodeRrp.sol contract stored with the requestId for the purpose of the callback.
+As soon as the Airnode gets a request it will gather the data and start an on-chain transaction responding to the request. The Airnode calls the AirnodeRrp.sol contract function `fulfiil()` which in turn will call the requester, in this case, at `airnodeCallback`. Recall the request supplied the request contract address and the desired callback function which the AirnodeRrp.sol protocol contract stored with the requestId for the purpose of the callback.
 
 <Fix>Does the code below need to `import { decode } from '@api3/airnode-abi';`.</Fix> 
 <Fix>And change decode to `int256 decodedData = decode(data, (int256));`.</Fix>
@@ -189,7 +189,7 @@ contract MyContract is AirnodeRrpClient {
 
 ### Response Parameters
 
-The callback to a client contract will contain three parameters.
+The callback to a requester will contain three parameters.
 
 - **requestId**: First acquired when making the request and passed here as a reference to identify which request the response is for.
 - **statusCode**: A statusCode of `0` indicates a successful response and a `non-0` statusCode an error. See [statusCode](../reference/protocols/request-response/request.md#statuscode) for a list of error statusCodes.
