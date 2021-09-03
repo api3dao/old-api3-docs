@@ -82,4 +82,7 @@ _airnode_airnode_rrp: 'N/A',
 ```
 Available values: `v1`
 
-Note that requests events emitted by [Airnode.sol](../../protocols/request-response/general-structure.md#airnodesol) do not include the chain id, therefore we cannot map chain information of each request with data configured for each provider in [config.json](../../airnode/specifications/config-json.md#nodesettingschains). That is why `_airnode_chain_id`, `_airnode_chain_type` and `_airnode_airnode_rrp` are set to `"N/A"` by default.
+Note that requests events emitted by the pre-alpha [Airnode.sol](../../protocols/request-response/general-structure.md#airnodesol) do not include the chain id.
+Therefore, we cannot map chain information of each request with data configured for each provider in [config.json](../../airnode/specifications/config-json.md#nodesettingschains).
+That is why `_airnode_chain_id`, `_airnode_chain_type` and `_airnode_airnode_rrp` are set to `"N/A"` by default.
+These fields will be populated in the future versions of the protocol
