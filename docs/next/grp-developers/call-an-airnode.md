@@ -69,19 +69,19 @@ contract MyContract is AirnodeRrpClient {
   {}
 
   function callTheAirnode(
-      bytes32 airnodeId,
+      bytes32 airnode,
       bytes32 endpointId,
-      uint256 requesterIndex,
-      address designatedWallet,
+      uint256 sponsor,
+      address sponsorWallet,
       bytes calldata parameters // Inbound API parameters which may already be ABI encoded
       )
       external
   {
       bytes32 requestId = airnode.makeFullRequest( // Make the Airnode request 
-          airnodeId,                      // airnodeId
+          airnode,                        // airnode
           endpointId,                     // endpointId
-          requesterIndex,                 // requesterIndex
-          designatedWallet,               // designatedWallet
+          sponsor,                        // sponsor's address
+          sponsorWallet,                  // sponsorWallet
           address(this),                  // fulfillAddress
           this.airnodeCallback.selector,  // fulfillFunctionId
           parameters                      // API parameters
@@ -107,9 +107,9 @@ A _full request_ using the AirnodeRrp.sol contract `makeFullRequest` function re
 
 Since the `callTheAirnode` function is going to make a full request it must gather the following parameters to pass on to `airnode.makeFullRequest`.
 
-- **airnodeId** and **endpointId**: As a pair these uniquely identify the endpoint desired at a particular Airnode.
+- **airnode** and **endpointId**: As a pair these uniquely identify the endpoint desired at a particular Airnode.
 
-- **requesterIndex** and **designatedWallet**: The [requesterIndex](../grp-developers/sponsorship.md#part-1-create-a-requester-record) from the requester's record and the [designated wallet](sponsorship.md#part-3-funding-airnodes) that the requester received when endorsing the Airnode being called. The designated wallet must belong to the requesterId.
+- **sponsor** and **sponsorWallet**: The [sponsor](requesters-sponsors.md#what-is-a-sponsor) address and the [sponsor wallet](requesters-sponsors.md#how-to-derive-a-sponsor-wallet) that the sponsor received when endorsing the Airnode being called.
   
 - **fulfillAddress** and **fulfillFunctionId**: The public address of your requester contract and its function that will be called when the request is returned.
 

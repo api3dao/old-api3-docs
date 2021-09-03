@@ -60,7 +60,7 @@ In the next two sections of this doc you will use two commands from the @api3/ai
 
 To use a particular Airnode you must derive a _sponsor wallet_. Once the sponsor wallet is created it must be funded using the public address returned by the command`derive-sponsor-wallet`. Each Airnode keeps a separate list of individual sponsor wallets that can access the Airnode. Learn more about [sponsor wallets](../reference/protocols/request-response/sponsor-wallet.md).
 
-To derive a sponsor wallet for an Airnode execute the `sponsor-designated-wallet` command using the parameters detailed in the list below. There are no transaction gas costs to do so.
+To derive a sponsor wallet for an Airnode execute the `sponsor-wallet` command using the parameters detailed in the list below. There are no transaction gas costs to do so.
 
 - `providerURL` a blockchain provider URL (such as Infura) with providerID for a desired network
 - `airnode` of address the desired Airnode
@@ -89,7 +89,7 @@ The command `derive-sponsor-wallet` will return the public address of the sponso
 
 <Fix>The return value below needs to be updated with the real McCoy.</Fix>
 
-> `Derived the address of the wallet designated for sponsor with address 0xF4...dDyu9 
+> `Derived the address of the wallet for sponsor with address 0xF4...dDyu9 
 >  by Airnode with address 0xe1...dF05s to be 0xa5...gS4E9`
 
 If you forget the public address of the sponsor wallet simply run derive-sponsor-wallet again. Since the wallet already exists for the airnodeAddress/sponsorAddress pair it will just return the address.

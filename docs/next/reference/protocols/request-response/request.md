@@ -43,7 +43,7 @@ There are multiple request types with respect to how they utilize templates:
 
 ### 1. Regular request
 
-A regular request refers to a template, yet provides its own `requesterIndex`, `designatedWallet`, `fulfillAddress`, `fulfillFunctionId` that will override the ones from the template.
+A regular request refers to a template, yet provides its own `sponsor`, `sponsorWallet`, `fulfillAddress`, `fulfillFunctionId` that will override the ones from the template.
 
 ### 2. Short request
 
@@ -113,7 +113,7 @@ Airnodes will return a `statusCode` when responding to a request. A non-0 status
   |3    |TemplateNotFound               |Blocked   |The API call template could not be loaded |
   |4    |TemplateParameterDecodingFailed|Errored   |The API call template contains invalid parameters |
   |5    |TemplateInvalid                |Ignored   |The API call template cannot be verified against the other fields |
-  |6    |DesignatedWalletInvalid        |Ignored   |The request's designated wallet differs from the expected designated wallet |
+  |6    |SponsorWalletInvalid        |Ignored   |The request's sponsor wallet differs from the expected sponsor wallet |
   |7    |AuthorizationNotFound          |Blocked   |The API call authorization status could not be loaded |
   |8    |Unauthorized                   |Errored   |The requester contract submitting the API call request is not authorized |
   |9    |PendingWithdrawal              |Ignored   |The request cannot be actioned while there is a pending withdrawal |

@@ -18,7 +18,7 @@ Sponsors need to keep their sponsor wallet topped up if they want the Airnode to
 ```js
 hdNode = ethers.utils.HDNode.fromExtendedKey(xpub);
 sponsorWalletNode = hdNode.derivePath(`m/0/${requesterIndex}`);
-sponsorWalletAddress = designatedWalletNode.address;
+sponsorWalletAddress = sponsorWalletNode.address;
 ```
 <Fix>Correction below needed based on the code above and changing airnodeId and requesterIndex. Some contract names may be incorrect.</Fix>
 
