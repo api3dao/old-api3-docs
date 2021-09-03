@@ -63,10 +63,9 @@ In this case, the Airnode operator can use the `_relay_metadata` parameter for t
 
 ## Authorizer examples
 
-Authorizers allow Airnodes to implement a wide variety of policies.
-Here are some examples:
+Authorizers allow Airnodes to implement a wide variety of policies. Here are some examples:
 
-- Respond to requests from requesters that have paid their monthly subscription fee in DAI
+- Respond to requests from sponsors that have paid their monthly subscription fee in DAI
 - Respond to individual requests for which a per-call fee has been paid in API3 tokens
-- Respond to requests made by clients that were whitelisted by the API3 DAO
-- Respond to requests made by requesters who have been whitelisted by the Airnode owner's backend (for example, based on Paypal payments)
+- Respond to requests made by requesters that were whitelisted by the API3 DAO
+- Respond to requests made by sponsors who have been whitelisted by the Airnode owner's backend (for example, based on PayPal payments)

@@ -51,7 +51,7 @@ A short request refers to a template for all parameters.
 
 ### 3. Full request
 
-A full request does not refer to a template at all. They are useful if the client will not make a similar request ever again (e.g., in a prediction market context).
+A full request does not refer to a template at all. They are useful if the requester will not make a similar request ever again (e.g., in a prediction market context).
 
 ## Request outcomes
 
@@ -63,9 +63,9 @@ A request made to an Airnode has three possible outcomes:
 
 ### Fulfill
 
-`fulfill()` is the desired outcome and comes as _success_ (statusCode = 0) or as _errored_ ([statusCode](request.md#statuscode) > 0). This is the only outcome that returns results to a client contract.
+`fulfill()` is the desired outcome and comes as _success_ (statusCode = 0) or as _errored_ ([statusCode](request.md#statuscode) > 0). This is the only outcome that returns results to a requester contract.
 
-For a successful request, Airnode  calls the `fulfill()` function in `AirnodeRRP.sol` that will in turn call back the client contract at `fulfillAddress` using function `fulfillFunctionId` to deliver `data` and a [`statusCode`](https://github.com/api3dao/airnode/blob/6f31a4c27d40e86101673bf37d223fef6625dfdd/packages/protocol/contracts/AirnodeRrp.sol#L148) of 0. If there was an error then statusCode will be non-0. The client contract can then handle this error as it sees fit (e.g., ignore it, make a request to an alternative provider, etc.)
+For a successful request, Airnode  calls the `fulfill()` function in `AirnodeRRP.sol` that will in turn call back the requster contract at `fulfillAddress` using function `fulfillFunctionId` to deliver `data` and a [`statusCode`](https://github.com/api3dao/airnode/blob/6f31a4c27d40e86101673bf37d223fef6625dfdd/packages/protocol/contracts/AirnodeRrp.sol#L148) of 0. If there was an error then statusCode will be non-0. The requester contract can then handle this error as it sees fit (e.g., ignore it, make a request to an alternative provider, etc.)
 
 > ![request-outcomes](../../../assets/images/request-outcomes.png)
 
@@ -100,7 +100,7 @@ This means that Airnode will stop attempting to process the request in order to 
 
 ### Ignore
 
-If the Airnode cannot even fail a request (e.g., the client is not endorsed by the requester), the request gets ignored.
+If the Airnode cannot even fail a request (e.g., the requester is not sponsored by the sponsor), the request gets ignored.
 
 ## statusCode
 
@@ -115,7 +115,7 @@ Airnodes will return a `statusCode` when responding to a request. A non-0 status
   |5    |TemplateInvalid                |Ignored   |The API call template cannot be verified against the other fields |
   |6    |DesignatedWalletInvalid        |Ignored   |The request's designated wallet differs from the expected designated wallet |
   |7    |AuthorizationNotFound          |Blocked   |The API call authorization status could not be loaded |
-  |8    |Unauthorized                   |Errored   |The client contract submitting the API call request is not authorized |
+  |8    |Unauthorized                   |Errored   |The requester contract submitting the API call request is not authorized |
   |9    |PendingWithdrawal              |Ignored   |The request cannot be actioned while there is a pending withdrawal |
   |10   |UnknownOIS                     |Errored   |The API call endpointId does not match a known OIS |
   |11   |UnknownEndpoint                |Errored   |The API call endpointId does not match a known endpoint |

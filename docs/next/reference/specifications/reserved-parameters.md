@@ -69,6 +69,7 @@ Note that the number gets multiplied by `100`, and then gets floored.
 By setting this reserved parameter to a specific version string then Airnode will attach its metadata as request parameters before performing the API call.
 
 For example `v1` will add the following request parameters with their corresponding values:
+<Fix>Code below references client and other outdated key names.</Fix>
 ```
 _airnode_airnode_id: '0x19255a4ec31e89cea54d1f125db7536e874ab4a96b4d4f6438668b6bb10a6adb',
 _airnode_client_address: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',

@@ -13,23 +13,17 @@ Complete the following before settings authorizers.
 - [Configuring Airnode](configuring-airnode.md)
 - [Deploying Airnode](deploying-airnode.md)
   
-When you deployed your Airnode a receipt file was generated. In it is the `airnodeId`. Requesters use your `airnodeId` and an `endpointId` to make requests to your Airnode endpoints. However, you probably do not want to serve your Airnode endpoints publicly.
+When you deployed your Airnode a receipt file was generated. In it is the `airnodeId`. Sponsors (via their sponsored requesters) use your `airnodeId` and an `endpointId` to make requests to your Airnode endpoints. However, you probably do not want to serve your Airnode endpoints publicly.
 
-- Only serve your own client contracts
-- Only serve requesters who have made a subscription payment
-- Only serve requesters who have gone through KYC
+- Only serve your own [requester contracts](../../../grp-developers/requesters-sponsors.md)
+- Only serve sponsors who have made a subscription payment
+- Only serve sponsors who have gone through KYC
 
 In this guide, we will explain how you can achieve this.
 
 ## `authorizers`
 
-<Todo>
-
-Need to track down the EndpointStore.sol contract, it does not appear in the link below. 
-
-Also who built/builds the Authorizer contract(s).
-
-</Todo>
+<Fix>Need to track down the EndpointStore.sol contract, it does not appear in the link below. Also who built/builds the Authorizer contract(s).</Fix>
 
 [EndpointStore.sol](../../../reference/protocols/request-response/general-structure.md#endpointstore-sol) keeps a list of [authorizer](../../../reference/protocols/request-response/authorizer.md) addresses for each `airnodeId`–`endpointId` pair. An authorizer is a contract that Airnode calls to check if it should respond to a specific request. It can enforce any kind of authorization policy that one could implement as a contract.
 
@@ -39,11 +33,7 @@ A newly created Airnode defaults to **Deny All** for all its endpoints. The auth
 
 ## Allow all
 
-<Todo>
-
-Pretty sure the airnodeAdmin should be airnodeAdmin. Just need to find the code behind all this for version 0.1.0. Same for providerId as airnodeId.
-
-</Todo>
+<Fix>Pretty sure the airnodeAdmin should be airnodeAdmin. Just need to find the code behind all this for version 0.1.0. Same for providerId as airnodeId.</Fix>
 
 The simplest authorization policy is opening the endpoint to the public, so let us see how to do that first. Authorizers being set to `[0]` means that all requests made to it will be authorized (i.e., will be responded to by Airnode). Only the `airnodeAdmin` of a provider can update the authorizers of its endpoints. Therefore, you will need to make a transaction using the provider admin address (that you have set in `config.json` as `airnodeAdminForRecordCreation`) to [EndpointStore.sol](../../../reference/protocols/request-response/general-structure.md#endpointstore-sol). In JS (using ethers.js):
 
@@ -75,5 +65,4 @@ If you would like to contribute to this set of authorizer contracts, please join
 
 ## Conclusion
 
-Your Airnode is completely set up now.
-The following guides will be on how a requester would be able to make requests to it.
+The Airnode is completely set up. See [Calling an Airnode](../../../grp-developers/call-an-airnode.md) to learn how requests are made to it.

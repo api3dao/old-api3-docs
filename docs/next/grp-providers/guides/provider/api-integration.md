@@ -15,7 +15,7 @@ A successful integration of an API with an Airnode requires the mapping of each 
 
 > ![api-integration-ois](../../../assets/images/api-integration-ois.png)
 
-OIS is a mapping of API operations, such as  `GET /token/{id}`, to Airnode endpoints. When a client contract calls an AirnodeRRP contract request function, such as `makeRequest(..., callData)`, the callData is communicated to the off-chain Airnode which uses OIS mappings to translate the callData into a valid HTTP request for the appropriate API operation.
+OIS is a mapping of API operations, such as  `GET /token/{id}`, to Airnode endpoints. When a requester contract calls an AirnodeRRP contract request function, such as `makeRequest(..., callData)`, the callData is communicated to the off-chain Airnode which uses OIS mappings to translate the callData into a valid HTTP request for the appropriate API operation.
 
 Therefore, only thing needed to integrate an API to Airnode is to create an OIS json object which lives in an Airnode's config.json file. This guide is an instructive approach to creating an OIS. As a point of reference, refer to [Oracle Integration Specifications (OIS)](../../../reference/specifications/ois.md) in the Technology section of these docs for additional input and understanding. It may be useful, but not necessary, to reference the [OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
 
@@ -348,7 +348,7 @@ If the API you are integrating is publicly accessible, you can remove all securi
 
 ## Step 3: Specifying Airnode Endpoints
 
-An Airnode endpoint is a service that Airnode exposes to on-chain clients. It maps to an API operation, but the nature of this mapping is customizable. It is the integrator's job to define what this service is.
+An Airnode endpoint is a service that Airnode exposes to on-chain requesters. It maps to an API operation, but the nature of this mapping is customizable. It is the integrator's job to define what this service is.
 
 For example, if your API operation returns an asset price given its ticker (e.g., `BTC`), you can specify the endpoint such that the requester provides the ticker as a parameter. The resulting endpoint would be a general one that returns prices for any kind of asset. On the other hand, you can hardcode `BTC` as the asset whose price will be returned (using [fixed operation parameters](./api-integration.md#fixedoperationparameters)), which would make your endpoint a specific one that only returns the BTC price.
 
@@ -375,12 +375,6 @@ In the OIS template there is a fixed operation parameter under `endpoints.*.fixe
 An Airnode endpoint can have multiple `fixedOperationParameters`. An API operation parameter cannot be in both `endpoints.*.fixedOperationParameters` and `endpoints.*.parameters`.
 
 #### reservedParameters
-
-<Todo>
-
-The explanation of reservedParameters needs work. It jumps the user around. At least explain what they are in detail before making the jumps.
-
-</Todo>
 
 The requester can provide some parameters that are not mapped to API operation parameters.
 These parameters are called "reserved parameters", and their names start with an underscore.
