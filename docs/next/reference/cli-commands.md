@@ -33,12 +33,12 @@ You can also use the package programmatically. The SDK exports respective functi
 well as helper functions for obtaining the contract instance on the targeted chain.
 
 ```js
-import { endorseRequester, getAirnodeRrpWithSigner } from '@api3/admin';
+import { sponsorRequester, getAirnodeRrpWithSigner } from '@api3/admin';
 
 // First obtain the contract instance on target chain
 const airnodeRrp = await getAirnodeRrpWithSigner(mnemonic, derivationPath, providerUrl, airnodeRrpAddress);
 // Pass the contract instance as the first argument to the SDK function
-const requester = await endorseRequester(airnodeRrp, requester);
+const requester = await sponsorRequester(airnodeRrp, requester);
 ```
 
 If you plan to use multiple commands it might be tedious to pass the contract instance to every function call. For this reason there is also class based `AdminSdk` which you initialize with `AirnodeRrp` contract only once.
@@ -52,7 +52,7 @@ const airnodeRrp = await AdminSdk.getAirnodeRrpWithSigner(mnemonic, derivationPa
 // Create sdk instance
 const adminSdk = new AdminSdk(airnodeRrp);
 // Call the method you need
-const requester = await adminSdk.endorseRequester(requester);
+const requester = await adminSdk.sponsorRequester(requester);
 
 // You can switch the contract instance anytime. E.g. if you are using ethers
 adminSdk.airnodeRrp = airnodeRrp.connect(someOtherWallet);
@@ -99,12 +99,12 @@ npx @api3/airnode-admin derive-sponsor-wallet \
   --requesterIndex 6
 ```
 
-### `sponsor-client`
+### `sponsor-requester`
 
 [Sponsors](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/sponsorship.md) a requester contract so that its requests can be fulfilled by the sponsor's sponsor wallet. The account derived from the `mnemonic` you provide here has to belong to the sponsor.
 
 ```sh
-npx @api3/airnode-admin endorse-client \
+npx @api3/airnode-admin sponsor-requester \
   --providerUrl https://ropsten.infura.io/v3/<KEY> \
   --mnemonic "nature about salad..." \
   --requesterAddress 0x2c2e12...
@@ -115,7 +115,7 @@ npx @api3/airnode-admin endorse-client \
 Removes the sponsorship of a requester contract so that its requests can no longer be fulfilled by the requester's sponsor wallet. The account derived from the `mnemonic` you provide here has to belong to the sponsor.
 
 ```sh
-npx @api3/airnode-admin unendorse-client \
+npx @api3/airnode-admin unsponsor-client \
   --providerUrl https://ropsten.infura.io/v3/<KEY> \
   --mnemonic "nature about salad..." \
   --requesterAddress 0x2c2e12...
@@ -123,10 +123,10 @@ npx @api3/airnode-admin unendorse-client \
 
 ### `get-sponsor-status`
 
-Returns the sponsor status for the given sponsor and requester (`true` if endorsed, `false` otherwise).
+Returns the sponsor status for the given sponsor and requester (`true` if sponsored, `false` otherwise).
 
 ```sh
-npx @api3/airnode-admin get-endorsement-status \
+npx @api3/airnode-admin get-sponsor-status \
   --providerUrl https://ropsten.infura.io/v3/<KEY> \
   --sponsor 0x3v5m34... \
   --requesterAddress 0x2c2e12...

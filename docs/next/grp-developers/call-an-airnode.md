@@ -69,9 +69,9 @@ contract MyContract is AirnodeRrpClient {
   {}
 
   function callTheAirnode(
-      bytes32 airnode,
+      address airnode,
       bytes32 endpointId,
-      uint256 sponsor,
+      address sponsor,
       address sponsorWallet,
       bytes calldata parameters // Inbound API parameters which may already be ABI encoded
       )
@@ -109,13 +109,13 @@ Since the `callTheAirnode` function is going to make a full request it must gath
 
 - **airnode** and **endpointId**: As a pair these uniquely identify the endpoint desired at a particular Airnode.
 
-- **sponsor** and **sponsorWallet**: The [sponsor](requesters-sponsors.md#what-is-a-sponsor) address and the [sponsor wallet](requesters-sponsors.md#how-to-derive-a-sponsor-wallet) that the sponsor received when endorsing the Airnode being called.
+- **sponsor**: The [sponsor](requesters-sponsors.md#what-is-a-sponsor) address. 
+
+- **sponsorWallet**: The [sponsor wallet](requesters-sponsors.md#how-to-derive-a-sponsor-wallet) address that the sponsor received when deriving the wallet for the Airnode being called.
   
 - **fulfillAddress** and **fulfillFunctionId**: The public address of your requester contract and its function that will be called when the request is returned.
 
 - **parameters**: Specify the API parameters and any [reserved parameters](../reference/specifications/reserved-parameters.md), these must be encoded. See [Airnode ABI specifications]() for how these are encoded.
-
-
 
 *More about parameters*
 
