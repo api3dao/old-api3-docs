@@ -225,7 +225,7 @@ You deployed an Airnode, made a request to it and received the response at the r
 
 - [API3 whitepaper](https://github.com/api3dao/api3-whitepaper) will give you a broad overview of the project
 - [Blog (Medium) posts](../../blog-posts.md) are a more digestible version of the whitepaper
-- [@api3/airnode-admin](https://github.com/api3dao/airnode/tree/pre-alpha/packages/admin) lets you interact with the Airnode contract (to create a request, endorse a client, etc.) using a CLI tool
+- [@api3/airnode-admin](https://github.com/api3dao/airnode/tree/pre-alpha/packages/admin) lets you interact with the Airnode contract (to create a request, sponsor a requester, etc.) using a CLI tool
 <Fix>Need new URL to requester examples.</Fix>
 - [Airnode requester examples](https://github.com/api3dao/airnode-client-examples/tree/pre-alpha) demonstrate different request patterns that the Airnode protocol supports (for example, we used a full request in this starter project)
 
