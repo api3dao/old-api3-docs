@@ -2,3 +2,8 @@
 /latest/members /pre-alpha/members
 /airnode-starter /pre-alpha/tutorials/airnode-starter.html
 /pre-alpha/airnode-starter /pre-alpha/tutorials/airnode-starter.html
+/p/fixed-parameters https://docs.api3.org/next/grp-providers/guides/provider/api-integration.html#fixedoperationparameters
+/d/call-an-airnode /next/grp-developers/call-an-airnode.html
+/d/request-parameters /next/grp-developers/call-an-airnode.html#request-parameters
+/d/response-parameters /next/grp-developers/call-an-airnode.html#response-parameters
+/r/reserved-parameters /next/reference/specifications/reserved-parameters.html
