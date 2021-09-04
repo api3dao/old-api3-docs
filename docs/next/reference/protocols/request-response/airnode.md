@@ -35,7 +35,10 @@ masterWalletAddress = masterHdNode.address;
 
 ## Creating an Airnode record
 
-<Fix>This section needs a dev to review.</Fix>
+<Fix>This section needs a dev to review. Is setAirnodeParameters() to be replaced with this quote from JIRA AN-90?
+<blockquote style="color:red;font-size:small;">
+With the removal of setAirnodeParameters(), we removed the pre-assignment/announcement of authorizers, and now require the Airnode to provide the authorizer addresses while making the checkAuthorizationStatuses() call.
+</blockquote></Fix>
 
 Before being able to serve on a chain, an Airnode record must be created. To do this, the new Airnode owner's master wallet has to be used to call `setAirnodeParameters()` of `AirnodeParameterStore.sol`, where the contract assigns the corresponding `airnodeId` as follows:
 

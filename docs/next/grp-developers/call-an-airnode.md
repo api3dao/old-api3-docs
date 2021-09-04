@@ -103,9 +103,9 @@ contract MyContract is AirnodeRrpClient {
 
 <Fix>The request parameters have changed.</Fix>
 
-A _full request_ using the AirnodeRrp.sol contract `makeFullRequest` function requires all parameters needed by the Airnode application be passed at runtime. This is in contrast to a _regular or short request_ type that would use a template for some or all of the required parameters. See more about [Using Templates](call-an-airnode.md#using-templates) below.
+A full request using the AirnodeRrp.sol contract `makeFullRequest` function requires all parameters needed by the Airnode application be passed at runtime. This is in contrast to a template request that would use a template for some or all of the required parameters. Learn more about [using templates](call-an-airnode.md#using-templates).
 
-Since the `callTheAirnode` function is going to make a full request it must gather the following parameters to pass on to `airnode.makeFullRequest`.
+Since the `callTheAirnode` function is going to make a [full request](../reference/protocols/request-response/request.md#full-request) it must gather the following parameters to pass on to `airnode.makeFullRequest`.
 
 - **airnode** and **endpointId**: As a pair these uniquely identify the endpoint desired at a particular Airnode.
 
@@ -117,12 +117,9 @@ Since the `callTheAirnode` function is going to make a full request it must gath
 
 - **parameters**: Specify the API parameters and any [reserved parameters](../reference/specifications/reserved-parameters.md), these must be encoded. See [Airnode ABI specifications]() for how these are encoded.
 
-*More about parameters*
+  <Fix>Not sure what to say about the encoding or if the following is even close.</Fix>
 
-<Fix>Not sure what to say about the encoding.</Fix>
-In most cases the parameters will be encoded off-chain and passed to the requester. Most APIs will have some sort of security such as an apiKey which cannot be made public inside a requester. Consider the following example which encodes the parameters off-chain before executing a requester. This is done using  the [@api3/airnode-abi](https://github.com/api3dao/airnode/tree/master/packages/airnode-abi) library.
-
-<h4 style="color:gray;margin-bottom:-12px">Off-chain parameter encoding using @api3/airnode-abi:</h4>
+  In most cases the parameters will be encoded off-chain and passed to the requester. Most APIs will have some sort of security such as an apiKey which cannot be made public inside a requester. Consider the following example which encodes the parameters off-chain before executing a requester. This is done using  the [@api3/airnode-abi](https://github.com/api3dao/airnode/tree/master/packages/airnode-abi) library.
 
     ```solidity
     import { encode } from '@api3/airnode-abi';
