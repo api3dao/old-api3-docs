@@ -9,51 +9,63 @@ title: Request
 
 When a requester makes a request using `AirnodeRrp.sol`, it is returned a `requestId`. This `requestId` is a hash of all request parameters and a nonce. This allows Airnode to verify that the request parameters are not tampered with.
 
-## Request parameters
-<Fix>airnodeId > airnodeAddress? Is sponsorAddress correct here></Fix> 
-- `airnodeId` and `endpointId` specify the endpoint
-- `sponsorAddress` and `sponsorWallet` specify which wallet will be used to fulfill the request
-- `fulfillAddress` and `fulfillFunctionId` specify which function will be called to fulfill the request
+## Request Parameters
+
+- `templateId` the id of a template to use, _(only used for `makeTemplateRequest`)_
+
+- `airnode` (address) and `endpointId` specify the endpoint, _(only used for `makeFullRequest`)_
+
+- `sponsor` and `sponsorWallet` (addresses) specify which wallet will be used to fulfill the request
+
+- `fulfillAddress` and `fulfillFunctionId` specify which contract/function will be called to fulfill the request
+
 - `parameters` specify the API and [reserved](../../specifications/ois.md#_5-4-reservedparameters
 ) parameters (see [Airnode ABI specifications](../../specifications/airnode-abi-specifications.md) for how these are encoded)
 
-## How templates are used in requests
+## Full Request
 
-A template includes the following fields:
-<Fix>airnodeID? sponsorAddress?</Fix>
+A full request does not refer to a template at all. Full requests are useful if the requester will not make a similar request ever again (e.g., in a prediction market context).
+
 ```solidity
-struct Template {
-    bytes32 airnodeId;
-    bytes32 endpointId;
-    uint256 sponsorAddress;
-    address sponsorWallet;
-    address fulfillAddress;
-    bytes4 fulfillFunctionId;
-    bytes parameters;
-    }
+function makeFullRequest(
+    address airnode,
+    bytes32 endpointId,
+    address sponsor,
+    address sponsorWallet,
+    address fulfillAddress,
+    bytes4 fulfillFunctionId,
+    bytes calldata parameters
+){...}
 ```
 
-The requester can refer to the `templateId` of a template while making the request, and the Airnode will fetch these and use them in the request. Among these, `sponsorAddress`, `sponsorWallet`, `fulfillAddress`, `fulfillFunctionId` can be overridden by parameters defined at request-time.
+## Template Request
+
+A template request refers to a template for the `airnode` address, `endpointId` and `parameters`.
+
+```solidity
+struct Template {
+  address airnode;
+  bytes32 endpointId;
+  bytes parameters;
+}
+```
+
+The requester can refer to the `templateId` of a template while making a request, and the Airnode will fetch these and use them in the request.
+
+```solidity
+function makeTemplateRequest(
+    bytes32 templateId,
+    address sponsor,
+    address sponsorWallet,
+    address fulfillAddress,
+    bytes4 fulfillFunctionId,
+    bytes calldata parameters
+)
+```
 
 When a template is used to make a request, both the parameters encoded in `parameters` of the template and `parameters` provided at request-time by the requester will be used by the Airnode. In case the two include a parameter with the same name, the one provided at request-time will be used.
 
-## Request types
-
-There are multiple request types with respect to how they utilize templates:
-
-### 1. Regular request
-
-A regular request refers to a template, yet provides its own `sponsor`, `sponsorWallet`, `fulfillAddress`, `fulfillFunctionId` that will override the ones from the template.
-
-### 2. Short request
-
-A short request refers to a template for all parameters.
-
-### 3. Full request
-
-A full request does not refer to a template at all. They are useful if the requester will not make a similar request ever again (e.g., in a prediction market context).
-
-## Request outcomes
+## Request Outcomes
 
 A request made to an Airnode has three possible outcomes:
 
@@ -73,11 +85,11 @@ For a successful request, Airnode  calls the `fulfill()` function in `AirnodeRRP
 
 As noted in the diagram above, if the transaction that calls `fulfill()` reverts, the node calls the `fail()` method to report the failure. The node will not attempt to fulfill a failed request afterwards.
 
-<Todo>
-
+<Fix>
+<p>
 The following three paragraphs are a little dense. See Github issue: https://github.com/api3dao/api3-docs/issues/108
-
-</Todo>
+</p>
+</Fix>
 
 Airnode is stateless, which means that there is no database storing which requests have been fulfilled or failed, 
 which are waiting on confirmations and which are still pending. This information is retrieved from the chain on 

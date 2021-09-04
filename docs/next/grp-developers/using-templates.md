@@ -7,7 +7,7 @@ title: Using Templates
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-A request to an Airnode can have many parameters. It is very common for requester contracts (e.g., a data feed) to make repeated requests with the exact same parameters. In such instances, it is wasteful to pass all of these parameters repeatedly. Templates are used to hold a set of parameter values on-chain that can be used repeatedly when calling the`makeTemplateRequest()`function in [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/beta-protocol/packages/protocol/contracts/rrp/AirnodeRrp.sol). Unlike`makeFullRequest(), makeTemplateRequest()`requires that a requester contract pass`templateId`which identifies a template.
+A request to an Airnode can have many parameters. It is very common for requester contracts (e.g., a data feed) to make repeated requests with the exact same parameters. In such instances, it is wasteful to pass all of these parameters repeatedly. Templates are used to hold a set of parameter values on-chain that can be used repeatedly when calling the`makeTemplateRequest()`function in [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/beta-protocol/packages/protocol/contracts/rrp/AirnodeRrp.sol). Unlike`makeFullRequest(), makeTemplateRequest()`requires that a requester pass`templateId`which identifies a template.
 
 
 <Caption title="makeTemplateRequest()"/>
@@ -25,7 +25,7 @@ function makeTemplateRequest(
 When a template is used to make a request, both the parameters encoded in parameters of the template and parameters provided at request-time (if any) will be used by the Airnode. In case the two include a parameter with the same name, the one provided at request-time will be used.
 
 The structure of a template, as shown below, is simple. 
-- address of the esired Airnode
+- address of the desired Airnode
 - endpointId from the Airnode
 - endpoint parameters
 

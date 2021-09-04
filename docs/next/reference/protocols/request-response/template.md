@@ -4,26 +4,30 @@ title: Template
 
 # {{$frontmatter.title}}
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<!--TocHeader />
+<TOC class="table-of-contents" :include-level="[2,3]" /-->
 
 An oracle request has many parameters. It is very common for [requesters](requesters.md) (e.g., a data feed) to make repeated requests with the exact same parameters. In such instances, it is wasteful to pass all of these parameters repeatedly.
 
 Templates are on-chain records of request parameters that the requesters can refer to while making requests. Additional advantages are reducing boilerplate code required to make a request, improving UX and allowing large parameter payloads (e.g., off-chain computation specifications) at no additional gas cost.
 
-## `templateId`
+```solidity
+struct Template {
+    address airnode;
+    bytes32 endpointId;
+    bytes parameters;
+}
+```
 
-Each template is identified by a `templateId`, which is the hash of its contents:
-<Fix>Is the use of airnodeId and sponsor here correct? When `createTemplate()` is called it returns the templateId but I do not see `sponsor, sponsorWallet, fulfillAddress, fulfillFunctionId` in the code?</Fix>
+### templateId
+
+Each template is identified by a `templateId`, which is the hash of its contents. This allows Airnode to fetch templates with a static call, and verify that the received parameters are not tampered with.
+
 ```solidity
 templateId = keccak256(abi.encode(
-    airnodeId,
-    endpointId,
-    sponsor,
-    sponsorWallet,
-    fulfillAddress,
-    fulfillFunctionId,
-    parameters
-    ));
+  airnode,
+  endpointId,
+  parameters
+));
 ```
-This allows Airnode to fetch templates with a static call, and verify that the received parameters are not tampered with.
+
