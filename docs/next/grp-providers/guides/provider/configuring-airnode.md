@@ -90,7 +90,6 @@ For additional information about chain parameters see the [Technology > Deployme
       "contracts": {
         "AirnodeRrp": "0xF6d2675468989387e96127546e0CBC9A384fa418"
       },
-      "airnodeAdmin": "<FILL_AIRNODE_ADMIN>",
       "authorizers": [
         "0x0000000000000000000000000000000000000000"
       ],
@@ -117,9 +116,6 @@ Airnode can use multiple Ethereum providers per chain. These could be a private 
 
 `contracts` contains the addresses of the contracts that implement the Airnode protocols. Although you can deploy these contracts yourself, you are recommended to use the ones that were deployed by API3. You can find them in the list above.
 
-#### airnodeAdmin
-
-`airnodeAdmin` is the address that your Airnode will set as the [airnodeAdmin](../../../reference/protocols/request-response/airnode.md#airnodeadmin) while creating the Airnode record on the respective chain. You should set this field to an address that only you control.
 
 #### authorizers
 

@@ -110,7 +110,6 @@
   },
   "chains": [
     {
-      "airnodeAdmin": "<FILL_*>",
       "authorizers": [
         "<FILL_*>"
       ],
