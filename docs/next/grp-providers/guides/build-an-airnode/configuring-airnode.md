@@ -54,14 +54,13 @@ Each trigger has an `oisTitle` and `endpointName` that allow you to refer to one
 
 Next add an `endpointId` to the trigger which is the ID that the requester will use in their on-chain requests to refer to this specific trigger. There are three ways to create an `endpointId`.
 
-1. As a convention, we recommend this to be chosen as the Keccak256
-2. hash of `{oisTitle}/{endpointName}`. In JS (using ethers.js):
+1. As a convention use the Keccak256 hash of `{oisTitle}/{endpointName}`. In JS (using ethers.js):
 
     ```js
     endpointId = ethers.utils.keccak256(ethers.utils.defaultAbiCoder.encode(['string'], [`${oisTitle}/${endpointName}`]));
     ```
 
-3. You can also use [`@api3/airnode-admin`](https://github.com/api3dao/airnode/tree/pre-alpha/packages/admin#derive-endpoint-id) to derive endpoint IDs using the `oisTitle` and `endpointName`.
+2. You can also use [`@api3/airnode-admin`](https://github.com/api3dao/airnode/tree/pre-alpha/packages/admin#derive-endpoint-id) to derive endpoint IDs using the `oisTitle` and `endpointName`.
 
     ```bash
     Derives the endpoint ID using the OIS title and the endpoint name using the convention described here.
@@ -170,6 +169,53 @@ The `nodeSettings.region` field can be seen as an extension of `cloudProvider`, 
 #### stage
 
 The `nodeSettings.stage` field allows you to deploy multiple Airnodes with the same provider ID. For example, the provider may deploy one Airnode with the stage `api3` to serve API3 dAPIs, and one with the stage `public` that serves the public. A regular user will have a single deployment, so feel free to set any descriptive name as your `stage`.
+
+#### heartbeat
+
+At the end of each of Airnode's runs (every minute), Airnode can make an HTTP POST request to a specified URL. This is both to signal that the Airnode is alive and working (useful especially right after the deployment) and also to return some metrics from its run. Turn on the heartbeat functionality by setting all fields in the config.json section nodeSeddings.heartbeat.
+
+```json
+"heartbeat": {
+  "enabled": true,
+  "url": "${HEARTBEAT_URL}",
+  "apiKey": "${HEARTBEAT_API_KEY}",
+  "id": "${HEARTBEAT_ID}"
+}
+```
+
+<blockquote>
+  enabled: Enable/disable Airnode's heartbeat
+  <br/><br/>url: The URL to make the heartbeat request to
+  <br/><br/>apiKey: The API key to authenticate against the heartbeat URL
+  <br/><br/>id: The Airnode heartbeat ID for accounting purposes
+</blockquote>
+
+Below is an example of what is included in the request to `heartbeat.url`.
+```json
+{
+  "api_key":"d714a900-3b9e-4e4d-8eae-756ef06a8836",
+  "deployment_id":"916d3ec80fda",
+  "httpGatewayUrl":"<.api.gateway.url/v1/test",
+  "payload":{...}
+}
+```
+
+<blockquote>
+  <table>
+    <tr>
+      <td>apiKey:</td><td>API key for heartbeat calls configured in nodeSettings.heartbeat.apiKey. Used for authentication against the heartbeat service running on URL from nodeSettings.heartbeat.url.</td>
+    </tr>
+    <tr>
+      <td>deployment_id:</td><td>The Airnode heartbeat ID for accounting purposes.</td>
+    </tr>
+    <tr>
+      <td>httpGatewayUrl:</td><td>If HTTP gateway is enabled this is the URL of the gateway you can make test HTTP calls against.</td>
+    </tr>
+    <tr>
+      <td>payload:</td><td>Metrics from Airnode's run.</td>
+    </tr>
+  </table>
+</blockquote>
 
 #### logFormat
 

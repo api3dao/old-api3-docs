@@ -10,7 +10,7 @@ title: Overview
 
 An **API Provider** is you, if you wish to publish data from your API to on-chain contracts which are called requesters. You can do so by building an Airnode. An Airnode is a first-party oracle that will push off-chain API data to any on-chain requester. See the [Developer](../grp-developers/) section to learn more about how developers will use your Airnode.
 
-See the [Guides](guides/provider/api-integration.md) section in the API Provider docs to build the necessary files required to deploy an Airnode. The diagram below illustrates the basic steps to successfully deploy an Airnode. 
+See the [Guides](guides/build-an-airnode/api-integration.md) section in the API Provider docs to build the necessary files required to deploy an Airnode. The diagram below illustrates the basic steps to successfully deploy an Airnode. 
 
 > ![image](../assets/images/api-provider-overview.png)
 

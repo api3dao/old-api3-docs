@@ -10,7 +10,7 @@ title: Deployer CLI Commands
 ::: warning Please Note
 The recommended way to deploy Airnode is by using the Deployer Docker image. This package simply implements the CLI used by that image and is not meant to be used directly by the end user.
 
-See [Deploying Airnode](../grp-providers/guides/provider/deploying-airnode.md) to deploy using Docker.
+See [Deploying Airnode](../grp-providers/guides/build-an-airnode/deploying-airnode.md) to deploy using Docker.
 :::
 
 <Fix>This page needs to be looked over again when all dev branches have been merged to master.</Fix>

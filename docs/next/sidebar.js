@@ -29,15 +29,11 @@ module.exports = [
       {
         title: 'Build an Airnode', collapsable: true, 
         children:[
-          'grp-providers/guides/provider/api-integration',
-          //'grp-providers/guides/provider/api-integration-orig',
-          'grp-providers/guides/provider/configuring-airnode',
-          //'grp-providers/guides/provider/configuring-airnode-orig',
-          'grp-providers/guides/provider/deploying-airnode',
-          //'grp-providers/guides/provider/deploying-airnode-orig',
-          'grp-providers/guides/provider/setting-authorizers',
-          //'grp-providers/guides/provider/setting-authorizers-orig',
-          'grp-providers/guides/provider/removing-airnode',
+          'grp-providers/guides/build-an-airnode/api-integration',
+          'grp-providers/guides/build-an-airnode/configuring-airnode',
+          'grp-providers/guides/build-an-airnode/deploying-airnode',
+          'grp-providers/guides/build-an-airnode/setting-authorizers',
+          'grp-providers/guides/build-an-airnode/removing-airnode',
           
         ]
       },

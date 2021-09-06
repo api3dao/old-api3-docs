@@ -101,12 +101,23 @@
     ]
   },
   "nodeSettings": {
-    "cloudProvider": "aws",
-    "logFormat": "plain",
-    "logLevel": "INFO",
     "nodeVersion": "0.1.0",
+    "cloudProvider": "aws",
     "region": "<FILL_*>",
-    "stage": "<FILL_*>"
+    "stage": "<FILL_*>",
+    "airnodeWalletMnemonic": "<FILL_*>",
+    "heartbeat": {
+      "enabled": true,
+      "url": "<FILL_*>",
+      "apiKey": "<FILL_*>",
+      "id": "<FILL_*>"
+    },
+    "httpGateway": {
+      "enabled": true,
+      "apiKey": "<FILL_*>"
+    },
+    "logFormat": "json",
+    "logLevel": "INFO"
   },
   "chains": [
     {
