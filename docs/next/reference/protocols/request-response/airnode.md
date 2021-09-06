@@ -35,10 +35,13 @@ masterWalletAddress = masterHdNode.address;
 
 ## Creating an Airnode record
 
-<Fix>This section needs a dev to review. Is setAirnodeParameters() to be replaced with this quote from JIRA AN-90?
-<blockquote style="color:red;font-size:small;">
-With the removal of setAirnodeParameters(), we removed the pre-assignment/announcement of authorizers, and now require the Airnode to provide the authorizer addresses while making the checkAuthorizationStatuses() call.
-</blockquote></Fix>
+<Fix><p><ul>
+<li> This section needs a dev to review. Is setAirnodeParameters() to be replaced with this quote from JIRA AN-90?</li>
+
+<li> With the removal of setAirnodeParameters(), we removed the pre-assignment/announcement of authorizers, and now require the Airnode to provide the authorizer addresses while making the checkAuthorizationStatuses() call.</li>
+
+<li>Below airnodeAdmin is commented out. Does the entire paragraph get deleted?</li>
+</ul></p></Fix>
 
 Before being able to serve on a chain, an Airnode record must be created. To do this, the new Airnode owner's master wallet has to be used to call `setAirnodeParameters()` of `AirnodeParameterStore.sol`, where the contract assigns the corresponding `airnodeId` as follows:
 
@@ -59,13 +62,7 @@ function setAirnodeParameters(
 
 Note that since `msg.sender` is used to derive the `airnodeId`, no one but the Airnode owner can claim their `airnodeId` on any chain.
 
-The Airnode parameters record creation is done automatically by Airnode. The Airnode owner only needs to fund their master wallet for it to be able to afford this transaction, and the master wallet will send the remaining funds to `airnodeAdmin` along with this transaction. The Airnode deployment displays instructions for how to do this, and the `masterWalletAddress` is included in the receipt that the deployer outputs for future reference.
-
-## `airnodeAdmin`
-<Fix>airnodeAdmin is no longer needed></Fix>
-`airnodeAdmin` is an address that is authorized to update airnode-related properties (e.g., endpoint authorizers). Airnode sets a `airnodeAdmin` while creating the Airnode parameters record, and this is sourced from [config.json](../../deployment-files/config-json.md) under the name `airnodeAdmin`.
-
-`airnodeAdmin` can transfer its authority to another address. The master wallet can reclaim the authority by calling `setAirnodeParameters()` and setting `admin`.
+The Airnode parameters record creation is done automatically by Airnode. The Airnode owner only needs to fund their master wallet for it to be able to afford this transaction, and the master wallet will send the remaining funds to ~`airnodeAdmin`~ along with this transaction. The Airnode deployment displays instructions for how to do this, and the `masterWalletAddress` is included in the receipt that the deployer outputs for future reference.
 
 ## `xpub`
 
@@ -81,5 +78,5 @@ assert(airnodeIdDerivedFromXpub === airnodeId);
 See the [section about sponsor wallets](sponsor-wallet.md) to see how sponsors can use `xpub` to derive their sponsor wallets.
 
 ## Setting endpoint authorizers
-
-An important responsibility of the `airnodeAdmin` is to set endpoint authorizers. Authorizers are used to enforce rules about which requests will be responded to, and this can be used to enforce KYC, monthly subscription payments, etc. See the sections about [endpoints](endpoint.md) and [authorizers](authorizer.md) for more details.
+<Fix>airnodeAdmin is no longer used. What (if anything) replaces it here?</Fix>
+An important responsibility of the ~~`airnodeAdmin`~~ is to set endpoint authorizers. Authorizers are used to enforce rules about which requests will be responded to, and this can be used to enforce KYC, monthly subscription payments, etc. See the sections about [endpoints](endpoint.md) and [authorizers](authorizer.md) for more details.

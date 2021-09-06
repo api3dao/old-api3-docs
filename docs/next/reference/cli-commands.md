@@ -190,7 +190,6 @@ Airnode will set its own parameters during [deployment](https://github.com/api3d
 npx @api3/airnode-admin set-airnode-parameters \
   --providerUrl https://ropsten.infura.io/v3/<KEY> \
   --mnemonic "nature about salad..." \
-  --airnodeAdmin 0xc2193d... \
   --authorizersFilePath ./authorizers.json
 ```
 
