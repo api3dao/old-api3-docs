@@ -41,7 +41,7 @@ An _OIS_ is a json object that is added to an Airnode's [config.json](../../../r
 
 In the OIS template, there are some fields that contain `{FILL_*}`. This means that the value added is independent from other fields. On the other hand, if two fields contain the same expression  (e.g., `{FILL_OPERATION_PARAMETER_1_NAME}`), you must use the same value in them, because they are referencing each other.
 
-OIS uses a simplified version of the [OpenAPI Specification (OAS)](https://github.com/OAI/OpenAPI-Specification). This means that if you have the OpenAPI/Swagger specifications of the API that you are going to integrate, you are about 80% done, because you can copy paste entire sections (but make sure that you make the necessary modifications to conform to the OIS format). Currently there is no tool that converts OAS to OIS automatically. If you would like to help build this, please join the conversation in [this issue](https://github.com/api3dao/airnode/issues/152). 
+OIS uses a simplified version of the [OpenAPI Specification (OAS)](https://github.com/OAI/OpenAPI-Specification). This means that if you have the OpenAPI/Swagger specifications of the API that you are going to integrate, you are about 80% done, because you can copy paste entire sections (but make sure that you make the necessary modifications to conform to the OIS format).
 
 This guide will assume you do not have the OpenAPI specifications of the API that you will be integrating.
 
