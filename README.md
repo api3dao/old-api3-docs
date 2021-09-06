@@ -4,7 +4,7 @@
 
 # Documentation
 
-**[API3 Documentation](https://api3dao.github.io/api3-docs/)** is kept as a regular repository of Markdown files making it easy for everyone to contribute. Feel free to create [issues](https://github.com/api3dao/api3-docs/issues) for discussions, proposed additions and changes.
+**[API3 Documentation](https://docs.api3.org)** is kept as a regular repository of Markdown files making it easy for everyone to contribute. Feel free to create [issues](https://github.com/api3dao/api3-docs/issues) for discussions, proposed additions and changes.
 
 ## What is API3?
 
@@ -40,4 +40,4 @@ The API connectivity problem is in essence an ecosystem building problem, more s
 
 **Medium publication of the DAO:** https://medium.com/api3
 
-**[API3 Documentation](https://api3dao.github.io/api3-docs/)**
+**[API3 Documentation](https://docs.api3.org)**
