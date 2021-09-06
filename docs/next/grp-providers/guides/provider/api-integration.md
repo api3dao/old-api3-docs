@@ -39,7 +39,16 @@ Therefore, only thing needed to integrate an API to Airnode is to create an OIS 
 
 An _OIS_ is a json object that is added to an Airnode's [config.json](../../../reference/templates/config-json.md) file as the (`ois`) _key_, sometimes called a _field_. Try using the [OIS template](../../../reference/templates/ois-json.md) to construct an OIS and add it to the Airnode's config.json file later.
 
-In the OIS template, there are some fields that contain `{FILL_*}`. This means that the value added is independent from other fields. On the other hand, if two fields contain the same expression  (e.g., `{FILL_OPERATION_PARAMETER_1_NAME}`), you must use the same value in them, because they are referencing each other.
+<!-- markdownlint-disable -->
+<details class="collapse-box">
+  <summary class="collapse-box-summary">
+  Tips for reading "OIS Template" section
+  </summary>
+  
+  In the OIS template, there are some fields that contain `{FILL_*}`. This means that the value added is independent from other fields. On the other hand, if two fields contain the same expression  (e.g., `{FILL_OPERATION_PARAMETER_1_NAME}`), you must use the same value in them, because they are referencing each other.
+
+</details>
+<!-- markdownlint-enable -->
 
 OIS uses a simplified version of the [OpenAPI Specification (OAS)](https://github.com/OAI/OpenAPI-Specification). This means that if you have the OpenAPI/Swagger specifications of the API that you are going to integrate, you are about 80% done, because you can copy paste entire sections (but make sure that you make the necessary modifications to conform to the OIS format). Currently there is no tool that converts OAS to OIS automatically. If you would like to help build this, please join the conversation in [this issue](https://github.com/api3dao/airnode/issues/152). 
 
