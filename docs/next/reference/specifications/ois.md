@@ -349,19 +349,56 @@ OAS equivalent: `paths.{path}.{method}.parameters.{#}.required` of the correspon
 
 OAS equivalent: `paths.{path}.{method}.parameters.{#}.example` of the corresponding operation parameter
 
-### 5.6. `summary`*
+### 5.6. `postProcessingParameters`
+
+(Optional) A list of objects that specify post-processing parameters.
+Each object has the following elements:
+
+- [`name`](ois.md#_5-6-1-name)
+- [`default`](ois.md#_5-6-2-default)
+- [`description`*](ois.md#_5-6-3-description)
+- [`required`*](ois.md#_5-6-4-required)
+- [`example`*](ois.md#_5-6-5-example)
+
+#### 5.6.1. `name`
+
+(Required) The name of the post-processing parameter.
+Is not allowed to start with `_`.
+
+#### 5.6.2. `default`
+
+(Optional) The default value for the post-processing parameter.
+Used when no value is provided.
+
+#### 5.6.3. `description`*
+
+(Optional) A description of what the post-processing parameter does.
+
+#### 5.6.4. `required`*
+
+(Optional) If the post-processing parameter is required, is a boolean value.
+
+#### 5.6.5. `example`*
+
+(Optional) The example value to be used in test calls.
+
+### 5.7. `postProcessingSpecification`*
+
+(Optional) A code snippet that specifies the post-processing.
+
+### 5.8. `summary`*
 
 (Optional) A one sentence summary of what the endpoint does.
 
 OAS equivalent: `paths.{path}.{method}.summary` of corresponding operation
 
-### 5.7. `description`*
+### 5.9. `description`*
 
 (Optional) A more detailed description of what the endpoint does.
 
 OAS equivalent: `paths.{path}.{method}.description` of corresponding operation
 
-### 5.8. `externalDocs`*
+### 5.10. `externalDocs`*
 
 (Optional) URL to external documentation for the endpoint.
 
