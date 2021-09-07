@@ -109,7 +109,6 @@ module.exports = [
             'grp-members/dashboard/proposals',
             'grp-members/dashboard/voting',
             'grp-members/dashboard/videos'
-            
         ]
       },
     ]
@@ -131,7 +130,10 @@ module.exports = [
         children: [
             {title:'Oracle Integration Specifications (OIS)', path:'reference/specifications/ois'},
             'reference/specifications/airnode-abi-specifications',
-            'reference/specifications/reserved-parameters'
+            'reference/specifications/reserved-parameters',
+            'reference/specifications/heartbeat',
+            'reference/specifications/http-gateway',
+            'reference/specifications/post-processing'
         ]
       },
       {
@@ -166,8 +168,6 @@ module.exports = [
           'reference/protocols/request-response/request'
         ],
       },
-      'reference/heartbeat',
-      'reference/http-gateway',
       'reference/cli-commands',
       'reference/deployer-commands',
       'reference/dao-contracts'

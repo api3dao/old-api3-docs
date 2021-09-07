@@ -23,7 +23,7 @@ module.exports = {
     logo: '/img/logo.png',
     nav: [
       { text: 'Discord (Dev)', link: 'https://discord.gg/qnRrcfnm5W' },
-      { text: 'Telegram (Chat)', link: 'https://t.me/API3DAO' },
+      { text: 'Forum', link: 'https://forum.api3.org' },
       { text: 'GitHub', link: 'https://github.com/api3dao/api3-docs' },
     ],
     sidebar: {'/next/':require(`../next/sidebar.js`),
