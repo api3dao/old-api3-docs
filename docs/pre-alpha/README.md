@@ -72,6 +72,8 @@ You can find all our blog posts on our [Medium page here](https://medium.com/api
 ::: tab Communities
 Join the API3 community on the following services.  
 
+[API3 Forum](https://forum.api3.org/)
+
 Community Chat on [Telegram](https://t.me/API3DAO)
 
 Developer Chat on [Discord](https://discord.gg/qnRrcfnm5W)

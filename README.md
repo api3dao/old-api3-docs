@@ -34,6 +34,8 @@ The API connectivity problem is in essence an ecosystem building problem, more s
 
 **Website:** https://api3.org/
 
+**Forum (for community):** https://forum.api3.org/
+
 **Telegram (for community):** https://t.me/API3DAO
 
 **Discord (for contributors):** https://discord.gg/qnRrcfnm5W
