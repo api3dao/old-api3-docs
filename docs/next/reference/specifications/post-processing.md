@@ -94,7 +94,7 @@ For example, if the Airnode operator is doing an upgrade that will change their 
 ### Minification
 
 In general, you do not need to minify post-processing code because it will not be written to the chain or emitted as an event.
-However, `postProcessingParameters` names have to shorter than 32 characters because Airnode ABI uses `bytes32` types to encode request parameter names.
+However, `postProcessingParameters` names have to be shorter than 32 characters because Airnode ABI uses `bytes32` types to encode request parameter names.
 
 ## Post-processing examples
 
