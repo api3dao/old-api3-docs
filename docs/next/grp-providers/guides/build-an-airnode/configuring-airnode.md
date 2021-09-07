@@ -143,11 +143,17 @@ The first of these is `airnodeIdShort`, which is used as a label by the deployer
 
 ```json
 {
-  // The airnodeIdShort is ommitted for new deployments
+  // The airnodeIdShort is omitted for new deployments
   "nodeVersion": "0.1.0",
   "cloudProvider": "aws",
   "region": "us-east-1",
   "stage": "testnet",
+  "heartbeat": {
+    "enabled": true,
+    "url": "${HEARTBEAT_URL}",
+    "apiKey": "${HEARTBEAT_API_KEY}",
+    "id": "${HEARTBEAT_ID}"
+  },
   "logFormat": "json",
   "logLevel": "INFO"
 }
@@ -172,66 +178,30 @@ The `nodeSettings.stage` field allows you to deploy multiple Airnodes with the s
 
 #### heartbeat
 
-At the end of each of Airnode's runs (every minute), Airnode can make an HTTP POST request to a specified URL. This is both to signal that the Airnode is alive and working (useful especially right after the deployment) and also to return some metrics from its run. Turn on the heartbeat functionality by setting all fields in the config.json section nodeSeddings.heartbeat.
+At the end of each of Airnode's runs (every minute), Airnode can make an HTTP POST request to a specified URL. This is both to signal that the Airnode is alive and working (useful especially right after the deployment) and also to send some metrics from its run. Turn on the heartbeat functionality by setting all fields in the config.json section nodeSettings.heartbeat. See the [heartbeat](../../../reference/heartbeat.md) doc in the reference section for more info.
 
-```json
-"heartbeat": {
-  "enabled": true,
-  "url": "${HEARTBEAT_URL}",
-  "apiKey": "${HEARTBEAT_API_KEY}",
-  "id": "${HEARTBEAT_ID}"
-}
-```
 
-<blockquote>
-  enabled: Enable/disable Airnode's heartbeat
-  <br/><br/>url: The URL to make the heartbeat request to
-  <br/><br/>apiKey: The API key to authenticate against the heartbeat URL
-  <br/><br/>id: The Airnode heartbeat ID for accounting purposes
-</blockquote>
+>- enabled: Enable/disable Airnode's heartbeat
+>- url: The URL to make the heartbeat request to
+>- apiKey: The API key to authenticate against the heartbeat URL
+>- id: The Airnode heartbeat ID for accounting purposes
 
-Below is an example of what is included in the request to `heartbeat.url`.
-```json
-{
-  "api_key":"d714a900-3b9e-4e4d-8eae-756ef06a8836",
-  "deployment_id":"916d3ec80fda",
-  "httpGatewayUrl":"<.api.gateway.url/v1/test",
-  "payload":{...}
-}
-```
-
-<blockquote>
-  <table>
-    <tr>
-      <td>apiKey:</td><td>API key for heartbeat calls configured in nodeSettings.heartbeat.apiKey. Used for authentication against the heartbeat service running on URL from nodeSettings.heartbeat.url.</td>
-    </tr>
-    <tr>
-      <td>deployment_id:</td><td>The Airnode heartbeat ID for accounting purposes.</td>
-    </tr>
-    <tr>
-      <td>httpGatewayUrl:</td><td>If HTTP gateway is enabled this is the URL of the gateway you can make test HTTP calls against.</td>
-    </tr>
-    <tr>
-      <td>payload:</td><td>Metrics from Airnode's run.</td>
-    </tr>
-  </table>
-</blockquote>
 
 #### logFormat
 
 Set one of two possible log formats. 
 
-- json
-- plain
+>- json
+>- plain
 
 #### logLevel
 
 Set one of four possible log levels. 
 
-- DEBUG
-- INFO
-- WARN
-- ERROR
+>- DEBUG
+>- INFO
+>- WARN
+>- ERROR
 
 ### environment
 

@@ -166,6 +166,8 @@ module.exports = [
           'reference/protocols/request-response/request'
         ],
       },
+      'reference/heartbeat',
+      'reference/http-gateway',
       'reference/cli-commands',
       'reference/deployer-commands',
       'reference/dao-contracts'
