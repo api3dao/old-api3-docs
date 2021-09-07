@@ -178,7 +178,7 @@ The `nodeSettings.stage` field allows you to deploy multiple Airnodes with the s
 
 #### heartbeat
 
-At the end of each of Airnode's runs (every minute), Airnode can make an HTTP POST request to a specified URL. This is both to signal that the Airnode is alive and working (useful especially right after the deployment) and also to send some metrics from its run. Turn on the heartbeat functionality by setting all fields in the config.json section nodeSettings.heartbeat. See the [heartbeat](../../../reference/heartbeat.md) doc in the reference section for more info.
+At the end of each of Airnode's runs (every minute), Airnode can make an HTTP POST request to a specified URL. This is both to signal that the Airnode is alive and working (useful especially right after the deployment) and also to send some metrics from its run. Turn on the heartbeat functionality by setting all fields in the config.json section nodeSettings.heartbeat. See the [heartbeat](../../../reference/specifications/heartbeat.md) doc in the reference section for more info.
 
 
 >- enabled: Enable/disable Airnode's heartbeat
