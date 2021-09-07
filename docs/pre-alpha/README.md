@@ -72,9 +72,9 @@ You can find all our blog posts on our [Medium page here](https://medium.com/api
 ::: tab Communities
 Join the API3 community on the following services.  
 
-Community Chat on [Telegram](https://t.me/API3DAO)
+Community Forum on [Discourse](https://forum.api3.org/)
 
-Developer Chat on [Discord](https://discord.gg/qnRrcfnm5W)
+Community Chat on [Discord](https://discord.gg/qnRrcfnm5W)
 
 [YouTube Channel](https://www.youtube.com/channel/UCCpUthOhahxjdeX9T7t7nJQ)
 :::
@@ -95,7 +95,7 @@ Please feel free to contribute to any API3 GitHub repositories.
 
 ## Contributing
 
-At **API3** we are open to any proposals and improvements. Please feel free to contribute. 
+At **API3** we are open to any proposals and improvements. Please feel free to contribute.
 
 * opening issues
 * making pull requests
