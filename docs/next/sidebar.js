@@ -126,7 +126,7 @@ module.exports = [
         ]
       },*/
       {
-        title: 'Specification Files', collapsable: true,
+        title: 'Specifications', collapsable: true,
         children: [
             {title:'Oracle Integration Specifications (OIS)', path:'reference/specifications/ois'},
             'reference/specifications/airnode-abi-specifications',

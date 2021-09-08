@@ -7,9 +7,13 @@ title: HTTP Gateway
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-As part of the Airnode deployment you can decide to also deploy an HTTP Gateway. This gateway allows you to test out your defined endpoints without accessing the blockchain, simulating the Airnode functionality. You can provide any endpoint arguments as you normally would and you'll get a response from the integrated API. Gateway is actually calling the API the same way Airnode would so it's a good way to test that the integration is set up correctly.
+As part of the Airnode deployment you can decide to deploy an HTTP Gateway. The gateway allows the testing of defined endpoints without accessing the blockchain. You provide endpoint arguments to get a response from an integrated API. Gateway calls the API simulating Airnode. This results in confirmation your integration is set up properly.
 
-You can enable the HTTP gateway by setting all the necessary fields in the config.json section nodeSettings.httpGateway:
+## Setup
+Enable the HTTP gateway by setting two fields in the config.json (`nodeSettings.httpGateway`).
+
+- **enabled**: A boolean setting enable/disable for the Airnode's HTTP gateway.
+- **apiKey**: A user defined API key to authenticate against the gateway.
 
 ```json
 "nodeSettings": {
@@ -33,28 +37,43 @@ You can enable the HTTP gateway by setting all the necessary fields in the confi
   },
 ```
 
->- enabled: Enable/disable Airnode's HTTP gateway
->- apiKey: The API key to authenticate against the gateway
-<Fix>Where does one get an API Gateway key?</Fix>
+You must also add the [`testable`](ois.md#_5-endpoints) boolean flag for each endpoint you want to test in the OIS (`ois.endpoints[n]testable`). This indicates whether the endpoint can be used via HTTP gateway or not. It’s optional and by default is false.
 
-<Fix>Add a link to OIS testable and explain this better.</Fix>
-You also need to add a testable flag for each endpoint you want to be callable this way in your OIS (TODO link to OIS)
+  ```json
+  // in config.json
+  // ois.endpoints[n].testable 
+  "ois":{
+    "endpoints":[
+    {
+      "name": "convertToUSD",
+      "testable": true,
+      ...
+    ]
+    ...
+  }
+  ```
+## Gateway URL
 
-Once deployed, you can obtain the gateway's URL either from receipt.json (field api.httpGatewayUrl) or from Airnode's heartbeat (TODO Link AN-110: Document heartbeat functionalityREADY 2 GO LIVE)
+A gateway URL is generated when your Airnode is deployed. You can obtain the URL (`api.httpGatewayUrl`) from the receipt.json file returned by the deployer  or as part of a request sent from Airnode's [heartbeat](heartbeat.md) to your specified heartbeat URL.
 
-In order to test some endpoint via the HTTP gateway you have to make an HTTP POST request with endpoint ID (found in config.json) as a path parameter and endpoint parameters in the request body:
+## Using CURL
 
-```curl
-curl -X POST -d '{"parameters": {"param1": "string", "param2": 5}}' '<https://some.aws.api.gateway.url/v1/test/0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5'
+In order to test an endpoint, via the HTTP gateway, make an HTTP POST request with endpointId as a path parameter, the x-api-key in the header and endpoint parameters in the request body. 
+
+An `endpointId` can found in config.json under `ois.triggers[n].endpointId`.
+
+|parameter|in|CURL options|
+|---------|--|----------|
+|x-api-key|header      |`-H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e'`|
+|endpointId|path       |`/v1/test/0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5`|
+|&lt;user-defined>|body|`-d '{"parameters": {"param1": "string", "param2": 5}}'`
+
+Replace `https://gateway.url` in the example below with your gateway URL.
+
+```bash
+curl -X POST -H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e' \
+-d '{"parameters": {"param1": "string", "param2": 5}}' \ 
+'https://gateway.url/v1/test/0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5'
 ```
 
-Where param1 and param2 are endpoint parameters and 0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5 is endpoint ID.
-
-Below is the example of the response format:
-
-`{"value": <return value>}`
- 
-
- 
-
-Also, the section 5 of OIS documentation (Oracle Integration Specifications (OIS) 1.0.0 | Documentation ) will contain one additional parameter testable which is a boolean indicating whether the endpoint can be used via HTTP gateway or not. It’s optional, by default is false and there is no OAS equivalent.
+The response format is a simple JSON object: `{"value": <return value>}`.
