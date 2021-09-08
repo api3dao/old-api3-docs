@@ -156,14 +156,13 @@ npx @api3/airnode-admin get-template \
 
 ### `request-withdrawal`
 
-Requests a [withdrawal](https://github.com/api3dao/api3-docs/blob/master/request-response-protocol/sponsor-wallet.md#withdrawals) from the sponsor wallet managed by an Airnode, and returns the request ID. The account derived from the `mnemonic` you provide here has to belong to the sponsor.
+Requests a [withdrawal](./protocols/request-response/sponsor-wallet.html#withdrawals) from a sponsor-wallet managed by an Airnode, and returns the request ID. The account derived from the `mnemonic` will be used to return the funds. The `mnemonic` could be the one the sponsor used to create the sponsor-wallet or another `mnemonic owned by the sponsor.
 
 ```sh
 npx @api3/airnode-admin request-withdrawal \
   --providerUrl https://ropsten.infura.io/v3/<KEY> \
   --mnemonic "nature about salad..." \
-  --airnodeId 0xe1e0dd... \
-  --destination 0x98aaba...
+  --airnode 0xe1e0dd... \
 ```
 
 ### `check-withdrawal-request`
