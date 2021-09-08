@@ -42,7 +42,7 @@ If the sponsor does not trust the Airnode at all, they can fund the sponsor wall
 
 ## Withdrawals
 
-<Fix>Where are the funds sent, to the sponsorAddress? Should we be using admin commands here or contract calls as other RRP files are doing?</Fix>
+<Fix>Should we be using admin commands here or admin contract calls as other RRP files are doing?</Fix>
 
 If the sponsor decides not use a particular sponsor wallet any longer, they can make a request to withdraw funds from it, see the [`request-withdrawal`](../../cli-commands.md#request-withdrawal) command. The Airnode listens for withdrawal requests and fulfills them automatically. Therefore, the sponsor should be able to receive their funds from their sponsor wallet in a few minutes notice. The sponsor wallet does not get deleted, and can be used in the future simply by funding it again.
 
