@@ -145,11 +145,11 @@ docker run -it --rm \
 
 This will output a receipt file with the extension `.receipt.json`.
 
-### Fund your master wallet
+### Fund your Airnode wallet
 
-Run the following to send your master wallet 0.1 ETH for it to [create a provider record](https://api3dao.github.io/api3-docs/pre-alpha/protocols/request-response/provider.html#creating-a-provider-record) for you on-chain.
+Run the following to send your Airnode wallet 0.1 ETH for it to [create a provider record](https://api3dao.github.io/api3-docs/pre-alpha/protocols/request-response/provider.html#creating-a-provider-record) for you on-chain.
 ```sh
-npm run fund-master-wallet
+npm run fund-airnode-wallet
 ```
 
 Your deployed Airnode will use these funds to make the transaction that will create the provider record on the chain you are operating on, and send the leftover ETH back to your address automatically.

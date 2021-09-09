@@ -7,7 +7,7 @@ title: receipt.json
 A `receipt.json` file is outputted after each deployment and contains non-sensitive information about the deployment. The main use of a receipt file is to remove an Airnode deployment when no longer needed. Use the [docker image](../../grp-providers/guides/docker/deployer-image.html#remove) to execute the remove command.
 
 
-<Fix>Need help here with the keys, mostly on api and `heartbeat`.</Fix>
+<Fix>Add `httpGatewayUrl` and `heartbeatId` to `api` below.</Fix>
 
 - `airnodeWallet`: describes the Airnode that was deployed
 - `deployment`: where the Airnode was deployed to

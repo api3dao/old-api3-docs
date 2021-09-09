@@ -1,5 +1,5 @@
 ---
-title: General Structure
+title: Overview
 ---
 
 # {{$frontmatter.title}}

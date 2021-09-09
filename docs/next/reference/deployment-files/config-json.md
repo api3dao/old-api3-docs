@@ -54,7 +54,7 @@ Each config object can be thought of as the static NoSQL database of an Airnode 
 `ois` is a list of [OIS](../specifications/ois.md) objects.
 Since each OIS specifies the integration of an API to an oracle, a single Airnode deployment can serve multiple APIs.
 
-Contents of an `ois` list can be seen below (see the [OIS docs](../specifications/ois.md) for a complete example and the explanation of the fields):
+Contents of an `ois` list can be seen below (see the [OIS doc](../specifications/ois.md) for a complete example and the explanation of the fields):
 
 ```json
 [
@@ -158,14 +158,12 @@ Currently, only `evm` is supported.
 Note that multiple of them can be used simultaneously.
 The Airnode deployment will expect to find the URLs of each of these providers in their respective `url` fields.
 
-- `contracts` (required) - an object that keeps the addresses of the protocol contracts deployed on the respective chain.
-It has to include the following contract addresses:
+- `contracts` (required) - an object that keeps the addresses of the protocol contracts deployed on the respective chain. It has to include the following contract addresses:
 
   - `AirnodeRRP`
 
-- `authorizers` (required) - the list of authorizer contract addresses the Airnode deployment will set on-chain.
-See the [protocol docs](../protocols/request-response/airnode.md#setting-endpoint-authorizers) for more information.
-Note that the Airnode master wallet has to be funded (on the respective chain) to be able to make the transaction that will set or update this value.
+- `authorizers` (required) - the list of authorizer contract addresses the Airnode deployment will set on-chain. ~~Note that the Airnode wallet has to be funded (on the respective chain) to be able to make the transaction that will set or update this value.~~ For more information about authorizers see the [protocol Airnode](../protocols/request-response/airnode.md#setting-endpoint-authorizers) and [protocol Authorizer](../protocols/request-response/authorizer.md) docs.
+
 
 - `blockHistoryLimit` (optional) - the number of blocks in the past that the Airnode deployment should search for requests.
 Defaults to `300` (roughly 1 hour for Ethereum).

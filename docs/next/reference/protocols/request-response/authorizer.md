@@ -69,3 +69,9 @@ Authorizers allow Airnodes to implement a wide variety of policies. Here are som
 - Respond to individual requests for which a per-call fee has been paid in API3 tokens
 - Respond to requests made by requesters that were whitelisted by the API3 DAO
 - Respond to requests made by sponsors who have been whitelisted by the Airnode owner's backend (for example, based on PayPal payments)
+
+<Fix>Adding <code>SelfRequesterRrpAuthorizer</code> and <code>Api3RequesterRrpAuthorizer</code> was discussed in api3-docs PR https://github.com/api3dao/api3-docs/pull/186</Fix>
+
+## SelfRequesterRrpAuthorizer
+
+## Api3RequesterRrpAuthorizer

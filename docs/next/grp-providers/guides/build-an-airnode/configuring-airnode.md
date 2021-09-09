@@ -118,7 +118,7 @@ Airnode can use multiple Ethereum providers per chain. These could be a private 
 
 #### authorizers
 
-The list of authorizer contract addresses the Airnode deployment will set on-chain. See the [protocol docs](../../../reference/protocols/request-response/airnode.md#setting-endpoint-authorizers) for more information. Note that the Airnode master wallet has to be funded (on the respective chain) to be able to make the transaction that will set or update this value.
+The list of authorizer contract addresses the Airnode deployment will set on-chain. See the [protocol docs](../../../reference/protocols/request-response/airnode.md#setting-endpoint-authorizers) for more information. <FixInline>Funding of the Airnode wallet, is it needed here and for what reason?</FixInline> ~~Note that the Airnode wallet has to be funded (on the respective chain) to be able to make the transaction that will set or update this value.~~
 
 #### blockHistoryLimit
 
