@@ -17,7 +17,7 @@ Airnode serves APIs to blockchains according to [Oracle Integration Specificatio
 ethers.utils.keccak256(ethers.utils.defaultAbiCoder.encode(['string', 'string'], [oisTitle, endpointName]));
 ```
 
-Note that this means that an `endpointId` is not unique, and two Airnodes can serve equivalent endpoints using the same ID (in fact, this is the desired outcome).This is not an issue, as requests are made with a `airnodeId` <FixInline>airnodeAddress ? </FixInline>and `endpointId` pair.
+Note that this means that an `endpointId` is not unique, and two Airnodes can serve equivalent endpoints using the same ID (in fact, this is the desired outcome).This is not an issue, as requests are made with a `airnode` (Airnode's `address`) and `endpointId` pair.
 
 This convention of determining an `endpointId` is not enforced at the protocol-level. For example, one could choose to generate an `endpointId` randomly, and as long as requesters use the correct `endpointId`, this will not be an issue.
 

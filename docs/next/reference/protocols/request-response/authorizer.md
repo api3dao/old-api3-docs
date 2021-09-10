@@ -23,7 +23,7 @@ interface IRrpAuthorizer {
 }
 ```
 
-When an Airnode receives a request, it will use authorizers to verify if it should be responded to. Therefore, an authorizer contract can be used to implement an arbitrary authorization policy depending on the arguments above (`requestId`, `airnodeId`, etc.). Note that the authorizer does not have to use all of the arguments, and can even decide on external criteria such as `blockNumber` (e.g., "do not respond to anyone after block number N").
+When an Airnode receives a request, it will use authorizers to verify if it should be responded to. Therefore, an authorizer contract can be used to implement an arbitrary authorization policy depending on the arguments above (`requestId`, `airnode`, etc.). Note that the authorizer does not have to use all of the arguments, and can even decide on external criteria such as `blockNumber` (e.g., "do not respond to anyone after block number N").
 
 Airnodes can assign a list of authorizer contract addresses to their endpoints. These authorizers can be general purpose ones, but also custom-implemented by the Airnode to fit a specific need.
 

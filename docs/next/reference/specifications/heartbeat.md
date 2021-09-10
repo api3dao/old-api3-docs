@@ -18,12 +18,13 @@ Turn on the optional heartbeat functionality by setting all fields in the `confi
   chains:{...},
   environment:{...},
   nodeSettings:{
-      // The airnodeIdShort is omitted for new deployments
-      "airnodeIdShort": "0x67b...8dfg",
+      // The airnodeAddressShort is omitted for new deployments
+      "airnodeAddressShort": "0x67b...8dfg",
       "nodeVersion": "0.1.0",
       "cloudProvider": "aws",
       "region": "us-east-1",
       "stage": "testnet",
+      "airnodeWalletMnemonic": "<FILL_*>",
       "heartbeat": {
         "enabled": true,
         "url": "${HEARTBEAT_URL}",

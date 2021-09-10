@@ -167,7 +167,7 @@ npm run update-authorizers
 ## Step 2: Make a request
 
 The scripts in this step will use the Airnode you have deployed if you have completed Step 1.
-Otherwise, it will use the `airnodeId` of the Airnode that we have deployed given in `src/parameters.js`.
+Otherwise, it will use the Airnode's `address` of the Airnode that we have deployed given in `src/parameters.js`.
 Note that the `endpointId` will be the same either way because it is [derived from the OIS and endpoint name](https://api3dao.github.io/api3-docs/pre-alpha/protocols/request-response/endpoint.html#endpointid).
 
 ### Create a requester

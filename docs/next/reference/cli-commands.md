@@ -95,7 +95,7 @@ Derives the address of the [sponsor wallet](https://github.com/api3dao/api3-docs
 ```sh
 npx @api3/airnode-admin derive-sponsor-wallet \
   --providerUrl https://ropsten.infura.io/v3/<KEY> \
-  --airnodeId 0xe1e0dd... \
+  --airnode 0xe1e0dd... \
   --requesterIndex 6
 ```
 
@@ -194,12 +194,12 @@ npx @api3/airnode-admin set-airnode-parameters \
 
 ### `get-airnode-parameters`
 
-Returns the Airnode parameters and block number for the given `airnodeId`.
+Returns the Airnode parameters and block number for the given `airnode` (Airnode's `address`).
 
 ```sh
 npx @api3/airnode-admin get-airnode-parameters \
   --providerUrl https://ropsten.infura.io/v3/<KEY> \
-  --airnodeId 0xe1e0dd...
+  --airnode 0xe1e0dd...
 ```
 
 ### `derive-endpoint-id`

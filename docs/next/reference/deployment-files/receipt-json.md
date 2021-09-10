@@ -18,11 +18,11 @@ Example receipt:
 ```json
 {
   "airnodeWallet": {
-    "airnodeId": "0x23722bcdd23e559d7151db284f290fadde9f3cb725859d476ef1f16ab315355e",
+    "airnodeAdress": "0x23722bcdd23e559d7151db284f290fadde9f3cb725859d476ef1f16ab315355e",
     "xpub": "xpub661MyMwAqRbcFgefUsJa8UarHveV9dgvW6bKF13GaJFrw7AAcHCtMVuy3ZkFrTWdW2ji9TdjGHFbf3qk9vWvcNVPVZCtDGyASNs2V5SKcmf"
   },
   "deployment": {
-    "airnodeIdShort": "23722b",
+    "airnodeAdressShort": "23722b",
     "cloudProvider": "aws",
     "region": "us-east-1",
     "stage": "starter-example",

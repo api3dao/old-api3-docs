@@ -67,12 +67,12 @@ Options:
 Removes a deployed Airnode instance
 
 Options:
-      --version         Show version number           [boolean]
-      --debug           Run in debug mode             boolean] [default: false]
-      --help            Show help                     [boolean]
-  -r, --receipt         Path to receipt file          [string]
-  -a, --airnodeIdShort  Airnode ID (short version)    [string]
-  -s, --stage           Stage (environment)           [string]
-  -c, --cloudProvider   Cloud provider                [string]
-  -e, --region          Region                        [string]
+      --version              Show version number             [boolean]
+      --debug                Run in debug mode               boolean] [default: false]
+      --help                 Show help                       [boolean]
+  -r, --receipt              Path to receipt file            [string]
+  -a, --airnodeAddressShort  Airnode address (short version) [string]
+  -s, --stage                Stage (environment)             [string]
+  -c, --cloudProvider        Cloud provider                  [string]
+  -e, --region               Region                          [string]
 ```

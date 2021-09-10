@@ -13,7 +13,7 @@ Complete the following before settings authorizers.
 - [Configuring Airnode](configuring-airnode.md)
 - [Deploying Airnode](deploying-airnode.md)
   
-When you deployed your Airnode a receipt file was generated. In it is the `airnodeId`. Sponsors (via their sponsored requesters) use your `airnodeId` and an `endpointId` to make requests to your Airnode endpoints. However, you probably do not want to serve your Airnode endpoints publicly.
+When you deployed your Airnode a receipt file was generated. In it is the Airnode's `address`. Sponsors (via their sponsored requesters) use your Airnode's `address` and an `endpointId` to make requests to your Airnode endpoints. However, you probably do not want to serve your Airnode endpoints publicly.
 
 - Only serve your own [requester contracts](../../../grp-developers/requesters-sponsors.md)
 - Only serve sponsors who have made a subscription payment
@@ -25,7 +25,7 @@ In this guide, we will explain how you can achieve this.
 
 <Fix>Need to track down the EndpointStore.sol contract, it does not appear in the link below. Also who built/builds the Authorizer contract(s).</Fix>
 
-[EndpointStore.sol](../../../reference/protocols/request-response/general-structure.md#endpointstore-sol) keeps a list of [authorizer](../../../reference/protocols/request-response/authorizer.md) addresses for each `airnodeId`–`endpointId` pair. An authorizer is a contract that Airnode calls to check if it should respond to a specific request. It can enforce any kind of authorization policy that one could implement as a contract.
+[EndpointStore.sol](../../../reference/protocols/request-response/general-structure.md#endpointstore-sol) keeps a list of [authorizer](../../../reference/protocols/request-response/authorizer.md) addresses for each `airnode`–`endpointId` pair. An authorizer is a contract that Airnode calls to check if it should respond to a specific request. It can enforce any kind of authorization policy that one could implement as a contract.
 
 ## Deny all
 
@@ -39,7 +39,7 @@ A newly created Airnode defaults to **Deny All** for all its endpoints. The auth
 
 
 ```js
-airnode.connect(airnodeAdmin).updateEndpointAuthorizers(airnodeId, endpointId, [ethers.constants.AddressZero]);
+airnode.connect(airnodeAdmin).updateEndpointAuthorizers(airnodeAddress, endpointId, [ethers.constants.AddressZero]);
 ```
 
 ~~You can also use [@api3/airnode-admin](https://github.com/api3dao/airnode/tree/pre-alpha/packages/admin#update-authorizers) to update endpoint authorizers.~~
@@ -48,7 +48,7 @@ airnode.connect(airnodeAdmin).updateEndpointAuthorizers(airnodeId, endpointId, [
 npx @api3/airnode-admin update-authorizers \
   --providerUrl https://ropsten.infura.io/v3/<KEY> \
   --mnemonic "nature about salad..." \
-  --airnodeId 0xe1e0dd... \
+  --airnode 0xe1e0dd... \
   --endpointId 0x260558... \
   --authorizersFilePath ./authorizers.json
 ```

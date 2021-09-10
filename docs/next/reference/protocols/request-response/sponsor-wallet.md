@@ -11,10 +11,10 @@ Each [Airnode](Airnode.md) can keep a sponsor wallet for each [sponsor](requeste
 
 ## Deriving the address of the sponsor wallet
 
-Sponsors need to keep their sponsor wallet topped up if they want the Airnode to be able to fulfill requests made by their requesters. A sponsor can derive their sponsor wallet for a specific Airnode in JS (using ethers.js).
+Sponsors need to keep their sponsor wallet topped up if they want the Airnode to be able to fulfill requests made by their requesters. A sponsor can derive their sponsor wallet account for a specific Airnode in JS (using ethers.js) with the Airnode's `xpub`.
 
 
-<Fix>Does this code need any corrections. Why are we not using the admin package here?</Fix>
+<Fix>Does this code need any corrections. Why are we not using the admin package here? This is a problem `m/0/${requesterIndex}`?</Fix>
 ```js
 hdNode = ethers.utils.HDNode.fromExtendedKey(xpub);
 sponsorWalletNode = hdNode.derivePath(`m/0/${requesterIndex}`);

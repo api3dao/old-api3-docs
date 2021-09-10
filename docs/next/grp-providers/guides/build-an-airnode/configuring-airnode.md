@@ -7,6 +7,9 @@ title: Configuring Airnode
 <TocHeader />
 <TOC class="table-of-contents" :include-level=[2,5] />
 
+>Complete the following before configuring your Airnode.
+>- [API Integration](api-integration.md)
+
 An Airnode is deployed or redeployed using configuration values from its `config.json` and `secrets.env` files. The  `config.json` specifies the [OIS](../../../reference/specifications/ois.md) (Oracle Integration Specifications) and other specific configuration details. The `secrets.env` file holds secrets, such as API keys and chain provider URLs, which are referenced within the config.json file using interpolation.
 
 > ![config-json](../../../assets/images/config-json.png)
@@ -137,15 +140,16 @@ The list of authorizer contract addresses the Airnode deployment will set on-cha
 
 The `nodeSettings` field holds node-specific (Airnode) configuration parameters. 
 
-#### airnodeIdShort
+#### airnodeAddressShort
 
-The first of these is `airnodeIdShort`, which is used as a label by the deployer to detect previous deployments. Therefore, you must not have the `airnodeIdShort` field in your `config.json` during the first deployment as it will be created for you. On the other hand, you must have it for the following redeployments. You can find your `airnodeIdShort` in the receipt file outputted after deployment. This guide assumes that you have not deployed Airnode yet, so the `airnodeIdShort` field is not present in the `config.json` template.
+The first of these is `airnodeAddressShort`, which is used as a label by the deployer to detect previous deployments. Therefore, you must not have the `airnodeAddressShort` field in your `config.json` during the first deployment as it will be created for you. On the other hand, you must have it for the following redeployments. You can find `airnodeAddressShort` in the receipt file outputted after deployment. This guide assumes that you have not deployed Airnode yet, so the `airnodeAddressShort` field is not present in the `config.json` template.
 
 ```json
 {
-  // The airnodeIdShort is omitted for new deployments
+  // The airnodeAddressShort is omitted for new deployments
   "nodeVersion": "0.1.0",
   "cloudProvider": "aws",
+  "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
   "region": "us-east-1",
   "stage": "testnet",
   "heartbeat": {
@@ -159,7 +163,6 @@ The first of these is `airnodeIdShort`, which is used as a label by the deployer
 }
 ```
 
-
 #### nodeVersion
 
 The `nodeSettings.nodeVersion` field indicates which node version this `config.json` is prepared for. Since the `config.json` format can be expected to change with node versions, using a `config.json` prepared for one Airnode version with another may result in unexpected issues. The current node version is `0.1.0`, so you can leave it as such.
@@ -167,6 +170,9 @@ The `nodeSettings.nodeVersion` field indicates which node version this `config.j
 #### cloudProvider
 
 The `nodeSettings.cloudProvider` field indicates to the deployer which cloud provider Airnode should be deployed at. The deployer currently supports AWS, so leave this value as `aws`. We are planning to extend the deployer to support a wide variety of cloud providers. If you would like to contribute, please join the conversation in [this issue](https://github.com/api3dao/airnode/issues/154).
+
+#### airnodeWalletMnemonic
+(optional) An API provider can provide a mnemonic to be used as the Airnode's BIP 44 wallet from which the Airnode's [`address`](../../../reference/protocols/request-response/airnode.md#airnode-s-address) will be derived. If a mnemonic is not provided the deployer will create one for the Airnode. It is not required to fund the wallet to run the Airnode but must be funded to announce the [`xpub`](../../../reference/protocols/request-response/airnode.md#setairnodexpub) of the Airnode on-chain which is optional.
 
 #### region
 
