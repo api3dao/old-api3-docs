@@ -1,7 +1,7 @@
 [
   {
-    "airnodeId": "0xb0b226a117c69adb0fead71496da6bf86fa92b4fc5a97c8794ed0bcc1f97718c",
-    "airnodeIdShort": "b0b226a",
+    "airnode": "0xb0b226a117c69adb0fead71496da6bf86fa92b4fc5a97c8794ed0bcc1f97718c",
+    "airnodeAddressShort": "b0b226a",
     "config": {
       "id": "981d57c2-a004-4526-99da-1b04608fb463",
       "chains": [

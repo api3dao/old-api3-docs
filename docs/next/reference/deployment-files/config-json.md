@@ -7,9 +7,7 @@ title: config.json
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2, 3]" />
 
-The `config.json` defines a single Airnode deployment. The deployment will have an [`airnodeId`](../protocols/request-response/airnode.md#airnodeid), master private key and a  [sponsor wallet](../protocols/request-response/sponsor-wallet.md), etc.).
-
-The file contents will be in the format show below as a single JSON object
+The `config.json` defines a single Airnode deployment. The file contents will be in the format show below as a single JSON object
 
 ```json
 {
@@ -54,7 +52,7 @@ Each config object can be thought of as the static NoSQL database of an Airnode 
 `ois` is a list of [OIS](../specifications/ois.md) objects.
 Since each OIS specifies the integration of an API to an oracle, a single Airnode deployment can serve multiple APIs.
 
-Contents of an `ois` list can be seen below (see the [OIS docs](../specifications/ois.md) for a complete example and the explanation of the fields):
+Contents of an `ois` list can be seen below (see the [OIS doc](../specifications/ois.md) for a complete example and the explanation of the fields):
 
 ```json
 [
@@ -93,7 +91,7 @@ Contents of a `triggers` object can be seen below:
 
 According to the example above, the Airnode deployment has an OIS with the title `myOisTitle`.
 This OIS has an endpoint with the name `myEndpointName`.
-When the Airnode deployment detects a [request](../protocols/request-response/request.md) that references its [`airnodeId`](../protocols/request-response/airnode.md#airnodeid) and `0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5` as the [`endpointId`](../protocols/request-response/endpoint.md#endpointid), it will call the specified endpoint (`myOisTitle`-`myEndpointName`) with the parameters provided in the request to fulfill it.
+When the Airnode deployment detects a [request](../protocols/request-response/request.md) that references its [`address`](../protocols/request-response/airnode.md#airnode-s-address) and `0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5` as the [`endpointId`](../protocols/request-response/endpoint.md#endpointid), it will call the specified endpoint (`myOisTitle`-`myEndpointName`) with the parameters provided in the request to fulfill it.
 See the [Endpoints](../protocols/request-response/endpoint.md#endpointid) for the default convention for setting the `endpointId`.
 
 ## chains
@@ -158,14 +156,12 @@ Currently, only `evm` is supported.
 Note that multiple of them can be used simultaneously.
 The Airnode deployment will expect to find the URLs of each of these providers in their respective `url` fields.
 
-- `contracts` (required) - an object that keeps the addresses of the protocol contracts deployed on the respective chain.
-It has to include the following contract addresses:
+- `contracts` (required) - an object that keeps the addresses of the protocol contracts deployed on the respective chain. It has to include the following contract addresses:
 
   - `AirnodeRRP`
 
-- `authorizers` (required) - the list of authorizer contract addresses the Airnode deployment will set on-chain.
-See the [protocol docs](../protocols/request-response/airnode.md#setting-endpoint-authorizers) for more information.
-Note that the Airnode master wallet has to be funded (on the respective chain) to be able to make the transaction that will set or update this value.
+- `authorizers` (required) - the list of authorizer contract addresses the Airnode deployment will set on-chain. ~~Note that the Airnode wallet has to be funded (on the respective chain) to be able to make the transaction that will set or update this value.~~ For more information about authorizers see the [protocol Airnode](../protocols/request-response/airnode.md#setting-endpoint-authorizers) and [protocol Authorizer](../protocols/request-response/authorizer.md) docs.
+
 
 - `blockHistoryLimit` (optional) - the number of blocks in the past that the Airnode deployment should search for requests.
 Defaults to `300` (roughly 1 hour for Ethereum).
@@ -209,7 +205,7 @@ Contents of a `nodeSettings` object can be seen below:
 
 - `region` - The cloud provider region that the node will be deployed at. See the cloud provider's documentation for possible values.
 
-- `stage` - The label used to distinguish between multiple deployments of the same Airnode on a cloud provider. For example, the same Airnode may have multiple deployments with `stage`s set as `dev`, `ropsten`, `mainnet`, where each of these deployments would use the same private key and have the same `airnodeId`. `stage` cannot be longer than 16 characters and can only include alphanumeric characters (`a–z`, `A–Z`, `0–9`), hyphen (`-`) and underscore (`_`).
+- `stage` - The label used to distinguish between multiple deployments of the same Airnode on a cloud provider. For example, the same Airnode may have multiple deployments with `stage`s set as `dev`, `ropsten`, `mainnet`, where each of these deployments would use the Airnode `address`. `stage` cannot be longer than 16 characters and can only include alphanumeric characters (`a–z`, `A–Z`, `0–9`), hyphen (`-`) and underscore (`_`).
 
 - `airnodeWalletMnemonic` - The wallet mnemonic that will be used by the Airnode
 

@@ -23,7 +23,7 @@ interface IRrpAuthorizer {
 }
 ```
 
-When an Airnode receives a request, it will use authorizers to verify if it should be responded to. Therefore, an authorizer contract can be used to implement an arbitrary authorization policy depending on the arguments above (`requestId`, `airnodeId`, etc.). Note that the authorizer does not have to use all of the arguments, and can even decide on external criteria such as `blockNumber` (e.g., "do not respond to anyone after block number N").
+When an Airnode receives a request, it will use authorizers to verify if it should be responded to. Therefore, an authorizer contract can be used to implement an arbitrary authorization policy depending on the arguments above (`requestId`, `airnode`, etc.). Note that the authorizer does not have to use all of the arguments, and can even decide on external criteria such as `blockNumber` (e.g., "do not respond to anyone after block number N").
 
 Airnodes can assign a list of authorizer contract addresses to their endpoints. These authorizers can be general purpose ones, but also custom-implemented by the Airnode to fit a specific need.
 
@@ -69,3 +69,9 @@ Authorizers allow Airnodes to implement a wide variety of policies. Here are som
 - Respond to individual requests for which a per-call fee has been paid in API3 tokens
 - Respond to requests made by requesters that were whitelisted by the API3 DAO
 - Respond to requests made by sponsors who have been whitelisted by the Airnode owner's backend (for example, based on PayPal payments)
+
+<Fix>Adding <code>SelfRequesterRrpAuthorizer</code> and <code>Api3RequesterRrpAuthorizer</code> was discussed in api3-docs PR https://github.com/api3dao/api3-docs/pull/186</Fix>
+
+## SelfRequesterRrpAuthorizer
+
+## Api3RequesterRrpAuthorizer
