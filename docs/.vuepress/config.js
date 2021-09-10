@@ -22,7 +22,7 @@ module.exports = {
     displayAllHeaders: false,
     logo: '/img/logo.png',
     nav: [
-      { text: 'Discord (Dev)', link: 'https://discord.gg/qnRrcfnm5W' },
+      { text: 'Discord', link: 'https://discord.gg/qnRrcfnm5W' },
       { text: 'Forum', link: 'https://forum.api3.org' },
       { text: 'GitHub', link: 'https://github.com/api3dao/api3-docs' },
     ],
@@ -30,12 +30,12 @@ module.exports = {
               '/pre-alpha/':require(`../pre-alpha/sidebar.js`),
               '/dev/':require(`../dev/sidebar.js`),
              },
-    /* 
-      2021-02-17: wkande: 
+    /*
+      2021-02-17: wkande:
       smoothScroll=true will cause the TOC to require a double click for Ubuntu Firefox.
       Try true again after Firefox gets an update.
     */
-    smoothScroll: false 
+    smoothScroll: false
   },
   /**
    * Loading for PDF, not a great solution.
@@ -50,7 +50,7 @@ module.exports = {
       .options({
         name: `[path][name].[ext]`
       });
-    
+
     config.module.rule('vue')
       .uses.store
       .get('vue-loader').store
@@ -62,8 +62,8 @@ module.exports = {
         a: 'href'
       };
   },
-  plugins: 
-  [   
+  plugins:
+  [
     ['@vuepress/html-redirect', {
       countdown: 0,
     }],
@@ -76,7 +76,7 @@ module.exports = {
     ['@vuepress/search', {
         searchMaxSuggestions: 15,
         /*
-          2021-03-10: wkande:  Do not use "test:", version filtering has been 
+          2021-03-10: wkande:  Do not use "test:", version filtering has been
           added to .vuepress.components/SearchBox.vue
         */
       }
