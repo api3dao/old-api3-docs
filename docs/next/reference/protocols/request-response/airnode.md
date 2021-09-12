@@ -3,7 +3,8 @@ title: Airnode
 ---
 
 # {{$frontmatter.title}}
-<div style="width:300px;margin-left:125px;color:green;margin-top:-80px;margin-bottom:44px;transform: rotate(-10deg);font-weight:900;">Concepts and<br/>Definitions</div>
+
+<TitleSpan left=126>Concepts and<br/>Definitions</TitleSpan>
 
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
@@ -14,13 +15,12 @@ Use Airnode to serve one or more APIs to smart contracts (requesters). An Airnod
 
 An Airnode is identified by the default address of a BIP 44 wallet (with the path m/44'/60'/0'/0/0). 
 
-To accomplish this an Airnode is assigned a mnemonic which is used to derived a wallet, known as the `airnode-wallet`. The wallet's default address becomes the Airnode's identifier, know as the `airnodeAddress`.  The `airnodeAddress` is used to identify the Airnode across all chains.
-
+To accomplish this an Airnode is assigned a mnemonic which is used to derived a wallet, known as the `airnode-wallet`. The wallet's default address becomes the Airnode's identifier, know as the `airnodeAddress` which is used to identify the Airnode across all chains.
 
 The process by which this happens is simple:
 
-- The API provider uses the [deployer's](../../deployer-commands.md#deploy) `deploy` command to create a new Airnode, with or without supplying a mnemonic.
-- `deploy` uses the supplied mnemonic (or generates one if not supplied) to generate the `airnode-wallet`.
+- The API provider uses the [deployer's](../../deployer-commands.md#deploy) `deploy` command to create a new Airnode and supplies a mnemonic defined in the config.json as `nodeSettings.airnodeWalletMnemonic`.
+- `deploy` uses the supplied mnemonic to generate the `airnode-wallet`.
 - `deploy` uses the default address of the `airnode-wallet` as the `airnodeAddress`.
 - `deploy` returns output which includes the `airnodeAddress`.
 
