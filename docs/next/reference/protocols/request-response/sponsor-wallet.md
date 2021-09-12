@@ -7,7 +7,7 @@ title: Sponsor Wallet
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Each [Airnode](Airnode.md) can keep a sponsor wallet for each [sponsor](requester.md) which is identified by a sponsorAddress/airnodeAddress pair. [Requesters](requester.md) that have been  [sponsored](sponsorship.md) by a sponsor, can specify their requests be fulfilled by the  sponsor wallets belonging to the sponsor. This allows the sponsor to cover the gas cost of request fulfillments by the Airnode.
+Each [Airnode](Airnode.md) can keep a `sponsor-wallet` for each [sponsor](requester.md) which is identified by a `sponsorAddress/airnodeAddress` pair. [Requesters](requester.md) that have been  [sponsored](sponsorship.md) by a sponsor, can specify their requests be fulfilled by the  `sponsor-wallets` belonging to the sponsor. This allows the sponsor to cover the gas cost of request fulfillments by the Airnode.
 
 ## Deriving the address of the sponsor wallet
 

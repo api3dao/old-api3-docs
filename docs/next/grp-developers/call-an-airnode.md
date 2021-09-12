@@ -37,14 +37,14 @@ import "@api3/airnode-protocol/contracts/AirnodeRrpClient.sol";
 
 contract MyContract is AirnodeRrpClient {
   ...
-  constructor (address airnodeAddress)
+  constructor (address airnodeRrpAddress)
       public
-      AirnodeClient(airnodeAddress)
+      AirnodeClient(airnodeRrpAddress)
   {}
   ...
 }
 ```
-Note the constructor parameter `airnodeAddress` which is the public address of the AirnodeRrp.sol protocol contract on the blockchain you wish to use. It is used by AirnodeRrpClient.sol to point itself to AirnodeRrp.sol. See the the list of available addresses below.
+Note the constructor parameter `airnodeRrpAddress` which is the public address of the AirnodeRrp.sol protocol contract on the blockchain you wish to use. It is used by AirnodeRrpClient.sol to point itself to AirnodeRrp.sol. See the the list of available addresses below.
 
 > <ChainsSupported :version="'0.1.0'" />
 
@@ -63,9 +63,9 @@ contract MyContract is AirnodeRrpClient {
   mapping(bytes32 => bool) public incomingFulfillments;
   mapping(bytes32 => int256) public fulfilledData;
 
-  constructor (address airnodeAddress)
+  constructor (address airnodeRrpAddress)
       public
-      AirnodeClient(airnodeAddress)
+      AirnodeClient(airnodeRrpAddress)
   {}
 
   function callTheAirnode(
@@ -152,9 +152,9 @@ contract MyContract is AirnodeRrpClient {
     mapping(bytes32 => bool) public incomingFulfillments;
     mapping(bytes32 => int256) public fulfilledData;
 
-    constructor (address airnodeAddress)
+    constructor (address airnodeRrpAddress)
         public
-        AirnodeClient(airnodeAddress)
+        AirnodeClient(airnodeRrpAddress)
     {}
 
     function callTheAirnode(
