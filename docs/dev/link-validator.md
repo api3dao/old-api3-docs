@@ -32,7 +32,7 @@ Start an instance of [http-server](https://www.npmjs.com/package/http-server) to
 
  ```js
  // Change directories to the build root (dist)
- cd docs/.vuepresss/dist
+ cd docs/.vuepress/dist
  
  // Start an http-server, do not use the VuePress live reload server
  http-server
