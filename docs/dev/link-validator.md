@@ -7,7 +7,7 @@ title: Link Validator
 <TocHeader />
 [[toc]]
 
-This custom Node.js script (`link-check.js`) validates links with or without attached anchors. The script is used in supplement the markdown-link-check plugin that is run using the command `test:links:prod` which is also attached to a GitHub action in the project repo. However the markdown-link-check plugin does not validate anchors when attached to links, only the link.
+This custom Node.js script (`link-check.js`) validates links with or without attached anchors. The script is used to supplement the markdown-link-check plugin that is run using the command `test:links:prod` which is also attached to a GitHub action in the project repo. However the markdown-link-check plugin does not validate anchors when attached to links, only the link.
 
 - my-markdown.md
 - my-markdown.md#my-anchor
@@ -28,7 +28,9 @@ Build the docs as usual using the standard build command provided by VuePress.
 
 ## Step 2: Start http-server
 
-Start an instance of [http-server](https://www.npmjs.com/package/http-server) to serve the docs. Do not use the normal VuePress live reload server as it will not work with the script. 
+You can install [http-server](https://www.npmjs.com/package/http-server) globally, `npm install http-server -g` or as a dev dependency, `npm install http-server`. 
+
+Start an instance of http-server to serve the docs. Do not use the normal VuePress live reload server as it will not work with the script. 
 
  ```js
  // Change directories to the build root (dist)
