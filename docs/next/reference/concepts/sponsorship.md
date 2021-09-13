@@ -1,7 +1,7 @@
 ---
 title: Sponsorship
 ---
-
+<Fix>Move to sponsors.md</Fix>
 # {{$frontmatter.title}}
 
 A [sponsor](sponsor.md) announcing that a [requester](requester.md) can specify their requests to be fulfilled by the sponsor's [sponsor wallet](sponsor-wallet.md) is called a sponsorship. This is done by the sponsor calling `AirnodeRrp.sol` with the requester's contract address. This verifies that a requester is sponsored by the sponsor, whose `sponsor-wallet` it wants to have the request fulfilled with is done at the protocol level (and not by Airnodes).

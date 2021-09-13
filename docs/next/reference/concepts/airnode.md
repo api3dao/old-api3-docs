@@ -1,10 +1,9 @@
 ---
 title: Airnode
 ---
-
+<TitleSpan>Concepts and Definitions</TitleSpan>
 # {{$frontmatter.title}}
 
-<TitleSpan left=126>Concepts and<br/>Definitions</TitleSpan>
 
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />

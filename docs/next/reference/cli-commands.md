@@ -9,7 +9,7 @@ title: Admin CLI Commands
 
 <Fix>These commands when they are final.</Fix>
 
-Use the CLI tool to interact with Airnode across blockchains. There are commands for both developers (dApp) and API providers. Developers can sponsor [requester contracts](protocols/request-response/requester.md) and fund Airnodes. API providers can build [Airnodes](protocols/request-response/airnode.md) that serve their API data to requester contracts.
+Use the CLI tool to interact with Airnode across blockchains. There are commands for both developers (dApp) and API providers. Developers can sponsor [requester contracts](concepts/requester.md) and fund Airnodes. API providers can build [Airnodes](concepts/airnode.md) that serve their API data to requester contracts.
 
 Almost all commands require you to provide a blockchain `providerUrl` such as `https://ropsten.infura.io/v3/<KEY>`. The CLI connects to the [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/AirnodeRrp.sol) contract, which address is derived from the current chain. You can optionally specify the contract address yourself by providing optional `airnodeRrp` command argument with address of the deployed contract on your targeted chain.
 
@@ -156,7 +156,7 @@ npx @api3/airnode-admin get-template \
 
 ### `request-withdrawal`
 
-Requests a [withdrawal](./protocols/request-response/sponsor-wallet.html#withdrawals) from a sponsor-wallet managed by an Airnode, and returns the request ID. The account derived from the `mnemonic` will be used to return the funds. The `mnemonic` could be the one the sponsor used to create the sponsor-wallet or another `mnemonic owned by the sponsor.
+Requests a [withdrawal](./concepts/sponsor-wallet.html#withdrawals) from a sponsor-wallet managed by an Airnode, and returns the request ID. The account derived from the `mnemonic` will be used to return the funds. The `mnemonic` could be the one the sponsor used to create the sponsor-wallet or another `mnemonic owned by the sponsor.
 
 ```sh
 npx @api3/airnode-admin request-withdrawal \

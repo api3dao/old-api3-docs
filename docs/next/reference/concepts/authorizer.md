@@ -1,7 +1,7 @@
 ---
 title: Authorizer
 ---
-
+<TitleSpan>Concepts and Definitions</TitleSpan>
 # {{$frontmatter.title}}
 
 <TocHeader />

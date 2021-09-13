@@ -1,7 +1,7 @@
 ---
 title: Sponsor Wallet
 ---
-
+<Fix>Move to sponsors.md</Fix>
 # {{$frontmatter.title}}
 
 <TocHeader />

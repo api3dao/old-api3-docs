@@ -43,7 +43,7 @@ Fees are encountered, as transaction gas costs, when funding a requester's spons
 
 <SponsorWalletWarning/>
 
-Learn more about [sponsor wallets](../reference/protocols/request-response/sponsor-wallet.md) in the reference section.
+Learn more about [sponsor wallets](../reference/concepts/sponsor-wallet.md) in the reference section.
 
 ## API Provider Fees
 

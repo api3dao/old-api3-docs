@@ -196,7 +196,7 @@ npm run sponsor-requester
 
 ### Derive and fund the sponsor wallet
 
-First run the following to derive the [sponsor wallet](../../reference/protocols/request-response/sponsor-wallet.md) for the provider–requester pair:
+First run the following to derive the [sponsor wallet](../../reference/concepts/sponsor-wallet.md) for the provider–requester pair:
 ```sh
 npm run derive-sponsor-wallet-address
 ```

@@ -50,9 +50,9 @@ Note the constructor parameter `airnodeRrpAddress` which is the public address o
 
 ## Step #2: Make a Request
 
-There are three types of requests provided by the AirnodeRrp.sol contract. See [Request Types](../reference/protocols/request-response/request.md#request-types) in the Reference section for information related to each request type. 
+There are three types of requests provided by the AirnodeRrp.sol contract. See [Request Types](../reference/concepts/request.md#request-types) in the Reference section for information related to each request type. 
 
-This example will use a [full request](../reference/protocols/request-response/request.md#_3-full-request) type (note the `airnode.makeFullRequest` function call in the code below) which is called from the requester's own function `callTheAirnode`. The function `makeFullRequest` requires that the requester pass all parameters needed by Airnode to call its underlying API.
+This example will use a [full request](../reference/concepts/request.md#_3-full-request) type (note the `airnode.makeFullRequest` function call in the code below) which is called from the requester's own function `callTheAirnode`. The function `makeFullRequest` requires that the requester pass all parameters needed by Airnode to call its underlying API.
 
 Once the request has been made to `airnode.makeFullRequest` the AirnodeRrp.sol contract will return a `requestId` confirming the request has been accepted and is in process of being executed. Your requester would most likely wish to track all requestIds. Note the line `incomingFulfillments[requestId] = true;` in the code below that stores the requestIds in a mapping. This will be useful when the Airnode responds to the requester later at the function (`airnodeCallback`) with the requestId, statusCode and the data requested.
 
@@ -105,7 +105,7 @@ contract MyContract is AirnodeRrpClient {
 
 A full request using the AirnodeRrp.sol contract `makeFullRequest` function requires all parameters needed by the Airnode application be passed at runtime. This is in contrast to a template request that would use a template for some or all of the required parameters. Learn more about [using templates](call-an-airnode.md#using-templates).
 
-Since the `callTheAirnode` function is going to make a [full request](../reference/protocols/request-response/request.md#full-request) it must gather the following parameters to pass on to `airnode.makeFullRequest`.
+Since the `callTheAirnode` function is going to make a [full request](../reference/concepts/request.md#full-request) it must gather the following parameters to pass on to `airnode.makeFullRequest`.
 
 - **airnode** and **endpointId**: As a pair these uniquely identify the endpoint desired at a particular Airnode.
 
@@ -134,7 +134,7 @@ Since the `callTheAirnode` function is going to make a [full request](../referen
     // '0x...'
     ```
 
-For additional information on request parameters when calling `airnode.makeFullRequest()` see [Request Parameters](../reference/protocols/request-response/request.md#request-parameters) in the Reference section.
+For additional information on request parameters when calling `airnode.makeFullRequest()` see [Request Parameters](../reference/concepts/request.md#request-parameters) in the Reference section.
 
 ## Step #3: Capture the Response
 
@@ -189,7 +189,7 @@ contract MyContract is AirnodeRrpClient {
 The callback to a requester will contain three parameters.
 
 - **requestId**: First acquired when making the request and passed here as a reference to identify which request the response is for.
-- **statusCode**: A statusCode of `0` indicates a successful response and a `non-0` statusCode an error. See [statusCode](../reference/protocols/request-response/request.md#statuscode) for a list of error statusCodes.
+- **statusCode**: A statusCode of `0` indicates a successful response and a `non-0` statusCode an error. See [statusCode](../reference/concepts/request.md#statuscode) for a list of error statusCodes.
 
 - **calldata**: For a successful response the requested data which has been encoded. Decode it using the function `decode()` from the `abi` object .
 
