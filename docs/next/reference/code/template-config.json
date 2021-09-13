@@ -4,7 +4,7 @@
       "oisFormat": "1.0.0",
       "version": "<FILL_*>",
       "title": "<FILL_OIS_TITLE>",      // environment.securitySchemes[n].oisTitle
-      "apiSpecifications": {            // AND triggers.request[n].oisTitle
+      "apiSpecifications": {            // AND triggers.rrp[n].oisTitle
         "info": {
           "title": "<FILL_*>"
         },
@@ -46,7 +46,7 @@
       },
       "endpoints": [
         {
-          "name": "<FILL_ENDPOINT_NAME>",       // triggers.request[n].endpointName
+          "name": "<FILL_ENDPOINT_NAME>",       // triggers.rrp[n].endpointName
           "operation": {
             "method": "<FILL_METHOD>",
             "path": "<FILL_PATH>"
@@ -92,7 +92,7 @@
     }
   ],
   "triggers": {
-    "request": [
+    "rrp": [
       {
         "endpointId": "<FILL_*>",              
         "oisTitle": "<FILL_OIS_TITLE>",        // ois[n].title

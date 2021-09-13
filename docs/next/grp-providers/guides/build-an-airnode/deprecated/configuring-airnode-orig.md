@@ -42,7 +42,7 @@ Similarly, you may want to serve an endpoint through the request–response prot
 In that case, you would only create the trigger for the request–response protocol.
 
 Note that at this stage, only the request–response protocol is implemented.
-You can list the endpoints that you want to serve under `triggers.request`.
+You can list the endpoints that you want to serve under `triggers.rrp`.
 In most cases, you would create a trigger for each endpoint in your OIS.
 
 Each trigger has an `oisTitle` and `endpointName` that allow you to refer to one of the endpoints in one of the OISes.

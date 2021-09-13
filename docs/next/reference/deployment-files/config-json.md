@@ -78,7 +78,7 @@ Contents of a `triggers` object can be seen below:
 
 ```json
 {
-  "request": [
+  "rrp": [
     {
       "endpointId": "0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5",
       "oisTitle": "myOisTitle",
