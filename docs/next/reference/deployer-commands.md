@@ -40,7 +40,6 @@ cp config/secrets.env.example config/secrets.env
 
    **Write down the displayed mnemonic and safely store the outputted receipt file.**
 
-   Fund the Airnode wallet address with the displayed amount to set your Airnode parameters.
 2. In order to update the Airnode configuration:
     * Update the `config.json` file
     * Ensure the `AIRNODE_WALLET_MNEMONIC` value in `secrets.env` has your previously generated mnemonic phrase
