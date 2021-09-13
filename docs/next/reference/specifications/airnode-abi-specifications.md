@@ -157,7 +157,7 @@ This is far more than what would be needed in practice, and thus is tolerated to
 We are using the [strict encoding mode](https://docs.soliditylang.org/en/v0.6.12/abi-spec.html#strict-encoding-mode) so that we can decode the values later on.
 This means that each parameter will be padded with zeros to complete them to 32 bytes.
 Although this padding increases gas costs, ABI encoding/decoding functions being cheap balances this.
-Furthermore, the [template](../protocols/request-response/template.md) pattern we use in our protocols allows us to refer to these encoded parameters without explicitly passing them in our requests, making the increased cost induced by padding irrelevant in most cases.
+Furthermore, the [template](../concepts/template.md) pattern we use in our protocols allows us to refer to these encoded parameters without explicitly passing them in our requests, making the increased cost induced by padding irrelevant in most cases.
 
 ## `@api3/airnode-abi`
 

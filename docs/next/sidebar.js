@@ -154,18 +154,18 @@ module.exports = [
         ]
       },
       {
-        title: 'Request-Response Protocol', collapsable: true, initialOpenGroupIndex: -1,
+        title: 'Concepts and Definitions', collapsable: true, initialOpenGroupIndex: -1,
         children:[
-          'reference/protocols/request-response/',
-          'reference/protocols/request-response/airnode',
-          'reference/protocols/request-response/endpoint',
-          'reference/protocols/request-response/authorizer',
-          'reference/protocols/request-response/requester',
-          'reference/protocols/request-response/sponsor',
-          'reference/protocols/request-response/sponsor-wallet',
-          'reference/protocols/request-response/sponsorship',
-          'reference/protocols/request-response/template',
-          'reference/protocols/request-response/request'
+          'reference/concepts/',
+          'reference/concepts/airnode',
+          'reference/concepts/endpoint',
+          'reference/concepts/authorizer',
+          'reference/concepts/requester',
+          'reference/concepts/sponsor',
+          'reference/concepts/sponsor-wallet',
+          'reference/concepts/sponsorship',
+          'reference/concepts/template',
+          'reference/concepts/request'
         ],
       },
       'reference/cli-commands',

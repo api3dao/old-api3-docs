@@ -121,7 +121,7 @@ Airnode can use multiple Ethereum providers per chain. These could be a private 
 
 #### authorizers
 
-The list of authorizer contract addresses the Airnode deployment will set on-chain. See the [protocol docs](../../../reference/protocols/request-response/airnode.md#setting-endpoint-authorizers) for more information. <FixInline>Funding of the Airnode wallet, is it needed here and for what reason?</FixInline> ~~Note that the Airnode wallet has to be funded (on the respective chain) to be able to make the transaction that will set or update this value.~~
+The list of authorizer contract addresses the Airnode deployment will set on-chain. See the [protocol docs](../../../reference/concepts/airnode.md#setting-endpoint-authorizers) for more information. <FixInline>Funding of the Airnode wallet, is it needed here and for what reason?</FixInline> ~~Note that the Airnode wallet has to be funded (on the respective chain) to be able to make the transaction that will set or update this value.~~
 
 #### blockHistoryLimit
 
@@ -172,7 +172,7 @@ The `nodeSettings.nodeVersion` field indicates which node version this `config.j
 The `nodeSettings.cloudProvider` field indicates to the deployer which cloud provider Airnode should be deployed at. The deployer currently supports AWS, so leave this value as `aws`. We are planning to extend the deployer to support a wide variety of cloud providers. If you would like to contribute, please join the conversation in [this issue](https://github.com/api3dao/airnode/issues/154).
 
 #### airnodeWalletMnemonic
-(optional) An API provider can provide a mnemonic to be used as the Airnode's BIP 44 wallet from which the Airnode's [`address`](../../../reference/protocols/request-response/airnode.md#airnode-s-address) will be derived. If a mnemonic is not provided the deployer will create one for the Airnode. It is not required to fund the wallet to run the Airnode but must be funded to announce the [`xpub`](../../../reference/protocols/request-response/airnode.md#setairnodexpub) of the Airnode on-chain which is optional.
+(optional) An API provider can provide a mnemonic to be used as the Airnode's BIP 44 wallet from which the Airnode's [`address`](../../../reference/concepts/airnode.md#airnode-s-address) will be derived. If a mnemonic is not provided the deployer will create one for the Airnode. It is not required to fund the wallet to run the Airnode but must be funded to announce the [`xpub`](../../../reference/concepts/airnode.md#setairnodexpub) of the Airnode on-chain which is optional.
 
 #### region
 

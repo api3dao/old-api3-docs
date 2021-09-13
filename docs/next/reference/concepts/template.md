@@ -1,7 +1,7 @@
 ---
 title: Template
 ---
-
+<TitleSpan>Concepts and Definitions</TitleSpan>
 # {{$frontmatter.title}}
 
 <!--TocHeader />

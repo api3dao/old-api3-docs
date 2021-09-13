@@ -11,7 +11,7 @@ As a developer it helps to understand what a **requester** is and what a **spons
 
 ## What is a Requester?
 
-The term **requester** is important to remember. It is mentioned in these docs and in the GitHub code. When requester is mentioned, the reference is to your smart contract that calls an Airnode. See [requester](../reference/protocols/request-response/requester.md) in the Reference section. 
+The term **requester** is important to remember. It is mentioned in these docs and in the GitHub code. When requester is mentioned, the reference is to your smart contract that calls an Airnode. See [requester](../reference/concepts/requester.md) in the Reference section. 
 
 > ![image](../assets/images/requesters-sponsors-1.png)
 
@@ -19,7 +19,7 @@ As an example see the `myContract.sol` contract in the diagram within the [Overv
 
 ## What is a Sponsor?
 
-Equally important is the term **sponsor** also found throughout the docs and code. A sponsor is an entity such as yourself, an organization, etc. See [sponsor](../reference/protocols/request-response/sponsor.md) in the Reference section.
+Equally important is the term **sponsor** also found throughout the docs and code. A sponsor is an entity such as yourself, an organization, etc. See [sponsor](../reference/concepts/sponsor.md) in the Reference section.
 
 As a sponsor you will use the address of an Ethereum account _(called a sponsorAddress)_ to "derive a sponsor wallet" for an Airnode and then "sponsor a requester" with the same sponsorAddress. 
 
@@ -58,7 +58,7 @@ In the next two sections of this doc you will use two commands from the @api3/ai
 
 ## How to Derive a Sponsor Wallet
 
-To use a particular Airnode you must derive a _sponsor wallet_. Once the sponsor wallet is created it must be funded using the public address returned by the command`derive-sponsor-wallet`. Each Airnode keeps a separate list of individual sponsor wallets that can access the Airnode. Learn more about [sponsor wallets](../reference/protocols/request-response/sponsor-wallet.md).
+To use a particular Airnode you must derive a _sponsor wallet_. Once the sponsor wallet is created it must be funded using the public address returned by the command`derive-sponsor-wallet`. Each Airnode keeps a separate list of individual sponsor wallets that can access the Airnode. Learn more about [sponsor wallets](../reference/concepts/sponsor-wallet.md).
 
 To derive a sponsor wallet for an Airnode execute the `sponsor-wallet` command using the parameters detailed in the list below. There are no transaction gas costs to do so.
 

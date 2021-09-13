@@ -1,7 +1,7 @@
 ---
-title: Overview
+title: Request-Response Protocol
 ---
-
+<TitleSpan>Concepts and Definitions</TitleSpan>
 # {{$frontmatter.title}}
 
 <TocHeader />
@@ -14,7 +14,7 @@ An Airnode serving the request–response protocol listens for requests, makes t
 
 The request–response protocol is implemented as a single permissionless contract that all Airnodes interact with, which is named `AirnodeRrp.sol`. This base contract has the following inheritance tree that compartmentalizes the aspects of the protocol.
 
-  >  ![rrp-sol-diagram](../../../assets/images/RRP-protocol-contracts.png)
+  >  ![rrp-sol-diagram](../../assets/images/RRP-protocol-contracts.png)
 
 ### AirnodeRrp.sol
 
@@ -23,7 +23,7 @@ The [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/pro
 - Used by requesters to make requests.
 - Used by Airnodes to fulfill requests.
 
-The [Admin](../../cli-commands.md) (`@api3/airnode-admin`) package is a CLI tool used to interact with `AirnodeRrp.sol` and perform administrative actions for the [concepts](general-structure.md#concepts) discussed below. See the [admin package](https://github.com/api3dao/airnode/tree/master/packages/admin) in GitHub.
+The [Admin](../cli-commands.md) (`@api3/airnode-admin`) package is a CLI tool used to interact with `AirnodeRrp.sol` and perform administrative actions. See the [admin package](https://github.com/api3dao/airnode/tree/master/packages/admin) in GitHub.
 
 To use AirnodeRrp.sol a requester must import AirnodeRrpClient.sol.
 
@@ -57,18 +57,3 @@ The [TemplateUtils.sol](https://github.com/api3dao/airnode/blob/master/packages/
 
 - <FixInline>add bullet highlights</FixInline>
 - 
-
-## Concepts
-
-The remainder of the Request-Response Protocol directory contains details about the concepts of the protocol. Click the links below (or in the sidebar navigator) for the page of the specific concept. It is recommended to read these in the given order.
-
-
-1. An [Airnode](airnode.md) serves one or more APIs to smart contracts.
-
-1. Each of the API operations that the Airnode serves is accessible over an [endpoint](endpoint.md). The Airnode sets [authorizers](authorizer.md) for these endpoints, which are contracts that implement authorization policies.
-
-1. A [sponsor](sponsor.md) owns contracts that make requests to Airnodes. Each of these contracts is called a [requester](requester.md).
-
-1. Each Airnode keeps a [sponsor wallet](sponsor-wallet.md) for each sponsor that creates one. The sponsor [sponsors](sponsor.md) their requesters allowing them to make requests that will be fulfilled by the sponsor's sponsor wallet.
-
-1. A requester can create a request [template](template.md), which is an on-chain record that they can refer to while making [requests](request.md).

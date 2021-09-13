@@ -91,8 +91,8 @@ Contents of a `triggers` object can be seen below:
 
 According to the example above, the Airnode deployment has an OIS with the title `myOisTitle`.
 This OIS has an endpoint with the name `myEndpointName`.
-When the Airnode deployment detects a [request](../protocols/request-response/request.md) that references its [`address`](../protocols/request-response/airnode.md#airnode-s-address) and `0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5` as the [`endpointId`](../protocols/request-response/endpoint.md#endpointid), it will call the specified endpoint (`myOisTitle`-`myEndpointName`) with the parameters provided in the request to fulfill it.
-See the [Endpoints](../protocols/request-response/endpoint.md#endpointid) for the default convention for setting the `endpointId`.
+When the Airnode deployment detects a [request](../concepts/request.md) that references its [`address`](../concepts/airnode.md#airnode-s-address) and `0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5` as the [`endpointId`](../concepts/endpoint.md#endpointid), it will call the specified endpoint (`myOisTitle`-`myEndpointName`) with the parameters provided in the request to fulfill it.
+See the [Endpoints](../concepts/endpoint.md#endpointid) for the default convention for setting the `endpointId`.
 
 ## chains
 
@@ -160,7 +160,7 @@ The Airnode deployment will expect to find the URLs of each of these providers i
 
   - `AirnodeRRP`
 
-- `authorizers` (required) - the list of authorizer contract addresses the Airnode deployment will set on-chain. ~~Note that the Airnode wallet has to be funded (on the respective chain) to be able to make the transaction that will set or update this value.~~ For more information about authorizers see the [protocol Airnode](../protocols/request-response/airnode.md#setting-endpoint-authorizers) and [protocol Authorizer](../protocols/request-response/authorizer.md) docs.
+- `authorizers` (required) - the list of authorizer contract addresses the Airnode deployment will set on-chain. ~~Note that the Airnode wallet has to be funded (on the respective chain) to be able to make the transaction that will set or update this value.~~ For more information about authorizers see the [protocol Airnode](../concepts/airnode.md#setting-endpoint-authorizers) and [protocol Authorizer](../concepts/authorizer.md) docs.
 
 
 - `blockHistoryLimit` (optional) - the number of blocks in the past that the Airnode deployment should search for requests.

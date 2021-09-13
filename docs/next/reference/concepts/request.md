@@ -1,7 +1,7 @@
 ---
 title: Request
 ---
-
+<TitleSpan>Concepts and Definitions</TitleSpan>
 # {{$frontmatter.title}}
 
 <TocHeader />
@@ -79,7 +79,7 @@ A request made to an Airnode has three possible outcomes:
 
 For a successful request, Airnode  calls the `fulfill()` function in `AirnodeRRP.sol` that will in turn call back the requster contract at `fulfillAddress` using function `fulfillFunctionId` to deliver `data` and a [`statusCode`](https://github.com/api3dao/airnode/blob/6f31a4c27d40e86101673bf37d223fef6625dfdd/packages/protocol/contracts/AirnodeRrp.sol#L148) of 0. If there was an error then statusCode will be non-0. The requester contract can then handle this error as it sees fit (e.g., ignore it, make a request to an alternative provider, etc.)
 
-> ![request-outcomes](../../../assets/images/request-outcomes.png)
+> ![request-outcomes](../../assets/images/request-outcomes.png)
 
 ### Fail
 
