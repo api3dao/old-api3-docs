@@ -28,7 +28,7 @@ Build the docs as usual using the standard build command provided by VuePress.
 
 ## Step 2: Start http-server
 
-You can install [http-server](https://www.npmjs.com/package/http-server) globally, `npm install http-server -g` or as a dev dependency, `npm install http-server`. 
+You can install [http-server](https://www.npmjs.com/package/http-server) globally, `npm install http-server -g` or as a dev dependency, `npm install http-server --save-dev`. 
 
 Start an instance of http-server to serve the docs. Do not use the normal VuePress live reload server as it will not work with the script. 
 
