@@ -113,6 +113,20 @@ module.exports = [
       },
     ]
   },
+  {title:'_________________',collapsable: false},
+  {
+    title: 'Concepts and Definitions', collapsable: true, initialOpenGroupIndex: -1,
+    children:[
+      'concepts/',
+      'concepts/airnode',
+      'concepts/endpoint',
+      'concepts/authorizer',
+      'concepts/requester',
+      'concepts/sponsor',
+      'concepts/template',
+      'concepts/request'
+    ],
+  },
   {
     title: 'Reference', initialOpenGroupIndex: -1, collapsable: true,
     children: [
@@ -132,8 +146,7 @@ module.exports = [
             'reference/specifications/airnode-abi-specifications',
             'reference/specifications/reserved-parameters',
             'reference/specifications/heartbeat',
-            'reference/specifications/http-gateway',
-            'reference/specifications/post-processing'
+            'reference/specifications/http-gateway'
         ]
       },
       {
@@ -152,21 +165,6 @@ module.exports = [
           'reference/templates/config-json',
           'reference/templates/secrets-env'
         ]
-      },
-      {
-        title: 'Concepts and Definitions', collapsable: true, initialOpenGroupIndex: -1,
-        children:[
-          'reference/concepts/',
-          'reference/concepts/airnode',
-          'reference/concepts/endpoint',
-          'reference/concepts/authorizer',
-          'reference/concepts/requester',
-          'reference/concepts/sponsor',
-          'reference/concepts/sponsor-wallet',
-          'reference/concepts/sponsorship',
-          'reference/concepts/template',
-          'reference/concepts/request'
-        ],
       },
       'reference/cli-commands',
       'reference/deployer-commands',
