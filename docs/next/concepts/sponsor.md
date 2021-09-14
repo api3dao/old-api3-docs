@@ -43,9 +43,19 @@ Use the [Admin CLI tool](../cli-commands.md#sponsor-requester) to sponsor a requ
 
 Each [Airnode](Airnode.md) can keep a unique`sponsorWallet` for a [sponsor](sponsor.md). The wallet is identified by a `sponsorAddress/airnodeAddress` pair. A sponsor must take action to [derive](sponsor.md#derive-a-sponsor-wallet) a `sponsorWallet` for a particular Airnode. [Requesters](requester.md), that have been  [sponsored](sponsorship.md) by a sponsor, can specify their requests be fulfilled by the  `sponsorWallet` belonging to the sponsor. This allows the sponsor to cover the gas cost of request fulfillments by the Airnode.
 
+<Fix>1-Needs review, this was in AN-96</Fix>
+An Ethereum address is 20 bytes-long, which makes 160 bits. Each index in the HD wallet non-hardened derivation path goes up to 2^31. Then, we can divide these 160 bits into six 31 bit-long chunks and the derivation path for a sponsor wallet of a requester would be:
+
+`m / 0 / sponsor && 0x7FFFFFFF / (sponsor >> 31) && 0x7FFFFFFF / (sponsor >> 62) && 0x7FFFFFFF / (sponsor >> 93) && 0x7FFFFFFF / (sponsor >> 124) && 0x7FFFFFFF / (sponsor >> 155) && 0x7FFFFFFF`
+
+Note that the derivation path starts with m/0/.... The zero here is allocated for RRP, and the other branches will be used to derive the sponsor wallets for other protocols such as PSP.
+
+Anyone can use the xpub that the Airnode has announced (through on-chain or off-chain channels) and the sponsor's `sponsorAddress` to derive a `sponsorWalletAddress` for a specific Airnode–sponsor pair.
+
+<Fix>2-Needs review</Fix>
 The path of a `sponsorWallet` for the request–response protocol is `m/0/${sponsorAddress}`. This means that we assume that `sponsorAddress` will be less than `2^31` (yet this can be extended by using schemes such as `m/0/${sponsorAddress % 2^31}/${sponsorAddress / 2^31}`). Other branches such as `m/1/...`, `m/2/...`, etc. are reserved for other protocols (e.g., the pub–sub protocol).
 
-<Fix>1-START The following seems to be dense and not all that useful. The real need is to understand how the wallet is derived and its inputs and output.</Fix>
+<Fix>3-START-Needs review, this was in AN-96. The following seems to be dense and not all that useful. The real need is to understand how the wallet is derived and its inputs and output.</Fix>
 Each sponsor is identified by their address, and their sponsor wallets are designated implicitly by the following path
 
 m/0...
@@ -58,7 +68,7 @@ m/0...
 - /6th least significant 31-bits of the sponsor address
 
 In other words, a sponsor can calculate the address of their respective sponsor wallet for an Airnode and have requesters use it to make requests right away.
-<Fix>1-END</Fix>
+<Fix>3-END</Fix>
 
 ### Gas Costs
 
