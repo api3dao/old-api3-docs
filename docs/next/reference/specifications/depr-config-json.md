@@ -49,7 +49,7 @@ Each node serves the APIs of a single API provider.
 `triggers` are events that trigger an API call and an Ethereum transaction by Airnode.
 Triggers of different types are kept in lists under their respective keys:
 
-- `request` - When the node sees an event with its `airnodeId` and this trigger's `endpointId` emitted from the central Airnode contract, it responds to it with the respective endpoint defined in the OIS.
+- `rrp` - When the node sees an event with its `airnodeId` and this trigger's `endpointId` emitted from the central Airnode contract, it responds to it with the respective endpoint defined in the OIS.
   - `endpointId`
   - `oisTitle`
   - `endpointName`
@@ -57,7 +57,7 @@ Triggers of different types are kept in lists under their respective keys:
 
 ```json
 {
-  "request": [
+  "rrp": [
     {
       "endpointId": "...",
       "oisTitle": "...",

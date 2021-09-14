@@ -87,7 +87,7 @@ title: config.json
     }
   ],
   "triggers": {
-    "request": [
+    "rrp": [
       {
         "endpointId": "<FILL_*>",
         "oisTitle": "<FILL_OISTITLE>",

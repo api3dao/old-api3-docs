@@ -51,7 +51,7 @@ The `ois` field is a list OIS objects that Airnode will be serving. This means t
 
 The `triggers` field allows you to expose Airnode endpoints from an OIS selectively. For example, your OIS may include 10 endpoints, but you may only want to serve 2. Instead of modifying the OIS, you would simply create triggers for the 2. Similarly, you may want to serve an endpoint through the request–response protocol, but not the pub–sub protocol. In that case, you would only create the trigger for the request–response protocol.
 
-Note that currently only the request–response protocol is implemented. You can list the endpoints that you want to serve with the request–response protocol under `triggers.request`. In most cases, you would create a trigger for each endpoint in your OIS object.
+Note that currently only the request–response protocol is implemented. You can list the endpoints that you want to serve with the request–response protocol under `triggers.rrp`. In most cases, you would create a trigger for each endpoint in your OIS object.
 
 Each trigger has an `oisTitle` and `endpointName` that allow you to refer to one of the endpoints in an OIS object. Remember that an Airnode's config.json file can have more than one OIS object. Fill these in accordingly. 
 
