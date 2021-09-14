@@ -14,7 +14,7 @@ An Airnode serving the request–response protocol listens for requests, makes t
 
 The request–response protocol is implemented as a single permissionless contract that all Airnodes interact with, which is named `AirnodeRrp.sol`. This base contract has the following inheritance tree that compartmentalizes the aspects of the protocol.
 
-  >  ![rrp-sol-diagram](../../assets/images/RRP-protocol-contracts.png)
+  >  ![rrp-sol-diagram](../assets/images/RRP-protocol-contracts.png)
 
 ### AirnodeRrp.sol
 
