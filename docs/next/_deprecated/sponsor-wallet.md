@@ -7,9 +7,22 @@ title: Sponsor Wallet
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Each [Airnode](Airnode.md) can keep a `sponsor-wallet` for each [sponsor](requester.md) which is identified by a `sponsorAddress/airnodeAddress` pair. [Requesters](requester.md) that have been  [sponsored](sponsorship.md) by a sponsor, can specify their requests be fulfilled by the  `sponsor-wallets` belonging to the sponsor. This allows the sponsor to cover the gas cost of request fulfillments by the Airnode.
+Each [Airnode](Airnode.md) can keep a unique `sponsorWallet` for a [sponsor](sponsor.md). which is identified by a `sponsorAddress/airnodeAddress` pair. [Requesters](requester.md) that have been  [sponsored](sponsorship.md) by a sponsor, can specify their requests be fulfilled by the  `sponsor-wallets` belonging to the sponsor. This allows the sponsor to cover the gas cost of request fulfillments by the Airnode.
 
 ## Deriving the address of the sponsor wallet
+
+Each sponsor is identified by their address, and their sponsor wallets are designated implicitly by the following path
+
+m/0...
+
+- /1st least significant 31-bits of the sponsor address...
+- /2nd least significant 31-bits of the sponsor address...
+- /3rd least significant 31-bits of the sponsor address...
+- /4th least significant 31-bits of the sponsor address...
+- /5th least significant 31-bits of the sponsor address...
+- /6th least significant 31-bits of the sponsor address
+
+In other words, a sponsor can calculate the address of their respective sponsor wallet for an Airnode and have requesters use it to make requests right away.
 
 Sponsors need to keep their sponsor wallet topped up if they want the Airnode to be able to fulfill requests made by their requesters. A sponsor can derive their sponsor wallet account for a specific Airnode in JS (using ethers.js) with the Airnode's `xpub`.
 

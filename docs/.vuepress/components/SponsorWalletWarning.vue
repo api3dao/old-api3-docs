@@ -10,14 +10,14 @@
       margin-inline-end: 0px;
       line-height: 1.7;">
 
-      <div style="color:#b29400;font-weight:600;font-size:medium;">
+      <!--div style="color:#b29400;font-weight:600;font-size:medium;">
         Sponsor Wallets
-      </div>
-      <div style="padding-top:8px;">Sponsors should not fund a <code>sponsor-wallet</code> with 
+      </div-->
+      <div style="padding-top:8px;">Sponsors should not fund a <code>sponsorWallet</code> with 
         more then they can trust the Airnode with, as the Airnode controls the private key 
-        to the sponsor wallet. The deployer of such Airnode undertakes no 
+        to the <code>sponsorWallet</code>. The deployer of such Airnode undertakes no 
         custody obligations, and the risk of loss or misuse of any excess 
-        funds sent to the <code>sponsor-wallet</code> remains with the sponsor.
+        funds sent to the <code>sponsorWallet</code> remains with the sponsor.
       </div>
 
   </div>

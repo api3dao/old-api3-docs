@@ -7,6 +7,8 @@ title: Request-Response Protocol
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
+<Fix>Refer to [Monorepo version: @api3/protocol](https://github.com/api3dao/airnode/tree/beta-protocol-revision/packages/protocol) for details to enhance this docs. Careful which branch you use. Devs are moving to a consolidated  branch soon.</Fix>
+
 The first protocol implemented for Airnode is request–response.
 An Airnode serving the request–response protocol listens for requests, makes the API call specified by the request, and fulfills the request as soon as possible.
 
@@ -14,7 +16,7 @@ An Airnode serving the request–response protocol listens for requests, makes t
 
 The request–response protocol is implemented as a single permissionless contract that all Airnodes interact with, which is named `AirnodeRrp.sol`. This base contract has the following inheritance tree that compartmentalizes the aspects of the protocol.
 
-  >  ![rrp-sol-diagram](../../assets/images/RRP-protocol-contracts.png)
+  >  ![rrp-sol-diagram](../assets/images/RRP-protocol-contracts.png)
 
 ### AirnodeRrp.sol
 
