@@ -112,11 +112,7 @@ See the [Api3Voting.sol](https://github.com/api3dao/api3-dao/tree/main/packages/
 
 The following parameters can be updated via DAO proposal, by calling functions in the [DAO pool contract](../README.md):
 
-<Todo>
-
-What is the name of the contract(s) mentions above. Link to it in its repo if it makes sense.
-
-</Todo>
+<Fix><p>What is the name of the contract(s) mentions above. Link to it in its repo if it makes sense.</p></Fix>
 
 |Parameter Name |Initial Value (units) |Function Signature |Description |
 |--- |--- |--- |--- |

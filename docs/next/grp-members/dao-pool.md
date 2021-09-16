@@ -99,11 +99,11 @@ API3 aims to set up, maintain, and [monetize](dao-pool.md#monetization) dAPIs at
 ### Earning Rewards
 Earning rewards is simple: everyone who owns shares of the DAO pool (everyone who has staked API3 tokens into the DAO pool contract) will earn rewards as they are added to the DAO pool. When you schedule tokens to be unstaked, you stop earning rewards for those tokens.
 
-<Todo>
+<Fix>
 
 The statement below does not seem to sync with the way the dashboard displays, which is by tokens and not shares.
 
-</Todo>
+</Fix>
 
 Remember that when you stake, you receive non-transferable pool shares equal to the current total number of issued shares divided by the total number of tokens staked. Since the reward adds additional tokens to the pool, the "price" for one share will not always be one token.
 

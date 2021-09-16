@@ -4,6 +4,8 @@
 
   2021-08-03: wkande: Commented out the GitHub link feature that was displayed 
   in the upper right hand corner.
+
+  2021-09-17: wkande: THIS COMPONENT IS DEPRECATED, USE FIX INSTEAD
 -->
 
 <template>
@@ -23,6 +25,10 @@
 
       <!-- The slot -->
       <div class="borderGreen">
+        <span style="color:red">
+          This component is depreacted, use the Fix component instread.
+        </span>
+        <br/>
         <span><Badge 
           style="padding-top:0px;" 
           type="tip" :text="'Todo: '+$page.todoCnt" 

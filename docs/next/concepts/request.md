@@ -7,9 +7,30 @@ title: Request
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3,4]" />
 
-When a requester makes a request using `AirnodeRrp.sol`, it is returned a `requestId`. This `requestId` is a hash of all request parameters and a nonce. This allows Airnode to verify that the request parameters are not tampered with.
+A request is made by a [requester](requester.md) to either the `makeFullRequest()` or `makeTemplateRequest()` function of the [AirnodeRrp.sol](README.md#airnoderrp-sol) protocol contract which adds the request to the event log. The targeted off-chain [Airnode](airnode.md) gathers the request from the event log and responds using the `fulFill()` function of AirnodeRrp.sol.
+
+>![concepts-request](../assets/images/concepts-request.png)
+
+Learn more on how to [Call an Airnode](../grp-developers/call-an-airnode.md).
+
+## `requestId`
+
+The `requestId` uniquely identifies a request. When a requester makes a request using `AirnodeRrp.sol`, a `requestId` is generated before the request is added to the event logs and the requestId is returned to the requester. This `requestId` is a hash of certain data members depending on which type of request is made, `makeFullRequest()` or `makeTemplateRequest()`. They only differ in that one uses `endpointId` and the other `templateId`. 
+
+|makeFullRequest()|makeTemplateRequest()|
+|:---------|:---------|
+|requesterRequestCount|requesterRequestCount|
+|block.chainid|block.chainid|
+|msg.sender|msg.sender|
+|<span style="color:purple;font-weight:bold;">endpointId</span>|<span style="color:purple;font-weight:bold;">templateId</span>|
+|sponsor|sponsor|
+|parameters|parameters|
+
+After the request (with `requestId`) is added to the event logs, Airnode gathers the request and verifies the `requestId` by re-computing its hash before responding to the request. This verifies the parameters have not been tampered with.
 
 ## Request Parameters
+
+The following list summarizes the values expected for the parameters of a request.
 
 - `templateId` the id of a template to use, _(only used for `makeTemplateRequest`)_
 
@@ -75,7 +96,11 @@ A request made to an Airnode has three possible outcomes:
 
 ### Fulfill
 
-`fulfill()` is the desired outcome and comes as _success_ (statusCode = 0) or as _errored_ ([statusCode](request.md#statuscode) > 0). This is the only outcome that returns results to a requester contract.
+`fulfill()` is the desired outcome and comes as _success_ ([statusCode](request.md#statuscode) = 0) **OR** as _errored_ (statusCode > 0). This 
+
+:::tip Note:
+Fulfill is the only outcome that returns results to a requester contract.
+:::
 
 For a successful request, Airnode  calls the `fulfill()` function in `AirnodeRRP.sol` that will in turn call back the requster contract at `fulfillAddress` using function `fulfillFunctionId` to deliver `data` and a [`statusCode`](https://github.com/api3dao/airnode/blob/6f31a4c27d40e86101673bf37d223fef6625dfdd/packages/protocol/contracts/AirnodeRrp.sol#L148) of 0. If there was an error then statusCode will be non-0. The requester contract can then handle this error as it sees fit (e.g., ignore it, make a request to an alternative provider, etc.)
 
@@ -84,12 +109,6 @@ For a successful request, Airnode  calls the `fulfill()` function in `AirnodeRRP
 ### Fail
 
 As noted in the diagram above, if the transaction that calls `fulfill()` reverts, the node calls the `fail()` method to report the failure. The node will not attempt to fulfill a failed request afterwards.
-
-<Fix>
-<p>
-The following three paragraphs are a little dense. See Github issue: https://github.com/api3dao/api3-docs/issues/108
-</p>
-</Fix>
 
 Airnode is stateless, which means that there is no database storing which requests have been fulfilled or failed, 
 which are waiting on confirmations and which are still pending. This information is retrieved from the chain on 
@@ -107,12 +126,12 @@ submitted during the current cycle and will be retried during the following cycl
 that this is specific to each requester. e.g. a request sent from requester A that becomes "blocked", will 
 not block requests sent from requester B.
 
-After X blocks (20 by default for EVM chains), any requests that would become "blocked", will instead become "ignored". 
-This means that Airnode will stop attempting to process the request in order to process later requests.
-
 ### Ignore
 
 If the Airnode cannot even fail a request (e.g., the requester is not sponsored by the sponsor), the request gets ignored.
+
+After X blocks (20 by default for EVM chains), any requests that would become "blocked", will instead become "ignored". 
+This means that Airnode will stop attempting to process the request in order to process later requests.
 
 ## statusCode
 
