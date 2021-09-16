@@ -43,10 +43,10 @@ The DAO dashboard has three simple views as seen in the navigation menu in the u
 
 Some attributes that determine values displayed on the DAO dashboard (such as the STAKING TARGET) can be changed by creating a proposal and calling the appropriate function on the DAO pool contract. See [Dashboard Attributes](../../reference/dao-contracts.md#dashboard-attributes) on the **DAO Contracts** page in the reference section for more details on the available function calls.
 
-<Todo>
+<Fix>
 
 Not sure the use of pool contract is best above. It there an actual contract with all the programmable functions or is it a set of contracts?
 
-</Todo>
+</Fix>
 
 
