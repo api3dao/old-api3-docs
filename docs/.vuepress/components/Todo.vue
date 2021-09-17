@@ -26,7 +26,7 @@
       <!-- The slot -->
       <div class="borderGreen">
         <span style="color:red">
-          This component is depreacted, use the Fix component instread.
+          This component is deprecated, use the Fix component instead.
         </span>
         <br/>
         <span><Badge 
