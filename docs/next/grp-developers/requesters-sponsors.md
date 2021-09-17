@@ -11,7 +11,7 @@ As a developer it helps to understand what a **requester** is and what a **spons
 
 ## What is a Requester?
 
-The term **requester** is important to remember. It is mentioned in these docs and in the GitHub code. When requester is mentioned, the reference is to your smart contract that calls an Airnode. See [requester](../reference/concepts/requester.md) in the Reference section. 
+The term [requester](../concepts/requester.md) is important to remember. When requester is mentioned, the reference is to your smart contract that calls an Airnode.
 
 > ![image](../assets/images/requesters-sponsors-1.png)
 
@@ -19,13 +19,11 @@ As an example see the `myContract.sol` contract in the diagram within the [Overv
 
 ## What is a Sponsor?
 
-Equally important is the term **sponsor** also found throughout the docs and code. A sponsor is an entity such as yourself, an organization, etc. See [sponsor](../reference/concepts/sponsor.md) in the Reference section.
+Equally important is the term [sponsor](../concepts/sponsor.md). A sponsor is an entity such as yourself, an organization, etc.
 
-As a sponsor you will use the address of an Ethereum account _(called a sponsorAddress)_ to "derive a sponsor wallet" for an Airnode and then "sponsor a requester" with the same sponsorAddress. 
+As a sponsor you will use the address of an Ethereum account _(called a [`sponsorAddress`](../concepts/sponsor.md#sponsoraddress))_ to "sponsor a requester"  and then with the same `sponsorAddress` "derive a [`sponsorWallet`](../concepts/sponsor.md#sponsorwallet)" for an Airnode. This action creates a relationship between a sponsor's requester and a particular Airnode. You do this because a sponsor is the entity that pays for the fulfillment of a request, the gas costs the Airnode will incur. These costs will be withdrawn from the `sponsorWallet` of the Airnode when the requester calls it.
 
-You do this because a sponsor is the entity that pays for the fulfillment of a request, the gas costs the Airnode will incur. These costs will be withdrawn from the sponsor wallet of the Airnode when the requester calls it.
-
-In the diagram below a sponsor uses a sponsorAddress to "derive a sponsor wallet" for a specific Airnode and then funds it. Then the sponsor uses the same sponsorAddress to "sponsor a requester". Because the requester was sponsored with the same sponsorAddress that was used to derive the sponsor wallet of the Airnode, the requester can now make requests of the Airnode.
+In the diagram below a sponsor uses a `sponsorAddress` to "derive a `sponsorWallet`" for a specific Airnode and then funds it. Then the sponsor uses the same sponsorAddress to "sponsor a requester". Because the requester was sponsored with the same `sponsorAddress` that was used to derive the `sponsorWallet` of the Airnode, the requester can now make requests of the Airnode.
 
 >![image](../assets/images/sponsor-overview.png)
 
@@ -102,18 +100,16 @@ When a sponsor uses the same `sponsorAddress` to "sponsor a requester" and to "d
 
 To sponsor a requester you will need the following. Your requester should already be deployed on-chain.
 
-- `providerURL` a blockchain provider URL (such as Infura) with providerID for a desired network
-- `mnemonic` for gas costs to fund the sponsorship
-- `sponsor` the sponsorAddress (an address of an Ethereum account) owned by a sponsor
-- `requesterAddress` the address of the requester (smart contract)
+- `providerURL` A blockchain provider URL (such as Infura) with providerID for the desired network.
+- `mnemonic`  Used for gas costs to fund the sponsorship and used to derive the `sponsorAddress` from the default address. The `sponsorAddress` will be needed to derive a `sponsorWallet` for an Airnode.
+- `requesterAddress` The address of the requester (smart contract).
 
 :::: tabs
 ::: tab Linux/Mac
 ```bash
 npx @api3/airnode-admin sponsor-requester ^
   --providerUrl https://ropsten.infura.io/v3/<KEY> ^
-  --mnemonic "cricket...oppose" ^ 
-  --sponsor 0xF4...dDyu9 ^              
+  --mnemonic "cricket...oppose" ^            
   --requester 0x2c...gDER7        
 ```
 :::
@@ -121,8 +117,7 @@ npx @api3/airnode-admin sponsor-requester ^
 ```
 npx @api3/airnode-admin sponsor-requester \
   --providerUrl https://ropsten.infura.io/v3/<KEY> \
-  --mnemonic "cricket...oppose" \ 
-  --sponsor 0xF4...dDyu9 \              
+  --mnemonic "cricket...oppose" \           
   --requester 0x2c...gDER7        
 ```
 :::
