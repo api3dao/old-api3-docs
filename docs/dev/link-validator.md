@@ -48,7 +48,7 @@ Open a new terminal window to run the script. The script's output will display f
  // Open a new terminal window
  // Go to the api3-docs project root
  // Start the node script
- * node link-check.js  http://127.0.0.1:8080  ./docs/.vuepress/dist
+ node link-check.js  http://127.0.0.1:8080  ./docs/.vuepress/dist
 
 ```
 
