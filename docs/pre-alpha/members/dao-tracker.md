@@ -1,1 +1,1 @@
-../../enormous/dao-tracker.md
+../../common/enormous/dao-tracker.md
