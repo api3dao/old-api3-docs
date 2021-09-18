@@ -15,8 +15,8 @@ The AirnodeRrp protocol is designed to be flexible and is meant to serve a varie
 
 Ignoring the mechanics of the overall process, the requester primarily focuses on two tasks as indicated by points A & B in the diagram below when calling an Airnode.
 
-- <span style="color:red;">A</span>: Make the request
-- <span style="color:red;">B</span>: Accept the response
+- <span style="color:blue;">A</span>: Make the request
+- <span style="color:blue;">B</span>: Accept the response
 
 > <img src="../assets/images/call-an-airnode.png"/>
 
