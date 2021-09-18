@@ -32,7 +32,7 @@ module.exports = [
           'grp-providers/guides/build-an-airnode/api-integration',
           'grp-providers/guides/build-an-airnode/configuring-airnode',
           'grp-providers/guides/build-an-airnode/deploying-airnode',
-          'grp-providers/guides/build-an-airnode/setting-authorizers',
+          'grp-providers/guides/build-an-airnode/apply-authorizers',
           'grp-providers/guides/build-an-airnode/removing-airnode',
           
         ]
@@ -73,23 +73,7 @@ module.exports = [
       'grp-developers/call-an-airnode',
       'grp-developers/using-templates',
       'grp-developers/fees',
-      /*'grp-developers/developing-a-client-contract',*/
       'grp-developers/self-serve-platforms',
-      /*{
-        
-        title: '(x) Requester', collapsable: false,
-        children:[
-          'grp-developers/guides/requester/creating-a-requester',
-          'grp-developers/guides/requester/developing-a-client-contract',
-        ]
-      },
-      {
-        title: '(x) Smart Contracts Platform', collapsable: false,
-        children:[
-          ['grp-developers/guides/smart-contracts-platform/is-my-platform-compatible','Is my platform compatible?'],
-          ['grp-developers/guides/smart-contracts-platform/self-serve-integration', 'Self-serve integration ']
-        ]
-      },*/
     ]
   },
   {
@@ -131,15 +115,6 @@ module.exports = [
   {
     title: 'Reference', initialOpenGroupIndex: -1, collapsable: true,
     children: [
-      /*{
-        title: 'Dashboard', collapsable: true,
-        children: [
-            'reference/dashboard/overview',
-            'reference/dashboard/pool',
-            'reference/dashboard/dao',
-            'reference/dashboard/voting'
-        ]
-      },*/
       {
         title: 'Specifications', collapsable: true,
         children: [
@@ -171,12 +146,5 @@ module.exports = [
       'reference/deployer-commands',
       'reference/dao-contracts'
     ]
-  },
-  /*{
-    title: '(x) Homeless', initialOpenGroupIndex: 0, collapsable: true,
-    children:[
-      'homeless/hardhat-starter',
-      {title:'RRP Flow Chart', path:'reference/rrp-flowdiagram'},
-    ]
-  },*/
+  }
 ]
