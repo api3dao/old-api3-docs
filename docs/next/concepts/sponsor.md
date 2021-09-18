@@ -9,6 +9,8 @@ title: Sponsor
 
 A sponsor is an entity (individual, business, etc.). Sponsors create relationships between [requesters](requester.md) and [Airnodes](airnode.md). They do so by sponsoring requesters and creating sponsorWallets for Airnodes they want their requesters to call.
 
+>![relationships](../assets/images/concepts-sponsor-relationships.png)
+
 Making the relationship:
 - A sponsor "sponsors" a requester.
 - A sponsor "derives" a [sponsorWallet](sponsor.md#sponsorwallet) for a desired Airnode.
@@ -25,7 +27,7 @@ How a requester refers to the sponsor.
 2. Next Airnode derives the `sponsorWallet` address using the provided `sponsorAddress`, then checks if this matches `sponsorWallet`. Airnode will ignore the request if the two do not match. This is done this way because deriving the `sponsorWallet` address from the `sponsorAddress` on-chain is not feasible.
 
 
-## `sponsorAddress`
+## sponsorAddress
 A sponsor is identified by a `sponsorAddress` which is usually the default account `m/44'/60'/0'/0/0` of a BIP 44 wallet owned by the sponsor. The sponsor can use a different address from the wallet if desired such as `m/44'/60'/0'/0/2`.
 
 Note that a sponsor could use multiple addresses from multiple wallets. Below are some example reasons why one would want to have multiple `sponsorAddress` identities on-chain:
@@ -33,13 +35,7 @@ Note that a sponsor could use multiple addresses from multiple wallets. Below ar
 - To keep separate `sponsor-wallets` for two separate use-cases for easier accounting.
 - To duplicate transaction queues for a single use-case and increase response throughput.
 
-## Sponsoring a Requester
-
-A sponsor uses a `sponsorAddress` and there the requester's on-chain `requesterAddress` when sponsoring a requester.  This sponsorship allows the requester to use the sponsor's `sponsorWallet` at a particular Airnode to cover gas costs incurred by the Airnode in response to a request.
-
-Use the [Admin CLI tool](../cli-commands.md#sponsor-requester) to sponsor a requester. An example can be seem in the [Requesters and Sponsors](../../grp-developers/requesters-sponsors.md#how-to-sponsor-a-requester) doc.
-
-## `sponsorWallet`
+## sponsorWallet
 
 Each [Airnode](Airnode.md) can keep a unique`sponsorWallet` for a [sponsor](sponsor.md). The wallet is identified by a `sponsorAddress/airnodeAddress` pair. A sponsor must take action to [derive](sponsor.md#derive-a-sponsor-wallet) a `sponsorWallet` for a particular Airnode. [Requesters](requester.md), that have been  [sponsored](sponsorship.md) by a sponsor, can specify their requests be fulfilled by the  `sponsorWallet` belonging to the sponsor. This allows the sponsor to cover the gas cost of request fulfillments by the Airnode.
 
@@ -72,6 +68,12 @@ If the sponsor does not trust the Airnode at all, they can fund the sponsor wall
 ### Withdrawals
 
 If the sponsor decides not to use a particular `sponsorWallet` going forward, they can make a request to withdraw funds from it, see the [`request-withdrawal`](../../cli-commands.md#request-withdrawal) command. The Airnode listens for withdrawal requests and fulfills them automatically. Therefore, the sponsor should be able to receive their funds from their `sponsorWallet` in a few minutes notice. The `sponsorWallet` does not get deleted, and can be used in the future simply by funding it again.
+
+## Sponsoring a Requester
+
+A sponsor uses a `sponsorAddress` and there the requester's on-chain `requesterAddress` when sponsoring a requester.  This sponsorship allows the requester to use the sponsor's `sponsorWallet` at a particular Airnode to cover gas costs incurred by the Airnode in response to a request.
+
+Use the [Admin CLI tool](../cli-commands.md#sponsor-requester) to sponsor a requester. An example can be seem in the [Requesters and Sponsors](../../grp-developers/requesters-sponsors.md#how-to-sponsor-a-requester) doc.
 
 ## Derive a Sponsor Wallet
 

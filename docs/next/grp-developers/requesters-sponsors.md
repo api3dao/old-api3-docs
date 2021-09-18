@@ -19,11 +19,14 @@ As an example see the `myContract.sol` contract in the diagram within the [Overv
 
 ## What is a Sponsor?
 
-Equally important is the term [sponsor](../concepts/sponsor.md). A sponsor is an entity such as yourself, an organization, etc.
+Equally important is the term [sponsor](../concepts/sponsor.md). A sponsor is an entity such as yourself, an organization, etc. Sponsors create relationships between requesters and Airnodes.
 
-As a sponsor you will use the address of an Ethereum account _(called a [`sponsorAddress`](../concepts/sponsor.md#sponsoraddress))_ to "sponsor a requester"  and then with the same `sponsorAddress` "derive a [`sponsorWallet`](../concepts/sponsor.md#sponsorwallet)" for an Airnode. This action creates a relationship between a sponsor's requester and a particular Airnode. You do this because a sponsor is the entity that pays for the fulfillment of a request, the gas costs the Airnode will incur. These costs will be withdrawn from the `sponsorWallet` of the Airnode when the requester calls it.
+### Sponsor's Requester/Airnode Relationships
+As a sponsor you will use the address of an Ethereum account _(called a [`sponsorAddress`](../concepts/sponsor.md#sponsoraddress))_ from a digital wallet you own to "sponsor a requester"  and then with the same `sponsorAddress` "derive a [`sponsorWallet`](../concepts/sponsor.md#sponsorwallet)" for an Airnode. This action creates a relationship between a sponsor's requester and a particular Airnode. You do this because a sponsor is the entity that pays for the fulfillment of a request, the gas costs the Airnode will incur. These costs will be withdrawn from the `sponsorWallet` of the Airnode when the requester calls it.
 
-In the diagram below a sponsor uses a `sponsorAddress` to "derive a `sponsorWallet`" for a specific Airnode and then funds it. Then the sponsor uses the same sponsorAddress to "sponsor a requester". Because the requester was sponsored with the same `sponsorAddress` that was used to derive the `sponsorWallet` of the Airnode, the requester can now make requests of the Airnode.
+In the diagram below a sponsor uses a mnemonic to sponsor a requester with the Admin CLI. The CLI will use the default address of the mnemonic as the `sponsorAddress` for the sponsorship. Next the sponsor will derive a `sponsorWallet` for an Airnode using the same `sponsorAddress`.
+
+Because the requester was sponsored with the same `sponsorAddress` that was used to derive the `sponsorWallet` of the Airnode, the requester can now make requests of the Airnode.
 
 >![image](../assets/images/sponsor-overview.png)
 
@@ -31,14 +34,14 @@ In the diagram below a sponsor uses a `sponsorAddress` to "derive a `sponsorWall
 
 In the above diagram it is possible to use the same sponsorAddress `(0xF4...dDyu9)` to derive other sponsor wallets for other Airnodes. And it is possible to sponsor more than one requester with this same sponsorAddress. However it is important to remember that all requesters can now access all the  Airnodes regardless if they need to. There is no harm in this scenario.
 
-**Some unique and more advanced scenarios.**
+### Advanced Scenarios
 - Two requesters sponsored with the same sponsorAddress `(0xF4...dDyu9)` could access the same Airnode having a sponsor wallet derived by sponsorAddress `(0xF4...dDyu9)`.
 
 - Using two separate sponsorAddresses (from two different Ethereum accounts), you can derive two separate sponsor wallets for the same Airnode, say `(0xF4...dDyu9)` and `(0xG9...fFzc5)`. Then you can sponsor one requester each with `(0xF4...dDyu9)` and the other with `(0xG9...fFzc5)`. Now each requester will deplete funds from a separate sponsor wallet. 
 
 - You have derived two sponsor wallets for two different Airnodes using different sponsorAddresses, say `(0xF4...dDyu9)` and `(0xG9...fFzc5)`. You have one requester that needs to makes requests from each Airnode. Simply sponsor the requester twice with both sponsorAddresses.
 
-**Things to remember:**
+### Things to Remember
 
 When you sponsor a requester with a sponsorAddress, you are giving it permission to use the sponsor wallet associated with the Airnode (created with the same sponsorAddress). 
 
