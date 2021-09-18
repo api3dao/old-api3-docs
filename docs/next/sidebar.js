@@ -111,6 +111,7 @@ module.exports = [
             'grp-members/dashboard/videos'
         ]
       },
+      {title: 'DAO Tracker', path: 'grp-members/dao-tracker'},
     ]
   },
   {title:'_________________',collapsable: false},

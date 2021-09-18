@@ -28,6 +28,7 @@ module.exports = [
       {title:'Overview', path:'members/'},
       {title:'DAO Dashboard', path:'https://api3.eth.link/'},
       'members/videos',
+      {title: 'DAO Tracker', path: 'members/dao-tracker'},
       {
         title:'Contract Architecture',
         children: [
