@@ -7,6 +7,7 @@ module.exports = [
         '/dev/plugins',
         '/dev/override-components',
         '/dev/custom-components',
+        '/dev/common-directory',
         '/dev/versioning',
         '/dev/github-actions',
         '/dev/link-validator',

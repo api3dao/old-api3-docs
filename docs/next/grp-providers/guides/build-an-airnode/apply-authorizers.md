@@ -1,5 +1,5 @@
 ---
-title: Setting Authorizers
+title: Applying Authorizers
 ---
 
 # {{$frontmatter.title}}
@@ -7,21 +7,49 @@ title: Setting Authorizers
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Complete the following before settings authorizers.
+Complete the following before applying authorizers.
 
 - [API Integration](api-integration.md)
 - [Configuring Airnode](configuring-airnode.md)
 - [Deploying Airnode](deploying-airnode.md)
   
-When you deployed your Airnode a receipt file was generated. In it is the Airnode's `address`. Sponsors (via their sponsored requesters) use your Airnode's `address` and an `endpointId` to make requests to your Airnode endpoints. However, you probably do not want to serve your Airnode endpoints publicly.
+When you deployed your Airnode a receipt file was generated. In it is the Airnode's `airnodeAddress`. Sponsors (via their sponsored requesters) use `airnodeAddress` and an `endpointId` to make requests to your Airnode's endpoints. However, you probably do not want to serve them publicly.
 
-- Only serve your own [requester contracts](../../../grp-developers/requesters-sponsors.md)
-- Only serve sponsors who have made a subscription payment
-- Only serve sponsors who have gone through KYC
+- Only serve your own [requester contracts](../../../grp-developers/requesters-sponsors.md).
+- Only serve sponsors who have made a subscription payment.
+- Only serve sponsors who have gone through KYC.
 
-In this guide, we will explain how you can achieve this.
+This guide explains how to do this with the use of authorizers.
 
-## `authorizers`
+## Authorizers
+
+An [authorizer](../../../concepts/authorizer.md) is a contract which typically checks for a single condition ("has the requester made their monthly payment", "is this `requesterAddress` whitelisted", etc.). Authorizers can be combined to enforce more complex policies. If any of the authorizers in the list gives access, the request will considered to be authorized. From a logical standpoint, the authorization outcomes get **OR**ed.
+
+You can apply different authorizers contracts for your Airnode deployment per chain. Do so in the config.json file under `chains[n].authorizers`. Add a list of authorizer contracts addresses for each chain.
+
+```json
+{
+ ...
+ chains:[
+    {
+      "id": "1",
+      ...
+      "authorizers": [
+        "0xeabb...C123",
+        "0xCE5e...1abc"
+      ]
+    },
+    {
+      "id": "3",
+      ...
+      "authorizers": [
+        "0xeabb...C123"
+      ]
+    },
+   ]
+ } 
+}
+```
 
 <Fix>Need to track down the EndpointStore.sol contract, it does not appear in the link below. Also who built/builds the Authorizer contract(s).</Fix>
 
