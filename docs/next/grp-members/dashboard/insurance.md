@@ -7,6 +7,13 @@ title: Insurance Service
 <!--TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" /-->
 
+
+<!--
+
+This doc is a placeholder for now. Do not add it to production docs.
+
+
+-->
 ::: warning Insurance under development
 As of July 8th, 2021 the ClaimsManagers contracts that implements insurance claims have not been implemented and is scheduled for a later date.
 :::
