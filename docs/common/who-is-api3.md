@@ -103,4 +103,4 @@ At **API3** we are open to any proposals and improvements. Please feel free to c
 * making pull requests
 * proposing features
 
-Read more about contributing in the [Contributing](contributing.md) section.
+Read more about contributing in the <CommonLink :path="'introduction/contributing.md'">Contributing</CommonLink> section.
