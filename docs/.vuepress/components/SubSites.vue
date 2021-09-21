@@ -5,14 +5,14 @@ This component places icons (sub-sites) in the header of the sidebar.
 <template>
   <div>
     <div class="container" style="font-size:medium;">
-        <a href="/airnode/pre-alpha/" class="route-link" v-bind:class="{ selectedButton: btnAirnode }">
+        <router-link class="route-link" to="/airnode/pre-alpha/" v-bind:class="{ selectedButton: btnAirnode }">
           <font-awesome-icon icon="sitemap" size="2x"/>
           <br/><span style="font-size:14px;">Airnode</span>
-        </a>
-        <a href="/dao-members/" class="route-link" v-bind:class="{ selectedButton: btnMembers }">
+        </router-link>
+        <router-link class="route-link" to="/dao-members/" v-bind:class="{ selectedButton: btnMembers }">
           <font-awesome-icon icon="users" size="2x"/>
           <br/><span style="font-size:14px;">DAO Members</span>
-        </a>
+        </router-link>
       </div>
     <div style="border-top:solid 2px lightgrey;margin-top:-5px;margin-bottom:-12px;"></div>
   </div>
@@ -36,19 +36,29 @@ This component places icons (sub-sites) in the header of the sidebar.
         btnAirnode: false
       }
     },
-
+    watch: {
+      '$route'($event) {
+        this.selectIcon();
+      }
+    },
+    methods: {
+      selectIcon () {
+        this.btnAirnode = false
+        this.btnMembers = false
+        if(this.$route.path.indexOf('/dao-members/') > -1){
+          this.btnMembers = true
+        }
+        else if(this.$route.path.indexOf('/airnode/') > -1){
+          this.btnAirnode = true
+        }
+      },
+    },
     mounted() {
       this.$nextTick(function () {
         // Code that will run only after the
         // entire view has been rendered
-        if(this.$route.path.indexOf('/dao-members/') > -1){
-          this.btnMembers = true
-        }
-        else if(this.$route.path.indexOf('/pre-alpha/') > -1 ||
-        this.$route.path.indexOf('/next/') > -1){
-          this.btnAirnode = true
-        }
-        console.log('this.$nextTick > $route.path', this.$route.path)
+        this.selectIcon();
+        //console.log('this.$nextTick > $route.path', this.$route.path)
       })
     }
   }
