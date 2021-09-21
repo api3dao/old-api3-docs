@@ -39,15 +39,22 @@ Parent of VersionsModal.vue. Opens a modal of user version selections.
         // The modal will send a msg to close when user clicks outside the modal
         this.showModal = false;
       },
-    },
-    mounted() {
-      this.$nextTick(function () {
-        if(this.$route.path.indexOf('/pre-alpha/') > -1 ||
-          this.$route.path.indexOf('/next/') > -1){
+      showVersionMenu(){
+        if(this.$route.path.indexOf('/airnode/') > -1){
           this.versionDisplay = this.$page.path.split('/')[2].replace(/\//g,'')
           this.showMenu = 'block'
         }
-        //console.log('Versions: this.$nextTick > $route.path:', this.$route.path)
+        else{this.showMenu = 'none'}
+      }
+    },
+    watch: {
+      '$route'($event) {
+        this.showVersionMenu()
+      }
+    },
+    mounted() {
+      this.$nextTick(function () {
+        this.showVersionMenu()
       })
     }
   }
