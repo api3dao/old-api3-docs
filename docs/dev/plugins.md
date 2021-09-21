@@ -13,6 +13,7 @@ All plugins are installed as devDependencies.
 
 ```json
 "devDependencies": {
+    "@api3/airnode-abi": "^0.1.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/vue-fontawesome": "^2.0.2",
@@ -49,13 +50,15 @@ The following Vuepress plugin is used to establish redirects for external sites 
 For example: `/latest/members` will always be pointed to the latest version of the docs. These mappings are in the `docs/.vuepress/redirects` file. 
 
 ```bash
-/latest /pre-alpha
-/latest/members /pre-alpha/members
+# When pre-alpha is the latest version,
+/latest /airnode/pre-alpha
+/airnode /airnode/pre-alpha
+...
 
-# Is changed to 0.1.0 when it 
-# becomes the latest version.
-/latest /0.1.0
-/latest/members /0.1.0/members
+# it changes to 0.1.0 when 0.1.0 becomes the latest version.
+/latest/ /airnode/v0.1
+/airnode /airnode/v0.1
+...
 ```
 
 Note that a redirect is to a directory path and not to a file. There must be a README.md file in the directory that Vuepress can display. Going to an file will cause a problem in production and display a counter. However this will not happen in development. Most likely this is a problem with the plugin as at Jul, 5th 2021.
