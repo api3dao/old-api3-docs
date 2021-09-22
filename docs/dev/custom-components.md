@@ -42,11 +42,20 @@ The content must be wrapped in paragraph tags (&lt;p>&lt;/p>) to display properl
 
 ## Versions.vue and VersionsModal.vue
 
-VersionsModal.vue is a child component of Versions.vue. Versions.vue has been added to the navbar to allow users to switch between versions of the docs.
+VersionsModal.vue is a child component of Versions.vue. Versions.vue has been added to the navbar to allow users to switch between versions of the docs. It has been added to the [Navbar.vue](override-components.md#navbar-vue) vuepress component which api3-docs overrides.
 
 [Versions.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/Versions.vue)
 
 [VersionsModal.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/VersionsModal.vue)
+
+
+## SubSites.vue
+
+SubSites.vue is placed on the top of [Sidebar.vue](override-components.md#sidebar-vue) with hard-coded links to sub-sites such as Airnode and DAO Members.
+
+[SubSites.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/SubSites.vue)
+
+
 
 ## SidebarHeader.vue
 

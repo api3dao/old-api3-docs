@@ -37,7 +37,7 @@ See [config.themeConfig.smoothScroll](./theme.md#config-themeconfig-smoothscroll
 When you change a file that holds code and reference it using the VuePress markdown operator <<< and change the code, the changes may not appear.
 
 ```markdown
-<<< @/docs/next/reference/code/template-config.json
+<<< @/docs/airnode/next/reference/code/template-config.json
 ```
 
 VuePress uses [cache-loader](https://vuepress.vuejs.org/config/#locales) by default to greatly speed up the compilation of webpack. Remove the cache one time to get the code files changes to appear.
@@ -45,3 +45,7 @@ VuePress uses [cache-loader](https://vuepress.vuejs.org/config/#locales) by defa
 ```bash
 yarn docs:dev --no-cache # remove cache before each build.
 ```
+
+## SymLinks for README.md
+
+When creating a symlink for a markdown file you may need to wait for Visual Studio Code to redraw the legends correctly to the right of the filename.

@@ -4,7 +4,7 @@ module.exports = {
    * List all base routes that are to become versions here.
    */
   versions:[
-    {name:'pre-alpha', url:'/pre-alpha/'},
+    {name:'pre-alpha', url:'/airnode/pre-alpha/'},
   ],
   head: [
     ['link', { rel: 'icon', href: '/img/small-logo.png' }]
@@ -17,7 +17,7 @@ module.exports = {
     extractHeaders: ['h2', 'h3', 'h4', 'h5']
   },
   themeConfig: {
-    startPath:'/pre-alpha/',
+    startPath:'/airnode/pre-alpha/',
     sidebarDepth: 0,
     displayAllHeaders: false,
     logo: '/img/logo.png',
@@ -26,8 +26,9 @@ module.exports = {
       { text: 'Forum', link: 'https://forum.api3.org' },
       { text: 'GitHub', link: 'https://github.com/api3dao/api3-docs' },
     ],
-    sidebar: {'/next/':require(`../next/sidebar.js`),
-              '/pre-alpha/':require(`../pre-alpha/sidebar.js`),
+    sidebar: {'/airnode/next/':require(`../airnode/next/sidebar.js`),
+              '/airnode/pre-alpha/':require(`../airnode/pre-alpha/sidebar.js`),
+              '/dao-members/':require(`../dao-members/sidebar.js`),
               '/dev/':require(`../dev/sidebar.js`),
              },
     /*

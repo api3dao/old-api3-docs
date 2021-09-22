@@ -55,6 +55,17 @@ The override component Navbar.use is a replacement for the VuePress Navbar.vue. 
 
 [Navbar.vue](https://github.com/api3dao/api3-docs/blob/stage/docs/.vuepress/components/Navbar.vue)
 
+## Sidebar.vue
+
+The override component Sidebar.use is a replacement for the VuePress Sidebar.vue. The custom component [SubSites.vue](./custom-components.md#subsite-vue) has been added to **Sidebar.vue**.
+
+
+#### Changes
+
+- Adds a set of sub-site buttons on top of the sidebar.
+
+[Sidebar.vue](https://github.com/api3dao/api3-docs/blob/stage/docs/.vuepress/components/Sidebar.vue)
+
 ## SearchBox.vue
 
 The override component SearchBox.use is a replacement for the VuePress SearchBox.vue. The files **match-query.js** and **search.svg** are located in .vuepress/components only for the purpose of running SearchBox.vue in development mode. They currently are not altered.

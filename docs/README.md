@@ -17,4 +17,22 @@ footer: MIT Licensed
 navbar: true
 ---
 
+<!--
+The button below are used to expand the page to allow multiple points
+of entry.
+
+Important to use /<version>/ and /dao-members/ without a trailing "/"
+or the back history will require two clicks.
+-->
+<!--header class="hero">
+<p class="action">
+
+<a href="/airnode/pre-alpha/" class="nav-link action-button">Get Started w/Airnode →</a>
+</p>
+<p class="action">
+<a href="/dao-members/" class="nav-link action-button">DAO Members →</a>
+</p>
+</header-->
+
+
 API3 documentation is kept as a regular repository of Markdown files for everyone to contribute. Feel free to create [issues](https://github.com/api3dao/api3-docs/issues) for discussions, proposed additions and changes.

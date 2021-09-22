@@ -1,6 +1,12 @@
 module.exports = [
   {
-    title: 'Development', collapsable: false, 
+    title: 'Airnode Development', collapsable: true, 
+    children: [
+         
+    ]
+  },
+  {
+    title: 'Docs Development', collapsable: true, 
     children: [
         '/dev/',
         '/dev/theme',

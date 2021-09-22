@@ -8,11 +8,12 @@
   "license": "MIT",
   "scripts": {
     "copy:navbar": "cp docs/.vuepress/components/Navbar.vue node_modules/@vuepress/theme-default/components/Navbar.vue",
+    "copy:sidebar": "cp docs/.vuepress/components/Sidebar.vue node_modules/@vuepress/theme-default/components/Sidebar.vue",
     "copy:searchbox": "cp docs/.vuepress/components/SearchBox.vue node_modules/@vuepress/plugin-search/Searchbox.vue",
-    "test:links:prod": "for file in $(find ./docs/dev ./docs/pre-alpha -path ./node_modules -prune -false -o -name \"*.md\"); do markdown-link-check --verbose --config .github/workflows/markdown-link-check.config.json \"$file\" || exit 1; done;",
+    "test:links:prod": "for file in $(find ./docs/dao-members ./docs/pre-alpha -path ./node_modules -prune -false -o -name \"*.md\"); do markdown-link-check --verbose --config .github/workflows/markdown-link-check.config.json \"$file\" || exit 1; done;",
     "test:links:next": "for file in $(find ./docs/next -path ./node_modules -prune -false -o -name \"*.md\"); do markdown-link-check --verbose --config .github/workflows/markdown-link-check.config.json \"$file\" || exit 1; done;",
-    "docs:dev": "yarn copy:navbar; yarn copy:searchbox; vuepress dev docs",
-    "docs:build": "yarn copy:navbar; yarn copy:searchbox; vuepress build docs"
+    "docs:dev": "yarn copy:navbar; yarn copy:sidebar; yarn copy:searchbox; vuepress dev docs",
+    "docs:build": "yarn copy:navbar; yarn copy:sidebar; yarn copy:searchbox; vuepress build docs"
   },
   "devDependencies": {
     "@api3/airnode-abi": "^0.1.0",
