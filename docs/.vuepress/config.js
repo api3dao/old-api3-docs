@@ -30,6 +30,7 @@ module.exports = {
               '/airnode/pre-alpha/':require(`../airnode/pre-alpha/sidebar.js`),
               '/dao-members/':require(`../dao-members/sidebar.js`),
               '/dev/':require(`../dev/sidebar.js`),
+              '/dev-airnode/':require(`../dev-airnode/sidebar.js`)
              },
     /*
       2021-02-17: wkande:
@@ -38,6 +39,12 @@ module.exports = {
     */
     smoothScroll: false
   },
+  /**
+   * Tells vuepress live-reload server which files to process.
+   * Ignore folders and files when prefixed with !.
+   * Added the _deprecated folders NOT to be processed.
+   */
+  patterns: ['**/*.md', '**/*.vue', '!**/_deprecated/**'],
   /**
    * Loading for PDF, not a great solution.
    * https://github.com/vuejs/vuepress/issues/700
