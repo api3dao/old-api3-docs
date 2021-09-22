@@ -33,6 +33,8 @@ module.exports = [
           'grp-providers/guides/build-an-airnode/configuring-airnode',
           'grp-providers/guides/build-an-airnode/deploying-airnode',
           'grp-providers/guides/build-an-airnode/apply-authorizers',
+          {title:'Heartbeat (optional)', path:'grp-providers/guides/build-an-airnode/heartbeat'},
+          {title:'HTTP Gateway (optional)', path:'grp-providers/guides/build-an-airnode/http-gateway'},
           'grp-providers/guides/build-an-airnode/removing-airnode',
           
         ]
@@ -116,13 +118,11 @@ module.exports = [
     title: 'Reference', initialOpenGroupIndex: -1, collapsable: true,
     children: [
       {
-        title: 'Specifications', collapsable: true,
+        title: 'Specification Files', collapsable: true,
         children: [
             {title:'Oracle Integration Specifications (OIS)', path:'reference/specifications/ois'},
             'reference/specifications/airnode-abi-specifications',
-            'reference/specifications/reserved-parameters',
-            'reference/specifications/heartbeat',
-            'reference/specifications/http-gateway'
+            'reference/specifications/reserved-parameters'
         ]
       },
       {

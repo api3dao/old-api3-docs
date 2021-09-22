@@ -9,11 +9,15 @@ title: HTTP Gateway
 
 As part of the Airnode deployment you can decide to deploy an HTTP Gateway. The gateway allows the testing of defined endpoints without accessing the blockchain. You provide endpoint arguments to get a response from an integrated API. Gateway calls the API simulating Airnode. This results in confirmation your integration is set up properly.
 
+:::warning HTTP Gateway (optional)
+Using the HTTP gateway functionality with Airnode is optional.
+:::
+
 ## Setup
 Enable the HTTP gateway by setting two fields in the config.json (`nodeSettings.httpGateway`).
 
 - **enabled**: A boolean setting enable/disable for the Airnode's HTTP gateway.
-- **apiKey**: A user defined API key to authenticate against the gateway.
+- **apiKey**: A user defined API key to authenticate against the gateway. The key must have a length of between 30 - 120 characters.
 
 ```json
 "nodeSettings": {
