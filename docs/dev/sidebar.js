@@ -1,12 +1,6 @@
 module.exports = [
   {
-    title: 'Airnode Development', collapsable: true, 
-    children: [
-         
-    ]
-  },
-  {
-    title: 'Docs Development', collapsable: true, 
+    title: 'Docs Development', collapsable: false, 
     children: [
         '/dev/',
         '/dev/theme',
@@ -14,6 +8,7 @@ module.exports = [
         '/dev/override-components',
         '/dev/custom-components',
         '/dev/common-directory',
+        '/dev/vuepress-server',
         '/dev/versioning',
         '/dev/github-actions',
         '/dev/link-validator',
