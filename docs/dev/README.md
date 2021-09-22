@@ -7,6 +7,9 @@ title: Setup
 <TocHeader />
 [[TOC]]
 
+>Looking for [Airnode Development](../dev-airnode/)?
+
+
 Prerequisites for a VuePress project are the same as Vue.
 
 ## Clone
