@@ -49,3 +49,7 @@ yarn docs:dev --no-cache # remove cache before each build.
 ## SymLinks for README.md
 
 When creating a symlink for a markdown file you may need to wait for Visual Studio Code to redraw the legends correctly to the right of the filename.
+
+## Chrome Console Error (app.js)
+
+It may be time to clear Chrome's cached files during development if there is a console error referencing tha fact that `app.js` cannot be found. This seems very rare.
