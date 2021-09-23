@@ -6,7 +6,7 @@
     },
     {
       "pattern": "^/",
-      "replacement": "https://github.com/api3dao/api3-docs/tree/stage/"
+      "replacement": "https://github.com/api3dao/api3-docs/tree/stage/docs/"
     }
   ],
   "retryOn429": true,
