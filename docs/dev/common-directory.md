@@ -18,7 +18,7 @@ ln -s ../../enormous/dao-tracker.md dao-tracker.md
 <Fix>Needs write-up.</Fix>
 
 This will not work as a **markdown link**, the sidebar goes away.<br/>
-[Go to contribute](introduction/contributing.md)
+[Go to contribute](../common/introduction/contributing.md)
 
 Goes directly to Airnode `/next`, **markdown link** with full path.<br/>
 [Go to contribute in /next](/airnode/next/introduction/contributing.md)

@@ -92,8 +92,8 @@ _Following these instructions to deploy an Airnode on AWS is [free](https://aws.
 
 
 Normally, you would need to do two things before you deploy an Airnode:
-1. [Specify the API integration](https://api3dao.github.io/api3-docs/pre-alpha/guides/provider/api-integration.html)
-1. [Configure your Airnode](https://api3dao.github.io/api3-docs/pre-alpha/guides/provider/configuring-airnode.html)
+1. [Specify the API integration](../guides/provider/api-integration.md)
+1. [Configure your Airnode](../guides/provider/configuring-airnode.md)
 
 <!-- markdown-link-check-disable -->
 <!-- The CoinGecko API docs have been returning a 503 but they are there. -->
