@@ -11,7 +11,7 @@ title: Admin CLI Commands
 
 Use the CLI tool to interact with Airnode across blockchains. There are commands for both developers (dApp) and API providers. Developers can sponsor [requester contracts](concepts/requester.md) and fund Airnodes. API providers can build [Airnodes](concepts/airnode.md) that serve their API data to requester contracts.
 
-Almost all commands require you to provide a blockchain `providerUrl` such as `https://ropsten.infura.io/v3/<KEY>`. The CLI connects to the [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/AirnodeRrp.sol) contract, which address is derived from the current chain. You can optionally specify the contract address yourself by providing optional `airnodeRrp` command argument with address of the deployed contract on your targeted chain.
+Almost all commands require you to provide a blockchain `providerUrl` such as `https://ropsten.infura.io/v3/<KEY>`. The CLI connects to the [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/AirnodeRrp.sol) or the [AirnodeRequesterRrpAuthorizer.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/authorizers/AirnodeRequesterRrpAuthorizer.sol) contract, which addresses are derived from the current chain. You can optionally specify the contract addresses yourself by providing optional `airnodeRrp` or `airnodeRequesterRrpAuthorizer` command argument with the address of the deployed contract on your targeted chain.
 
 Commands that require `mnemonic` will make an on-chain transaction.
 The application will derive the account from the mnemonic with default ethereum derivation path `m/44'/60'/0'/0/0`, but you can override this by `derivationPath` flag.
@@ -19,10 +19,13 @@ Make sure that the wallet that is associated with the mnemonic is funded on the 
 The application will not exit until the transaction is confirmed.
 
 **View all commands:**
+
 ```sh
 npx @api3/airnode-admin --help
 ```
+
 **View the parameters of a command:**
+
 ```sh
 npx @api3/airnode-admin $COMMAND --help
 ```
@@ -33,10 +36,15 @@ You can also use the package programmatically. The SDK exports respective functi
 well as helper functions for obtaining the contract instance on the targeted chain.
 
 ```js
-import { sponsorRequester, getAirnodeRrpWithSigner } from '@api3/admin';
+import { sponsorRequester, getAirnodeRrpWithSigner } from "@api3/admin";
 
 // First obtain the contract instance on target chain
-const airnodeRrp = await getAirnodeRrpWithSigner(mnemonic, derivationPath, providerUrl, airnodeRrpAddress);
+const airnodeRrp = await getAirnodeRrpWithSigner(
+  mnemonic,
+  derivationPath,
+  providerUrl,
+  airnodeRrpAddress
+);
 // Pass the contract instance as the first argument to the SDK function
 const requester = await sponsorRequester(airnodeRrp, requester);
 ```
@@ -44,11 +52,16 @@ const requester = await sponsorRequester(airnodeRrp, requester);
 If you plan to use multiple commands it might be tedious to pass the contract instance to every function call. For this reason there is also class based `AdminSdk` which you initialize with `AirnodeRrp` contract only once.
 
 ```js
-import { AdminSdk } from '@api3/admin';
+import { AdminSdk } from "@api3/admin";
 
 // First initialize the SDK with AirnodeRrp contract instance.
 // You can use static AdminSdk functions or provide your own instance.
-const airnodeRrp = await AdminSdk.getAirnodeRrpWithSigner(mnemonic, derivationPath, providerUrl, airnodeRrpAddress);
+const airnodeRrp = await AdminSdk.getAirnodeRrpWithSigner(
+  mnemonic,
+  derivationPath,
+  providerUrl,
+  airnodeRrpAddress
+);
 // Create sdk instance
 const adminSdk = new AdminSdk(airnodeRrp);
 // Call the method you need
@@ -210,6 +223,84 @@ Derives the endpoint ID using the OIS title and the endpoint name using the conv
 npx @api3/airnode-admin derive-endpoint-id \
   --oisTitle "My OIS title..." \
   --endpointName "My endpoint name..."
+```
+
+## AirnodeRequesterRrpAuthorizer commands
+
+This is an [authorizer](./../concepts/authorizer.md#AirnodeRequesterRrpAuthorizer) contract that whitelists requesters where each Airnode is adminned by themselves. The Airnode address and the admins are also authorized even if they are not whitelisted explicitly.
+
+### `set-whitelist-expiration`
+
+Called by a super admin to set the whitelisting expiration of a user for the Airnode–endpoint pair. This can hasten expiration in the case the new expiration timestamp is prior to a previously set timestamp
+
+```sh
+npx @api3/airnode-admin set-whitelist-expiration \
+  --mnemonic "nature about salad..." \
+  --derivationPath "m/44'/60'/0'/0/..." \
+  --providerUrl https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
+  --airnodeRequesterRrpAuthorizer 0xDc64a1... \
+  --endpointId 0xda088e2d94... \
+  --userAddress 0x2c2e12... \
+  --expirationTimestamp 1947451793 \
+  --airnodeAddress 0xe1e0dd... \
+```
+
+### `extend-whitelist-expiration`
+
+Called by an admin to extend the whitelist expiration of a user for the Airnode–endpoint pair. This command expects that the new expiration timestamp is later then the previously set timestamp
+
+```sh
+npx @api3/airnode-admin extend-whitelist-expiration \
+  --mnemonic "nature about salad..." \
+  --derivationPath "m/44'/60'/0'/0/..." \
+  --providerUrl https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
+  --airnodeRequesterRrpAuthorizer 0xDc64a1... \
+  --endpointId 0xda088e2d94... \
+  --userAddress 0x2c2e12... \
+  --expirationTimestamp 1947451793 \
+  --airnodeAddress 0xe1e0dd... \
+```
+
+### `set-whitelist-status-past-expiration`
+
+Called by a super admin to set the whitelist status of a user past expiration for the Airnode–endpoint pair. This command can be used to make whitelisting permanent in cases where it is needed to allow requests even after expiration elapses.
+
+```sh
+npx @api3/airnode-admin set-whitelist-status-past-expiration \
+  --mnemonic "nature about salad..." \
+  --derivationPath "m/44'/60'/0'/0/..." \
+  --providerUrl https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
+  --airnodeRequesterRrpAuthorizer 0xDc64a1... \
+  --endpointId 0xda088e2d94... \
+  --userAddress 0x2c2e12... \
+  --whitelistStatusPastExpiration true \
+  --airnodeAddress 0xe1e0dd... \
+```
+
+### `get-whitelist-status`
+
+Called to get the detailed whitelist status of a user for the Airnode–endpoint pair
+
+```sh
+npx @api3/airnode-admin get-whitelist-status \
+  --providerUrl https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
+  --airnodeRequesterRrpAuthorizer 0xDc64a1... \
+  --endpointId 0xda088e2d94... \
+  --userAddress 0x2c2e12... \
+  --airnodeAddress 0xe1e0dd... \
+```
+
+### `user-is-whitelisted`
+
+Called to check if a user is whitelisted to use the Airnode–endpoint pair
+
+```sh
+npx @api3/airnode-admin user-is-whitelisted \
+  --providerUrl https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
+  --airnodeRequesterRrpAuthorizer 0xDc64a1... \
+  --endpointId 0xda088e2d94... \
+  --userAddress 0x2c2e12... \
+  --airnodeAddress 0xe1e0dd... \
 ```
 
 ## More Examples

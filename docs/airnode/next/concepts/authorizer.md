@@ -1,7 +1,9 @@
 ---
 title: Authorizer
 ---
+
 <TitleSpan>Concepts and Definitions</TitleSpan>
+
 # {{$frontmatter.title}}
 
 <TocHeader />
@@ -56,6 +58,7 @@ An authorizer list of `[]` means "let everyone through". If the Airnode wants to
 ## API-side authorization
 
 Sometimes the Airnode operator does not want to use on-chain authorizers for reasons such as:
+
 - the parameter that authorization depends on (e.g., if the requester has paid) should not be made public
 - the Airnode operator does not want to interact with the chain to alter authorization statuses (e.g., does not want to make a transaction to whitelist a new user, which will cost them gas fees)
 
@@ -72,6 +75,6 @@ Authorizers allow Airnodes to implement a wide variety of policies. Here are som
 
 <Fix>Adding <code>SelfRequesterRrpAuthorizer</code> and <code>Api3RequesterRrpAuthorizer</code> was discussed in api3-docs PR https://github.com/api3dao/api3-docs/pull/186</Fix>
 
-## SelfRequesterRrpAuthorizer
+## AirnodeRequesterRrpAuthorizer
 
-## Api3RequesterRrpAuthorizer
+## DaoRequesterRrpAuthorizer
