@@ -28,7 +28,7 @@ module.exports = [
         'dashboard/proposals',
         'dashboard/voting',
         'dashboard/videos',
-        {title: 'DAO Tracker', path: 'dashboard/dao-tracker'},
+        'dashboard/dao-tracker',
     ]
   },
   {
