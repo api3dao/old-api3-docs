@@ -27,7 +27,7 @@ Therefore, only thing needed to integrate an API to Airnode is to create an OIS 
   
   - Refer to the [Oracle Integration Specifications (OIS)](../../../reference/specifications/ois.md) reference while using this guide.
 
-  - Open the [OIS template](https://docs.api3.org/next/reference/templates/ois-json.html) in another browser window to follow along. 
+  - Open the [OIS template](../../../reference/templates/ois-json.md) in another browser window to follow along.
 
   - View an example of an [Airnode config.json file](../../tutorial/config-json.md) from the Airnode Starter tutorial.
 
@@ -352,7 +352,7 @@ An Airnode endpoint is a service that Airnode exposes to on-chain requesters. It
 
 For example, if your API operation returns an asset price given its ticker (e.g., `BTC`), you can specify the endpoint such that the requester provides the ticker as a parameter. The resulting endpoint would be a general one that returns prices for any kind of asset. On the other hand, you can hardcode `BTC` as the asset whose price will be returned (using [fixed operation parameters](./api-integration.md#fixedoperationparameters)), which would make your endpoint a specific one that only returns the BTC price.
 
-The recommended endpoint definition pattern is to create an Airnode endpoint for each API operation, and allow the requesters to provide all operation parameters themselves. This results in optimal flexibility, and essentially allows the requesters to use the entire API functionality on-chain. Normally, oracle integrations strive to hard-code as many API parameters as possible because passing these parameters on-chain results in a gas cost overhead. However, the Airnode protocol uses [templates](../../../reference/concepts/template.md) (not to be confused with the OIS template we are using for this guide), which allow requesters to specify a large number of endpoint parameters at no additional gas cost.
+The recommended endpoint definition pattern is to create an Airnode endpoint for each API operation, and allow the requesters to provide all operation parameters themselves. This results in optimal flexibility, and essentially allows the requesters to use the entire API functionality on-chain. Normally, oracle integrations strive to hard-code as many API parameters as possible because passing these parameters on-chain results in a gas cost overhead. However, the Airnode protocol uses [templates](../../../concepts/template.md) (not to be confused with the OIS template we are using for this guide), which allow requesters to specify a large number of endpoint parameters at no additional gas cost.
 
 Note that there are some cases where you may not want to map endpoints to API operations one-to-one. For example, an API operation can have a `header` parameter, `Accept`, that can take the values `application/json` or `applicatino/xml` to determine how to  format the data that the API will respond to the call.
 Airnode expects responses to be in JSON format, and thus hard-coding this parameter as `JSON` would be more suitable than letting the requester decide, as there is only one valid choice.
