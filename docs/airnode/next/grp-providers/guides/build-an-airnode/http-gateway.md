@@ -41,7 +41,7 @@ Enable the HTTP gateway by setting two fields in the config.json (`nodeSettings.
   },
 ```
 
-You must also add the [`testable`](ois.md#_5-endpoints) boolean flag for each endpoint you want to test in the OIS (`ois.endpoints[n]testable`). This indicates whether the endpoint can be used via HTTP gateway or not. It’s optional and by default is false.
+You must also add the [`testable`](../../../reference/specifications/ois.md#_5-endpoints) boolean flag for each endpoint you want to test in the OIS (`ois.endpoints[n]testable`). This indicates whether the endpoint can be used via HTTP gateway or not. It’s optional and by default is false.
 
   ```json
   // in config.json

@@ -13,7 +13,10 @@ title: Airnode starter
 <Fix>
 <p>This doc is not usable at this time. Waiting on the updated dev README.md. This doc is out of sync with the flow of pre-alpha which probably has a better flow.
 </p>
+<p>Link checking is also disabled while under contstruction.
+</p>
 </Fix>
+<!-- markdown-link-check-disable -->
 
 See the code [here](https://github.com/api3dao/airnode-starter/tree/pre-alpha)
 
@@ -108,10 +111,8 @@ Normally, you would need to do two things before you deploy an Airnode:
 1. [Configure your Airnode](../guides/build-an-airnode/configuring-airnode.html)
 
 
-<!-- markdown-link-check-disable -->
 <!-- The CoinGecko API docs have been returning a 503 but they are there. -->
 For this project, we specified a minimal integration to the popular and free [CoinGecko API](https://www.coingecko.com/en/api/documentation), and prepared the configuration files. We only integrated a single API operation, `GET` for `/coins/{id}`, which you can see below. The `localization`, `tickers`, `community_data`, `developer_data` and `sparkline` parameters are [fixed](../guides/guides/build-an-airnode/api-integration.md#fixedoperationparameters) as `"false"`, while `market_data` is fixed as `"true"`. The `id` parameter will be provided by the requester (e.g., `"ethereum"`) under the name `coinId`. You can make test calls over the [CoinGecko API docs](https://www.coingecko.com/en/api/documentation) to see the response format.
-<!-- markdown-link-check-enable -->
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/19530665/103151070-be14ea00-478b-11eb-9608-a967c4282d9f.png" width="1024" />
