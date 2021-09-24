@@ -1,9 +1,7 @@
 ---
 title: Authorizer
 ---
-
 <TitleSpan>Concepts and Definitions</TitleSpan>
-
 # {{$frontmatter.title}}
 
 <TocHeader />
@@ -87,14 +85,7 @@ If the Airnode wants to deny all access on a chain, it should not operate on it 
  ]
 ```
 
-
-Sometimes the Airnode operator does not want to use on-chain authorizers for reasons such as:
-
-- the parameter that authorization depends on (e.g., if the requester has paid) should not be made public
-- the Airnode operator does not want to interact with the chain to alter authorization statuses (e.g., does not want to make a transaction to whitelist a new user, which will cost them gas fees)
-=======
 ### Allow All
-
 
 An authorizer list of [] means "let everyone through". In the example below chain 2 would allow access to any requester.
 
@@ -131,7 +122,7 @@ In this case, the Airnode operator can use standard [API authentication](api-aut
 <Fix>Need clarity on the <code>_relay_metadata</code> parameter.</Fix>
 Also the Airnode operator can use the `_relay_metadata` parameter for the Airnode to pass-through request metadata, which the API backend can process and respond (or not) accordingly.
 
-<Fix>Adding <code>SelfRequesterRrpAuthorizer</code> and <code>Api3RequesterRrpAuthorizer</code> was discussed in api3-docs PR https://github.com/api3dao/api3-docs/pull/186</Fix>
+<Fix>Adding <code>AirnodeRequesterRrpAuthorizer</code> and <code>DaoRequesterRrpAuthorizer</code> was discussed in api3-docs PR https://github.com/api3dao/api3-docs/pull/186</Fix>
 
 ## AirnodeRequesterRrpAuthorizer
 
