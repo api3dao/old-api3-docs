@@ -169,7 +169,12 @@ The `nodeSettings.nodeVersion` field indicates which node version this `config.j
 
 #### cloudProvider
 
-The `nodeSettings.cloudProvider` field indicates to the deployer which cloud provider Airnode should be deployed at. The deployer currently supports AWS, so leave this value as `aws`. We are planning to extend the deployer to support a wide variety of cloud providers. If you would like to contribute, please join the conversation in [this issue](https://github.com/api3dao/airnode/issues/154).
+The `nodeSettings.cloudProvider` field indicates which cloud provider Airnode should be deployed with or if it should be run locally. The deployer currently supports `aws` or `local`.
+
+- `aws`: Airnode is deployed using the docker [deployer-image](../../using-docker.html#deployer-image).
+- `local`: Airnode is deployed using the docker [client-image](../../using-docker.html#client-image). 
+
+There are plans to extend the deployer-image to support a wide variety of cloud providers. If you would like to contribute, please join the conversation in [this issue](https://github.com/api3dao/airnode/issues/154).
 
 #### airnodeWalletMnemonic
 (optional) An API provider can provide a mnemonic to be used as the Airnode's BIP 44 wallet from which the Airnode's [`address`](../../../concepts/airnode.md#airnodeaddress) will be derived. If a mnemonic is not provided the deployer will create one for the Airnode. It is not required to fund the wallet to run the Airnode but must be funded to announce the [`xpub`](../../../concepts/airnode.md#xpub) of the Airnode on-chain which is optional.
