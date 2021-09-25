@@ -18,9 +18,11 @@ To integrate a System X to a System Y, we need to do three things:
 - Oracle endpoints are mapped to API operations
 
 Therefore, the only thing you need to do to integrate an API to Airnode is to create an OIS.
-You can do this simply by reading the [OIS docs](../../airnode/specifications/ois.md) and creating the OIS for your specific API and use-case.
-This guide aims to follow a more instructive approach and give some tips along the way.
-Make sure to refer to the [OIS docs](../../airnode/specifications/ois.md) when you need further details, and you can also refer to the [OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
+This guide is an instructive approach to creating an OIS. As a point of reference, refer to the [OIS docs](../../airnode/specifications/ois.md) when you need further details. It may be useful, but not necessary, to reference the [OpenAPI Specification (OAS) 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
+
+::: tip Specification Conversion
+To assist in converting between various specifications e.g. from OAS to OIS, there is a `convert` command within the Airnode [validator](https://github.com/api3dao/airnode/tree/master/packages/validator#airnodeconvertor) package.
+:::
 
 ## OIS Template
 
@@ -217,5 +219,3 @@ The resulting OIS includes no user-specific information, which means that you ca
 Note that there was some subjectivity while defining the endpoints.
 This means that two different OISes can exist for the same exact API, differing based on how the integrators designed the interface that the requester will use.
 However, in most cases, one would simply map API operations to endpoints directly, and let the requester provide all API operation parameters through the endpoint parameters.
-At the moment, we do not have a tool that generates an `endpoints` list that maps to `apiSpecifications.paths` one-to-one.
-If you would like to help build this, please join the conversation in [this issue](https://github.com/api3dao/airnode/issues/153).
