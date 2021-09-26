@@ -7,7 +7,7 @@ title: Sponsor
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-A sponsor is an entity (individual, business, etc.). Sponsors create relationships between [requesters](requester.md) and [Airnodes](airnode.md). They do so by sponsoring requesters and creating sponsorWallets for Airnodes they want their requesters to call.
+A sponsor is an entity (individual, business, etc.). Sponsors create relationships between [requesters](requester.md) and [sponsorWallets](sponsor.md#sponsorwallet). They do so by sponsoring requesters and deriving sponsorWallets for Airnodes they want their requesters to call.
 
 >![relationships](../assets/images/concepts-sponsor-relationships.png)
 
