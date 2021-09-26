@@ -17,7 +17,11 @@ A successful integration of an API with an Airnode requires the mapping of each 
 
 OIS is a mapping of API operations, such as  `GET /token/{id}`, to Airnode endpoints. When a requester contract calls an AirnodeRRP contract request function, such as `makeRequest(..., callData)`, the callData is communicated to the off-chain Airnode which uses OIS mappings to translate the callData into a valid HTTP request for the appropriate API operation.
 
-Therefore, only thing needed to integrate an API to Airnode is to create an OIS json object which lives in an Airnode's config.json file. This guide is an instructive approach to creating an OIS. As a point of reference, refer to [Oracle Integration Specifications (OIS)](../../../reference/specifications/ois.md) in the Technology section of these docs for additional input and understanding. It may be useful, but not necessary, to reference the [OAS 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
+Therefore, only thing needed to integrate an API to Airnode is to create an OIS json object which lives in an Airnode's config.json file. This guide is an instructive approach to creating an OIS. As a point of reference, refer to [Oracle Integration Specifications (OIS)](../../../reference/specifications/ois.md) in the Technology section of these docs for additional input and understanding. It may be useful, but not necessary, to reference the [OpenAPI Specification (OAS) 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
+
+::: tip Specification Conversion
+To assist in converting between various specifications e.g. from OAS to OIS, there is a `convert` command within the Airnode [validator](https://github.com/api3dao/airnode/tree/master/packages/validator#airnodeconvertor) package.
+:::
 
 <!-- markdownlint-disable -->
 <details class="collapse-box">
@@ -25,8 +29,6 @@ Therefore, only thing needed to integrate an API to Airnode is to create an OIS 
   Other tips while this guide.
   </summary>
   
-  - Refer to the [Oracle Integration Specifications (OIS)](../../../reference/specifications/ois.md) reference while using this guide.
-
   - Open the [OIS template](../../../reference/templates/ois-json.md) in another browser window to follow along.
 
   - View an example of an [Airnode config.json file](../../tutorial/config-json.md) from the Airnode Starter tutorial.
@@ -396,7 +398,5 @@ This was all!
 We specified the API operations and Airnode endpoints. Each Airnode endpoint maps to an API operation, and each Airnode endpoint parameter or fixedOperationParameter maps to an API operation parameter. The resulting OIS includes no user-specific information, which means that you can share it for others to easily provide the same services (for example, to set up a third-party oracle network).
 
 Note that there was some subjectivity while defining the Airnode endpoints. This means that two different OISes can exist for the same exact API, differing based on how the integrators designed the interface that the requester will use. However, in most cases, one would simply map API operations to Airnode endpoints directly, and let the requester provide all API operation parameters through the Airnode endpoint parameters.
-
-Currently there is no tool that generates an `endpoints` list that maps to `apiSpecifications.paths` one-to-one. If you would like to help build this, please join the conversation in [this issue](https://github.com/api3dao/airnode/issues/153).
 
 Now that we have our OIS object, the next step is [Configuring Airnode](configuring-airnode.md).
