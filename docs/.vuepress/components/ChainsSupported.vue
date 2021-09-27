@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4>AirnodeRRP.sol</h4>
+    <h4>AirnodeRrp.sol</h4>
     <table v-show="version=='0.1.0'">
       <tr>
         <th>Blockchain</th>
