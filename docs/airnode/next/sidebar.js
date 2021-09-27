@@ -146,6 +146,7 @@ module.exports = [
       },
       'reference/cli-commands',
       'reference/deployer-commands',
+      'reference/airnode-addresses',
       'reference/dao-contracts'
     ]
   }

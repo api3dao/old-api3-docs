@@ -66,3 +66,18 @@ I'm working on exactly this as we speak
 
 ---
 ---
+
+>Makes sense. So if a API provider wants to write their own Authorizer contract it must inherit RequesterRrpAuthorizer? Obviously the answer is Yes but I could be wrong.
+
+Right. So the flow is:
+- Airnode calls checkAuthorizationStatus (or checkAuthorizationStatuses) function in ArinodeRrp. It also passes all authorizer contract addresses as params.
+- AirnodeRrp loops thru the authorizer addresses array and creates a pointer to the authorizer contract using the address from the array and this interface IRrpAuthorizer ( base interface for RequesterRrpAuthorizer)
+- AirnodeRrp calls isAuthorized() function on the target contract which is expected to have at least implemented the IRrpAuthorizer 
+(edited)
+
+>So Airnode just spins through chains[n].authorizers and looks for one that will approve the requester, and it only takes one approval from any one authorizer.
+
+Airnode will send all addresses to AirnodeRrp and AirnodeRrp will be the one returning true if any of the authorizer contracts returns true. (edited) 
+
+---
+---
