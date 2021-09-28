@@ -152,20 +152,17 @@ npx @api3/airnode-admin get-sponsor-status \
 
 ### `derive-sponsor-wallet`
 
-<Fix>Isn't xpub optional here? Statement from the project README: "You need to specify the xpub but if it is not provided then this command will try to fetch it from the AirnodeRrp contract."</Fix>
-
 Derives a [sponsorWallet](../concepts/sponsor.md#sponsorwallet) designated by an Airnode for a sponsor and returns the address of the wallet. 
 
 - `providerUrl`: A valid cloud provider URL.
-- `xpub`: The extended public address of the Airnode. If the xpub is not provided then this command will try to fetch it from the AirnodeRrp.sol contract. 
 - `airnodeAddress`: The public address of the Airnode.
 - `sponsorAddress`: Use the `sponsorAddress`, returned by the  [`sponsor-requester`](cli-commands.md#sponsor-requester) command, to create a [relationship](../concepts/sponsor.md) between the requester and this `sponsorWallet`. More than one requester can use the same sponsor's `sponsorWallet` of an Airnode.
 - `airnodeRrp (optional)`: The public address of the AirnodeRrp.sol protocol contract.
+- `xpub (optional)`: The extended public address of the Airnode. Normally the `airnodeAddress` parameter is used to look-up up the Airnode's `xpub`. If the Airnode operator has not announced the `xpub` on-chain it will be necessary to supply this value.
 
 ```sh
 npx @api3/airnode-admin derive-sponsor-wallet-address \
   --providerUrl https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
-  --xpub xpub6CUGRUo... \
   --airnodeAddress 0xe1e0dd... \
   --sponsorAddress 0x9Ec6C4...
 ```
