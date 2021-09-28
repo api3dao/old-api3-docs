@@ -50,5 +50,5 @@ See the [section about sponsor wallets](sponsor-wallet.md) to see how sponsors c
 ## Setting endpoint authorizers
 <Fix>airnodeAdmin is no longer used. What (if anything) replaces it here?</Fix>
 <Fix>This should probably be removed and addressed in Authorizers.</Fix>
-An important responsibility of the ~~`airnodeAdmin`~~ is to set endpoint authorizers. Authorizers are used to enforce rules about which requests will be responded to, and this can be used to enforce KYC, monthly subscription payments, etc. See the sections about [endpoints](endpoint.md) and [authorizers](authorizer.md) for more details.
+An important responsibility of the ~~`airnodeAdmin`~~ is to set endpoint authorizers. Authorizers are used to enforce rules about which requests will be responded to, and this can be used to enforce KYC, monthly subscription payments, etc. See the sections about [endpoints](endpoint.md) and [authorizers](authorization.md) for more details.
 

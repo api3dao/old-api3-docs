@@ -161,7 +161,7 @@ The Airnode deployment will expect to find the URLs of each of these providers i
   - `AirnodeRRP`
   
 <Fix>Cleanup for authorizers needed here.</Fix>
-- `authorizers` (required) - the list of authorizer contract addresses the Airnode deployment will set on-chain. ~~Note that the Airnode wallet has to be funded (on the respective chain) to be able to make the transaction that will set or update this value.~~ For more information about authorizers see the [protocol Airnode](../concepts/airnode.md#setting-endpoint-authorizers) and [protocol Authorizer](../concepts/authorizer.md) docs.
+- `authorizers` (required) - the list of authorizer contract addresses the Airnode deployment will set on-chain. ~~Note that the Airnode wallet has to be funded (on the respective chain) to be able to make the transaction that will set or update this value.~~ For more information about authorizers see the [protocol Airnode](../concepts/airnode.md#setting-endpoint-authorizers) and [protocol Authorizer](../concepts/authorization.md) docs.
 
 
 - `blockHistoryLimit` (optional) - the number of blocks in the past that the Airnode deployment should search for requests.
