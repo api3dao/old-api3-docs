@@ -1,5 +1,5 @@
 ---
-title: Applying Authorizers
+title: Applying Authorization (optional)
 ---
 
 # {{$frontmatter.title}}
