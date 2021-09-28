@@ -13,7 +13,7 @@ Airnode protocol package includes a set of contracts that implement ranked admin
 
 There is also a contract that implements data structures, modifiers and utility functions for contracts that require whitelisting functionality. This contract must be inherited and extended based on the particular requirements and needs of the child contract.
 
-These contracts are currently being used in the [`authorizer`](authorizer.md) contracts in order to be able to set different levels of admins that will be authorized to make requests or make whitelisting configuration changes to adminned addresses and requesters (i.e. setting an expiration timestamp to whitelist a requester to access an Airnode-endpoint pair).
+These contracts are currently being used in the [`authorizer`](authorization.md) contracts in order to be able to set different levels of admins that will be authorized to make requests or make whitelisting configuration changes to adminned addresses and requesters (i.e. setting an expiration timestamp to whitelist a requester to access an Airnode-endpoint pair).
 
 ## Adminnable
 
@@ -59,9 +59,9 @@ event TransferredMetaAdminStatus(address indexed metaAdmin);
 
 This contract implements multiple levels of ranked admins independently for addresses, where the address itself is the highest ranking admin, respectively. These addresses will always be able invoke functions that use the `onlyWithRank` modifier.
 
-The main difference between this contract and the `Adminnable` contract is that this one supports one more level in the mapping meaning that a single address is mapped to many address/rank pairs. So this mapping can be used to set multiple addresses and ranks to a multiple services or entities. [AirnodeRequesterRrpAuthorizer](authorizer.md#AirnodeRequesterRrpAuthorizer) contract inherits this contract because it needs to have admins per Airnode. The mapping in this case will contain multiple Airnode addresses that each have its own mapping of admin address and rank.
+The main difference between this contract and the `Adminnable` contract is that this one supports one more level in the mapping meaning that a single address is mapped to many address/rank pairs. So this mapping can be used to set multiple addresses and ranks to a multiple services or entities. [AirnodeRequesterRrpAuthorizer](authorization.md#airnoderequesterrrpauthorizer) contract inherits this contract because it needs to have admins per Airnode. The mapping in this case will contain multiple Airnode addresses that each have its own mapping of admin address and rank.
 
-Another important difference is that this contract does not have a metaAdmin address that can be set. Althought the concept of addresses with higher rank than the rest of the admins still exist. These addresses with highest ranks are the adminned entity or service addresses. In [AirnodeRequesterRrpAuthorizer](authorizer.md#AirnodeRequesterRrpAuthorizer) the Airnode addresses will act as this sort of metaAdmins.
+Another important difference is that this contract does not have a metaAdmin address that can be set. Althought the concept of addresses with higher rank than the rest of the admins still exist. These addresses with highest ranks are the adminned entity or service addresses. In [AirnodeRequesterRrpAuthorizer](authorization.md#airnoderequesterrrpauthorizer) the Airnode addresses will act as this sort of metaAdmins.
 
 ### setRank
 
@@ -100,4 +100,4 @@ Each service address can have multiple addresses whitelisted and each address ca
 
 This contract is meant to be inherit from and child contracts should implement functions that read or modify the `serviceIdToUserToWhitelistStatus` internal mapping values.
 
-For a reference on how to use this contract in another contract then checkout any [`authorizer`](authorizer.md) contract or the abstract [`RequesterRrpAuthorizer`](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/authorizers/RequesterRrpAuthorizer.sol) contract
+For a reference on how to use this contract in another contract then checkout any [`authorizer`](authorization.md) contract or the abstract [`RequesterRrpAuthorizer`](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/authorizers/RequesterRrpAuthorizer.sol) contract

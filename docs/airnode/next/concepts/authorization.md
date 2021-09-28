@@ -23,7 +23,7 @@ When an Airnode receives a request, it can use on-chain authorizer contracts to 
 - Respond to requests made by requesters that were whitelisted by the API3 DAO.
 - Respond to requests made by sponsors who have been whitelisted by the Airnode owner's backend (for example, based on PayPal payments).
 
-A common use case for an authorizer is the [AirnodeRequesterRrpAuthorizer](./authorizer.md#airnodeRequesterrrpauthorizer) authorizer contract developed for Airnode operators to use right out-of-the-box. It allows the whitelisting of requester contracts with or without expiration timestamps. This is the most common use case and may in fact satisfy the needs of many Airnodes. 
+A common use case for an authorizer is the [AirnodeRequesterRrpAuthorizer](./authorization.md#airnoderequesterrrpauthorizer) authorizer contract developed for Airnode operators to use right out-of-the-box. It allows the whitelisting of requester contracts with or without expiration timestamps. This is the most common use case and may in fact satisfy the needs of many Airnodes. 
 
 The diagram below illustrates how Airnode utilizes authorizers.
 

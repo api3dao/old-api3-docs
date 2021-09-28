@@ -23,7 +23,7 @@ This guide explains how to do this with the use of authorizers.
 
 ## Authorizers
 
-An [authorizer](../../../concepts/authorizer.md) is a contract which typically checks for a single condition ("has the requester made their monthly payment", "is this `requesterAddress` whitelisted", etc.). Authorizers can be combined to enforce more complex policies. If any of the authorizers in the list gives access, the request will considered to be authorized. From a logical standpoint, the authorization outcomes get **OR**ed.
+An [authorizer](../../../concepts/authorization.md) is a contract which typically checks for a single condition ("has the requester made their monthly payment", "is this `requesterAddress` whitelisted", etc.). Authorizers can be combined to enforce more complex policies. If any of the authorizers in the list gives access, the request will considered to be authorized. From a logical standpoint, the authorization outcomes get **OR**ed.
 
 You can apply different authorizers contracts for your Airnode deployment per chain. Do so in the config.json file under `chains[n].authorizers`. Add a list of authorizer contracts addresses for each chain.
 
@@ -54,7 +54,7 @@ You can apply different authorizers contracts for your Airnode deployment per ch
 <Fix>Need to track down the EndpointStore.sol contract, it does not appear in the link below. Also who built/builds the Authorizer contract(s).</Fix>
 
 <!-- markdown-link-check-disable-next-line -->
-[EndpointStore.sol](../../../reference/concepts/general-structure.md#endpointstore-sol) keeps a list of [authorizer](../../../concepts/authorizer.md) addresses for each `airnode`–`endpointId` pair. An authorizer is a contract that Airnode calls to check if it should respond to a specific request. It can enforce any kind of authorization policy that one could implement as a contract.
+[EndpointStore.sol](../../../reference/concepts/general-structure.md#endpointstore-sol) keeps a list of [authorizer](../../../concepts/authorization.md) addresses for each `airnode`–`endpointId` pair. An authorizer is a contract that Airnode calls to check if it should respond to a specific request. It can enforce any kind of authorization policy that one could implement as a contract.
 
 ## Deny all
 
@@ -91,7 +91,7 @@ Note that being able to do this on-chain through `airnodeAdmin` allows you to up
 We have mentioned that authorizer contracts can implement any arbitrary authorization logic.
 See [this example](https://github.com/api3dao/airnode/blob/pre-alpha/packages/protocol/contracts/authorizers/MinBalanceAuthorizer.sol) where Airnode only responds to requests if the wallet it will use to fulfill the request has a balance more than an amount set by the provider admin.
 
-The authorizer list allows you to combine single-purpose authorizer contracts to form complex policies as described in the [docs](../../../concepts/authorizer.md#authorizer-list).
+The authorizer list allows you to combine single-purpose authorizer contracts to form complex policies as described in the [docs](../../../concepts/authorization.md#authorizer-list).
 If you would like to contribute to this set of authorizer contracts, please join the conversation in [this issue](https://github.com/api3dao/airnode/issues/38).
 
 ## Conclusion
