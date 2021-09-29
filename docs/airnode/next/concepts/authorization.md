@@ -23,15 +23,34 @@ When an Airnode receives a request, it can use on-chain authorizer contracts to 
 - Respond to requests made by requesters that were whitelisted by the API3 DAO.
 - Respond to requests made by sponsors who have been whitelisted by the Airnode owner's backend (for example, based on PayPal payments).
 
-A common use case for an authorizer is the [AirnodeRequesterRrpAuthorizer](./authorization.md#airnoderequesterrrpauthorizer) authorizer contract developed for Airnode operators to use right out-of-the-box. It allows the whitelisting of requester contracts with or without expiration timestamps. This is the most common use case and may in fact satisfy the needs of many Airnodes. 
+A common use case for an authorizer is the [AirnodeRequesterRrpAuthorizer](./authorization.md#airnoderequesterrrpauthorizer) authorizer contract developed for Airnode operators to use right out-of-the-box. It allows the whitelisting of requester contracts (with or without expiration timestamps) on a per endpoint basis. This is the most common use case and may in fact satisfy the needs of many Airnodes. 
 
 The diagram below illustrates how Airnode utilizes authorizers.
 
 >![concept-authorizer](../assets/images/concepts-authorizers.png)
 
+The authorizers you use will authorize all requests regardless of which endpoint is called. Endpoints are declared in the `ois.endpoints` field of the `config.json` file. To further filter by a particular endpoint you must use a custom authorizer such as AirnodeRequesterRrpAuthorizer or use relay metadata.
+
+### Airnode Authorization Policies
+
+Airnode provides two authorizer contracts, one of which (AirnodeRequesterRrpAuthorizer) can be used by any API provider. The other (DaoRequesterRrpAuthorizer) is used by the API3 DAO. They are detailed within this doc in sections below.
+
+- [AirnodeRequesterRrpAuthorizer](./authorization.md#airnoderequesterrrpauthorizer)
+- [DaoRequesterRrpAuthorizer](./authorization.md#daorequesterrrpauthorizer)
+
+
+### Custom Authorization Policies
+
+Authorizer contracts can implement any arbitrary authorization logic.
+See [this example](https://github.com/api3dao/airnode/blob/pre-alpha/packages/protocol/contracts/authorizers/MinBalanceAuthorizer.sol) where Airnode only responds to requests if the wallet it will use to fulfill the request has a balance more than an amount set by the provider admin.
+
 ### Authorizer List
 
+The authorizer list allows you to combine single-purpose authorizer contracts to form complex policies. If you would like to contribute to this set of authorizer contracts, please join the conversation in [this issue](https://github.com/api3dao/airnode/issues/38).
+
 Airnode authorizers are listed in the config.json file at [`chains[n].authorizers`](../grp-providers/guides/build-an-airnode/configuring-airnode.md#chains). An authorizer typically checks for a single condition (has the requester made their monthly payment, is the `requester` whitelisted, etc.). Authorizers can be combined to enforce more complex policies. If any of the authorizers in the list gives access, the request will considered to be authorized. From a logical standpoint, the authorization outcomes get `OR`ed.
+
+
 
 ### Authorizer Interface
 
@@ -103,7 +122,7 @@ Based on these considerations, Airnode uses a hybrid method. An Airnode announce
 
 ### Access (deny, allow, filter)
 
-How authorizers behave is based on the `chains` field of `config.json` for a givin Airnode.
+How authorizers impact access is based on the `chains` field of `config.json` for a givin Airnode.
 
 #### Deny All
 
@@ -177,13 +196,12 @@ Activate the sending of the metadata by setting the value of `_relay_metadata` t
 ```
 
 Below is a list of metadata values send to an endpoint when `_relay_metadata` is activated.
-<Fix>Following are pre-alpha values. Need v0.1.x values.</Fix>
+
 ```sh
 _airnode_airnode_id: '0x19255a4ec31e89cea54d1f125db7536e874ab4a96b4d4f6438668b6bb10a6adb',
-_airnode_client_address: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',
+_airnode_requester_address: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',
 _airnode_sponsor_wallet: '0x1c5b7e13fe3977a384397b17b060Ec96Ea322dEc',
 _airnode_endpoint_id: '0xeddc421714e1b46ef350e8ecf380bd0b38a40ce1a534e7ecdf4db7dbc9319353',
-_airnode_requester_index: 10,
 _airnode_request_id: '0xd1984b7f40c4b5484b756360f56a41cb7ee164d8acd0e0f18f7a0bbf5a353e65',
 _airnode_chain_id: '31337',
 _airnode_chain_type: 'evm',
