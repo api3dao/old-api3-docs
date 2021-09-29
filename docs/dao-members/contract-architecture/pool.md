@@ -7,13 +7,13 @@ title: Pool (Api3Pool.sol)
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-The API3 Pool contract is where API3 token holders can stake their tokens to acquire voting power in the DAO. Stakers receive rewards in API3 tokens and can optionally delegate their voting power to another user. 
+The API3 Pool contract is where API3 token holders can stake their tokens to acquire voting power in the DAO. Stakers receive rewards in API3 tokens and can optionally delegate their voting power to another user.
 
 ::: tip
 The DAO pool contract will also be used to pay insurance claims out of the DAO pool. This functionality not been implemented to-date.
 :::
 
-See the [API3Pool.sol](https://github.com/api3dao/api3-dao/tree/main/packages/pool/contracts) contract code for the list of contracts it inherits from.
+See the [API3Pool.sol](https://github.com/api3dao/api3-dao/tree/main/packages/pool/contracts) contract code for an understanding of the contract inheritance structure:
 
 - TimelockUtils.sol
 - ClaimUtils.sol
