@@ -44,9 +44,7 @@ contract MyContract is AirnodeRrpClient {
   ...
 }
 ```
-Note the constructor parameter `airnodeRrpAddress` which is the public address of the AirnodeRrp.sol protocol contract on the blockchain you wish to use. It is used by AirnodeRrpClient.sol to point itself to AirnodeRrp.sol. See the the list of available addresses below.
-
-> <ChainsSupported :version="'0.1.0'" />
+Note the constructor parameter `airnodeRrpAddress` which is the public address of the AirnodeRrp.sol protocol contract on the blockchain you wish to use. It is used by AirnodeRrpClient.sol to point itself to AirnodeRrp.sol. See the list of all [Airnode contract addresses](../reference/airnode-addresses.md) in the reference section.
 
 ## Step #2: Make a Request
 
