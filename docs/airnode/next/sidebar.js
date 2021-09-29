@@ -31,12 +31,11 @@ module.exports = [
         children:[
           'grp-providers/guides/build-an-airnode/api-integration',
           'grp-providers/guides/build-an-airnode/configuring-airnode',
-          'grp-providers/guides/build-an-airnode/deploying-airnode',
-          'grp-providers/guides/build-an-airnode/apply-authorizers',
+          'grp-providers/guides/build-an-airnode/apply-auth',
           {title:'Heartbeat (optional)', path:'grp-providers/guides/build-an-airnode/heartbeat'},
           {title:'HTTP Gateway (optional)', path:'grp-providers/guides/build-an-airnode/http-gateway'},
-          'grp-providers/guides/build-an-airnode/removing-airnode',
-          
+          'grp-providers/guides/build-an-airnode/deploying-airnode',
+          'grp-providers/guides/build-an-airnode/removing-airnode'
         ]
       },
       'grp-providers/using-docker',

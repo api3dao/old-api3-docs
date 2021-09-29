@@ -75,11 +75,9 @@ Next add an `endpointId` to the trigger which is the ID that the requester will 
 
 ### chains
 
-The `chains` field (array) lists the blockchains the Airnode deployment will serve on and specifies respective parameters. Currently Airnode only supports Ethereum blockchains as denoted by `type: "evm"`. Each row in the `chains` represents an Ethereum blockchain the Airnode will serve as identified by the `id`. There are several supported blockchains.
+The `chains` field (array) lists the blockchains the Airnode deployment will serve on and specifies respective parameters. Currently Airnode only supports Ethereum blockchains as denoted by `type: "evm"`. Each row in the `chains` represents an Ethereum blockchain the Airnode will serve as identified by the `id`. There are several supported blockchains, see them in the [Airnode contract addresses](../../../reference/airnode-addresses.md) doc.
 
-> <ChainsSupported :version="'0.1.0'" />
-
-For additional information about chain parameters see the [Technology > Deployment Files > config.json](../../../reference/deployment-files/config-json.md#chains).
+For additional information about chain parameters see the [config.json](../../../reference/deployment-files/config-json.md#chains) file in the reference section under deployment files.
 
 ```json
   "chains": [

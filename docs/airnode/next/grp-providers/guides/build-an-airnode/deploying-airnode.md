@@ -119,3 +119,7 @@ This will first download the deployer image, which may take a few minutes depend
 A couple minutes after noting down your mnemonic and hitting `ENTER`, you should be done! The deployer will output a receipt file: `<file-name>.receipt.json`. This file does not include any sensitive information, so feel free to share it as needed. The receipt contains your Airnode's [`address`](../../../concepts/airnode.md#airnodeaddress) and the `airnodeAddressShort`. You will need to add the `airnodeAddressShort` to your `config.json` to be able to redeploy your node with updated configurations.
 
 To find out how to redeploy your node or remove it from your cloud provider account, see the [deployer image](../../using-docker.md#deployer-image). Now, the next step is to configure the authorization policies for the endpoints you will be serving.
+
+## Calling the Airnode
+
+Once the Airnode is deployed, see [Calling an Airnode](../../../grp-developers/call-an-airnode.md) to learn how requests are made to it.
