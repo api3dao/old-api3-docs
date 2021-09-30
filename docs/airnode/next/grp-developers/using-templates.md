@@ -9,8 +9,6 @@ title: Using Templates
 
 A request to an Airnode can have many parameters. It is very common for requester contracts (e.g., a data feed) to make repeated requests with the exact same parameters. In such instances, it is wasteful to pass all of these parameters repeatedly. Templates are used to hold a set of parameter values on-chain that can be used repeatedly when calling the`makeTemplateRequest()`function in [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/beta-protocol/packages/protocol/contracts/rrp/AirnodeRrp.sol). Unlike`makeFullRequest(), makeTemplateRequest()`requires that a requester pass`templateId`which identifies a template.
 
-
-<Caption title="makeTemplateRequest()"/>
 ```solidity
 function makeTemplateRequest(
     bytes32 templateId,
@@ -29,7 +27,6 @@ The structure of a template, as shown below, is simple.
 - endpointId from the Airnode
 - endpoint parameters
 
-<Caption title="Template Structure"/>
 ```solidity
 struct Template {
   address airnode;
@@ -40,6 +37,8 @@ struct Template {
 
 There are just a few steps to create and place a template on-chain for a requester contract to use. Each template is identified by a`templateId`, which is the hash of its contents. When you create a template record on-chain, [see Part #2: Upload Template](using-templates.md#part-2-upload-template), a templateId will be returned.
 
+<divider/>
+
 ## Part #1: Build a Template
 
 First create a file that contains a template object. Below is an example. You will need the address of the Airnode and its  endpointId to be called. Below are links that discuss request parameters if you need help.
@@ -47,8 +46,6 @@ First create a file that contains a template object. Below is an example. You wi
 - [Reference > Reqeust-Response Protocol > Request](../reference/concepts/request.md)
 - [Calling an Airnode](../grp-developers/call-an-airnode.md#request-parameters)
 
-
-<Caption title="Sample Template File"/>
 ```
 {
   "airnode": "0x15e7097beac1fd23c0d1e3f5a882a6f99ecbcf2e0c1011d1bd43707c6c0ec717",
@@ -70,6 +67,8 @@ First create a file that contains a template object. Below is an example. You wi
 
 If you create more than one template using the same parameter values for an Airnode/endpointID the same`templateId`will be returned for each. Only one template is created when the parameters are the same.
 
+<divider/>
+
 ## Part #2: Upload Template
 
 Use the [create-template](https://github.com/api3dao/airnode/tree/beta-protocol/packages/admin#create-template) command in the @api3/airnode-admin package to move your template on-chain. The command`create-template`reads a file, uses its contents to create a template and returns a`templateId`. To create a new template record you will need the following.
@@ -89,6 +88,8 @@ npx @api3/airnode-admin create-template \
   --mnemonic "nature about salad..." \
   --templateFilePath ./template.json
 ```
+
+<divider/>
 
 ## More on Templates
 
