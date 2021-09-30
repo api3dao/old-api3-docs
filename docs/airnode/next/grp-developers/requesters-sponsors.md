@@ -102,7 +102,7 @@ To derive a sponsor wallet for an Airnode execute the `sponsor-wallet` command u
 :::: tabs
 ::: tab Linux/Mac
 ```bash
-npx @api3/airnode-admin derive-sponsor-wallet \
+npx @api3/airnode-admin derive-sponsor-wallet-address \
   --providerUrl https://ropsten.infura.io/v3/<KEY> \
   --airnode 0xe1...dF05s \
   --sponsor 0xF4...dDyu9
