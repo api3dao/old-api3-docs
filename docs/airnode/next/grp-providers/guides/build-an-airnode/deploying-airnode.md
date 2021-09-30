@@ -95,7 +95,7 @@ Then, in this same directory, run the following command.
   docker run -it --rm \
     --env-file .env \
     --env COMMAND=deploy-first-time \
-    -v $(pwd):/airnode/out \
+    -v "$(pwd):/airnode/out" \
     api3/airnode-deployer:0.1.0
   ```
 :::
@@ -104,7 +104,7 @@ Then, in this same directory, run the following command.
   docker run -it --rm ^
     --env-file .env ^
     --env COMMAND=deploy-first-time ^
-    -v "%cd%":/airnode/out ^
+    -v "%cd%:/airnode/out" ^
     api3/airnode-deployer:0.1.0
   ```
 :::

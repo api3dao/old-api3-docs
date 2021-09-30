@@ -27,7 +27,7 @@ title: Deployer image instructions
   docker run -it --rm \
     --env-file .env \
     --env COMMAND=deploy-first-time \
-    -v $(pwd):/airnode/out \
+    -v "$(pwd):/airnode/out" \
     api3/airnode-deployer:pre-alpha
   ```
 :::
@@ -36,7 +36,7 @@ title: Deployer image instructions
   docker run -it --rm ^
     --env-file .env ^
     --env COMMAND=deploy-first-time ^
-    -v "%cd%":/airnode/out ^
+    -v "%cd%:/airnode/out" ^
     api3/airnode-deployer:pre-alpha
   ```
 :::
@@ -50,7 +50,7 @@ title: Deployer image instructions
   docker run -it --rm \
     --env-file .env \
     --env COMMAND=redeploy \
-    -v $(pwd):/airnode/out \
+    -v "$(pwd):/airnode/out" \
     api3/airnode-deployer:pre-alpha
   ```
 :::
@@ -59,7 +59,7 @@ title: Deployer image instructions
   docker run -it --rm ^
     --env-file .env ^
     --env COMMAND=redeploy ^
-    -v "%cd%":/airnode/out ^
+    -v "%cd%:/airnode/out" ^
     api3/airnode-deployer:pre-alpha
   ```
 :::
@@ -77,7 +77,7 @@ Note that you must replace `$MNEMONIC` and `$REGION` with your values Enclose yo
     --env COMMAND=deploy-mnemonic \
     --env MNEMONIC=$MNEMONIC \
     --env REGION=$REGION \
-    -v $(pwd):/airnode/out \
+    -v "$(pwd):/airnode/out" \
     api3/airnode-deployer:pre-alpha
   ```
 :::
@@ -88,7 +88,7 @@ Note that you must replace `$MNEMONIC` and `$REGION` with your values Enclose yo
     --env COMMAND=deploy-mnemonic ^
     --env MNEMONIC=$MNEMONIC ^
     --env REGION=$REGION ^
-    -v "%cd%":/airnode/out ^
+    -v "%cd%:/airnode/out" ^
     api3/airnode-deployer:pre-alpha
   ```
 :::
@@ -105,7 +105,7 @@ Note that you must replace `$RECEIPT_FILENAME` with your value and `$RECEIPT_FIL
     --env-file .env \
     --env COMMAND=remove-with-receipt \
     --env RECEIPT_FILENAME=$RECEIPT_FILENAME \
-    -v $(pwd):/airnode/out \
+    -v "$(pwd):/airnode/out" \
     api3/airnode-deployer:pre-alpha
   ```
 :::
@@ -115,7 +115,7 @@ Note that you must replace `$RECEIPT_FILENAME` with your value and `$RECEIPT_FIL
     --env-file .env ^
     --env COMMAND=remove-with-receipt ^
     --env RECEIPT_FILENAME=$RECEIPT_FILENAME ^
-    -v "%cd%":/airnode/out ^
+    -v "%cd%:/airnode/out" ^
     api3/airnode-deployer:pre-alpha
   ```
 :::
@@ -133,7 +133,7 @@ Note that you must replace `$PROVIDER_ID_SHORT` and `$REGION` with your values.
     --env COMMAND=remove-mnemonic \
     --env PROVIDER_ID_SHORT=$PROVIDER_ID_SHORT \
     --env REGION=$REGION \
-    -v $(pwd):/airnode/out \
+    -v "$(pwd):/airnode/out" \
     api3/airnode-deployer:pre-alpha
   ```
 :::
@@ -144,7 +144,7 @@ Note that you must replace `$PROVIDER_ID_SHORT` and `$REGION` with your values.
     --env COMMAND=remove-mnemonic ^
     --env PROVIDER_ID_SHORT=$PROVIDER_ID_SHORT ^
     --env REGION=$REGION ^
-    -v "%cd%":/airnode/out ^
+    -v "%cd%:/airnode/out" ^
     api3/airnode-deployer:pre-alpha
   ```
 :::
@@ -163,7 +163,7 @@ Note that you must replace `$PROVIDER_ID_SHORT`, `$REGION` and `$STAGE` with you
     --env PROVIDER_ID_SHORT=$PROVIDER_ID_SHORT \
     --env REGION=$REGION \
     --env STAGE=$STAGE \
-    -v $(pwd):/airnode/out \
+    -v "$(pwd):/airnode/out" \
     api3/airnode-deployer:pre-alpha
   ```
 :::
@@ -175,7 +175,7 @@ Note that you must replace `$PROVIDER_ID_SHORT`, `$REGION` and `$STAGE` with you
     --env PROVIDER_ID_SHORT=$PROVIDER_ID_SHORT ^
     --env REGION=$REGION ^
     --env STAGE=$STAGE ^
-    -v "%cd%":/airnode/out ^
+    -v "%cd%:/airnode/out" ^
     api3/airnode-deployer:pre-alpha
   ```
 :::
