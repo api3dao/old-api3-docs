@@ -8,12 +8,23 @@ var file = require('file')
 var colors = require('colors')
 const oust = require('oust');
 const axios = require('axios');
+const { getSystemErrorMap } = require('util');
 
 /**
  * node index.js http:localhost:8080 docs/.vuepress/dist
  * Gather args
- * [2] (baseURL) the target protocol URL (http://localhost:8080) for link verification
- * [3] (distDir) is the sub-directory (usually dist) with the html docs
+ * [2] (baseURL) the target URL (http://localhost:8080) for link verification.
+ * [3] (distDir) is the sub-directory (usually dist) with the html docs. If /dist is 
+ *     used then all folders are validated. Suggest that you narrow the scope. 
+ *     The following are suggested folders to check as needed: 
+ *     
+ *     /dist/airnode/pre-alpha
+ *     /dist/dao-members
+ *     /dist/common
+ *     /dist/airnode/v0.1
+ *     /dist/airnode/next
+ *     /dist/dev
+ *     /dist/dev-airnode
  */
 const baseURL = process.argv[2];
 const distDir = process.argv[3];
@@ -76,9 +87,9 @@ async function start(){
   for(let i=0; i< arr.length; i++){
     for(let z=0; z< arr[i].files.length; z++){
       const filePath = arr[i].dir+'/'+arr[i].files[z];
-      /** 
-       * Only html files, skip dir "/deprecated/"" and files starting with: "/depr-""
-      */
+ 
+      /// Only html files, skip dir "/deprecated/"" and files 
+      /// starting with: "/depr-""
       if(filePath.indexOf('.html') > 0 &&
         filePath.indexOf('/depr-') === -1 &&
         filePath.indexOf('/deprecated/') === -1 
@@ -94,6 +105,7 @@ async function start(){
         // Go thru the links
         for(var x=0;x<links.length; x++){
           let url = links[x]
+
           if( url.indexOf('http://') === -1 && url.indexOf('https://') === -1 ) {
             url = baseURL+url
           }
@@ -105,12 +117,14 @@ async function start(){
           else{
             passed++; totalPassedCnt++;
           }
+        } // Finished testing all links from a given file
+
+        if(failed > 0 ){
+          console.log(colors.bold.black('    --------------------------------------'))
         }
-        // Finished testing all links from a given file
-        if(failed > 0 ) console.log(colors.bold.black('    --------------------------------------'))
-        process.stdout.write(colors.bold.blue('    Passed: '+passed))
-        if(failed > 0) process.stdout.write(colors.bold.red('    Failed: '+failed))
-        console.log()
+        console.log(colors.bold.blue('    Passed: '+passed))
+        if(failed > 0) console.log(colors.bold.red('    Failed: '+failed))
+        //console.log()
       }
     }
   }
@@ -124,17 +138,18 @@ async function start(){
     console.log(colors.bold.underline.red('Total failed: '+totalFailedCnt))
     console.log()
     for( var i=0; i<failuresArr.length; i++){
-      console.log(colors.bold.red(failuresArr[i].file))
-      console.log(colors.bold.red(failuresArr[i].url))
-      console.log(colors.bold.red(failuresArr[i].error))
+      console.log(i+1, '-------------------')
+      console.log('|', colors.bold.red(failuresArr[i].file))
+      console.log('|',colors.bold.red(failuresArr[i].url))
+      console.log('|',colors.bold.red(failuresArr[i].error))
       console.log()
     }
   }
   else{
-    console.log(colors.bold.green('All links tested OK.'))
+    console.log(colors.bold.green('All links OK.'))
     console.log(colors.bold.underline.blue('Total passed: '+totalPassedCnt))
   }
-  console.log('++++++++++++++++++++++++')
+  console.log('\n++++++++++++++++++++++++')
   console.log('END: Link Validator')
   console.log('++++++++++++++++++++++++\n')
 }
