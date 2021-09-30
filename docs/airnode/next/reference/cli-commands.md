@@ -84,7 +84,7 @@ Commands related to a sponsor's [relationships](../concepts/sponsor.md) between 
 - [sponsor-requester](cli-commands.md#sponsor-requester)
 - [unsponsor-requester](cli-commands.md#unsponsor-requester)
 - [get-sponsor-status](cli-commands.md#get-sponsor-status)
-- [derive-sponsor-wallet](cli-commands.md#derive-sponsor-wallet)
+- [derive-sponsor-wallet-address](cli-commands.md#derive-sponsor-wallet-address)
 - [create-template](cli-commands.md#create-template)
 - [get-template](cli-commands.md#get-template)
 - [request-withdrawal](cli-commands.md#request-withdrawal)
@@ -96,7 +96,7 @@ Commands related to a sponsor's [relationships](../concepts/sponsor.md) between 
 
 [Sponsors](..concepts/sponsorship.md) a requester contract so that its requests can be fulfilled by the sponsorWallet of an Airnode. The account derived from the `mnemonic` you provide must to belong to the sponsor. 
 
-Sponsoring a requester and using the returned `sponsorAddress` to derive a `sponsorWallet` for an Airnode creates a [relationship](../concepts/sponsor.md) between the requester and the Airnode, see the [`derive-sponsor-wallet`](cli-commands.md#derive-sponsor-wallet) command.
+Sponsoring a requester and using the returned `sponsorAddress` to derive a `sponsorWallet` for an Airnode creates a [relationship](../concepts/sponsor.md) between the requester and the Airnode, see the [`derive-sponsor-wallet-address`](cli-commands.md#derive-sponsor-wallet-address) command.
 
 - `providerUrl`: A valid cloud provider URL.
 - `mnemonic`: A wallet owned by the sponsor. Used to derive a `sponsorAddress` as the default account of the mnemonic unless a `derviationPath` is specified. Used to pay gas costs from the mnemonic's default account unless a `derviationPath` is specified.
@@ -150,7 +150,7 @@ npx @api3/airnode-admin get-sponsor-status \
 
 <divider/>
 
-### `derive-sponsor-wallet`
+### `derive-sponsor-wallet-address`
 
 Derives a [sponsorWallet](../concepts/sponsor.md#sponsorwallet) designated by an Airnode for a sponsor and returns the address of the wallet. 
 
@@ -211,7 +211,7 @@ Requests a [withdrawal](./concepts/sponsor-wallet.html#withdrawals) from a `spon
 - `providerUrl`: A valid cloud provider URL.
 - `mnemonic`: A wallet owned by the sponsor. Used to pay gas costs from the mnemonic's default account unless a `derviationPath` is specified. Withdrawn funds will be added to this mnemonic's default address unless a `derviationPath` is specified.
 - `airnodeAddress`: The public address of the Airnode.
-- `sponsorWalletAddress`: The pubic address of the `sponsorWallet` to withdraw from. This address was returned by the `derive-sponsor-wallet` command.
+- `sponsorWalletAddress`: The pubic address of the `sponsorWallet` to withdraw from. This address was returned by the `derive-sponsor-wallet-address` command.
 - `airnodeRrp (optional)`: The public address of the AirnodeRrp.sol protocol contract.
 - `derviationPath` (optional): The destination address of the `mnemonic` parameter to add the withdrawn funds to if the default address is not desired. 
 
