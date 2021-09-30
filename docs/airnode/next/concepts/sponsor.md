@@ -79,6 +79,6 @@ Use the [Admin CLI tool](../cli-commands.md#sponsor-requester) to sponsor a requ
 
 When a sponsor wishes to access an Airnode (via a requester) it must create a `sponsorWallet` for the Airnode. Requesters that have been sponsored by the same sponsor, can specify their requests be fulfilled by the `sponsorWallet` belonging to the sponsor. A sponsor uses a [`sponsorAddress`](sponsor.md#sponsoraddress) and the [`airnodeAddress`](airnode.md#airnodeaddress) of a particular Airnode to derive a [sponsorWallet](sponsor-wallet.md) for the Airnode.
 
-Use the [Admin CLI tool](../cli-commands.md#derive-sponsor-wallet) to derive a `sponsorWallet`. An example can be seem in the [Requesters and Sponsors](../../grp-developers/requesters-sponsors.md#how-to-derive-a-sponsor-wallet) doc.
+Use the [Admin CLI tool](../cli-commands.md#derive-sponsor-wallet-addfress) to derive a `sponsorWallet`. An example can be seem in the [Requesters and Sponsors](../../grp-developers/requesters-sponsors.md#how-to-derive-a-sponsor-wallet) doc.
 
 

@@ -51,51 +51,10 @@ When the requester makes a request to the Airnode, the Airnode will use funds fr
 
 There are several sponsor and requester related commands in the [Admin CLI Commands](../reference/cli-commands.md#create-requester) package. You can also see a list of available commands using `npx @api3/airnode-admin --help`.
 
-In the next two sections of this doc you will use two commands from the @api3/airnode-admin package to _derive a sponsor wallet_ and to _sponsor a requester_.
+In the next two sections of this doc you will use two commands from the @api3/airnode-admin package to _sponsor a requester_  and to _derive a sponsor wallet_.
 
-1. [`derive-sponsor-wallet`](../reference/cli-commands.md#derive-sponsor-wallet)creates a sponsor wallet associated with an Airnode.
-2. [`sponsor-requester`](../reference/cli-commands.md#sponsor-reqeuster) sponsors a requester.
-
-
-## How to Derive a Sponsor Wallet
-
-To use a particular Airnode you must derive a _sponsor wallet_. Once the sponsor wallet is created it must be funded using the public address returned by the command`derive-sponsor-wallet`. Each Airnode keeps a separate list of individual sponsor wallets that can access the Airnode. Learn more about [sponsor wallets](../reference/concepts/sponsor-wallet.md).
-
-To derive a sponsor wallet for an Airnode execute the `sponsor-wallet` command using the parameters detailed in the list below. There are no transaction gas costs to do so.
-
-- `providerURL` a blockchain provider URL (such as Infura) with providerID for a desired network
-- `airnode` of address the desired Airnode
-- `sponsor` the sponsorAddress (an address of an Ethereum account) owned by a sponsor
-
-:::: tabs
-::: tab Linux/Mac
-```bash
-npx @api3/airnode-admin derive-sponsor-wallet \
-  --providerUrl https://ropsten.infura.io/v3/<KEY> \
-  --airnode 0xe1...dF05s \
-  --sponsor 0xF4...dDyu9
-```
-:::
-::: tab Windows
-```bash
-npx @api3/airnode-admin derive-sponsor-wallet ^
-  --providerUrl https://ropsten.infura.io/v3/<KEY> ^
-  --airnode 0xe1...dF05s ^
-  --sponsor 0xF4...dDyu9
-```
-:::
-::::
-
-The command `derive-sponsor-wallet` will return the public address of the sponsor wallet to be funded by the sponsor. In this example it is `0xa5...gS4E9`.
-
-<Fix>The return value below needs to be updated with the real McCoy.</Fix>
-
-> `Derived the address of the wallet for sponsor with address 0xF4...dDyu9 
->  by Airnode with address 0xe1...dF05s to be 0xa5...gS4E9`
-
-If you forget the public address of the sponsor wallet simply run derive-sponsor-wallet again. Since the wallet already exists for the airnodeAddress/sponsorAddress pair it will just return the address.
-
-<SponsorWalletWarning/>
+1. [`sponsor-requester`](../reference/cli-commands.md#sponsor-reqeuster) sponsors a requester. 
+2. [`derive-sponsor-wallet-address`](../reference/cli-commands.md#derive-sponsor-wallet-address)creates a sponsor wallet associated with an Airnode.
 
 ## How to Sponsor a Requester
 
@@ -105,7 +64,7 @@ To sponsor a requester you will need the following. Your requester should alread
 
 - `providerURL` A blockchain provider URL (such as Infura) with providerID for the desired network.
 - `mnemonic`  Used for gas costs to fund the sponsorship and used to derive the `sponsorAddress` from the default address. The `sponsorAddress` will be needed to derive a `sponsorWallet` for an Airnode.
-- `requesterAddress` The address of the requester (smart contract).
+- `requesterAddress` The address of the requester contract.
 
 :::: tabs
 ::: tab Linux/Mac
@@ -130,6 +89,46 @@ The command `sponsor-requester` will return the addresses for the requester and 
 
 > Sponsored 0x2c...gDER7 by sponsor with sponsorAddress 0xF4...dDyu9
 
+## How to Derive a Sponsor Wallet
+
+To use a particular Airnode you must derive a _sponsor wallet_. Once the sponsor wallet is created it must be funded using the public address returned by the command`derive-sponsor-wallet-address`. Each Airnode keeps a separate list of individual sponsor wallets that can access the Airnode. Learn more about [sponsor wallets](../reference/concepts/sponsor-wallet.md).
+
+To derive a sponsor wallet for an Airnode execute the `sponsor-wallet` command using the parameters detailed in the list below. There are no transaction gas costs to do so.
+
+- `providerURL` a blockchain provider URL (such as Infura) with providerID for a desired network
+- `airnode` of address the desired Airnode
+- `sponsor` the sponsorAddress (an address of an Ethereum account) owned by a sponsor
+
+:::: tabs
+::: tab Linux/Mac
+```bash
+npx @api3/airnode-admin derive-sponsor-wallet \
+  --providerUrl https://ropsten.infura.io/v3/<KEY> \
+  --airnode 0xe1...dF05s \
+  --sponsor 0xF4...dDyu9
+```
+:::
+::: tab Windows
+```bash
+npx @api3/airnode-admin derive-sponsor-wallet-address ^
+  --providerUrl https://ropsten.infura.io/v3/<KEY> ^
+  --airnode 0xe1...dF05s ^
+  --sponsor 0xF4...dDyu9
+```
+:::
+::::
+
+The command `derive-sponsor-wallet-address` will return the public address of the sponsor wallet to be funded by the sponsor. In this example it is `0xa5...gS4E9`.
+
+<Fix>The return value below needs to be updated with the real McCoy.</Fix>
+
+> `Derived the address of the wallet for sponsor with address 0xF4...dDyu9 
+>  by Airnode with address 0xe1...dF05s to be 0xa5...gS4E9`
+
+If you forget the public address of the sponsor wallet simply run `derive-sponsor-wallet-address` again. Since the wallet already exists for the airnodeAddress/sponsorAddress pair it will just return the address.
+
+<SponsorWalletWarning/>
+
 ## Record Keeping
 
 During and after deriving a sponsor wallets and sponsoring requesters there are a few things to keep track of.
@@ -139,4 +138,4 @@ During and after deriving a sponsor wallets and sponsoring requesters there are 
 |requesters|Remember which sponsorAddress you used for each Airnode when you derive its sponsor wallet. Also write down which sponsor you used to sponsor any requesters.|
 |sponsor wallets|Remember the sponsorAddress of sponsor wallets for each Airnode. For each Airnode you have derived a sponsor wallet, the Airnode keeps the private key and returns you the public address which you use to fund the sponsor wallet.|
 
-You can acquire the public address of a sponsor wallet later, if you loose it, by running the command `derive-sponsor-wallet` again. Since the sponsor wallet was already created for the sponsorAddress/airnodeAddress pair, the command will only return the public address for the wallet. However you must use the same sponsorAddress used when the wallet was first creates or a new sponsor wallet will be created.
+You can acquire the public address of a sponsor wallet later, if you loose it, by running the command `derive-sponsor-wallet-address` again. Since the sponsor wallet was already created for the sponsorAddress/airnodeAddress pair, the command will only return the public address for the wallet. However you must use the same sponsorAddress used when the wallet was first creates or a new sponsor wallet will be created.
