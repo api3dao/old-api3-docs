@@ -53,7 +53,7 @@ Note that `nodeSettings.cloudProvider` should be `local`.
       ```sh
       docker run -it --rm \
           --env-file .env \
-          -v $(pwd):/airnode/out \
+          -v "$(pwd):/airnode/out" \
           api3/airnode-client:pre-alpha
       ```
     :::
@@ -61,7 +61,7 @@ Note that `nodeSettings.cloudProvider` should be `local`.
       ```sh
       docker run -it --rm ^
           --env-file .env ^
-          -v "%cd%":/airnode/out ^
+          -v "%cd%:/airnode/out" ^
           api3/airnode-client:pre-alpha
       ```
     :::
@@ -90,7 +90,7 @@ docker build . -t api3/airnode-deployer:latest
   docker run -it --rm \
     --env-file aws.env \
     -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
-    -v $(pwd)/output:/app/output \
+    -v "$(pwd)/output:/app/output" \
     api3/deployer:latest deploy
   ```
 :::
@@ -99,7 +99,7 @@ docker build . -t api3/airnode-deployer:latest
   docker run -it --rm ^
     --env-file .env ^
     --env COMMAND=deploy-first-time ^
-    -v "%cd%"/output:/app/output ^
+    -v "%cd%/output:/app/output" ^
     api3/deployer:latest deploy
   ```
 :::
@@ -113,7 +113,7 @@ docker build . -t api3/airnode-deployer:latest
   docker run -it --rm \
     --env-file aws.env \
     -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
-    -v $(pwd)/output:/app/output \
+    -v "$(pwd)/output:/app/output" \
     api3/deployer:latest remove -r output/receipt.json
   ```
 :::
@@ -122,7 +122,7 @@ docker build . -t api3/airnode-deployer:latest
   docker run -it --rm ^
     --env-file aws.env ^
     -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) ^
-    -v "%cd%"/output:/app/output ^
+    -v "%cd%/output:/app/output" ^
     api3/deployer:latest remove -r output/receipt.json
   ```
 :::

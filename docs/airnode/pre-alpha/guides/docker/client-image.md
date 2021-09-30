@@ -39,7 +39,7 @@ title: Client image instructions
       ```sh
       docker run -it --rm \
           --env-file .env \
-          -v $(pwd):/airnode/out \
+          -v "$(pwd):/airnode/out" \
           api3/airnode-client:pre-alpha
       ```
     :::
@@ -47,7 +47,7 @@ title: Client image instructions
       ```sh
       docker run -it --rm ^
           --env-file .env ^
-          -v "%cd%":/airnode/out ^
+          -v "%cd%:/airnode/out" ^
           api3/airnode-client:pre-alpha
       ```
     :::
