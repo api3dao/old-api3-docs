@@ -4,7 +4,7 @@ This component places icons (sub-sites) in the header of the sidebar.
 
 <template>
   <div>
-    <div class="container" style="font-size:medium;">
+    <div v-if="isMounted" class="container" style="font-size:medium;">
         <router-link class="route-link" to="/airnode/pre-alpha/" v-bind:class="{ selectedButton: btnAirnode }">
           <font-awesome-icon icon="sitemap" size="2x"/>
           <br/><span style="font-size:14px;">Airnode</span>
@@ -33,7 +33,8 @@ This component places icons (sub-sites) in the header of the sidebar.
     data () {
       return {
         btnMembers: false,
-        btnAirnode: false
+        btnAirnode: false,
+        isMounted: false // When the page is mounted show icons to avoid flickering 
       }
     },
     watch: {
@@ -58,6 +59,7 @@ This component places icons (sub-sites) in the header of the sidebar.
         // Code that will run only after the
         // entire view has been rendered
         this.selectIcon();
+        this.isMounted = true;
         //console.log('this.$nextTick > $route.path', this.$route.path)
       })
     }
