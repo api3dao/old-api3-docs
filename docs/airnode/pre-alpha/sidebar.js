@@ -11,55 +11,6 @@ module.exports = [
         'introduction/dapis'
     ]
   },
-  /*{
-    title: 'Fundamentals', collapsable: false, 
-    children: [
-        {title: 'API', path: 'fundamentals/apis'},
-        'fundamentals/first-party-oracles',
-        'fundamentals/decentrally-governed-oracle-networks',
-        {title: 'dAPI', path: 'fundamentals/dapis'},
-    ]
-  },*/
-  
-  //{
-    /**
-     * When adding a new doc or group before the "Dashboard" group
-     * you must change the value of initialOpenGroupIndex to match the doc to
-     * display first when the folder opens, -1 will display the README.md.
-     */
-    /*title: 'API3 Members', collapsable: false,
-    children: [
-      {title:'Overview', path:'members/'},
-      {title:'DAO Dashboard', path:'https://api3.eth.link/'},
-      'members/videos',
-      {title: 'DAO Tracker', path: 'members/dao-tracker'},
-      {
-        title:'Contract Architecture',
-        children: [
-          'members/contract-architecture/overview',
-          'members/contract-architecture/pool',
-          'members/contract-architecture/dao',
-          'members/contract-architecture/voting'
-        ]
-      },
-      {
-        title:'Staking',
-        children: [
-          'members/staking/voting-power',
-          'members/staking/rewards',
-          'members/staking/pool-claims'
-        ]
-      },
-      {
-        title:'Governance',
-        children: [
-          'members/governance/proposals',
-          'members/governance/voting'
-        ]
-      }
-    ]*/
-  //},
-
   {
     title: 'Airnode', collapsable: false,
     children: [
@@ -83,6 +34,7 @@ module.exports = [
     'protocols/request-response/provider',
     'protocols/request-response/endpoint',
     'protocols/request-response/authorizer',
+    'protocols/request-response/airnode-auth',
     'protocols/request-response/requester',
     'protocols/request-response/client',
     'protocols/request-response/designated-wallet',
