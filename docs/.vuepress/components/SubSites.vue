@@ -76,7 +76,7 @@ This component places icons (sub-sites) in the header of the sidebar.
     display:flex;flex-flow: row wrap;align-items: left;
     justify-content: center;
   }
-
+  
   .route-link{
     color:#A0A0A0;
     text-align:center;
