@@ -7,7 +7,9 @@ title: Working with Proposals
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Staking tokens in the DAO pool gives you governance rights to create and vote on proposals. To create a proposal, you must not have created a proposal in the last seven days and you must hold at least 0.1% of the total pool shares. This required percentage, as well as other DAO parameters, can be adjusted by the DAO as described in [Dashboard Attributes](../contract-architecture/dashboard-attributes.md). To view the percentage of pool shares for an address, visit the [DAO Tracker wallets page](https://enormous.cloud/dao/api3/tracker/wallets).
+Staking tokens in the DAO pool gives you governance rights to create and vote on proposals.
+
+To create a proposal, you must not have created a proposal in the last seven days and you must hold at least 0.1% of the total pool shares. This required percentage, as well as other DAO parameters, can be adjusted by the DAO as described in [Dashboard Attributes](../contract-architecture/dashboard-attributes.md). To view the percentage of pool shares for an address, visit the [DAO Tracker wallets page](https://enormous.cloud/dao/api3/tracker/wallets).
 
 You can vote on all proposals or delegate your voting power to someone else. See the [delegation pitch section](https://forum.api3.org/c/delegation-pitch/7) of the API3 forum for posts by community members offering to act as delegates or to post your own delegate pitch.
 
