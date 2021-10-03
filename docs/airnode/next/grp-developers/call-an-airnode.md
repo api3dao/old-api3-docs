@@ -7,46 +7,43 @@ title: Calling an Airnode
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-A [requester](requesters-sponsors.md#what-is-a-requester) (your contract) that has been sponsored can call an Airnode with a matching sponsor wallet. See [Requesters and Sponsors](requesters-sponsors.md) on how to sponsor a requester and derive a sponsor wallet.
+A requester is a contract that can trigger an Airnode request. To do so, requester needs to be sponsored and make the request using a matching sponsor wallet. See [Requesters and Sponsors](requesters-sponsors.md) on how to sponsor a requester and derive the sponsor wallet.
 
-Airnode is composed of two parts: the off-chain **Airnode** (cloud provider functions, e.g., AWS) and the on-chain **protocol contract** ( AirnodeRrp.sol). A requester calls the protocol contract which queues the requester's request. During its next run cycle, Airnode gets the request from the protocol queue and generates a response. The diagram below illustrates the mechanics of the entire process as does the diagram in the [Overview](./) doc for developers.
+Airnode is composed of two parts: the off-chain **Airnode** (cloud provider functions, e.g., AWS) and the on-chain **protocol contract** ( AirnodeRrp.sol). A requester calls the protocol contract, which emits a blockchain event with the request parameters. Airnode listens to the events emitted by the AirnodeRrp contract. During its next run cycle, Airnode gets the request parameters from the emitted event. The diagram below illustrates the mechanics of the entire process as does the diagram in the [Overview](./) doc for developers.
 
-The AirnodeRrp protocol is designed to be flexible and is meant to serve a variety of use cases. See the Airnode [requester examples](https://github.com/api3dao/airnode-starter/blob/main/contracts/ExampleClient.sol) for some potential design patterns.
+The AirnodeRrp protocol is designed to be flexible and is meant to serve a variety of use cases. See the Airnode [requester examples](https://github.com/api3dao/airnode/tree/an169-airnode-starter/packages/examples/contracts) for some potential design patterns.
+<!-- TODO: replace the above with master branch once the issue is merged -->
 
 Ignoring the mechanics of the overall process, the requester primarily focuses on two tasks as indicated by points A & B in the diagram below when calling an Airnode.
 
 - <span style="color:blue;">A</span>: Make the request
-- <span style="color:blue;">B</span>: Accept the response
+- <span style="color:blue;">B</span>: Accept and decode the response
 
 > <img src="../assets/images/call-an-airnode.png"/>
 
-<!--In the above diagram a requester makes a request to the AirnodeRrp.sol contract which is retrieved by the Airnode during its next run cycle. Airnode then gathers the requested data from the API and creates a transaction to call the function `fulfill()` in AirnodeRrp.sol which in turn makes a callback to the function `myFulfill` in the requester.-->
+In the above diagram a requester makes a request to the AirnodeRrp.sol contract which emits an event. This event is retrieved by the Airnode during its next run cycle. Airnode then gathers the requested data from the API and creates a transaction to call the function `fulfill()` in AirnodeRrp.sol which in turn makes a callback to the function `myFulfill` in the requester. This response transaction is covered by sponsor using the sponsor wallet.
 
-This remainder of this doc focuses on the following. 
+This remainder of this doc focuses on the requester implementation, it's deployment and sponsoring.
 
-- Make a request to the AirnodeRrp contract, call `makeRequest()`
-- Capture the response from the Airnode application, implement `myFulfill()`
-- Sponsoring the requester after it deployment
+## Step #1: Inherit RrpRequester.sol
 
-## Step #1: Inherit AirnodeRrpClient.sol
-
-To get started a requester inherits from the [AirnodeRrpClient.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/AirnodeRrpClient.sol) contract. This will expose the AirnodeRrp.sol protocol contract to the requester.
+A requester inherits from the [RrpRequester.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/requesters/RrpRequester.sol) contract. This will expose the AirnodeRrp.sol protocol contract to the requester allowing it to make Airnode requests.
 
 ```solidity
-import "@api3/airnode-protocol/contracts/AirnodeRrpClient.sol";
+import "@api3/protocol/contracts/rrp/requesters/RrpRequester.sol";
 
-contract MyContract is AirnodeRrpClient {
+contract MyRequester is RrpRequester {
   ...
   constructor (address airnodeRrpAddress)
       public
-      AirnodeClient(airnodeRrpAddress)
+      RrpRequester(airnodeRrpAddress)
   {}
   ...
 }
 ```
-Note the constructor parameter `airnodeRrpAddress` which is the public address of the AirnodeRrp.sol protocol contract on the blockchain you wish to use. It is used by AirnodeRrpClient.sol to point itself to AirnodeRrp.sol. See the list of all [Airnode contract addresses](../reference/airnode-addresses.md) in the reference section.
+Note the constructor parameter `airnodeRrpAddress` which is the public address of the AirnodeRrp.sol protocol contract on the blockchain you wish to use. It is used by RrpRequester.sol to point itself to AirnodeRrp.sol. See the list of all [Airnode contract addresses](../reference/airnode-addresses.md) in the reference section.
 
-## Step #2: Make a Request
+## Step #2: Implement the request logic
 
 There are three types of requests provided by the AirnodeRrp.sol contract. See [Request Types](../reference/concepts/request.md#request-types) in the Reference section for information related to each request type. 
 
@@ -55,15 +52,15 @@ This example will use a [full request](../reference/concepts/request.md#_3-full-
 Once the request has been made to `airnode.makeFullRequest` the AirnodeRrp.sol contract will return a `requestId` confirming the request has been accepted and is in process of being executed. Your requester would most likely wish to track all requestIds. Note the line `incomingFulfillments[requestId] = true;` in the code below that stores the requestIds in a mapping. This will be useful when the Airnode responds to the requester later at the function (`airnodeCallback`) with the requestId, statusCode and the data requested.
 
 ```solidity
-import "@api3/airnode-protocol/contracts/AirnodeRrpClient.sol";
+import "@api3/protocol/contracts/rrp/requesters/RrpRequester.sol";
 
-contract MyContract is AirnodeRrpClient {
+contract MyRequester is RrpRequester {
   mapping(bytes32 => bool) public incomingFulfillments;
   mapping(bytes32 => int256) public fulfilledData;
 
   constructor (address airnodeRrpAddress)
       public
-      AirnodeClient(airnodeRrpAddress)
+      RrpRequester(airnodeRrpAddress)
   {}
 
   function callTheAirnode(
@@ -101,7 +98,7 @@ contract MyContract is AirnodeRrpClient {
 
 <Fix>The request parameters have changed.</Fix>
 
-A full request using the AirnodeRrp.sol contract `makeFullRequest` function requires all parameters needed by the Airnode application be passed at runtime. This is in contrast to a template request that would use a template for some or all of the required parameters. Learn more about [using templates](call-an-airnode.md#using-templates).
+A full request using the AirnodeRrp.sol contract `makeFullRequest` function requires all parameters needed by the Airnode application to be passed at runtime. This is in contrast to a template request that would use a template for some or all of the required parameters. Learn more about [using templates](call-an-airnode.md#using-templates).
 
 Since the `callTheAirnode` function is going to make a [full request](../reference/concepts/request.md#full-request) it must gather the following parameters to pass on to `airnode.makeFullRequest`.
 
@@ -136,23 +133,18 @@ For additional information on request parameters when calling `airnode.makeFullR
 
 ## Step #3: Capture the Response
 
-The request you made has been queued in the AirnodeRrp.sol contract. The off-chain Airnode you specified runs a continuous cycle and gathers its requests from AirnodeRrp.sol. 
-
-As soon as the Airnode gets a request it will gather the data and start an on-chain transaction responding to the request. The Airnode calls the AirnodeRrp.sol contract function `fulfiil()` which in turn will call the requester, in this case, at `airnodeCallback`. Recall the request supplied the request contract address and the desired callback function which the AirnodeRrp.sol protocol contract stored with the requestId for the purpose of the callback.
-
-<Fix>Does the code below need to `import { decode } from '@api3/airnode-abi';`.</Fix> 
-<Fix>And change decode to `int256 decodedData = decode(data, (int256));`.</Fix>
+As soon as the Airnode gets a request it will gather the data and start an on-chain transaction responding to the request. The Airnode calls the AirnodeRrp.sol contract function `fulfill()` which in turn will call the requester, in this case, at `airnodeCallback`. Recall the request supplied the request contract address and the desired callback function which the AirnodeRrp.sol protocol contract stored with the requestId for the purpose of the callback.
 
 ```solidity
-import "@api3/airnode-protocol/contracts/AirnodeClient.sol";
+import "@api3/protocol/contracts/rrp/requesters/RrpRequester.sol";
 
-contract MyContract is AirnodeRrpClient {
+contract MyRequester is RrpRequester {
     mapping(bytes32 => bool) public incomingFulfillments;
     mapping(bytes32 => int256) public fulfilledData;
 
     constructor (address airnodeRrpAddress)
         public
-        AirnodeClient(airnodeRrpAddress)
+        RrpRequester(airnodeRrpAddress)
     {}
 
     function callTheAirnode(
@@ -165,18 +157,13 @@ contract MyContract is AirnodeRrpClient {
         bytes calldata data
         )
         external
-        onlyAirnode()
+        onlyAirnodeRrp
     {
         require(incomingFulfillments[requestId], "No such request made");
         delete incomingFulfillments[requestId];
-        if (statusCode == 0)
-        {
-            int256 decodedData = abi.decode(data, (int256));
+        int256 decodedData = abi.decode(data, (int256));
+        if (statusCode == 0) {
             fulfilledData[requestId] = decodedData;
-        }
-        else  // There was an error
-        {
-          ...
         }
     }
 }
@@ -189,10 +176,9 @@ The callback to a requester will contain three parameters.
 - **requestId**: First acquired when making the request and passed here as a reference to identify which request the response is for.
 - **statusCode**: A statusCode of `0` indicates a successful response and a `non-0` statusCode an error. See [statusCode](../reference/concepts/request.md#statuscode) for a list of error statusCodes.
 
-- **calldata**: For a successful response the requested data which has been encoded. Decode it using the function `decode()` from the `abi` object .
+- **data**: For a successful response the requested data which has been encoded. Decode it using the function `decode()` from the `abi` object .
 
 
 ## Step #4: Deploy and Sponsor the Requester
 
 Deploy the requester to the desired blockchain and then sponsor the requester. See [Requesters and Sponsors](requesters-sponsors.md#how-to-sponsor-a-requester) to learn more about sponsoring a requester. 
-
