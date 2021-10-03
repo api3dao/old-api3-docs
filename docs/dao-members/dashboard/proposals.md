@@ -7,12 +7,14 @@ title: Working with Proposals
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Staking tokens in the DAO pool gives you governance rights to create and vote on proposals. To create a proposal, you must hold at least 0.1% of the total pool shares and not have created a proposal in the last seven days. This required percentage, set in the [`Api3Pool.sol`](https://github.com/api3dao/api3-dao/blob/main/packages/pool/contracts/Api3Pool.sol) contract, can be adjusted by the DAO. You can vote on all proposals or delegate your voting power to someone else.
-  
+Staking tokens in the DAO pool gives you governance rights to create and vote on proposals. To create a proposal, you must hold at least 0.1% of the total pool shares and you must not have created a proposal in the last seven days. This required percentage, as well as other DAO parameters, can be adjusted by the DAO as described in [Dashboard Attributes](../contract-architecture/dashboard-attributes.md).
+
+You can vote on all proposals or delegate your voting power to someone else. See the [delegation pitch section](https://forum.api3.org/c/delegation-pitch/7) of the API3 forum for posts by community members offering to act as delegates or to post your own delegate pitch.
+
 ## Getting Started
 
 1. Access the [DAO Dashboard](https://api3.eth.link/)
-2. Click the **Connect Wallet** button in the upper right hand corner and connect to your wallet using the mainnet.
+2. Click the **Connect Wallet** button in the upper right hand corner and connect to your wallet using the Ethereum Mainnet.
 
 <!-------------------------->
 ## Proposals and History
@@ -23,11 +25,13 @@ Staking tokens in the DAO pool gives you governance rights to create and vote on
   ::: tab Read & Learn
   1. Navigate to the **Governance** page.
 
-  Here you can browse and write proposals, view the treasury and delegate your votes.  The **Active proposals** list displays all proposals open for voting. There are two types of proposals, primary and secondary. Primary proposals require an absolute majority vote while secondary proposals require a 15% vote to pass. For each proposal in the list you can see the title, proposal type, vote deadline and vote status.
+  > Here you can browse and create proposals, view the treasury, and delegate your votes. **Active proposals** lists all proposals open for voting.
 
-  To view additional details click on the desired proposal. In addition to the information from the list item selected, the detail view shows your vote delegation status and a **Summary** section with the details of the proposal.
+  > There are two types of proposals, primary and secondary. Primary proposals require an absolute majority vote, while secondary proposals require a 15% vote to pass. For each proposal in the list you can see the title, proposal type, vote deadline, and vote status.
 
-  2. To view previous governance proposals select **History** in the navigation bar.
+  > To view additional details click on the desired proposal. The detail view shows your vote delegation status and a **Summary** section with the details of the proposal.
+
+  2. To view previous governance proposals, navigate to the  **History** page.
   
   > Proposals in the history list have either been executed or rejected.
   :::
@@ -39,13 +43,15 @@ Staking tokens in the DAO pool gives you governance rights to create and vote on
 
 <!-------------------------->
 ## Proposal Creation
-  Proposals are an important part of DAO governance and can be used to fund DAO projects or ratify DAO level decisions like updating the stake target.
+Proposals are an important part of DAO governance and can be used to fund DAO projects or ratify DAO level decisions like updating the stake target.
 
-  Before making a proposal, promote it on the [API3 forum](https://forum.api3.org/) where everyone can give feedback beforehand. Consider making a PDF of the proposal and placing it on IPFS. See the [Using IPFS for Proposals](proposals.md#using-ipfs-for-proposals) section below.
+Creating a proposal involves the following steps:
+1. (Recommended) Promote your idea and gather feedback on the API3 forum using a [sentiment check post](https://forum.api3.org/t/sentiment-check-template/56). Generally, ideas receiving community engagement on the forum are more likely to pass once crafted as official proposals.
+2. Create an [official proposal post](https://forum.api3.org/t/api3-dao-example-proposal-template/52) on the API3 forum. This should contain a link to the [proposal description on IPFS](#using-ipfs-for-proposals).
+3. After receiving feedback from the above steps, create a formal proposal using the DAO dashboard as described below.
+4. Provide a link to this proposal in the official proposal forum thread to direct community members on where to vote.
 
-  To create a new proposal:
-  - you must hold at least 0.1% of the total pool shares
-  - you have not created a proposal in the last seven days
+To create a new proposal using the DAO dashboard:
 
   <!--**Proposal Types**
 
@@ -80,7 +86,7 @@ Staking tokens in the DAO pool gives you governance rights to create and vote on
   >When using USDC remember it has 6 decimals. Add 6 zeros after the amount you are asking for.
 
   9. When you are ready, click the **Create** button at the bottom of the page.
-  > After the proposal is created it is added to the proposal list and ready for voting.
+  > The proposal is then added to the proposal list and can be voted on.
 
   :::
   ::: tab Watch & Learn
@@ -102,6 +108,8 @@ OR
 3. the total "yes" vote exceeds the "no" vote, and
 4. at least 50% (for Primary voting app proposals) or 15% (for Secondary voting app proposals) of all voting power has voted "yes" on the proposal.
 
+Once a proposal has satisfied either set of criteria, anyone can send a transaction executing it using the Execute button that appears on its details page, as shown below:
+
 > <p align="left">
 >  <img src="../figures/dashboard/executable-proposal.png" width="400" />
 > <br/>Click image to enlarge.
@@ -109,9 +117,9 @@ OR
 
 ## Using ENS Names
 
-You can use the [ENS app](https://app.ens.domains/) to register a name and associate it with an Ethereum account. Then, while entering your proposal parameters, you can use this ENS name instead of the account address. Before making the transaction that will create the proposal, the DAO dashboard will look up the address that the ENS name is pointing to, and use the raw address in the proposal. Therefore, changing the address that the ENS name is pointing to after this look up operation **WILL NOT** have an affect on the proposal.
+You are encouraged to use the [ENS app](https://app.ens.domains/) to register a name and associate it with an Ethereum account. Then, while entering your proposal parameters, you can use this ENS name instead of the account address. Before making the transaction that will create the proposal, the DAO dashboard will look up the address that the ENS name is pointing to and use the raw address in the proposal. Therefore, changing the address that the ENS name is pointing to after this look up operation **WILL NOT** have an affect on the proposal.
 
-If you also want the voters to see the ENS name instead of the raw address to make your proposal more readable, you will have to use the [ENS app](https://app.ens.domains/) to set a reverse record pointing to your ENS name (i.e., you need to have your raw address point to the ENS name). For example, if you are making a proposal to make a `transfer(address,amount)` call to an ERC20 token contract where `address` will be the address of a multisig wallet, you can [set a reverse record with the multisig](https://medium.com/the-ethereum-name-service/you-can-now-manage-ens-names-with-gnosis-safe-9ddcb7e6c4ac) to your ENS name for it to appear on the proposal details page. See Parameters in [this proposal](https://api3.eth.link/#/history/secondary-6) for an example.
+For voters to see your ENS name instead of the raw address on the proposal details page, you will have to use the [ENS app](https://app.ens.domains/) to set a reverse record pointing to your ENS name (i.e., you need to have your raw address point to the ENS name). If your proposal will make a `transfer(address,amount)` call to an ERC20 token contract where `address` is the address of a _multisig_ wallet, you can [set a reverse record with the multisig](https://medium.com/the-ethereum-name-service/you-can-now-manage-ens-names-with-gnosis-safe-9ddcb7e6c4ac) to your ENS name. See Parameters in [this proposal](https://api3.eth.link/#/history/secondary-6) for an example.
 
 ## Using IPFS for Proposals
 
@@ -119,20 +127,20 @@ Consider this use case: You posted on the [API3 forum](https://forum.api3.org/) 
 
 ![image](../assets/images/ipfs-proposals.png)
 
-1. Create the proposal as a PDF.
-2. Upload the PDF to [Fleek](https://fleek.co) (or your preferred provider). Fleek will provide a hash of the PDF: `bafybeifl4prxv75fgumtjh4ovklfkp7zzt7dwkl4xmndv37gtcalwpam2u`. 
-3. For Fleek append the hash to `https://ipfs.fleek.co/ipfs/` 
+To host a proposal description on IPFS:
+
+1. Create a PDF version of the proposal.
+2. Upload the PDF to [Fleek](https://fleek.co) or your preferred IPFS hosting provider. To do so using Fleek, create a free Basic account and use the Upload tool on the Storage page. Fleek will provide an IPFS hash of the PDF, for example: `bafybeifl4prxv75fgumtjh4ovklfkp7zzt7dwkl4xmndv37gtcalwpam2u`. 
+3. If using Fleek, append the hash to `https://ipfs.fleek.co/ipfs/`. The URL for the above hash would then be:
     >
     > <a style="overflow-wrap: break-word;" target="_blank"
     >  href="https://ipfs.fleek.co/ipfs/bafybeifl4prxv75fgumtjh4ovklfkp7zzt7dwkl4xmndv37gtcalwpam2u">
     >  https://ipfs.fleek.co/ipfs/bafybeifl4prxv75fgumtjh4ovklfkp7zzt7dwkl4xmndv37gtcalwpam2u
     >  </a>
-4. Add the URL to the forum posting for feedback and later to your DAO dashboard proposal in the description field.
+4. Add the URL to your forum posting and later to the description field of your DAO dashboard proposal.
 
-
-   
 Remember that the URL the voter sees in the DAO dashboard proposal description field is final and should match the URL on the forum.
 
 **Updating a PDF**
 
-You can update your PDF if needed. Upload it again to your IPFS provider, it will get a new hash. Next update the link in your forum posting before creating the proposal in the DAO dashboard. Ideally keep a list of versioned proposals. Once a proposal is made on the DAO dashboard using the IPFS hashed link in the description field, the PDF should be considered final. Changing the hashed link in the forum at this point would caution the voter.
+You can update your PDF if needed before creating a formal proposal using the DAO dashboard. First, upload the new version to your IPFS provider; since the content has changed, it will get a new hash. Next, update the link in your forum posting. Lastly, create the proposal using the DAO dashboard. Since the proposal contains the IPFS hashed link in the description field, the PDF should be considered final and changing the hashed link in the forum at this point would caution the voter.
