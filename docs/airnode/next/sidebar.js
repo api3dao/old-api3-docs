@@ -27,7 +27,6 @@ module.exports = [
           {title:'Heartbeat (optional)', path:'grp-providers/guides/build-an-airnode/heartbeat'},
           {title:'HTTP Gateway (optional)', path:'grp-providers/guides/build-an-airnode/http-gateway'},
           'grp-providers/guides/build-an-airnode/deploying-airnode',
-          'grp-providers/guides/build-an-airnode/removing-airnode'
         ]
       },
       'grp-providers/using-docker',

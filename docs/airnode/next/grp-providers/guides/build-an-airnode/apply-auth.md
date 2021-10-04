@@ -18,7 +18,6 @@ Complete the following before applying authorizers or integrating relay metadata
 
 - [API Integration](api-integration.md)
 - [Configuring Airnode](configuring-airnode.md)
-- [Deploying Airnode](deploying-airnode.md)
   
 When you deployed your Airnode a receipt file was generated. In it is the Airnode's `airnodeAddress`. Sponsors (via their sponsored requesters) use `airnodeAddress` and an `endpointId` to make requests to your Airnode's endpoints. However, you probably do not want to serve them publicly.
 
