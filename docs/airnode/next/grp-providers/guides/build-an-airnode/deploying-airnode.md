@@ -7,7 +7,6 @@ title: Deploying Airnode
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-
 >Complete the following before deploying your Airnode.
 >- [API Integration](api-integration.md)
 >- [Configuring Airnode](configuring-airnode.md)
@@ -43,7 +42,7 @@ After these changes there will be 2 warnings. Not sure of their impact.
 
 
 
-After integrating your API ([API Integration](api-integration.md)) and creating the configuration files ([Configuring Airnode](configuring-airnode.md)), the next step is to deploy your Airnode. Airnode comes with a [deployer](https://github.com/api3dao/airnode/tree/pre-alpha/packages/deployer), which uses [Terraform](https://www.terraform.io/) to automate the entire deployment process. Rather than using the deployer directly it is recommended to use the provided Docker image.
+After integrating your API ([API Integration](api-integration.md)) and creating the configuration files ([Configuring Airnode](configuring-airnode.md)), the next step is to deploy your Airnode. Airnode comes with a [deployer](https://github.com/api3dao/airnode/tree/master/packages/deployer), which uses [Terraform](https://www.terraform.io/) to automate the entire deployment process. Rather than using the deployer directly it is recommended to use the provided Docker image.
 
 ---
 ## Temporary instructions to deploy using deployer
@@ -75,7 +74,7 @@ To be able to do this, you need to create a new user in your AWS account, give i
 
 ```
 AWS_ACCESS_KEY_ID="JSDYNDRU...AF2W3UGPA"
-AWS_SECRET_KEY="q4JiOfPP4wQOuRj01///7RAodTAg6lFb99IoB4XH"
+AWS_SECRET_ACCESSKEY="q4JiOfPP4wQOuRj01///7RAodTAg6lFb99IoB4XH"
 ...
 ```
 
@@ -119,6 +118,9 @@ This will first download the deployer image, which may take a few minutes depend
 A couple minutes after noting down your mnemonic and hitting `ENTER`, you should be done! The deployer will output a receipt file: `<file-name>.receipt.json`. This file does not include any sensitive information, so feel free to share it as needed. The receipt contains your Airnode's [`address`](../../../concepts/airnode.md#airnodeaddress) and the `airnodeAddressShort`. You will need to add the `airnodeAddressShort` to your `config.json` to be able to redeploy your node with updated configurations.
 
 To find out how to redeploy your node or remove it from your cloud provider account, see the [deployer image](../../using-docker.md#deployer-image). Now, the next step is to configure the authorization policies for the endpoints you will be serving.
+
+## Removing the Airnode
+
 
 ## Calling the Airnode
 
