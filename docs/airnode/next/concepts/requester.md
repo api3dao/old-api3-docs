@@ -11,4 +11,4 @@ A requester is a contract that makes Airnode requests. While making a request, t
 
 Note that the requester is the contract that makes the request. The requester may specify the request such that the request is fulfilled by the Airnode calling back another contract.
 
-See the [Airnode requester examples](https://github.com/api3dao/airnode-client-examples/tree/main).
+See the [Airnode requester examples](https://github.com/api3dao/airnode/tree/an169-airnode-starter/packages/examples/contracts).
