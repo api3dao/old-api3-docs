@@ -68,36 +68,44 @@ export default {
         && this.suggestions.length
       )
     },
+    /*
+      Added: wkande: need the current version so that computed.suggestions()
+      can filter out other versions.
+    */
+    currentVersion: function () {
+        return this.$page.path.split('/')[1].replace(/\//g,'');
+    },
+
     suggestions () {
       const query = this.query.trim().toLowerCase()
       if (!query) {
         return
       }
 
-      // Get the start of the regular path
-      let startPath = this.$page.path.split('/')[1].replace(/\//g,'')
-      if(startPath == 'airnode'){
-        startPath = '/airnode/'+this.$page.path.split('/')[2].replace(/\//g,'')
-      }
-      else{
-        startPath = '/'+startPath
-      }
-      
       const { pages } = this.$site
       const max = this.$site.themeConfig.searchMaxSuggestions || SEARCH_MAX_SUGGESTIONS
-
-      let startPathCnt = 0;
+      const localePath = this.$localePath
       const res = []
       for (let i = 0; i < pages.length; i++) {
         if (res.length >= max) break
         const p = pages[i]
 
-        // Filter out any page that does not have a regularPath 
-        // that starts with startPath
-        if(p.path.lastIndexOf(startPath) === -1){
+        /* 
+          Added: wkande look for the p.path to contain the current version
+        */
+        if(!p.path.includes(this.currentVersion) ){
           continue
         }
-        startPathCnt++
+    
+        // filter out results that do not match current locale
+        if (this.getPageLocalePath(p) !== localePath) {
+          continue
+        }
+
+        // filter out results that do not match searchable paths
+        if (!this.isSearchable(p)) {
+          continue
+        }
 
         if (matchQuery(query, p)) {
           res.push(p)
@@ -135,6 +143,28 @@ export default {
   },
 
   methods: {
+    getPageLocalePath (page) {
+      for (const localePath in this.$site.locales || {}) {
+        if (localePath !== '/' && page.path.indexOf(localePath) === 0) {
+          return localePath
+        }
+      }
+      return '/'
+    },
+
+    isSearchable (page) {
+      let searchPaths = SEARCH_PATHS
+
+      // all paths searchables
+      if (searchPaths === null) { return true }
+
+      searchPaths = Array.isArray(searchPaths) ? searchPaths : new Array(searchPaths)
+
+      return searchPaths.filter(path => {
+        return page.path.match(path)
+      }).length > 0
+    },
+
     onHotkey (event) {
       if (event.srcElement === document.body && SEARCH_HOTKEYS.includes(event.key)) {
         this.$refs.input.focus()
@@ -167,8 +197,7 @@ export default {
         return
       }
       this.$router.push(this.suggestions[i].path)
-      // Maintain the last query string
-      //this.query = ''
+      this.query = ''
       this.focusIndex = 0
     },
 
