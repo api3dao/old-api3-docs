@@ -1,5 +1,5 @@
 ---
-title: Using Docker
+title: Client Image
 ---
 
 # {{$frontmatter.title}}
@@ -11,10 +11,10 @@ title: Using Docker
 
 Using Docker is the easiest way to both deploy an Airnode and to run an Airnode locally. There are two docker images for each: the deployer image and the client image. 
 
+- The **client image** is the node itself, containerized. The container can be run locally or deployed to the cloud (e.g. AWS EC2 or Lightsail).
 - The **deployer image** deploys the node in the form of serverless functions (e.g. AWS Lambda). 
-- The **client image** is the node itself, containerized. The container can be run locally or deployed to the cloud (e.g. AWS EC2 or Lightsail). 
-
-You would probably run the client image container locally while developing, and use the deployer image to deploy the serverless functions for production.
+ 
+You can run the client image container locally while developing, and use the deployer image to deploy the serverless functions for production. 
 
 ## Client Image
 
@@ -70,6 +70,8 @@ Note that `nodeSettings.cloudProvider` should be `local`.
 
 ## Deployer Image
 
+Use the Docker image to deploy or remove an Airnode from a cloud provider such as AWS. The simplest way is to use the pre-built packages. If you would rather build the images yourself see [11]() and [22]();
+
 1. Build the Docker image
 ```sh
 docker build . -t api3/airnode-deployer:latest
@@ -84,23 +86,31 @@ docker build . -t api3/airnode-deployer:latest
 
 ### `deploy`
 
+Three files are needed to do a deployment to a cloud provider (AWS).
+
+- config.json
+- secrets.env
+- asw.env
+
 :::: tabs
 ::: tab Linux/Mac
   ```sh
   docker run -it --rm \
-    --env-file aws.env \
+  --env-file aws.env \
     -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
+    -v "$(pwd)/config:/app/config" \
     -v "$(pwd)/output:/app/output" \
-    api3/deployer:latest deploy
+    @api3/deployer:latest deploy
   ```
 :::
 ::: tab Windows
   ```sh
   docker run -it --rm ^
-    --env-file .env ^
-    --env COMMAND=deploy-first-time ^
-    -v "%cd%/output:/app/output" ^
-    api3/deployer:latest deploy
+    --env-file aws.env ^
+    -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) ^
+    -v "$(pwd)/config:/app/config" ^
+    -v "$(pwd)/output:/app/output" ^
+    @api3/deployer:latest deploy
   ```
 :::
 ::::

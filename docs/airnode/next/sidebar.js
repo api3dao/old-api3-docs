@@ -29,10 +29,26 @@ module.exports = [
           'grp-providers/guides/build-an-airnode/deploying-airnode',
         ]
       },
-      'grp-providers/using-docker',
       {
-        title: 'Tutorial', collapsable: true,
+        title: 'Docker Images', collapsable: true, 
+        children:[
+          'grp-providers/docker/',
+          'grp-providers/docker/deployer-image',
+          'grp-providers/docker/client-image',
+        ]
+      },
+      {
+        title: 'Tutorials', collapsable: true,
+        
         children: [
+          {title: 'Quick Deploy Demo',
+            children:[
+              'grp-providers/tutorial/quick-demo/',
+              'grp-providers/tutorial/quick-demo/config.json',
+              'grp-providers/tutorial/quick-demo/secrets.env',
+              'grp-providers/tutorial/quick-demo/aws.env',
+            ]
+          },
           'grp-providers/tutorial/airnode-starter',
           'grp-providers/tutorial/config-json',
           'grp-providers/tutorial/secrets-env',
