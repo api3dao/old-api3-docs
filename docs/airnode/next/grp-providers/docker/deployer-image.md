@@ -16,7 +16,9 @@ The deployer image has two commands.
 - `deploy`: Deploys or updates an Airnode.
 - `remove`: Removes
 
-See the [Quick Start Demo](../tutorial/quick-demo/) to quickly deploy a pre-configured Airnode using the deployer image.
+::: tip Quick Deploy Demo
+See the [Quick Deploy](../tutorial/) demo to quickly `deploy` and `remove` a pre-configured Airnode using the deployer image.
+:::
 
 ## Permissions
 
@@ -31,6 +33,8 @@ The `deploy` command will create the Airnode with a cloud provider or update it 
 - config.json
 - secrets.env
 - aws.env
+
+A `receipt.json` will be created upon completion. It is used to remove the Airnode.
 
 :::: tabs
 ::: tab Linux/Mac
@@ -57,6 +61,8 @@ If you are using Windows, use CMD (and not PowerShell).
 ::::
 
 ## `remove`
+
+When an Airnode was deployed using the `deploy` command a `receipt.json` file was created. Use this file to remove an Airnode.
 
 :::: tabs
 ::: tab Linux/Mac
