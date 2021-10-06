@@ -11,7 +11,7 @@ A requester is a contract that can trigger an Airnode request. To do so, request
 
 Airnode is composed of two parts: the off-chain **Airnode** (cloud provider functions, e.g., AWS) and the on-chain **protocol contract** ( AirnodeRrp.sol). A requester calls the protocol contract, which emits a blockchain event with the request parameters. Airnode listens to the events emitted by the AirnodeRrp contract. During its next run cycle, Airnode gets the request parameters from the emitted event. The diagram below illustrates the mechanics of the entire process as does the diagram in the [Overview](./) doc for developers.
 
-The AirnodeRrp protocol is designed to be flexible and is meant to serve a variety of use cases. See the Airnode [requester examples](https://github.com/api3dao/airnode/tree/an169-airnode-starter/packages/examples/contracts) for some potential design patterns.
+The AirnodeRrp protocol is designed to be flexible and is meant to serve a variety of use cases. See the Airnode [requester examples](https://github.com/api3dao/airnode/tree/master/packages/examples/contracts) for some potential design patterns.
 <!-- TODO: replace the above with master branch once the issue is merged -->
 
 Ignoring the mechanics of the overall process, the requester primarily focuses on two tasks as indicated by points A & B in the diagram below when calling an Airnode.
