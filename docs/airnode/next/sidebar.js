@@ -38,30 +38,12 @@ module.exports = [
         ]
       },
       {
-        title: 'Tutorials', collapsable: true,
-        
+        title: 'Tutorial', collapsable: true,
         children: [
-          {title: 'Quick Deploy Demo',
-            children:[
-              'grp-providers/tutorial/quick-demo/',
-              'grp-providers/tutorial/quick-demo/config.json',
-              'grp-providers/tutorial/quick-demo/secrets.env',
-              'grp-providers/tutorial/quick-demo/aws.env',
-            ]
-          },
-          'grp-providers/tutorial/airnode-starter',
-          'grp-providers/tutorial/config-json',
-          'grp-providers/tutorial/secrets-env',
-          'grp-providers/tutorial/authorizers-json',
-          'grp-providers/tutorial/receipt-json'
-         /* {title: 'Config Examples',
-            children:[
-              'grp-providers/tutorials/config-examples/authorizers-json',
-              'grp-providers/tutorials/config-examples/config-example-json',
-              'grp-providers/tutorials/config-examples/example-env',
-              'grp-providers/tutorials/config-examples/security-json',
-            ]
-          },*/
+          'grp-providers/tutorial/',
+          'grp-providers/tutorial/config.json',
+          'grp-providers/tutorial/secrets.env',
+          'grp-providers/tutorial/aws.env',
         ]
       }
     ]

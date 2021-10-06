@@ -9,16 +9,7 @@ title: Client Image
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-<Fix>The commands use "latest" for <b>version</b> and need to be update.</Fix>
-
-Using Docker is the easiest way to both deploy an Airnode and to run an Airnode locally. There are two docker images for each: the deployer image and the client image. 
-
-- The **client image** is the node itself, containerized. The container can be run locally or deployed to the cloud (e.g. AWS EC2 or Lightsail).
-- The **deployer image** deploys the node in the form of serverless functions (e.g. AWS Lambda). 
- 
-You can run the client image container locally while developing, and use the deployer image to deploy the serverless functions for production. 
-
-## Client Image
+<Fix>This is still pre-alpha. Should the commands use "latest". Are the commands out-dated?</Fix>
 
 1. Build the Docker image (you can skip this step and fetch the pre-built image).
   
@@ -68,73 +59,3 @@ Note that `nodeSettings.cloudProvider` should be `local`.
       ```
     :::
     ::::
-
-
-## Deployer Image
-
-Use the Docker image to deploy or remove an Airnode from a cloud provider such as AWS. The simplest way is to use the pre-built packages. If you would rather build the images yourself see [11]() and [22]();
-
-1. Build the Docker image
-```sh
-docker build . -t api3/airnode-deployer:latest
-```
-
-2. Ensure that your `.env` file looks like [.env.example](https://github.com/api3dao/airnode/blob/pre-alpha/packages/deployer/.env.example) and is the current working directory.
-
-3. When running [deploy](#deploy) your `config.json` and `security.json` must be in the current working directory.
-(They are also needed for other commands temporarily.)
-
-4. Run the image with one of the following commands:
-
-### `deploy`
-
-Three files are needed to do a deployment to a cloud provider (AWS).
-
-- config.json
-- secrets.env
-- asw.env
-
-:::: tabs
-::: tab Linux/Mac
-  ```sh
-  docker run -it --rm \
-  --env-file aws.env \
-    -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
-    -v "$(pwd)/config:/app/config" \
-    -v "$(pwd)/output:/app/output" \
-    @api3/deployer:latest deploy
-  ```
-:::
-::: tab Windows
-  ```sh
-  docker run -it --rm ^
-    --env-file aws.env ^
-    -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) ^
-    -v "$(pwd)/config:/app/config" ^
-    -v "$(pwd)/output:/app/output" ^
-    @api3/deployer:latest deploy
-  ```
-:::
-::::
-
-### `remove`
-
-:::: tabs
-::: tab Linux/Mac
-  ```sh
-  docker run -it --rm \
-    --env-file aws.env \
-    -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
-    -v "$(pwd)/output:/app/output" \
-    api3/deployer:latest remove -r output/receipt.json
-  ```
-:::
-::: tab Windows
-  ```sh
-  docker run -it --rm ^
-    --env-file aws.env ^
-    -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) ^
-    -v "%cd%/output:/app/output" ^
-    api3/deployer:latest remove -r output/receipt.json
-  ```
-:::
