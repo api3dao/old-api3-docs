@@ -2,6 +2,8 @@
 title: Deployer Image
 ---
 
+<TitleSpan>Docker Images</TitleSpan>
+
 # {{$frontmatter.title}}
 
 <TocHeader />
@@ -14,7 +16,13 @@ The deployer image has two commands.
 - `deploy`: Deploys or updates an Airnode.
 - `remove`: Removes
 
-See the [Quick Start Demo]() to quickly deploy a pre-configured Airnode using the deployer image.
+See the [Quick Start Demo](../tutorial/quick-demo/) to quickly deploy a pre-configured Airnode using the deployer image.
+
+## Permissions
+
+By default, the Deployer is run by the user root. This may lead to some permission issues since the Deployer provides an output in a form of a receipt.json file. To avoid any permission problems, you can specify the UID (user identifier) and GID (group identifier) that the Deployer should use. You can do that by setting the environment variables USER_ID and GROUP_ID:
+
+`-e USER_ID=$(id -u) -e GROUP_ID=$(id -g)`
 
 ## `deploy`
 
@@ -48,7 +56,7 @@ If you are using Windows, use CMD (and not PowerShell).
 :::
 ::::
 
-### `remove`
+## `remove`
 
 :::: tabs
 ::: tab Linux/Mac
