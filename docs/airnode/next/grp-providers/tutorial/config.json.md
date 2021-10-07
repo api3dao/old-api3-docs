@@ -18,7 +18,7 @@ The config.json file contents shown below is for the [Quick Deploy](./) demo.
       },
       "id": "4",
       "providers": {
-        "rinkebyProvider": {
+        "myChainProvider": {
           "url": "${CHAIN_PROVIDER_URL}"
         }
       },
@@ -109,6 +109,7 @@ The config.json file contents shown below is for the [Quick Deploy](./) demo.
             "method": "get",
             "path": "/coins/{id}"
           },
+          "testable":true,
           "fixedOperationParameters": [
             {
               "operationParameter": {
