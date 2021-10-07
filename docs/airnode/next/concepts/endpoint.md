@@ -11,6 +11,9 @@ Airnode serves APIs to blockchains according to [Oracle Integration Specificatio
 
 ## `endpointId`
 
+> You can use the [admin CLI](https://github.com/api3dao/airnode/tree/master/packages/admin#derive-endpoint-id) to
+> derive the endpoint id from your terminal
+
 `endpointId` identifies specific endpoints that an Airnode serves, and is computed in JS (using ethers.js) as follows:
 
 ```js

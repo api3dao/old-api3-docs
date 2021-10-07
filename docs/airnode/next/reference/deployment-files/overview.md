@@ -9,10 +9,16 @@ title: Deployment Files Overview
 
 Airnode is deployed with two files:
 
-- [`config.json`](config-json.md) is the file that specificies the API–Airnode integrations, and various node and deployment parameters
+- [`config.json`](config-json.md) is the file that specifies the API–Airnode integrations, and various node and
+  deployment parameters
 
-- [`secrets.env`](secrets-env.md) is the file that keeps the secret parameters (the private key, API keys, blockchain provider URLs) that the Airnode deployments will use
+- [`secrets.env`](secrets-env.md) is the file that keeps the secret parameters (airnode mnemonic, API keys, blockchain
+  provider URLs, ...) that the Airnode deployments will use
 
-Airnode deployments utilizes secrets such as security scheme values (i.e., API keys) and blockchain provider URLs. While populating `config.json` you can use standard shell variable interpolation syntax (e.g. `${VARIABLE}`) to insert values from `secrets.env`. That way the secrets are kept separately but are available as part of the configuration during the Airnode runtime.
+Airnode deployments utilizes secrets such as security scheme values (i.e., API keys) and blockchain provider URLs. While
+populating `config.json` you can use standard shell variable interpolation syntax (e.g. `${VARIABLE}`) to insert values
+from `secrets.env`. That way the secrets are kept separately but are available as part of the configuration during the
+Airnode runtime.
 
-The deployer outputs a [`receipt.json`](receipt-json.md) file after deployment, which contains information about the deployment that can be referred to later on for interaction/removal.
+The deployer outputs a [`receipt.json`](receipt-json.md) file after deployment, which contains information about the
+deployment that can be referred to later on for interaction or removal.
