@@ -102,8 +102,8 @@ module.exports = [
           'reference/templates/secrets-env'
         ]
       },
-      'reference/cli-commands',
-      'reference/airnode-addresses'
+      'reference/admin-cli-commands',
+      'reference/airnode-addresses',
     ]
   }
 ]
