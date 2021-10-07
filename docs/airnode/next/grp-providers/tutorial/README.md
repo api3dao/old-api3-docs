@@ -77,7 +77,7 @@ Add the access credentials to your AWS account. The deployer image will use them
 
 Make sure Docker is running and then run the docker image from the root of the `quick-deploy-demo` folder.
 
-By default, the Deployer is run by the user root. This may lead to some permission issues since the deployer image provides an output in a form of a receipt.json file. Optionally and to avoid any permission problems, you can specify the [UID (user identifier)](https://en.wikipedia.org/wiki/User_identifier) and [GID (group identifier)](https://en.wikipedia.org/wiki/Group_identifier) that the deployer image should use. You can do that by setting the environment variables USER_ID and GROUP_ID, otherwise omit line three below (`-e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \`).
+By default, the Deployer is run by the user root. This may lead to some permission issues since the deployer image provides an output in a form of a receipt.json file. Optionally, and to avoid any permission problems, you can specify the [UID (user identifier)](https://en.wikipedia.org/wiki/User_identifier) and [GID (group identifier)](https://en.wikipedia.org/wiki/Group_identifier) that the deployer image should use. You can do that by setting the environment variables USER_ID and GROUP_ID, otherwise omit line three below (`-e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \`).
 
 Run the following to deploy the demo Airnode.
 
@@ -144,9 +144,9 @@ Use curl to execute the Airnode and get the results from the CoinGecko endpoint 
 
 All calls to the gateway use a POST method and use request body data for input. Pass parameter values as a key/value pairs. The apiKey is placed in the header.
 
-- `-v`: verbose output (optional)
-- `-H`: the apiKey from secrets.env
-- `-d`: request body data, the gateway only accepts request body data
+- `-v`: Verbose output is optional.
+- `-H`: The apiKey from secrets.env file.
+- `-d`: Use request body data, the gateway only accepts request body data.
 
 Breaking down the URL in the CURL command below:
 
@@ -167,7 +167,7 @@ Request:
   ```sh
   curl -v -H 'x-api-key: 123-my-key-must-be-30-characters-min' ^
   -d '{"parameters": {"coinId": "api3"}}' ^
-  'https://38jmwh8q2c.execute-api.us-east-1.amazonaws.com/v1/test/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c'
+  '<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c'
   ```
 :::
 ::::
