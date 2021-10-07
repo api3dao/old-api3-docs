@@ -103,9 +103,7 @@ module.exports = [
         ]
       },
       'reference/admin-cli-commands',
-      'reference/deployer-commands',
       'reference/airnode-addresses',
-      'reference/dao-contracts'
     ]
   }
 ]
