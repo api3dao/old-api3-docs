@@ -69,7 +69,7 @@ A common use case for an authorizer is the [AirnodeRequesterRrpAuthorizer](../..
 To use the AirnodeRequesterRrpAuthorizer authorizer:
 
 1. Add the authorizer contract address to the `chains[n].authorizers[]` array.
-2. After your Airnode is deployed, call the Admin CLI command [`set-whitelist-expiration`](../../../reference/cli-commands.md#set-whitelist-expiration) to add the desired requester contract addresses to the whitelist maintained by AirnodeRequesterRrpAuthorizer.
+2. After your Airnode is deployed, call the Admin CLI command [`set-whitelist-expiration`](../../../reference/admin-cli-commands.md#set-whitelist-expiration) to add the desired requester contract addresses to the whitelist maintained by AirnodeRequesterRrpAuthorizer.
 
 Once implemented, only requester contract addresses you have added to  AirnodeRequesterRrpAuthorizer will have access to your Airnode.
 

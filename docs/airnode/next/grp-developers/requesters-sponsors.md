@@ -49,12 +49,12 @@ When the requester makes a request to the Airnode, the Airnode will use funds fr
 
 ## Admin CLI Commands
 
-There are several sponsor and requester related commands in the [Admin CLI Commands](../reference/cli-commands.md#create-requester) package. You can also see a list of available commands using `npx @api3/airnode-admin --help`.
+There are several sponsor and requester related commands in the [Admin CLI Commands](../reference/admin-cli-commands.md#create-requester) package. You can also see a list of available commands using `npx @api3/airnode-admin --help`.
 
 In the next two sections of this doc you will use two commands from the @api3/airnode-admin package to _sponsor a requester_  and to _derive a sponsor wallet_.
 
-1. [`sponsor-requester`](../reference/cli-commands.md#sponsor-reqeuster) sponsors a requester. 
-2. [`derive-sponsor-wallet-address`](../reference/cli-commands.md#derive-sponsor-wallet-address)creates a sponsor wallet associated with an Airnode.
+1. [`sponsor-requester`](../reference/admin-cli-commands.md#sponsor-reqeuster) sponsors a requester. 
+2. [`derive-sponsor-wallet-address`](../reference/admin-cli-commands.md#derive-sponsor-wallet-address)creates a sponsor wallet associated with an Airnode.
 
 ## How to Sponsor a Requester
 
@@ -134,10 +134,10 @@ If you forget the public address of the sponsor wallet simply run `derive-sponso
 
 During and after deriving a sponsor wallets and sponsoring requesters there are a few things to keep track of.
 
-|Item|Description|
-|-|-|
-|requesters|Record which `sponsorAddress` (from the supplied mnemonic) was used to sponsor a requester.|
-|sponsor wallets|Record which `sponsorAddress` was used to create a sponsorWallet for an Airnode.|
-|sponsor wallets|Record the `sponsorWalletAddress` of the sponsorWallet derived for an Airnode. For each Airnode you have derived a sponsorWallet, the Airnode keeps the private key and returns the public address which is used to fund the sponsorWallet.|
+| Item            | Description                                                                                                                                                                                                                                 |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| requesters      | Record which `sponsorAddress` (from the supplied mnemonic) was used to sponsor a requester.                                                                                                                                                 |
+| sponsor wallets | Record which `sponsorAddress` was used to create a sponsorWallet for an Airnode.                                                                                                                                                            |
+| sponsor wallets | Record the `sponsorWalletAddress` of the sponsorWallet derived for an Airnode. For each Airnode you have derived a sponsorWallet, the Airnode keeps the private key and returns the public address which is used to fund the sponsorWallet. |
 
 You can acquire the public address of a sponsorWallet later, if you loose it, by running the command `derive-sponsor-wallet-address` again. Since the sponsorWallet was already created for the sponsorAddress/airnodeAddress pair, the command will only return the public address for the wallet. However you must use the same sponsorAddress used when the wallet was first created or a new sponsorWallet will be created.

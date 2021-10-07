@@ -102,7 +102,7 @@ module.exports = [
           'reference/templates/secrets-env'
         ]
       },
-      'reference/cli-commands',
+      'reference/admin-cli-commands',
       'reference/deployer-commands',
       'reference/airnode-addresses',
       'reference/dao-contracts'
