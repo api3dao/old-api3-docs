@@ -8,7 +8,7 @@ title: Quick Deploy
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-This demo is a simple Airnode deployment, using a hands-on approach, to better understand the overall deployment process using the [deployer image](../../docker/deployer-image.md). It will use an API endpoint (`GET /coins/{id}`) from [CoinGecko](https://www.coingecko.com/en/api/documentation?).
+This demo is a simple Airnode deployment, using a hands-on approach, to better understand the overall deployment process using the [deployer image](../../docker/deployer-image.md). It will use an API endpoint (`GET /coins/{id}`) from [CoinGecko](https://www.coingecko.com/en/api/documentation?). This demo does not detail the overall configuration of an Airnode, it is just a quick start.
 
 ::: tip Additional Examples
 There are additional examples of Airnode deployments in the [examples package](https://github.com/api3dao/airnode/tree/master/packages/examples) of the Airnode repo.
@@ -57,14 +57,14 @@ This file requires no changes on your part. It has been created with just one AP
 
 Add values for each of the these fields.
 
-- `CHAIN_PROVIDER_URL`: A chain provider url from a provider such as [Infura]. Make sure the provider url you use is for the Rinkeby test network.
+- `CHAIN_PROVIDER_URL`: A chain provider url from a provider such as [Infura]. Make sure the provider url you use is for the Rinkeby test network. Using another chain provider other than Infura is acceptable.
   - Sign-up or login to Infura.
   - Create a new project, select the **Settings** tab in the project.
   - Copy the URL (https) for Rinkeby under the Endpoints pick list.
 
 - `AIRNODE_WALLET_MNEMONIC`: Provide the seed phrase (mnemonic) to a digital wallet. It must have eth in it for the Rinkeby test network, use the [faucet](https://faucet.rinkeby.io/) to get some.
 
-- `HTTP_GATEWAY_API_KEY`: Make up an apiKey to authenticate calls to the HTTP Gateway to test yo0ur Airnode with CURL later.
+- `HTTP_GATEWAY_API_KEY`: Make up an apiKey to authenticate calls to the HTTP Gateway. Used to test your Airnode with CURL later. The expected length is 30 - 128 characters.
 
 ### aws.env
 
@@ -104,6 +104,101 @@ If you are using Windows, use CMD (and not PowerShell).
 
 A `receipt.json` will be created upon completion. It is used to remove the Airnode.
 
-## Testing
+## Test the Airnode
 
-After a successful deployment the Airnode can be tested without interacting with the Rinkeby chain using the HTTP Gateway.
+After a successful deployment the Airnode can be tested without interacting with the Rinkeby chain using the HTTP Gateway. 
+
+### HTTP Gateway
+
+Looking at the config.json shows that the HTTP Gateway was activated for our Airnode. Furthermore the endpoint for `/coin/{id}` is set to be testable, see `ois.endpoints[0]`. While the Airnode is enabled for the gateway, each individual endpoint must be testable to allow access.
+
+```json
+"nodeSettings": {
+ ...
+  "httpGateway": {
+    "enabled": true, // The gateway is activated for this Airnode
+    "apiKey": "${HTTP_GATEWAY_API_KEY}"
+  },
+...
+},
+"endpoints": [
+    {
+      "name": "coinMarketData",
+      "operation": {
+        "method": "get",
+        "path": "/coins/{id}"
+      },
+      "testable":true, // This endpoint can be tested by the gateway
+      ...
+    }
+  ]
+}
+```
+
+### CURL
+
+Use curl to execute the Airnode and get the results from the CoinGecko endpoint `/coin/{id}` bypassing the chain that Airnode was deployed for. 
+
+All calls to the gateway use a POST method and use the request body data for input. Pass parameter values as a key/value pairs. The apiKey is placed in hte header.
+
+- `-v`: verbose output (optional)
+- `-H`: the apiKey from secrets.env
+- `-d`: request body data, the gateway only accepts request body data
+
+Breaking down the URL:
+
+- `https://38jmwh8q2c.execute-api.us-east-1.amazonaws.com/v1/test/`: The base URL to the gateway, found in the `receipts.json` file.
+- `0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c`: The endpointId to call, see `triggers.rrp[0].endpointId` in the `config.json` file.
+
+Request:
+
+:::: tabs
+::: tab Linux/Mac
+  ```sh
+  curl -v -H 'x-api-key: 123-my-key-must-be-30-characters-min' \
+  -d '{"parameters": {"coinId": "api3"}}' \
+  'https://38jmwh8q2c.execute-api.us-east-1.amazonaws.com/v1/test/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c'
+  ```
+:::
+::: tab Windows
+  ```sh
+  curl -v -H 'x-api-key: 123-my-key-must-be-30-characters-min' ^
+  -d '{"parameters": {"coinId": "api3"}}' ^
+  'https://38jmwh8q2c.execute-api.us-east-1.amazonaws.com/v1/test/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c'
+  ```
+:::
+::::
+
+Response:
+
+```json
+{"value":"3930000"}
+```
+
+## Remove the Airnode
+
+When you are done with this demo you can remove it. When an Airnode was deployed using the deploy command a receipt.json file was created in the `output` folder. This file is needed to remove an Airnode.
+
+- `--env-file`: Location of the `aws.env` file.
+- `-v`: Location of the `receipt.json` file.
+
+:::: tabs
+::: tab Linux/Mac
+  ```sh
+  docker run -it --rm \
+    --env-file aws.env \
+    -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
+    -v "$(pwd)/output:/app/output" \
+    @api3/deployer:latest remove -r output/receipt.json
+  ```
+:::
+::: tab Windows
+  ```sh
+  docker run -it --rm ^
+    --env-file aws.env ^
+    -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) ^
+    -v "%cd%/output:/app/output" ^
+    @api3/deployer:latest remove -r output/receipt.json
+  ```
+:::
+::::
