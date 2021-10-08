@@ -22,9 +22,7 @@ See the [Quick Deploy](../tutorial/) demo to quickly `deploy` and `remove` a pre
 
 ## Permissions
 
-By default, the Deployer is run by the user root. This may lead to some permission issues since the Deployer provides an output in a form of a receipt.json file. To avoid any permission problems, you can specify the UID (user identifier) and GID (group identifier) that the Deployer should use. You can do that by setting the environment variables USER_ID and GROUP_ID:
-
-`-e USER_ID=$(id -u) -e GROUP_ID=$(id -g)`
+By default, the Deployer is run by the user root. This may lead to some permission issues since the deployer image provides an output in a form of a receipt.json file. Optionally, and to avoid any permission problems, you can specify the [UID (user identifier)](https://en.wikipedia.org/wiki/User_identifier) and [GID (group identifier)](https://en.wikipedia.org/wiki/Group_identifier) that the deployer image should use. You can do that by setting the environment variables USER_ID and GROUP_ID, otherwise omit line three below (`-e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \`).
 
 ## `deploy`
 
@@ -34,7 +32,7 @@ The `deploy` command will create the Airnode with a cloud provider or update it 
 - secrets.env
 - aws.env
 
-A `receipt.json` will be created upon completion. It is used to remove the Airnode.
+A `receipt.json` will be created upon completion. It contains some deployment information and is used to remove the Airnode.
 
 :::: tabs
 ::: tab Linux/Mac
