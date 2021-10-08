@@ -27,6 +27,7 @@ The [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/pro
 
 The [Admin](../admin-cli-commands.md) (`@api3/airnode-admin`) package is a CLI tool used to interact with `AirnodeRrp.sol` and perform administrative actions. See the [admin package](https://github.com/api3dao/airnode/tree/master/packages/admin) in GitHub.
 
+<Fix>Out-of-date: it should now inherit from RrpRequester.sol</Fix>
 To use AirnodeRrp.sol a requester must import AirnodeRrpClient.sol.
 
 `import "@api3/airnode-protocol/contracts/AirnodeRrpClient.sol";`

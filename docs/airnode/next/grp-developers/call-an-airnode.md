@@ -49,7 +49,7 @@ There are three types of requests provided by the AirnodeRrp.sol contract. See [
 
 This example will use a [full request](../reference/concepts/request.md#_3-full-request) type (note the `airnode.makeFullRequest` function call in the code below) which is called from the requester's own function `callTheAirnode`. The function `makeFullRequest` requires that the requester pass all parameters needed by Airnode to call its underlying API.
 
-Once the request has been made to `airnode.makeFullRequest` the AirnodeRrp.sol contract will return a `requestId` confirming the request has been accepted and is in process of being executed. Your requester would most likely wish to track all requestIds. Note the line `incomingFulfillments[requestId] = true;` in the code below that stores the requestIds in a mapping. This will be useful when the Airnode responds to the requester later at the function (`airnodeCallback`) with the requestId, statusCode and the data requested.
+Once the request has been made to `airnode.makeFullRequest` the AirnodeRrp.sol contract will return a `requestId` confirming the request has been accepted and is in process of being executed. Your requester would most likely wish to track all requestIds. Note the line `incomingFulfillments[requestId] = true;` in the code below that stores the requestIds in a mapping. This will be useful when the Airnode responds to the requester later at the function (`airnodeCallback`) with the `requestId` and the `data` requested.
 
 ```solidity
 import "@api3/protocol/contracts/rrp/requesters/RrpRequester.sol";
@@ -86,7 +86,6 @@ contract MyRequester is RrpRequester {
   
   function airnodeCallback(   // The AirnodeRrp.sol protocol contract will callback here.
       bytes32 requestId,
-      uint256 statusCode,
       bytes calldata data
   { 
       ...
@@ -133,7 +132,7 @@ For additional information on request parameters when calling `airnode.makeFullR
 
 ## Step #3: Capture the Response
 
-As soon as the Airnode gets a request it will gather the data and start an on-chain transaction responding to the request. The Airnode calls the AirnodeRrp.sol contract function `fulfill()` which in turn will call the requester, in this case, at `airnodeCallback`. Recall the request supplied the request contract address and the desired callback function which the AirnodeRrp.sol protocol contract stored with the requestId for the purpose of the callback.
+As soon as the Airnode gets a request it will gather the data and start an on-chain transaction responding to the request. The Airnode calls the AirnodeRrp.sol contract function `fulfill()` which in turn will call the requester, in this case, at `airnodeCallback`. Recall the request supplied the request contract address and the desired callback function which the AirnodeRrp.sol protocol contract stored with the `requestId` for the purpose of the callback.
 
 ```solidity
 import "@api3/protocol/contracts/rrp/requesters/RrpRequester.sol";
@@ -153,7 +152,6 @@ contract MyRequester is RrpRequester {
 
     function airnodeCallback(        // The AirnodeRrp.sol protocol contract will callback here.
         bytes32 requestId,
-        uint256 statusCode,
         bytes calldata data
         )
         external
@@ -162,9 +160,7 @@ contract MyRequester is RrpRequester {
         require(incomingFulfillments[requestId], "No such request made");
         delete incomingFulfillments[requestId];
         int256 decodedData = abi.decode(data, (int256));
-        if (statusCode == 0) {
-            fulfilledData[requestId] = decodedData;
-        }
+        fulfilledData[requestId] = decodedData;
     }
 }
 ```
@@ -174,8 +170,6 @@ contract MyRequester is RrpRequester {
 The callback to a requester will contain three parameters.
 
 - **requestId**: First acquired when making the request and passed here as a reference to identify which request the response is for.
-- **statusCode**: A statusCode of `0` indicates a successful response and a `non-0` statusCode an error. See [statusCode](../reference/concepts/request.md#statuscode) for a list of error statusCodes.
-
 - **data**: For a successful response the requested data which has been encoded. Decode it using the function `decode()` from the `abi` object .
 
 
