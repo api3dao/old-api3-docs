@@ -1,13 +1,13 @@
 ---
 title: Deploying Airnode
 ---
-
+<TitleSpan>Build an Airnode</TitleSpan>
 # {{$frontmatter.title}}
 
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-After integrating your API ([API Integration](api-integration.md)) and creating the configuration files ([Configuring Airnode](configuring-airnode.md)), the next step is to deploy your Airnode. 
+After integrating your API ([API Integration](api-integration.md)) and creating the configuration files ([Configuring Airnode](configuring-airnode.md)), the next step is to deploy the Airnode. 
 
 >Complete the following before deploying your Airnode.
 >- [API Integration](api-integration.md)
@@ -19,7 +19,7 @@ After integrating your API ([API Integration](api-integration.md)) and creating 
 ## Deploy with Docker
 The recommended way to deploy Airnode is by using the Docker [deployer image](../../docker/deployer-image.md). This image simply implements the deployer CLI which is not intended to be used directly. Try out the [Quick Deploy](../../tutorial/) tutorial if you wish to become familiar with the deployer image first.
 
-The deployer interacts with your cloud provider (AWS) to deploy Airnode programmatically, without requiring you to click through a lot of ever-changing graphical interfaces. For it to do so, an `aws.env` file is required and was discussed in [Configuring an Airnode](./configuring-airnode.md#creating-aws-env).
+The deployer interacts with a cloud provider (AWS) to deploy Airnode programmatically, without requiring you to click through a lot of ever-changing graphical interfaces. For it to do so, an `aws.env` file is required and was discussed in [Configuring an Airnode](./configuring-airnode.md#creating-aws-env).
 
 ## Install Docker
 
@@ -27,45 +27,79 @@ The [deployer image](../../docker/deployer-image.md) is containerized as a Docke
 
 ## Deployment
 
-<Fix>Deployment" needs to be updated when vrs 0.1.0 is ready. Not sure which Airnode repo branch to pull from.</Fix>
+At this point your project should resemble the following. The `config.json`, `secrets.env` and `aws.env` files should be ready to go. Other files you may have added are expected but not used the deployer image.
 
-Get the `config.json` and `security.json` files you have created while [configuring your Airnode](configuring-airnode.md), your `.env` file with your [cloud provider credentials](deploying-airnode.md#creating-cloud-credentials), and place these three files in the same directory.
-Then, in this same directory, run the following command.
+```
+my-airnode
+├── aws.env
+├── config
+│   ├── config.json
+│   └── secrets.env
+└── output
+    ├── receipt.json
+```
 
+From the root of the project directory run the Docker [deployer image](../../docker/deployer-image.md) which will deploy the Airnode to AWS. When the deployment has completed a `receipt.json` file will be written to the `/output` folder. This file contains important configuration information about the Airnode and is needed to remove the Airnode should the need arise.
+
+<DeployerPermissionsWarning/>
 
 :::: tabs
 ::: tab Linux/Mac
-  ```sh
+  ```
   docker run -it --rm \
-    --env-file .env \
-    --env COMMAND=deploy-first-time \
-    -v "$(pwd):/airnode/out" \
-    api3/airnode-deployer:0.1.0
+    --env-file aws.env \
+    -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
+    -v "$(pwd)/config:/app/config" \
+    -v "$(pwd)/output:/app/output" \
+    api3/deployer:latest deploy
   ```
 :::
 ::: tab Windows
   ```sh
   docker run -it --rm ^
-    --env-file .env ^
-    --env COMMAND=deploy-first-time ^
-    -v "%cd%:/airnode/out" ^
-    api3/airnode-deployer:0.1.0
+    --env-file aws.env ^
+    -v "%cd%/config:/app/config" ^
+    -v "%cd%/output:/app/output" ^
+    api3/deployer:latest deploy
   ```
 :::
 ::::
 
 This will first download the deployer image, which may take a few minutes depending on the speed of your Internet connection. Then, it will read your configuration files and start deployment. This process will be entirely automatic, with the exception that at one stage, the deployer will display the mnemonic of your Airnode's private key. Please note this down with pen and paper (do not copy paste to a text file on your computer) and keep it in a secure place.
 
-<Fix>Deprecated?</Fix>
-~~Another point to mention is that the deployer will display your Airnode wallet address, and ask you to deposit some ETH in it for it to create your provider record. Follow the instructions for your Airnode to create your provider record using your Airnode wallet, and it will send any unused ETH to the `airnodeAdminForRecordCreation` you have set in your `config.json`. You can see the [docs](../../../concepts/airnode.md#creating-an-airnode-record) for more information about this process.~~
+## Testing with HTTP Gateway
 
+If you opted to implement the HTTP Gateway for the Airnode it can be tested while bypassing the chain it was deployed to. There are two examples in other docs that detail how to do this.
 
-A couple minutes after noting down your mnemonic and hitting `ENTER`, you should be done! The deployer will output a receipt file: `<file-name>.receipt.json`. This file does not include any sensitive information, so feel free to share it as needed. The receipt contains your Airnode's [`address`](../../../concepts/airnode.md#airnodeaddress) and the `airnodeAddressShort`. You will need to add the `airnodeAddressShort` to your `config.json` to be able to redeploy your node with updated configurations.
-
-To find out how to redeploy your node or remove it from your cloud provider account, see the [deployer image](../../using-docker.md#deployer-image). Now, the next step is to configure the authorization policies for the endpoints you will be serving.
+- [Quick Deploy](../../tutorial/README.md#test-the-airnode) 
+- [HTTP Gateway](./http-gateway.md)
 
 ## Removing the Airnode
 
+When the Airnode was deployed a `receipt.json` file was created in the `/output` folder. This file is needed to remove an Airnode.
+
+- `--env-file`: Location of the `aws.env` file.
+- `-v`: Location of the `receipt.json` file.
+
+:::: tabs
+::: tab Linux/Mac
+  ```sh
+  docker run -it --rm \
+    --env-file aws.env \
+    -v "$(pwd)/output:/app/output" \
+    api3/deployer:latest remove -r output/receipt.json
+  ```
+:::
+::: tab Windows
+For Windows, use CMD (and not PowerShell).
+  ```sh
+  docker run -it --rm ^
+    --env-file aws.env ^
+    -v "%cd%/output:/app/output" ^
+    api3/deployer:latest remove -r output/receipt.json
+  ```
+:::
+::::
 
 ## Calling the Airnode
 

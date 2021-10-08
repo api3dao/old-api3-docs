@@ -78,9 +78,7 @@ Add the access credentials to your AWS account. The deployer image will use them
 
 Make sure Docker is running and then execute the deployer image from the root of the `quick-deploy-demo` folder. A `receipt.json` file will be created upon completion. It contains some deployment information and is used to remove the Airnode.
 
-::: warning Permissions: Linux/Mac Users
-Normally the deployer image is run by the user root. This may cause permission issues when the `receipt.json` file is generated. Optionally you can specify the [UID (user identifier)](https://en.wikipedia.org/wiki/User_identifier) and [GID (group identifier)](https://en.wikipedia.org/wiki/Group_identifier) that the deployer image should use. Do so by setting the environment variables USER_ID and GROUP_ID, otherwise omit line #3 below `-e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \`.
-:::
+<DeployerPermissionsWarning/>
 
 Run the following to deploy the demo Airnode.
 

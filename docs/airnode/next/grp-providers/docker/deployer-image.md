@@ -30,9 +30,7 @@ The `deploy` command will create the Airnode with a cloud provider or update it 
 
 A `receipt.json` file will be created upon completion. It contains some deployment information and is used to remove the Airnode.
 
-::: warning Permissions: Linux/Mac Users
-Normally the deployer image is run by the user root. This may cause permission issues when the `receipt.json` file is generated. Optionally you can specify the [UID (user identifier)](https://en.wikipedia.org/wiki/User_identifier) and [GID (group identifier)](https://en.wikipedia.org/wiki/Group_identifier) that the deployer image should use. Do so by setting the environment variables USER_ID and GROUP_ID, otherwise omit line #3 below `-e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \`.
-:::
+<DeployerPermissionsWarning/>
 
 :::: tabs
 ::: tab Linux/Mac
@@ -42,7 +40,7 @@ Normally the deployer image is run by the user root. This may cause permission i
     -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
     -v "$(pwd)/config:/app/config" \
     -v "$(pwd)/output:/app/output" \
-    @api3/deployer:latest deploy
+    api3/deployer:latest deploy
   ```
 :::
 ::: tab Windows
@@ -52,7 +50,7 @@ For Windows, use CMD (and not PowerShell).
     --env-file aws.env ^
     -v "%cd%/config:/app/config" ^
     -v "%cd%/output:/app/output" ^
-    @api3/deployer:latest deploy
+    api3/deployer:latest deploy
   ```
 :::
 ::::
