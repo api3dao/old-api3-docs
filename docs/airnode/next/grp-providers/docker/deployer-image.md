@@ -9,20 +9,16 @@ title: Deployer Image
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Use the deployer image to deploy or remove an Airnode with a cloud provider such as AWS. The simplest way is to use the pre-built packages. If you would rather build the images yourself see [docker README](https://github.com/api3dao/airnode/tree/master/packages/deployer/docker) in the deploy package.
+Use the deployer image to deploy or remove an Airnode with a cloud provider such as AWS. The simplest way is to use the pre-built packages. If you would rather build the images yourself see the [README](https://github.com/api3dao/airnode/tree/master/packages/deployer/docker) in the deployer package.
 
 The deployer image has two commands.
 
-- `deploy`: Deploys or updates an Airnode.
-- `remove`: Removes
+- `deploy`: Deploys or updates an Airnode using configuration files.
+- `remove`: Removes an Airnode using its `receipt.json` file.
 
 ::: tip Quick Deploy Demo
 See the [Quick Deploy](../tutorial/) demo to quickly `deploy` and `remove` a pre-configured Airnode using the deployer image.
 :::
-
-## Permissions
-
-By default, the Deployer is run by the user root. This may lead to some permission issues since the deployer image provides an output in a form of a receipt.json file. Optionally, and to avoid any permission problems, you can specify the [UID (user identifier)](https://en.wikipedia.org/wiki/User_identifier) and [GID (group identifier)](https://en.wikipedia.org/wiki/Group_identifier) that the deployer image should use. You can do that by setting the environment variables USER_ID and GROUP_ID, otherwise omit line three below (`-e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \`).
 
 ## `deploy`
 
@@ -32,13 +28,17 @@ The `deploy` command will create the Airnode with a cloud provider or update it 
 - secrets.env
 - aws.env
 
-A `receipt.json` will be created upon completion. It contains some deployment information and is used to remove the Airnode.
+A `receipt.json` file will be created upon completion. It contains some deployment information and is used to remove the Airnode.
+
+::: warning Permissions: Linux/Mac Users
+Normally the deployer image is run by the user root. This may cause permission issues when the `receipt.json` file is generated. Optionally you can specify the [UID (user identifier)](https://en.wikipedia.org/wiki/User_identifier) and [GID (group identifier)](https://en.wikipedia.org/wiki/Group_identifier) that the deployer image should use. Do so by setting the environment variables USER_ID and GROUP_ID, otherwise omit line #3 below `-e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \`.
+:::
 
 :::: tabs
 ::: tab Linux/Mac
   ```sh
   docker run -it --rm \
-  --env-file aws.env \
+    --env-file aws.env \
     -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
     -v "$(pwd)/config:/app/config" \
     -v "$(pwd)/output:/app/output" \
@@ -46,11 +46,10 @@ A `receipt.json` will be created upon completion. It contains some deployment in
   ```
 :::
 ::: tab Windows
-If you are using Windows, use CMD (and not PowerShell).
+For Windows, use CMD (and not PowerShell).
   ```sh
   docker run -it --rm ^
     --env-file aws.env ^
-    -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) ^
     -v "%cd%/config:/app/config" ^
     -v "%cd%/output:/app/output" ^
     @api3/deployer:latest deploy
@@ -67,17 +66,15 @@ When an Airnode was deployed using the `deploy` command a `receipt.json` file wa
   ```sh
   docker run -it --rm \
     --env-file aws.env \
-    -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
     -v "$(pwd)/output:/app/output" \
     api3/deployer:latest remove -r output/receipt.json
   ```
 :::
 ::: tab Windows
-If you are using Windows, use CMD (and not PowerShell).
+For Windows, use CMD (and not PowerShell).
   ```sh
   docker run -it --rm ^
     --env-file aws.env ^
-    -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) ^
     -v "%cd%/output:/app/output" ^
     api3/deployer:latest remove -r output/receipt.json
   ```

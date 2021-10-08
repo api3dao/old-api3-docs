@@ -1,7 +1,7 @@
 ---
-title: config.json template
+title: config.json
 ---
-
+<TitleSpan>Templates</TitleSpan>
 # {{$frontmatter.title}}
 
 Below is a template for an Airnode's configuration file. There are some fields that contain <FILL_*>. This means that
