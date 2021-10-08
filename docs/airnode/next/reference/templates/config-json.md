@@ -17,6 +17,3 @@ following examples.
 See [config.json](../deployment-files/config-json.md) as a reference while building a config.json file.
 
 <<< @/docs/airnode/next/reference/code/template-config.json
-
-_We are trying hard to keep this template up to date, but it might happen that the template will go out of sync. Please,
-[let us know](https://github.com/api3dao/api3-docs/issues/new) if that happens!_

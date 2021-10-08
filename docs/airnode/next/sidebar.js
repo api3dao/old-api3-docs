@@ -101,7 +101,8 @@ module.exports = [
         children:[
           'reference/templates/ois-json',
           'reference/templates/config-json',
-          'reference/templates/secrets-env'
+          'reference/templates/secrets-env',
+          'reference/templates/aws-env'
         ]
       },
       'reference/admin-cli-commands',
