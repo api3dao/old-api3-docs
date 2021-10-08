@@ -32,23 +32,20 @@ airnodeAddress = airnodeHdNode.address;
 ```
 
 ## `xpub`
-
-The Airnode owner announces their extended public key (`xpub`) as stored in `AirnodeParameterStore.sol` for sponsors to be able to derive their sponsor wallets. The `xpub` that the owner has announced is not verified on-chain. However, the sponsor can verify it off-chain. For example, in JS (using ethers.js):
+The Airnode owner announces off-chain their extended public key (`xpub` of the hardened derivation path `m/44'/60'/0'`) for sponsors to be able to derive their sponsor wallets. This wallet will then be used by the Airnode to fulfill each request made by the requester contracts. The `xpub` that the owner has announced is not verified on-chain. However, the sponsor can verify it off-chain. For example, in JS (using ethers.js):
 
 ```js
+// airnodeAddress is the address of the default derivation path 
+// of the Airnode operator wallet m/44'/60'/0'/0/0 
 hdNode = ethers.utils.HDNode.fromExtendedKey(xpub);
-masterNode = hdNode.derivePath('m');
-airnodeAddressDerivedFromXpub = keccak256(abi.encode(masterNode.address));
-assert(airnodeAddressDerivedFromXpub === airnodeAddress);
+assert(airnodeAddress === hdNode.derivePath('0/0').address);
 ```
 
 See the [section about sponsor wallets](sponsor-wallet.md) to see how sponsors can use `xpub` to derive their sponsor wallets.
 
-## `setAirnodeXpub()`
-<Fix>Add content about `setAirnodeXpub()`.</Fix> 
-
 ## Setting endpoint authorizers
-<Fix>airnodeAdmin is no longer used. What (if anything) replaces it here?</Fix>
+<Fix>airnodeAdmin is no longer used. What (if anything) replaces it here? Answer: there is no longer the concept of an admin for AirnodeRrp but we still have the airnode operator which is the one that holds the mnemonic used while deploying the Airnode. Anyone can make requests, create templates and withdraw from sponsor wallet and there no longer any parameters being set on-chain so no need for admin.</Fix>
 <Fix>This should probably be removed and addressed in Authorizers.</Fix>
-An important responsibility of the ~~`airnodeAdmin`~~ is to set endpoint authorizers. Authorizers are used to enforce rules about which requests will be responded to, and this can be used to enforce KYC, monthly subscription payments, etc. See the sections about [endpoints](endpoint.md) and [authorizers](authorization.md) for more details.
+Answer: yes. The statement is correct but it's probably already addressed in authorization.md
+~~An important responsibility of the `airnodeAdmin` is to set endpoint authorizers.~~ Authorizers are used to enforce rules about which requests will be responded to, and this can be used to enforce KYC, monthly subscription payments, etc. See the sections about [endpoints](endpoint.md) and [authorizers](authorization.md) for more details.
 

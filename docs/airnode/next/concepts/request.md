@@ -15,15 +15,20 @@ Learn more on how to [Call an Airnode](../grp-developers/call-an-airnode.md).
 
 ## `requestId`
 
-The `requestId` uniquely identifies a request. When a requester makes a request using `AirnodeRrp.sol`, a `requestId` is generated before the request is added to the event logs and the requestId is returned to the requester. This `requestId` is a hash of certain data members depending on which type of request is made, `makeFullRequest()` or `makeTemplateRequest()`. They only differ in that one uses `endpointId` and the other `templateId`. 
+The `requestId` uniquely identifies a request. When a requester makes a request using AirnodeRrp.sol, a `requestId` is generated before the request is added to the event logs and the requestId is returned to the requester. This `requestId` is a hash of certain data members depending on which type of request is made, `makeFullRequest()` or `makeTemplateRequest()`. They only differ in that one uses `endpointId` plus `airnode` address and the other `templateId` (since template already contains the `airnode` address). 
 
 |makeFullRequest()|makeTemplateRequest()|
 |:---------|:---------|
-|requesterRequestCount|requesterRequestCount|
 |block.chainid|block.chainid|
+|address(this)|address(this)|
 |msg.sender|msg.sender|
+|requesterRequestCount|requesterRequestCount|
+|---|airnode|
 |<span style="color:purple;font-weight:bold;">endpointId</span>|<span style="color:purple;font-weight:bold;">templateId</span>|
 |sponsor|sponsor|
+|sponsorWallet|sponsorWallet|
+|fulfillAddress|fulfillAddress|
+|fulfillFunctionId|fulfillFunctionId|
 |parameters|parameters|
 
 After the request (with `requestId`) is added to the event logs, Airnode gathers the request and verifies the `requestId` by re-computing its hash before responding to the request. This verifies the parameters have not been tampered with.
@@ -96,35 +101,29 @@ A request made to an Airnode has three possible outcomes:
 
 ### Fulfill
 
-`fulfill()` is the desired outcome and comes as _success_ ([statusCode](request.md#statuscode) = 0) **OR** as _errored_ (statusCode > 0). This 
+`fulfill()` is the desired outcome and it will only be called if Airnode received a successful response from the API provider.
 
 :::tip Note:
 Fulfill is the only outcome that returns results to a requester contract.
 :::
 
-For a successful request, Airnode  calls the `fulfill()` function in `AirnodeRRP.sol` that will in turn call back the requster contract at `fulfillAddress` using function `fulfillFunctionId` to deliver `data` and a [`statusCode`](https://github.com/api3dao/airnode/blob/6f31a4c27d40e86101673bf37d223fef6625dfdd/packages/protocol/contracts/AirnodeRrp.sol#L148) of 0. If there was an error then statusCode will be non-0. The requester contract can then handle this error as it sees fit (e.g., ignore it, make a request to an alternative provider, etc.)
+For a successful request, Airnode  calls the `fulfill()` function in AirnodeRrp.sol that will in turn call back the requester contract at `fulfillAddress` using function `fulfillFunctionId` to deliver `data`.
 
+`fulfill()` also receives a signature to validate on-chain that the response data was submitted by the Arinode.
+<Fix> This is to prevent requesters from fulfilling their own requests in order to manipulate data submitted by AirnodeRrp.sol. More details: https://api3workspace.slack.com/archives/C027Y2FAV0S/p1632668101023800</Fix>
+
+`fulfill()` will not revert if the `fulfillFunctionId` external call reverts. However, it will return `false` in this case or if there is no function with a matching signature at `fulfillAddress`. On the other hand, it will return `true` if the external call returns successfully or if there is no contract deployed at `fulfillAddress`. In the case `false` is returned then an error message will also be returned in a variable which can be decoded to retrieve the revert string. For example Airnode will decode this variable when this function returns `false` and call `fail()` on AirnodeRrp.sol with the revert string as the error message.
+
+<Fix>Needs to be updated based on the new flow described in [Fulfill](./request.md#fulfill)</Fix>
 > ![request-outcomes](../assets/images/request-outcomes.png)
 
 ### Fail
 
-As noted in the diagram above, if the transaction that calls `fulfill()` reverts, the node calls the `fail()` method to report the failure. The node will not attempt to fulfill a failed request afterwards.
+As noted in the diagram above, if the transaction that calls `fulfill()` returns `false`, the Airnode decodes the revert string and calls the `fail()` method to report the failure. The node will not attempt to fulfill a failed request afterwards.
 
-Airnode is stateless, which means that there is no database storing which requests have been fulfilled or failed, 
-which are waiting on confirmations and which are still pending. This information is retrieved from the chain on 
-each request-response cycle (roughly every minute). During each cycle, retrieved requests need to be ordered in 
-the same way to ensure they are submitted using the same nonce. This is important because it's possible for a 
-transaction to not have been confirmed by the time the next cycle runs. If this happens, the transaction is 
-re-submitted with a "faster" transaction fee, overwriting the previous transaction.
+Airnode is stateless, which means that there is no database storing which requests have been fulfilled or failed, which are waiting on confirmations and which are still pending. This information is retrieved from the chain on each request-response cycle (roughly every minute). During each cycle, retrieved requests need to be ordered in the same way to ensure they are submitted using the same nonce. This is important because it's possible for a transaction to not have been confirmed by the time the next cycle runs. If this happens, the transaction is re-submitted with a "faster" transaction fee, overwriting the previous transaction.
 
-However, Airnode is also dependent on the blockchain provider to supply it with the onchain data. If the 
-blockchain provider is unavailable for whatever reason, it is possible that a request cannot be fully validated, 
-which means that it cannot be submitted back to the blockchain. As mentioned above, keeping requests in the 
-same order, using the same nonce is critical. Therefore, any request that cannot be fully validated due to a 
-blockchain provider error becomes "blocked". This means that it and any requests after it are unable to be 
-submitted during the current cycle and will be retried during the following cycle. It is important to note 
-that this is specific to each requester. e.g. a request sent from requester A that becomes "blocked", will 
-not block requests sent from requester B.
+However, Airnode is also dependent on the blockchain provider to supply it with the onchain data. If the blockchain provider is unavailable for whatever reason, it is possible that a request cannot be fully validated, which means that it cannot be submitted back to the blockchain. As mentioned above, keeping requests in the sameorder, using the same nonce is critical. Therefore, any request that cannot be fully validated due to a blockchain provider error becomes "blocked". This means that it and any requests after it are unable to be submitted during the current cycle and will be retried during the following cycle. It is important to note that this is specific to each requester. e.g. a request sent from requester A that becomes "blocked", will not block requests sent from requester B.
 
 ### Ignore
 
@@ -133,27 +132,7 @@ If the Airnode cannot even fail a request (e.g., the requester is not sponsored 
 After X blocks (20 by default for EVM chains), any requests that would become "blocked", will instead become "ignored". 
 This means that Airnode will stop attempting to process the request in order to process later requests.
 
-## statusCode
+### Check if request is awaiting fulfillment
 
-Airnodes will return a `statusCode` when responding to a request. A non-0 statusCode is an error.
-
-  |Code | Name | Status | Description |
-  | --: | --- | --- | --- |
-  |1    |RequestParameterDecodingFailed |Errored   |The request contains invalid parameters |
-  |2    |RequestInvalid                 |Ignored   |The request ID cannot be verified against the other fields |
-  |3    |TemplateNotFound               |Blocked   |The API call template could not be loaded |
-  |4    |TemplateParameterDecodingFailed|Errored   |The API call template contains invalid parameters |
-  |5    |TemplateInvalid                |Ignored   |The API call template cannot be verified against the other fields |
-  |6    |SponsorWalletInvalid        |Ignored   |The request's sponsor wallet differs from the expected sponsor wallet |
-  |7    |AuthorizationNotFound          |Blocked   |The API call authorization status could not be loaded |
-  |8    |Unauthorized                   |Errored   |The requester contract submitting the API call request is not authorized |
-  |9    |PendingWithdrawal              |Ignored   |The request cannot be actioned while there is a pending withdrawal |
-  |10   |UnknownOIS                     |Errored   |The API call endpointId does not match a known OIS |
-  |11   |UnknownEndpoint                |Errored   |The API call endpointId does not match a known endpoint |
-  |12   |NoMatchingAggregatedCall       |Ignored   |The individual API call cannot be matched to an aggregated API call |
-  |13   |ApiCallFailed                  |Errored   |The API call failed |
-  |14   |ResponseParametersInvalid      |Errored   |The API call is missing a "_type" parameter |
-  |15   |ResponseValueNotFound          |Errored   |A value could not be extracted from the API call response using the "_path" parameter |
-  |16   |ResponseValueNotCastable       |Errored   |The API call response value could not be cast successfully using the "_type" parameter |
-  |17   |FulfillTransactionFailed       |Errored   |The fulfill transaction could not be submitted successfully |
-
+There is also a convenience method in AirnodeRrp.sol called `requestIsAwaitingFulfillment()` that can be called to check if a request was made but not yet fulfilled/failed. If a requester has made a request, received a `requestId` but did not hear back, it can call this method to check if the Airnode has called back `fail()` instead.
+Returns `true` if the request is awaiting fulfillment (i.e., `true` if `fulfill()` or `fail()` is not called back yet), `false` otherwise.

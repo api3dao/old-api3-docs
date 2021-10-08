@@ -37,19 +37,18 @@ Note that a sponsor could use multiple addresses from multiple wallets. Below ar
 
 ## sponsorWallet
 
-Each [Airnode](Airnode.md) can keep a unique`sponsorWallet` for a [sponsor](sponsor.md). The wallet is identified by a `sponsorAddress/airnodeAddress` pair. A sponsor must take action to [derive](sponsor.md#derive-a-sponsor-wallet) a `sponsorWallet` for a particular Airnode. [Requesters](requester.md), that have been  [sponsored](sponsorship.md) by a sponsor, can specify their requests be fulfilled by the  `sponsorWallet` belonging to the sponsor. This allows the sponsor to cover the gas cost of request fulfillments by the Airnode.
+Each [Airnode](Airnode.md) can keep a unique`sponsorWallet` for a [sponsor](sponsor.md). The wallet is identified by a `sponsorAddress/airnodeAddress` pair. A sponsor must take action to [derive](sponsor.md#derive-a-sponsor-wallet) a `sponsorWallet` for a particular Airnode. [Requesters](requester.md), that have been  [sponsored](sponsorship.md) by a sponsor, can specify their requests be fulfilled by the  `sponsorWallet` designated to the sponsor. This allows the sponsor to cover the gas cost of request fulfillments by the Airnode since the sponsor must send funds to this wallet before making the request.
 
 ### Derivation Path
-<Fix>1-Needs review, this is in AN-96.</Fix>
-Each sponsor is identified by a `sponsorAddress`, and their sponsor wallets are designated implicitly by a derivation path. The derivation path for a `sponsorWallet` starts with m/0/.... The zero here is allocated for RRP, and the other branches will be used to derive the sponsor wallets for other protocols such as PSP.
+Each sponsor is identified by a `sponsorAddress`, and their sponsor wallets are designated implicitly by a derivation path. The derivation path for a `sponsorWallet` starts with `m/44'/60'/0'/0/...` The zero here is allocated for RRP, and the other branches will be used to derive the sponsor wallets for other protocols such as PSP.
 
-The path of a `sponsorWallet` for the request–response protocol is `m/0/${sponsorAddress}`. This means that we assume that `sponsorAddress` will be less than `2^31` (yet this can be extended by using schemes such as `m/0/${sponsorAddress % 2^31}/${sponsorAddress / 2^31}`). Other branches such as `m/1/...`, `m/2/...`, etc. are reserved for other protocols (e.g., the pub–sub protocol).
+The path of a `sponsorWallet` for the request–response protocol is `m/44'/60'/0'/0/${sponsorAddress}`. Other branches such as `m/44'/60'/0'/1/...`, `m/44'/60'/0'/2/...`, etc. are reserved for other protocols (e.g., the pub–sub protocol).
 
-An Ethereum address is 20 bytes-long, which makes 160 bits. Each index in the HD wallet non-hardened derivation path goes up to 2^31. Divide these 160 bits into six 31 bit-long chunks and the derivation path for a sponsor wallet of a requester would be:
+An Ethereum address is 20 bytes-long, which makes 160 bits. Each index in the HD wallet non-hardened derivation path goes up to 2^31. This means that we must divide these 160 bits into six 31 bit-long chunks and the derivation path for a sponsor wallet of a requester would be:
 
 `m / 0 / sponsor && 0x7FFFFFFF / (sponsor >> 31) && 0x7FFFFFFF / (sponsor >> 62) && 0x7FFFFFFF / (sponsor >> 93) && 0x7FFFFFFF / (sponsor >> 124) && 0x7FFFFFFF / (sponsor >> 155) && 0x7FFFFFFF`
 
-Anyone can use the xpub that the Airnode has announced (through on-chain or off-chain channels) and the sponsor's `sponsorAddress` to derive a `sponsorWalletAddress` for a specific Airnode–sponsor pair. In other words, a sponsor can calculate the address of their respective sponsor wallet for an Airnode and have requesters use it to make requests right away.
+Anyone can use the xpub that the Airnode has announced (through off-chain channels) and the sponsor's `sponsorAddress` to derive a `sponsorWalletAddress` for a specific Airnode–sponsor pair. In other words, a sponsor can calculate the address of their respective sponsor wallet for an Airnode and have requesters use it to make requests right away.
 
 ### Gas Costs
 
@@ -77,6 +76,6 @@ Use the [Admin CLI tool](../admin-cli-commands.md#sponsor-requester) to sponsor 
 
 ## Derive a Sponsor Wallet
 
-When a sponsor wishes to access an Airnode (via a requester) it must create a `sponsorWallet` for the Airnode. Requesters that have been sponsored by the same sponsor, can specify their requests be fulfilled by the `sponsorWallet` belonging to the sponsor. A sponsor uses a [`sponsorAddress`](sponsor.md#sponsoraddress) and the [`airnodeAddress`](airnode.md#airnodeaddress) of a particular Airnode to derive a [sponsorWallet](sponsor-wallet.md) for the Airnode.
+When a sponsor wishes to access an Airnode (via a requester) it must create a `sponsorWallet` for the Airnode. Requesters that have been sponsored by the same sponsor, can specify their requests be fulfilled by the `sponsorWallet` belonging to the sponsor. A sponsor uses a [`sponsorAddress`](sponsor.md#sponsoraddress) and the [`xpub`](airnode.md#xpub) of a particular Airnode to derive a [sponsorWallet](sponsor-wallet.md) for the Airnode. The sponsor must also provide the [`airnodeAddress`](airnode.md#airnodeaddress) because it will be used to verify that the provided xpub belongs to the Airnode wallet before deriving a child sponsor wallet address.
 
 Use the [Admin CLI tool](../admin-cli-commands.md#derive-sponsor-wallet-addfress) to derive a `sponsorWallet`. An example can be seem in the [Requesters and Sponsors](../../grp-developers/requesters-sponsors.md#how-to-derive-a-sponsor-wallet) doc.

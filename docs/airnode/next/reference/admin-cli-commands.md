@@ -156,17 +156,15 @@ npx @api3/airnode-admin get-sponsor-status \
 
 ### `derive-sponsor-wallet-address`
 
-Derives a [sponsorWallet](../concepts/sponsor.md#sponsorwallet) designated by an Airnode for a sponsor and returns the address of the wallet. 
+Derives a [sponsorWallet](../concepts/sponsor.md#sponsorwallet) designated by an Airnode for a sponsor and returns the address of the wallet. The `airnode-xpub` must belong to the HDNode with the path `m/44'/60'/0'` of the Airnode wallet.
 
-- `provider-url`: A valid cloud provider URL.
+- `airnode-xpub`: The extended public address of the Airnode.
 - `airnode-address`: The public address of the Airnode.
-- `sponsor-address`: Use the `sponsorAddress`, returned by the  [`sponsor-requester`](admin-cli-commands.md#sponsor-requester) command, to create a [relationship](../concepts/sponsor.md) between the requester and this `sponsorWallet`. More than one requester can use the same sponsor's `sponsorWallet` of an Airnode.
-- `airnode-rrp (optional)`: The public address of the AirnodeRrp.sol protocol contract.
-- `xpub (optional)`: The extended public address of the Airnode. Normally the `airnode-address` parameter is used to look-up up the Airnode's `xpub`. If the Airnode operator has not announced the `xpub` on-chain it will be necessary to supply this value.
+- `sponsor-address`: The address of the sponsor wallet.
 
 ```sh
 npx @api3/airnode-admin derive-sponsor-wallet-address \
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
+  --airnode-xpub xpub6CUGRUo... \
   --airnode-address 0xe1e0dd... \
   --sponsor-address 0x9Ec6C4...
 ```
@@ -249,41 +247,7 @@ npx @api3/airnode-admin check-withdrawal-request \
 
 Helper commands for a previously deployed Airnode. These commands connect to the AirnodeRrp.sol protocol contract.
 
-- [set-airnode-xpub](admin-cli-commands.md#set-airnode-xpub)
-- [get-airnode-xpub](admin-cli-commands.md#get-airnode-xpub)
 - [derive-endpoint-id](admin-cli-commands.md#derive-endpoint-id)
-
-<divider/>
-
-### `set-airnode-xpub`
-
-Sets the [xpub](../concepts/airnode.html#xpub) of an Airnode (optional). The xpub (extended public key) does not need to be announced on-chain for the protocol to be used, it is mainly for convenience. 
-
-- `provider-url`: A valid cloud provider URL.
-- `mnemonic`: The Airnode's mnemonic which was declared when the Airnode was created, see [`nodeSettings.airnodeWalletMnemonic`](./deployment-files/config-json.md#nodesettings). The xpub will be derived from this mnemonic. Also used to pay gas cost for this command's transaction.
-- `airnode-rrp (optional)`: The public address of the AirnodeRrp.sol protocol contract.
-
-```sh
-npx @api3/airnode-admin set-airnode-xpub \
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
-  --mnemonic "nature about salad..."
-```
-
-<divider/>
-
-### `get-airnode-xpub`
-
-Returns the Airnode xpub for the given `airnode`.
-
-- `provider-url`: A valid cloud provider URL.
-- `airnode-address`: The public address of the Airnode.
-- `airnode-rrp (optional)`: The public address of the AirnodeRrp.sol protocol contract
-
-```sh
-npx @api3/airnode-admin get-airnode-xpub \
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
-  --airnode-address 0xe1e0dd...
-```
 
 <divider/>
 
