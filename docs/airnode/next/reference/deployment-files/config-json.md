@@ -4,7 +4,8 @@ title: config.json
 <TitleSpan>Deployment Files</TitleSpan>
 # {{$frontmatter.title}}
 
-<TocHeader /> <TOC class="table-of-contents" :include-level="[2, 3]" />
+<TocHeader /> 
+<TOC class="table-of-contents" :include-level="[2, 3]" />
 
 The `config.json` defines a single Airnode deployment. The file contents will be in the format show below as a single
 JSON object

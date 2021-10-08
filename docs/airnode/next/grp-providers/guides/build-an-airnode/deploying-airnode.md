@@ -7,71 +7,21 @@ title: Deploying Airnode
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
+After integrating your API ([API Integration](api-integration.md)) and creating the configuration files ([Configuring Airnode](configuring-airnode.md)), the next step is to deploy your Airnode. 
+
 >Complete the following before deploying your Airnode.
 >- [API Integration](api-integration.md)
 >- [Configuring Airnode](configuring-airnode.md)
+>- [Applying Authorization](./apply-auth.md) optional
+>- [Heartbeat](./heartbeat.md) optional
+>- [HTTP Gateway](./http-gateway.md) optional
 
-
-::: warning Please Note
-The recommended way to deploy Airnode is by using the Deployer Docker image. This package simply implements the CLI used by that image and is not meant to be used directly by the end user.
-
-See [Deploying Airnode](../grp-providers/guides/build-an-airnode/deploying-airnode.md) to deploy using Docker.
-:::
-
-<Fix>
-As of 08-18-2021 the Airnode packages are still changing.
-
-To get the Airnode repo to build on a Mac there is a change.
-
-```bash
-# Change package >protocol > package.json > build:fix-contracts-dts
-
-echo \"export { TypedEventFilter } from './commons'\n\" >> src/contracts/index.ts && grep -rl 'extends ethers.utils.Interface' src/contracts | xargs sed -i '' 's/ethers\\.utils\\.Interface/Interface/g' && grep -rl 'Result ' src/contracts | xargs sed -i '' 's/Result /Result, Interface /g'
-
-```
-
-Next make changes to `packages/deployer/src/handlers/aws/index.ts`
-
-```js
-// Line 19
-- const [err, initializedState] = await node.promiseUtils.go(node.handlers.initializeProvider(stateWithConfig));
-+ const [err, initializedState] = await node.promiseUtils.go(() => node.handlers.initializeProvider(stateWithConfig));
-
-// Line 42
-- const [err, updatedState] = await node.promiseUtils.go(node.handlers.processTransactions(stateWithConfig));
-+ const [err, updatedState] = await node.promiseUtils.go(() => node.handlers.processTransactions(stateWithConfig));
-```
-
-After these changes there will be 2 warnings. Not sure of their impact.
-
-</Fix>
-
-
-
-
-After integrating your API ([API Integration](api-integration.md)) and creating the configuration files ([Configuring Airnode](configuring-airnode.md)), the next step is to deploy your Airnode. Airnode comes with a [deployer](https://github.com/api3dao/airnode/tree/master/packages/deployer), which uses [Terraform](https://www.terraform.io/) to automate the entire deployment process. Rather than using the deployer directly it is recommended to use the provided Docker image.
-
----
-## Temporary instructions to deploy using deployer
-
-- Install Terraform
-- Build the Airnode repo locally
-- `git clone git@github.com:api3dao/airnode.git`
-- Place config.json and secrets.env in airnode > packages > deployer > src > config-data
-- `yarn run bootstrap`
-- `yarn run build-all`
-- Set (export) AWS environment variables
-- To deploy: `yarn cli:deployer deploy`
-- The `receipt.json` file will appear in the root of the deployer package
-- To remove the deployment: `yarn cli:deployer remove-with-receipt`
-
----
+## Deploy with Docker
+The recommended way to deploy Airnode is by using the Docker [deployer image](../../docker/deployer-image.md). This image simply implements the deployer CLI which is not intended to be used directly. Try out the [Quick Deploy](../../tutorial/) tutorial if you wish to become familiar with the deployer image first.
 
 ## Install Docker
 
-The [deployer](https://github.com/api3dao/airnode/tree/pre-alpha/packages/deployer) is containerized as a Docker image (opens new window), which allows you to deploy your Airnode on any platform without the worry of installing dependencies and is the recommended way to do a deployment.
-
-If you do not already have docker installed go to the [Docker website](https://docs.docker.com/get-docker/) and install it.
+The [deployer image](../../docker/deployer-image.md) is containerized as a Docker image. This allows you to deploy your Airnode on any platform without the worry of installing dependencies and is the recommended way to do a deployment. If you do not already have docker installed go to the [Docker website](https://docs.docker.com/get-docker/) and install it.
 
 ## Creating cloud credentials
 

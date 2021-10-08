@@ -91,7 +91,9 @@ module.exports = [
             {title:'Overview', path:'reference/deployment-files/overview'},
             {title:'config.json', path:'reference/deployment-files/config-json'},
             {title:'secrets.env', path:'reference/deployment-files/secrets-env'},
-            {title:'receipt.json', path:'reference/deployment-files/receipt-json'},
+            {title:'aws.env', path:'reference/deployment-files/aws-env'},
+            {title:'receipt.json', path:'reference/deployment-files/receipt-json'}
+            
         ],
       },
       {

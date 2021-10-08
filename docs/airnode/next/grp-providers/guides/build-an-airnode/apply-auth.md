@@ -75,7 +75,7 @@ Once implemented, only requester contract addresses you have added to  AirnodeRe
 
 ## Relay MetaData 
 
-You can use Airnode's [relay metadata](../../../concepts/authorization.md#relay-metadata) in an API endpoint to authorize requests with or without authorizers. Simple setup each endpoint to receive teh metadata.
+You can use Airnode's [relay metadata](../../../concepts/authorization.md#relay-metadata) in an API endpoint to authorize requests with or without authorizers. Simple setup each endpoint to receive the metadata.
 
 In the OIS object of the `config.json` file set a reserved parameter named `_relay_metadata` to have a value of `v1`.
    
