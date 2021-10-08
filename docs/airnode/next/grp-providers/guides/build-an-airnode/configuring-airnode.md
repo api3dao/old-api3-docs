@@ -372,17 +372,25 @@ SS_MYOISTITLE_MY_SECURITY_SCHEME="FRACZKMH4F32BZ8X5uTd"
 CP_EVM_3_INFURA_ROPSTEN="https://ropsten.infura.io/v3/75745CVDG834834"
 ```
 
+Here is an [example file](../../../reference/templates/secrets-env.md) that is left blank. 
+
 ## Creating `aws.env`
 
-When it is time to deploy the Airnode to a cloud provider (AWS), the Docker [deployer image](../../docker/deployer-image.md) will need the AWS credentials to build the node.
+When it is time to deploy the Airnode to a cloud provider (AWS), the Docker [deployer image](../../docker/deployer-image.md) will need the AWS credentials to build the node on AWS Lambda.
+
+Follow [this video](https://www.youtube.com/watch?v=KngM5bfpttA) if needed. It will show you how to create an IAM user and get security credentials. Put them in the `aws.env` file as shown below. Note that double quotes (") are not permitted to enclose the values as with the `secrets.env` file.
 
 ```bash
 AWS_ACCESS_KEY_ID=XYZ...123
-AWS_SECRET_KEY=ABC7...89
+AWS_SECRET_ACCESS_KEY=ABC7...89
 ```
+
+Here is an [example file](../../../reference/templates/aws-env.md) that is left blank. 
 
 ## Conclusion
 
-In this guide, we created the `config.json` and `secrets.env` files required to deploy an Airnode. Note that `config.json` is user-specific, so the `config.json` file is probably of not much use to others. The `secrets.env` file contains API keys and blockchain provider urls, so it should definitely be kept secret.
+In this guide, we created the `config.json`, `secrets.env` and `aws.env` files required to deploy an Airnode to a cloud provider (AWS). Note that `config.json` is user-specific, so the `config.json` file is probably of not much use to others. The `secrets.env`and `aws.env` files contains keys and blockchain provider urls, so it should definitely be kept secret.
+
+Make sure that you do not push your credentials (`secrets.env` and `aws.env`) to a repository or otherwise expose them as these credentials can be used to gain access to your Airnode's private key and AWS account.
 
 Now that we have our Airnode configuration files, the next step is [Deploying Airnode](deploying-airnode.md).
