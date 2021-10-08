@@ -9,7 +9,7 @@ title: Overview
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Using Docker is the easiest way to both deploy an Airnode and to run an Airnode locally. There are two docker images for each: the deployer image and the client image. 
+Using Docker is the easiest way to both deploy an Airnode and to run an Airnode locally. There are two docker images : the deployer image and the client image. To use these images first install [Docker](https://docs.docker.com/get-docker/) if it is not present on your system.
 
 - The [deployer image](./deployer-image.md) deploys the node in the form of serverless functions to a serverless cloud provider (e.g. AWS Lambda). 
 
