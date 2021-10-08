@@ -8,6 +8,8 @@ A `receipt.json` file is outputted after each deployment and contains non-sensit
 The main use of a receipt file is to remove an Airnode deployment when no longer needed. Use the [docker
 image](../../grp-providers/guides/docker/deployer-image.html#remove) to execute the remove command.
 
+It also provides the Airnode xpub for the hardened derivation path `m/44'/60'/0'` that must be announced off-chain in order for sponsors to derive their designated sponsor wallet. This wallet will then be used by the Airnode to fulfill each request made by the requester contracts.
+
 - `airnodeWallet`: describes the Airnode that was deployed
 - `deployment`: where the Airnode was deployed to
 - `api`: contains the details of the Airnode API (e.g.
@@ -19,12 +21,12 @@ Example receipt:
 ```json
 {
   "airnodeWallet": {
-    "airnodeAdress": "0x23722bcdd23e559d7151db284f290fadde9f3cb725859d476ef1f16ab315355e",
-    "airnodeAddressShort": "23722b",
-    "xpub": "xpub661MyMwAqRbcFgefUsJa8UarHveV9dgvW6bKF13GaJFrw7AAcHCtMVuy3ZkFrTWdW2ji9TdjGHFbf3qk9vWvcNVPVZCtDGyASNs2V5SKcmf"
+    "airnodeAddress": "0xA30CA71Ba54E83127214D3271aEA8F5D6bD4Dace",
+    "airnodeAddressShort": "a30ca71",
+    "airnodeXpub": "xpub6C8tvRgYkjNVaGMtpyZf4deBcUQHf7vgWUraVxY6gYiZhBYbPkFkLLWJzUUeVFdkKpVtatmXHX8kB76xgfmTpVZWbVWdq1rneaAY6a8RtbY"
   },
   "deployment": {
-    "airnodeAdressShort": "23722b",
+    "airnodeAddressShort": "a30ca71",
     "cloudProvider": "aws",
     "region": "us-east-1",
     "stage": "starter-example",

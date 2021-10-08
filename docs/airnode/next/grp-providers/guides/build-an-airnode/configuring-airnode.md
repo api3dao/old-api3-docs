@@ -175,6 +175,7 @@ The `nodeSettings.cloudProvider` field indicates which cloud provider Airnode sh
 There are plans to extend the deployer-image to support a wide variety of cloud providers. If you would like to contribute, please join the conversation in [this issue](https://github.com/api3dao/airnode/issues/154).
 
 #### airnodeWalletMnemonic
+<Fix>I don't think this is still optional</Fix>
 (optional) An API provider can provide a mnemonic to be used as the Airnode's BIP 44 wallet from which the Airnode's [`address`](../../../concepts/airnode.md#airnodeaddress) will be derived. If a mnemonic is not provided the deployer will create one for the Airnode. It is not required to fund the wallet to run the Airnode but must be funded to announce the [`xpub`](../../../concepts/airnode.md#xpub) of the Airnode on-chain which is optional.
 
 #### region
