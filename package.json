@@ -14,7 +14,8 @@
     "test:links:next": "for file in $(find ./docs/airnode/next -path ./node_modules -prune -false -o -name \"*.md\"); do markdown-link-check --verbose --config .github/workflows/markdown-link-check.config.json \"$file\" || exit 1; done;",
     "test:links:dev": "for file in $(find ./docs/dev -path ./node_modules -prune -false -o -name \"*.md\"); do markdown-link-check --verbose --config .github/workflows/markdown-link-check.config.json \"$file\" || exit 1; done;",
     "docs:dev": "yarn copy:navbar; yarn copy:sidebar; yarn copy:searchbox; vuepress dev docs",
-    "docs:build": "yarn copy:navbar; yarn copy:sidebar; yarn copy:searchbox; vuepress build docs"
+    "docs:build": "yarn copy:navbar; yarn copy:sidebar; yarn copy:searchbox; vuepress build docs",
+    "format": "prettier --write ./**/*.{js,vue,md,json,yaml} --loglevel silent"
   },
   "devDependencies": {
     "@api3/airnode-abi": "^0.1.0",
@@ -29,6 +30,7 @@
     "file": "^0.2.2",
     "markdown-link-check": "^3.8.6",
     "oust": "^1.2.0",
+    "prettier": "^2.4.1",
     "v-click-outside": "^3.1.2",
     "vuepress": "^1.8.2",
     "vuepress-plugin-element-tabs": "^0.2.8",
