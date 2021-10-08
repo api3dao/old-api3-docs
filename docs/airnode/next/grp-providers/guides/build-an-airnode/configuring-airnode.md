@@ -346,20 +346,17 @@ headers: {
 }
 ```
 
+## Creating `secrets.env`
 
+The `secrets.env` file contains environment variables (secrets) such as blockchain provider urls, cloud provider keys, etc. Make sure to download the [secrets.env](../../../reference/templates/secrets-env.md) template and refer to [Reference > Deployment Files > secrets.env](../../../reference/deployment-files/secrets-env.md) as needed.
 
-## Creating secrets.env
+There are three categories of secrets.
 
-The `secrets.env` file contains environment variables (secrets) such as blockchain provider urls, cloud provider keys, etc. Make sure to download the [secrets.env](../../../reference/templates/secrets-env.md) template and refer to [Technology > Deployment Files > secrets.env](../../../reference/deployment-files/secrets-env.md) as needed.
-
-**There are four categories of secrets.**
-
-|||
-|-|-|
-|AWS_ACCESS_KEY_ID - AWS_SECRET_KEY|AWS account credentials|
+|Key                    |Value                                                    |
+|-----------------------|----------------------------------------------------|
 |AIRNODE_WALLET_MNEMONIC|The wallet MNEMONIC that will be used by the Airnode|
-|CP_${chainType}\_${chainId}_${name}|blockchain provider urls|
-|SS_${oisTitle}_${name}|securitySchemes|
+|CP_${chainType}\_${chainId}_${name}|blockchain provider urls                |
+|SS_${oisTitle}_${name}|securitySchemes                                      |
 
 The wallet mnemonic and AWS credentials are known values you can add directly to secrets.env.
 
@@ -370,11 +367,18 @@ The last two categories above (CP_ and  SS_) are environment variable names that
   > - `SS_${oisTitle}_${name}`
 
 ```bash
-AWS_ACCESS_KEY_ID="XYZ...123"
-AWS_SECRET_KEY="ABC7...89"
 AIRNODE_WALLET_MNEMONIC="achieve climb ... reduce foil echo"
 SS_MYOISTITLE_MY_SECURITY_SCHEME="FRACZKMH4F32BZ8X5uTd"
 CP_EVM_3_INFURA_ROPSTEN="https://ropsten.infura.io/v3/75745CVDG834834"
+```
+
+## Creating `aws.env`
+
+When it is time to deploy the Airnode to a cloud provider (AWS), the Docker [deployer image](../../docker/deployer-image.md) will need the AWS credentials to build the node.
+
+```bash
+AWS_ACCESS_KEY_ID=XYZ...123
+AWS_SECRET_KEY=ABC7...89
 ```
 
 ## Conclusion

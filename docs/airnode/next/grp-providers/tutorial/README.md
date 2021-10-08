@@ -140,7 +140,7 @@ Looking at the config.json shows that the HTTP Gateway was activated for our Air
 
 ### CURL
 
-Use curl to execute the Airnode and get the results from the CoinGecko endpoint `/coin/{id}` bypassing the Rinkeby test network that Airnode was deployed for. 
+Use curl to execute the Airnode and get the results from the CoinGecko endpoint `/coins/{id}` bypassing the Rinkeby test network that Airnode was deployed for. 
 
 All calls to the gateway use a POST method and use request body data for input. Pass parameter values as a key/value pairs. The apiKey is placed in the header.
 
