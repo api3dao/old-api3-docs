@@ -1,7 +1,7 @@
 ---
 title: receipt.json
 ---
-
+<TitleSpan>Deployment Files</TitleSpan>
 # {{$frontmatter.title}}
 
 A `receipt.json` file is outputted after each deployment and contains non-sensitive information about the deployment.

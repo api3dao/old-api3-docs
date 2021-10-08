@@ -1,7 +1,7 @@
 ---
-title: ois.json template
+title: ois.json
 ---
-
+<TitleSpan>Templates</TitleSpan>
 # {{$frontmatter.title}}
 
 An [OIS (Oracle Integration
