@@ -23,27 +23,18 @@ Enable the HTTP gateway by setting two fields in the config.json (`nodeSettings.
 
 ```json
 "nodeSettings": {
-    "cloudProvider": "aws",
-    "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
-    "heartbeat": {
-      "enabled": true,
-      "apiKey": "${HEARTBEAT_API_KEY}",
-      "id": "${HEARTBEAT_ID}",
-      "url": "${HEARTBEAT_URL}"
-    },
-    "httpGateway": {
-      "enabled": true,
-      "apiKey": "${HTTP_GATEWAY_API_KEY}"
-    },
-    "logFormat": "plain",
-    "logLevel": "INFO",
-    "nodeVersion": "0.1.0",
-    "region": "us-east-1",
-    "stage": "dev"
+  "cloudProvider": "aws",
+  "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
+  "heartbeat": {...},
+  "httpGateway": {
+    "enabled": true,
+    "apiKey": "${HTTP_GATEWAY_API_KEY}"
   },
+  ...
+},
 ```
 
-You must also add the [`testable`](../../../reference/specifications/ois.md#_5-endpoints) boolean flag for each endpoint you want to test in the OIS (`ois.endpoints[n]testable`). This indicates whether the endpoint can be used via HTTP gateway or not. It’s optional and by default is false.
+You must also add the [testable](../../../reference/specifications/ois.md#_5-9-testable) boolean flag for each endpoint you want to test in the OIS (`ois.endpoints[n]testable`). This indicates whether the endpoint can be used via HTTP gateway or not. It’s optional and by default is false.
 
   ```json
   // in config.json
@@ -52,6 +43,7 @@ You must also add the [`testable`](../../../reference/specifications/ois.md#_5-e
     "endpoints":[
     {
       "name": "convertToUSD",
+      "operation": {...},
       "testable": true,
       ...
     ]
@@ -66,20 +58,41 @@ A gateway URL is generated when your Airnode is deployed. You can obtain the URL
 
 In order to test an endpoint, via the HTTP gateway, make an HTTP POST request with endpointId as a path parameter, the x-api-key in the header and endpoint parameters in the request body. 
 
-An `endpointId` can found in config.json under `ois.triggers[n].endpointId`.
+- An `endpointId` can found in config.json under `triggers[n].endpointId`.
+- The `x-api-key` can found in config.json under `nodesettings.httpGateway.apiKey`.
 
-|parameter|in|CURL options|
-|---------|--|----------|
-|x-api-key|header      |`-H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e'`|
-|endpointId|path       |`/v1/test/0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5`|
-|&lt;user-defined>|body|`-d '{"parameters": {"param1": "string", "param2": 5}}'`
+|parameter        |in             |CURL options|
+|-----------------|---------------|------------|
+|x-api-key        |header         |`-H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e'`|
+|endpointId       |path           |`0xf466b8feec...99e9f9f90453c`|
+|&lt;user-defined>|body           |`-d '{"parameters": {"param1": "string", "param2": 5}}'`
 
-Replace `https://gateway.url` in the example below with your gateway URL.
+Replace `https://gateway.url/v1/test/` in the example below with your gateway URL from the `receipt.json` file using `httpGatewayUrl`. The [receipt.json](./deploying-airnode.md#receipt-json) file is created when you deploy an Airnode.
 
-```bash
-curl -X POST -H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e' \
--d '{"parameters": {"param1": "string", "param2": 5}}' \ 
-'https://gateway.url/v1/test/0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5'
+
+Request:
+
+:::: tabs
+::: tab Linux/Mac
+  ```sh
+  curl -X POST -H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e' \
+  -d '{"parameters": {"param1": "string", "param2": 5}}' \ 
+  'https://gateway.url/v1/test/0xf466b8feec...99e9f9f90453c'
+  ```
+:::
+::: tab Windows
+  ```sh
+  curl -X POST -H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e' ^
+  -d '{"parameters": {"param1": "string", "param2": 5}}' ^ 
+  'https://gateway.url/v1/test/0xf466b8feec...99e9f9f90453c'
+  ```
+:::
+::::
+
+Response:
+
+```json
+{"value":"some string"}
 ```
 
 The response format is a simple JSON object: `{"value": <return value>}`.

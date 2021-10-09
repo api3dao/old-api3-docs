@@ -65,14 +65,38 @@ From the root of the project directory run the Docker [deployer image](../../doc
 :::
 ::::
 
-This will first download the deployer image, which may take a few minutes depending on the speed of your Internet connection. Then, it will read your configuration files and start deployment. This process will be entirely automatic, with the exception that at one stage, the deployer will display the mnemonic of your Airnode's private key. Please note this down with pen and paper (do not copy paste to a text file on your computer) and keep it in a secure place.
+When the deployment is complete a `receipt.json' file is placed into the `/output` folder.
+
+### receipt.json
+
+The `receipt.json` file is a product of a successful deployment. It contains configuration information for the Airnode and must be used to remove the Airnode should you choose.
+
+```json
+{
+  "airnodeWallet": {
+    "airnodeAddress": "0xaBd9daAdf32fCd96eE4607bf3d5B31e19a244Cac",
+    "airnodeAddressShort": "abd9daa",
+    "xpub": "xpub661MyMwAqRbcGHp9uC7...vbeziJwFHuNs"
+  },
+  "deployment": {
+    "airnodeAddressShort": "abd9daa",
+    "cloudProvider": "aws",
+    "region": "us-east-1",
+    "stage": "dev",
+    "nodeVersion": "0.1.0"
+  },
+  "api": {
+    "httpGatewayUrl": "https://6vmx3xp8tj.execute-api.us-east-1.amazonaws.com/v1/test"
+  }
+}
+```
 
 ## Testing with HTTP Gateway
 
 If you opted to implement the HTTP Gateway for the Airnode it can be tested while bypassing the chain it was deployed to. There are two examples in other docs that detail how to do this.
 
+- [HTTP Gateway](./http-gateway.md#using-curl)
 - [Quick Deploy](../../tutorial/README.md#test-the-airnode) 
-- [HTTP Gateway](./http-gateway.md)
 
 ## Removing the Airnode
 
