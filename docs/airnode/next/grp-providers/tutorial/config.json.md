@@ -45,7 +45,7 @@ The config.json file contents shown below is for the [Quick Deploy](./) demo.
     "rrp": [
       {
         "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
-        "oisTitle": "CoinGecko basic request",
+        "oisTitle": "CoinGecko Basic Request",
         "endpointName": "coinMarketData"
       }
     ]
@@ -53,7 +53,7 @@ The config.json file contents shown below is for the [Quick Deploy](./) demo.
   "ois": [
     {
       "oisFormat": "1.0.0",
-      "title": "CoinGecko basic request",
+      "title": "CoinGecko Basic Request",
       "version": "1.0.0",
       "apiSpecifications": {
         "servers": [

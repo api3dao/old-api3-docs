@@ -107,18 +107,18 @@ For Windows, use CMD (and not PowerShell).
 
 ## Test the Airnode
 
-After a successful deployment the Airnode can be tested without interacting with the Rinkeby test network using the HTTP Gateway. 
+After a successful deployment the Airnode can be tested directly using the [HTTP Gateway](../guides/build-an-airnode/http-gateway.md) without accessing the blockchain. You provide endpoint parameters getting a response from an integrated API.
 
 ### HTTP Gateway
 
-Looking at the config.json shows that the HTTP Gateway was activated for our Airnode. Furthermore the endpoint for `/coin/{id}` is set to be testable, see `endpoints[0]`. While the Airnode is enabled for the gateway, each individual endpoint must be testable to allow access.
+Looking at the config.json shows that the HTTP Gateway was activated for our Airnode. Furthermore the endpoint for `/coins/{id}` is set to be testable, see `endpoints[0]`. While the Airnode is enabled for the gateway, each individual endpoint must be testable to allow access.
 
 ```json
 "nodeSettings": {
  ...
   "httpGateway": {
     "enabled": true, // The gateway is activated for this Airnode
-    "apiKey": "${HTTP_GATEWAY_API_KEY}"
+    "apiKey": "${HTTP_GATEWAY_API_KEY}" // Gateway apiKey
   },
 ...
 },
@@ -140,16 +140,16 @@ Looking at the config.json shows that the HTTP Gateway was activated for our Air
 
 Use curl to execute the Airnode and get the results from the CoinGecko endpoint `/coins/{id}` bypassing the Rinkeby test network that Airnode was deployed for. 
 
-All calls to the gateway use a POST method and use request body data for input. Pass parameter values as a key/value pairs. The apiKey is placed in the header.
+In order to test the endpoint make an HTTP POST request with the `endpointId` as a path parameter, the `x-api-key` in the header and endpoint parameters in the request body as a key/value pairs. 
 
 - `-v`: Verbose output is optional.
-- `-H`: The apiKey (`HTTP_GATEWAY_API_KEY`) from `secrets.env` file.
-- `-d`: Use request body data, the gateway only accepts request body data.
+- `-H`: The `x-api-key` using the value of `HTTP_GATEWAY_API_KEY` from `secrets.env` file.
+- `-d`: Use request body data to pass all endpoint parameters.
 
 Breaking down the URL in the CURL command below:
 
 - `<httpGatewayUrl>`: The base URL to the gateway, found in the `receipts.json` file. Update the placeholder in the CURL command below with its value.
-- `0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c`: The endpointId to call, see `triggers.rrp[0].endpointId` in the `config.json` file.
+- `0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c`: Passed as a path parameter, the endpointId to call, see `triggers.rrp[0].endpointId` in the `config.json` file.
 
 Request:
 

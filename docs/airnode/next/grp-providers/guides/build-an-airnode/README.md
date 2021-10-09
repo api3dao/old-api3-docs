@@ -7,10 +7,7 @@ title: Overview
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-<Fix>Build out this "beginning" of this intro to Build an Airnode.</Fix>
-
-
-The remainder of the **Build an Airnode** section will discuss, in detail, how an Airnode is constructed. But first, see the [Quick Deploy](../../tutorial/README.md) demo to get a simple understanding of an Airnode deployment.
+The Build an Airnode guide will discuss, in detail, how an Airnode is constructed. But first, see the [Quick Deploy](../../tutorial/README.md) demo to get a simple understanding of an Airnode deployment. The demo has pre-configured files for a typical deployment.
 
 ## Project Folder
 
@@ -41,10 +38,11 @@ Lastly is the deployment. There are two ways to run the Airnode. The most popula
 
 The second method is to run a containerized Airnode on a hosted internally or with a cloud provider service (e.g. AWS EC2 or Lightsail). You would use the Docker [client image](../../docker/client-image.md) for this type of deployment.
 
-Complete the following before deploying your Airnode.
+Complete the following to build and deploy an Airnode.
 
 - [API Integration](api-integration.md)
 - [Configuring Airnode](configuring-airnode.md)
 - [Applying Authorization](./apply-auth.md) optional
 - [Heartbeat](./heartbeat.md) optional
 - [HTTP Gateway](./http-gateway.md) optional
+- [Deploying Airnode](./deploying-airnode.md)
