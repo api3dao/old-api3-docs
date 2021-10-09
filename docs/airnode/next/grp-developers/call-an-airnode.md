@@ -30,9 +30,11 @@ in the diagram below when calling an Airnode.
 > <img src="../assets/images/call-an-airnode.png"/>
 
 In the above diagram a requester makes a request to the AirnodeRrp.sol contract which emits an event. This event is
-retrieved by the Airnode during its next run cycle. Airnode then gathers the requested data from the API and creates a
-transaction to call the function `fulfill()` in AirnodeRrp.sol which in turn makes a callback to the function
-`myFulfill` in the requester. This response transaction is covered by sponsor using the sponsor wallet.
+retrieved by the Airnode during its next run cycle. It then verifies whether the request should be responded to by
+calling the [authorizers](../concepts/authorization.html). If the request is authorized, Airnode proceeds with creating
+a response transaction. It first gathers the requested data from the API and then attempts to call the `fulfill()`
+function in AirnodeRrp.sol which in turn makes a callback to the function `myFulfill` in the requester. This response
+transaction is covered by sponsor using the sponsor wallet.
 
 This remainder of this doc focuses on the requester implementation, it's deployment and sponsoring.
 
@@ -73,8 +75,8 @@ call its underlying API.
 
 Once the request has been made to `airnode.makeFullRequest` the AirnodeRrp.sol contract will return a `requestId`
 confirming the request has been accepted and is in process of being executed. Your requester would most likely wish to
-track all requestIds. Note the line `incomingFulfillments[requestId] = true;` in the code below that stores the
-requestIds in a mapping. This will be useful when the Airnode responds to the requester later at the function
+track all `requestId`s. Note the line `incomingFulfillments[requestId] = true;` in the code below that stores the
+`requestId`s in a mapping. This will be useful when the Airnode responds to the requester later at the function
 (`airnodeCallback`) with the `requestId` and the `data` requested.
 
 ```solidity
@@ -121,8 +123,6 @@ contract MyRequester is RrpRequester {
 
 ### Request Parameters
 
-<Fix>The request parameters have changed.</Fix>
-
 A full request using the AirnodeRrp.sol contract `makeFullRequest` function requires all parameters needed by the
 Airnode application to be passed at runtime. This is in contrast to a template request that would use a template for
 some or all of the required parameters. Learn more about [using templates](call-an-airnode.md#using-templates).
@@ -136,6 +136,7 @@ must gather the following parameters to pass on to `airnode.makeFullRequest`.
 
 - **sponsorWallet**: The [sponsor wallet](requesters-sponsors.md#how-to-derive-a-sponsor-wallet) address that the
   sponsor received when deriving the wallet for the Airnode being called.
+
 - **fulfillAddress** and **fulfillFunctionId**: The public address of your requester contract and its function that will
   be called when the request is returned.
 
@@ -143,14 +144,13 @@ must gather the following parameters to pass on to `airnode.makeFullRequest`.
   [reserved parameters](../reference/specifications/reserved-parameters.md), these must be encoded. See
   [Airnode ABI specifications]() for how these are encoded.
 
-  <Fix>Not sure what to say about the encoding or if the following is even close.</Fix>
+  In most cases the parameters will be encoded off-chain and passed to the requester which will only forward them. You
+  can use the [@api3/airnode-abi]()../reference/specifications/airnode-abi-specifications.html#api3-airnode-abi) package
+  for the encoding and decoding. Take a look at the javascript snippet below.
 
-  In most cases the parameters will be encoded off-chain and passed to the requester. Most APIs will have some sort of
-  security such as an apiKey which cannot be made public inside a requester. Consider the following example which
-  encodes the parameters off-chain before executing a requester. This is done using the
-  [@api3/airnode-abi](https://github.com/api3dao/airnode/tree/master/packages/airnode-abi) library.
+  ```javascript
+  // Javascript snippet
 
-  ```solidity
   import { encode } from '@api3/airnode-abi';
 
   const parameters = [
@@ -161,6 +161,19 @@ must gather the following parameters to pass on to `airnode.makeFullRequest`.
 
   console.log(encodedData);
   // '0x...'
+  ```
+
+  However, this is not a hard requirement and you can encode the parameters on chain as well. Take a look at the
+  solidity snippet below.
+
+  ```solidity
+  // Solidity snippet
+
+  abi.encode(
+    bytes32("1SS"),
+    bytes32("period"), "30d",
+    bytes32("symbols"), "btc,eth,matic,link,uni,sushi,aave,chz,theta,rsr,grt,enj,ocean,kacy"
+  )
   ```
 
 For additional information on request parameters when calling `airnode.makeFullRequest()` see
