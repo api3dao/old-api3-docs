@@ -23,11 +23,11 @@ It is assumed that you have already read the guide [API Integration](api-integra
   Other tips while using this guide.
   </summary>
 
-  - Refer to the [config.json](../../../reference/deployment-files/config-json.md) and [secrets.env](../../../reference/deployment-files/secrets-env.md) _reference_ while using this guide.
+  - Refer to the [config.json](../../reference/deployment-files/config-json.md) and [secrets.env](../../../reference/deployment-files/secrets-env.md) _reference_ while using this guide.
 
   - Open the _template_ [config.json](../../../reference/templates/config-json.md) in another browser window to follow along. 
 
-  - View the _example_ [config.json](../../tutorial/config-json.md) file from the [Airnode Starter tutorial](../../tutorial/airnode-starter.md).
+  - View the _example_ [config.json](../../tutorial/config-json.md) files from the [Airnode Starter tutorial](https://github.com/api3dao/airnode/tree/master/packages/examples/integrations).
 
 </details>
 
@@ -191,27 +191,33 @@ The `nodeSettings.stage` field allows you to deploy multiple Airnodes with the s
 At the end of each of Airnode's runs (every minute), Airnode can make an HTTP POST request to a specified URL. This is both to signal that the Airnode is alive and working (useful especially right after the deployment) and also to send some metrics from its run. Turn on the heartbeat functionality by setting all fields in the config.json section nodeSettings.heartbeat. See the [heartbeat](heartbeat.md) doc for more info.
 
 
->- enabled: Enable/disable Airnode's heartbeat
->- url: The URL to make the heartbeat request to
->- apiKey: The API key to authenticate against the heartbeat URL
->- id: The Airnode heartbeat ID for accounting purposes
+- enabled: Enable/disable Airnode's heartbeat
+- url: The URL to make the heartbeat request to
+- apiKey: The API key to authenticate against the heartbeat URL
+- id: The Airnode heartbeat ID for accounting purposes
 
+#### HTTP Gateway
+
+The gateway allows the testing of defined endpoints without accessing the blockchain.
+
+- enabled: Enable/disable Airnode's Access to the HTTP gateway
+- apiKey: A user defined apiKey that is passed to the Airnode's gateway base URL
 
 #### logFormat
 
 Set one of two possible log formats. 
 
->- json
->- plain
+- json
+- plain
 
 #### logLevel
 
 Set one of four possible log levels. 
 
->- DEBUG
->- INFO
->- WARN
->- ERROR
+- DEBUG
+- INFO
+- WARN
+- ERROR
 
 ### environment
 
@@ -227,10 +233,10 @@ Note the following steps Airnode takes related to environment variables during d
 
 Each entry in `environment.chainProviders[n]` maps to an `entry in chains[n]`. Note that the value of envName is the name of the environment variable (from secrets.env) which holds the respective blockchain provider URL. See the section [One Chain: One Provider](configuring-airnode.md#one-chain-one-provider) below to understand and setup a chainProvider along with an environment variable that points to its provider URL in `secrets.env`. 
 
-> - chainId - blockchain ID 
-> - chainType - only evm supported at this time
-> - name - arbitrary name of the blockchain provider
-> - envName - name of the environment variable found in secrets.env
+- chainId - blockchain ID 
+- chainType - only evm supported at this time
+- name - arbitrary name of the blockchain provider
+- envName - name of the environment variable found in secrets.env
 
 ##### One Chain: One Provider
 

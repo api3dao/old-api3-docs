@@ -42,9 +42,9 @@ module.exports = [
         title: 'Tutorial', collapsable: true,
         children: [
           'grp-providers/tutorial/',
-          'grp-providers/tutorial/config.json',
-          'grp-providers/tutorial/secrets.env',
-          'grp-providers/tutorial/aws.env',
+          'grp-providers/tutorial/config-json',
+          'grp-providers/tutorial/secrets-env',
+          'grp-providers/tutorial/aws-env',
         ]
       }
     ]
