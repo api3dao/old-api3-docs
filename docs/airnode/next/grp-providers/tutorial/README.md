@@ -20,9 +20,9 @@ There are additional examples of Airnode deployments in the [examples package](h
 
 An Airnode deployment uses a Docker image (called [deployer image](../../docker/deployer-image.md)) which in turn requires three files as input.
 
-- [config.json](./config.json.md)
-- [secrets.env](./secrets.env.md)
-- [aws.env](./aws.env.md)
+- [config.json](./config-json.md)
+- [secrets.env](./secrets-env.md)
+- [aws.env](./aws-env.md)
 
 For the purpose of this demo these files have been created and only require a few minor changes on your part to make the deployment of the demo Airnode successful. These change are needed to supply AWS credentials, a chain provider url, a mnemonic and an apiKey.
 
@@ -32,7 +32,7 @@ Install [Docker](https://docs.docker.com/get-docker/) if it is not present on yo
 
 ## Project Folder
 
-Create a folder called `/quick-deploy-demo` with two more internal folders named `/config` and `/output`. Place the contents of the files provided ([config.json](./config.json.md), [secrets.env](./secrets.env.md) and [aws.env](./aws.env.md)) into the locations show below.
+Create a folder called `/quick-deploy-demo` with two more internal folders named `/config` and `/output`. Place the contents of the files provided ([config.json](./config-json.md), [secrets.env](./secrets-env.md) and [aws.env](./aws-env.md)) into the locations show below.
 
 ```
 quick-deploy-demo

@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: Getting Started
 ---
 <TitleSpan>Build an Airnode</TitleSpan>
 # {{$frontmatter.title}}
