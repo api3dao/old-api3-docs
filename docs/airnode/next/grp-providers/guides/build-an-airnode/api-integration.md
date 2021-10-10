@@ -302,8 +302,6 @@ You can create a securityScheme by copying the code above or using the template 
 
     ```bash
     AIRNODE_WALLET_MNEMONIC=""
-    AWS_ACCESS_KEY_ID=""
-    AWS_SECRET_KEY=""
     CP_EVM_31337_EVM_LOCAL=""
     SS_MY_API_KEY="XP9876BH768FGD6734" # The apiKey
     ```
