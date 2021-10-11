@@ -10,3 +10,6 @@
 /d/request-parameters /airnode/next/grp-developers/call-an-airnode.html#request-parameters
 /d/response-parameters /airnode/next/grp-developers/call-an-airnode.html#response-parameters
 /r/reserved-parameters /airnode/next/reference/specifications/reserved-parameters.html
+/pre-alpha/guides/provider/deploying-airnode.html /airnode/pre-alpha/guides/provider/deploying-airnode.html
+/pre-alpha/airnode/specifications/reserved-parameters.html /airnode/pre-alpha/airnode/specifications/reserved-parameters.html
+/pre-alpha/guides/docker/deployer-image.html /airnode/pre-alpha/guides/docker/deployer-image.html
