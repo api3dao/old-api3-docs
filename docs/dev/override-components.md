@@ -5,7 +5,7 @@ title: Override Components
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[toc]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 There are a few changes made to some default @vuepress components. See the code comments within each component for execution details. These components, located in .vuepress/components, are copied to node_modules/@vuepress/themeConfig/components or node_modules/@vuepress/plugins when running or building the project locally.
 

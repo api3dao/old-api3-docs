@@ -5,7 +5,7 @@ title: Common Directory
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[toc]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 ```bash
 # cd to the directory to place the symlink

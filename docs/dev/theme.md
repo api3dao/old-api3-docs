@@ -5,7 +5,7 @@ title: Theme
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[toc]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 The api3-docs project uses the VuePress default theme. The theme is configured in the .vuepress/config.json file. This document speaks to some of the key theme settings and overrides used by this project.
 
@@ -20,10 +20,11 @@ The sidebar is a JSON object with a set of routes. The value of each route is th
 ```json
 sidebar: {
   '/airnode/next/': require(`../airnode/next/sidebar.js`),
-  '/airnode/v0.1/': require(`../airnode/v0.1/sidebar.js`),
-  '/airnode/pre-alpha/': require(`../pre-alpha/sidebar.js`),
-  '/ao-members/': require(`../dao-members/sidebar.js.js`),
-  '/dev/': require(`../dev/sidebar.js`)
+  '/airnode/v1/': require(`../airnode/v1/sidebar.js`),
+  '/airnode/pre-alpha/': require(`../airnode/pre-alpha/sidebar.js`),
+  '/dao-members/': require(`../dao-members/sidebar.js.js`),
+  '/dev/': require(`../dev/sidebar.js`),
+  '/dev-airnode/': require(`../dev-airnode/sidebar.js`)
 }
 ```
 

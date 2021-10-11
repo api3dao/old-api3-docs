@@ -5,7 +5,7 @@ title: Custom Components
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[toc]]
+<TOC class="table-of-contents" :include-level="[2,3]" />]
 
 There are custom Vue Components located in .vuepress/components. See the code comments within each component for execution details. These components are copied to node_modules/@vuepress/themeConfig/components or node_modules/@vuepress/plugins when running or building the project locally.
 
@@ -48,19 +48,16 @@ VersionsModal.vue is a child component of Versions.vue. Versions.vue has been ad
 
 [VersionsModal.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/VersionsModal.vue)
 
-
 ## SubSites.vue
 
-SubSites.vue is placed on the top of [Sidebar.vue](override-components.md#sidebar-vue) with hard-coded links to sub-sites such as Airnode and DAO Members.
+SubSites.vue is placed on the top of [Sidebar.vue](override-components.md#sidebar-vue). It contains icons with hard-coded links to sub-sites (routes) such as Airnode, DAO Members and API3.
 
 [SubSites.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/SubSites.vue)
-
-
 
 ## SidebarHeader.vue
 
 ::: warning No Longer Used
-This component is no longer used but is kept as an archived component in case it is needed again. It could be used as a sidebar header to hold almost anything.
+This component is no longer used but is kept as an archived component in case it is needed again. It could be used as a sidebar header to hold almost anything although the SubSites.vue component currently occupies that space.
 :::
 
 [SidebarHeader.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/SidebarHeader.vue)

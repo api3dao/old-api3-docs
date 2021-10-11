@@ -5,7 +5,7 @@ title: GitHub Actions
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[toc]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 Description of all GitHub Actions used in the remote api3dao/api3-docs repo, [.github/workflows](https://github.com/api3dao/api3-docs/tree/stage/.github/workflows).
 

@@ -5,7 +5,7 @@ title: VuePress Server
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[toc]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 The VuePress live-reload server is best for development purposes and is the default server. It can be changed in the config.jon file if desired.
 

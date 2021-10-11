@@ -5,7 +5,7 @@ title: Quirks
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[toc]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 ## language does not exist
 
