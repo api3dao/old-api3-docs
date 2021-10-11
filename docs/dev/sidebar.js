@@ -12,6 +12,7 @@ module.exports = [
         '/dev/versioning',
         '/dev/github-actions',
         '/dev/link-validator',
+        '/dev/lychee',
         '/dev/deployment', 
         '/dev/quirks', 
     ]

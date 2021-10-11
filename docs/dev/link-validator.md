@@ -5,16 +5,16 @@ title: Link Validator
 # {{$frontmatter.title}}
 
 <TocHeader />
-[[toc]]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
-This custom Node.js script (`link-validator.js`) validates links with or without attached anchors. The script is used to supplement the markdown-link-check plugin that is run using the command `test:links:prod` which is also attached to a GitHub action in the project repo. However the markdown-link-check plugin does not validate anchors when attached to links, only the link.
+This custom Node.js script (`link-validator.js`) validates links with or without attached anchors. 
 
 - my-markdown.md
 - my-markdown.md#my-anchor
 
-More than often a heading element such as **## My Heading** gets changed and thus breaks any link that references it. Running `link-validator.js` will locate such broken links. 
+More than often a heading element such as **## My Heading** gets changed and thus breaks any link that references it. Running `link-validator.js` will locate these broken links. 
 
-The link validator is a manual and time consuming process that should be performed as often as possible. 
+The link validator is a manual and time consuming process that should be performed as often as possible. Currently it cannot be run as a GitHub action.
 
 ## Step 1: Build the Docs
 
@@ -45,14 +45,14 @@ Start an instance of http-server to serve the docs. Do not use the normal VuePre
 
 Open a new terminal window to run the script. The script's output will display failures as it steps through each file and its links. There will be a summary of all link failures at the end of the script output.
 
-You can run the Link Validator against the entire `/dist` folder which will validate everything (`/pre-alpha, v0.1, /commom, /next, etc.`) but this can be time consuming.
+You can run the Link Validator against the entire `/dist` folder which will validate everything (`/pre-alpha, v1, /commom, /next, etc.`) but this can be time consuming.
 
 Narrowing the scope of the validation to a particular folder can hasten the validation process.
 
 - /dist/airnode/pre-alpha
 - /dist/dao-members
 - /dist/common
-- /dist/airnode/v0.1
+- /dist/airnode/v1
 - /dist/airnode/next
 - /dist/dev
 - /dist/dev-airnode   
@@ -63,5 +63,5 @@ Be sure to use the correct port displayed by http-server.
  // Open a new terminal window
  // From the api3-docs project root
  // Start the node script
- node link-validator.js  http://127.0.0.1:8080  ./docs/.vuepress/dist/airnode/next
+ node link-validator.js  http://127.0.0.1:8080  ./docs/.vuepress/dist/airnode/v1
 ```
