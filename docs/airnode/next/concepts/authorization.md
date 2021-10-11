@@ -49,22 +49,17 @@ Some common functions available are:
 - `userIsWhitelisted`: Called to check if a requester is whitelisted to use the Airnode–endpoint pair
 - `airnodeToEndpointIdToUserToWhitelistStatus`: Called to get the detailed whitelist status of a requester for the Airnode–endpoint pair
 
-### Custom Authorization Policies
+### Custom Authorizers
 
-<Fix>This example is out-of-date and points to pre-alpha</Fix>
-Authorizer contracts can implement any arbitrary authorization logic.
-See [this example](https://github.com/api3dao/airnode/blob/pre-alpha/packages/protocol/contracts/authorizers/MinBalanceAuthorizer.sol) where Airnode only responds to requests if the wallet it will use to fulfill the request has a balance more than an amount set by the provider admin.
+Custom authorizer contracts can implement any arbitrary authorization logic An example might be where Airnode only responds to requests if the wallet it will use to fulfill the request has a balance more than an amount set by the Airnode operator admin.
 
 ### Authorizer List
-
-<Fix>This is out-of-date and issue has been closed</Fix>
-The authorizer list allows you to combine single-purpose authorizer contracts to form complex policies. If you would like to contribute to this set of authorizer contracts, please join the conversation in [this issue](https://github.com/api3dao/airnode/issues/38).
 
 Airnode authorizers are listed in the config.json file at [`chains[n].authorizers`](../grp-providers/guides/build-an-airnode/configuring-airnode.md#chains). An authorizer typically checks for a single condition (has the requester made their monthly payment, is the `requester` whitelisted, etc.). Authorizers can be combined to enforce more complex policies. If any of the authorizers in the list gives access, the request will considered to be authorized. From a logical standpoint, the authorization outcomes get `OR`ed.
 
 ### Authorizer Interface
 
-Authorizer contracts can be used to implement an arbitrary authorization policy based on it input parameters.
+Authorizer contracts that inherit from `IRrpAuthorizer` can be used to implement an arbitrary authorization policy based on its input parameters.
 
 - `requestId`: bytes32
 - `airnode`: address
@@ -91,8 +86,7 @@ interface IRrpAuthorizer {
 Below is an example of how to create the simplest form of an authorizer. This authorizer allows any requester contract to call the endpointId (0xf2ee...).
 
 ```solidity
-contract myAuthorizer is
-    IRrpAuthorizer
+contract myAuthorizer is IRrpAuthorizer
 {
   function isAuthorized(
       bytes32 requestId,
@@ -118,7 +112,7 @@ A protocol that does not have the authorizer scheme or equivalent functionality 
 
 ### Are authorizers required?
 
-Authorizers are not required. An Airnode operator could use [`_relay_metadata`](./authorization.md#relay-metadata) to authorize API access. And it is possible to use both authorizers and `_relay_metadata` together.
+Authorizers are not required. An Airnode operator could use [_relay_metadata](./authorization.md#relay-metadata) to authorize API access. And it is possible to use both authorizers and `_relay_metadata` together.
 
 ### How are authorizers implemented?
 
@@ -127,7 +121,6 @@ There are two main points to consider about how authorization policies are imple
 1. If the policies are kept off-chain, the requester cannot see them or check if they satisfy them. Furthermore, the Airnode owner updating the policies (e.g., increasing the service fees) requires off-chain coordination with the requester.
 2. Embedding the policies in the request–response loop results in a gas cost overhead.
 
-<Fix>This paragraph needs to be validated.</Fix>
 Based on these considerations, Airnode uses a hybrid method. An Airnode announces its authorization policy through off-chain channels as the addresses of a list of authorizer contracts. Whenever the Airnode receives a request, it checks if it should fulfill this request by making a static call that queries this on-chain policy. Similarly, the requester can use this on-chain policy by making a static call to check if they are authorized. This scheme both allows the Airnode to set transparent and flexible policies, and this to be done with no gas overhead.
 
 ### Access (deny, allow, filter)
@@ -296,7 +289,7 @@ The `isAuthorized()` function will be called by AirnodeRrp to verify the authori
 
 ## Relay Metadata
 
-Airnode operators can use the [\_relay_metadata](../reference/specifications/reserved-parameters.md#relay-metadata) reserved parameter to instruct Airnode to send along request metadata to an endpoint. The endpoint can then use the metadata to process and respond (or not) accordingly to the requester.
+Airnode operators can use the [\_relay_metadata](../reference/specifications/reserved-parameters.md#relay-metadata) named reserved parameter to instruct Airnode to send metadata to an endpoint. The endpoint can then use the metadata to process and respond (or not) accordingly to the requester.
 
 > ![concept-authorizer](../assets/images/concepts-relay-metadata.png)
 
@@ -305,7 +298,7 @@ This option has been implemented because sometimes the Airnode operator does not
 - The parameter that authorization depends on (e.g., if the requester has paid) should not be made public.
 - The Airnode operator does not want to interact with the chain to alter authorization statuses (e.g., does not want to make a transaction to whitelist a new user, which will cost them gas fees).
 
-Activate the sending of the metadata by setting the value of `_relay_metadata` to `v2`. Note that the use of `v2` is specific to Airnode version `v0.1.x`. The Airnode will attach its metadata in the query string for `GET` and request body for `POST`, before performing the endpoint call.
+Activate the sending of the metadata by adding a reserved parameter with a name of `_relay_metadata` that defaults to `v1`. Note that the use of `v1` is specific to Airnode version `v1.x.x`. The Airnode will attach the metadata in the query string for `GET` and request body for `POST`, before performing the endpoint call.
 
 ```json
 // Go to: ois.endpoints[n]reservedParameters[n].name in config.json
@@ -313,7 +306,7 @@ Activate the sending of the metadata by setting the value of `_relay_metadata` t
   ...
   {
     "name": "_relay_metadata",
-    "default": "v2"
+    "default": "v1"
   }
 ],
 ```
