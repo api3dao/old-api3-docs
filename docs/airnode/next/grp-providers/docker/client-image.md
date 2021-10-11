@@ -1,5 +1,5 @@
 ---
-title: Client Image
+title: Airnode Client Image
 ---
 
 <TitleSpan>Docker Images</TitleSpan>
@@ -9,53 +9,136 @@ title: Client Image
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-<Fix>This is still pre-alpha. Should the commands use "latest". Are the commands out-dated?</Fix>
+Usually the Airnode is deployed on a serverless platform using the [deployer](../deployer-image.html). However, there is
+another option which is to run the Airnode in a docker container on your machine locally.
 
-1. Build the Docker image (you can skip this step and fetch the pre-built image).
-  
-    :::: tabs
-    ::: tab Linux/Mac
-      ```sh
-      mv Dockerfile Dockerfile-deployer && \
-      mv Dockerfile-client Dockerfile && \
-      docker build . -t api3/airnode-client:latest && \
-      mv Dockerfile Dockerfile-client && \
-      mv Dockerfile-deployer Dockerfile
-      ```
-    :::
-    ::: tab Windows
-      ```sh
-      mv Dockerfile Dockerfile-deployer && ^
-      mv Dockerfile-client Dockerfile && ^
-      docker build . -t api3/airnode-client:latest && ^
-      mv Dockerfile Dockerfile-client && ^
-      mv Dockerfile-deployer Dockerfile
-      ```
-    :::
-    ::::
+We have already prepared a docker image for you and published it on
+[docker hub](https://hub.docker.com/r/api3/airnode-client). If you want to build the container from the source yourself,
+you can find the image and built instructions in the
+[Airnode repository](https://github.com/api3dao/airnode/tree/master/packages/node/docker).
 
-2. Ensure that your `.env` file looks like [.env.example](https://github.com/api3dao/airnode/blob/pre-alpha/packages/node/__dev__/.env.example) and is the current working directory.
+## Configuration
 
-3. Also ensure that [config.json](https://github.com/api3dao/airnode/blob/pre-alpha/packages/node/__dev__/config.json.example) is also in the current working directory.
-Note that `nodeSettings.cloudProvider` should be `local`.
+The Airnode needs two configuration files for its run: `config.json` and `secrets.env`. These files need to be passed to
+the Docker container via volumes.
 
-4. The following command runs an airnode client that is invoked every minute
+The Docker container looks for configuration files mounted internally in the `/app/config` directory.
 
-    :::: tabs
-    ::: tab Linux/Mac
-      ```sh
-      docker run -it --rm \
-          --env-file .env \
-          -v "$(pwd):/airnode/out" \
-          api3/airnode-client:pre-alpha
-      ```
-    :::
-    ::: tab Windows
-      ```sh
-      docker run -it --rm ^
-          --env-file .env ^
-          -v "%cd%:/airnode/out" ^
-          api3/airnode-client:pre-alpha
-      ```
-    :::
-    ::::
+Your current working directory should contain the `config` folder with the configuration files above and you bind it to
+the `/app/config` directory for the docker using the `--volume` parameter.
+
+:::: tabs
+
+::: tab Linux/Mac
+
+```sh
+$ tree
+.
+└── config
+    ├── config.json
+    └── secrets.env
+$ docker run --volume $(pwd)/config:/app/config ...
+```
+
+:::
+
+::: tab Windows PowerShell
+
+```sh
+$ tree
+.
+└── config
+    ├── config.json
+    └── secrets.env
+$ docker run --volume $(pwd)/config:/app/config ...
+```
+
+:::
+
+::: tab Windows CMD
+
+```sh
+$ tree
+.
+└── config
+    ├── config.json
+    └── secrets.env
+$ docker run --volume %cd%:/config:/app/config ...
+```
+
+:::
+
+::::
+
+## Usage
+
+Example directory structure and commands for running the Airnode Docker container. The below commands are run from the
+depicted directory.
+
+### Running Airnode
+
+We recommend running the Airnode in a detached mode using the `---detach` parameter, but you may run the it without it
+as well.
+
+:::: tabs
+
+::: tab Linux/Mac
+
+```sh
+docker run ---detach \
+  --volume $(pwd)/config:/app/config \
+  --name airnode \
+  api3/airnode-client:latest
+```
+
+:::
+
+::: tab Windows PowerShell
+
+```sh
+docker run --detach \
+  --volume $(pwd)/config:/app/config \
+  --name airnode \
+  api3/airnode-client:latest
+```
+
+:::
+
+::: tab Windows
+
+```sh
+docker run --detach ^
+  --volume %cd%/config:/app/config ^
+  --name airnode ^
+  api3/airnode-client:latest
+```
+
+:::
+
+::::
+
+> If you want to connect Airnode to a blockchain running on localhost, you need to make the blockchain accessible from
+> within the docker itself. If you use docker for linux you can use `--network="host"` parameter. For windows, wsl or
+> mac connect to `host.docker.internal` instead of `127.0.0.1`. See
+> [https://stackoverflow.com/a/24326540](https://stackoverflow.com/a/24326540).
+
+### Checking Airnode logs
+
+If you run the Airnode in a detached mode, you need to use the `logs` command to access the logs. You can also use
+`--follow` parameter to stream the Airnode log output.
+
+```bash
+docker logs airnode
+```
+
+or
+
+```bash
+docker logs --follow airnode
+```
+
+## Stopping Airnode
+
+```bash
+docker stop airnode
+```
