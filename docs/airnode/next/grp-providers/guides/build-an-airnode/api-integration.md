@@ -15,9 +15,9 @@ A successful integration of an API with an Airnode requires the mapping of each 
 
 > ![api-integration-ois](../../../assets/images/api-integration-ois.png)
 
-OIS is a mapping of API operations, such as  `GET /token/{id}`, to Airnode endpoints. When a requester contract calls an AirnodeRRP contract request function, such as `makeRequest(..., callData)`, the callData is communicated to the off-chain Airnode which uses OIS mappings to translate the callData into a valid HTTP request for the appropriate API operation.
+OIS is a mapping of API operations, such as  `GET /coins/{id}`, to Airnode endpoints. When a requester contract calls a AirnodeRrp.col contract request function, such as `makeFullRequest(..., callData)`, the callData is communicated to the off-chain Airnode which uses OIS mappings to translate the callData into a valid HTTP request for the appropriate API operation.
 
-Therefore, only thing needed to integrate an API to Airnode is to create an OIS json object which lives in an Airnode's config.json file. This guide is an instructive approach to creating an OIS. As a point of reference, refer to [Oracle Integration Specifications (OIS)](../../../reference/specifications/ois.md) in the Technology section of these docs for additional input and understanding. It may be useful, but not necessary, to reference the [OpenAPI Specification (OAS) 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
+Therefore, only thing needed to integrate an API to Airnode is to create an OIS object which is in the Airnode's `config.json` file. This guide is an instructive approach to creating an OIS. As a point of reference, refer to [Oracle Integration Specifications (OIS)](../../../reference/specifications/ois.md) in the Reference section of these docs for additional input and understanding. It may be useful, but not necessary, to reference the [OpenAPI Specification (OAS) 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
 
 ::: tip Specification Conversion
 To assist in converting between various specifications e.g. from OAS to OIS, there is a `convert` command within the Airnode [validator](https://github.com/api3dao/airnode/tree/master/packages/validator#airnodeconvertor) package.

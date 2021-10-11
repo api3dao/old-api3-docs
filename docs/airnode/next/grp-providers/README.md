@@ -2,11 +2,9 @@
 title: Overview
 ---
 
+<TitleSpan>API Providers</TitleSpan>
+
 # {{$frontmatter.title}}
-
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
-
 
 An **API Provider** is you, if you wish to publish data from your API to on-chain contracts which are called requesters. You can do so by building an Airnode. An Airnode is a first-party oracle that will push off-chain API data to any on-chain requester. See the [Developer](../grp-developers/) section to learn more about how developers will use your Airnode.
 
@@ -16,7 +14,7 @@ See the [Guides](guides/build-an-airnode/api-integration.md) section in the API 
 
 In summary you only need to do a few things.
 
-- Create cloud provider account if you do not have one.
-- Get a blockchain provider URL for the chain you wish to use (mainnet and/or testnet).
-- Create the config.json (with an OIS object) and secrets.env files that defines your Airnode.
-- Run the Docker image to deploy your Airnode.
+- Create cloud provider credentials (AWS), add them to [aws.env](../reference/templates/aws-env.md).
+- Get a blockchain provider URL for the chain you wish to use (mainnet and/or a test network).
+- Create the [config.json](../reference/templates/config-json.md) (with an OIS object) that defines an Airnode and place any secret values in and [secrets.env](../reference/templates/secrets-env.md).
+- Run the Docker [deployer-image](./docker/deployer-image.md) to deploy the Airnode.

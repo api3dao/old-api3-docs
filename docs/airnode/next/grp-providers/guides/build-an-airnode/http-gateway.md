@@ -7,10 +7,10 @@ title: HTTP Gateway
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-> HTTP Gateway feature which is only available when deploying to serverless
+As part of the Airnode deployment you can decide to deploy an HTTP Gateway. The gateway allows the testing of defined Airnode endpoints without accessing the blockchain. You provide endpoint arguments directly to the Airnode with a tool. of your choice and get a response from an integrated API operation. This results in confirmation your integration is set up properly. The HTTP gateway feature is only available when deploying an Airnode to a cloud provider's serverless service.
 
-As part of the Airnode deployment you can decide to deploy an HTTP Gateway. The gateway allows the testing of defined endpoints without accessing the blockchain. You provide endpoint arguments to get a response from an integrated API. Gateway calls the API simulating Airnode. This results in confirmation your integration is set up properly.
-
+> ![gateway](../../../assets/images/gateway.png)
+> 
 :::warning HTTP Gateway (optional)
 Using the HTTP gateway functionality with Airnode is optional.
 :::
