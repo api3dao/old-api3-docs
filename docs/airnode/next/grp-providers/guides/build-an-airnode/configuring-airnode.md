@@ -7,41 +7,94 @@ title: Configuring Airnode
 <TocHeader />
 <TOC class="table-of-contents" :include-level=[2,5] />
 
->Complete the following before configuring your Airnode.
->- [API Integration](api-integration.md)
+::: tip
+Be sure to complete  [API Integration](api-integration.md) before configuring your Airnode.
+
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md) This icon links to additional field information in the reference section.
+:::
 
 An Airnode is deployed or redeployed using configuration values from its `config.json` and `secrets.env` files. The  `config.json` specifies the [OIS](../../../reference/specifications/ois.md) (Oracle Integration Specifications) and other specific configuration details. The `secrets.env` file holds secrets, such as API keys and chain provider URLs, which are referenced within the config.json file using interpolation.
 
 > ![config-json](../../../assets/images/config-json.png)
 
----
+The following example files will be useful while reading this doc.
 
-It is assumed that you have already read the guide [API Integration](api-integration.md) and created an OIS json object. The [ois.json](../../../reference/templates/ois-json.md), [config.json](../../../reference/templates/config-json.md) and [secrets.env](../../../reference/templates/secrets-env.md) templates are useful for this guide.
-
-<details class="collapse-box">
-  <summary class="collapse-box-summary">
-  Other tips while using this guide.
-  </summary>
-
-  - Refer to the [config.json](../../reference/deployment-files/config-json.md) and [secrets.env](../../../reference/deployment-files/secrets-env.md) _reference_ while using this guide.
-
-  - Open the _template_ [config.json](../../../reference/templates/config-json.md) in another browser window to follow along. 
-
-  - View the _example_ [config.json](../../tutorial/config-json.md) files from the [Airnode Starter tutorial](https://github.com/api3dao/airnode/tree/master/packages/examples/integrations).
-
-</details>
-
----
+- [config.json](../../../reference/examples/config-json.md)
+- [secrets.env](../../../reference/examples/secrets-env.md)
+- [aws.env](../../../reference/examples/aws-env.md)
 
 ## Creating `config.json`
 
-Use the [config.json template](../../../reference/templates/config-json.md) to build your own Airnode configuration file. In the template, `config.json` has 6 fields:
+Use the [config.json template](../../../reference/templates/config-json.md) to build your own Airnode configuration file or alter the [config.json example](../../../reference/examples/config-json.md) file. There are five root level fields in `config.json`.
 
-- `ois`
-- `triggers`
-- `chains`
-- `nodeSettings`
-- `environment`
+- [chains](./configuring-airnode.md#chains)
+- [nodeSettings](./configuring-airnode.md#nodesettings)
+- [triggers](./configuring-airnode.md#triggers)
+- [ois](./configuring-airnode.md#ois)
+- [apiCredentials](./configuring-airnode.md#apicredentials)
+
+
+### chains
+
+Each row in the `chains` array represents an Ethereum blockchain the Airnode will serve as identified by the `id`. Currently Airnode only supports Ethereum blockchains as denoted by `type: "evm"`. There are several supported blockchains, see them in the [Airnode contract addresses](../../../reference/airnode-addresses.md) doc.
+
+You can use multiple chain providers for each chain and declare multiple chains each with one of more chain providers.
+
+For additional information about chain parameters see the [config.json](../../../reference/deployment-files/config-json.md#chains) file in the reference section under deployment files.
+
+```json
+"chains": [
+  {
+    "authorizers": [
+      "0x5Fgh48...3F6f64180acc"
+    ],
+    "contracts": {
+      "AirnodeRrp": "0xF6d267546...BC9A384fa418"
+    },
+    "id": "4",
+    "type": "evm",
+    "providers": [
+      "infura_rinkeby": {
+        "url": "${INFURA_RINKEBY_PROVIDER_URL}"
+      }
+    ]
+  }
+],
+```
+#### authorizers 
+
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#authorizers) The list of authorizer contract addresses the Airnode deployment will set on-chain. See the [Authorization](../../../concepts/authorization.md) doc for more information.
+
+#### contracts
+
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#contracts) Contains the addresses of the contracts that implement the Airnode protocols. Although you can deploy these contracts yourself, you are recommended to use the ones that were deployed by API3. You can find them in the list above. 
+
+#### id
+
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#id) An Airnode can serve multiple chains simultaneously. Set the ID of the desired chain in `id` (e.g., `4` for Rinkeby test network). See the list of supported chains in the [Airnode Contract Addresses](../../../reference/airnode-addresses.md) doc. See additional definition in the [reference section](../../../reference/deployment-files/config-json.md#id). 
+
+#### providers
+
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#providers) Airnode can use multiple Ethereum providers per chain. These could be a private Ethereum node, or an Ethereum service provider such as Infura. Accordingly, the `providers` field is a list which allows for multiple Ethereum providers. Enter a user defined `name` which identifies the provider and the provider URL which usually is kept in the `secrets.env` file. The name is used in logs.
+
+#### type
+
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#type) The type of the chain. Only `evm` is supported at this time. See additional definition in the [reference section](../../../reference/deployment-files/config-json.md#type). 
+
+<!-- This is on hold as there is an incomplete GitHub issue to implement these.
+https://github.com/api3dao/airnode/issues/41
+#### blockHistoryLimit
+
+`blockHistoryLimit` (optional) - the number of blocks in the past that the Airnode deployment should search for requests. Defaults to `300` (roughly 1 hour for Ethereum).
+
+#### minConfirmations
+
+`minConfirmations` (optional) - the number of confirmations required for a request to be considered valid. Defaults to `0`.
+
+#### ignoreBlockedRequestsAfterBlocks
+
+`ignoreBlockedRequestsAfterBlocks` (optional) - the number of blocks that need to pass for the node to start ignoring blocked requests. Defaults to `20`.
+-->
 
 ### ois
 
@@ -73,65 +126,6 @@ Next add an `endpointId` to the trigger which is the ID that the requester will 
       --endpointName "My endpoint name..."
     ```
 
-### chains
-
-The `chains` field (array) lists the blockchains the Airnode deployment will serve on and specifies respective parameters. Currently Airnode only supports Ethereum blockchains as denoted by `type: "evm"`. Each row in the `chains` represents an Ethereum blockchain the Airnode will serve as identified by the `id`. There are several supported blockchains, see them in the [Airnode contract addresses](../../../reference/airnode-addresses.md) doc.
-
-For additional information about chain parameters see the [config.json](../../../reference/deployment-files/config-json.md#chains) file in the reference section under deployment files.
-
-```json
-  "chains": [
-    {
-      "id": "3",
-      "type": "evm",
-      "providerNames": [
-        "infura_ropsten"
-      ],
-      "contracts": {
-        "AirnodeRrp": "0xF6d2675468989387e96127546e0CBC9A384fa418"
-      },
-      "authorizers": [
-        "0x0000000000000000000000000000000000000000"
-      ],
-      "blockHistoryLimit": 300,
-      "minConfirmations": 0,
-      "ignoreBlockedRequestsAfterBlocks": 20
-    }
-  ],
-```
-
-#### id
-
-An Airnode can serve multiple chains simultaneously. Set the ID of the desired chain in `id` (e.g., `3` for Ropsten testnet). See the list of supported chains above for each chain's ID.
-
-#### type
-
-`type` is the type of the chain, and only `evm` is supported at this time.
-
-#### providerNames
-
-Airnode can use multiple Ethereum providers per chain. These could be a private Ethereum node, or an Ethereum service provider such as Infura. Accordingly, the `providers` field is a list which allows for multiple Ethereum providers. Enter the `name` which identifies the provider. The name is used in the `environment` object to get its secret _provider URL_ and is used in logs.
-
-#### contracts
-
-`contracts` contains the addresses of the contracts that implement the Airnode protocols. Although you can deploy these contracts yourself, you are recommended to use the ones that were deployed by API3. You can find them in the list above.
-
-
-#### authorizers
-
-The list of authorizer contract addresses the Airnode deployment will set on-chain. See the [protocol docs](../../../concepts/airnode.md#setting-endpoint-authorizers) for more information. <FixInline>Funding of the Airnode wallet, is it needed here and for what reason?</FixInline> ~~Note that the Airnode wallet has to be funded (on the respective chain) to be able to make the transaction that will set or update this value.~~
-
-#### blockHistoryLimit
-
-`blockHistoryLimit` (optional) - the number of blocks in the past that the Airnode deployment should search for requests. Defaults to `300` (roughly 1 hour for Ethereum).
-
-#### minConfirmations
-
-`minConfirmations` (optional) - the number of confirmations required for a request to be considered valid. Defaults to `0`.
-
-#### ignoreBlockedRequestsAfterBlocks
-
-`ignoreBlockedRequestsAfterBlocks` (optional) - the number of blocks that need to pass for the node to start ignoring blocked requests. Defaults to `20`.
 
 ### nodeSettings
 
@@ -394,10 +388,15 @@ AWS_SECRET_ACCESS_KEY=ABC7...89
 
 Here is an [example file](../../../reference/templates/aws-env.md) that is left blank. 
 
-## Conclusion
+## Summary
 
-In this guide, we created the `config.json`, `secrets.env` and `aws.env` files required to deploy an Airnode to a cloud provider (AWS). Note that `config.json` is user-specific, so the `config.json` file is probably of not much use to others. The `secrets.env`and `aws.env` files contains keys and blockchain provider urls, so it should definitely be kept secret.
+In this guide, we created the `config.json`, `secrets.env` and `aws.env` files required to deploy an Airnode to a cloud provider (AWS). Note that `config.json` is user-specific, so the `config.json` file is probably of not much use to others. 
 
-Make sure that you do not push your credentials (`secrets.env` and `aws.env`) to a repository or otherwise expose them as these credentials can be used to gain access to your Airnode's private key and AWS account.
+The `secrets.env`and `aws.env` files contains keys, blockchain provider urls and security credentials, so they should be kept secret. Make sure that you do not push your credentials (`secrets.env` and `aws.env`) to a repository or otherwise expose them as these credentials can be used to gain access to your Airnode's private key and AWS account.
 
-Now that we have our Airnode configuration files, the next step is [Deploying Airnode](deploying-airnode.md).
+The next three steps in this guide are optional.
+
+- [Applying Authorization](./apply-auth.md) optional
+- [Heartbeat](./heartbeat.md) optional
+- [HTTP Gateway](./http-gateway.md) optional
+

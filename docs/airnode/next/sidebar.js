@@ -79,7 +79,7 @@ module.exports = [
     title: 'Reference', initialOpenGroupIndex: -1, collapsable: true,
     children: [
       {
-        title: 'Specification Files', collapsable: true,
+        title: 'Specifications', collapsable: true,
         children: [
             {title:'Oracle Integration Specifications (OIS)', path:'reference/specifications/ois'},
             'reference/specifications/airnode-abi-specifications',
@@ -94,6 +94,15 @@ module.exports = [
             {title:'secrets.env', path:'reference/deployment-files/secrets-env'},
             {title:'aws.env', path:'reference/deployment-files/aws-env'},
             {title:'receipt.json', path:'reference/deployment-files/receipt-json'}
+            
+        ],
+      },
+      {
+        title: 'Examples Files', collapsable: true,
+        children: [
+            'reference/examples/config-json',
+            'reference/examples/secrets-env',
+            'reference/examples/aws-env'
             
         ],
       },

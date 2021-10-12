@@ -5,174 +5,86 @@ title: config.json
 # {{$frontmatter.title}}
 
 <TocHeader /> 
-<TOC class="table-of-contents" :include-level="[2, 3]" />
+<TOC class="table-of-contents" :include-level="[2, 4]" />
 
-The `config.json` defines a single Airnode deployment. The file contents will be in the format show below as a single
-JSON object
-
-```json
-{
-  // config object
-}
-```
-
-Each config object can be thought of as the static NoSQL database of an Airnode deployment. It contains five fields as
-show below.
+The `config.json` defines a single Airnode deployment. The file contents are a single JSON object. Each config object can be thought of as the static NoSQL database of an Airnode deployment. It contains five fields as show below.
 
 ```json
 {
-  "ois": [
-    ...
-  ],
-  "triggers": {
-    ...
-  },
-  "chains": [
-    ...
-  ],
-  "nodeSettings": {
-    ...
-  },
-  "apiCredentials": [
-    ...
-  ]
+  "chains": [],
+  "nodeSettings": {},
+  "triggers": {},
+  "ois": [],
+  "apiCredentials": []
 }
 ```
 
-- [`ois`](#ois): API specifications and the corresponding on-chain endpoints, kept as [OIS](../specifications/ois.md)
-  objects
+- [chains](./config-json.md#chains): Blockchains the Airnode deployment will serve on and configuration details
+- [nodeSettings](./config-json.md#nodesettings): General deployment parameters such as node version and deployment configuration. 
+- [triggers](./config-json.md#triggers): Which on-chain endpoints will be usable by which an available protocol (currently only RRP) and under what endpoint ID.
+- [ois](./config-json.md#ois): API specifications and the corresponding on-chain endpoints, kept as [OIS](../specifications/ois.md) objects.
+- [apiCredentials](./config-json.md#apicredentials): Which API credentials will be usable by which OIS and security scheme.
 
-- [`triggers`](#triggers): Which on-chain endpoints will be usable by which protocols (RRP or PSP) and under what
-  endpoint ID
+## chains
 
-- [`chains`](#chains): Blockchains the Airnode deployment will serve on and configuration details
-
-- [`nodeSettings`](#nodesettings): General deployment parameters such as node version and deployment configuration
-
-- [`apiCredentials`](#apicredentials): Which API credentials will be usable by which OIS and security scheme
-
-## ois
-
-`ois` is a list of [OIS](../specifications/ois.md) objects. Since each OIS specifies the integration of an API to an
-oracle, a single Airnode deployment can serve multiple APIs.
-
-Contents of an `ois` list can be seen below (see the [OIS doc](../specifications/ois.md) for a complete example and the
-explanation of the fields):
+Lists the blockchains the Airnode deployment will serve on and specifies respective parameters.
 
 ```json
+// chains
 [
   {
-    "oisFormat": "1.0.0",
-    "title": "myOisTitle",
-    "version": "1.2.3",
-    "apiSpecifications": {
-      ...
+    "authorizers": [
+      "0xeabb...C123",
+      "0xCE5e...1abc"
+    ],
+    "contracts": {
+      "AirnodeRRP": "0x12B4...0C1a"
     },
-    "endpoints": [
-      ...
-    ]
+    "id": "1",
+    "providers": {
+      "selfHostedMainnet": {
+        "url": "${CP_SELF_HOSTED_MAINNET_URL}"
+      },
+      "infuraMainnet": {
+        "url": "${CP_INFURA_MAINNET_URL}"
+      }
+    },
+    "type": "evm"
+  },
+  {
+    "authorizers": [
+    ],
+    "contracts": {
+      "AirnodeRRP": "0xf1d4...0bd1"
+    },
+    "id": "3",
+    "providers": {
+      "infuraRopsten": {
+        "url": "${CP_INFURA_ROPSTEN_URL}"
+      }
+    },
+    "type": "evm"
   }
 ]
 ```
 
-## triggers
+### `authorizers`
+(required) - The list of authorizer contract addresses specifying the authorization patterns that the Airnode should use. An empty array would allow-all.
 
-`triggers` map external triggers such as a request made through RRP (or a subscription made through PSP, which is not
-implemented yet) to an endpoint defined in an OIS.
+### `contracts`
+(required) - An object that keeps the addresses of the protocol contracts deployed on the respective chain. It must include the `AirnodeRRP` contract address.
 
-Contents of a `triggers` object can be seen below:
+### `id`
+(required) - The corresponding chain (or network) ID. If this is an Ethereum-based chain, `id` should be the chain ID as described in [EIP-155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md#list-of-chain-ids). Refer to the documentations of the chain you will be using to find its chain ID.
 
-```json
-{
-  "rrp": [
-    {
-      "endpointId": "0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5",
-      "oisTitle": "myOisTitle",
-      "endpointName": "myEndpointName"
-    },
-    ...
-  ]
-}
-```
+### `providers`
+(required) - List of chain providers that will be used. Note that multiple of them can be used simultaneously. The Airnode deployment will expect to find the URLs of each of these chain providers in their respective `url` fields.
 
-According to the example above, the Airnode deployment has an OIS with the title `myOisTitle`. This OIS has an endpoint
-with the name `myEndpointName`. When the Airnode deployment detects a [request](../../concepts/request.md) that
-references its [`airnodeAddress`](../../concepts/airnode.md#airnodeaddress) and
-`0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5` as the
-[`endpointId`](../../concepts/endpoint.md#endpointid), it will call the specified endpoint
-(`myOisTitle`-`myEndpointName`) with the parameters provided in the request to fulfill it. See the [endpoint id
-documentation](../../concepts/endpoint.md#endpointid) for the default convention for deriving the `endpointId`.
+### `type`
+(required) - The type of chain. Currently only `evm` is supported.
 
-## chains
-
-`chains` lists the blockchains the Airnode deployment will serve on and specifies respective parameters.
-
-Contents of a `chains` list can be seen below:
-
-```json
-[
-    {
-      "id": "1",
-      "type": "evm",
-      "providers": {
-        "selfHostedMainnet": {
-          "url": "${CP_SELF_HOSTED_MAINNET_URL}"
-        },
-        "infuraMainnet": {
-          "url": "${CP_INFURA_MAINNET_URL}"
-        }
-      },
-      "contracts": {
-        "AirnodeRRP": "0x12B4...0C1a"
-      },
-      "authorizers": [
-        "0xeabb...C123",
-        "0xCE5e...1abc"
-      ],
-      "blockHistoryLimit": 300,
-      "minConfirmations": 0,
-      "ignoreBlockedRequestsAfterBlocks": 20
-    },
-    {
-      "id": "3",
-      "type": "evm",
-      "providers": {
-        "infuraRopsten": {
-          "url": "${CP_INFURA_ROPSTEN_URL}"
-        }
-      },
-      "contracts": {
-        "AirnodeRRP": "0xf1d4...0bd1"
-      },
-      "authorizers": [
-        "0x0000000000000000000000000000000000000000"
-      ],
-      "blockHistoryLimit": 300,
-      "minConfirmations": 0,
-      "ignoreBlockedRequestsAfterBlocks": 20
-    }
-  ]
-```
-
-- `id` (required) - the corresponding chain (or network) ID. If this is an Ethereum-based chain, `id` should be the
-  chain ID as described in [EIP-155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md#list-of-chain-ids).
-  Refer to the documentations of the chain you will be using to find its chain ID.
-
-- `type` (required) - the type of the chain. Currently, only `evm` is supported.
-
-- `providers` (required) - list of blockchain providers that will be used. Note that multiple of them can be used
-  simultaneously. The Airnode deployment will expect to find the URLs of each of these providers in their respective
-  `url` fields.
-
-- `contracts` (required) - an object that keeps the addresses of the protocol contracts deployed on the respective
-  chain. It has to include the following contract addresses:
-  - `AirnodeRRP`
-
-- `authorizers` (required) - the list of authorizer contract addresses specifying the authorized that the Airnoe should
-  use.
-
-- `blockHistoryLimit` (optional) - the number of blocks in the past that the Airnode deployment should search for
-  requests. Defaults to `300` (roughly 1 hour for Ethereum).
+<!--
+- `blockHistoryLimit` (optional) - the number of blocks in the past that the Airnode deployment should search for requests. Defaults to `300` (roughly 1 hour for Ethereum).
 
 - `minConfirmations` (optional) - the number of confirmations required for a request to be considered valid. Defaults to
   `0`.
@@ -180,13 +92,15 @@ Contents of a `chains` list can be seen below:
 - `ignoreBlockedRequestsAfterBlocks` (optional) - the number of blocks that need to pass for the node to start ignoring
   blocked requests. Defaults to `20`. A request is blocked whenever the API call cannot be made. For example, endpoint
   (specified by its id in the request) cannot be found in config.json.
+-->
+
 
 ## nodeSettings
 
-`nodeSettings` is an object containing general deployment parameters. Contents of a `nodeSettings` object can be seen
-below:
+An object containing general deployment parameters of an Airnode.
 
 ```json
+// nodeSettings
 {
   "nodeVersion": "0.1.0",
   "cloudProvider": "aws",
@@ -208,59 +122,126 @@ below:
 }
 ```
 
-- `nodeVersion` (required) - The version of the node (Airnode) that will be deployed with this config object.
+### `cloudProvider`
+(required) - The cloud provider that the node will be deployed at. Currently, only `aws` is supported for serverless ([deployer-image](../../grp-providers/docker/deployer-image.md)). Use `local` if you want to run Airnode as a docker container locally ([client-image](../../grp-providers/docker/client-image.md)).
 
-- `cloudProvider` (required) - The cloud provider that the node will be deployed at. Currently, only `aws` is supported
-  for serverless. Use `local` if you want to run Airnode as a docker container locally. <Fix>Link to the Airnode as
-  docker container section</Fix>
+### `airnodeWalletMnemonic`
+(required) - The wallet mnemonic that will be used by the Airnode.
 
-- `region` (required) - The cloud provider region that the node will be deployed at. See the cloud provider's
-  documentation for possible values.
+### `heartbeat`
+(required) - The Airnode's "call home" functionality. Airnode can periodically make a request to the specified URL signaling that it's active. There are plans in hte future to allow the sending of a payload with information for reporting purposes.
 
-- `stage` (required) - The label used to distinguish between multiple deployments of the same Airnode on a cloud
-  provider. For example, the same Airnode may have multiple deployments with `stage`s set as `dev`, `ropsten`,
-  `mainnet`, where each of these deployments would use the Airnode `address`. `stage` cannot be longer than 16
-  characters and can only include alphanumeric characters (`a–z`, `A–Z`, `0–9`), hyphen (`-`) and underscore (`_`).
+#### `heartbeat.enabled`
+(required) - Enable/disable Airnode's heartbeat.
 
-- `airnodeWalletMnemonic` (required) - The wallet mnemonic that will be used by the Airnode
+#### `heartbeat.apiKey`
+(only if enabled) - The API key to authenticate against the heartbeat URL.
 
-- `heartbeat` (required) - The Airnode's "call home" functionality. Airnode can periodically make a request to the
-  specified URL signaling that it's active. In the future, we plan to allow sending payload with information for
-  reporting purposes.
+#### `heartbeat.id`
+(only if enabled) - The Airnode heartbeat ID for accounting purposes.
 
-  - `enabled` (required) - Enable/disable Airnode's heartbeat
+#### `heartbeat.url`
+(only if enabled) - The URL to make the heartbeat request to.
 
-  - `url` (only if enabled) - The URL to make the heartbeat request to.
+### `httpGateway` 
+The Airnode's HTTP gateway to test out endpoints without using the blockchain.
 
-  - `apiKey` (only if enabled) - The API key to authenticate against the heartbeat URL
+#### `httpGateway.enabled`
+(required) - Enable/disable Airnode's HTTP gateway.
 
-  - `id` (only if enabled) - The Airnode heartbeat ID for accounting purposes
+#### `httpGateway.apiKey`
+(only if enabled) - The API key to authenticate against the gateway.
 
-- `httpGateway` - The Airnode's HTTP gateway to test out your endpoints without using the blockchain.
+### `logFormat` 
+(required) - The format that will be used to output logs. Either `json` or `plain`.
 
-  - `enabled` (required) - Enable/disable Airnode's HTTP gateway
+### `logLevel` 
+(required) - The highest verbosity level of the logs that will be outputted. `DEBUG`, `INFO`, `WARN` or `ERROR`.
 
-  - `apiKey` (only if enabled) - The API key to authenticate against the gateway
+### `nodeVersion` 
+(required) - The version of the node (Airnode) that will be deployed with this config object.
 
-- `logFormat` (required) - The format that will be used to output logs. Either `json` or `plain`.
+### `region`
+(required) - The cloud provider region that the node will be deployed at. See the cloud provider's documentation for possible values.
 
-- `logLevel` (required) - The highest verbosity level of the logs that will be outputted. `DEBUG`, `INFO`, `WARN` or
-  `ERROR`.
+### `stage`
+(required) - The label used to distinguish between multiple deployments of the same Airnode on a cloud provider. For example, the same Airnode may have multiple deployments with `stage` set to a different value (dev, ropsten, mainnet). `stage` cannot be longer than 16 characters and can only include alphanumeric characters (`a–z`, `A–Z`, `0–9`), hyphen (`-`) and underscore (`_`).
+
+## triggers
+
+An array that maps external triggers such as a request made through RRP (or a subscription made through PSP, which is not implemented yet) to an endpoint defined in an OIS.
+
+```json
+// triggers
+{
+  "rrp": [
+    {
+      "endpointId": "0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5",
+      "oisTitle": "myOisTitle",
+      "endpointName": "myEndpointName"
+    },
+    ...
+  ]
+}
+```
+
+In the example above, the Airnode deployment has an OIS with the title `myOisTitle`. This OIS has an endpoint with the name `myEndpointName`. When the Airnode deployment detects a [request](../../concepts/request.md) that references its [`airnodeAddress`](../../concepts/airnode.md#airnodeaddress) and `0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5` as the [`endpointId`](../../concepts/endpoint.md#endpointid), it will call the specified endpoint (`myOisTitle`-`myEndpointName`) with the parameters provided in the request to fulfill it. See the [endpoint id documentation](../../concepts/endpoint.md#endpointid) for the default convention for deriving the `endpointId`.
+
+### `rrp`
+(required) - An array of endpoints from OIS that the Airnode will respond to.
+
+#### `rrp.endpointId`
+(required) - A identifier derived for an oisTitle/endpointName pair, see [derive-endpoint-id](../admin-cli-commands.md#derive-endpoint-id).
+
+#### `rrp.oisTitle`
+(required) - The title of an OIS object.
+
+#### `rrp.endpointName`
+(required) - The endpoint name of an OIS endpoint.
+
+## ois
+
+A list of OIS objects. Since each OIS specifies the integration of an API to an oracle, a single Airnode deployment can serve multiple APIs. To avoid duplication of content, see the [OIS doc](../specifications/ois.md) for a complete example and the explanation of its fields.
 
 ## apiCredentials
 
-Each entry in `apiCredentials` maps to a security scheme defined in an OIS, where `oisTitle` is the `title` field of the
-related OIS, and `securitySchemeName` is the name of the respective security scheme (these would be `myOisTitle` and
-`mySecurityScheme` in the example in the [OIS docs](../specifications/ois.md)). `securitySchemeValue` is the value used
-for the authentication with said security scheme (e.g., the API key).
+Each entry in `apiCredentials` maps to a security scheme defined in an OIS (`ois[n].components.securitySchemes.{securitySchemeName}`), where `oisTitle` is the `title` field of the related OIS, and `securitySchemeName` is the name of the respective security scheme. These would be `myOisTitle` and
+`mySecurityScheme` in the example below. `securitySchemeValue` is the value used for the authentication with the security scheme (e.g., the API key).
 
+Use of apiCredentials is not required, leave its array empty.
 
 ```json
+// apiCredentials
 [
   {
     "oisTitle": "myOisTitle",
-    "securitySchemeName": "mySecurityScheme",
+    "securitySchemeName": "",
     "securitySchemeValue": "${SS_MY_API_KEY}"
   }
 ]
+
+// From the OIS object apiCredentials is referencing
+{
+  "title": "myOisTitle",
+  ...,
+  "components": {
+    "securitySchemes": {
+      "mySecurityScheme": {
+        "in": "query",
+        "type": "apiKey",
+        "name": "access_key"
+      }
+    }
+  },
+  ...
+}
 ```
+
+### `oisTitle`
+(required) - The `ois.title` of the OIS where the `securitySchemeName` can be found.
+
+### `securitySchemeName`
+(required) - The name of a security scheme from `ois[n].components.securitySchemes.{securitySchemeName}`.
+
+### `securitySchemeValue`
+(required) - The value of the security scheme used (as defined by `ois[n].components.securitySchemes.{securitySchemeName}` for the authentication. Usually stored in `secrets.env`. 
