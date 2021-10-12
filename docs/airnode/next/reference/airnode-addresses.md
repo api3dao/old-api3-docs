@@ -15,12 +15,16 @@ This doc shows EVM-compatible blockchains that Airnode protocol contracts have b
 
 | Blockchain | ID  | Address                                    |
 | ---------- | --- | ------------------------------------------ |
-| mainnet    | ... | ...                                        |
+| mainnet    | 1   | ...                                        |
 | ropsten    | 3   | 0xF6d2675468989387e96127546e0CBC9A384fa418 |
+| rinkeby    | 4   |                                            |
+| kovan      | 62  |                                            |
 
 ## AirnodeRequesterRrpAuthorizer.sol
 
-| Blockchain | ID  | Address |
-| ---------- | --- | ------- |
-| mainnet    | ... | ...     |
-| ropsten    | 3   | ...     |
+| Blockchain | ID  | Address                                    |
+| ---------- | --- | ------------------------------------------ |
+| mainnet    | ... | ...                                        |
+| ropsten    | 3   | ...                                        |
+| rinkeby    | 4   | ...                                        |
+| kovan      | 62  | ...                                        |
