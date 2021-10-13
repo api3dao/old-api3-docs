@@ -3,12 +3,7 @@ module.exports = [
     title: 'Introduction', collapsable: false, 
     children: [
         '',
-        'introduction/contributing',
-        'introduction/blog-posts',
-        'introduction/apis',
-        'introduction/first-party-oracles',
-        'introduction/decentrally-governed-oracle-networks',
-        'introduction/dapis'
+        'introduction/why-use-airnode',
     ]
   },
   {

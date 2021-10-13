@@ -1,9 +1,9 @@
 ---
-title: DEPRECATED What is API3?
+title: Who is API3?
 ---
 
 <p align="center">
-  <img src="./figures/api3.png" width="400" />
+  <img src="./images/api3.png" width="400" />
 </p>
 
 # {{$frontmatter.title}}
@@ -22,12 +22,12 @@ Therefore, what is widely known as _the oracle problem_ is in practice _an API c
 Existing oracle solutions fall short because they fail to make this distinction, resulting in inferior solutions that depend on third-party oracles and ecosystems that exclude _API providers_. By refining the definition of the problem, **API3** aims to provide a much more optimal solution.
 
 ::: tip API3 Whitepaper (pdf)
-For a detailed discussion of the API3 project, read the [API3 Whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf).
+For a detailed discussion of the API3 project, read the <a href="/api3-whitepaper-v1.0.1.pdf" target="api3-docs">API3 Whitepaper</a>.
 :::
 
 ## The Airnode
 
-At its core, **API3** brings the ability for API providers to easily run their own _oracle nodes_. This allows them to provide their data on-chain, without an intermediary, to any _decentralized application_ \(dApp\) interested in their services.
+At its core, **API3** brings the ability for API providers to easily run their own _oracle nodes_. This allows them to provide their data on-chain, without an intermediary, to any _decentralized app_ \(dApp\) interested in their services.
 
 At the heart of this mechanism sits **Airnode**, an open-source oracle node. It's designed to be easily deployed by any API provider with almost no maintenance. Because of Airnode, dApp developers can write _smart contracts_ to interact with the on-chain data of API providers.
 
@@ -66,7 +66,7 @@ Not comfortable with academic-style papers? The following Blog Posts explain the
 
 **All the Blog Posts**
 
-You can find all our blog posts on our [Medium page here](https://medium.com/api3/archive)
+You can find all our blog posts on our [Medium page here](https://medium.com/api3)
 :::
 
 ::: tab Communities
@@ -103,4 +103,4 @@ At **API3** we are open to any proposals and improvements. Please feel free to c
 * making pull requests
 * proposing features
 
-Read more about contributing in the [Contributing](./introduction/contributing.md) section.
+Read more about contributing in the <CommonLink :path="'introduction/contributing.md'">Contributing</CommonLink> section.

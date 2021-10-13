@@ -1,4 +1,49 @@
 {
+  "chains": [
+    {
+      "authorizers": [
+        "<FILL_*>"
+      ],
+      "contracts": {
+        "AirnodeRrp": "<FILL_*>"
+      },
+      "id": "<FILL_CHAIN_ID_1>",
+      "providers": {
+        "<FILL_PROVIDER_NAME_1>": {
+          "url": "${PROVIDER_URL}"
+        }
+      },
+      "type": "<FILL_CHAIN_TYPE_1>"
+    }
+  ],
+  "nodeSettings": {
+    "cloudProvider": "aws",
+    "airnodeWalletMnemonic": "<FILL_*>",
+    "heartbeat": {
+      "enabled": true,
+      "url": "<FILL_*>",
+      "apiKey": "<FILL_*>",
+      "id": "<FILL_*>"
+    },
+    "httpGateway": {
+      "enabled": true,
+      "apiKey": "<FILL_*>"
+    },
+    "logFormat": "json",
+    "logLevel": "INFO",
+    "nodeVersion": "0.1.0",
+    "region": "<FILL_*>",
+    "stage": "<FILL_*>"
+  },
+  "triggers": {
+    "rrp": [
+      {
+        "endpointId": "<FILL_*>",
+        "oisTitle": "<FILL_OIS_TITLE>",
+        "endpointName": "<FILL_ENDPOINT_NAME>"
+      }
+    ]
+  },
   "ois": [
     {
       "oisFormat": "1.0.0",
@@ -35,11 +80,9 @@
             }
           }
         },
-        "security": [
-          {
-            "<FILL_SECURITY_SCHEME_NAME>": []
-          }
-        ]
+        "security": {
+          "<FILL_SECURITY_SCHEME_NAME>": []
+        }
       },
       "endpoints": [
         {
@@ -83,54 +126,17 @@
                 "name": "<FILL_OPERATION_PARAMETER_2_NAME>"
               }
             }
-          ]
+          ],
+          "testable":"<FILL_*>"
         }
       ]
     }
   ],
-  "triggers": {
-    "rrp": [
-      {
-        "endpointId": "<FILL_*>",
-        "oisTitle": "<FILL_OIS_TITLE>",
-        "endpointName": "<FILL_ENDPOINT_NAME>"
-      }
-    ]
-  },
-  "nodeSettings": {
-    "nodeVersion": "0.1.0",
-    "cloudProvider": "aws",
-    "region": "<FILL_*>",
-    "stage": "<FILL_*>",
-    "airnodeWalletMnemonic": "<FILL_*>",
-    "heartbeat": {
-      "enabled": true,
-      "url": "<FILL_*>",
-      "apiKey": "<FILL_*>",
-      "id": "<FILL_*>"
-    },
-    "httpGateway": {
-      "enabled": true,
-      "apiKey": "<FILL_*>"
-    },
-    "logFormat": "json",
-    "logLevel": "INFO"
-  },
-  "chains": [
+  "apiCredentials": [
     {
-      "authorizers": [
-        "<FILL_*>"
-      ],
-      "contracts": {
-        "AirnodeRrp": "<FILL_*>"
-      },
-      "id": "<FILL_CHAIN_ID_1>",
-      "providers": {
-        "<FILL_PROVIDER_NAME_1>": {
-          "url": "${PROVIDER_URL}"
-        }
-      },
-      "type": "<FILL_CHAIN_TYPE_1>"
+      "oisTitle": "<FILL_OIS_TITLE>",
+      "securitySchemeName": "<FILL_SECURITY_SCHEME_NAME>",
+      "securitySchemeValue": "<FILL_*>"
     }
   ]
 }

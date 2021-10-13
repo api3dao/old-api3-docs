@@ -1,0 +1,1 @@
+../../../common/why-use-airnode.md

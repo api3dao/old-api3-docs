@@ -29,6 +29,7 @@ module.exports = {
     sidebar: {'/airnode/next/':require(`../airnode/next/sidebar.js`),
               '/airnode/pre-alpha/':require(`../airnode/pre-alpha/sidebar.js`),
               '/dao-members/':require(`../dao-members/sidebar.js`),
+              '/api3/':require(`../api3/sidebar.js`),
               '/dev/':require(`../dev/sidebar.js`),
               '/dev-airnode/':require(`../dev-airnode/sidebar.js`)
              },
