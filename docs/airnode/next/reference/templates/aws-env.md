@@ -9,4 +9,7 @@ The `aws.env` contains AWS credentials from an IAM user. These credentials are u
 
 Do not place double quotes (") around the value of each field.
 
-<<< @/docs/airnode/next/reference/code/template-aws.env
+```sh
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+```

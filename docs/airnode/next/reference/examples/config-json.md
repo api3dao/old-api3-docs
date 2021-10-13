@@ -10,12 +10,12 @@ title: config.json
     {
       "authorizers": [],
       "contracts": {
-        "AirnodeRrp": "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+        "AirnodeRrp": "0x534DfA0d242e7fDCFD096C2B1a3D70F172008778"
       },
-      "id": "31337",
+      "id": "4",
       "providers": {
-        "local": {
-          "url": "${LOCAL_PROVIDER_URL}"
+        "rinkeby": {
+          "url": "${RINKEBY_PROVIDER_URL}"
         }
       },
       "type": "evm"
@@ -55,9 +55,6 @@ title: config.json
       "version": "1.2.3",
       "title": "Currency Converter API",
       "apiSpecifications": {
-        "info": {
-          "title": "Currency Converter API"
-        },
         "servers": [
           {
             "url": "http://localhost:5000"
@@ -90,12 +87,17 @@ title: config.json
         "components": {
           "securitySchemes": {
             "Currency Converter Security Scheme": {
-              "in": "query",
+              "in": "header",
               "type": "apiKey",
-              "name": "access_key"
+              "name": "X_access_key"
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Currency Converter Security Scheme": []
+          }
+        ]
       },
       "endpoints": [
         {
