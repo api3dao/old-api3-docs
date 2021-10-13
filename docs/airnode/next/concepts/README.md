@@ -1,62 +1,81 @@
 ---
 title: Request-Response Protocol
 ---
+
 <TitleSpan>Concepts and Definitions</TitleSpan>
+
 # {{$frontmatter.title}}
 
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-<Fix>Refer to [Monorepo version: @api3/protocol](https://github.com/api3dao/airnode/tree/beta-protocol-revision/packages/protocol) for details to enhance this docs. Careful which branch you use. Devs are moving to a consolidated  branch soon.</Fix>
-
-The first protocol implemented for Airnode is request–response.
-An Airnode serving the request–response protocol listens for requests, makes the API call specified by the request, and fulfills the request as soon as possible.
+The first protocol implemented for Airnode is request–response. An Airnode serving the request–response protocol listens
+for requests, makes the API call specified by the request, and finally makes the response transaction back on chain.
 
 ## Contracts
 
-The request–response protocol is implemented as a single permissionless contract that all Airnodes interact with, which is named `AirnodeRrp.sol`. This base contract has the following inheritance tree that compartmentalizes the aspects of the protocol.
+> This sections briefly describes the structure of the request response protocol contracts. You can find more
+> information in the
+> [source files on github](https://github.com/api3dao/airnode/tree/master/packages/protocol/contracts/rrp).
 
-  >  ![rrp-sol-diagram](../assets/images/RRP-protocol-contracts.png)
+The request–response protocol is implemented as a single permissionless contract that all Airnodes interact with, which
+is named `AirnodeRrp.sol`. This base contract has the following inheritance tree that compartmentalizes the aspects of
+the protocol.
+
+> ![rrp-sol-diagram](../assets/images/RRP-protocol-contracts.png)
 
 ### AirnodeRrp.sol
 
-The [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/AirnodeRrp.sol) contract sits between a requester and the Airnode. It inherits from four additional contracts as illustrated in the diagram above.
+The [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/AirnodeRrp.sol)
+contract sits between a [requester](./requester.md) and the [Airnode](./airnode.md). It inherits from four additional
+contracts as illustrated in the diagram above:
 
-- Used by requesters to make requests.
-- Used by Airnodes to fulfill requests.
+- [IAirnodeRrp.sol](README.md#iairnoderrp-sol)
+- [AuthorizationUtils.sol](README.md#authorizationutils-sol)
+- [WithdrawalUtils.sol](README.md#withdrawalutils-sol)
+- [TemplateUtils.sol](README.md#templateutils-sol)
 
-The [Admin](../admin-cli-commands.md) (`@api3/airnode-admin`) package is a CLI tool used to interact with `AirnodeRrp.sol` and perform administrative actions. See the [admin package](https://github.com/api3dao/airnode/tree/master/packages/admin) in GitHub.
+This contract has two key responsibilities:
 
-<Fix>Out-of-date: it should now inherit from RrpRequester.sol</Fix>
-To use AirnodeRrp.sol a requester must import AirnodeRrpClient.sol.
+- It is used by requesters to make requests.
+- It is used by Airnodes to fulfill requests.
 
-`import "@api3/airnode-protocol/contracts/AirnodeRrpClient.sol";`
+However, this contract is shared for all requesters and Airnodes on a particulat chain. This means that neither Airnode
+operators nor requesters need to deploy this contract themselves. Instead, API3 will deploy this contract once per chain
+and you simply connect your Airnode or requester contract to that deployed contract. See the
+[Airnode contract addresses](../reference/airnode-addresses.md) for reference.
 
+The [`@api3/airnode-admin`](../admin-cli-commands.md) package is a CLI tool used to interact with `AirnodeRrp.sol` and
+perform administrative actions.
 
 ### IAirnodeRrp.sol
 
-The [IAirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/interfaces/IAirnodeRrp.sol) contract <FixInline>Add summary, see the pre-alpha docs.</FixInline>
+The
+[IAirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/interfaces/IAirnodeRrp.sol)
+interface describes all functions and events of the `AirnodeRrp.sol` contract which implements this interface.
 
-- <FixInline>add bullet highlights</FixInline>
-- 
+This interface inherits:
+
+- [IAuthorizationUtils.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/interfaces/IAuthorizationUtils.sol)
+- [IWithdrawalUtils.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/interfaces/IWithdrawalUtils.sol)
+- [ITemplateUtils.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/interfaces/ITemplateUtils.sol)
 
 ### AuthorizationUtils.sol
 
-The [AuthorizationUtils.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/AuthorizationUtils.sol) contract <FixInline>Add summary, see the pre-alpha docs.</FixInline>
-
-- <FixInline>add bullet highlights</FixInline>
-
+The
+[AuthorizationUtils.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/AuthorizationUtils.sol)
+contract implements Airnode [authorization](./authorization.md#authorizers) checks.
 
 ### WithdrawalUtils.sol
 
-The [WithdrawalUtils.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/WithdrawalUtils.sol) contract <FixInline>Add summary, see the pre-alpha docs.</FixInline>
-
-- <FixInline>add bullet highlights</FixInline>
-
+The
+[WithdrawalUtils.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/WithdrawalUtils.sol)
+contract allows the [sponsor](./sponsor.md) to trigger a withdrawal request which is later fulfilled by Airnode and all
+sponsor wallet funds are sent back to the sponsor.
 
 ### TemplateUtils.sol
 
-The [TemplateUtils.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/TemplateUtils.sol) contract <FixInline>Add summary, see the pre-alpha docs.</FixInline>
-
-- <FixInline>add bullet highlights</FixInline>
-- 
+The
+[TemplateUtils.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/TemplateUtils.sol)
+contract is used to create and store Airnode [templates](./template.md) used to create a
+[template request](./request.md#template-request).
