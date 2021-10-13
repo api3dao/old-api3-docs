@@ -1,7 +1,7 @@
 ---
 title: Heartbeat
 ---
-
+<TitleSpan>Build an Airnode</TitleSpan>
 # {{$frontmatter.title}}
 
 
@@ -20,8 +20,6 @@ Turn on the optional heartbeat functionality by setting all fields in the `confi
   chains:{...},
   environment:{...},
   nodeSettings:{
-      // The airnodeAddressShort is omitted for new deployments
-      "airnodeAddressShort": "0x67b...8dfg",
       "nodeVersion": "0.1.0",
       "cloudProvider": "aws",
       "region": "us-east-1",

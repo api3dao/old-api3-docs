@@ -1,7 +1,7 @@
 ---
 title: Configuring Airnode
 ---
-
+<TitleSpan>Build an Airnode</TitleSpan>
 # {{$frontmatter.title}}
 
 <TocHeader />
@@ -33,15 +33,11 @@ Use the [config.json template](../../../reference/templates/config-json.md) to b
 - [ois](./configuring-airnode.md#ois)
 - [apiCredentials](./configuring-airnode.md#apicredentials)
 
-
 ### chains
 
-Each row in the `chains` array represents an Ethereum blockchain the Airnode will serve as identified by the `id`. Currently Airnode only supports Ethereum blockchains as denoted by `type: "evm"`. There are several supported blockchains, see them in the [Airnode contract addresses](../../../reference/airnode-addresses.md) doc.
+Each row in the `chains` array represents an Ethereum blockchain the Airnode will serve as identified by the `id`. Currently Airnode only supports Ethereum blockchains as denoted by `type: "evm"`. There are several supported blockchains, see them in the [Airnode contract addresses](../../../reference/airnode-addresses.md) doc. You can use multiple chain providers for each chain and declare multiple chains each with one of more chain providers. See [Chains Providers](../../../concepts/chain-providers.md) in _Concepts and Definitions_.
 
-You can use multiple chain providers for each chain and declare multiple chains each with one of more chain providers.
-
-For additional information about chain parameters see the [config.json](../../../reference/deployment-files/config-json.md#chains) file in the reference section under deployment files.
-
+Below is a simple chain array with a single chain provider.
 ```json
 "chains": [
   {
@@ -96,248 +92,155 @@ https://github.com/api3dao/airnode/issues/41
 `ignoreBlockedRequestsAfterBlocks` (optional) - the number of blocks that need to pass for the node to start ignoring blocked requests. Defaults to `20`.
 -->
 
-### ois
-
-The `ois` field is a list OIS objects that Airnode will be serving. This means that a single instance of an Airnode can serve multiple APIs. You can simply copy paste OIS objects that you will be serving into the `ois` list. Use the previous guide [API Integration](api-integration.md) to create an OIS object.
-
-### triggers
-
-The `triggers` field allows you to expose Airnode endpoints from an OIS selectively. For example, your OIS may include 10 endpoints, but you may only want to serve 2. Instead of modifying the OIS, you would simply create triggers for the 2. Similarly, you may want to serve an endpoint through the request–response protocol, but not the pub–sub protocol. In that case, you would only create the trigger for the request–response protocol.
-
-Note that currently only the request–response protocol is implemented. You can list the endpoints that you want to serve with the request–response protocol under `triggers.rrp`. In most cases, you would create a trigger for each endpoint in your OIS object.
-
-Each trigger has an `oisTitle` and `endpointName` that allow you to refer to one of the endpoints in an OIS object. Remember that an Airnode's config.json file can have more than one OIS object. Fill these in accordingly. 
-
-Next add an `endpointId` to the trigger which is the ID that the requester will use in their on-chain requests to refer to this specific trigger. There are three ways to create an `endpointId`.
-
-1. As a convention use the Keccak256 hash of `{oisTitle}/{endpointName}`. In JS (using ethers.js):
-
-    ```js
-    endpointId = ethers.utils.keccak256(ethers.utils.defaultAbiCoder.encode(['string'], [`${oisTitle}/${endpointName}`]));
-    ```
-
-2. You can also use [`@api3/airnode-admin`](https://github.com/api3dao/airnode/tree/pre-alpha/packages/admin#derive-endpoint-id) to derive endpoint IDs using the `oisTitle` and `endpointName`.
-
-    ```bash
-    Derives the endpoint ID using the OIS title and the endpoint name using the convention described here.
-
-    npx @api3/airnode-admin derive-endpoint-id \
-      --oisTitle "My OIS title..." \
-      --endpointName "My endpoint name..."
-    ```
-
-
 ### nodeSettings
-
 
 The `nodeSettings` field holds node-specific (Airnode) configuration parameters. 
 
-#### airnodeAddressShort
-
-The first of these is `airnodeAddressShort`, which is used as a label by the deployer to detect previous deployments. Therefore, you must not have the `airnodeAddressShort` field in your `config.json` during the first deployment as it will be created for you. On the other hand, you must have it for the following redeployments. You can find `airnodeAddressShort` in the receipt file outputted after deployment. This guide assumes that you have not deployed Airnode yet, so the `airnodeAddressShort` field is not present in the `config.json` template.
-
 ```json
 {
-  // The airnodeAddressShort is omitted for new deployments
-  "nodeVersion": "0.1.0",
-  "cloudProvider": "aws",
-  "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
-  "region": "us-east-1",
-  "stage": "testnet",
-  "heartbeat": {
-    "enabled": true,
-    "url": "${HEARTBEAT_URL}",
-    "apiKey": "${HEARTBEAT_API_KEY}",
-    "id": "${HEARTBEAT_ID}"
+"nodeSettings": {
+    "cloudProvider": "aws",
+    "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
+    "heartbeat": {
+      "enabled": true,
+      "apiKey": "${HEARTBEAT_API_KEY}",
+      "id": "${HEARTBEAT_ID}",
+      "url": "${HEARTBEAT_URL}"
+    },
+    "httpGateway": {
+      "enabled": true,
+      "apiKey": "${HTTP_GATEWAY_API_KEY}"
+    },
+    "logFormat": "plain",
+    "logLevel": "INFO",
+    "nodeVersion": "1.0.0",
+    "region": "us-east-1",
+    "stage": "dev"
   },
-  "logFormat": "json",
-  "logLevel": "INFO"
-}
 ```
-
-#### nodeVersion
-
-The `nodeSettings.nodeVersion` field indicates which node version this `config.json` is prepared for. Since the `config.json` format can be expected to change with node versions, using a `config.json` prepared for one Airnode version with another may result in unexpected issues. The current node version is `0.1.0`, so you can leave it as such.
 
 #### cloudProvider
 
-The `nodeSettings.cloudProvider` field indicates which cloud provider Airnode should be deployed with or if it should be run locally. The deployer currently supports `aws` or `local`.
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#cloudprovider) Indicates which cloud provider Airnode should be deployed with or if it should be run locally. The deployer currently supports `aws` or `local`.
 
 - `aws`: Airnode is deployed using the docker [deployer-image](../../using-docker.html#deployer-image).
 - `local`: Airnode is deployed using the docker [client-image](../../using-docker.html#client-image). 
 
-There are plans to extend the deployer-image to support a wide variety of cloud providers. If you would like to contribute, please join the conversation in [this issue](https://github.com/api3dao/airnode/issues/154).
-
 #### airnodeWalletMnemonic
-<Fix>I don't think this is still optional</Fix>
-(optional) An API provider can provide a mnemonic to be used as the Airnode's BIP 44 wallet from which the Airnode's [`address`](../../../concepts/airnode.md#airnodeaddress) will be derived. If a mnemonic is not provided the deployer will create one for the Airnode. It is not required to fund the wallet to run the Airnode but must be funded to announce the [`xpub`](../../../concepts/airnode.md#xpub) of the Airnode on-chain which is optional.
 
-#### region
-
-The `nodeSettings.region` field can be seen as an extension of `cloudProvider`, it refers to which region of the cloud provider Airnode will be deployed at. An example value for AWS would be `us-east-1`. Note that transferring a deployment from one region to the other is not trivial at this moment (i.e., it does not take one command like deployment, but rather three). Therefore, try to pick a region and stick to it for this specific deployment. If you would like to contribute to related tooling, please join the conversation in [this issue](https://github.com/api3dao/airnode/issues/155).
-
-#### stage
-
-The `nodeSettings.stage` field allows you to deploy multiple Airnodes with the same provider ID. For example, the provider may deploy one Airnode with the stage `api3` to serve API3 dAPIs, and one with the stage `public` that serves the public. A regular user will have a single deployment, so feel free to set any descriptive name as your `stage`.
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#airnodewalletmnemonic) An API provider provides a mnemonic to be used as the Airnode's BIP 44 wallet from which the Airnode's [address](../../../concepts/airnode.md#airnodeaddress) will be derived. It is not required to fund the wallet to run the Airnode but must be funded to announce the [xpub](../../../concepts/airnode.md#xpub) of the Airnode on-chain which is optional.
 
 #### heartbeat
 
-At the end of each of Airnode's runs (every minute), Airnode can make an HTTP POST request to a specified URL. This is both to signal that the Airnode is alive and working (useful especially right after the deployment) and also to send some metrics from its run. Turn on the heartbeat functionality by setting all fields in the config.json section nodeSettings.heartbeat. See the [heartbeat](heartbeat.md) doc for more info.
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#heartbeat) At the end of each of Airnode's runs (every minute), Airnode can make an HTTP POST request to a specified URL. This is both to signal that the Airnode is alive and working (useful especially right after the deployment) and also to send some metrics from its run. Turn on the heartbeat functionality by setting all fields in the config.json section nodeSettings.heartbeat. See the [Heartbeat](./heartbeat.md) doc for more info.
 
+- enabled: Enable/disable Airnode's heartbeat.
+- url: The URL to make the heartbeat request to.
+- apiKey: The API key to authenticate against the eartbeat URL.
+- id: The Airnode heartbeat ID for accounting purposes.
 
-- enabled: Enable/disable Airnode's heartbeat
-- url: The URL to make the heartbeat request to
-- apiKey: The API key to authenticate against the heartbeat URL
-- id: The Airnode heartbeat ID for accounting purposes
+#### httpGateway
 
-#### HTTP Gateway
-
-The gateway allows the testing of defined endpoints without accessing the blockchain.
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#httpgateway) The gateway allows the testing of defined endpoints without accessing the blockchain. See the [HTTP Gateway](./http-gateway.md) doc for more info.
 
 - enabled: Enable/disable Airnode's Access to the HTTP gateway
 - apiKey: A user defined apiKey that is passed to the Airnode's gateway base URL
 
 #### logFormat
 
-Set one of two possible log formats. 
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#logformat) Set one of two possible log formats. 
 
 - json
 - plain
 
 #### logLevel
 
-Set one of four possible log levels. 
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#loglevel) Set one of four possible log levels. 
 
 - DEBUG
 - INFO
 - WARN
 - ERROR
 
-### environment
+#### nodeVersion
 
-Airnode deployments need secrets such as security scheme values (i.e., API keys) and blockchain provider URLs. The secrets.env file stores these secrets which are used to set the environment variables. The `environment` field is used by Airnode to access the environment variables (secrets) for securitySchemes and blockchain provider URLs. These variables have arbitrary names and need to be declared. See the reference [Technology > Deployment Files > config.json > environment](../../../reference/deployment-files/config-json.md#environment) for additional input.
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#nodeversion) Indicates which node (Airnode) version this `config.json` is prepared for. Since the `config.json` format can be expected to change with node versions, using a `config.json` prepared for one Airnode version with another may result in unexpected issues. The current node version is `1.0.0`.
 
-Note the following steps Airnode takes related to environment variables during deployment and redeployment.
+#### region
 
-1. Airnode creates environment variables from the secrets.env file.
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#region) This field can be seen as an extension of `cloudProvider`, it refers to which region of the cloud provider Airnode will be deployed at. An example value for AWS would be `us-east-1`. Note that transferring a deployment from one region to the other is not trivial at this moment (i.e., it does not take one command like deployment, but rather three). Therefore, try to pick a region and stick to it for this specific deployment.
 
-2. Airnode utilizes the `environment` object in config.json to look-up the environment variables related to securitySchemes and chainProviders that are stored in secrets.env. 
+#### stage
 
-#### chainProviders
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#stage) This field allows the depolyment of multiple Airnodes with the same provider ID. For example, the provider may deploy one Airnode with the stage `api3` to serve API3 dAPIs, and one with the stage `public` that serves the public. A regular user will have a single deployment, so feel free to set any descriptive name as your `stage`.
 
-Each entry in `environment.chainProviders[n]` maps to an `entry in chains[n]`. Note that the value of envName is the name of the environment variable (from secrets.env) which holds the respective blockchain provider URL. See the section [One Chain: One Provider](configuring-airnode.md#one-chain-one-provider) below to understand and setup a chainProvider along with an environment variable that points to its provider URL in `secrets.env`. 
+### triggers
 
-- chainId - blockchain ID 
-- chainType - only evm supported at this time
-- name - arbitrary name of the blockchain provider
-- envName - name of the environment variable found in secrets.env
+The `triggers` field allows you to expose Airnode endpoints from an OIS selectively. For example, your OIS may include ten endpoints, but you may only want to serve two. Instead of modifying the OIS, you would simply create triggers for the two. List the endpoints that you want to serve with the request–response protocol under `triggers.rrp`. In most cases, you would create a trigger for each endpoint in your OIS object.
 
-##### One Chain: One Provider
+#### oisTitle & endpointName
 
-This example creates a `chains` record with one blockchain provider and a corresponding `environment.chainProviders ` record which in turn has a secret, a provider URL stored in the secrets.env file.
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#rrp-oistitle) Each trigger has an `oisTitle` and `endpointName` that allow you to refer to one of the endpoints in an OIS object. Remember that an Airnode's config.json file can have more than one OIS object. Fill these in accordingly. 
 
-1. For the purpose of this example the `chains` field declares its use of blockchain 3, _Ropsten_. The `type` is set to _evm_ which is the only type currently supported by Airnode. It then applies an arbitrary name for the blockchain provider "infura_ropsten" in the `providerNames` array.
+#### endpointId
 
-    > See the above [chains](configuring-airnode.md#chains) section of this page for information on the remaining fields within the `chains` object.
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#rrp-endpointid) Add an `endpointId` to the trigger which is the ID that a requester will use for on-chain requests to reference a specific trigger. Use [`@api3/airnode-admin`](https://github.com/api3dao/airnode/tree/pre-alpha/packages/admin#derive-endpoint-id) to derive endpoint IDs using the `oisTitle` and `endpointName`.
 
-    ```json
-    "chains": [
-      {
-        "id": "3",
-        "type": "evm",
-        "providerNames": [
-          "infura_ropsten"
-        ],
-        ...
-      }
-    ]
-    ```
+```bash
+npx @api3/airnode-admin derive-endpoint-id \
+  --oisTitle "My OIS title..." \
+  --endpointName "My endpoint name..."
+```
 
-2. The Airnode deployer will use three keys from `chains` to get the appropriate environment variable name from `environment` which in this case is "CP_EVM_3_INFURA_ROPSTEN". 
 
-    - `chains[0].id`
-    - `chains[0].type`
-    - `chains[0].providerNames[0]` 
-  
-3. Using the three keys from step #2 above, Airnode will look for a match using three keys in `environment`. The resulting match yields the value  of `envName` which is the name of the environment variable in secrets.env.
-  
-    - `environment.chainProviders[0].chainId` 
-    - `environment.chainProviders[0].chainType`
-    - `environment.chainProviders[0].name` 
+### ois
 
-    ```json
-    "environment": {
-      "chainProviders": [
-        {
-          "chainType": "evm",
-          "chainId": "3",
-          "name": "infura_ropsten",
-          "envName": "CP_EVM_3_INFURA_ROPSTEN"
-        }
-      ],
-      "securitySchemes": []
-    },
+The `ois` field is a list OIS objects that Airnode will be serving. This means that a single instance of an Airnode can serve multiple APIs. You can simply copy paste OIS objects that you will be serving into the `ois` list. Use the previous guide [API Integration](api-integration.md) to create an OIS object.
 
-    # secrets.env
-    ...
-    CP_EVM_3_INFURA_ROPSTEN="https://ropsten.infura.io/v3/7545745CVDG834834"
-    ```
+### apiCredentials
 
-##### One Chain: Multiple Providers
+Each entry in `apiCredentials` maps to a security scheme defined in an OIS (`ois[n].components.securitySchemes.{securitySchemeName}`), where `oisTitle` is the `title` field of the related OIS, and `securitySchemeName` is the name of the respective security scheme. These would be `myOisTitle` and `mySecurityScheme` in the example below. `securitySchemeValue` is the value used for the authentication with the security scheme (e.g., the API key).
 
-Multiple providers can be used per chain. Simply add another `chains.providerName` and a new object to `environment.chainProviders`. In this case both blockchain providers will have the same `chainId` and `chainType`. As a result there will be an environment variable for each blockchain provider in secrets.env with a URL as its value.
-
-##### Multiple Chains: Multiple Providers
-
-Not as complicated as it sounds. First create two or more chain objects were each has a unique `id` and `type` and a list of `providerNames`. Then add each blockchain provider to the `environment.chainProviders` array much like the example above for [One Chain: One Provider](configuring-airnode.md#one-chain-one-provider)
-
-#### securitySchemes
-
-Each entry in `environment.securitySchemes` maps to a securityScheme defined in an OIS object, where `oisTitle` is the title field of the related OIS, and `name` is the name of the respective securityScheme. These would be myOisTitle and mySecurityScheme in the code example below. The `envName` field's value is the environment variable name used in secrets.env. 
-
- that in turn holds the securityScheme value (e.g., the API key).
-
-Previously in [API Integrations](api-integration.md#security-schemes) you learned how to set up an API's securityScheme(s). Here we simply add them to `environment.securitySchemes` along with their `envName` (environment variable name).
+Use of apiCredentials is not required, leave its array empty.
 
 ```json
-"ois": [
+// apiCredentials
+[
   {
-    "title":"myOisTitle", // Used below in securitySchemes[0].oisTitle
-    ...,
-    "apiSpecifications": {
-      "components": {
-          "securitySchemes": {
-            "mySecurityScheme": {
-              "in": "header",  
-              "type": "apiKey",
-              "name": "X-api-key"
-            }
-          }
-        },
-      "security": [
-        {
-          "mySecurityScheme": []
-        }
-      ],
-    ...
-    }
+    "oisTitle": "myOisTitle",
+    "securitySchemeName": "",
+    "securitySchemeValue": "${SS_MY_API_KEY}"
   }
-],
-"environment": {
+]
+
+// From the OIS object apiCredentials is referencing
+{
+  "title": "myOisTitle",
   ...,
-  "securitySchemes":[
-    {
-      "oisTitle": "myOisTitle", // ois[n].title
-      "name": "mySecurityScheme", // ois[n].apiSpecifications.security[n]
-      "envName": "SS_MYOISTITLE_MY_SECURITY_SCHEME" // ENV name in secrets.env
+  "components": {
+    "securitySchemes": {
+      "mySecurityScheme": {
+        "in": "header",
+        "type": "apiKey",
+        "name": "X-api-key"
+      }
     }
-  ]
+  },
+  ...
 }
---------------
-# secrets.env
-...
-SS_MYOISTITLE_MY_SECURITY_SCHEME="834989348HHGTDS_8754"
 ```
+
+#### `oisTitle`
+
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#oisTitle) The `ois.title` of the OIS where the `securitySchemeName` can be found.
+
+#### `securitySchemeName`
+
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#securitySchemeName) The name of a security scheme from `ois[n].components.securitySchemes.{securitySchemeName}`.
+
+#### `securitySchemeValue`
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#securitySchemeValue)  The value of the security scheme used (as defined by `ois[n].components.securitySchemes.{securitySchemeName}` for the authentication. Usually stored in `secrets.env`. 
+
 
 Based on the setup above Airnode will call the API operation with the following header.
 
@@ -349,31 +252,20 @@ headers: {
 
 ## Creating `secrets.env`
 
-The `secrets.env` file contains environment variables (secrets) such as blockchain provider urls, cloud provider keys, etc. Make sure to download the [secrets.env](../../../reference/templates/secrets-env.md) template and refer to [Reference > Deployment Files > secrets.env](../../../reference/deployment-files/secrets-env.md) as needed.
+The `secrets.env` file contains values (secrets) such as blockchain provider urls, chain provider urls, etc. These secrets are embedded in [config.json](../../../reference/deployment-files/config-json.md) using interpolation. 
 
-There are three categories of secrets.
+```json
+// Sample interpolation value from config.json
+"httpGateway": {
+  "enabled": true,
+  "apiKey": "${HTTP_GATEWAY_API_KEY}"
+},
 
-|Key                    |Value                                                    |
-|-----------------------|----------------------------------------------------|
-|AIRNODE_WALLET_MNEMONIC|The wallet MNEMONIC that will be used by the Airnode|
-|CP_${chainType}\_${chainId}_${name}|blockchain provider urls                |
-|SS_${oisTitle}_${name}|securitySchemes                                      |
-
-The wallet mnemonic and AWS credentials are known values you can add directly to secrets.env.
-
-The last two categories above (CP_ and  SS_) are environment variable names that are declared in the [`environment.chainProviders`](configuring-airnode.md#chainproviders) or [`environment.securitySchemes`](configuring-airnode.md#securityschemes) objects from the config.json file. Use the values of the fields `envName` for the environment variable names.
-
-  > The  (CP_, SS_) environment variable names have formatting requirements. Correct them here and in the `environment` object if needed. Replace any unsupported characters (whitespace, dash, etc.) with underscores. All characters are uppercase. Supported characters; (A-Z, 0-9, _). While not required consider using the following naming conventions for better readability in logs.
-  > - `CP_${chainType}_${chainId}_${name}`
-  > - `SS_${oisTitle}_${name}`
-
-```bash
-AIRNODE_WALLET_MNEMONIC="achieve climb ... reduce foil echo"
-SS_MYOISTITLE_MY_SECURITY_SCHEME="FRACZKMH4F32BZ8X5uTd"
-CP_EVM_3_INFURA_ROPSTEN="https://ropsten.infura.io/v3/75745CVDG834834"
+// Sample variable in secrets.env
+HTTP_GATEWAY_API_KEY="FRACZKMH4F32BZ8X5uTd"
 ```
 
-Here is an [example file](../../../reference/templates/secrets-env.md) that is left blank. 
+Use the [secrets.env](../../../reference/templates/secrets-env.md) template and refer to [Reference > Deployment Files > secrets.env](../../../reference/deployment-files/secrets-env.md) as needed.
 
 ## Creating `aws.env`
 
@@ -390,13 +282,12 @@ Here is an [example file](../../../reference/templates/aws-env.md) that is left 
 
 ## Summary
 
-In this guide, we created the `config.json`, `secrets.env` and `aws.env` files required to deploy an Airnode to a cloud provider (AWS). Note that `config.json` is user-specific, so the `config.json` file is probably of not much use to others. 
+In this guide, we created the `config.json`, `secrets.env` and `aws.env` files required to deploy an Airnode to a cloud provider (AWS). Note that `config.json` is user-specific and therefore it is not much use to others. 
 
-The `secrets.env`and `aws.env` files contains keys, blockchain provider urls and security credentials, so they should be kept secret. Make sure that you do not push your credentials (`secrets.env` and `aws.env`) to a repository or otherwise expose them as these credentials can be used to gain access to your Airnode's private key and AWS account.
+The `secrets.env`and `aws.env` files contains keys, chain provider urls and security credentials, so they should be kept secret. Make sure that you do not push your credentials (`secrets.env` and `aws.env`) to a repository or otherwise expose them as these credentials can be used to gain access to your Airnode's private key and AWS account.
 
 The next three steps in this guide are optional.
 
 - [Applying Authorization](./apply-auth.md) optional
 - [Heartbeat](./heartbeat.md) optional
 - [HTTP Gateway](./http-gateway.md) optional
-

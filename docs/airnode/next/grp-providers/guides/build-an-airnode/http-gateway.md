@@ -1,7 +1,7 @@
 ---
 title: HTTP Gateway
 ---
-
+<TitleSpan>Build an Airnode</TitleSpan>
 # {{$frontmatter.title}}
 
 <TocHeader />

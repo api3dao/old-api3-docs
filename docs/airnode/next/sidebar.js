@@ -72,7 +72,8 @@ module.exports = [
       'concepts/requester',
       'concepts/sponsor',
       'concepts/template',
-      'concepts/request'
+      'concepts/request',
+      'concepts/chain-providers'
     ],
   },
   {
