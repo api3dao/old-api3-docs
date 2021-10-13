@@ -165,7 +165,7 @@ The Airnode's HTTP gateway to test out endpoints without using the blockchain.
 (required) - The cloud provider region that the node will be deployed at. See the cloud provider's documentation for possible values.
 
 ### `stage`
-(required) - The label used to distinguish between multiple deployments of the same Airnode on a cloud provider. For example, the same Airnode may have multiple deployments with `stage` set to a different value (dev, ropsten, mainnet). `stage` cannot be longer than 16 characters and can only include alphanumeric characters (`a–z`, `A–Z`, `0–9`), hyphen (`-`) and underscore (`_`).
+(required) - The label used to distinguish between multiple deployments of the same Airnode on a cloud provider. For example, the same Airnode may have multiple deployments with `stage` set to a different value (dev, public, prod). `stage` cannot be longer than 16 characters and can only include alphanumeric characters (`a–z`, `A–Z`, `0–9`), hyphen (`-`) and underscore (`_`).
 
 ## triggers
 
@@ -205,8 +205,7 @@ A list of OIS objects. Since each OIS specifies the integration of an API to an 
 
 ## apiCredentials
 
-Each entry in `apiCredentials` maps to a security scheme defined in an OIS (`ois[n].components.securitySchemes.{securitySchemeName}`), where `oisTitle` is the `title` field of the related OIS, and `securitySchemeName` is the name of the respective security scheme. These would be `myOisTitle` and
-`mySecurityScheme` in the example below. `securitySchemeValue` is the value used for the authentication with the security scheme (e.g., the API key).
+Each entry in `apiCredentials` maps to a security scheme defined in an OIS (`ois[n].components.securitySchemes.{securitySchemeName}`), where `oisTitle` is the `title` field of the related OIS, and `securitySchemeName` is the name of the respective security scheme. These would be `myOisTitle` and `mySecurityScheme` in the example below. `securitySchemeValue` is the value used for the authentication with the security scheme (e.g., the API key).
 
 Use of apiCredentials is not required, leave its array empty.
 
@@ -227,9 +226,9 @@ Use of apiCredentials is not required, leave its array empty.
   "components": {
     "securitySchemes": {
       "mySecurityScheme": {
-        "in": "query",
+        "in": "header",
         "type": "apiKey",
-        "name": "access_key"
+        "name": "X-api-key"
       }
     }
   },
