@@ -17,8 +17,8 @@ API providers. Developers can sponsor [requester](../concepts/requester.md) cont
 Almost all commands require you to provide a blockchain `providerUrl`. Following are just two examples of many
 possibilities.
 
-- `https://eth-rinkeby.gateway.pokt.network/v1/lb/&#60;APP_ID>`
-- `https://ropsten.infura.io/v3/&#60;KEY>`
+- `https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID>`
+- `https://ropsten.infura.io/v3/<KEY>`
 
 The CLI connects to the
 [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/AirnodeRrp.sol) or the
