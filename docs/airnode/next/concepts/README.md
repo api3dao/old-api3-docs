@@ -7,8 +7,6 @@ title: Request-Response Protocol
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-<Fix>Refer to [Monorepo version: @api3/protocol](https://github.com/api3dao/airnode/tree/beta-protocol-revision/packages/protocol) for details to enhance this docs. Careful which branch you use. Devs are moving to a consolidated  branch soon.</Fix>
-
 The first protocol implemented for Airnode is request–response.
 An Airnode serving the request–response protocol listens for requests, makes the API call specified by the request, and fulfills the request as soon as possible.
 
@@ -27,36 +25,25 @@ The [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/pro
 
 The [Admin](../admin-cli-commands.md) (`@api3/airnode-admin`) package is a CLI tool used to interact with `AirnodeRrp.sol` and perform administrative actions. See the [admin package](https://github.com/api3dao/airnode/tree/master/packages/admin) in GitHub.
 
-<Fix>Out-of-date: it should now inherit from RrpRequester.sol</Fix>
-To use AirnodeRrp.sol a requester must import AirnodeRrpClient.sol.
-
 `import "@api3/airnode-protocol/contracts/AirnodeRrpClient.sol";`
 
 
 ### IAirnodeRrp.sol
 
-The [IAirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/interfaces/IAirnodeRrp.sol) contract <FixInline>Add summary, see the pre-alpha docs.</FixInline>
+The [IAirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/interfaces/IAirnodeRrp.sol) contract
 
-- <FixInline>add bullet highlights</FixInline>
-- 
 
 ### AuthorizationUtils.sol
 
-The [AuthorizationUtils.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/AuthorizationUtils.sol) contract <FixInline>Add summary, see the pre-alpha docs.</FixInline>
+The [AuthorizationUtils.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/AuthorizationUtils.sol) contract
 
-- <FixInline>add bullet highlights</FixInline>
 
 
 ### WithdrawalUtils.sol
 
-The [WithdrawalUtils.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/WithdrawalUtils.sol) contract <FixInline>Add summary, see the pre-alpha docs.</FixInline>
-
-- <FixInline>add bullet highlights</FixInline>
+The [WithdrawalUtils.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/WithdrawalUtils.sol) contract
 
 
 ### TemplateUtils.sol
 
-The [TemplateUtils.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/TemplateUtils.sol) contract <FixInline>Add summary, see the pre-alpha docs.</FixInline>
-
-- <FixInline>add bullet highlights</FixInline>
-- 
+The [TemplateUtils.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/TemplateUtils.sol) contract
