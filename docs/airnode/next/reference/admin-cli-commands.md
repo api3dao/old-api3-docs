@@ -170,8 +170,9 @@ npx @api3/airnode-admin get-sponsor-status \
 
 ### `derive-sponsor-wallet-address`
 
-Derives a [sponsorWallet](../concepts/sponsor.md#sponsorwallet) designated by an Airnode for a sponsor and returns the
-address of the wallet. The `airnode-xpub` must belong to the HDNode with the path `m/44'/60'/0'` of the Airnode wallet.
+Derives the address of the wallet designated by an Airnode for a sponsor, which is called the
+[sponsorWallet](../concepts/sponsor.md#sponsorwallet). This command will error if `airnode-xpub` does not belong to the
+HDNode with the path `m/44'/60'/0'` of the Airnode wallet.
 
 - `airnode-xpub`: The extended public address of the Airnode.
 - `airnode-address`: The public address of the Airnode.
