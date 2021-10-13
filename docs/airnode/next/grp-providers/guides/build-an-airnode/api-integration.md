@@ -1,7 +1,7 @@
 ---
 title: API Integration
 ---
-
+<TitleSpan>Build an Airnode</TitleSpan>
 # {{$frontmatter.title}}
 
 <TocHeader />

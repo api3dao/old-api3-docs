@@ -1,7 +1,7 @@
 ---
 title: Applying Authorization (optional)
 ---
-
+<TitleSpan>Build an Airnode</TitleSpan>
 # {{$frontmatter.title}}
 
 <TocHeader />
