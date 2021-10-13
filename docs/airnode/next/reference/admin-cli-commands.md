@@ -271,6 +271,7 @@ npx @api3/airnode-admin check-withdrawal-request \
 Helper commands for a previously deployed Airnode. These commands connect to the AirnodeRrp.sol protocol contract.
 
 - [derive-endpoint-id](admin-cli-commands.md#derive-endpoint-id)
+- [verify-airnode-xpub](admin-cli-commands.md#verify-airnode-xpub)
 
 <divider/>
 
@@ -290,6 +291,17 @@ npx @api3/airnode-admin derive-endpoint-id \
 ```
 
 <divider/>
+
+### `verify-airnode-xpub`
+
+Verifies that the xpub belongs to the HDNode with the path `m/44'/60'/0'` of the Airnode wallet. This command checks
+that the Airnode address can be derived with provided Airnode xpub and default derivation path `m/44'/60'/0'/0/0`.
+
+```sh
+npx @api3/airnode-admin verify-airnode-xpub \
+  --airnode-xpub xpub6CUGRUo... \
+  --airnode-address 0xe1e0dd...
+```
 
 ## AirnodeRequesterRrpAuthorizer
 
