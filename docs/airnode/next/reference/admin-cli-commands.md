@@ -270,10 +270,19 @@ npx @api3/airnode-admin check-withdrawal-request \
 
 Helper commands for a previously deployed Airnode. These commands connect to the AirnodeRrp.sol protocol contract.
 
+- [derive-airnode-xpub](admin-cli-commands.md#derive-airnode-xpub)
 - [derive-endpoint-id](admin-cli-commands.md#derive-endpoint-id)
 - [verify-airnode-xpub](admin-cli-commands.md#verify-airnode-xpub)
 
 <divider/>
+
+### `derive-airnode-xpub`
+
+Derives the Airnode extended public key (xpub). You will need the Airnode xpub to derive a sponsor wallet address.
+
+```sh
+npx @api3/airnode-admin derive-airnode-xpub --mnemonic "nature about salad..."
+```
 
 ### `derive-endpoint-id`
 
