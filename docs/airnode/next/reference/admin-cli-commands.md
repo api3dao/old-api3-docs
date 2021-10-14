@@ -105,7 +105,7 @@ templates used by a sponsor's requesters. These commands connect to the AirnodeR
 
 ### `sponsor-requester`
 
-[Sponsors](..concepts/sponsorship.md) a requester contract so that its requests can be fulfilled by the sponsorWallet of
+[Sponsors](../concepts/sponsor.md) a requester contract so that its requests can be fulfilled by the sponsorWallet of
 an Airnode. The account derived from the `mnemonic` you provide must to belong to the sponsor.
 
 Sponsoring a requester and using the returned `sponsorAddress` to derive a `sponsorWallet` for an Airnode creates a
@@ -226,7 +226,7 @@ npx @api3/airnode-admin get-template \
 
 ### `request-withdrawal`
 
-Requests a [withdrawal](./concepts/sponsor-wallet.html#withdrawals) from a `sponsorWallet` managed by an Airnode and
+Requests a [withdrawal](../concepts/sponsor.md#withdrawals) from a `sponsorWallet` managed by an Airnode and
 returns a `withdrawal-request-id` for tracking purposes. The default account derived from the `mnemonic` will be used to
 return the funds.
 
@@ -340,7 +340,7 @@ expiration in the case the new expiration timestamp is prior to a previously set
 - `mnemonic`: Used to pay gas costs from the mnemonic's default account unless a `derivation-path` is specified. The
   mnemonic must be at least an Admin or Airnode wallet.
 - `provider-url`: A valid cloud provider URL.
-- `endpoint-id`: The [`endpointId`](./reference/deployment-files/config-json.md#triggers) for which permission is
+- `endpoint-id`: The [`endpointId`](deployment-files/config-json.md#triggers) for which permission is
   granted (from OIS).
 - `user-address`: The public address of the requester contract.
 - `expiration-timestamp`: A unix formatted timestamp.
@@ -368,7 +368,7 @@ the new expiration timestamp is later then the previously set timestamp.
 - `mnemonic`: Used to pay on-chain gas cost for this command's transaction. The mnemonic must be at least an Admin or
   Airnode wallet.
 - `provider-url`: A valid cloud provider URL.
-- `endpoint-id`: The [`endpointId`](./reference/deployment-files/config-json.md#triggers) for which permission is
+- `endpoint-id`: The [`endpointId`](deployment-files/config-json.md#triggers) for which permission is
   granted (from OIS).
 - `user-address`: The public address of the requester contract.
 - `expiration-timestamp`: A unix formatted timestamp.
@@ -397,7 +397,7 @@ elapses.
 - `mnemonic`: Used to pay on-chain gas cost for this command's transaction. The mnemonic must be at least an Admin or
   Airnode wallet. The default address of the mnemonic will be used unless a derivation-path is provided.
 - `provider-url`: A valid cloud provider URL.
-- `endpoint-id`: The [`endpointId`](./reference/deployment-files/config-json.md#triggers) for which permission is
+- `endpoint-id`: The [`endpointId`](deployment-files/config-json.md#triggers) for which permission is
   granted (from OIS).
 - `user-address`: The public address of the requester contract.
 - `expiration-timestamp`: A unix formatted timestamp.
@@ -444,7 +444,7 @@ Called to check if a requester is whitelisted to use the Airnode–endpoint pair
 
 - `provider-url`: A valid cloud provider URL.
 - `airnode-requester-rrp-authorizer`: The authorizer contract address.
-- `endpoint-id`: The [`endpointId`](./reference/deployment-files/config-json.md#triggers) for which permission is
+- `endpoint-id`: The [`endpointId`](deployment-files/config-json.md#triggers) for which permission is
   granted (from OIS).
 - `user-address`: The public address of the requester contract.
 - `airnode-address`: The public address of the Airnode.
