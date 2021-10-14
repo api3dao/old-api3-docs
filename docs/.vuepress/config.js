@@ -6,6 +6,11 @@ module.exports = {
   versions:[
     {name:'pre-alpha', url:'/airnode/pre-alpha/'},
   ],
+  /**
+   * Indicates the path to the latest Airnode version.
+   * Used by sub-sites component.
+   */
+  latestVersion: '/airnode/pre-alpha/',
   head: [
     ['link', { rel: 'icon', href: '/img/small-logo.png' }]
   ],
