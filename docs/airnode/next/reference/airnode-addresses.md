@@ -7,24 +7,22 @@ title: Airnode Contract Addresses
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-This doc shows EVM-compatible blockchains that Airnode protocol contracts have been deployed to. Use these contract addresses to interact with Airnode.
-
-<Fix>This doc will replace the Vue component that also has the contract addresses. That component is not practical when used in other docs and can distract the user's focus of the local content.</Fix>
+Use the contract addresses listed in the tables below to interact with Airnode on EVM-compatible blockchains. Additional addresses will be added as contracts are deployed, but feel free to [submit a GitHub issue](https://github.com/api3dao/airnode/issues) requesting a new deployment.
 
 ## AirnodeRrp.sol
 
 | Blockchain | ID  | Address                                    |
 | ---------- | --- | ------------------------------------------ |
-| mainnet    | 1   | ...                                        |
+| mainnet    | 1   |                                            |
 | ropsten    | 3   | 0xF6d2675468989387e96127546e0CBC9A384fa418 |
-| rinkeby    | 4   |                                            |
+| rinkeby    | 4   | 0xe469aD70a2CD3A01F4eCb6502161A4F381c1F659 |
 | kovan      | 62  |                                            |
 
 ## AirnodeRequesterRrpAuthorizer.sol
 
 | Blockchain | ID  | Address                                    |
 | ---------- | --- | ------------------------------------------ |
-| mainnet    | ... | ...                                        |
-| ropsten    | 3   | ...                                        |
-| rinkeby    | 4   | ...                                        |
-| kovan      | 62  | ...                                        |
+| mainnet    | 1   |                                            |
+| ropsten    | 3   |                                            |
+| rinkeby    | 4   | 0x18D5832BDF642cbBE7917eF4fa64EB7082486806 |
+| kovan      | 62  |                                            |
