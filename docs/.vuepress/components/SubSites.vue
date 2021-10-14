@@ -1,11 +1,15 @@
 <!--
 This component places icons (sub-sites) in the header of the sidebar. 
+
+NOTE: When this component is MOUNTED (as it is mounted from a landing page click),
+it will alwasy set this.lastVisited to the config.js latestVersion var. Therefor
+it is normal behavior to force the user to the lastest version of airnode.
 -->
 
 <template>
   <div>
     <div v-if="isMounted" class="container" style="font-size:medium;">
-        <router-link class="route-link" :to="currentVersionPath" v-bind:class="{ selectedButton: btnAirnode }">
+        <router-link class="route-link" :to="{ path: lastVisited }" v-bind:class="{ selectedButton: btnAirnode }">
           <font-awesome-icon icon="sitemap" size="2x"/>
           <br/><span style="font-size:14px;">Airnode</span>
         </router-link>
@@ -23,6 +27,7 @@ This component places icons (sub-sites) in the header of the sidebar.
 </template>
 
 <script>
+  
   import Vue from 'vue'
   import { library, icon } from '@fortawesome/fontawesome-svg-core'
   import { faUsers } from '@fortawesome/free-solid-svg-icons'
@@ -32,18 +37,17 @@ This component places icons (sub-sites) in the header of the sidebar.
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
   Vue.component('font-awesome-icon', FontAwesomeIcon)
   library.add(faBars, faUsers, faSitemap, faEye)
+  import { latestVersion } from '../config.js'
 
   export default {
     name: 'sub-sites',
-    data () {
-      return {
-        currentVersionPath: '',
-        btnAPI3: false,
-        btnMembers: false,
-        btnAirnode: false,
-        isMounted: false // When the page is mounted show icons to avoid flickering 
-      }
-    },
+    data: () => ({
+      lastVisited: latestVersion,
+      btnAPI3: false,
+      btnMembers: false,
+      btnAirnode: false,
+      isMounted: false // When the page is mounted show icons to avoid flickering 
+    }),
     watch: {
       '$route'($event) {
         this.selectIcon();
@@ -59,22 +63,24 @@ This component places icons (sub-sites) in the header of the sidebar.
         }
         else if(this.$route.path.indexOf('/airnode/') > -1){
           this.btnAirnode = true
-          // Set the currentVersionPath
-          let arr = this.$route.path.split('/')
-          this.currentVersionPath = '/'+arr[1]+'/'+arr[2]+'/'
+          this.setLastVersionVisited()
         }
         else if(this.$route.path.indexOf('/api3/') > -1){
           this.btnAPI3 = true
         }
       },
+      setLastVersionVisited() {
+        if(this.$route.path.indexOf('/airnode/') > -1){
+          let arr = this.$route.path.split('/')
+          this.lastVisited = '/'+arr[1]+'/'+arr[2]+'/'
+        }
+      },
     },
     mounted() {
       this.$nextTick(function () {
-        // Code that will run only after the
-        // entire view has been rendered
+        // Code that will run only after the entire view has been rendered
         this.selectIcon();
         this.isMounted = true;
-        //console.log('this.$nextTick > $route.path', this.$route.path)
       })
     }
   }

@@ -67,19 +67,28 @@ The **/next** and **/dev** folders are routes that are not listed in the version
 
 It is assumed that the **/next** folder is the work in progress that will become the new (next) version.
 
-1. Make a copy of the **/next** folder and name it (e.g. v1).
+1. Change the name of the **/next** folder (e.g. v1.0).
 
-2. Update the **versions** key in .vuepress/config.json. Provide the version name and url. The url is the first markdown file to show when a version is selected in the navbar. A url without a file will load the root README.md file of the base route by default.
+2. Changes to `config.js`. 
+ 
+     - Update the `versions` key in .vuepress/config.json. Provide the version name and url. The url is the first markdown file to show when a version is selected in the navbar. A url without a file will load the root README.md file of the base route by default.
+     - Set the `latestVersion` to the start path of the latest version.
+     - Set the `themeConfig.startPath` to the start path of the latest version.
 
     ```json
     versions:[
-      {name:'v1', url:'/airnode/v1/'},
+      {name:'v1', url:'/airnode/v1.0/'},
       {name:'pre-alpha', url:'/airnode/pre-alpha/'},
       ...
     ],
+    latestVersion: '/airnode/pre-alpha/',
+    ...
+    themeConfig:{
+      startPath:'/airnode/pre-alpha/',
+    }
     ```
 
-3. The **/next** version probably contained hyperlinks to remote GitHub repos. More than likely these links will need updating in the version just created.
+3. The re-named `/next` version will probably contained hyperlinks to remote GitHub repos. More than likely these links will need updating in the version just created.
 
 4. Point all [redirects](versioning.md#redirects), when relevant, to the new version in the `docs/.vuepress.redirects` file. Usually this is related to redirects for items such as `/latest/members` that want to display docs for the latest version. Be mindful of any redirects with `/next` in the path.
 
