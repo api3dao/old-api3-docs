@@ -7,7 +7,7 @@ title: Request
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3,4]" />
 
-A request is made by a [requester](requester.md) to either the `makeFullRequest()` or `makeTemplateRequest()` function of the [AirnodeRrp.sol](README.md#airnoderrp-sol) protocol contract which adds the request to the event log. The targeted off-chain [Airnode](airnode.md) gathers the request from the event log and responds using the `fulFill()` function of AirnodeRrp.sol.
+A request is made by a [requester](requester.md) to either the `makeFullRequest()` or `makeTemplateRequest()` function of the [AirnodeRrp.sol](README.md#airnoderrp-sol) protocol contract which adds the request to its storage. The targeted off-chain [Airnode](airnode.md) gathers the request from AirnodeRrp.sol's storage and responds using the `fulFill()` function of AirnodeRrp.sol.
 
 >![concepts-request](../assets/images/concepts-request.png)
 
@@ -17,19 +17,19 @@ Learn more on how to [Call an Airnode](../grp-developers/call-an-airnode.md).
 
 The `requestId` uniquely identifies a request. When a requester makes a request using AirnodeRrp.sol, a `requestId` is generated before the request is added to the event logs and the requestId is returned to the requester. This `requestId` is a hash of certain data members depending on which type of request is made, `makeFullRequest()` or `makeTemplateRequest()`. They only differ in that one uses `endpointId` plus `airnode` address and the other `templateId` (since template already contains the `airnode` address). 
 
-|makeFullRequest()|makeTemplateRequest()|
-|:---------|:---------|
-|block.chainid|block.chainid|
-|address(this)|address(this)|
-|msg.sender|msg.sender|
+|makeFullRequest()    |makeTemplateRequest()|
+|:--------------------|:--------------------|
+|block.chainid        |block.chainid|
+|address(this)        |address(this)|
+|msg.sender           |msg.sender|
 |requesterRequestCount|requesterRequestCount|
-|---|airnode|
+|                     |airnode|
 |<span style="color:purple;font-weight:bold;">endpointId</span>|<span style="color:purple;font-weight:bold;">templateId</span>|
-|sponsor|sponsor|
-|sponsorWallet|sponsorWallet|
-|fulfillAddress|fulfillAddress|
-|fulfillFunctionId|fulfillFunctionId|
-|parameters|parameters|
+|sponsor              |sponsor|
+|sponsorWallet        |sponsorWallet|
+|fulfillAddress       |fulfillAddress|
+|fulfillFunctionId    |fulfillFunctionId|
+|parameters           |parameters|
 
 After the request (with `requestId`) is added to the event logs, Airnode gathers the request and verifies the `requestId` by re-computing its hash before responding to the request. This verifies the parameters have not been tampered with.
 
@@ -95,13 +95,15 @@ When a template is used to make a request, both the parameters encoded in `param
 
 A request made to an Airnode has three possible outcomes:
 
-- Fulfill
-- Fail
-- Ignore
+- [Fulfill](./request.md#fulfill)
+- [Fail](./request.md#fail)
+- [Ignore](./request.md#ignore)
 
 ### Fulfill
 
 `fulfill()` is the desired outcome and it will only be called if Airnode received a successful response from the API provider.
+
+> ![request-outcomes](../assets/images/request-outcomes.png)
 
 :::tip Note:
 Fulfill is the only outcome that returns results to a requester contract.
@@ -109,13 +111,9 @@ Fulfill is the only outcome that returns results to a requester contract.
 
 For a successful request, Airnode  calls the `fulfill()` function in AirnodeRrp.sol that will in turn call back the requester contract at `fulfillAddress` using function `fulfillFunctionId` to deliver `data`.
 
-`fulfill()` also receives a signature to validate on-chain that the response data was submitted by the Arinode.
-<Fix> This is to prevent requesters from fulfilling their own requests in order to manipulate data submitted by AirnodeRrp.sol. More details: https://api3workspace.slack.com/archives/C027Y2FAV0S/p1632668101023800</Fix>
+`fulfill()` also receives a signature to validate on-chain that the response data was submitted by the Airnode. This is to prevent requesters from fulfilling their own requests in order to manipulate data submitted by AirnodeRrp.sol.
 
 `fulfill()` will not revert if the `fulfillFunctionId` external call reverts. However, it will return `false` in this case or if there is no function with a matching signature at `fulfillAddress`. On the other hand, it will return `true` if the external call returns successfully or if there is no contract deployed at `fulfillAddress`. In the case `false` is returned then an error message will also be returned in a variable which can be decoded to retrieve the revert string. For example Airnode will decode this variable when this function returns `false` and call `fail()` on AirnodeRrp.sol with the revert string as the error message.
-
-<Fix>Needs to be updated based on the new flow described in [Fulfill](./request.md#fulfill)</Fix>
-> ![request-outcomes](../assets/images/request-outcomes.png)
 
 ### Fail
 
@@ -134,5 +132,4 @@ This means that Airnode will stop attempting to process the request in order to 
 
 ### Check if request is awaiting fulfillment
 
-There is also a convenience method in AirnodeRrp.sol called `requestIsAwaitingFulfillment()` that can be called to check if a request was made but not yet fulfilled/failed. If a requester has made a request, received a `requestId` but did not hear back, it can call this method to check if the Airnode has called back `fail()` instead.
-Returns `true` if the request is awaiting fulfillment (i.e., `true` if `fulfill()` or `fail()` is not called back yet), `false` otherwise.
+There is a convenience method in AirnodeRrp.sol called `requestIsAwaitingFulfillment()` that can be called to check if a request was made but not yet fulfilled/failed. If a requester has made a request, received a `requestId` but did not hear back, it can call this method to check if the Airnode has called back `fail()` instead.Returns `true` if the request is awaiting fulfillment (i.e., `true` if `fulfill()` or `fail()` is not called back yet), `false` otherwise.
