@@ -7,11 +7,11 @@ title: Endpoint
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Airnode serves APIs to blockchains according to [Oracle Integration Specifications (OIS)](../../specifications/ois.md). APIs are composed of [operations](../../specifications/ois.md#_4-4-paths), which represent individual functionalities that an API offers. OIS maps each API operation to an [endpoint](../../specifications/ois.md#_5-endpoints), which can be thought of as an Airnode operation. The endpoints that an Airnode will serve over the request–response protocol are listed under [triggers](../../deployment-files/config-json.md#triggers) of [config.json](../../deployment-files/config-json.md).
+Airnode serves APIs to blockchains according to [Oracle Integration Specifications (OIS)](../reference/specifications/ois.md). APIs are composed of [operations](../reference/specifications/ois.md#_5-2-operation), which represent individual functionalities that an API offers. OIS maps each API operation to an [endpoint](../reference/specifications/ois.md#_5-endpoints), which can be thought of as an Airnode operation. The endpoints that an Airnode will serve over the request–response protocol are listed under [triggers](../reference/deployment-files/config-json.md#triggers) of [config.json](../reference/deployment-files/config-json.md).
 
 ## `endpointId`
 
-> You can use the [admin CLI](https://github.com/api3dao/airnode/tree/master/packages/admin#derive-endpoint-id) to
+> You can use the [admin CLI](../reference/admin-cli-commands.md) to
 > derive the endpoint id from your terminal
 
 `endpointId` identifies specific endpoints that an Airnode serves, and is computed in JS (using ethers.js) as follows:

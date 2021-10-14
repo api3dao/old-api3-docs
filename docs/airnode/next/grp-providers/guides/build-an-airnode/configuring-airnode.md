@@ -123,8 +123,8 @@ The `nodeSettings` field holds node-specific (Airnode) configuration parameters.
 
 [<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#cloudprovider) Indicates which cloud provider Airnode should be deployed with or if it should be run locally. The deployer currently supports `aws` or `local`.
 
-- `aws`: Airnode is deployed using the docker [deployer-image](../../using-docker.html#deployer-image).
-- `local`: Airnode is deployed using the docker [client-image](../../using-docker.html#client-image). 
+- `aws`: Airnode is deployed using the docker [deployer-image](../../docker/deployer-image.md).
+- `local`: Airnode is deployed using the docker [client-image](../../docker/client-image.md). 
 
 #### airnodeWalletMnemonic
 

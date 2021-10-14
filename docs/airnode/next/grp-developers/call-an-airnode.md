@@ -31,7 +31,7 @@ in the diagram below when calling an Airnode.
 
 In the above diagram a requester makes a request to the AirnodeRrp.sol contract which emits an event. This event is
 retrieved by the Airnode during its next run cycle. It then verifies whether the request should be responded to by
-calling the [authorizers](../concepts/authorization.html). If the request is authorized, Airnode proceeds with creating
+calling the [authorizers](../concepts/authorization.md). If the request is authorized, Airnode proceeds with creating
 a response transaction. It first gathers the requested data from the API and then attempts to call the `fulfill()`
 function in AirnodeRrp.sol which in turn makes a callback to the function `myFulfill` in the requester. This response
 transaction is covered by sponsor using the sponsor wallet.
@@ -65,10 +65,10 @@ See the list of all [Airnode contract addresses](../reference/airnode-addresses.
 ## Step #2: Implement the request logic
 
 There are three types of requests provided by the AirnodeRrp.sol contract. See
-[Request Types](../reference/concepts/request.md#request-types) in the Reference section for information related to each
+[Request Types](../concepts/request.md#request-types) in the Reference section for information related to each
 request type.
 
-This example will use a [full request](../reference/concepts/request.md#_3-full-request) type (note the
+This example will use a [full request](../concepts/request.md#_3-full-request) type (note the
 `airnode.makeFullRequest` function call in the code below) which is called from the requester's own function
 `callTheAirnode`. The function `makeFullRequest` requires that the requester pass all parameters needed by Airnode to
 call its underlying API.
@@ -127,7 +127,7 @@ A full request using the AirnodeRrp.sol contract `makeFullRequest` function requ
 Airnode application to be passed at runtime. This is in contrast to a template request that would use a template for
 some or all of the required parameters. Learn more about [using templates](call-an-airnode.md#using-templates).
 
-Since the `callTheAirnode` function is going to make a [full request](../reference/concepts/request.md#full-request) it
+Since the `callTheAirnode` function is going to make a [full request](../concepts/request.md#full-request) it
 must gather the following parameters to pass on to `airnode.makeFullRequest`.
 
 - **airnode** and **endpointId**: As a pair these uniquely identify the endpoint desired at a particular Airnode.
@@ -177,7 +177,7 @@ must gather the following parameters to pass on to `airnode.makeFullRequest`.
   ```
 
 For additional information on request parameters when calling `airnode.makeFullRequest()` see
-[Request Parameters](../reference/concepts/request.md#request-parameters) in the Reference section.
+[Request Parameters](../concepts/request.md#request-parameters) in the Reference section.
 
 ## Step #3: Capture the Response
 

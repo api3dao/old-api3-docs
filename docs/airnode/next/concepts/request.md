@@ -45,8 +45,8 @@ The following list summarizes the values expected for the parameters of a reques
 
 - `fulfillAddress` and `fulfillFunctionId` specify which contract/function will be called to fulfill the request
 
-- `parameters` specify the API and [reserved](../../specifications/ois.md#_5-4-reservedparameters
-) parameters (see [Airnode ABI specifications](../../specifications/airnode-abi-specifications.md) for how these are encoded)
+- `parameters` specify the API and [reserved](../reference/specifications/ois.md#_5-4-reservedparameters
+) parameters (see [Airnode ABI specifications](../reference/specifications/airnode-abi-specifications.md) for how these are encoded)
 
 ## Full Request
 
