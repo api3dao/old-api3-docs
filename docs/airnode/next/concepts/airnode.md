@@ -18,7 +18,7 @@ To accomplish this an Airnode is assigned a mnemonic which is used to derived a 
 
 The process by which this happens is simple:
 
-- The API provider uses the [deployer's](../../deployer-commands.md#deploy) `deploy` command to create a new Airnode and supplies a mnemonic defined in the config.json as `nodeSettings.airnodeWalletMnemonic`.
+- The API provider uses the [deployer's](../grp-providers/docker/deployer-image.md#deploy) `deploy` command to create a new Airnode and supplies a mnemonic defined in the config.json as `nodeSettings.airnodeWalletMnemonic`.
 - `deploy` uses the supplied mnemonic to generate the `airnode-wallet`.
 - `deploy` uses the default address of the `airnode-wallet` as the `airnodeAddress`.
 - `deploy` returns output which includes the `airnodeAddress`.
@@ -41,7 +41,7 @@ hdNode = ethers.utils.HDNode.fromExtendedKey(xpub);
 assert(airnodeAddress === hdNode.derivePath('0/0').address);
 ```
 
-See the [section about sponsor wallets](sponsor-wallet.md) to see how sponsors can use `xpub` to derive their sponsor wallets.
+See the [section about sponsor wallets](sponsor.md#sponsorwallet) to see how sponsors can use `xpub` to derive their sponsor wallets.
 
 ## Setting endpoint authorizers
 <Fix>airnodeAdmin is no longer used. What (if anything) replaces it here? Answer: there is no longer the concept of an admin for AirnodeRrp but we still have the airnode operator which is the one that holds the mnemonic used while deploying the Airnode. Anyone can make requests, create templates and withdraw from sponsor wallet and there no longer any parameters being set on-chain so no need for admin.</Fix>

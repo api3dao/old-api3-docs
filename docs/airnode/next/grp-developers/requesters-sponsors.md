@@ -93,7 +93,7 @@ Requester 0x2c...gDER7 sponsored using sponsorAddress 0xF4...dDyu9
 
 ## How to Derive a Sponsor Wallet
 
-To use a particular Airnode you must _derive a sponsor wallet_. Once the sponsor wallet is created it must be funded using the public address returned by the command`derive-sponsor-wallet-address`. Each Airnode keeps a separate list of individual sponsor wallets that can access the Airnode. Learn more about [sponsor wallets](../reference/concepts/sponsor-wallet.md).
+To use a particular Airnode you must _derive a sponsor wallet_. Once the sponsor wallet is created it must be funded using the public address returned by the command`derive-sponsor-wallet-address`. Each Airnode keeps a separate list of individual sponsor wallets that can access the Airnode. Learn more about [sponsor wallets](../concepts/sponsor.md#sponsorwallet).
 
 To derive a sponsor wallet for an Airnode execute the `derive-sponsor-wallet-address` command using the parameters detailed in the list below. There are no transaction gas costs to do so.
 

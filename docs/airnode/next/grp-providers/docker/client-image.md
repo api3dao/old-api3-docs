@@ -9,7 +9,7 @@ title: Airnode Client Image
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Usually the Airnode is deployed on a serverless platform using the [deployer](../deployer-image.html). However, there is
+Usually the Airnode is deployed on a serverless platform using the [deployer](deployer-image.md). However, there is
 another option which is to run the Airnode in a docker container on your machine locally.
 
 We have already prepared a docker image for you and published it on

@@ -5,7 +5,7 @@ title: ois.json
 # {{$frontmatter.title}}
 
 An [OIS (Oracle Integration
-Specifications)](../../grp-providers/guides/build-an-airnode/api-integration.html#ois-template) json object is part of
+Specifications)](../../grp-providers/guides/build-an-airnode/api-integration.md#ois-template) json object is part of
 an Airnode's [config.json](../deployment-files/config-json.md) file.
 
 In the OIS template, there are some fields that contain <FILL_*>. This means that the value you will be replacing this with is independent from the other fields. On the other hand, if two fields contain the same expression (e.g., <FILL_OPERATION_PARAMETER_1_NAME>), you must use the same value in them, because they are referencing each other.

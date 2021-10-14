@@ -8,7 +8,7 @@ title: Quick Deploy
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-This demo is a simple Airnode deployment, using a hands-on approach, to better understand the overall deployment process using the [deployer image](../../docker/deployer-image.md). It will use an API endpoint (`GET /coins/{id}`) from [CoinGecko](https://www.coingecko.com/en/api/documentation?) which returns the current value of a coin. This demo does not detail the overall configuration of an Airnode, it is just a quick start.
+This demo is a simple Airnode deployment, using a hands-on approach, to better understand the overall deployment process using the [deployer image](../../grp-providers/docker/deployer-image.md). It will use an API endpoint (`GET /coins/{id}`) from [CoinGecko](https://www.coingecko.com/en/api/documentation?) which returns the current value of a coin. This demo does not detail the overall configuration of an Airnode, it is just a quick start.
 
 ::: tip Additional Examples
 There are additional examples of Airnode deployments in the [examples package](https://github.com/api3dao/airnode/tree/master/packages/examples) of the Airnode repo.
@@ -18,7 +18,7 @@ There are additional examples of Airnode deployments in the [examples package](h
 - Deploy Airnode on AWS and use the Rinkeby network.
 :::
 
-An Airnode deployment uses a Docker image (called [deployer image](../../docker/deployer-image.md)) which in turn requires three files as input.
+An Airnode deployment uses a Docker image (called [deployer image](../../grp-providers/docker/deployer-image.md)) which in turn requires three files as input.
 
 - [config.json](./config-json.md)
 - [secrets.env](./secrets-env.md)
