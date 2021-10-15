@@ -11,10 +11,10 @@ A request is made, by a [requester](requester.md), to either the `makeFullReques
 
 >![concepts-request](../assets/images/concepts-request.png)
 >1. <p style="color:black;max-width:600px;">The requester calls makeFullRequest() on the AirnodeRrp protocol contract.</p>
->2. <p style="color:black;max-width:600px;">makeFullRequest() assigns a requestId to the request for tracking purposes, adds the requestId to storage, emits the request to the event logs and returns the requestId to the requester.</p>
->3. <p style="color:gray;max-width:600px;">Airnode, during its run cycle, picks the request from the event logs.</p>
->4. <p style="color:blue;max-width:600px;">Airnode gets data from the API.</p>
->5. <p style="color:green;max-width:600px;">Airnode sends the response to fulFill() in AirnodeRrp which in turn removes the pending requestId from storage and forwards the response to myFulFill(). The requestId is included as part of the response.</p>
+>2. <p style="color:black;max-width:600px;margin-top:-10px;">makeFullRequest() assigns a requestId to the request for tracking purposes, adds the requestId to storage, emits the request to the event logs and returns the requestId to the requester.</p>
+>3. <p style="color:gray;max-width:600px;margin-top:-10px;">Airnode, during its run cycle, picks the request from the event logs.</p>
+>4. <p style="color:blue;max-width:600px;margin-top:-10px;">Airnode gets data from the API.</p>
+>5. <p style="color:green;max-width:600px;margin-top:-10px;">Airnode sends the response to fulFill() in AirnodeRrp which in turn removes the pending requestId from storage and forwards the response to myFulFill(). The requestId is included as part of the response.</p>
 
 Learn more on how to [Call an Airnode](../grp-developers/call-an-airnode.md).
 
