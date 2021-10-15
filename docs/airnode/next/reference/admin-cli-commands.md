@@ -21,7 +21,7 @@ possibilities.
 - `https://ropsten.infura.io/v3/<KEY>`
 
 The CLI connects to the
-[AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/AirnodeRrp.sol) or the
+[AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/AirnodeRrp.sol) or the
 [AirnodeRequesterRrpAuthorizer.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/authorizers/AirnodeRequesterRrpAuthorizer.sol)
 contract, which addresses are derived from the current chain. You can optionally specify the contract addresses yourself
 by providing optional `airnode-rrp` or `airnode-requester-rrp-authorizer` command argument with the address of the
