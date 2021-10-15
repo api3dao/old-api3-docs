@@ -16,8 +16,10 @@ Be sure to complete  [API Integration](api-integration.md) before configuring yo
 An Airnode is deployed or redeployed using configuration values from its `config.json` and `secrets.env` files. The  `config.json` specifies the [OIS](../../../reference/specifications/ois.md) (Oracle Integration Specifications) and other specific configuration details. The `secrets.env` file holds secrets, such as API keys and chain provider URLs, which are referenced within the config.json file using interpolation.
 
 > ![config-json](../../../assets/images/config-json.png)
-
-The following example files will be useful while reading this doc.
+> - <p style="color:gray;margin-top:30px;max-width:600px;">The config.json file is used during the deployment/redeployment of an Airnode to configure its behavior and to provide mappings of API operations.</p>
+> - <p style="color:gray;margin-top:30px;max-width:600px;">The secrets.env file hold values for config.json that must be kept secret.</p>
+> - <p style="color:gray;margin-top:30px;max-width:600px;">The aws.json file holds credentails for deployments targeted to AWS Lambda.</p>
+> - <p style="color:gray;margin-top:30px;max-width:600px;">The following example files will be useful while reading this doc.</p>
 
 - [config.json](../../../reference/examples/config-json.md)
 - [secrets.env](../../../reference/examples/secrets-env.md)
