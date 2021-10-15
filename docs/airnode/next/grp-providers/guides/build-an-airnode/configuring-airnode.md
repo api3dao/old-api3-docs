@@ -7,7 +7,7 @@ title: Configuring Airnode
 <TocHeader />
 <TOC class="table-of-contents" :include-level=[2,5] />
 
-::: tip
+::: tip Tips
 Be sure to complete  [API Integration](api-integration.md) before configuring your Airnode.
 
 [<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md) This icon links to additional field information in the reference section.
@@ -17,9 +17,10 @@ An Airnode is deployed or redeployed using configuration values from its `config
 
 > ![config-json](../../../assets/images/config-json.png)
 > - <p style="color:gray;margin-top:30px;max-width:600px;">The config.json file is used during the deployment/redeployment of an Airnode to configure its behavior and to provide mappings of API operations.</p>
-> - <p style="color:gray;margin-top:30px;max-width:600px;">The secrets.env file hold values for config.json that must be kept secret.</p>
-> - <p style="color:gray;margin-top:30px;max-width:600px;">The aws.json file holds credentails for deployments targeted to AWS Lambda.</p>
-> - <p style="color:gray;margin-top:30px;max-width:600px;">The following example files will be useful while reading this doc.</p>
+> - <p style="color:gray;margin-top:30px;max-width:600px;margin-top:-10px;">The secrets.env file holds values for config.json that must be kept secret.</p>
+> - <p style="color:gray;margin-top:30px;max-width:600px;margin-top:-10px;">The aws.json file holds credentials for deployments targeted to AWS Lambda.</p>
+
+The following example files are useful while reading this doc.
 
 - [config.json](../../../reference/examples/config-json.md)
 - [secrets.env](../../../reference/examples/secrets-env.md)
