@@ -24,12 +24,12 @@ design patterns.
 Ignoring the mechanics of the overall process, the requester primarily focuses on two tasks as indicated by points A & B
 in the diagram below when calling an Airnode.
 
-- <span style="color:blue;">A</span>: Make the request
-- <span style="color:blue;">B</span>: Accept and decode the response
+- <span style="color:green;font-weight:bold;">1</span>: Make the request
+- <span style="color:blue;font-weight:bold;">2</span>: Accept and decode the response
 
 > ![request-flow](../assets/images/call-an-airnode.png)
->1. <div style="color:green;margin-top:30px;max-width:600px;">A requester makes a request to the AirnodeRrp.sol contract which places the request in storage. This request is retrieved by the Airnode during its next run cycle. It then verifies if the request is authorized by calling  authorizer contracts assigned to the Airnode, if any.</div>
->2. <div style="color:blue;max-width:600px;">If the request is authorized, Airnode proceeds to respond. It first gathers the requested data from the API and calls the `fulfill()` function in AirnodeRrp.sol, which updates the storage and then makes a callback to myFulfill. Gas costs associated with the response are covered by the sponsor of the requester.</div>
+>1. <p style="color:green;margin-top:30px;max-width:600px;">A requester makes a request to the AirnodeRrp contract which adds the requestId to storage, emits the request to the event logs and returns the requestId to the requester. The request is retrieved by the Airnode during its next run cycle. It then verifies the requester is authorized by checking authorizer contracts assigned to the Airnode.</p>
+>2. <p style="color:blue;max-width:600px;">If the request is authorized, Airnode proceeds to respond. It first gathers the requested data from the API and calls the <code>fulfill()</code> function in AirnodeRrp, which removes the pending requestId from storage and makes a callback to <code>myFulfill()</code>. Gas costs associated with the response are covered by the sponsor of the requester.</p>
 
 This remainder of this doc focuses on the requester implementation, it's deployment and sponsoring.
 
