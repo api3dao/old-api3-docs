@@ -10,11 +10,11 @@ title: Request
 A request is made, by a [requester](requester.md), to either the `makeFullRequest()` or `makeTemplateRequest()` functions of the [AirnodeRrp.sol](README.md#airnoderrp-sol) protocol contract which adds the request to its storage. The targeted off-chain [Airnode](airnode.md) gathers the request from AirnodeRrp.sol's storage and responds using the `fulFill()` function of AirnodeRrp.sol.
 
 >![concepts-request](../assets/images/concepts-request.png)
->1. <div style="color:black;max-width:600px;">The requester calls makeFullRequest() on the AirnodeRrp.sol protocol contract.</div>
+>1. <div style="color:black;max-width:600px;">The requester calls makeFullRequest() on the AirnodeRrp protocol contract.</div>
 >2. <div style="color:black;max-width:600px;">makeFullRequest() assigns a requestId to the request for tracking purposes, records the request in storage and returns the requestId to the requester.</div>
 >3. <div style="color:gray;max-width:600px;">Airnode, during its run cycle, picks the request from storage and verifies the hash of the requestId.</div>
 >4. <div style="color:blue;max-width:600px;">Airnode gets data from the API.</div>
->5. <div style="color:green;max-width:600px;">Airnode responds to the requester via the fulFill() function in AirnodeRrp.sol. The requestId is included as part of the response.</div>
+>5. <div style="color:green;max-width:600px;">Airnode sends the response to fulFill() in AirnodeRrp which in turn updates the request in storage and forwards the response to myFulFill(). The requestId is included as part of the response.</div>
 
 Learn more on how to [Call an Airnode](../grp-developers/call-an-airnode.md).
 
