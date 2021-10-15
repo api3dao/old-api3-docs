@@ -27,9 +27,9 @@ in the diagram below when calling an Airnode.
 - <span style="color:blue;">A</span>: Make the request
 - <span style="color:blue;">B</span>: Accept and decode the response
 
-> <img src="../assets/images/call-an-airnode.png"/>
-
-In the above diagram a requester makes a request to the AirnodeRrp.sol contract which stores the request. This request is retrieved by the Airnode during its next run cycle. It then verifies whether the request should be responded to by calling the [authorizers](../concepts/authorization.md). If the request is authorized, Airnode proceeds with creating a response transaction. It first gathers the requested data from the API and calls the `fulfill()` function in AirnodeRrp.sol which in turn makes a callback to the function `myFulfill` in the requester. The response's transaction gas costs are covered by the sponsor using their sponsor wallet associated with the Airnode the requester called.
+> ![request-flow](../assets/images/call-an-airnode.png)
+>1. <div style="color:green;margin-top:30px;max-width:600px;">In the above diagram a requester makes a request to the AirnodeRrp.sol contract which stores the request. This request is retrieved by the Airnode during its next run cycle. It then verifies whether the request should be responded to by calling its authorizers if any.</div>
+>2. <div style="color:blue;max-width:600px;">If the request is authorized, Airnode proceeds with creating a response transaction. It first gathers the requested data from the API and calls the `fulfill()` function in AirnodeRrp.sol, which in turn makes a callback to myFulfill. Gas costs associated with response are covered by the sponsor of the requester.</div>
 
 This remainder of this doc focuses on the requester implementation, it's deployment and sponsoring.
 
