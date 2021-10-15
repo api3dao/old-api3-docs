@@ -68,6 +68,7 @@ exclude = [
   "gateway.url",
   "eth-rinkeby.gateway.pokt.network",
   "execute-api.us-east-1.amazonaws.com",
+  "github.com/.*.git",
 ]
 
 # Exclude URLs contained in a file from checking
