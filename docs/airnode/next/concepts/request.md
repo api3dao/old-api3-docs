@@ -7,7 +7,7 @@ title: Request
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3,4]" />
 
-A request is made by a [requester](requester.md) to either the `makeFullRequest()` or `makeTemplateRequest()` function of the [AirnodeRrp.sol](README.md#airnoderrp-sol) protocol contract which adds the request to its storage. The targeted off-chain [Airnode](airnode.md) gathers the request from AirnodeRrp.sol's storage and responds using the `fulFill()` function of AirnodeRrp.sol.
+A request is made, by a [requester](requester.md), to either the `makeFullRequest()` or `makeTemplateRequest()` functions of the [AirnodeRrp.sol](README.md#airnoderrp-sol) protocol contract which adds the request to its storage. The targeted off-chain [Airnode](airnode.md) gathers the request from AirnodeRrp.sol's storage and responds using the `fulFill()` function of AirnodeRrp.sol.
 
 >![concepts-request](../assets/images/concepts-request.png)
 >1. <div style="color:black;max-width:600px;">The requester calls makeFullRequest() on the AirnodeRrp.sol protocol contract.</div>
