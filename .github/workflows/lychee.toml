@@ -53,7 +53,22 @@ headers = []
 ### Exclusions
 ###
 # Exclude URLs from checking (supports regex)
-exclude = ["myapi.com", "mydao.com", "staging.api3.eth.link", "infura.io", "https://api.coingecko.com/api/v3", "127.0.0.1", "coingecko.com/en/api/documentation"]
+exclude = [
+  "myapi.com",
+  "mydao.com",
+  "staging.api3.eth.link",
+  "infura.io",
+  "api.coingecko.com/api/v3",
+  "127.0.0.1",
+  "coingecko.com/en/api/documentation",
+  "contact@api3.org",
+  "localhost:5000",
+  "git@github.com",
+  "your.heartbeat.service.io",
+  "gateway.url",
+  "eth-rinkeby.gateway.pokt.network",
+  "execute-api.us-east-1.amazonaws.com",
+]
 
 # Exclude URLs contained in a file from checking
 exclude_file = []
