@@ -31,19 +31,23 @@ was changed to:
 
 ## Base Routes
 
-All sub-folders in _/docs_ are base routes. Each represents a logical group or set of documentation.
+All sub-folders in _/docs_ are base routes except for `/.vuepress`. Each represents a logical group or set of documentation. The `/airnode` folder contains versions of the Airnode docs.
 
 ```text
 docs/
- |- v1/
- |- dev
- |- next/
- |- pre-alpha/
+ |- airnode/
+    |- v1.0/
+    |- next/
+    |- pre-alpha/
+ |- dev/
+ |- dev-airnode/
+ |- dao-members
+ 
 ```
 
 ## Versions
 
-A route becomes a version of the API3 docs when declared as a version in _.vuepress/config.json_.
+A route in the `/airnode` folder becomes a version of the Airnode docs when declared as a version in _.vuepress/config.json_.
 
 - **name:** The name of the version to display in the pick-list and as the current route in the navbar.
 - **url:** The entry path to the version, usually an airnode route.
@@ -56,18 +60,11 @@ versions:[
 ```
   > ![picklist](./assets/img/version-picklist2.png)
 
-### /next and /dev
-
-The **/next** and **/dev** folders are routes that are not listed in the versions array. They are never shown in the version pick list, production or development. Access them by manually entering their route into the browser's URL bar.
-
-- **/dev** a document set that speaks to the development environment used to create the API3 docs
-- **/next** a working copy of the next API3 docs, usually converted to a new version when ready
-
 ## Create a Version
 
-It is assumed that the **/next** folder is the work in progress that will become the new (next) version.
+It is assumed that the `/next` folder is the work in progress that will become the new (next) version.
 
-1. Change the name of the **/next** folder (e.g. v1.0).
+1. Change the name of the `/next` folder (e.g. `/v1.0`).
 
 2. Changes to `config.js`. 
  
@@ -81,10 +78,10 @@ It is assumed that the **/next** folder is the work in progress that will become
       {name:'pre-alpha', url:'/airnode/pre-alpha/'},
       ...
     ],
-    latestVersion: '/airnode/pre-alpha/',
+    latestVersion: '/airnode/v1.0/',
     ...
     themeConfig:{
-      startPath:'/airnode/pre-alpha/',
+      startPath:'/airnode/v1.0/',
     }
     ```
 
