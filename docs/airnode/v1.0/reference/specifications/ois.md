@@ -130,7 +130,7 @@ OAS equivalent: `components.securitySchemes.{securitySchemeName}.type`
 
 #### 4.2.2. `name`
 
-(Required if `scheme` is not `http`) The name of the security scheme variable.
+(Required) When the `type` is apiKey, the name of the security scheme variable.
 
 OAS equivalent: `components.securitySchemes.{securitySchemeName}.name`
 
@@ -144,11 +144,10 @@ OAS equivalent: `components.securitySchemes.{securitySchemeName}.in`
 
 #### 4.2.4. `scheme`
 
-(Required if security scheme `type` is `http`) The name of the HTTP Authorization scheme to be used in the
-[Authorization header as defined in RFC7235](https://tools.ietf.org/html/rfc7235#section-5.1).
+(Required) When `type` is http, then name of the HTTP Authorization scheme to be used in the [Authorization header as defined in RFC7235](https://tools.ietf.org/html/rfc7235#section-5.1).
 
-Allowed values: The values used SHOULD be registered in the [IANA Authentication Scheme
-registry](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml). The OIS object supports `basic` and `bearer`.
+Allowed values: <!--The values used SHOULD be registered in the [IANA Authentication Scheme
+registry](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml). The OIS object supports--> `basic` and `bearer`.
 
 OAS equivalent: `components.securitySchemes.{securitySchemeName}.scheme`
 
