@@ -67,6 +67,7 @@ OAS equivalent: `info.title`
 - [`paths`](ois.md#_4-4-paths)
 
 ```json
+// apiSpecifications
 {
   "servers": [
     {
@@ -82,6 +83,11 @@ OAS equivalent: `info.title`
       }
     }
   },
+  "security": [
+    {
+      "mySecurityScheme1": []
+    }
+  ]
   "paths": {
     "/myPath": {
       "get": {
@@ -146,26 +152,41 @@ registry](https://www.iana.org/assignments/http-authschemes/http-authschemes.xht
 
 OAS equivalent: `components.securitySchemes.{securitySchemeName}.scheme`
 
-### 4.3. `paths`
+### 4.3. `security`
+
+(Required) An object containing all security schemes that need to be used to access the API.
+Applies to all operations.
+Unlike in OAS, `security` cannot be a list.
+Each security scheme maps to an empty list as:
+
+```json
+"security": {
+  "mySecurityScheme1": []
+}
+```
+
+OAS equivalent: `security`, or `security.0` if `security` is a list (raise warning during conversion if `security` is a list with multiple elements)
+
+### 4.4. `paths`
 
 (Required) An object where operations can be found under `{path}.{method}` with the following elements:
 
 - [`parameters`](#441-parameters)
 
-#### 4.3.1. `parameters`
+#### 4.4.1. `parameters`
 
 (Required) A list of operation parameters, each with the following fields:
 
 - [`name`](ois.md#_4-4-1-1-name)
 - [`in`](ois.md#_4-4-1-2-in)
 
-##### 4.3.1.1. `name`
+##### 4.4.1.1. `name`
 
 (Required) The name of the parameter.
 
 OAS equivalent: `paths.{path}.{method}.parameters.{#}.name`
 
-##### 4.3.1.2. `in`
+##### 4.4.1.2. `in`
 
 (Required) The location of the parameter.
 
@@ -190,6 +211,7 @@ the `requestBody`. Note that only the non-nested application/json content-type i
 - [`externalDocs`*](ois.md#_5-8-externaldocs)
 
 ```json
+// endpoints
 [
   {
     "name": "convertToUsd",
@@ -373,6 +395,8 @@ OAS equivalent: `paths.{path}.{method}.description` of corresponding operation
 
 OAS equivalent: `paths.{path}.{method}.externalDocs` of corresponding operation
 
-### 5.9. `testable`*
+### 5.9. `testable`
 
-(Optional) Flag (true / false) indicating if the endpoint can be tested with the HTTP gateway. The gateway must be enabled.
+(Optional) Flag that indicates if the endpoint can be tested with the HTTP gateway. The gateway must be enabled.
+
+Allowed values: true, false
