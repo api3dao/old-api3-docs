@@ -12,6 +12,11 @@ title: Admin CLI Commands
 Use the Admin CLI tool to interact with Airnode across blockchains. There are commands for both developers (dApp) and API providers. Developers can sponsor [requester](../concepts/requester.md) contracts and derive
 [sponsorWallets](../concepts/sponsor.md#sponsorwallet) for Airnodes. API providers can build [Airnodes](../concepts/airnode.md) that serve their API data to requester contracts.
 
+<Fix> Add doc for API provider fees.</Fix>
+::: warning Transaction Gas Costs
+Some commands will incur transaction fees. These are per call transaction gas costs and are relatively small. See the [<span style="color:green;">Developer Fees</span>](../grp-developers/fees.md) doc.
+:::
+
 Almost all commands require you to provide a blockchain `providerUrl`. Following are just two examples of many possibilities.
 
 - `https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID>`
@@ -33,6 +38,7 @@ npx @api3/airnode-admin --help
 ```sh
 npx @api3/airnode-admin $COMMAND --help
 ```
+<divider/>
 
 ## SDK
 
@@ -260,6 +266,7 @@ Derives the Airnode extended public key ([`xpub`](../concepts/airnode.md#xpub)).
 ```sh
 npx @api3/airnode-admin derive-airnode-xpub --mnemonic "nature about salad..."
 ```
+<divider/>
 
 ### `derive-endpoint-id`
 
@@ -273,6 +280,8 @@ npx @api3/airnode-admin derive-endpoint-id \
   --ois-title "My OIS title..." \
   --endpoint-name "My endpoint name..."
 ```
+
+<divider/>
 
 ## AirnodeRequesterRrpAuthorizer
 

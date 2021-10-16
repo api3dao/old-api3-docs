@@ -10,11 +10,11 @@ title: Request
 A request is made, by a [requester](requester.md), to either the `makeFullRequest()` or `makeTemplateRequest()` functions of the [AirnodeRrp.sol](README.md#airnoderrp-sol) protocol contract which adds the request to its storage. The targeted off-chain [Airnode](airnode.md) gathers the request from AirnodeRrp.sol's storage and responds using the `fulFill()` function of AirnodeRrp.sol.
 
 >![concepts-request](../assets/images/concepts-request.png)
->1. <p style="color:black;max-width:600px;">The requester calls makeFullRequest() on the AirnodeRrp protocol contract.</p>
->2. <p style="color:black;max-width:600px;margin-top:-10px;">makeFullRequest() assigns a requestId to the request for tracking purposes, adds the requestId to storage, emits the request to the event logs and returns the requestId to the requester.</p>
->3. <p style="color:gray;max-width:600px;margin-top:-10px;">Airnode, during its run cycle, picks the request from the event logs.</p>
->4. <p style="color:blue;max-width:600px;margin-top:-10px;">Airnode gets data from the API.</p>
->5. <p style="color:green;max-width:600px;margin-top:-10px;">Airnode sends the response to fulFill() in AirnodeRrp which in turn removes the pending requestId from storage and forwards the response to myFulFill(). The requestId is included as part of the response.</p>
+>1. <p class="diagram-line">The requester calls makeFullRequest() on the AirnodeRrp protocol contract.</p>
+>2. <p class="diagram-line">makeFullRequest() assigns a requestId to the request for tracking purposes, adds the requestId to storage, emits the request to the event logs and returns the requestId to the requester.</p>
+>3. <p class="diagram-line" style="color:gray;">Airnode, during its run cycle, picks the request from the event logs.</p>
+>4. <p class="diagram-line" style="color:blue;">Airnode gets data from the API.</p>
+>5. <p class="diagram-line" style="color:green;">Airnode sends the response to fulFill() in AirnodeRrp which in turn removes the pending requestId from storage and forwards the response to myFulFill(). The requestId is included as part of the response.</p>
 
 Learn more on how to [Call an Airnode](../grp-developers/call-an-airnode.md).
 
@@ -109,9 +109,9 @@ A request made to an Airnode has three possible outcomes:
 `fulfill()` is the desired outcome and it will only be called if Airnode received a successful response from the API provider.
 
 > ![request-outcomes](../assets/images/request-outcomes.png)
->1) <div style="color:black;max-width:600px;">Airnode calls AirnodeRRP.fulFill() with a response only if the request does not error, meaning the API responded and callData can be returned. AirnodeRrp.fulfill() performs a call back to myFulFill() which in turn receives the response with callData.</div>
->2) <div style="color:green;max-width:600px;">If AirnodeRrp.fulFill() fails internally or fails to call myFulFill() then it reverts back to Airnode with an error message. Airnode then starts the process in step #3 to fail the request.</div>
->3) <div style="color:green;max-width:600px;">If Airnode errors, or is told by AirnodeRrp.fulFill() to error, it calls AirnodeRrp.fail() which removes the request.</div>
+>1) <p class="diagram-line">Airnode calls AirnodeRRP.fulFill() with a response only if the request does not error, meaning the API responded and callData can be returned. AirnodeRrp.fulfill() performs a call back to myFulFill() which in turn receives the response with callData.</p>
+>2) <p class="diagram-line" style="color:green;">If AirnodeRrp.fulFill() fails internally or fails to call myFulFill() then it reverts back to Airnode with an error message. Airnode then starts the process in step #3 to fail the request.</p>
+>3) <p class="diagram-line" style="color:green;">If Airnode errors, or is told by AirnodeRrp.fulFill() to error, it calls AirnodeRrp.fail() which removes the request.</p>
 
 :::tip Important to Note
 Fulfill is the only outcome that returns results to a requester contract.

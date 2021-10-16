@@ -10,6 +10,8 @@ title: Self-Serve Smart Contract Platforms
 Airnode is composed of two parts: the off-chain **Airnode** (cloud provider functions, e.g., AWS) and the on-chain **AirnodeRrp.sol** protocol contract. API3 has deployed the AirnodeRrp.sol protocol contract to several EVM-compatible blockchains. An API provider deploys an Airnode application to a cloud provider which can communicate with one or more AirnodeRrp.sol protocol contracts on different blockchains.
 
 > ![2-parts](../assets/images/airnode-is-2-parts.png)
+<br/><br/>
+> <p class="diagram-line" style="color:black;">Airnode is composed of two parts: (1) the AirnodeRrp.sol protocol contract and (2) the Airnode application.</p>
 
 ## Is my platform compatible?
 
