@@ -76,7 +76,7 @@ The SDK will also provide TS typings out of the box. Please, refer to the implem
 
 ## Sponsors
 
-Commands related to a [sponsor's](../concepts/sponsor.md) relationships between [requesters](../concepts/requester.md) and [sponsorWallets](../concepts/sponsor.md#sponsorwallet) as well as [templates](../concepts/template.md) used by a sponsor's requesters. Some of these commands connect to the [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/AirnodeRrp.sol) protocol contract where the signer is sponsor account.
+Commands related to a [sponsor's](../concepts/sponsor.md) relationships between [requesters](../concepts/requester.md) and [sponsorWallets](../concepts/sponsor.md#sponsorwallet) as well as [templates](../concepts/template.md) used by a sponsor's requesters. Some of these commands connect to the [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/AirnodeRrp.sol) protocol contract where the signer is sponsor account.
 
 - [sponsor-requester](admin-cli-commands.md#sponsor-requester)
 - [unsponsor-requester](admin-cli-commands.md#unsponsor-requester)

@@ -59,11 +59,10 @@ See the list of all [Airnode contract addresses](../reference/airnode-addresses.
 
 ## Step #2: Implement the request logic
 
-There are three types of requests provided by the AirnodeRrp.sol contract. See
-[Request Types](../concepts/request.md#request-types) in the Reference section for information related to each
-request type.
+There are two types of requests provided by the AirnodeRrp.sol contract. See the
+[Request](../concepts/request.md) page for information related to each request type.
 
-This example will use a [full request](../concepts/request.md#_3-full-request) type (note the
+This example will use a [full request](../concepts/request.md#full-request) type (note the
 `airnode.makeFullRequest` function call in the code below) which is called from the requester's own function
 `callTheAirnode`. The function `makeFullRequest` requires that the requester pass all parameters needed by Airnode to
 call its underlying API.
