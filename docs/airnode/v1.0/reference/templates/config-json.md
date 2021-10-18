@@ -4,13 +4,19 @@ title: config.json
 <TitleSpan>Templates</TitleSpan>
 # {{$frontmatter.title}}
 
-Below is a template for an Airnode's configuration file. There are some fields that contain <FILL_*>. This means that
-the value added is independent from other fields. On the other hand, if two fields contain the same expression (e.g.,
-<FILL_OPERATION_PARAMETER_1_NAME>), you must use the same value in them, because they are referencing each other. Consider the following relationships.
+A template for an Airnode's configuration file. Below are notations to help explain contents of the template.
 
-> - `ois[0].title` is related to `triggers.rrp[0].oisTitle` when they share the same field name. 
-> - `ois[0].apiSpecifications.paths[path][method].parameters[0].in` shows up in
->   `ois[0].endpoints[0].fixedOperationParameters[0].operationParameter.in`
+- `<FILL_*>`: The value added is independent from other fields and a value is needed. These values are not considered secret unless you want them to be.
+
+- `<FILL_OPERATION_PARAMETER_1_NAME>`: If two fields contain the same expression, use the same value in them because they are referencing each other. Usually these are not considered to be secret.
+
+- `${CHAIN_PROVIDER_URL}`: Interpolated values ${} that should be added to `secrets.env` though it is not required.
+
+Consider the following relationships.
+
+ - `ois[0].title` is related to `triggers.rrp[0].oisTitle` when they share the same field name.  
+ - `ois[0].apiSpecifications.paths[path][method].parameters[0].in` shows up in
+   `ois[0].endpoints[0].fixedOperationParameters[0].operationParameter.in`
 
 See [config.json](../deployment-files/config-json.md) as a reference while building a config.json file.
 
@@ -24,13 +30,13 @@ See [config.json](../deployment-files/config-json.md) as a reference while build
       "contracts": {
         "AirnodeRrp": "<FILL_*>"
       },
-      "id": "<FILL_CHAIN_ID_1>",
+      "id": "<FILL_*>",
       "providers": {
         "<FILL_PROVIDER_NAME_1>": {
-          "url": "${CHAIN_PROVIDER_URL}"
+          "url": "${CHAIN_PROVIDER_URL}" // In secrets.env
         }
       },
-      "type": "<FILL_CHAIN_TYPE_1>"
+      "type": "<FILL_*>"
     }
   ],
   "nodeSettings": {
@@ -38,13 +44,13 @@ See [config.json](../deployment-files/config-json.md) as a reference while build
     "airnodeWalletMnemonic": "<FILL_*>",
     "heartbeat": {
       "enabled": true,
-      "url": "<FILL_*>",
-      "apiKey": "<FILL_*>",
-      "id": "<FILL_*>"
+      "url": "${HEARTBEAT_API_KEY}", // In secrets.env
+      "apiKey": "${HEARTBEAT_API_KEY}", // In secrets.env
+      "id": "${HEARTBEAT_ID}" // In secrets.env
     },
     "httpGateway": {
       "enabled": true,
-      "apiKey": "<FILL_*>"
+      "apiKey": "${HTTP_GATEWAY_API_KEY}" // In secrets.env
     },
     "logFormat": "json",
     "logLevel": "INFO",
@@ -152,7 +158,7 @@ See [config.json](../deployment-files/config-json.md) as a reference while build
     {
       "oisTitle": "<FILL_OIS_TITLE>",
       "securitySchemeName": "<FILL_SECURITY_SCHEME_NAME>",
-      "securitySchemeValue": "<FILL_*>"
+      "securitySchemeValue": "${SS_API_KEY}" // In secrets.env
     }
   ]
 }

@@ -129,7 +129,7 @@ An object containing general deployment parameters of an Airnode.
 (required) - The wallet mnemonic that will be used by the Airnode.
 
 ### `heartbeat`
-(required) - The Airnode's "call home" functionality. Airnode can periodically make a request to the specified URL signaling that it's active. There are plans in hte future to allow the sending of a payload with information for reporting purposes.
+(required) - The Airnode's "call home" functionality. Airnode can periodically make a request to the specified URL signaling that it's active. There are plans in the future to allow the sending of a payload with information for reporting purposes.
 
 #### `heartbeat.enabled`
 (required) - Enable/disable Airnode's heartbeat.
@@ -219,7 +219,7 @@ Use of apiCredentials is not required, leave its array empty.
   }
 ]
 
-// From the OIS object apiCredentials is referencing
+// components object in OIS object
 {
   "title": "myOisTitle",
   ...,
