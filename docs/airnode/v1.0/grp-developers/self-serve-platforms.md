@@ -7,11 +7,11 @@ title: Self-Serve Smart Contract Platforms
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Airnode is composed of two parts: the off-chain **Airnode** (cloud provider functions, e.g., AWS) and the on-chain **AirnodeRrp.sol** protocol contract. API3 has deployed the AirnodeRrp.sol protocol contract to several EVM-compatible blockchains. An API provider deploys an Airnode application to a cloud provider which can communicate with one or more AirnodeRrp.sol protocol contracts on different blockchains.
+Airnode is composed of two parts: the off-chain **Airnode** (a.k.a. "the node") deployed as self hosted or cloud provider functions, e.g., AWS) and the on-chain **protocol contract**  AirnodeRrp.sol. API3 has deployed the AirnodeRrp.sol protocol contract to several EVM-compatible blockchains. An API provider deploys an Airnode application to a cloud provider which can communicate with one or more AirnodeRrp.sol protocol contracts on different blockchains.
 
 > ![2-parts](../assets/images/airnode-is-2-parts.png)
 <br/><br/>
-> <p class="diagram-line" style="color:black;">Airnode is composed of two parts: (1) the AirnodeRrp.sol protocol contract and (2) the Airnode application.</p>
+> <p class="diagram-line" style="color:black;">Airnode is composed of two parts: the off-chain **Airnode** (a.k.a. "the node") deployed usually as cloud provider functions, e.g., AWS) and the on-chain **protocol contract**  AirnodeRrp.sol.</p>
 
 ## Is my platform compatible?
 
@@ -23,7 +23,7 @@ This document enables you to "self-serve" and assess the feasibility of an integ
 
 ## EVM Support
 
-Let's go over different factors that determine compatibility. Airnode is composed of two parts: the _AirnodeRrp.sol protocol contract_ and the _Airnode application_. The protocol contract is implemented in Solidity.
+Let's go over different factors that determine compatibility. Airnode is composed of two parts: the off-chain **Airnode** (a.k.a. "the node") deployed as self hosted or cloud provider functions, e.g., AWS) and the on-chain **protocol contract**  AirnodeRrp.sol. The protocol contract is implemented in Solidity.
 
 Solidity typically compiles to EVM bytecode, which means that your smart contract platform should be EVM-compatible. In theory, you can also compile Solidity into other types of bytecode (e.g., WASM) that would run natively on your smart contract platform, yet the resulting integration will need to be tested extensively. So if your smart contract platform runs Solidity contracts, you are good.
 If it does not, the protocol will have to be implemented in the native smart contract language.

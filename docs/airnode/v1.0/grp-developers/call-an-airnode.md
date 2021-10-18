@@ -11,8 +11,7 @@ A requester is a contract that can trigger an Airnode request. To do so, request
 request using a matching sponsor wallet. See [Requesters and Sponsors](requesters-sponsors.md) on how to sponsor a
 requester and derive the sponsor wallet.
 
-Airnode is composed of two parts: the off-chain **Airnode** (cloud provider functions, e.g., AWS) and the on-chain
-**protocol contract** ( AirnodeRrp.sol). A requester calls the protocol contract, which emits a blockchain event with
+Airnode is composed of two parts: the off-chain **Airnode** (a.k.a. "the node") deployed as self hosted or cloud provider functions, e.g., AWS) and the on-chain **protocol contract**  AirnodeRrp.sol. A requester calls the protocol contract, which emits a blockchain event with
 the request parameters. Airnode listens to the events emitted by the AirnodeRrp contract. During its next run cycle,
 Airnode gets the request parameters from the emitted event. The diagram below illustrates the mechanics of the entire
 process as does the diagram in the [Overview](./) doc for developers.

@@ -15,7 +15,7 @@ In this guide, we will go over different factors that determine compatibility.
 
 ## EVM support
 
-Airnode is composed of two parts: The protocol contract and the node application.
+Airnode is composed of two parts: the off-chain **Airnode** (a.k.a. "the node") deployed as self hosted or cloud provider functions, e.g., AWS) and the on-chain **protocol contract**  AirnodeRrp.sol.
 The Airnode protocol contract is implemented in Solidity.
 
 Solidity typically compiles to EVM bytecode, which means that your smart contract platform should be EVM-compatible.
