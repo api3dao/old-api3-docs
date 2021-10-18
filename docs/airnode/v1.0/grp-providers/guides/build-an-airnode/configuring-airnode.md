@@ -235,14 +235,14 @@ Use of apiCredentials is not required, leave its array empty.
 
 #### `oisTitle`
 
-[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#oisTitle) The `ois.title` of the OIS where the `securitySchemeName` can be found.
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#oistitle) The `ois.title` of the OIS where the `securitySchemeName` can be found.
 
 #### `securitySchemeName`
 
-[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#securitySchemeName) The name of a security scheme from `ois[n].components.securitySchemes.{securitySchemeName}`.
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#securityschemename) The name of a security scheme from `ois[n].components.securitySchemes.{securitySchemeName}`.
 
 #### `securitySchemeValue`
-[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#securitySchemeValue)  The value of the security scheme used (as defined by `ois[n].components.securitySchemes.{securitySchemeName}` for the authentication. Usually stored in `secrets.env`. 
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#securityschemevalue)  The value of the security scheme used (as defined by `ois[n].components.securitySchemes.{securitySchemeName}` for the authentication. Usually stored in `secrets.env`.
 
 
 Based on the setup above Airnode will call the API operation with the following header.

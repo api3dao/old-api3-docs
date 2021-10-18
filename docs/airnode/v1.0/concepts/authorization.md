@@ -25,7 +25,7 @@ When an Airnode receives a request, it can use on-chain authorizer contracts to 
 - Respond to requests made by requesters that were whitelisted by the API3 DAO.
 - Respond to requests made by sponsors who have been whitelisted by the Airnode owner's backend (for example, based on PayPal payments).
 
-A common use case for an authorizer is the [AirnodeRequesterRrpAuthorizer](./authorization.md#airnoderequesterrrpauthorizer) authorizer contract developed for Airnode operators to use right out-of-the-box. It allows the whitelisting of requester contracts (with or without expiration timestamps) on a per endpoint basis. This is the most common use case and may in fact satisfy the needs of many Airnodes.
+A common use case for an authorizer is the [AirnodeRequesterRrpAuthorizer](#airnoderequesterrrpauthorizer) authorizer contract developed for Airnode operators to use right out-of-the-box. It allows the whitelisting of requester contracts (with or without expiration timestamps) on a per endpoint basis. This is the most common use case and may in fact satisfy the needs of many Airnodes.
 
 The diagram below illustrates how Airnode utilizes authorizers.
 
@@ -37,10 +37,10 @@ The authorizers you use will authorize all requests regardless of which endpoint
 
 Airnode provides two authorizer contracts, one of which (AirnodeRequesterRrpAuthorizer) can be used by any API provider. The other (DaoRequesterRrpAuthorizer) is used by the API3 DAO. They are detailed within this doc in sections below.
 
-- [`AirnodeRequesterRrpAuthorizer`](./authorization.md#airnoderequesterrrpauthorizer)
+- [`AirnodeRequesterRrpAuthorizer`](#airnoderequesterrrpauthorizer)
 - [`DaoRequesterRrpAuthorizer`](./authorization.md#daorequesterrrpauthorizer)
 
-Both these authorizer contracts inherit and extend the `RequesterRrpAuthorizer` abstract contract which also extends the [`Whitelister`](./adminnable.md#whitelister) contract. This means that both authorizer contracts will need to whitelist requester contracts prior to make them available to an Airnode (For `AirnodeRequesterRrpAuthorizer` this can be done using the [admin-cli](../reference/admin-cli-commands.md#airnodeRequesterrrpauthorizer)).
+Both these authorizer contracts inherit and extend the `RequesterRrpAuthorizer` abstract contract which also extends the [`Whitelister`](./adminnable.md#whitelister) contract. This means that both authorizer contracts will need to whitelist requester contracts prior to make them available to an Airnode (For `AirnodeRequesterRrpAuthorizer` this can be done using the [admin-cli](../reference/admin-cli-commands.md#airnoderequesterrrpauthorizer)).
 
 The main difference between them is that `AirnodeRequesterRrpAuthorizer` also inherits [SelfAdminnable](./adminnable.md#selfadminnable) contract where admins are only allowed whitelist requesters on a specific Airnode. Meta-admin and admins in `DaoRequesterRrpAuthorizer` on the other hand, can whitelist requesters across all Airnodes because it inherits [Adminnable](./adminnable.md#adminnable) contract.
 
