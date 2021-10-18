@@ -7,7 +7,13 @@ title: The Airnode
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-At its core, **API3** brings the ability for API providers to easily run their own _oracle nodes_. This allows them to provide their data on-chain, without an intermediary, to any _decentralized app_ \(dApp\) interested in their services.
+Airnode is a serverless oracle node implemented with a "set and forget" philosophy. Airnode is composed of two parts: the off-chain **Airnode** (a.k.a. "the node") deployed as self hosted or cloud provider functions, e.g., AWS) and the on-chain **protocol contract**  AirnodeRrp.sol.
+
+> ![2-parts](./images/summary-airnode-2-parts.png)
+<br/><br/>
+> <p class="diagram-line" style="color:black;">Airnode is composed of two parts: the off-chain **Airnode** (a.k.a. "the node") deployed usually as cloud provider functions, e.g., AWS) and the on-chain **protocol contract**  AirnodeRrp.sol.</p>
+
+At its core, **Airnode** brings the ability for API providers to easily run their own _oracle nodes_. This allows them to provide their data on-chain, without an intermediary, to any _decentralized app_ \(dApp\) interested in their services.
 
 At the heart of this mechanism sits **Airnode**, an open-source oracle node. It's designed to be easily deployed by any API provider with almost no maintenance. Because of Airnode, dApp developers can write _smart contracts_ to interact with the on-chain data of API providers.
 
@@ -71,7 +77,7 @@ Airnode is developed by the founding members of API3 and is now open-sourced. Th
 
 Similar to how we prefer the better specified API connectivity problem over the oracle problem, we believe that an oracle node should be designed to interface APIs to smart contract platforms very well, rather than as a sandbox that can purportedly be used for any purpose imaginable. Based on this philosophy, the Airnode protocol is designed to follow the self-emergent patterns used by APIs to achieve as transparent and frictionless of an API–smart contract platform interface as possible.
 
-The first and the most commonly used API style follows the request–response pattern, where the user makes a request with parameters and the API responds as soon as possible. This will be the first pattern that Airnode will support, as it is easy to standardize and integrate with existing APIs that follow the same pattern. An example use case of this scheme would be requesting the result of a specific match to be delivered, which can be used to resolve the respective prediction market. In addition, Airnode is planned to support the publish–subscribe pattern, where the user requests the oracle to call back a specific method when parametrized conditions are met. For example, a decentralized exchange may request the oracle to trigger a liquidation event for a user in a leveraged position when ETH price drops below $400. Either of these patterns can be used to implement the live data feeds that DeFi applications use today, but they can also support a much larger variety of use cases in the form of dAPIs.
+The first and the most commonly used API style follows the request–response pattern, where the user makes a request with parameters and the API responds as soon as possible. This will be the first pattern that Airnode will support, as it is easy to standardize and integrate with existing APIs that follow the same pattern. An example use case of this scheme would be requesting the result of a specific match to be delivered, which can be used to resolve the respective prediction market. In addition, Airnode is planned to support the publish–subscribe pattern, where the user requests the oracle to call back a specific method when parametrized conditions are met. For example, a decentralized exchange may request the oracle to trigger a liquidation event for a user in a leveraged position when ETH price drops below a particular price. Either of these patterns can be used to implement the live data feeds that DeFi applications use today, but they can also support a much larger variety of use cases in the form of dAPIs.
 
 The Airnode protocol is designed in a way that the requester assumes all gas costs, even including the request fulfillment transactions. This is achieved by each Airnode having a separate wallet for each requester, similar to how cryptocurrency exchanges automatically designate wallets for users to deposit funds to. The requester funds this wallet with the native currency (e.g., ETH), either in a lump sum or through per-request microtransactions. The funds in this wallet are used to fulfill all of the following requests made by the requester. This scheme has significant advantages:
 
