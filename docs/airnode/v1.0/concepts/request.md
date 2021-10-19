@@ -109,9 +109,9 @@ A request made to an Airnode has three possible outcomes:
 `fulfill()` is the desired outcome and it will only be called if Airnode received a successful response from the API provider.
 
 > ![request-outcomes](../assets/images/request-outcomes.png)
->1) <p class="diagram-line">Airnode calls AirnodeRRP.fulFill() with a response only if the request does not error, meaning the API responded and callData can be returned. AirnodeRrp.fulfill() performs a call back to myFulFill() which in turn receives the response with callData.</p>
->2) <p class="diagram-line" style="color:green;">If AirnodeRrp.fulFill() fails internally or fails to call myFulFill() then it reverts back to Airnode with an error message. Airnode then starts the process in step #3 to fail the request.</p>
->3) <p class="diagram-line" style="color:green;">If Airnode errors, or is told by AirnodeRrp.fulFill() to error, it calls AirnodeRrp.fail() which removes the request.</p>
+>1) <p class="diagram-line">Airnode calls AirnodeRRP.fulFill() with a response only if the API has not responded with an error. AirnodeRrp.fulfill() performs a call back to myFulFill() which in turn receives the response.</p>
+>2) <p class="diagram-line" style="color:green;">If AirnodeRrp.fulFill() fails internally or the underlying low level call to myFulFill() reverts then Airnode will start the process in step #3 to fail the request.</p>
+>3) <p class="diagram-line" style="color:green;">If Airnode errors, or is told by AirnodeRrp.fulFill() to error, it calls AirnodeRrp.fail() which removes the request from the pending list of requestIds on-chain.</p>
 
 :::tip Important to Note
 Fulfill is the only outcome that returns results to a requester contract.
