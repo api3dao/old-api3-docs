@@ -9,10 +9,11 @@ title: Chain Providers
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Chain providers provide access to an evm on behave of an API provider. Your Airnode will interact with one or more chain providers and respond to requests. You can use multiple chain providers for each chain and declare multiple chains each with one of more chain providers. Below is the list of chain providers  you might use.
+Chain providers provide access to an evm on behave of an API provider. Your Airnode will interact with one or more chain providers and respond to requests. You can use multiple chain providers for each chain and declare multiple chains each with one of more chain providers. Below are some of the chain providers you might use.
 
-<Fix>Need list of usable chain providers here.</Fix>
+- [Pocket](https://www.pokt.network/)
 - [Infura](https://infura.io)
+- [Alchemy](https://www.alchemy.com/)
 
 ## One Chain: One Provider
 

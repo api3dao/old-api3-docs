@@ -30,6 +30,10 @@ A common use case for an authorizer is the [AirnodeRequesterRrpAuthorizer](#airn
 The diagram below illustrates how Airnode utilizes authorizers.
 
 > ![concept-authorizer](../assets/images/concepts-authorizers.png)
+> 1. <p class="diagram-line">When Airnode starts it reads its list of authorizer contracts declared in config.json.</p>
+> 2. <p class="diagram-line">Airnode gathers requests from the event logs, during its run cycle.</p>
+> 3. <p class="diagram-line">Airnode sends each request, along with the list of authorizer contracts, to <code>checkAuthorizationStatus()</code>.</p>
+> 4. <p class="diagram-line"><code>checkAuthorizationStatus()</code> executes the <code>isAuthorized()</code> function in each authorizer contract. If any one authorizer contract returns true, then true is returned to the Airnode which in turn proceeds to fulfill the request.</p>
 
 The authorizers you use will authorize all requests regardless of which endpoint is called. Endpoints are declared in the `ois.endpoints` field of the `config.json` file. To further filter by a particular endpoint you must use a custom authorizer such as AirnodeRequesterRrpAuthorizer or use relay metadata.
 
@@ -292,6 +296,9 @@ The `isAuthorized()` function will be called by AirnodeRrp to verify the authori
 Airnode operators can use the [\_relay_metadata](../reference/specifications/reserved-parameters.md#relay-metadata) named reserved parameter to instruct Airnode to send metadata to an endpoint. The endpoint can then use the metadata to process and respond (or not) accordingly to the requester.
 
 > ![concept-authorizer](../assets/images/concepts-relay-metadata.png)
+> 1. <span style="color:black;">When Airnode starts it reads its list of endpoints declared in config.json.</span>
+> 2. <span style="color:black;">Airnode gathers requests from the event logs, during its run cycle.</span>
+> 3. <span style="color:black;">Airnode includes metadata in requests to endpoints that have an entry of <code>_relay_metadata</code> (set to "v1") in <code>endpoints[n].reservedParameters[n]</code>.</span>   
 
 This option has been implemented because sometimes the Airnode operator does not want to use on-chain authorizers.
 
