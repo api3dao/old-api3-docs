@@ -34,8 +34,8 @@ For example: `/latest/members` will always be pointed to the latest version of t
 ...
 
 # it changes to 0.1.0 when 0.1.0 becomes the latest version.
-/latest/ /airnode/v1
-/airnode /airnode/v1
+/latest/ /airnode/v1.0
+/airnode /airnode/v1.0
 ...
 ```
 
