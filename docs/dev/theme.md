@@ -20,7 +20,7 @@ The sidebar is a JSON object with a set of routes. The value of each route is th
 ```json
 sidebar: {
   '/airnode/next/': require(`../airnode/next/sidebar.js`),
-  '/airnode/v1/': require(`../airnode/v1/sidebar.js`),
+  '/airnode/v1/': require(`../airnode/v1.0/sidebar.js`),
   '/airnode/pre-alpha/': require(`../airnode/pre-alpha/sidebar.js`),
   '/dao-members/': require(`../dao-members/sidebar.js.js`),
   '/dev/': require(`../dev/sidebar.js`),

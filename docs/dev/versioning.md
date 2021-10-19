@@ -54,7 +54,7 @@ A route in the `/airnode` folder becomes a version of the Airnode docs when decl
 
 ```json
 versions:[
-  {name:'v1', url:'/airnode/v1/'},
+  {name:'v1', url:'/airnode/v1.0/'},
   {name:'pre-alpha', url:'/airnode/pre-alpha/'},
 ],
 ```
