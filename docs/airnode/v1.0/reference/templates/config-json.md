@@ -102,9 +102,6 @@ See [config.json](../deployment-files/config-json.md) as a reference while build
               "name": "<FILL_*>"
             }
           }
-        },
-        "security": {
-          "<FILL_SECURITY_SCHEME_NAME>": []
         }
       },
       "endpoints": [
