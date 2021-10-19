@@ -3,7 +3,7 @@ module.exports = [
     title: 'Introduction', initialOpenGroupIndex: 0, collapsable: true,
     children: [
       '',
-      //'introduction/why-use-airnode'
+      'introduction/why-use-airnode'
     ]
   },
   {
