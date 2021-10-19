@@ -63,8 +63,7 @@ OAS equivalent: `info.title`
 
 - [`servers`](ois.md#_4-1-servers)
 - [`components`](ois.md#_4-2-components)
-- [`security`](ois.md#_4-3-security)
-- [`paths`](ois.md#_4-4-paths)
+- [`paths`](ois.md#_4-3-paths)
 
 ```json
 // apiSpecifications
@@ -83,11 +82,6 @@ OAS equivalent: `info.title`
       }
     }
   },
-  "security": [
-    {
-      "mySecurityScheme1": []
-    }
-  ]
   "paths": {
     "/myPath": {
       "get": {
@@ -150,41 +144,26 @@ Allowed values: <!--The values used SHOULD be registered in the [IANA Authentica
 
 OAS equivalent: `components.securitySchemes.{securitySchemeName}.scheme`
 
-### 4.3. `security`
-
-(Required) An object containing all security schemes that need to be used to access the API.
-Applies to all operations.
-Unlike in OAS, `security` cannot be a list.
-Each security scheme maps to an empty list as:
-
-```json
-"security": {
-  "mySecurityScheme1": []
-}
-```
-
-OAS equivalent: `security`, or `security.0` if `security` is a list (raise warning during conversion if `security` is a list with multiple elements)
-
-### 4.4. `paths`
+### 4.3. `paths`
 
 (Required) An object where operations can be found under `{path}.{method}` with the following elements:
 
-- [`parameters`](#441-parameters)
+- [`parameters`](#431-parameters)
 
-#### 4.4.1. `parameters`
+#### 4.3.1. `parameters`
 
 (Required) A list of operation parameters, each with the following fields:
 
-- [`name`](ois.md#_4-4-1-1-name)
-- [`in`](ois.md#_4-4-1-2-in)
+- [`name`](ois.md#_4-3-1-1-name)
+- [`in`](ois.md#_4-3-1-2-in)
 
-##### 4.4.1.1. `name`
+##### 4.3.1.1. `name`
 
 (Required) The name of the parameter.
 
 OAS equivalent: `paths.{path}.{method}.parameters.{#}.name`
 
-##### 4.4.1.2. `in`
+##### 4.3.1.2. `in`
 
 (Required) The location of the parameter.
 
@@ -245,14 +224,15 @@ the `requestBody`. Note that only the non-nested application/json content-type i
     ],
     "parameters": [
       {
-        "name": "f",
+        "name": "from",
         "default": "EUR",
         "operationParameter": {
           "name": "from",
           "in": "query"
         }
       }
-    ]
+    ],
+    "testable": true
   }
 ]
 ```
