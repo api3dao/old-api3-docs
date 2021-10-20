@@ -9,7 +9,7 @@ title: The Airnode
 
 Airnode is a serverless oracle node implemented with a "set and forget" philosophy. Airnode is composed of two parts: the off-chain **Airnode** (a.k.a. "the node") deployed as self hosted or cloud provider functions, e.g., AWS) and the on-chain **protocol contract**  AirnodeRrp.sol.
 
-> ![2-parts](./images/summary-airnode-2-parts.png)
+> ![2-parts](./assets/images/summary-airnode-2-parts.png)
 <br/><br/>
 > <p class="diagram-line" style="color:black;">Airnode is composed of two parts: the off-chain **Airnode** (a.k.a. "the node") deployed usually as cloud provider functions, e.g., AWS) and the on-chain **protocol contract**  AirnodeRrp.sol.</p>
 
