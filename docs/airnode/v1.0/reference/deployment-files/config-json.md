@@ -205,7 +205,9 @@ A list of OIS objects. Since each OIS specifies the integration of an API to an 
 
 ## apiCredentials
 
-Each entry in `apiCredentials` maps to a security scheme defined in an OIS (`ois[n].components.securitySchemes.{securitySchemeName}`), where `oisTitle` is the `title` field of the related OIS, and `securitySchemeName` is the name of the respective security scheme. These would be `myOisTitle` and `mySecurityScheme` in the example below. `securitySchemeValue` is the value used for the authentication with the security scheme (e.g., the API key).
+Each entry in `apiCredentials` maps to a security scheme defined in an OIS (`ois[n].components.securitySchemes.{securitySchemeName}`), where `oisTitle` is the `title` field of the related OIS, and `securitySchemeName` is the name of the respective security scheme. These would be `myOisTitle` and `mySecurityScheme` in the example below. `securitySchemeValue` is the value used for the authentication with the security scheme (e.g., the API key) which would be in `secrets.env` in the example below.
+
+The `security` field in the OIS object must be included and hold the names of all security schemes the API operation
 
 Use of apiCredentials is not required, leave its array empty.
 
@@ -214,25 +216,28 @@ Use of apiCredentials is not required, leave its array empty.
 [
   {
     "oisTitle": "myOisTitle",
-    "securitySchemeName": "",
+    "securitySchemeName": "mySecurityScheme",
     "securitySchemeValue": "${SS_MY_API_KEY}"
   }
 ]
 
-// components object in OIS object
+// components and security field in OIS object
 {
-  "title": "myOisTitle",
-  ...,
-  "components": {
-    "securitySchemes": {
-      "mySecurityScheme": {
-        "in": "header",
-        "type": "apiKey",
-        "name": "X-api-key"
-      }
+"title": "myOisTitle",
+...,
+"components": {
+  "securitySchemes": {
+    "mySecurityScheme": {
+      "in": "header",
+      "type": "apiKey",
+      "name": "X-api-key"
     }
-  },
-  ...
+  }
+},
+"security": {
+  "mySecurityScheme" []
+}
+...
 }
 ```
 

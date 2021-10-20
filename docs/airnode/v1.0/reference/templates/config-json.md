@@ -99,9 +99,13 @@ See [config.json](../deployment-files/config-json.md) as a reference while build
             "<FILL_SECURITY_SCHEME_NAME>": {
               "in": "<FILL_*>",
               "type": "<FILL_*>",
-              "name": "<FILL_*>"
+              "name": "<FILL_*>",
+              "scheme":"<FILL_*>"
             }
           }
+        },
+        "security":{
+          "<FILL_SECURITY_SCHEME_NAME>": []
         }
       },
       "endpoints": [

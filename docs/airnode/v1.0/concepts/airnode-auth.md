@@ -11,7 +11,7 @@ API providers can instruct Airnode to authenticate requests to their endpoints. 
 
 >![airnode-auth](../assets/images/concepts-airnode-auth.png)
 
-[OpenAPI](https://swagger.io/docs/specification/authentication/) uses the term **security scheme** for authentication and authorization schemes. Airnode only uses standard OAS defined authentication schemes to identify itself to API endpoints. Airnode supports two types of authentication, `http` and `apiKey`.
+[OAS OpenAPI Specification](https://swagger.io/docs/specification/authentication/) uses the term **security scheme** for authentication and authorization schemes. Airnode only uses standard OAS defined authentication schemes to identify itself to API endpoints. Airnode supports two types of authentication, `http` and `apiKey`.
 
 - HTTP authentication schemes (using the `Authorization` header) supported by Airnode:
   - [Basic](https://swagger.io/docs/specification/authentication/basic-authentication/)

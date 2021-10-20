@@ -202,7 +202,7 @@ The `ois` field is a list OIS objects that Airnode will be serving. This means t
 
 ### apiCredentials
 
-Each entry in `apiCredentials` maps to a security scheme defined in an OIS (`ois[n].components.securitySchemes.{securitySchemeName}`), where `oisTitle` is the `title` field of the related OIS, and `securitySchemeName` is the name of the respective security scheme. These would be `myOisTitle` and `mySecurityScheme` in the example below. `securitySchemeValue` is the value used for the authentication with the security scheme (e.g., the API key).
+Each entry in `apiCredentials` maps to a security scheme defined in an OIS (`ois[n].components.securitySchemes.{securitySchemeName}` and `ois[n].security`), where `oisTitle` is the `title` field of the related OIS, and `securitySchemeName` is the name of the respective security scheme. These would be `myOisTitle` and `mySecurityScheme` in the example below. `securitySchemeValue` is the value used for the authentication with the security scheme (e.g., the API key).
 
 Use of apiCredentials is not required, leave its array empty.
 
@@ -217,6 +217,7 @@ Use of apiCredentials is not required, leave its array empty.
 ]
 
 // From the OIS object apiCredentials is referencing
+// using the oisTitle/securitySchemeName pair.
 {
   "title": "myOisTitle",
   ...,
@@ -229,6 +230,9 @@ Use of apiCredentials is not required, leave its array empty.
       }
     }
   },
+  "security":{
+    "mySecurityScheme": []
+  }
   ...
 }
 ```

@@ -49,6 +49,9 @@ repository](https://github.com/api3dao/airnode/tree/master/packages/examples/int
           "name": "<FILL_*>"
         }
       }
+    },
+    "security":{
+      "<FILL_SECURITY_SCHEME_NAME>": []
     }
   },
   "endpoints": [
