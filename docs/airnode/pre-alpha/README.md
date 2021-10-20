@@ -1,1 +1,0 @@
-../../common/the-airnode.md
