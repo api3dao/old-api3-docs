@@ -285,7 +285,7 @@ You can create a securityScheme by copying the code above, using the template co
 
     > Note that we will not be entering the API key itself in the OIS, because the OIS is not meant to include any user-specific information. Security credentials such as API keys go in [secrets.env](../../../reference/deployment-files/secrets-env.md) file.
 
-2. Enter values for `type`, `in`, `name` and `scheme`. You can refer to the [OIS](../../../reference/specifications/ois.md#_4-2-components) document for more details or reference the following table for examples.
+2. Enter values for `type`, `in`, `name` and `scheme`. You can refer to the [OIS](../../../reference/specifications/ois.md#_4-3-components) document for more details or reference the following table for examples.
 
       ```json
       "myApiKeyScheme": {
