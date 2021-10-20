@@ -30,4 +30,6 @@ jobs:
           args: --git https://github.com/lycheeverse/lychee --rev dd9e24b7f454d9f08eb24c170cc757e134432210
 
       - name: Link Checker
-        run: find docs/ -not -path "*/.vuepress/*" -type f -name "*.md" | xargs lychee - -c .github/workflows/lychee.toml --github-token ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: find docs/ -not -path "*/.vuepress/*" -type f -name "*.md" | xargs lychee - -c .github/workflows/lychee.toml
