@@ -7,7 +7,7 @@ title: Fees
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-There are some one-time setup/maintenance costs and the ongoing costs to call an Airnode.
+There are some one-time setup/maintenance costs and the ongoing costs to call an Airnode. The Airnode protocol is designed in a way that the requester assumes all gas costs, including the request fulfillment (response) transactions.
 
 ## Sponsors
 
