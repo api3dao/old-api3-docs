@@ -7,26 +7,33 @@ title: Oracle Integration Specifications (OIS) 1.0.0
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
 The Oracle Integration Specification (OIS) is based on [Open API specification
-(OAS)](https://swagger.io/specification/), but there are some differences, so be sure to read our documentation when
-working on your OIS file.
+(OAS)](https://swagger.io/specification/), but there are some differences, so be sure to read our documentation when working on your OIS file.
 
-*See our article, [Setting Oracle Integration
-Standards](https://medium.com/api3/setting-oracle-integration-standards-ac9104c38f9e) for an overview of OIS.*
+::: warning OAS
+It is not recommended to refer to OAS for help while creating your OIS object. OIS only borrows formatting practices from OAS. Everything needed to create an OIS object is in these docs. 
+:::
 
-*Fields denoted by \* are for documentation purposes and not used by the oracle node.*
+See the article, [Setting Oracle Integration
+Standards](https://medium.com/api3/setting-oracle-integration-standards-ac9104c38f9e) for an overview of OIS.
 
-*The [OAS](https://swagger.io/specification/) equivalents given are used to automatically populate OIS fields. These
-prepopulated fields are expected to be reviewed and customized by the integrating party.*
-
-*All URLs are absolute (i.e., [relative
+- Fields denoted by \* are for documentation purposes and not used by the oracle node. 
+- The [OAS](https://swagger.io/specification/) equivalents are given as reference to assist in the populating of OIS fields. The OIS fields should be reviewed and customized by the integrating party.
+- All URLs are absolute (i.e., [relative
 URLs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#relative-references-in-urls) are not
-supported).*
+supported).
+
+
+## OIS Object Summary 
+
+An OIS has five fields.
 
 - [`oisFormat`](ois.md#_1-oisformat)
 - [`title`](ois.md#_2-title)
 - [`version`](ois.md#_3-version)
 - [`apiSpecifications`](ois.md#_4-apispecifications)
 - [`endpoints`](ois.md#_5-endpoints)
+
+`apiSpecifications` describe the API's operations which are mapped to the `endpoints` that Airnode exposes on-chain.
 
 ```json
 {
@@ -62,8 +69,9 @@ OAS equivalent: `info.title`
 (Required) An object specifying the API with the following fields:
 
 - [`servers`](ois.md#_4-1-servers)
-- [`components`](ois.md#_4-2-components)
-- [`paths`](ois.md#_4-3-paths)
+- [`paths`](ois.md#_4-2-paths)
+- [`components`](ois.md#_4-3-components)
+- [`security`](ois.md#_4-4-security)
 
 ```json
 // apiSpecifications
@@ -73,15 +81,6 @@ OAS equivalent: `info.title`
       "url": "https://myapi.com/api/v1"
     }
   ],
-  "components": {
-    "securitySchemes": {
-      "mySecurityScheme1": {
-        "type": "apiKey",
-        "name": "X-MY-API-KEY",
-        "in": "query"
-      }
-    }
-  },
   "paths": {
     "/myPath": {
       "get": {
@@ -93,6 +92,18 @@ OAS equivalent: `info.title`
         ]
       }
     }
+  },
+  "components": {
+    "securitySchemes": {
+      "mySecurityScheme1": {
+        "type": "apiKey",
+        "name": "X-MY-API-KEY",
+        "in": "query"
+      }
+    }
+  },
+  "security": {
+    "mySecurityScheme1": []
   }
 }
 ```
@@ -104,66 +115,26 @@ array. Applies to all operations.
 
 OAS equivalent: `servers.0` (raise warning during conversion if `servers` has multiple elements)
 
-### 4.2. `components`
-
-(Required) An object where security schemes can be found under `securitySchemes.{securitySchemeName}` with the following
-elements:
-
-- [`type`](ois.md#_4-2-1-type)
-- [`name`](ois.md#_4-2-2-name)
-- [`in`](ois.md#_4-2-3-in)
-- [`scheme`](ois.md#_4-2-4-scheme)
-
-#### 4.2.1. `type`
-
-(Required) The type of the security scheme.
-
-Allowed values: `apiKey`, `http`
-
-OAS equivalent: `components.securitySchemes.{securitySchemeName}.type`
-
-#### 4.2.2. `name`
-
-(Required if `type` is apiKey) The name of the security scheme variable.
-
-OAS equivalent: `components.securitySchemes.{securitySchemeName}.name`
-
-#### 4.2.3. `in`
-
-(Required) The location of the security scheme variable.
-
-Allowed values: `query`, `header`, `cookie`
-
-OAS equivalent: `components.securitySchemes.{securitySchemeName}.in`
-
-#### 4.2.4. `scheme`
-
-(Required if `type` is http) The name of the HTTP Authorization scheme to be used in the [Authorization header as defined in RFC7235](https://tools.ietf.org/html/rfc7235#section-5.1).
-
-Allowed values: <!--The values used SHOULD be registered in the [IANA Authentication Scheme registry](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml). The OIS object supports--> `basic` and `bearer`.
-
-OAS equivalent: `components.securitySchemes.{securitySchemeName}.scheme`
-
-### 4.3. `paths`
+### 4.2. `paths`
 
 (Required) An object where operations can be found under `{path}.{method}` with the following elements:
 
 - [`parameters`](#431-parameters)
 
-#### 4.3.1. `parameters`
+#### 4.2.1. `parameters`
 
 (Required) A list of operation parameters, each with the following fields:
 
-- [`name`](ois.md#_4-3-1-1-name)
-- [`in`](ois.md#_4-3-1-2-in)
+- [`name`](ois.md#_4-2-1-1-name)
+- [`in`](ois.md#_4-2-1-2-in)
 
-##### 4.3.1.1. `name`
+##### 4.2.1.1. `name`
 
 (Required) The name of the parameter.
 
 OAS equivalent: `paths.{path}.{method}.parameters.{#}.name`
 
-##### 4.3.1.2. `in`
+##### 4.2.1.2. `in`
 
 (Required) The location of the parameter.
 
@@ -173,6 +144,63 @@ OAS equivalent: `paths.{path}.{method}.parameters.{#}.in`
 
 When integrating a POST method, define the body parameters with `in: query`. Airnode will convert all `query` types into
 the `requestBody`. Note that only the non-nested application/json content-type is supported.
+
+
+### 4.3. `components`
+
+(Required) An object where security schemes can be found under `securitySchemes.{securitySchemeName}` with the following
+elements:
+
+- [`type`](ois.md#_4-3-1-type)
+- [`name`](ois.md#_4-3-2-name)
+- [`in`](ois.md#_4-3-3-in)
+- [`scheme`](ois.md#_4-3-4-scheme)
+
+#### 4.3.1. `type`
+
+(Required) The type of the security scheme.
+
+Allowed values: `apiKey`, `http`
+
+OAS equivalent: `components.securitySchemes.{securitySchemeName}.type`
+
+#### 4.3.2. `name`
+
+(Only if `type` is apiKey) The name of the security scheme variable.
+
+OAS equivalent: `components.securitySchemes.{securitySchemeName}.name`
+
+#### 4.3.3. `in`
+
+(Only if type is apiKey) The location of the security scheme variable.
+
+Allowed values: `query`, `header`, `cookie`
+
+OAS equivalent: `components.securitySchemes.{securitySchemeName}.in`
+
+#### 4.3.4. `scheme`
+
+(Only if `type` is http) The name of the HTTP Authorization scheme to be used in the [Authorization header as defined in RFC7235](https://tools.ietf.org/html/rfc7235#section-5.1).
+
+Allowed values: <!--The values used SHOULD be registered in the [IANA Authentication Scheme registry](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml). The OIS object supports--> `basic` and `bearer`.
+
+OAS equivalent: `components.securitySchemes.{securitySchemeName}.scheme`
+
+### 4.4. `security`
+
+(Required) An object containing all security schemes that need to be used to access the API. Applies to all operations. Unlike in OAS, security cannot be a list. Each security scheme maps to an empty list as:
+
+```json
+"security": {
+  "mySecurityScheme1": []
+}
+```
+
+OAS equivalent: `security`, or `security.0` if security is a list.
+
+::: warning Please note:
+Currently Airnode reads the security schemes from `component.securitySchemes` and not `security`. Using the `security` field now provides for a smooth transition to future releases of Airnode with regards to security scheme implementation. This will allow assigning of security schemes to individual API operations. Currently security schemes are assign to the entire API.
+:::
 
 ## 5. `endpoints`
 

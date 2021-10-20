@@ -19,33 +19,30 @@ A successful integration of an API with an Airnode requires the mapping of each 
 
 OIS is a mapping of API operations, such as  `GET /coins/{id}`, to Airnode endpoints. When a requester contract calls a AirnodeRrp.col contract request function, such as `makeFullRequest(..., callData)`, the callData is communicated to the off-chain Airnode which uses OIS mappings to translate the callData into a valid HTTP request for the appropriate API operation.
 
-Therefore, only thing needed to integrate an API to Airnode is to create an OIS object which is in the Airnode's `config.json` file. This guide is an instructive approach to creating an OIS. As a point of reference, refer to [Oracle Integration Specifications (OIS)](../../../reference/specifications/ois.md) in the Reference section of these docs for additional input and understanding. It may be useful, but not necessary, to reference the [OpenAPI Specification (OAS) 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
+The only thing needed to integrate an API to Airnode is to create an OIS object which is in the Airnode's `config.json` file. This guide is an instructive approach to create an OIS object. OIS borrows formatting from [OAS OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md). If you have experience with OAS, OIS will seem familiar.
 
-::: tip Specification Conversion
-To assist in converting between various specifications e.g. from OAS to OIS, there is a `convert` command within the Airnode [validator](https://github.com/api3dao/airnode/tree/master/packages/validator#airnodeconvertor) package.
+::: tip OAS
+It is not recommended to refer to OAS for help while creating your OIS object. OIS only borrows formatting practices from OAS. Everything needed to create an OIS object is in these docs. 
 :::
 
-<!-- markdownlint-disable -->
-<details class="collapse-box">
-  <summary class="collapse-box-summary">
-  Other tips while this guide.
-  </summary>
-  
-  - Open the [OIS template](../../../reference/templates/ois-json.md) in another browser window to follow along.
+**Tips while using this guide.**
 
-  - View an example of an [Airnode config.json file](../../tutorial/config-json.md) from the Airnode Starter tutorial.
+- Open the [OIS template](../../../reference/templates/ois-json.md) in another browser window to follow along.
+- View an example of an [Airnode config.json file](../../../reference/examples/config-json.md) from the Airnode Starter tutorial.
 
-</details>
-<!-- markdownlint-enable -->
 
 
 ## OIS Template
 
-An _OIS_ is a json object that is added to an Airnode's [config.json](../../../reference/templates/config-json.md) file as the (`ois`) _key_, sometimes called a _field_. Try using the [OIS template](../../../reference/templates/ois-json.md) to construct an OIS and add it to the Airnode's config.json file later.
+OIS is a json object that is added to an Airnode's [config.json](../../../reference/templates/config-json.md) file as the (`ois`) _key_, sometimes called a _field_. Try using the [OIS template](../../../reference/templates/ois-json.md) to construct an OIS and add it to the Airnode's config.json file later.
 
 In the OIS template, there are some fields that contain `{FILL_*}`. This means that the value added is independent from other fields. On the other hand, if two fields contain the same expression  (e.g., `{FILL_OPERATION_PARAMETER_1_NAME}`), you must use the same value in them, because they are referencing each other.
 
-OIS uses a simplified version of the [OpenAPI Specification (OAS)](https://github.com/OAI/OpenAPI-Specification). This means that if you have the OpenAPI/Swagger specifications of the API that you are going to integrate, you are about 80% done, because you can copy paste entire sections (but make sure that you make the necessary modifications to conform to the OIS format).
+OIS uses a simplified version of the OAS. This means that if you have the OpenAPI specifications of the API that you are going to integrate, you are about 80% done, because you can copy paste entire sections (but make sure that you make the necessary modifications to conform to the OIS format).
+
+::: tip 
+If you already have an OAS file it may be possible to convert it to OIS. To assist in converting between various specifications e.g. from OAS to OIS, there is a `convert` command within the Airnode [validator](https://github.com/api3dao/airnode/tree/master/packages/validator#airnodeconvertor) package. 
+:::
 
 This guide will assume you do not have the OpenAPI specifications of the API that you will be integrating.
 
@@ -260,10 +257,13 @@ Security is implemented using the securitySchemes and security fields. You use `
       "name": "X-api-key" // Arbitrary name
     }
   }
+},
+"security": {
+  "myApiKeyScheme": []
 }
 ```
 
-You can create a securityScheme by copying the code above or using the template code below. Just follow the steps below. Or use the full [OIS Template](../../../reference/templates/ois-json.md). 
+You can create a securityScheme by copying the code above, using the template code below or use the full [OIS Template](../../../reference/templates/ois-json.md). The proceed to follow the steps below. 
 
 ```json
 "components": {
@@ -271,31 +271,59 @@ You can create a securityScheme by copying the code above or using the template 
     "<FILL_SECURITY_SCHEME_NAME>": {
       "in": "<FILL_*>",
       "type": "<FILL_*>",
-      "name": "<FILL_*>"
+      "name": "<FILL_*>",
+      "scheme":"<FILL_*>"
     }
   }
 }
+"security": {
+  "<FILL_SECURITY_SCHEME_NAME>": []
+}
 ```
 
-1. First, name the security scheme by replacing `{FILL_SECURITY_SCHEME_NAME}` under `apiSpecifications.components.securitySchemes`. Note that you will also need to use the same name under `apiSpecifications.security`. Make sure to choose a descriptive name, such as `myApiKeyScheme`. This name will also be referred in the [secrets.env](../../../reference/deployment-files/secrets-env.md) file in a later step.
+1. First, name the security scheme by replacing `{FILL_SECURITY_SCHEME_NAME}` under `apiSpecifications.components.securitySchemes`. Note that you will also need to use the same name under `apiSpecifications.security`. Make sure to choose a descriptive name, such as `myApiKeyScheme`. Its value will be referenced using the apiCredential field in `config.json` later in [Configuring Airnode](./configuring-airnode.md#apicredentials).
 
     > Note that we will not be entering the API key itself in the OIS, because the OIS is not meant to include any user-specific information. Security credentials such as API keys go in [secrets.env](../../../reference/deployment-files/secrets-env.md) file.
 
-2. Enter values for `in`, `type` and `name`. You can refer to the [OIS](../../../reference/specifications/ois.md#_4-2-components) document for more details or reference the following table for acceptable values.
+2. Enter values for `type`, `in`, `name` and `scheme`. You can refer to the [OIS](../../../reference/specifications/ois.md#_4-2-components) document for more details or reference the following table for examples.
 
-    | type        | in           | name     |
-    | ----------- | ------------ | -------- |
-    | apiKey      | header       | {myName}, Arbitrary parameter name |
-    | http        | query        |          |
-    |             | cookie       |          |
+      ```json
+      "myApiKeyScheme": {
+        "in": "header",
+        "type": "apiKey",
+        "name": "X_api_key",
+      },
+      "myHttpBasicScheme": {
+        "type": "http",
+        "scheme": "basic",
+      },
+      "myHttpBearerScheme": {
+        "type": "http",
+        "scheme": "bearer",
+      }
+      ```
 
-3. Security credentials such as API keys go in [secrets.env](../../../reference/deployment-files/secrets-env.md) file. This step will actually be discussed in the next Guide document [Configuring Airnode](configuring-airnode.md#creating-secrets-env) which will discuss how to link your securityScheme(s) to the secrets.env file via the environment field. For now the following shows what the type `apiKey` named `myApiKeyScheme` might look like in secrets.env.
+3. Security credentials such as API keys go in [secrets.env](../../../reference/deployment-files/secrets-env.md) file. This step will actually be discussed in the next Guide document [Configuring Airnode](configuring-airnode.md#creating-secrets-env) which will discuss how to link your securityScheme(s) to the secrets.env file via the `apiCredential` field. For now the following shows what the type `apiKey` named `myApiKeyScheme` might look like in secrets.env.
 
     ```bash
     AIRNODE_WALLET_MNEMONIC=""
     CP_EVM_31337_EVM_LOCAL=""
-    SS_MY_API_KEY="XP9876BH768FGD6734" # The apiKey
+    SS_MY_API_KEY_SCHEME="XP98...D6734" # The apiKey
     ```
+#### Security Field
+
+The `security` field lists all security scheme names that are used by the API in `components.securitySchemes`. A future release of Airnode will allow the use of `security` to assign different security schemes to individual API operations. For now its value must be an empty array. 
+
+::: warning Please note:
+Currently Airnode reads the security schemes from `component.securitySchemes` and not `security`. Using the `security` field now provides for a smooth transition to future releases of Airnode with regards to security scheme implementation.
+:::
+
+#### API Operations needing different securitySchemes
+
+For this release of Airnode, if different API operations use different securitySchemes (or some use none) they must be grouped in different OIS objects based on their common securityScheme(s). For example: Your API has four operations, three require an apiKey in the HTTP header, another (`/ping`) requires no security. As noted previously, this will change in a future release of Airnode.
+
+- The first three API operations might be in the `ois[0]` object with a securityScheme named _myApiKeyScheme_ of type _apiKey_ as shown above. 
+- The /ping API operation would be in `ois[1]` which would not have any `component.securitySchemes` and `security` would be an empty array.
 
 #### Multiple securitySchemes
 
@@ -305,29 +333,26 @@ You can use multiple security schemes (e.g., an API key goes in the header, and 
   "components": {
     "securitySchemes": {
       "myApiKeyScheme": {
-        "in": "header",
         "type": "apiKey", 
+        "in": "header",
         "name": "X-api-key"
       },
       "mySecretScheme": {
-        "in": "query",
         "type": "apiKey",
+        "in": "query",
         "name": "secret"
       }
     }
+  },
+  "security": {
+    "myApiKeyScheme": [],
+    "mySecretScheme": []
   }
   ```
 
-#### API Operations needing different securitySchemes
-
-If different API operations use different securitySchemes (or some use none) they must be grouped in different `ois` objects based on their common securityScheme(s). For example: Your API has four operations, three require an apiKey in the HTTP header, another (`/ping`) requires no security. 
-
-- The first three API operations might be in the `ois[0]` object with a securityScheme named _myApiKeyScheme_ of type _apiKey_ as shown above. 
-- The /ping API operation would be in `ois[1]` which would not have any `component.securitySchemes` and `security` would be an empty array.
-
 #### No Security
 
-If the API you are integrating is publicly accessible, you can remove all security schemes.
+If the API you are integrating is publicly accessible, you can set both the `securitySchemes` and `security` fields to empty objects.
 
 <!--------------- STEP 3 ---------------->
 

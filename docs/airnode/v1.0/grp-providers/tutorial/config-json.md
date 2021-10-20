@@ -99,7 +99,8 @@ The config.json file contents shown below is for the [Quick Deploy](./) demo.
         },
         "components": {
           "securitySchemes": {}
-        }
+        },
+        "security":{}
       },
       "endpoints": [
         {

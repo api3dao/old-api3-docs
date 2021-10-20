@@ -92,6 +92,9 @@ title: config.json
               "name": "X_access_key"
             }
           }
+        },
+        "security": {
+          "Currency Converter Security Scheme": []
         }
       },
       "endpoints": [
