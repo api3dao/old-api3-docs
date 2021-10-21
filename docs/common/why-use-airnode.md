@@ -36,9 +36,8 @@ understood.
 ## Tradeoffs
 
 - Requires knowledge - Some knowledge about how Airnode works is inherently necessary. The API provider needs to
-  understand how to
-  [configure the Airnode](https://docs.api3.org/airnode/v1.0/grp-providers/guides/build-an-airnode/#configuration) for
-  successful deployment, while [requesters](https://docs.api3.org/airnode/v1.0/concepts/requester.html) need to
+  understand how to <CommonLink :path="'../grp-providers/guides/build-an-airnode/#configuration'">configure the Airnode</CommonLink> for
+  successful deployment, while <CommonLink :path="'../concepts/requester.html'">requesters</CommonLink> need to
   understand how to make the requests. API3 aims to make this as convenient as possible for both parties.
 - Airnode becomes a vendor - When an API provider begins using Airnode, they become a "vendor" and therefore forfeit
   some control over technical aspects of API delivery.
