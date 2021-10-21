@@ -100,9 +100,9 @@ nobody develops applications that will create the demand.
 
 For API3 to reach its full potential, it will need hundreds, if not thousands of first party oracles so that it can easily set up new dAPIs or recompose existing ones. This
 can only be achieved if APIs can be integrated to Airnode in an even more scalable
-way. To this end, an improved version of the proprietary integration tools 
-will be open sourced for Airnode. Borrowing from the OpenAPI Specification
-format [30], Oracle Integration Specifications (OIS) define the operations of an API,
+way. To this end, an improved version of the proprietary integration tools
+will be open sourced for Airnode. Borrowing from the [OpenAPI Specification
+format](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md), Oracle Integration Specifications (OIS) define the operations of an API,
 the endpoints of an oracle, and how the two map to each other. An Airnode user
 will be able to serve an API over their oracle simply by providing its OIS to their
 node. Integrations made in this standardized format will be very easy to collect,
