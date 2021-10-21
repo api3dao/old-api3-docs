@@ -1,5 +1,5 @@
 ---
-title: Deployer Image
+title: Airnode Deployer Image
 ---
 
 <TitleSpan>Docker Images</TitleSpan>
@@ -40,7 +40,7 @@ A `receipt.json` file will be created upon completion. It contains some deployme
     -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
     -v "$(pwd)/config:/app/config" \
     -v "$(pwd)/output:/app/output" \
-    api3/deployer:latest deploy
+    api3/airnode-deployer:latest deploy
   ```
 :::
 ::: tab Windows
@@ -50,7 +50,7 @@ For Windows, use CMD (and not PowerShell).
     --env-file aws.env ^
     -v "%cd%/config:/app/config" ^
     -v "%cd%/output:/app/output" ^
-    api3/deployer:latest deploy
+    api3/airnode-deployer:latest deploy
   ```
 :::
 ::::
@@ -65,7 +65,7 @@ When an Airnode was deployed using the `deploy` command a `receipt.json` file wa
   docker run -it --rm \
     --env-file aws.env \
     -v "$(pwd)/output:/app/output" \
-    api3/deployer:latest remove -r output/receipt.json
+    api3/airnode-deployer:latest remove -r output/receipt.json
   ```
 :::
 ::: tab Windows
@@ -74,6 +74,6 @@ For Windows, use CMD (and not PowerShell).
   docker run -it --rm ^
     --env-file aws.env ^
     -v "%cd%/output:/app/output" ^
-    api3/deployer:latest remove -r output/receipt.json
+    api3/airnode-deployer:latest remove -r output/receipt.json
   ```
 :::
