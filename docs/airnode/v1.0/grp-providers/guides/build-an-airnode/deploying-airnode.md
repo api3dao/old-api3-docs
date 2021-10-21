@@ -18,7 +18,7 @@ After integrating your API ([API Integration](api-integration.md)) and creating 
 :::
 
 ## Deploy with Docker
-The recommended way to deploy Airnode is by using the Docker [deployer image](../../docker/deployer-image.md). This image simply implements the deployer CLI which is not intended to be used directly. Try out the [Quick Deploy](../../tutorial/) tutorial if you wish to become familiar with the deployer image first.
+The recommended way to deploy Airnode is by using the Docker [deployer image](../../docker/deployer-image.md). This image is simply a wrapper around the [deployer CLI](https://github.com/api3dao/airnode/tree/master/packages/deployer). Try out the [Quick Deploy](../../tutorial/) tutorial if you wish to become familiar with the deployer image first.
 
 The deployer interacts with a cloud provider (AWS) to deploy Airnode programmatically, without requiring you to click through a lot of ever-changing graphical interfaces. For it to do so, an `aws.env` file is required and was discussed in [Configuring an Airnode](./configuring-airnode.md#creating-aws-env).
 
@@ -28,7 +28,7 @@ The [deployer image](../../docker/deployer-image.md) is containerized as a Docke
 
 ## Deployment
 
-At this point your project should resemble the following. The `config.json`, `secrets.env` and `aws.env` files should be ready to go. Other files you may have added are expected but not used the deployer image.
+At this point your project should resemble the following. The `config.json`, `secrets.env` and `aws.env` files should be ready to go. Other files you may have added are expected but not used by the deployer image.
 
 ```
 my-airnode
@@ -94,7 +94,7 @@ The `receipt.json` file is a product of a successful deployment. It contains con
 
 ## Testing with HTTP Gateway
 
-If you opted to implement the HTTP Gateway for the Airnode it can be tested while bypassing the chain it was deployed to. There are two examples in other docs that detail how to do this.
+If you opted to enable the HTTP Gateway it can be used to test the Airnode while bypassing the chain it was deployed to. There are two examples in other docs that detail how to do this.
 
 - [HTTP Gateway](./http-gateway.md#using-curl)
 - [Quick Deploy](../../tutorial/README.md#test-the-airnode) 
