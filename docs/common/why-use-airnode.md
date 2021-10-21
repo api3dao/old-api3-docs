@@ -4,6 +4,7 @@ title: Why use Airnode?
 
 # {{$frontmatter.title}}
 
+<TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 API3 embraces the ideology of a decentralized web and the power of open source. We believe the

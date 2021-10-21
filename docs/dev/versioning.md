@@ -74,7 +74,7 @@ It is assumed that the `/next` folder is the work in progress that will become t
 
     ```json
     versions:[
-      {name:'v1', url:'/airnode/v0.2/'},
+      {name:'v0.2', url:'/airnode/v0.2/'},
       {name:'pre-alpha', url:'/airnode/pre-alpha/'},
       ...
     ],
