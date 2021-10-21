@@ -36,7 +36,7 @@ All sub-folders in _/docs_ are base routes except for `/.vuepress`. Each represe
 ```text
 docs/
  |- airnode/
-    |- v1.0/
+    |- v0.2/
     |- next/
     |- pre-alpha/
  |- dev/
@@ -54,7 +54,7 @@ A route in the `/airnode` folder becomes a version of the Airnode docs when decl
 
 ```json
 versions:[
-  {name:'v1', url:'/airnode/v1.0/'},
+  {name:'v0.2', url:'/airnode/v0.2/'},
   {name:'pre-alpha', url:'/airnode/pre-alpha/'},
 ],
 ```
@@ -64,7 +64,7 @@ versions:[
 
 It is assumed that the `/next` folder is the work in progress that will become the new (next) version.
 
-1. Change the name of the `/next` folder (e.g. `/v1.0`).
+1. Change the name of the `/next` folder (e.g. `/v0.2`).
 
 2. Changes to `config.js`. 
  
@@ -74,14 +74,14 @@ It is assumed that the `/next` folder is the work in progress that will become t
 
     ```json
     versions:[
-      {name:'v1', url:'/airnode/v1.0/'},
+      {name:'v0.2', url:'/airnode/v0.2/'},
       {name:'pre-alpha', url:'/airnode/pre-alpha/'},
       ...
     ],
-    latestVersion: '/airnode/v1.0/',
+    latestVersion: '/airnode/v0.2/',
     ...
     themeConfig:{
-      startPath:'/airnode/v1.0/',
+      startPath:'/airnode/v0.2/',
     }
     ```
 

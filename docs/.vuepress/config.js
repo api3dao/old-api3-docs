@@ -31,7 +31,7 @@ module.exports = {
       { text: 'Forum', link: 'https://forum.api3.org' },
       { text: 'GitHub', link: 'https://github.com/api3dao/api3-docs' },
     ],
-    sidebar: {'/airnode/v1.0/':require(`../airnode/v1.0/sidebar.js`),
+    sidebar: {'/airnode/v0.2/':require(`../airnode/v0.2/sidebar.js`),
               '/airnode/pre-alpha/':require(`../airnode/pre-alpha/sidebar.js`),
               '/dao-members/':require(`../dao-members/sidebar.js`),
               '/api3/':require(`../api3/sidebar.js`),

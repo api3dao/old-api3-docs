@@ -45,23 +45,23 @@ Start an instance of http-server to serve the docs. Do not use the normal VuePre
 
 Open a new terminal window to run the script. The script's output will display failures as it steps through each file and its links. There will be a summary of all link failures at the end of the script output.
 
-You can run the Link Validator against the entire `/dist` folder which will validate everything (`/pre-alpha, v1.0, /common, /next, etc.`) but this can be time consuming.
+You can run the Link Validator against the entire `/dist` folder which will validate everything (`/pre-alpha, v0.2, /common, /next, etc.`) but this can be time consuming.
 
 Narrowing the scope of the validation to a particular folder can hasten the validation process.
 
 - /dist/airnode/pre-alpha
 - /dist/dao-members
 - /dist/common
-- /dist/airnode/v1.0
+- /dist/airnode/v0.2
 - /dist/airnode/next
 - /dist/dev
 - /dist/dev-airnode   
 
 Be sure to use the correct port displayed by http-server.
 
- ```js
+ ```sh
  // Open a new terminal window
  // From the api3-docs project root
  // Start the node script
- node link-validator.js  http://127.0.0.1:8080  ./docs/.vuepress/dist/airnode/v1.0
+ node link-validator.js  http://127.0.0.1:8080  ./docs/.vuepress/dist/airnode/v0.2
 ```
