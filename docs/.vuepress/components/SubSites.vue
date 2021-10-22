@@ -10,20 +10,16 @@ it is normal behavior to force the user to the lastest version of airnode.
   <div>
     <div v-if="isMounted" class="container" style="font-size:medium;">
         <router-link class="route-link" :to="{ path: lastVisited }" v-bind:class="{ selectedButton: btnAirnode }">
-          <!--font-awesome-icon icon="sitemap" size="2x"/-->
           <img v-if="btnAirnode" src="/img/01-Airnode-State=Active@2x.png" class="icon-shrink"/>
           <img v-if="!btnAirnode" src="/img/01-Airnode-State=Default@2x.png" class="icon-shrink"/>
           <div class="btnText">Airnode</div>
         </router-link>
-        <!--img v-if="btnAirnode" src="/img/01-Airnode-State=Active@2x.png" style="width:18%;height: 18%;"/-->
         <router-link class="route-link" to="/dao-members/" v-bind:class="{ selectedButton: btnMembers }">
-          <!--font-awesome-icon icon="users" size="2x"/-->
           <img v-if="btnMembers" src="/img/02-DAO-State=Active@2x-1.png" class="icon-shrink"/>
           <img v-if="!btnMembers" src="/img/02-DAO-State=Default@2x-1.png" class="icon-shrink"/>
           <div class="btnText">DAO Members</div>
         </router-link>
         <router-link class="route-link" to="/api3/" v-bind:class="{ selectedButton: btnAPI3 }">
-          <!--font-awesome-icon icon="bars" size="2x"/-->
           <img v-if="btnAPI3" src="/img/03-API3-State=Active@2x-2.png" class="icon-shrink"/>
           <img v-if="!btnAPI3" src="/img/03-API3-State=Default@2x-2.png" class="icon-shrink"/>
           <div class="btnText">API3</div>
@@ -34,16 +30,6 @@ it is normal behavior to force the user to the lastest version of airnode.
 </template>
 
 <script>
-  
-  import Vue from 'vue'
-  import { library, icon } from '@fortawesome/fontawesome-svg-core'
-  import { faUsers } from '@fortawesome/free-solid-svg-icons'
-  import { faSitemap } from '@fortawesome/free-solid-svg-icons'
-  import { faEye } from '@fortawesome/free-solid-svg-icons'
-  import { faBars } from '@fortawesome/free-solid-svg-icons'
-  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-  Vue.component('font-awesome-icon', FontAwesomeIcon)
-  library.add(faBars, faUsers, faSitemap, faEye)
   import { latestVersion } from '../config.js'
 
   export default {
@@ -100,19 +86,21 @@ it is normal behavior to force the user to the lastest version of airnode.
 
   div.container{
     margin-top:4px;
-    display:flex;flex-flow: row wrap;align-items: right;
+    display:flex;flex-flow: row;align-items: left;
     justify-content: center;
   }
 
   .icon-shrink{
     width:auto;height:50%;
   }
+  
   .btnText{
     font-size:14px;
     margin-top:-5px;
   }
   
   .route-link{
+    padding:5px;
     color:#A0A0A0;
     text-align:center;
     margin-top:10px;
