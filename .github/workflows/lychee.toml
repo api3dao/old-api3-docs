@@ -19,7 +19,7 @@ progress = false
 max_redirects = 10
 
 # Concurrency
-max_concurrency = 10
+max_concurrency = 5
 
 
 ###
