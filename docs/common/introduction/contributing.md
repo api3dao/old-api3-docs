@@ -28,7 +28,7 @@ Feel free to ask questions.
 - (Optional, but ideal) Integrate an API to an Airnode without using any guide, deploy the Airnode, and build a dApp that uses the Airnode.
 Better yet, join one of our hackathons.
 
-- (For the curious) Explore all the repos hosted on [our Github](https://github.com/api3dao/), go through the issues, PRs, etc.
+- (For the curious) Explore all the repos hosted on [our Github](https://github.com/api3dao), go through the issues, PRs, etc.
 
 This guide will be updated as we produce more material, and feel free to create [issues](https://github.com/api3dao/api3-docs/issues) to make suggestions.
 
