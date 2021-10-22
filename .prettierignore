@@ -1,3 +1,22 @@
+/.git
+/.github
+/.vscode
 /node_modules
 /archived
+/docs/.vuepress
 /docs/airnode/pre-alpha
+
+# .vuepress
+/docs/.vuepress/components
+/docs/.vuepress/dist
+
+# v0.2
+/docs/airnode/v0.2/assets
+/docs/airnode/v0.2/concepts
+/docs/airnode/v0.2/figures
+/docs/airnode/v0.2/grp-providers
+/docs/airnode/v0.2/introduction
+/docs/airnode/v0.2/reference
+
+# common
+/docs/common/images

@@ -19,9 +19,6 @@
   },
   "devDependencies": {
     "@api3/airnode-abi": "^0.1.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.34",
-    "@fortawesome/free-solid-svg-icons": "^5.15.2",
-    "@fortawesome/vue-fontawesome": "^2.0.2",
     "@vuepress/plugin-back-to-top": "^1.8.2",
     "@vuepress/plugin-html-redirect": "^0.1.4",
     "@vuepress/plugin-medium-zoom": "^1.8.2",
