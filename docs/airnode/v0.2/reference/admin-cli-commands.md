@@ -97,7 +97,7 @@ Commands related to a [sponsor's](../concepts/sponsor.md) relationships between 
 Sponsoring a requester and using the returned `sponsorAddress` to derive a `sponsorWallet` for an Airnode creates a [relationship](../concepts/sponsor.md) between the requester and the Airnode, see the [`derive-sponsor-wallet-address`](admin-cli-commands.md#derive-sponsor-wallet-address) command.
 
 - `provider-url`: A valid blockchain provider URL.
-- `mnemonic`: A wallet owned by the sponsor. Used to derive a `sponsorAddress` as the default account of the mnemonic unless a `derivation-path` is specified. It's also used to pay gas costs from the mnemonic's default account unless a
+- `sponsor-mnemonic`: A wallet owned by the sponsor. Used to derive a `sponsorAddress` as the default account of the mnemonic unless a `derivation-path` is specified. It's also used to pay gas costs from the mnemonic's default account unless a
   `derivation-path` is specified.
 - `requester-address`: The contract address of the requester to sponsor.
 - `airnode-rrp (optional)`: The public address of the AirnodeRrp.sol protocol contract.
@@ -106,7 +106,7 @@ Sponsoring a requester and using the returned `sponsorAddress` to derive a `spon
 ```sh
 npx @api3/airnode-admin sponsor-requester \
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
-  --mnemonic "nature about salad..." \
+  --sponsor-mnemonic "nature about salad..." \
   --requester-address 0x2c2e12...
 ```
 
@@ -117,7 +117,7 @@ npx @api3/airnode-admin sponsor-requester \
 Removes the sponsorship of a [requester](../concepts/requester.md) contract so that its requests can no longer be fulfilled by the [sponsorWallet](../concepts/sponsor.md#sponsorwallet). The account derived from the `mnemonic` you provide here has to belong to the sponsor.
 
 - `provider-url`: A valid blockchain provider URL.
-- `mnemonic`: A wallet owned by the sponsor. Must be the mnemonic used to sponsor the requester. Used to pay gas costs from the mnemonic's default account unless a `derivation-path` is specified.
+- `sponsor-mnemonic`: A wallet owned by the sponsor. Must be the mnemonic used to sponsor the requester. Used to pay gas costs from the mnemonic's default account unless a `derivation-path` is specified.
 - `requester-address`: The contract address of the requester to unsponsor.
 - `airnode-rrp (optional)`: The public address of the AirnodeRrp.sol protocol contract.
 - `derivation-path (optional)`: Selects an alternate account to use from the mnemonic rather than the default.
@@ -125,7 +125,7 @@ Removes the sponsorship of a [requester](../concepts/requester.md) contract so t
 ```sh
 npx @api3/airnode-admin unsponsor-requester \
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
-  --mnemonic "nature about salad..." \
+  --sponsor-mnemonic "nature about salad..." \
   --requester-address 0x2c2e12...
 ```
 
@@ -171,7 +171,7 @@ npx @api3/airnode-admin derive-sponsor-wallet-address \
 Reads a file, uses its contents to create a [template](../concepts/template.md) and returns a `template-id`. Also see [Using Templates](../grp-developers/using-templates.md) for an example template file.
 
 - `provider-url`: A valid blockchain provider URL.
-- `mnemonic`: A wallet owned by the sponsor. Used to pay gas costs from the mnemonic's default account unless a `derivation-path` is specified.
+- `mnemonic`: Used to pay gas costs from the mnemonic's default account unless a `derivation-path` is specified.
 - `template-file-path`: Path to the template file to create on-chain.
 - `airnode-rrp (optional)`: The public address of the AirnodeRrp.sol protocol contract.
 - `derivation-path (optional)`: Selects an alternate account to use from the mnemonic rather than the default.
@@ -206,7 +206,7 @@ npx @api3/airnode-admin get-template \
 Requests a [withdrawal](../concepts/sponsor.md#withdrawals) from a [sponsorWallet](../concepts/sponsor.md#sponsorwallet) managed by an Airnode and returns a `withdrawal-request-id` for tracking purposes. The default account derived from the `mnemonic` will be used to return the funds.
 
 - `provider-url`: A valid blockchain provider URL.
-- `mnemonic`: A wallet owned by the sponsor. Used to pay gas costs from the mnemonic's default account unless a `derivation-path` is specified. Withdrawn funds will be added to this mnemonic's default address unless a `derivation-path` is specified.
+- `sponsor-mnemonic`: A wallet owned by the sponsor. Used to pay gas costs from the mnemonic's default account unless a `derivation-path` is specified. Withdrawn funds will be added to this mnemonic's default address unless a `derivation-path` is specified.
 - `airnode-address`: The public address of the Airnode.
 - `sponsor-wallet-address`: The pubic address of the sponsorWallet to withdraw from. This address was returned by the `derive-sponsor-wallet-address` command.
 - `airnode-rrp (optional)`: The public address of the AirnodeRrp.sol protocol contract.
@@ -215,7 +215,7 @@ Requests a [withdrawal](../concepts/sponsor.md#withdrawals) from a [sponsorWalle
 ```sh
 npx @api3/airnode-admin request-withdrawal \
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
-  --mnemonic "nature about salad..." \
+  --sponsor-mnemonic "nature about salad..." \
   --airnode-address 0xe1e0dd... \
   --sponsor-wallet-address 0x9Ec6C4...
 ```
@@ -263,8 +263,10 @@ Helper commands for a previously deployed Airnode. Some of these commands connec
 
 Derives the Airnode extended public key ([`xpub`](../concepts/airnode.md#xpub)). This xpub must be announced via off-chain channels because it will be needed to derive a [sponsorWallet](../concepts/sponsor.md#sponsorwallet) address. See the [`derive-sponsor-wallet-address`](admin-cli-commands.md#derive-sponsor-wallet-address) command.
 
+- `airnode-mnemonic`: The Airnode mnemonic for which the xpub is to be derived.
+
 ```sh
-npx @api3/airnode-admin derive-airnode-xpub --mnemonic "nature about salad..."
+npx @api3/airnode-admin derive-airnode-xpub --airnode-mnemonic "nature about salad..."
 ```
 <divider/>
 
