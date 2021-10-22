@@ -7,16 +7,24 @@ title: Override Components
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-There are a few changes made to some default @vuepress components. See the code comments within each component for execution details. These components, located in .vuepress/components, are copied to node_modules/@vuepress/themeConfig/components or node_modules/@vuepress/plugins when running or building the project locally.
+There are a few changes made to some default @vuepress components. See the code
+comments within each component for execution details. These components, located
+in .vuepress/components, are copied to
+node_modules/@vuepress/themeConfig/components or node_modules/@vuepress/plugins
+when running or building the project locally.
 
 - Navbar.vue > @vuepress/themeConfig/components
 - Search.vue > @vuepress/plugin-search
-- Home.vue > is not moved to @vuepress, it is defined as a layout page inside the root/README.md frontmatter definitions
-
+- Home.vue > is not moved to @vuepress, it is defined as a layout page inside
+  the root/README.md frontmatter definitions
 
 ## Home.vue
 
-The override component Home.use is a replacement for the VuePress Home.vue. It provides a replacement layout for the root README.md file which is rendered as the Home or Landing Page. The action button will now pick up the last page the user was on before returning to the Home page and use it when returning to the docs.
+The override component Home.use is a replacement for the VuePress Home.vue. It
+provides a replacement layout for the root README.md file which is rendered as
+the Home or Landing Page. The action button will now pick up the last page the
+user was on before returning to the Home page and use it when returning to the
+docs.
 
 #### Changes
 
@@ -44,21 +52,26 @@ actionLink () {
 
 ## Navbar.vue
 
-The override component Navbar.use is a replacement for the VuePress Navbar.vue. The custom component [Versions.vue](./custom-components.md#versions-vue-and-versionsmodal-vue) has been added to **Navbar.vue**.
-
+The override component Navbar.use is a replacement for the VuePress Navbar.vue.
+The custom component
+[Versions.vue](./custom-components.md#versions-vue-and-versionsmodal-vue) has
+been added to **Navbar.vue**.
 
 #### Changes
 
 - Version menu component added.
-- Title link updates the setPath key in config.json and returns the user to the landing page.
+- Title link updates the setPath key in config.json and returns the user to the
+  landing page.
 - Logo links to api3.org website.
 
 [Navbar.vue](https://github.com/api3dao/api3-docs/blob/stage/docs/.vuepress/components/Navbar.vue)
 
 ## Sidebar.vue
 
-The override component Sidebar.use is a replacement for the VuePress Sidebar.vue. The custom component [SubSites.vue](./custom-components.md#subsite-vue) has been added to **Sidebar.vue**.
-
+The override component Sidebar.use is a replacement for the VuePress
+Sidebar.vue. The custom component
+[SubSites.vue](./custom-components.md#subsite-vue) has been added to
+**Sidebar.vue**.
 
 #### Changes
 
@@ -68,9 +81,12 @@ The override component Sidebar.use is a replacement for the VuePress Sidebar.vue
 
 ## SearchBox.vue
 
-The override component SearchBox.use is a replacement for the VuePress SearchBox.vue. The files **match-query.js** and **search.svg** are located in .vuepress/components only for the purpose of running SearchBox.vue in development mode. They currently are not altered.
+The override component SearchBox.use is a replacement for the VuePress
+SearchBox.vue. The files **match-query.js** and **search.svg** are located in
+.vuepress/components only for the purpose of running SearchBox.vue in
+development mode. They currently are not altered.
 
-#### Changes**
+#### Changes\*\*
 
 - Filters out results that are not part of the current version.
 - Added box-shadow to suggestions class (results).

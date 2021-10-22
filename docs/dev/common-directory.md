@@ -7,31 +7,31 @@ title: Common Directory
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
+The `/common` folder holds files that may be common to different sub-site. Such
+a file is [Why use Airnode?](../common/why-use-airnode.md).
+
+A sub-site can create one or more symlinks, anywhere within itself, to common
+files and then use the symlink in its sidebar to render the common file.
+
 ```bash
 # cd to the directory to place the symlink
 # ln -s <path-to-markdown-file> <symlink file-name>
-ln -s ../../enormous/dao-tracker.md dao-tracker.md
+ln -s ../common/why-use-airnode.md symlink-why-use-airnode.md
 ```
 
-## Internal Links
+## Airnode Version
 
-<Fix>Needs write-up.</Fix>
+<Fix>This is not right.</Fix> Markdown links within the common files would work
+as expected except for the Airnode versions. If two Airnode versions reference
+the same file, how would the common file know which version to link to.
 
-This will not work as a **markdown link**, the sidebar goes away.<br/>
-[Go to contribute](../common/introduction/contributing.md)
+The solution is to use the **CommonLink** Vue component within `/common` files
+rather than markdown links.
 
-Goes directly to Airnode `/next`, **markdown link** with full path.<br/>
-[Go to contribute in /next](/airnode/next/introduction/contributing.md)
-
-Uses the current version, works only when in Airnode, using **CommonLink**.<br/>
-Click <CommonLink :path="'/airnode/<version>/introduction/contributing.md'">/airnode/-version-/introduction/contributing.md</CommonLink> to see the doc.
-- &#60;CommonLink :path="'/airnode/&#60;version>Using the current version&#60;/CommonLink>
-- :path="'/airnode/&#60;version>/introduction/contributing.md'"
-
-Goes directly to Airnode /next, using **CommonLink**.<br/>
-Click <CommonLink :path="'/airnode/next/introduction/contributing.md'">/airnode/next/introduction/contributing.md</CommonLink> to see the doc.
-
-Goes directly to Airnode /next
-
-- [dev](/dev/) **Markdown Link**
-- Click <CommonLink :path="'/dev'">/dev</CommonLink> to see the doc. **CommonLink**
+```html
+<CommonLink
+  :path="'../airnode/<version>/grp-providers/guides/build-an-airnode/#configuration'"
+>
+  Build an Airnode
+</CommonLink>
+```
