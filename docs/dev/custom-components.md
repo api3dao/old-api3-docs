@@ -5,7 +5,7 @@ title: Custom Components
 # {{$frontmatter.title}}
 
 <TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />]
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 There are custom Vue Components located in .vuepress/components. See the code comments within each component for execution details. These components are copied to node_modules/@vuepress/themeConfig/components or node_modules/@vuepress/plugins when running or building the project locally.
 
@@ -54,10 +54,3 @@ SubSites.vue is placed on the top of [Sidebar.vue](override-components.md#sideba
 
 [SubSites.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/SubSites.vue)
 
-## SidebarHeader.vue
-
-::: warning No Longer Used
-This component is no longer used but is kept as an archived component in case it is needed again. It could be used as a sidebar header to hold almost anything although the SubSites.vue component currently occupies that space.
-:::
-
-[SidebarHeader.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/SidebarHeader.vue)
