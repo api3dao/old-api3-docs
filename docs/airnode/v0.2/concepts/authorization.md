@@ -181,7 +181,7 @@ An Airnode operator and the admins will use `AirnodeRequesterRrpAuthorizer` cont
 
 The `setWhitelistExpiration()` function can be called by a super admin to set the whitelisting expiration of a requester for the Airnode–endpoint pair, this can hasten expiration.
 
-This function emits a `SetWhitelistExpiration` event with the following signagure:
+This function emits a `SetWhitelistExpiration` event with the following signature:
 
 ```
     event SetWhitelistExpiration(
@@ -197,7 +197,7 @@ This function emits a `SetWhitelistExpiration` event with the following signagur
 
 The `extendWhitelistExpiration()` function can be called by an admin to extend the whitelist expiration of a requester for the Airnode–endpoint pair.
 
-This function emits a `ExtendedWhitelistExpiration` event with the following signagure:
+This function emits a `ExtendedWhitelistExpiration` event with the following signature:
 
 ```
     event ExtendedWhitelistExpiration(
@@ -213,7 +213,7 @@ This function emits a `ExtendedWhitelistExpiration` event with the following sig
 
 The `setWhitelistStatusPastExpiration()` function can be called by a super admin to set the whitelist status of a requester past expiration for the Airnode–endpoint pair. This status can be useful in cases where we don't want to block access to an API even if the the expiration date has passed. For example, we might want to keep authorizing requests while a sum of API3 tokens is locked.
 
-This function emits a `ExtendedWhitelistExpiration` event with the following signagure:
+This function emits a `ExtendedWhitelistExpiration` event with the following signature:
 
 ```
     event SetWhitelistStatusPastExpiration(
@@ -241,7 +241,7 @@ The meta-admin and the admins will use `DaoRequesterRrpAuthorizer` contract to w
 
 The `setWhitelistExpiration()` function can be called by a super admin to set the whitelisting expiration of a requester for the Airnode–endpoint pair, this can hasten expiration.
 
-This function emits a `SetWhitelistExpiration` event with the following signagure:
+This function emits a `SetWhitelistExpiration` event with the following signature:
 
 ```
     event SetWhitelistExpiration(
@@ -257,7 +257,7 @@ This function emits a `SetWhitelistExpiration` event with the following signagur
 
 The `extendWhitelistExpiration()` function can be called by an admin to extend the whitelist expiration of a requester for the Airnode–endpoint pair.
 
-This function emits a `ExtendedWhitelistExpiration` event with the following signagure:
+This function emits a `ExtendedWhitelistExpiration` event with the following signature:
 
 ```
     event ExtendedWhitelistExpiration(
@@ -273,7 +273,7 @@ This function emits a `ExtendedWhitelistExpiration` event with the following sig
 
 The `setWhitelistStatusPastExpiration()` function can be called by a super admin to set the whitelist status of a requester past expiration for the Airnode–endpoint pair. This status can be useful in cases where we don't want to block access to an API even if the the expiration date has passed. For example, we might want to keep authorizing requests while a sum of API3 tokens is locked.
 
-This function emits a `ExtendedWhitelistExpiration` event with the following signagure:
+This function emits a `ExtendedWhitelistExpiration` event with the following signature:
 
 ```
     event SetWhitelistStatusPastExpiration(
