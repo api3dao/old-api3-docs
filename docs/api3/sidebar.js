@@ -1,14 +1,16 @@
 module.exports = [
   {
-    title: '           ', initialOpenGroupIndex: 1, collapsable: false,
+    title: '           ',
+    initialOpenGroupIndex: 1,
+    collapsable: false,
     children: [
       '', // README
-      'contributing',
-      'blog-posts',
-      'apis',
-      'first-party-oracles',
-      'decentrally-governed-oracle-networks',
-      'dapis'
-    ]
-  }
-]
+      'introduction/contributing',
+      'introduction/symlink-blog-posts',
+      'introduction/apis',
+      'introduction/first-party-oracles',
+      'introduction/decentrally-governed-oracle-networks',
+      'introduction/dapis',
+    ],
+  },
+];
