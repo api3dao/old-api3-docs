@@ -18,6 +18,6 @@ jobs:
         with:
           node-version: '14.17.1'
       - name: Install Dependencies
-        run: npm i
+        run: yarn install
       - name: Check formatting
-        run: npm run format:check
+        run: yarn run format:check
