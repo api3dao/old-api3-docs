@@ -8,13 +8,12 @@ title: dAPI (Decentralized API)
 
 Consider the following:
 
-- Decentralized applications need access to
-  <CommonLink :path="'apis.md'">APIs</CommonLink>
+- Decentralized applications need access to [APIs](./apis.md)
 - APIs should be interfaced to smart contract platforms through
-  <CommonLink :path="'first-party-oracles.md'">first-party oracles</CommonLink>
+  [first-party oracles](./first-party-oracles.md)
 - For API level decentralization,
-  <CommonLink :path="'decentrally-governed-oracle-networks.md'">decentrally-governed
-  oracle networks</CommonLink> should be employed
+  [decentrally-governed oracle networks](./decentrally-governed-oracle-networks.md)
+  should be employed
 
 We can conclude that decentrally-governed networks of first-party oracles solve
 the API connectivity problem. Although this is technically correct, the same
