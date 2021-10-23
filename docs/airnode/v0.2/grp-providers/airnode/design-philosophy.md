@@ -32,7 +32,7 @@ Airnode is designed to be operated as a first-party oracle, i.e., by the API pro
 This results in very restrictive requirements:
 
 <p align="center">
-  <img src="https://github.com/api3dao/api3-docs/raw/master/figures/airnode.png" />
+  <img src="../../assets/images/airnode.png" />
 </p>
 
 * The API provider does not know how to operate an oracle node.
