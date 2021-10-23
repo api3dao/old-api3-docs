@@ -31,9 +31,12 @@ resulting in inferior solutions that depend on third-party oracles and
 ecosystems that exclude _API providers_. By refining the definition of the
 problem, **API3** aims to provide a much more optimal solution.
 
-::: tip API3 Whitepaper (pdf) For a detailed discussion of the API3 project,
-read the <a href="/api3-whitepaper-v1.0.1.pdf" target="api3-docs">API3
-Whitepaper</a>. :::
+::: tip API3 Whitepaper (pdf)
+
+For a detailed discussion of the API3 project, read the
+<a href="/api3-whitepaper-v1.0.1.pdf" target="api3-docs">API3 Whitepaper</a>.
+
+:::
 
 ## The Airnode
 
@@ -50,9 +53,13 @@ Airnode is designed with mechanisms to remove the on-chain or off-chain concerns
 of API providers. The set-and-forget framework of Airnode is all about ease of
 implementation.
 
-::: tip Learn more about Airnode Read Section 4 of the
+::: tip
+
+Learn more about Airnode Read Section 4 of the
 [API3 Whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf)
-to learn more. _Airnode: A Node Designed for First-Party Oracles_ :::
+to learn more. _Airnode: A Node Designed for First-Party Oracles_
+
+:::
 
 ## Learn More about API3
 
@@ -60,8 +67,12 @@ to learn more. _Airnode: A Node Designed for First-Party Oracles_ :::
 
 :::: tabs
 
-::: tab API3 Website The API3 website ([https://api3.org/](https://api3.org/))
-is the best place to learn more. :::
+::: tab API3 Website
+
+The API3 website ([https://api3.org/](https://api3.org/)) is the best place to
+learn more.
+
+:::
 
 ::: tab The Whitepaper
 
@@ -91,17 +102,23 @@ level. As a result, the API3 Project will allow smart contract platforms to
 leverage APIs for the building of meaningful applications in a truly
 decentralized and trust-minimized way. :::
 
-::: tab Blog Posts Not comfortable with academic-style papers? The following
-Blog Posts explain the Whitepaper in smaller digestible articles.
+::: tab Blog Posts
+
+Not comfortable with academic-style papers? The following Blog Posts explain the
+Whitepaper in smaller digestible articles.
 
 <blog-posts :tab="'byGroup'"/>
 
 **All the Blog Posts**
 
 You can find all our blog posts on our
-[Medium page here](https://medium.com/api3) :::
+[Medium page here](https://medium.com/api3)
 
-::: tab Communities Join the API3 community on the following services.
+:::
+
+::: tab Communities
+
+Join the API3 community on the following services.
 
 [API3 Forum](https://forum.api3.org/)
 
@@ -109,18 +126,24 @@ Community Chat on [Telegram](https://t.me/API3DAO)
 
 Developer Chat on [Discord](https://discord.gg/qnRrcfnm5W)
 
-[YouTube Channel](https://www.youtube.com/channel/UCCpUthOhahxjdeX9T7t7nJQ) :::
+[YouTube Channel](https://www.youtube.com/channel/UCCpUthOhahxjdeX9T7t7nJQ)
 
-::: tab GitHub Visit the [API3 GitHub](https://github.com/api3dao) page and find
-everything about.. everything. Explore the many repositories to gain in-depth
-knowledge about API3.
+:::
+
+::: tab GitHub
+
+Visit the [API3 GitHub](https://github.com/api3dao) page and find everything
+about.. everything. Explore the many repositories to gain in-depth knowledge
+about API3.
 
 - the whitepaper
 - source code
 - documentation
 - usage examples
 
-Please feel free to contribute to any API3 GitHub repositories. :::
+Please feel free to contribute to any API3 GitHub repositories.
+
+:::
 
 ::::
 
@@ -136,5 +159,4 @@ contribute.
 - proposing features
 
 Read more about contributing in the
-<CommonLink :path="'introduction/contributing.md'">Contributing</CommonLink>
-section.
+[Contributing](./introduction/contributing.md) section.
