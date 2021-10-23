@@ -29,8 +29,8 @@ Based on this information, it looks like simply having an oracle solves the API
 connectivity problem. However, there is an important point to consider: Who will
 host the oracle node?
 
-1. If the <CommonLink :path="'apis.md#api-provider'">API provider</CommonLink>
-   hosts the oracle node, the oracle is called a **first-party oracle**.
+1. If the [API provider](./apis.md#api-provider) hosts the oracle node, the
+   oracle is called a **first-party oracle**.
 2. If a third-party middleman hosts the oracle node, the oracle is called a
    **third-party oracle**.
 
