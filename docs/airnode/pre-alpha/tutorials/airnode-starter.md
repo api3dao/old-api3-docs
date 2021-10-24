@@ -248,7 +248,7 @@ You deployed an Airnode, made a request to it and received the response at the c
 If you want to learn more, see the following resources:
 
 - [API3 whitepaper](https://github.com/api3dao/api3-whitepaper) will give you a broad overview of the project.
-- [Medium posts](../#learn-more-about-api3) are a more digestible version of the whitepaper.
+- [Medium posts](https://medium.com/api3) explain API3 in smaller, more digestible articles.
 - [@api3/airnode-admin](https://github.com/api3dao/airnode/tree/pre-alpha/packages/admin) lets you interact with the Airnode contract (to create a request, endorse a client, etc.) using a CLI tool.
 - [Airnode client examples](https://github.com/api3dao/airnode-client-examples/tree/pre-alpha) demonstrate different request patterns that the Airnode protocol supports (for example, we used a full request in this starter project).
 
