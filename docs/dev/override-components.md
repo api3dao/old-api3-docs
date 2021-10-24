@@ -70,7 +70,7 @@ been added to **Navbar.vue**.
 
 The override component Sidebar.use is a replacement for the VuePress
 Sidebar.vue. The custom component
-[SubSites.vue](./custom-components.md#subsite-vue) has been added to
+[SubSites.vue](./custom-components.md#subsites-vue) has been added to
 **Sidebar.vue**.
 
 #### Changes

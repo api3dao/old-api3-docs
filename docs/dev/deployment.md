@@ -25,9 +25,8 @@ yarn test:links:prod
 ```
 
 A separate command checks the _/next_ folder which is not considered production
-ready. It should be noted that the GitHub Action
-[markdown-link-check](./github-actions.md#markdown-link-check) to check
-hyperlinks never checks the _/next_ folder.
+ready. It should be noted that the GitHub Action to check hyperlinks never
+checks the _/next_ folder.
 
 ```bash
 yarn test:links:next
