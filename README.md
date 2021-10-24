@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/api3dao/api3-docs/raw/master/figures/api3.png" width="400" />
+  <img src="https://github.com/api3dao/api3-docs/blob/main/docs/api3/assets/images/api3.png?raw=true" width="400" />
 </p>
 
 # Documentation
