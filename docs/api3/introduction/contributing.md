@@ -10,28 +10,39 @@ title: Contributing
 
 ## Prerequisites
 
-This is aimed to guide an API3 DAO member with a technical background to contribute to the project (through development, integrations, writing documentation, etc.).
-The general point is that one needs to be able to use a solution proficiently before being able to improve it.
-Therefore, you are recommended to do all of the below before attempting to contribute, and make sure to ask any questions you have on [our Discord](https://discord.gg/qnRrcfnm5W).
+This is aimed to guide an API3 DAO member with a technical background to
+contribute to the project (through development, integrations, writing
+documentation, etc.). The general point is that one needs to be able to use a
+solution proficiently before being able to improve it. Therefore, you are
+recommended to do all of the below before attempting to contribute, and make
+sure to ask any questions you have on
+[our Discord](https://discord.gg/qnRrcfnm5W).
 
-- If you do not have any blockchain development experience, read [Mastering Ethereum](https://github.com/ethereumbook/ethereumbook) cover to cover.
-It is a light read that touches on all subjects that you will need to know about superficially.
+- If you do not have any blockchain development experience, read
+  [Mastering Ethereum](https://github.com/ethereumbook/ethereumbook) cover to
+  cover. It is a light read that touches on all subjects that you will need to
+  know about superficially.
 
-- To get a general grasp of the project, read the [API3 whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf) and our <CommonLink :path="'blog-posts.md'">blog posts</CommonLink> on Medium.
+- To get a general grasp of the project, read the
+  [API3 whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf)
+  and our [blog posts](./symlink-blog-posts.md) on Medium.
 
-- Read the entirety of these docs.
-Take notes and cross-reference, but do not expect to understand everything.
-Feel free to ask questions.
+- Read the entirety of these docs. Take notes and cross-reference, but do not
+  expect to understand everything. Feel free to ask questions.
 
 - Run and understand the Airnode starter tutorial
 
-- (Optional, but ideal) Integrate an API to an Airnode without using any guide, deploy the Airnode, and build a dApp that uses the Airnode.
-Better yet, join one of our hackathons.
+- (Optional, but ideal) Integrate an API to an Airnode without using any guide,
+  deploy the Airnode, and build a dApp that uses the Airnode. Better yet, join
+  one of our hackathons.
 
-- (For the curious) Explore all the repos hosted on [our Github](https://github.com/api3dao), go through the issues, PRs, etc.
+- (For the curious) Explore all the repos hosted on
+  [our Github](https://github.com/api3dao), go through the issues, PRs, etc.
 
-This guide will be updated as we produce more material, and feel free to create [issues](https://github.com/api3dao/api3-docs/issues) to make suggestions.
+This guide will be updated as we produce more material, and feel free to create
+[issues](https://github.com/api3dao/api3-docs/issues) to make suggestions.
 
 ## Contributing to the docs
 
-See the [dev documentation](/dev/) for an overview of the API3 docs site and for instructions on how to run the project locally.
+See the [dev documentation](/dev/) for an overview of the API3 docs site and for
+instructions on how to run the project locally.
