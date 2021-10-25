@@ -59,6 +59,7 @@ function tempCB(dirPath, dirs, files) {
 
 async function testLink(url, filePath) {
   try {
+    axios.defaults.timeout = 10000;
     const response = await axios.get(url);
 
     // If the urlAnchor is missing/typo in the response.data, throw an error.
@@ -71,6 +72,14 @@ async function testLink(url, filePath) {
       urlAnchor = '#' + arr[1];
     } else if (arr2.length === 2) {
       urlAnchor = '#' + arr2[1];
+    }
+
+    // Sometimes the anchor indicator (#) is in the
+    // path: https://api3.eth.link/#/history/secondary-6
+    // This is not an anchor, ignore it.
+    if (urlAnchor && urlAnchor.indexOf('#/') > -1) {
+      console.log(urlAnchor);
+      urlAnchor = null;
     }
 
     // Look for urlAnchor in response.data.
