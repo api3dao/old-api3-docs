@@ -66,16 +66,16 @@ If the sponsor does not trust the Airnode at all, they can fund the sponsor wall
 
 ### Withdrawals
 
-If the sponsor decides not to use a particular `sponsorWallet` going forward, they can make a request to withdraw funds from it, see the [`request-withdrawal`](../reference/admin-cli-commands.md#request-withdrawal) command. The Airnode listens for withdrawal requests and fulfills them automatically. Therefore, the sponsor should be able to receive their funds from their `sponsorWallet` in a few minutes notice. The `sponsorWallet` does not get deleted, and can be used in the future simply by funding it again.
+If the sponsor decides not to use a particular `sponsorWallet` going forward, they can make a request to withdraw funds from it, see the [`request-withdrawal`](../reference/packages/admin-cli-commands.md#request-withdrawal) command. The Airnode listens for withdrawal requests and fulfills them automatically. Therefore, the sponsor should be able to receive their funds from their `sponsorWallet` in a few minutes notice. The `sponsorWallet` does not get deleted, and can be used in the future simply by funding it again.
 
 ## Sponsoring a Requester
 
 A sponsor uses a `sponsorAddress` and there the requester's on-chain `requesterAddress` when sponsoring a requester.  This sponsorship allows the requester to use the sponsor's `sponsorWallet` at a particular Airnode to cover gas costs incurred by the Airnode in response to a request.
 
-Use the [Admin CLI tool](../reference/admin-cli-commands.md#sponsor-requester) to sponsor a requester. An example can be seem in the [Requesters and Sponsors](../grp-developers/requesters-sponsors.md#how-to-sponsor-a-requester) doc.
+Use the [Admin CLI tool](../reference/packages/admin-cli-commands.md#sponsor-requester) to sponsor a requester. An example can be seem in the [Requesters and Sponsors](../grp-developers/requesters-sponsors.md#how-to-sponsor-a-requester) doc.
 
 ## Derive a Sponsor Wallet
 
 When a sponsor wishes to access an Airnode (via a requester) it must create a `sponsorWallet` for the Airnode. Requesters that have been sponsored by the same sponsor, can specify their requests be fulfilled by the `sponsorWallet` belonging to the sponsor. A sponsor uses a [`sponsorAddress`](sponsor.md#sponsoraddress) and the [`xpub`](airnode.md#xpub) of a particular Airnode to derive a [sponsorWallet](#sponsorwallet) for the Airnode. The sponsor must also provide the [`airnodeAddress`](airnode.md#airnodeaddress) because it will be used to verify that the provided xpub belongs to the Airnode wallet before deriving a child sponsor wallet address.
 
-Use the [Admin CLI tool](../reference/admin-cli-commands.md#derive-sponsor-wallet-address) to derive a `sponsorWallet`. An example can be seem in the [Requesters and Sponsors](../grp-developers/requesters-sponsors.md#how-to-derive-a-sponsor-wallet) doc.
+Use the [Admin CLI tool](../reference/packages/admin-cli-commands.md#derive-sponsor-wallet-address) to derive a `sponsorWallet`. An example can be seem in the [Requesters and Sponsors](../grp-developers/requesters-sponsors.md#how-to-derive-a-sponsor-wallet) doc.

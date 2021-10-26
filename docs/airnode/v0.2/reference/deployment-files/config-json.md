@@ -191,7 +191,7 @@ In the example above, the Airnode deployment has an OIS with the title `myOisTit
 (required) - An array of endpoints from OIS that the Airnode will respond to.
 
 #### `rrp.endpointId`
-(required) - A identifier derived for an oisTitle/endpointName pair, see [derive-endpoint-id](../admin-cli-commands.md#derive-endpoint-id).
+(required) - A identifier derived for an oisTitle/endpointName pair, see [derive-endpoint-id](../packages/admin-cli-commands.md#derive-endpoint-id).
 
 #### `rrp.oisTitle`
 (required) - The title of an OIS object.
