@@ -147,7 +147,14 @@ module.exports = [
           'reference/templates/aws-env',
         ],
       },
-      'reference/admin-cli-commands',
+      {
+        title: 'Packages',
+        children: [
+          'reference/packages/', // Routes to the README.md in reference/packages/
+          'reference/packages/admin-cli-commands',
+          'reference/packages/airnode-abi',
+        ],
+      },
       'reference/airnode-addresses',
     ],
   },
