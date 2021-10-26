@@ -8,7 +8,7 @@ title: Quick Deploy
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-This demo is a simple Airnode deployment, using a hands-on approach, to better understand the overall deployment process using the [deployer image](../../grp-providers/docker/deployer-image.md). It will use an API endpoint (`GET /coins/{id}`) from [CoinGecko](https://www.coingecko.com/en/api/documentation?) which returns the current value of a coin. This demo does not detail the overall configuration of an Airnode, it is just a quick start.
+This demo is a simple Airnode deployment, using a hands-on approach, to better understand the overall deployment process of the [deployer image](../../grp-providers/docker/deployer-image.md). It uses an API endpoint (`GET /coins/{id}`) from [CoinGecko](https://www.coingecko.com/en/api/documentation?) which returns the current value of a coin. This demo does not detail the overall configuration of an Airnode, it is just a quick start.
 
 ::: tip Additional Examples
 There are additional examples of Airnode deployments in the [examples package](https://github.com/api3dao/airnode/tree/master/packages/examples) of the Airnode repo.
@@ -83,7 +83,7 @@ Make sure Docker is running and then execute the deployer image from the root of
 Run the following to deploy the demo Airnode.
 
 :::: tabs
-::: tab Linux/Mac
+::: tab Linux/Mac/WSL2
   ```sh 
   docker run -it --rm \
     --env-file aws.env \
@@ -107,11 +107,11 @@ For Windows, use CMD (and not PowerShell).
 
 ## Test the Airnode
 
-After a successful deployment the Airnode can be tested directly using the [HTTP Gateway](../guides/build-an-airnode/http-gateway.md) without accessing the blockchain. You provide endpoint parameters getting a response from an integrated API.
+After a successful deployment the Airnode can be tested directly using the [HTTP Gateway](../guides/build-an-airnode/http-gateway.md) without accessing the blockchain. You provide endpoint parameters to get a response from an integrated API.
 
 ### HTTP Gateway
 
-Looking at the config.json shows that the HTTP Gateway was activated for our Airnode. Furthermore the endpoint for `/coins/{id}` is set to be testable, see `endpoints[0]`. While the Airnode is enabled for the gateway, each individual endpoint must be testable to allow access.
+Looking at the config.json shows that the HTTP Gateway was activated for our Airnode. Furthermore the endpoint for `/coins/{id}` is set to be testable, see `endpoints[0]`. While the Airnode is enabled for the gateway, each individual endpoint must be marked as `testable` to allow access.
 
 ```json
 "nodeSettings": {
@@ -136,9 +136,9 @@ Looking at the config.json shows that the HTTP Gateway was activated for our Air
 }
 ```
 
-### CURL
+### Execute Endpoint
 
-Use curl to execute the Airnode and get the results from the CoinGecko endpoint `/coins/{id}` bypassing the Rinkeby test network that Airnode was deployed for. 
+Use CURL to execute the Airnode and get the results from the CoinGecko endpoint `/coins/{id}` bypassing the Rinkeby test network that Airnode was deployed for. As an alternative to CURL try an app such as [Insomnia](https://insomnia.rest/) or [Postman](https://www.postman.com/product/rest-client/). Windows users can also use [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install) (WSL2) to run CURL for Linux.
 
 In order to test the endpoint make an HTTP POST request with the `endpointId` as a path parameter, the `x-api-key` in the header and endpoint parameters in the request body as a key/value pairs. 
 
@@ -148,26 +148,33 @@ In order to test the endpoint make an HTTP POST request with the `endpointId` as
 
 Breaking down the URL in the CURL command below:
 
-- `<httpGatewayUrl>`: The base URL to the gateway, found in the `receipts.json` file. Update the placeholder in the CURL command below with its value.
+- `<httpGatewayUrl>`: The base URL to the gateway, found in the `receipts.json` file. Update the placeholder in the CURL example below with its value.
 - `0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c`: Passed as a path parameter, the endpointId to call, see `triggers.rrp[0].endpointId` in the `config.json` file.
 
 Request:
 
 :::: tabs
-::: tab Linux/Mac
-  ```sh
-  curl -v -H 'x-api-key: 123-my-key-must-be-30-characters-min' \
-  -d '{"parameters": {"coinId": "api3"}}' \
-  '<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c'
-  ```
+
+::: tab Linux/Mac/WSL2
+
+```sh
+curl -v -H 'x-api-key: 123-my-key-must-be-30-characters-min' \
+-d '{"parameters": {"coinId": "api3"}}' \
+'<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c'
+```
+
 :::
+
 ::: tab Windows
-  ```sh
-  curl -v -H 'x-api-key: 123-my-key-must-be-30-characters-min' ^
-  -d '{"parameters": {"coinId": "api3"}}' ^
-  '<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c'
-  ```
+
+```sh
+curl -v -H "x-api-key: 123-my-key-must-be-30-characters-min" ^
+-d "{\"parameters\": {\"coinId\": \"api3\"}}" ^
+<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c
+```
+
 :::
+
 ::::
 
 Response:
@@ -184,21 +191,28 @@ When you are done with this demo you can remove it. When the Airnode was deploye
 - `-v`: Location of the `receipt.json` file.
 
 :::: tabs
-::: tab Linux/Mac
-  ```sh
-  docker run -it --rm \
-    --env-file aws.env \
-    -v "$(pwd)/output:/app/output" \
-    api3/deployer:latest remove -r output/receipt.json
-  ```
+
+::: tab Linux/Mac/WSL2
+
+```sh
+docker run -it --rm \
+  --env-file aws.env \
+  -v "$(pwd)/output:/app/output" \
+  api3/deployer:latest remove -r output/receipt.json
+```
+
 :::
+
 ::: tab Windows
+
 For Windows, use CMD (and not PowerShell).
-  ```sh
-  docker run -it --rm ^
-    --env-file aws.env ^
-    -v "%cd%/output:/app/output" ^
-    api3/deployer:latest remove -r output/receipt.json
-  ```
+```sh
+docker run -it --rm ^
+  --env-file aws.env ^
+  -v "%cd%/output:/app/output" ^
+  api3/deployer:latest remove -r output/receipt.json
+```
+
 :::
+
 ::::

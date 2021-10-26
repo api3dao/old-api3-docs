@@ -56,7 +56,7 @@ A gateway URL is generated when your Airnode is deployed. You can obtain the URL
 
 ## Using CURL
 
-In order to test an endpoint, via the HTTP gateway, make an HTTP POST request with endpointId as a path parameter, the x-api-key in the header and endpoint parameters in the request body. 
+In order to test an endpoint, via the HTTP gateway, make an HTTP POST request with endpointId as a path parameter, the x-api-key in the header and endpoint parameters in the request body. As an alternative to CURL try an app such as [Insomnia](https://insomnia.rest/) or [Postman](https://www.postman.com/product/rest-client/). Windows users can also use [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install) (WSL2) to run CURL for Linux.
 
 - An `endpointId` can found in config.json under `triggers[n].endpointId`.
 - The `x-api-key` can found in config.json under `nodesettings.httpGateway.apiKey`.
@@ -67,26 +67,33 @@ In order to test an endpoint, via the HTTP gateway, make an HTTP POST request wi
 |endpointId       |path           |`0xf466b8feec...99e9f9f90453c`|
 |&lt;user-defined>|body           |`-d '{"parameters": {"param1": "string", "param2": 5}}'`
 
-Replace `https://gateway.url/v1/test/` in the example below with your gateway URL from the `receipt.json` file using `httpGatewayUrl`. The [receipt.json](./deploying-airnode.md#receipt-json) file is created when you deploy an Airnode.
+Replace `<httpGatewayUrl>` in the example below with your gateway URL from the `receipt.json` file using the `httpGatewayUrl` field. The [receipt.json](./deploying-airnode.md#receipt-json) file is created when you deploy an Airnode.
 
 
 Request:
 
 :::: tabs
-::: tab Linux/Mac
-  ```sh
-  curl -X POST -H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e' \
-  -d '{"parameters": {"param1": "string", "param2": 5}}' \ 
-  'https://gateway.url/v1/test/0xf466b8feec...99e9f9f90453c'
-  ```
+
+::: tab Linux/Mac/WSL2
+
+```sh
+curl -X POST -H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e' \
+-d '{"parameters": {"param1": "string", "param2": 5}}' \ 
+'<httpGatewayUrl>/0xf466b8feec...99e9f9f90453c'
+```
+
 :::
+
 ::: tab Windows
-  ```sh
-  curl -X POST -H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e' ^
-  -d '{"parameters": {"param1": "string", "param2": 5}}' ^ 
-  'https://gateway.url/v1/test/0xf466b8feec...99e9f9f90453c'
-  ```
+
+```sh
+curl -X POST -H "x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e" ^
+-d "{\"parameters\": {\"param1\": \"string\", \"param2\": 5}}" ^ 
+<httpGatewayUrl>/0xf466b8feec...99e9f9f90453c
+```
+
 :::
+
 ::::
 
 Response:

@@ -11,7 +11,7 @@
       line-height: 1.7;">
       <details>
         <summary style="color:#b29400;font-weight:600;font-size:medium;">
-          Permissions: Linux/Mac Users
+          Permissions: Linux/Mac/WSL2
         </summary>
         <p style="padding-top:8px;">
           Normally the deployer image is run by the user root. This may cause 
