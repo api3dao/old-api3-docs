@@ -3,22 +3,24 @@
 /.vscode
 /node_modules
 /archived
-/docs/.vuepress
 /docs/airnode/pre-alpha
 
 # .vuepress
 /docs/.vuepress/components
 /docs/.vuepress/dist
+/docs/.vuepress/public
+/docs/.vuepress/styles
+
+# dao-members
+/docs/dao-members/assets
+/docs/dao-members/figures
+
+# api3
+/docs/api3/assets
 
 # v0.2
 /docs/airnode/v0.2/assets
-/docs/airnode/v0.2/concepts
 /docs/airnode/v0.2/figures
-/docs/airnode/v0.2/grp-providers
-/docs/airnode/v0.2/introduction
-/docs/airnode/v0.2/reference/deployment-files
-/docs/airnode/v0.2/reference/examples
-/docs/airnode/v0.2/reference/templates
 
 # common
 

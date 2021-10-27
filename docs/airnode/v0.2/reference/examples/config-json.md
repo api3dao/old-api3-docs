@@ -1,7 +1,9 @@
 ---
 title: config.json
 ---
+
 <TitleSpan>Example Files</TitleSpan>
+
 # {{$frontmatter.title}}
 
 ```json

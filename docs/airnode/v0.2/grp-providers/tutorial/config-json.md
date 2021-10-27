@@ -100,7 +100,7 @@ The config.json file contents shown below is for the [Quick Deploy](./) demo.
         "components": {
           "securitySchemes": {}
         },
-        "security":{}
+        "security": {}
       },
       "endpoints": [
         {
@@ -109,7 +109,7 @@ The config.json file contents shown below is for the [Quick Deploy](./) demo.
             "method": "get",
             "path": "/coins/{id}"
           },
-          "testable":true,
+          "testable": true,
           "fixedOperationParameters": [
             {
               "operationParameter": {
@@ -183,3 +183,4 @@ The config.json file contents shown below is for the [Quick Deploy](./) demo.
   ],
   "apiCredentials": []
 }
+```

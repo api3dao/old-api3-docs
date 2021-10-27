@@ -113,7 +113,7 @@ module.exports = [
         title: 'Deployment Files',
         collapsable: true,
         children: [
-          { title: 'Overview', path: 'reference/deployment-files/overview' },
+          'reference/deployment-files/',
           {
             title: 'config.json',
             path: 'reference/deployment-files/config-json',
