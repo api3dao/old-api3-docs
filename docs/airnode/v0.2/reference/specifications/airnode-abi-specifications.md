@@ -1,38 +1,46 @@
 ---
 title: Airnode ABI Specification
 ---
+
 <TitleSpan>Specifications</TitleSpan>
+
 # {{$frontmatter.title}}
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,4]" />
 
-[Contract application binary interface (ABI)](https://docs.soliditylang.org/en/v0.6.12/abi-spec.html) is used to encode
-different types of data while interacting with Ethereum contracts. As a result, both Solidity and modules such as
-[web3.js](https://web3js.readthedocs.io/) and [ethers.js](https://docs.ethers.io/) treat ABI encoding–decoding
-functionality as a first-class citizen. This makes using contract ABI for encoding API call parameters a very attractive
-option.
+[Contract application binary interface (ABI)](https://docs.soliditylang.org/en/v0.6.12/abi-spec.html)
+is used to encode different types of data while interacting with Ethereum
+contracts. As a result, both Solidity and modules such as
+[web3.js](https://web3js.readthedocs.io/) and
+[ethers.js](https://docs.ethers.io/) treat ABI encoding–decoding functionality
+as a first-class citizen. This makes using contract ABI for encoding API call
+parameters a very attractive option.
 
-Although encoding API call parameters using contract ABI has many advantages, it cannot be used for this purpose
-directly. Quoting from the [Solidity docs](https://docs.soliditylang.org/en/v0.6.12/abi-spec.html):
+Although encoding API call parameters using contract ABI has many advantages, it
+cannot be used for this purpose directly. Quoting from the
+[Solidity docs](https://docs.soliditylang.org/en/v0.6.12/abi-spec.html):
 
-> The encoding is not self describing and thus requires a schema in order to decode.
+> The encoding is not self describing and thus requires a schema in order to
+> decode.
 
-This means that whenever we pass API call parameters (of type `bytes`), we would also need to pass a list of the types
-of these parameters, which is cumbersome and it is not clear how these types would be encoded. As a solution, Airnode
-uses _Airnode ABI specifications_, an extension of contract ABI specifications that includes a header that keeps the
-schema.
+This means that when passing API call parameters (of type `bytes`), you would
+also need to pass a list of the types for these parameters, which is cumbersome
+and it is not clear how these types would be encoded. As a solution, Airnode
+uses _Airnode ABI specifications_, an extension of contract ABI specifications
+that includes a header that keeps the schema.
 
 ## Header
 
-The Airnode ABI specifications header is of type `bytes32` and acts as the schema (i.e., describes the types of the API
-call parameters). The header is encoded in UTF-8 for ease of use. Here is an example:
+The Airnode ABI specifications header is of type `bytes32` and acts as the
+schema (i.e., describes the types of the API call parameters). The header is
+encoded in UTF-8 for ease of use. Here is an example:
 
 ```
 "1BSabiuBa"
 ```
 
-The first character, `1`, represents the encoding version. Each following character represents the type of an API call
-parameter.
+The first character, `1`, represents the encoding version. Each following
+character represents the type of an API call parameter.
 
 ### Type encodings
 
@@ -47,13 +55,13 @@ i: int256
 b: bytes32
 ```
 
-Note that dynamically-sized types are represented with uppercase letters, and statically-sized types are represented
-with lowercase letters.
+Note that dynamically-sized types are represented with uppercase letters, and
+statically-sized types are represented with lowercase letters.
 
 ## Encoding format
 
-Airnode ABI specifications has the following encoding format (which is somewhat similar to
-[SDS](https://github.com/antirez/sds)):
+Airnode ABI specifications has the following encoding format (which is somewhat
+similar to [SDS](https://github.com/antirez/sds)):
 
 ```
 [------------------------][-----------------------------------------]
@@ -64,7 +72,7 @@ Note that each API call parameter is preceded with a name of type `bytes32`.
 
 ## Example encoding
 
-If we wanted to encode the following API call parameters
+To encode the following API call parameters
 
 ```json
 {
@@ -79,7 +87,7 @@ If we wanted to encode the following API call parameters
 }
 ```
 
-we would to do this in our requester contract as:
+you would do this in a requester contract as:
 
 ```solidity
 bytes memory parameters = abi.encode(
@@ -95,13 +103,14 @@ bytes memory parameters = abi.encode(
 );
 ```
 
-Note that we did not need to add an external library to our contract, and `abi.encode()` is fairly cheap in terms of gas
-usage (compared to alternative encoding methods).
+Note that you do not need to add an external library to the contract, and
+`abi.encode()` is fairly cheap in terms of gas usage (compared to alternative
+encoding methods).
 
 ## Example decoding
 
-If the user knows the schema of the encoded parameters, they can even decode them on-chain. For example, if the schema
-is `(bytes,string)`:
+If you know the schema of the encoded parameters, then decode them on-chain. For
+example, if the schema is `(bytes,string)`:
 
 ```solidity
 (
@@ -111,14 +120,16 @@ is `(bytes,string)`:
 ) = abi.decode(parameters, (bytes32,bytes32,bytes,bytes32,string));
 ```
 
-Note that we disregarded the header and hardcoded the schema into our code. It is also possible to parse the header
-on-chain and decode accordingly, yet that would be a lot more complex.
+Note that this disregards the header and hard codes the schema into the code. It
+is also possible to parse the header on-chain and decode accordingly, yet that
+would be a lot more complex.
 
 ## Details
 
 ### `bytes32`
 
-A parameter being of type `bytes32` implies that the parameter is UTF-8 encoded text. For example, if the parameter is
+A parameter being of type `bytes32` implies that the parameter is UTF-8 encoded
+text. For example, if the parameter is
 
 ```
 0x68656c6c6f000000000000000000000000000000000000000000000000000000
@@ -132,7 +143,8 @@ Airnode will decode it as
 
 and feed that to the API, which is what the user would want to do in most cases.
 
-This becomes a problem if the parameter is not encoded text, but for example a hash such as:
+This becomes a problem if the parameter is not encoded text, but for example a
+hash such as:
 
 ```
 0x1fd36c61981313c0c155d33ffac0325bd7c00d21d52442981bb13d2fa13e8f71
@@ -145,8 +157,8 @@ If this hash is encoded as a `bytes32` type, Airnode will decode it as:
 !Õ$B±=/¡>q
 ```
 
-which is probably not what the user is looking for. Instead, the user should typecast the parameter into a `bytes` type
-as:
+which is probably not what the user is looking for. Instead, the user should
+typecast the parameter into a `bytes` type as:
 
 ```solidity
 bytes parameterAsBytes = abi.encodePacked(parameterAsBytes32);
@@ -160,37 +172,63 @@ and encode it as such. Then, Airnode would decode it as
 
 ### Omitted types
 
-We have omitted `array` and `tuple` because they are not suitable to be used as API parameters. `uint8-uint128`,
-`int8-int128`, `bytes1-bytes31` are omitted because they are padded to 32 bytes by the ABI encoder anyway (meaning that
-the user should simply typecast these to the 32-byte versions).
+`array` and `tuple` are ommiited because they are not suitable to be used as API
+parameters. `uint8-uint128`, `int8-int128`, `bytes1-bytes31` are omitted because
+they are padded to 32 bytes by the ABI encoder anyway (meaning that the user
+should simply typecast these to the 32-byte versions).
 
-Finally, we have omitted `bool` to avoid confusion because there are too many types that start with the letter 'B'. A
-simple workaround is to encode a `bool` type parameter as `bytes32` as:
+Finally, `bool` is omitted to avoid confusion because there are too many types
+that start with the letter 'B'. A simple workaround is to encode a `bool` type
+parameter as `bytes32` as:
 
 ```solidity
 bytes32 boolAsBytes32 = boolAsBool ? bytes32("true") : bytes32("false");
 ```
 
-This works because both `bool(true)` and `bytes32("true")` would be decoded as `"true"` at the Airnode-end, and vice
-versa.
+This works because both `bool(true)` and `bytes32("true")` would be decoded as
+`"true"` at the Airnode-end, and vice versa.
 
 ### Size limit
 
-The header can encode up to 31 parameters (and 1 byte is used to encode the encoding version). This is far more than
-what would be needed in practice, and thus is tolerated to avoid a more complex solution.
+The header can encode up to 31 parameters (and 1 byte is used to encode the
+encoding version). This is far more than what would be needed in practice, and
+thus is tolerated to avoid a more complex solution.
 
 ### Padding
 
-We are using the [strict encoding mode](https://docs.soliditylang.org/en/v0.6.12/abi-spec.html#strict-encoding-mode) so
-that we can decode the values later on. This means that each parameter will be padded with zeros to complete them to 32
-bytes. Although this padding increases gas costs, ABI encoding/decoding functions being cheap balances this.
-Furthermore, the [template](../../concepts/template.md) pattern we use in our protocols allows us to refer to these encoded
-parameters without explicitly passing them in our requests, making the increased cost induced by padding irrelevant in
-most cases.
+[Strict encoding mode](https://docs.soliditylang.org/en/v0.6.12/abi-spec.html#strict-encoding-mode)
+is used so that you can decode the values later on. This means that each
+parameter will be padded with zeros to complete them to 32 bytes. Although this
+padding increases gas costs, ABI encoding/decoding functions being cheap
+balances this. Furthermore, the [template](../../concepts/template.md) pattern
+used in the protocols allows for the referencing of these encoded parameters
+without explicitly passing them in requests, making the increased cost induced
+by padding irrelevant in most cases.
 
 ## `@api3/airnode-abi`
 
-<Fix>Need to find the code in the examples package that encodes the parameters in a client (off-chain) app.</Fix>
+Encode and decode parameters with the [airnode-abi](../packages/airnode-abi.md)
+package.
 
-The user may need to encode and decode Airnode ABI off-chain. See the package doc [airnode-abi](../packages/airnode-abi.md) for more information. You can refer to the
-[examples](https://github.com/api3dao/airnode-starter/blob/b521d9d77dc3c4d3f6b27adf674adca3a3fba05f/scripts/make-request.js#L25) package for an example usage.
+```js
+import { encode } from '@api3/airnode-abi';
+import { decode } from '@api3/airnode-abi';
+
+const parameters = [
+  { type: 'bytes32', name: 'from', value: 'ETH' },
+  { type: 'uint256', name: 'amount', value: '100000' },
+];
+const encodedData = encode(parameters);
+const decoded = decode(encodedData);
+
+console.log('ENCODED:', encodedData);
+console.log('\nDECODED:', decoded);
+```
+
+See the package doc [airnode-abi](../packages/airnode-abi.md) for more
+information on how to encode and decode with Airnode ABI off-chain. Also see
+code samples in the
+[examples](https://github.com/api3dao/airnode/tree/master/packages/examples)
+package.
+
+- [request-utils.ts](https://github.com/api3dao/airnode/blob/master/packages/examples/integrations/coingecko/request-utils.ts#L8)

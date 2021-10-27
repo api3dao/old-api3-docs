@@ -20,7 +20,7 @@ blockchains, this means that parameters can be encoded as well as decoded in
 Solidity (or Vyper), without any additional requirements.
 
 You can find additional documentation in
-[Airnode ABI](../specifications/airnode-abi-specifications.md) specifications
+[Airnode ABI Specifications](../specifications/airnode-abi-specifications.md)
 doc.
 
 ## Installation
