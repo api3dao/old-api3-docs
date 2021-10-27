@@ -26,7 +26,7 @@ module.exports = [
     title: 'Contract Architecture',
     collapsable: false,
     children: [
-      'contract-architecture/overview',
+      'contract-architecture/',
       'contract-architecture/pool',
       'contract-architecture/dao',
       'contract-architecture/voting',

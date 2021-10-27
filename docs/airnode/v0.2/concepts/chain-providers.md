@@ -9,7 +9,11 @@ title: Chain Providers
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Chain providers provide access to an evm on behave of an API provider. Your Airnode will interact with one or more chain providers and respond to requests. You can use multiple chain providers for each chain and declare multiple chains each with one of more chain providers. Below are some of the chain providers you might use.
+Chain providers provide access to an evm on behave of an API provider. Your
+Airnode will interact with one or more chain providers and respond to requests.
+You can use multiple chain providers for each chain and declare multiple chains
+each with one of more chain providers. Below are some of the chain providers you
+might use.
 
 - [Pocket](https://www.pokt.network/)
 - [Infura](https://infura.io)
@@ -17,7 +21,10 @@ Chain providers provide access to an evm on behave of an API provider. Your Airn
 
 ## One Chain: One Provider
 
-As an example the `chains` field declares its use of blockchain 4, _Rinkeby_. The `type` is set to _evm_ which is the only type currently supported by Airnode. It then applies an arbitrary name for the blockchain provider "infura_rinkeby" in the `provider` array.
+As an example the `chains` field declares its use of blockchain 4, _Rinkeby_.
+The `type` is set to _evm_ which is the only type currently supported by
+Airnode. It then applies an arbitrary name for the blockchain provider
+"infura_rinkeby" in the `provider` array.
 
 ```json
 "chains": [
@@ -41,7 +48,9 @@ As an example the `chains` field declares its use of blockchain 4, _Rinkeby_. Th
 
 ## One Chain: Multiple Providers
 
-Multiple providers can be used per chain. Simply add another object to `providers`. In this case both blockchain providers will have the same chain `id` and `type`.
+Multiple providers can be used per chain. Simply add another object to
+`providers`. In this case both blockchain providers will have the same chain
+`id` and `type`.
 
 ```json
 "chains": [
@@ -68,7 +77,8 @@ Multiple providers can be used per chain. Simply add another object to `provider
 
 ## Multiple Chains: Multiple Providers
 
-Not as complicated as it sounds. First create two or more chain objects were each has a unique `id` and `type` and a list of `providers` for each.
+Not as complicated as it sounds. First create two or more chain objects were
+each has a unique `id` and `type` and a list of `providers` for each.
 
 ```json
 "chains": [
