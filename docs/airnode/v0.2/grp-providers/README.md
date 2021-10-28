@@ -17,6 +17,15 @@ Provider docs to build the necessary files required to deploy an Airnode. The
 diagram below illustrates the basic steps to successfully deploy an Airnode.
 
 > ![image](../assets/images/api-provider-overview.png)
+>
+> 1. <p class="diagram-line" style="color:black;">config.json: Contains the Airnode's 
+>    configuration. The OIS object is important as it maps an API to Airnode endpoints.</p>
+>
+> 2. <p class="diagram-line" style="color:green;margin-top:10px;">secrets.env: Values 
+>    that should not be exposed in config.json.</p>
+>
+> 3. <p class="diagram-line" style="color:blue;margin-top:10px;">aws.env: AWS 
+>    credentials required by the Docker deployer image.</p>
 
 In summary you only need to do a few things.
 
