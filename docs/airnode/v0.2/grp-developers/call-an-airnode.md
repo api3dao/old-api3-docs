@@ -50,7 +50,7 @@ contract. This will expose the AirnodeRrp.sol protocol contract to the requester
 allowing it to make Airnode requests.
 
 ```solidity
-import "@api3/protocol/contracts/rrp/requesters/RrpRequester.sol";
+import "@api3/airnode-protocol/contracts/rrp/requesters/RrpRequester.sol";
 
 contract MyRequester is RrpRequester {
   ...
@@ -91,7 +91,7 @@ the Airnode responds to the requester later at the function (`airnodeCallback`)
 with the `requestId` and the `data` requested.
 
 ```solidity
-import "@api3/protocol/contracts/rrp/requesters/RrpRequester.sol";
+import "@api3/airnode-protocol/contracts/rrp/requesters/RrpRequester.sol";
 
 contract MyRequester is RrpRequester {
   mapping(bytes32 => bool) public incomingFulfillments;
@@ -213,7 +213,7 @@ AirnodeRrp.sol protocol contract stored with the `requestId` for the purpose of
 the callback.
 
 ```solidity
-import "@api3/protocol/contracts/rrp/requesters/RrpRequester.sol";
+import "@api3/airnode-protocol/contracts/rrp/requesters/RrpRequester.sol";
 
 contract MyRequester is RrpRequester {
     mapping(bytes32 => bool) public incomingFulfillments;
