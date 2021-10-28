@@ -84,13 +84,13 @@ authorization, [relay metadata](./apply-auth.md#relay-metadata).
 The authorizers you use will authorize all requests regardless of which endpoint
 is called. Endpoints are declared in the `ois.endpoints` field of the
 `config.json` file. To further filter by a particular endpoint you must use an
-authorizer like AirnodeRequesterRrpAuthorizer or use
+authorizer like RequesterAuthorizerWithAirnode or use
 [relay metadata](../../../concepts/authorization.md#relay-metadata).
 
-### AirnodeRequesterRrpAuthorizer
+### RequesterAuthorizerWithAirnode
 
 A common use case for an authorizer is the
-[AirnodeRequesterRrpAuthorizer](../../../concepts/authorization.md#airnoderequesterrrpauthorizer)
+[RequesterAuthorizerWithAirnode](../../../concepts/authorization.md#requesterauthorizerwithairnode)
 authorizer contract developed for Airnode operators to use right out-of-the-box.
 It allows the whitelisting of requester contracts (with or without expiration
 timestamps) on a per endpoint basis. This is the most common use case and may in
@@ -98,16 +98,16 @@ fact satisfy the needs of many Airnodes. You can find the contract address of
 this authorizer in the
 [Airnode Contract Addresses](../../../reference/airnode-addresses.md) doc.
 
-To use the AirnodeRequesterRrpAuthorizer authorizer:
+To use the RequesterAuthorizerWithAirnode authorizer:
 
 1. Add the authorizer contract address to the `chains[n].authorizers[]` array.
 2. After your Airnode is deployed, call the Admin CLI command
    [`set-whitelist-expiration`](../../../reference/packages/admin-cli-commands.md#set-whitelist-expiration)
    to add the desired requester contract addresses to the whitelist maintained
-   by AirnodeRequesterRrpAuthorizer.
+   by RequesterAuthorizerWithAirnode.
 
 Once implemented, only requester contract addresses you have added to
-AirnodeRequesterRrpAuthorizer will have access to your Airnode.
+RequesterAuthorizerWithAirnode will have access to your Airnode.
 
 ## Relay MetaData
 
