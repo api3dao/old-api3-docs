@@ -24,7 +24,7 @@ new deployment.
 | rinkeby    | 4   | 0xe469aD70a2CD3A01F4eCb6502161A4F381c1F659 |
 | kovan      | 62  |                                            |
 
-## AirnodeRequesterRrpAuthorizer.sol
+## RequesterAuthorizerWithAirnode.sol
 
 | Blockchain | ID  | Address                                    |
 | ---------- | --- | ------------------------------------------ |

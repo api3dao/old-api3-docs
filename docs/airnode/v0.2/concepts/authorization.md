@@ -32,7 +32,7 @@ wide variety of policies. Below are some examples:
   owner's backend (for example, based on PayPal payments).
 
 A common use case for an authorizer is the
-[AirnodeRequesterRrpAuthorizer](#airnoderequesterrrpauthorizer) authorizer
+[RequesterAuthorizerWithAirnode](#requesterauthorizerwithairnode) authorizer
 contract developed for Airnode operators to use right out-of-the-box. It allows
 the whitelisting of requester contracts (with or without expiration timestamps)
 on a per endpoint basis. This is the most common use case and may in fact
@@ -47,49 +47,42 @@ The diagram below illustrates how Airnode utilizes authorizers.
 > 3. <p class="diagram-line">Airnode sends each request, along with the list of authorizer contracts, to <code>checkAuthorizationStatus()</code>.</p>
 > 4. <p class="diagram-line"><code>checkAuthorizationStatus()</code> executes the <code>isAuthorized()</code> function in each authorizer contract. If any one authorizer contract returns true, then true is returned to the Airnode which in turn proceeds to fulfill the request.</p>
 
-The authorizers you use will authorize all requests regardless of which endpoint
-is called. Endpoints are declared in the `ois.endpoints` field of the
-`config.json` file. To further filter by a particular endpoint you must use a
-custom authorizer such as AirnodeRequesterRrpAuthorizer or use relay metadata.
-
 ### Airnode Authorization Policies
 
 Airnode provides two authorizer contracts, one of which
-(AirnodeRequesterRrpAuthorizer) can be used by any API provider. The other
-(DaoRequesterRrpAuthorizer) is used by the API3 DAO. They are detailed within
-this doc in sections below.
+(RequesterAuthorizerWithAirnode) can be used by any API provider. The other
+(RequesterAuthorizerWithManager) is meant to be used by the API3 DAO. They are
+detailed within this doc in sections below.
 
-- [`AirnodeRequesterRrpAuthorizer`](#airnoderequesterrrpauthorizer)
-- [`DaoRequesterRrpAuthorizer`](./authorization.md#daorequesterrrpauthorizer)
+- [`RequesterAuthorizerWithAirnode`](#requesterauthorizerwithairnode)
+- [`RequesterAuthorizerWithManager`](#requesterauthorizerwithmanager)
 
-Both these authorizer contracts inherit and extend the `RequesterRrpAuthorizer`
-abstract contract which also extends the
-[`Whitelister`](./adminnable.md#whitelister) contract. This means that both
-authorizer contracts will need to whitelist requester contracts prior to make
-them available to an Airnode (For `AirnodeRequesterRrpAuthorizer` this can be
-done using the
-[admin-cli](../reference/packages/admin-cli-commands.md#airnoderequesterrrpauthorizer)).
+Both these authorizer contracts inherit and extend the `RequesterAuthorizer`
+abstract contract which also extends the `Whitelist` contract. This means that
+both authorizer contracts will need to whitelist requester contracts prior to
+make them available to an Airnode (For `RequesterAuthorizerWithAirnode` this can
+be done using the
+[admin-cli](../reference/packages/admin-cli-commands.md#requesterauthorizerwithairnode)).
 
-The main difference between them is that `AirnodeRequesterRrpAuthorizer` also
-inherits [SelfAdminnable](./adminnable.md#selfadminnable) contract where admins
-are only allowed whitelist requesters on a specific Airnode. Meta-admin and
-admins in `DaoRequesterRrpAuthorizer` on the other hand, can whitelist
-requesters across all Airnodes because it inherits
-[Adminnable](./adminnable.md#adminnable) contract.
+The main difference between them is that `RequesterAuthorizerWithAirnode` allows
+the Airnode address to grant whitelisting roles for that specific Airnode. On
+the other hand, `RequesterAuthorizerWithManager` allows the manager address
+(read: the API3 DAO) to grant whitelisting roles roles for all Airnodes that use
+it.
 
 Some common functions available are:
 
-- `userIsWhitelisted`: Called to check if a requester is whitelisted to use the
-  Airnode–endpoint pair
-- `airnodeToEndpointIdToUserToWhitelistStatus`: Called to get the detailed
+- `requesterIsWhitelisted`: Called to check if a requester is whitelisted to use
+  the Airnode–endpoint pair
+- `airnodeToEndpointIdToRequesterToWhitelistStatus`: Called to get the detailed
   whitelist status of a requester for the Airnode–endpoint pair
 
 ### Custom Authorizers
 
-Custom authorizer contracts can implement any arbitrary authorization logic An
-example might be where Airnode only responds to requests if the wallet it will
-use to fulfill the request has a balance more than an amount set by the Airnode
-operator admin.
+Custom authorizer contracts can implement any arbitrary authorization logic. An
+example might be where Airnode only responds to requests if the requester has
+made less than a specific number of requests to the Airnode in the last month,
+effectively implementing an on-chain call quota.
 
 ### Authorizer List
 
@@ -103,8 +96,8 @@ standpoint, the authorization outcomes get `OR`ed.
 
 ### Authorizer Interface
 
-Authorizer contracts that inherit from `IRrpAuthorizer` can be used to implement
-an arbitrary authorization policy based on its input parameters.
+Authorizer contracts that inherit from `IAuthorizer` can be used to implement an
+arbitrary authorization policy based on its input parameters.
 
 - `requestId`: bytes32
 - `airnode`: address
@@ -113,14 +106,12 @@ an arbitrary authorization policy based on its input parameters.
 - `requester`: address
 
 Note that the authorizer does not have to use all of the arguments, and can even
-decide on external criteria such as `blockNumber` (e.g., do not respond to
-anyone after block number N). An authorizer is a contract with the following
-interface:
+decide on arbitrary on-chain criteria such as `block.number` (e.g., do not
+respond to anyone after block number N). An authorizer is a contract with the
+following interface:
 
 ```solidity
-interface IRrpAuthorizer {
-    function AUTHORIZER_TYPE() external view returns (uint256);
-
+interface IAuthorizer {
     function isAuthorized(
         bytes32 requestId,
         address airnode,
@@ -135,7 +126,7 @@ Below is an example of how to create the simplest form of an authorizer. This
 authorizer allows any requester contract to call the endpointId (0xf2ee...).
 
 ```solidity
-contract myAuthorizer is IRrpAuthorizer
+contract myAuthorizer is IAuthorizer
 {
   function isAuthorized(
       bytes32 requestId,
@@ -144,13 +135,13 @@ contract myAuthorizer is IRrpAuthorizer
       address sponsor,
       address requester
   ) external view override returns (bool) {
-      bytes32 expected = '0xf2ee...';
+      bytes32 expected = 0xf2ee...;
       return endpointId == expected;
   }
 }
 ```
 
-### Why is the authorizer scheme needed?
+### Why is an authorization scheme needed?
 
 Airnodes need the ability to fulfill requests selectively. This is required for
 two main reasons:
@@ -194,20 +185,22 @@ no gas overhead.
 ### Access (deny, allow, filter)
 
 How authorizers impact access is based on the `chains` field of `config.json`
-for a givin Airnode.
+for a given Airnode.
 
 #### Deny All
 
 If the Airnode wants to deny all access for a particular chain, it should not
 operate on it (i.e., it should not exist in the `chains` list). The below
-example would "deny all" to chains 1 and 3-n since they do not have entries in
+example would "deny all" to chains 1 and 3–n since they do not have entries in
 the `chains` field.
 
 ```json
  chains:[
-   id:2,
-   authorizers:[]
-   ...
+   {
+    id:2,
+    authorizers:[],
+    ...
+   }
  ]
 ```
 
@@ -222,7 +215,8 @@ below chain 2 would allow access to any requester.
       id:2,
       authorizers:[]
       ...
-    }
+    },
+    ...
  ]
 ```
 
@@ -241,46 +235,25 @@ authorizers.
  ]
 ```
 
-### AirnodeRequesterRrpAuthorizer
+### RequesterAuthorizerWithAirnode
 
-This contract implements a requester-based RRP authorizer with multiple levels
-of admins for multiple "adminned" addresses independently and treats each
-Airnode's operator address as its respective highest ranked admin.
+This contract implements a requester-based RRP authorizer with three types of
+roles
 
-An Airnode operator and the admins will use `AirnodeRequesterRrpAuthorizer`
-contract to whitelist requesters. The Airnode operator address and the admins
-are also authorized to make requests to an Airnode even if they are not
-whitelisted explicitly.
-
-`AirnodeRequesterRrpAuthorizer` inherits `SelfAdminnable` contract so
-whitelisting can be changed not only by the Airnode operator address but also by
-other admins that have the required rank level. This also means that each
-Airnode is adminned by themselves. [here](./adminnable.md#selfadminnable) you
-can find more info.
-
-#### setWhitelistExpiration
-
-The `setWhitelistExpiration()` function can be called by a super admin to set
-the whitelisting expiration of a requester for the Airnode–endpoint pair, this
-can hasten expiration.
-
-This function emits a `SetWhitelistExpiration` event with the following
-signature:
-
-```
-    event SetWhitelistExpiration(
-        address indexed airnode,
-        bytes32 endpointId,
-        address indexed user,
-        address indexed admin,
-        uint256 expiration
-    );
-```
+1. Whitelist expiration extender: Is allowed to extend temporary whitelisting
+   expiration
+2. Whitelist expiration setter: Is allowed to set the temporary whitelisting
+   expiration (i.e., they can also reduce the expiration time)
+3. Indefinite whitelister: Is allowed to whitelist/unwhitelist indefinitely Each
+   Airnode's address is treated as if they have all these three roles for the
+   respective Airnode, and they can also grant these roles to other accounts,
+   which includes contracts that implement arbitrary business logic.
 
 #### extendWhitelistExpiration
 
-The `extendWhitelistExpiration()` function can be called by an admin to extend
-the whitelist expiration of a requester for the Airnode–endpoint pair.
+The `extendWhitelistExpiration()` function can be called by a whitelist
+expiration extender or the Airnode address to extend the whitelist expiration of
+a requester for the Airnode–endpoint pair.
 
 This function emits a `ExtendedWhitelistExpiration` event with the following
 signature:
@@ -289,19 +262,39 @@ signature:
     event ExtendedWhitelistExpiration(
         address indexed airnode,
         bytes32 endpointId,
-        address indexed user,
-        address indexed admin,
+        address indexed requester,
+        address indexed sender,
+        uint256 expiration
+    );
+```
+
+#### setWhitelistExpiration
+
+The `setWhitelistExpiration()` function can be called by a whitelist expiraiton
+setter or the Airnode address to set the whitelisting expiration of a requester
+for the Airnode–endpoint pair. This can hasten expiration.
+
+This function emits a `SetWhitelistExpiration` event with the following
+signature:
+
+```
+    event SetWhitelistExpiration(
+        address indexed airnode,
+        bytes32 endpointId,
+        address indexed requester,
+        address indexed sender,
         uint256 expiration
     );
 ```
 
 #### setWhitelistStatusPastExpiration
 
-The `setWhitelistStatusPastExpiration()` function can be called by a super admin
-to set the whitelist status of a requester past expiration for the
-Airnode–endpoint pair. This status can be useful in cases where we don't want to
-block access to an API even if the the expiration date has passed. For example,
-we might want to keep authorizing requests while a sum of API3 tokens is locked.
+The `setWhitelistStatusPastExpiration()` function can be called by an indefinite
+whitelister or the Airnode address to set the whitelist status of a requester
+past expiration for the Airnode–endpoint pair. This status can be useful in
+cases where we don't want to block access to an API even if the the expiration
+date has passed. For example, we might want to keep authorizing requests while a
+sum of API3 tokens is locked.
 
 This function emits a `ExtendedWhitelistExpiration` event with the following
 signature:
@@ -310,8 +303,8 @@ signature:
     event SetWhitelistStatusPastExpiration(
         address indexed airnode,
         bytes32 endpointId,
-        address indexed user,
-        address indexed admin,
+        address indexed requester,
+        address indexed sender,
         bool status
     );
 ```
@@ -322,44 +315,22 @@ The `isAuthorized()` function will be called by AirnodeRrp to verify the
 authorization status of a request. This function will return true for all
 whitelisted requester contracts, admins and Airnode operator address.
 
-### DaoRequesterRrpAuthorizer
+### RequesterAuthorizerWithManager
 
 This contract implements a requester-based RRP authorizer and assigns the API3
-DAO as the meta-admin or in other words, the highest ranking admin across all
+DAO as the manager or in other words, the highest ranking admin across all
 Airnodes.
 
-The meta-admin and the admins will use `DaoRequesterRrpAuthorizer` contract to
-whitelist requesters across all Airnodes. The meta-admin and the admins are also
-authorized to make requests to an Airnode even if they are not whitelisted
-explicitly.
-
-`DaoRequesterRrpAuthorizer` inherits `Adminnable` contract so whitelisting can
-be changed not only by the meta-admin but also by other admins that have the
-required rank level. [here](./adminnable.md#adminnable) you can find more info.
-
-#### setWhitelistExpiration
-
-The `setWhitelistExpiration()` function can be called by a super admin to set
-the whitelisting expiration of a requester for the Airnode–endpoint pair, this
-can hasten expiration.
-
-This function emits a `SetWhitelistExpiration` event with the following
-signature:
-
-```
-    event SetWhitelistExpiration(
-        address indexed airnode,
-        bytes32 endpointId,
-        address indexed user,
-        address indexed admin,
-        uint256 expiration
-    );
-```
+The manager and the accounts that it has granted the whitelist expiration
+extender, whitelist expiration setter and the indefinite whitelister roles will
+use `RequesterAuthorizerWithManager` to whitelist requesters across all
+Airnodes.
 
 #### extendWhitelistExpiration
 
-The `extendWhitelistExpiration()` function can be called by an admin to extend
-the whitelist expiration of a requester for the Airnode–endpoint pair.
+The `extendWhitelistExpiration()` function can be called by a whitelist
+expiration extender or the manager to extend the whitelist expiration of a
+requester for the Airnode–endpoint pair.
 
 This function emits a `ExtendedWhitelistExpiration` event with the following
 signature:
@@ -368,19 +339,39 @@ signature:
     event ExtendedWhitelistExpiration(
         address indexed airnode,
         bytes32 endpointId,
-        address indexed user,
-        address indexed admin,
+        address indexed requester,
+        address indexed sender,
+        uint256 expiration
+    );
+```
+
+#### setWhitelistExpiration
+
+The `setWhitelistExpiration()` function can be called by a whitelist expiration
+setter or the manager to set the whitelisting expiration of a requester for the
+Airnode–endpoint pair. This can hasten expiration.
+
+This function emits a `SetWhitelistExpiration` event with the following
+signature:
+
+```
+    event SetWhitelistExpiration(
+        address indexed airnode,
+        bytes32 endpointId,
+        address indexed requester,
+        address indexed sender,
         uint256 expiration
     );
 ```
 
 #### setWhitelistStatusPastExpiration
 
-The `setWhitelistStatusPastExpiration()` function can be called by a super admin
-to set the whitelist status of a requester past expiration for the
-Airnode–endpoint pair. This status can be useful in cases where we don't want to
-block access to an API even if the the expiration date has passed. For example,
-we might want to keep authorizing requests while a sum of API3 tokens is locked.
+The `setWhitelistStatusPastExpiration()` function can be called by an indefinite
+whitelister or the manager to set the whitelist status of a requester past
+expiration for the Airnode–endpoint pair. This status can be useful in cases
+where we don't want to block access to an API even if the the expiration date
+has passed. For example, we might want to keep authorizing requests while a sum
+of API3 tokens is locked.
 
 This function emits a `ExtendedWhitelistExpiration` event with the following
 signature:
@@ -389,8 +380,8 @@ signature:
     event SetWhitelistStatusPastExpiration(
         address indexed airnode,
         bytes32 endpointId,
-        address indexed user,
-        address indexed admin,
+        address indexed requester,
+        address indexed sender,
         bool status
     );
 ```
@@ -428,7 +419,7 @@ want to use on-chain authorizers.
   should not be made public.
 - The Airnode operator does not want to interact with the chain to alter
   authorization statuses (e.g., does not want to make a transaction to whitelist
-  a new user, which will cost them gas fees).
+  a new requester, which will cost them gas fees).
 
 Activate the sending of the metadata by adding a reserved parameter with a name
 of `_relay_metadata` that defaults to `v1`. Note that the use of `v1` is

@@ -83,7 +83,6 @@ module.exports = [
       'concepts/airnode',
       'concepts/endpoint',
       'concepts/authorization',
-      'concepts/adminnable',
       'concepts/airnode-auth',
       'concepts/requester',
       'concepts/sponsor',
