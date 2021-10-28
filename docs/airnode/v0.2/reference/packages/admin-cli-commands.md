@@ -609,7 +609,7 @@ Airnode. Airnode owners can use this contract in addition to authorizer
 contracts they have written themselves.
 
 This authorizer contract can
-[`whitelist`](../../concepts/adminnable.md#whitelister)
+whitelist
 [requesters](../../concepts/requester.md) where each Airnode is adminned by
 themselves. The Airnode address and the admins are also authorized even if they
 are not whitelisted explicitly.

@@ -64,18 +64,18 @@ this doc in sections below.
 
 Both these authorizer contracts inherit and extend the `RequesterRrpAuthorizer`
 abstract contract which also extends the
-[`Whitelister`](./adminnable.md#whitelister) contract. This means that both
+Whitelister contract. This means that both
 authorizer contracts will need to whitelist requester contracts prior to make
 them available to an Airnode (For `AirnodeRequesterRrpAuthorizer` this can be
 done using the
 [admin-cli](../reference/packages/admin-cli-commands.md#airnoderequesterrrpauthorizer)).
 
 The main difference between them is that `AirnodeRequesterRrpAuthorizer` also
-inherits [SelfAdminnable](./adminnable.md#selfadminnable) contract where admins
+inherits SelfAdminnable contract where admins
 are only allowed whitelist requesters on a specific Airnode. Meta-admin and
 admins in `DaoRequesterRrpAuthorizer` on the other hand, can whitelist
 requesters across all Airnodes because it inherits
-[Adminnable](./adminnable.md#adminnable) contract.
+Adminnable contract.
 
 Some common functions available are:
 
@@ -255,8 +255,7 @@ whitelisted explicitly.
 `AirnodeRequesterRrpAuthorizer` inherits `SelfAdminnable` contract so
 whitelisting can be changed not only by the Airnode operator address but also by
 other admins that have the required rank level. This also means that each
-Airnode is adminned by themselves. [here](./adminnable.md#selfadminnable) you
-can find more info.
+Airnode is adminned by themselves.
 
 #### setWhitelistExpiration
 
@@ -335,7 +334,7 @@ explicitly.
 
 `DaoRequesterRrpAuthorizer` inherits `Adminnable` contract so whitelisting can
 be changed not only by the meta-admin but also by other admins that have the
-required rank level. [here](./adminnable.md#adminnable) you can find more info.
+required rank level.
 
 #### setWhitelistExpiration
 
