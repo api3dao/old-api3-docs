@@ -15,3 +15,5 @@
 /pre-alpha/airnode/specifications/reserved-parameters.html /airnode/pre-alpha/airnode/specifications/reserved-parameters.html
 /pre-alpha/guides/docker/deployer-image.html /airnode/pre-alpha/guides/docker/deployer-image.html
 /pre-alpha/protocols/request-response/authorizer.html /airnode/pre-alpha/protocols/request-response/authorizer.html
+/airnode/latest/reference/packages/airnode-abi.html /airnode/v0.2/reference/packages/airnode-abi.html
+/airnode/latest/reference/specifications/airnode-abi-specifications.html /airnode/v0.2/reference/specifications/airnode-abi-specifications.html
