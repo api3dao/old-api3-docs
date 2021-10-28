@@ -16,7 +16,7 @@ more AirnodeRrp.sol protocol contracts on different blockchains.
 
 > ![2-parts](../assets/images/airnode-is-2-parts.png) <br/><br/>
 >
-> <p class="diagram-line" style="color:black;">Airnode is composed of two parts: the off-chain **Airnode** (a.k.a. "the node") deployed usually as cloud provider functions, e.g., AWS) and the on-chain **protocol contract**  AirnodeRrp.sol.</p>
+> <p class="diagram-line" style="color:black;">Airnode is composed of two parts: the off-chain <b>Airnode</b> (a.k.a. "the node") deployed usually as cloud provider functions, e.g., AWS) and the on-chain protocol contract <b>AirnodeRrp.sol</b>.</p>
 
 ## Is my platform compatible?
 
