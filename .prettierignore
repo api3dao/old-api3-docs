@@ -22,5 +22,11 @@
 /docs/airnode/v0.2/assets
 /docs/airnode/v0.2/figures
 
-# common
-
+# TODO: format these and remove from .prettierignore
+/README.md
+/docs/README.md
+/docs/airnode/v0.2/grp-developers/code/create-template-id.js
+/docs/airnode/v0.2/reference/specifications/ois.md
+/docs/airnode/v0.2/reference/specifications/reserved-parameters.md
+/docs/dev-airnode/README.md
+/docs/dev-airnode/sidebar.js
