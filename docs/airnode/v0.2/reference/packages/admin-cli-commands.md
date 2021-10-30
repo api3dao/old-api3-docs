@@ -32,9 +32,9 @@ are just two examples of many possibilities.
 - `https://ropsten.infura.io/v3/<KEY>`
 
 The CLI connects to the
-[AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/AirnodeRrp.sol)
+[AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/v0.2/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol)
 or the
-[RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/authorizers/RequesterAuthorizerWithAirnode.sol)
+[RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/v0.2/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol)
 contract, which addresses are derived from the current chain. You can optionally
 specify the contract addresses yourself by providing optional `airnode-rrp` or
 `requester-authorizer-with-airnode` command argument with the address of the
@@ -117,7 +117,7 @@ between [requesters](../../concepts/requester.md) and
 [sponsorWallets](../../concepts/sponsor.md#sponsorwallet) as well as
 [templates](../../concepts/template.md) used by a sponsor's requesters. Some of
 these commands connect to the
-[AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/AirnodeRrp.sol)
+[AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/v0.2/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol)
 protocol contract where the signer is sponsor account.
 
 - [sponsor-requester](admin-cli-commands.md#sponsor-requester)
@@ -612,7 +612,7 @@ This authorizer contract can whitelist [requesters](../../concepts/requester.md)
 where each Airnode is adminned by themselves.
 
 These commands connect to the
-[RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/authorizers/RequesterAuthorizerWithAirnode.sol)
+[RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/v0.2/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol)
 contract.
 
 - [set-whitelist-expiration](admin-cli-commands.md#set-whitelist-expiration)
@@ -876,4 +876,4 @@ npx @api3/airnode-admin is-requester-whitelisted ^
 ## More Examples
 
 You can find more examples in the _@api3-dao/airnode/package/admin_
-[test files](https://github.com/api3dao/airnode/tree/master/packages/admin/test).
+[test files](https://github.com/api3dao/airnode/tree/v0.2/packages/airnode-admin/test).
