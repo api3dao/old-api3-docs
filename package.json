@@ -13,8 +13,10 @@
     "test:links:prod": "for file in $(find ./docs/dao-members ./docs/airnode/pre-alpha ./docs/common -path ./node_modules -prune -false -o -name \"*.md\"); do markdown-link-check --verbose --config .github/workflows/markdown-link-check.config.json \"$file\" || exit 1; done;",
     "test:links:next": "for file in $(find ./docs/airnode/next -path ./node_modules -prune -false -o -name \"*.md\"); do markdown-link-check --verbose --config .github/workflows/markdown-link-check.config.json \"$file\" || exit 1; done;",
     "test:links:dev": "for file in $(find ./docs/dev -path ./node_modules -prune -false -o -name \"*.md\"); do markdown-link-check --verbose --config .github/workflows/markdown-link-check.config.json \"$file\" || exit 1; done;",
-    "docs:dev": "yarn copy:navbar; yarn copy:sidebar; yarn copy:searchbox; vuepress dev docs",
-    "docs:build": "yarn copy:navbar; yarn copy:sidebar; yarn copy:searchbox; vuepress build docs",
+    "docs:dev": "sh update-files.sh; vuepress dev docs",
+    "docs:build": "sh update-files.sh; vuepress build docs",
+    "docs:devwin": "cmd update-files.cmd; vuepress dev docs",
+    "docs:buildwin": "cmd update-files.cmd; vuepress build docs",
     "format": "prettier --write ./**/*.{js,vue,md,json,yaml} --loglevel silent",
     "format:check": "prettier --check ./**/*.{js,vue,md,json,yaml}",
     "prepare": "husky install"

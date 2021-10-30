@@ -21,7 +21,7 @@ Therefore, the only thing you need to do to integrate an API to Airnode is to cr
 This guide is an instructive approach to creating an OIS. As a point of reference, refer to the [OIS docs](../../airnode/specifications/ois.md) when you need further details. It may be useful, but not necessary, to reference the [OpenAPI Specification (OAS) 3.0.3 docs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md) about fields related to API specifications.
 
 ::: tip Specification Conversion
-To assist in converting between various specifications e.g. from OAS to OIS, there is a `convert` command within the Airnode [validator](https://github.com/api3dao/airnode/tree/master/packages/validator#airnodeconvertor) package.
+To assist in converting between various specifications e.g. from OAS to OIS, there is a `convert` command within the Airnode [validator](https://github.com/api3dao/airnode/tree/pre-alpha/packages/validator#airnodeconvertor) package.
 :::
 
 ## OIS Template

@@ -23,7 +23,7 @@ illustrates the mechanics of the entire process as does the diagram in the
 
 The AirnodeRrp protocol is designed to be flexible and is meant to serve a
 variety of use cases. See the Airnode
-[requester examples](https://github.com/api3dao/airnode/tree/master/packages/examples/contracts)
+[requester examples](https://github.com/api3dao/airnode/tree/v0.2/packages/airnode-examples/contracts)
 for some potential design patterns.
 
 Ignoring the mechanics of the overall process, the requester primarily focuses
@@ -45,7 +45,7 @@ deployment and sponsoring.
 ## Step #1: Inherit RrpRequester.sol
 
 A requester inherits from the
-[RrpRequester.sol](https://github.com/api3dao/airnode/blob/master/packages/protocol/contracts/rrp/requesters/RrpRequester.sol)
+[RrpRequester.sol](https://github.com/api3dao/airnode/blob/v0.2/packages/airnode-protocol/contracts/rrp/requesters/RrpRequester.sol)
 contract. This will expose the AirnodeRrp.sol protocol contract to the requester
 allowing it to make Airnode requests.
 
