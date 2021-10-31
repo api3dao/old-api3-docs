@@ -1,0 +1,30 @@
+name: Scheduled config PR
+
+on:
+  schedule:
+    - cron: '45 12 * * *'
+
+jobs:
+  update-config:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        vdocs: [v0.2]
+    steps:
+      - name: Clone docs
+        uses: actions/checkout@v2
+      - name: Check for config changes
+        run: |
+          curl -s https://raw.githubusercontent.com/api3dao/airnode/${{ matrix.vdocs }}/packages/airnode-node/config/config.json.example -o ./docs/airnode/${{ matrix.vdocs }}/reference/examples/config-local.json
+          curl -s https://raw.githubusercontent.com/api3dao/airnode/${{ matrix.vdocs }}/packages/airnode-deployer/config/config.json.example -o ./docs/airnode/${{ matrix.vdocs }}/reference/examples/config-provider.json
+      - name: Create PR if configs changed
+        id: cpr
+        uses: peter-evans/create-pull-request@v3.10.1
+        with:
+          title: 'Config updates [automated]'
+          commit-message: 'Update config files [automated]'
+          branch: config-updates
+          delete-branch: true
+          reviewers: wkande
+          body: |
+            Automated changes by GitHub Actions workflow
