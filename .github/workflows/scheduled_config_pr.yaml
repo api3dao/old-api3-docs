@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Clone docs
         uses: actions/checkout@v2
-      - name: Check for config changes
+      - name: Get config files
         run: |
           curl -s https://raw.githubusercontent.com/api3dao/airnode/${{ matrix.vdocs }}/packages/airnode-node/config/config.json.example -o ./docs/airnode/${{ matrix.vdocs }}/reference/examples/config-local.json
           curl -s https://raw.githubusercontent.com/api3dao/airnode/${{ matrix.vdocs }}/packages/airnode-deployer/config/config.json.example -o ./docs/airnode/${{ matrix.vdocs }}/reference/examples/config-provider.json
