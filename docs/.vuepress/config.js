@@ -3,12 +3,15 @@ module.exports = {
   /**
    * List all base routes that are to become versions here.
    */
-  versions: [{ name: 'pre-alpha', url: '/airnode/pre-alpha/' }],
+  versions: [
+    { name: 'v0.2', url: '/airnode/v0.2/' },
+    { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
+  ],
   /**
    * Indicates the path to the latest Airnode version.
    * Used by sub-sites component.
    */
-  latestVersion: '/airnode/pre-alpha/',
+  latestVersion: '/airnode/v0.2/',
   head: [['link', { rel: 'icon', href: '/img/small-logo.png' }]],
   title: 'Documentation',
   base: '/',
@@ -18,7 +21,7 @@ module.exports = {
     extractHeaders: ['h2', 'h3', 'h4', 'h5'],
   },
   themeConfig: {
-    startPath: '/airnode/pre-alpha/',
+    startPath: '/airnode/v0.2/',
     sidebarDepth: 0,
     displayAllHeaders: false,
     logo: '/img/logo.png',
@@ -45,9 +48,8 @@ module.exports = {
   /**
    * Tells vuepress live-reload server which files to process.
    * Ignore folders and files when prefixed with !.
-   * Added the _deprecated folders NOT to be processed.
    */
-  patterns: ['**/*.md', '**/*.vue', '!**/_deprecated/**'],
+  patterns: ['**/*.md', '**/*.vue'],
   /**
    * Loading for PDF, not a great solution.
    * https://github.com/vuejs/vuepress/issues/700

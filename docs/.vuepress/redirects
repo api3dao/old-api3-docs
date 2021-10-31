@@ -1,12 +1,12 @@
-/latest /airnode/pre-alpha
-/airnode /airnode/pre-alpha
+/latest /airnode/v0.2
+/airnode /airnode/v0.2
 /pre-alpha /airnode/pre-alpha
 /next /airnode/next
 /v0.2 /airnode/v0.2
 /latest/members /dao-members
 /airnode-starter /airnode/pre-alpha/tutorials/airnode-starter.html
 /pre-alpha/airnode-starter /airnode/pre-alpha/tutorials/airnode-starter.html
-/p/fixed-parameters /airnode/v0.2/grp-providers/guides/provider/api-integration.html#fixedoperationparameters
+/p/fixed-parameters /airnode/v0.2/grp-providers/guides/build-an-airnode/api-integration.html#fixedoperationparameters
 /d/call-an-airnode /airnode/v0.2/grp-developers/call-an-airnode.html
 /d/request-parameters /airnode/v0.2/grp-developers/call-an-airnode.html#request-parameters
 /d/response-parameters /airnode/v0.2/grp-developers/call-an-airnode.html#response-parameters

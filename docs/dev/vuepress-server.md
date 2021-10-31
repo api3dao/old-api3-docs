@@ -17,13 +17,9 @@ if `patterns` is not present in config.json.
 patterns: ['**/*.md', '**/*.vue'],
 ```
 
-Some folders in the docs contain files that are not used by the docs. The files
-have been archived in folder call `_deprecated`. The following `patterns` object
-has been added to config.json to exclude the `_deprecated` folder from being
-loaded by V the VuePress server.
+If needed files or a entire folder can be excluded as show below
+`'!not-this-folder/**'` using (!).
 
 ```json
-patterns: ['**/*.md', '**/*.vue', '!**/_deprecated/**']
+patterns: ['**/*.md', '**/*.vue', '!not-this-folder/**']
 ```
-
-Note that `'!**/_deprecated/**'` is the exclusion.

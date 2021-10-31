@@ -57,62 +57,12 @@ happen in development. Most likely this is a problem with the plugin as at Jul,
 
 ## Community Plugins
 
-api3-docs uses several community plugins and packages to enhance the user
+api3-docs uses a few community plugins and packages to enhance the user
 experience.
 
-- @fortawesome/fontawesome-svg-core, free-solid-svg-icons, vue-fontawesome
-- markdown-link-check
 - v-click-outside
 - vuepress-plugin-element-tabs
 - vuepress-plugin-table-of-contents
-
-### @fortawesome
-
-Three plugins from
-[@fortawesome](https://www.npmjs.com/package/@fortawesome/vue-fontawesome)
-provide access to the **Font Awesome** icon set. This is a collection of three
-plugins that work closely together to render Font Awesome icons. An example can
-be found in the .vuepress.components/SidebarHeader.vue component.
-SidebarHeader.vue is not in use by this project and is archived. It may be
-re-introduced in the future.
-
-```js
-import Vue from 'vue';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faUsers } from '@fortawesome/free-solid-svg-icons';
-import { faSitemap } from '@fortawesome/free-solid-svg-icons';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-Vue.component('font-awesome-icon', FontAwesomeIcon);
-library.add(faUsers, faSitemap, faEye);
-```
-
-The above imports and code creates three icons that can then be used in HTML
-code shown below.
-
-```html
-// Using bind (:icon) to reference the icon name held in btn.img
-<font-awesome-icon :icon="btn.img" size="2x" />
-
-// Using icon to reference the icon directly
-<font-awesome-icon icon="users" />
-```
-
-### markdown-link-check
-
-This plugin has been replaced with [Lychee](./plugins.md#lychee) as the
-preferred GitHub action to validate links.
-
-This package is used to validate hyperlinks locally in markdown files. There are
-two scripts.
-
-- `vuepress "test:links:prod"` validates the production version folders and the
-  dev folder.
-- `vuepress "test:links:next"` validates the _/next_ folder.
-
-<!-- This package is also used in a **GitHub Action** on the remote repo to validate hyperlinks on `git push`, see [GitHub Actions](./github-actions.md#markdown-link-check).
-
-Before running `vuepress "docs:build"` or `sh deploy.sh` be sure to run `vuepress "test:links:prod"` first to validate production hyperlinks. See [Deployment](./deployment.md) to learn more about incorporation of this test.-->
 
 ### Lychee
 
@@ -121,8 +71,7 @@ src and mail addresses inside Markdown, HTML, reStructuredText, or any other
 text file or website. It is available as a CLI utility and as a GitHub Action:
 [lycheeverse/lychee-action](https://github.com/lycheeverse/lychee-action).
 
-See the internal [LyChee](./lychee.md) doc for info on its implementation within
-the Airnode docs.
+See the [GitHub Action](./plugin.md) doc for info on its implementation.
 
 ### Link Validator
 
