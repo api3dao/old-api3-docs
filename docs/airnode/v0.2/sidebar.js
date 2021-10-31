@@ -58,7 +58,7 @@ module.exports = [
           'grp-providers/tutorial/aws-env',
         ],
       },
-      'grp-providers/validator',
+      //'grp-providers/validator',
     ],
   },
   {
