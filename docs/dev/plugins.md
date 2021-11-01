@@ -71,7 +71,7 @@ src and mail addresses inside Markdown, HTML, reStructuredText, or any other
 text file or website. It is available as a CLI utility and as a GitHub Action:
 [lycheeverse/lychee-action](https://github.com/lycheeverse/lychee-action).
 
-See the [GitHub Action](./plugin.md) doc for info on its implementation.
+See the [GitHub Action](./github-actions.md) doc for info on its implementation.
 
 ### Link Validator
 

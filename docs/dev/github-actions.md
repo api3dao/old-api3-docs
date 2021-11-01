@@ -26,3 +26,16 @@ commit and caches that installation for fast execution.
 
 - [lychee.toml](https://github.com/api3dao/api3-docs/blob/main/.github/workflows/lychee.toml) >
   Action Configuration
+
+## Scheduled config PR
+
+To keep the docs current, this daily action pulls config files from the
+`airnode` repo and uses the
+[peter-evans/create-pull-request@v3](https://github.com/marketplace/actions/create-pull-request)
+marketplace action to automatically create a PR in this repo _if_ the files have
+changed. The `matrix` strategy using the variable `vdocs`, for the docs version,
+aims to support the addition of future versions without the need for additional
+curl commands.
+
+- [scheduled_config_pr.yaml](https://github.com/api3dao/api3-docs/blob/main/.github/workflows/scheduled_config_pr.yaml) >
+  Action
