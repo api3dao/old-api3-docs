@@ -7,6 +7,10 @@ title: Using Templates
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
+<!-- TODO: 2021-11-02 wkande: Should this doc speak to creating a templateId? See the code
+example ./code/create-template-id.js which may not be used anywhere in
+these docs at this time. -->
+
 A request to an Airnode can have many parameters. It is very common for
 requester contracts (e.g., a data feed) to make repeated requests with the exact
 same parameters. In such instances, it is wasteful to pass all of these
