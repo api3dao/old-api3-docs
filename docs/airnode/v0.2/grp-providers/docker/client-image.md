@@ -10,11 +10,11 @@ title: Airnode Client Image
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 Usually the Airnode is deployed on a serverless platform using the
-[deployer](deployer-image.md). However, there is another option which is to run
-the Airnode in a docker container on your machine locally.
+[deployer](./deployer-image.md). However, there is another option which is to
+run the Airnode in a docker container on your machine locally.
 
-We have already prepared a docker image for you and published it on
-[docker hub](https://hub.docker.com/r/api3/airnode-client). If you want to build
+A docker client image has been published on
+[Docker Hub](https://hub.docker.com/r/api3/airnode-client). If you want to build
 the container from the source yourself, you can find the image and built
 instructions in the
 [Airnode repository](https://github.com/api3dao/airnode/tree/v0.2/packages/airnode-node/docker).

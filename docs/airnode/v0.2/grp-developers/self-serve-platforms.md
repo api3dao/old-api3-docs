@@ -53,7 +53,7 @@ native smart contract language.
 
 If your platform is not directly compatible, this means that a significant
 amount of development will need to be undertaken to port Airnode on your chain.
-To learn more about how we can help, contact us at contact@api3.org. The
+To learn more about how API3 can help, contact us at contact@api3.org. The
 following list details some reasons to carry through with this.
 
 - Airnode and its protocol are designed to enable standardized and

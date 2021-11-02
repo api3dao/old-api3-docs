@@ -7,16 +7,16 @@ title: Is my platform compatible?
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-We are receiving an overwhelming amount of demand by teams of smart contract
-platforms and decentralized applications built on these about integrating
-Airnode to gain access to API data and services. These guides are for you to be
-able to self-serve to assess the feasibility of an integration, and even
-prototype the integration yourself.
+There is an overwhelming amount of demand by teams of smart contract platforms
+and decentralized applications built on these about integrating Airnode to gain
+access to API data and services. These guides are for you to be able to
+self-serve to assess the feasibility of an integration, and even prototype the
+integration yourself.
 
 A lot of the smart contract platforms are directly compatible with Airnode,
 meaning that the integration effort will be trivial and can even be done with
-minimal support from API3. In this guide, we will go over different factors that
-determine compatibility.
+minimal support from API3. In this guide covers different factors that determine
+compatibility.
 
 ## EVM support
 
@@ -84,5 +84,5 @@ chain. Here are some reasons to carry through with this:
   result.
 
 As mentioned above, this porting effort is significant, and will require you to
-allocate resources. To find out about how we can help, contact us at
+allocate resources. To find out about how API3 can help, contact us at
 contact@api3.org

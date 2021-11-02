@@ -47,8 +47,8 @@ A package that can be used to validate and convert airnode specification files
 
 Airnode packages are cross platform, available as npm packages or docker
 containers. You should also be able to clone, build and use the packages on any
-platform. However we do not guarantee that the development only features (e.g.
+platform. However there is no guarantee that the development only features (e.g.
 test or examples) will work out of the box.
 
 It is recommend to use UNIX based systems for development. If you are using
-Windows, consider [WSL](https://docs.microsoft.com/en-us/windows/wsl/install).
+Windows, consider [WSL2](https://docs.microsoft.com/en-us/windows/wsl/install).
