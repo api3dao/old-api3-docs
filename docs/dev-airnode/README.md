@@ -7,7 +7,6 @@ title: Getting Started
 <TocHeader />
 [[TOC]]
 
->Looking for [Docs Development](../dev/)?
+> Looking for [Docs Development](../dev/)?
 
 Getting started with Airnode development docs.
-
