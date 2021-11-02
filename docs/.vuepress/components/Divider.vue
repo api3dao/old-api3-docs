@@ -3,18 +3,18 @@
 
 <template>
   <div>
-      <hr/>
+    <hr />
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'divider'
-  }
+export default {
+  name: 'divider',
+};
 </script>
 
 <style scoped>
-  hr{
-    border-top:solid 2px gray;
-  }
+hr {
+  border-top: solid 2px gray;
+}
 </style>

@@ -6,16 +6,13 @@ Add comment here
 -->
 
 <template>
-  <div class="toc-label">
-    Table of Contents
-  </div>
+  <div class="toc-label">Table of Contents</div>
 </template>
 
 <script>
-  export default {
-    name:'toc-header',
-  }
+export default {
+  name: 'toc-header',
+};
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

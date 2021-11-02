@@ -3,49 +3,32 @@
     class="home"
     :aria-labelledby="data.heroText !== null ? 'main-title' : null"
   >
-
-  <!-- 
+    <!-- 
     Added: wkande: Added Navbar to replicate original Home page.
   -->
-  <Navbar />
+    <Navbar />
 
     <header class="hero">
-      
       <img
         v-if="data.heroImage"
         :src="$withBase(data.heroImage)"
         :alt="data.heroAlt || 'hero'"
-      >
+      />
 
-      <h1
-        v-if="data.heroText !== null"
-        id="main-title"
-      >
+      <h1 v-if="data.heroText !== null" id="main-title">
         {{ data.heroText || $title || 'Hello' }}
       </h1>
 
-      <p
-        v-if="data.tagline !== null"
-        class="description"
-      >
+      <p v-if="data.tagline !== null" class="description">
         {{ data.tagline || $description || 'Welcome to your VuePress site' }}
       </p>
 
-      <p
-        v-if="data.actionText && data.actionLink"
-        class="action"
-      >
-        <NavLink
-          class="action-button"
-          :item="actionLink"
-        />
+      <p v-if="data.actionText && data.actionLink" class="action">
+        <NavLink class="action-button" :item="actionLink" />
       </p>
     </header>
 
-    <div
-      v-if="data.features && data.features.length"
-      class="features"
-    >
+    <div v-if="data.features && data.features.length" class="features">
       <div
         v-for="(feature, index) in data.features"
         :key="index"
@@ -64,30 +47,26 @@
     <!--Content class="theme-default-content custom" /-->
     <Content class="custom" />
 
-    <div
-      v-if="data.footer"
-      class="footer"
-    >
+    <div v-if="data.footer" class="footer">
       {{ data.footer }}
     </div>
   </main>
 </template>
 
 <script>
-import NavLink from '@theme/components/NavLink.vue'
+import NavLink from '@theme/components/NavLink.vue';
 
 export default {
   name: 'Home',
 
   components: { NavLink },
-  data: () => ({
-  }),
+  data: () => ({}),
   computed: {
-    data () {
-      return this.$page.frontmatter
+    data() {
+      return this.$page.frontmatter;
     },
-    
-    actionLink () {
+
+    actionLink() {
       return {
         /* 
           Changed: wkande: The actionBtn link is picked up from the config.json file (themeConfig.startPath).
@@ -95,11 +74,11 @@ export default {
           clicks on the title in the Navbar (Documentation text right of the API3 logo). 
         */
         link: this.$themeConfig.startPath, // Original value: this.data.actionLink,
-        text: this.data.actionText
-      }
-    }
+        text: this.data.actionText,
+      };
+    },
   },
-}
+};
 </script>
 
 <style lang="stylus">

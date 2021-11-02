@@ -6,22 +6,16 @@
       Changed: 2021-03-08 wkande: Logo now goes to https://api3.org.
     -->
 
-    <a
-      href="https://api3.org"
-      class="home-link"
-    >
+    <a href="https://api3.org" class="home-link">
       <img
         v-if="$site.themeConfig.logo"
         class="logo"
         :src="$withBase($site.themeConfig.logo)"
         :alt="$siteTitle"
-      >
+      />
     </a>
 
-    <RouterLink
-      :to="$localePath"
-      class="home-link"
-    >
+    <RouterLink :to="$localePath" class="home-link">
       <!-- 
         Added: wkande: v-on:click="$themeConfig.startPath = $route.fullPath" 
         Sets the startPath for the Landing Page (actionLink) with the page 
@@ -33,44 +27,47 @@
         ref="siteName"
         class="site-name"
         :class="{ 'can-hide': $site.themeConfig.logo }"
-      >{{ $siteTitle }}</span>
+        >{{ $siteTitle }}</span
+      >
     </RouterLink>
-    
 
     <div
       class="links"
-      :style="linksWrapMaxWidth ? {
-        'max-width': linksWrapMaxWidth + 'px'
-      } : {}"
+      :style="
+        linksWrapMaxWidth
+          ? {
+              'max-width': linksWrapMaxWidth + 'px',
+            }
+          : {}
+      "
     >
       <!-- 
         Added: wkande: This adds the custom Versions component 
       -->
       <Versions />
 
-      <AlgoliaSearchBox
-        v-if="isAlgoliaSearch"
-        :options="algolia"
-      />
+      <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia" />
       <!-- 
         Updated: wkande: There are paths where the SearchBox cannot be added 
       -->
-      
-      <SearchBox 
-        v-else-if="$route.path != '/' && 
-        $site.themeConfig.search !== false && 
-        $page.frontmatter.search !== false" />
-      <NavLinks class="can-hide" />
 
+      <SearchBox
+        v-else-if="
+          $route.path != '/' &&
+          $site.themeConfig.search !== false &&
+          $page.frontmatter.search !== false
+        "
+      />
+      <NavLinks class="can-hide" />
     </div>
   </header>
 </template>
 
 <script>
-import AlgoliaSearchBox from '@AlgoliaSearchBox'
-import SearchBox from '@SearchBox'
-import SidebarButton from '@theme/components/SidebarButton.vue'
-import NavLinks from '@theme/components/NavLinks.vue'
+import AlgoliaSearchBox from '@AlgoliaSearchBox';
+import SearchBox from '@SearchBox';
+import SidebarButton from '@theme/components/SidebarButton.vue';
+import NavLinks from '@theme/components/NavLinks.vue';
 
 export default {
   name: 'Navbar',
@@ -79,45 +76,51 @@ export default {
     SidebarButton,
     NavLinks,
     SearchBox,
-    AlgoliaSearchBox
+    AlgoliaSearchBox,
   },
 
-  data () {
+  data() {
     return {
-      linksWrapMaxWidth: null
-    }
+      linksWrapMaxWidth: null,
+    };
   },
 
   computed: {
-    algolia () {
-      return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
+    algolia() {
+      return (
+        this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
+      );
     },
 
-    isAlgoliaSearch () {
-      return this.algolia && this.algolia.apiKey && this.algolia.indexName
-    }
+    isAlgoliaSearch() {
+      return this.algolia && this.algolia.apiKey && this.algolia.indexName;
+    },
   },
-  mounted () {
-    const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
-    const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'))
+  mounted() {
+    const MOBILE_DESKTOP_BREAKPOINT = 719; // refer to config.styl
+    const NAVBAR_VERTICAL_PADDING =
+      parseInt(css(this.$el, 'paddingLeft')) +
+      parseInt(css(this.$el, 'paddingRight'));
     const handleLinksWrapWidth = () => {
       if (document.documentElement.clientWidth < MOBILE_DESKTOP_BREAKPOINT) {
-        this.linksWrapMaxWidth = null
+        this.linksWrapMaxWidth = null;
       } else {
-        this.linksWrapMaxWidth = this.$el.offsetWidth - NAVBAR_VERTICAL_PADDING
-          - (this.$refs.siteName && this.$refs.siteName.offsetWidth || 0)
+        this.linksWrapMaxWidth =
+          this.$el.offsetWidth -
+          NAVBAR_VERTICAL_PADDING -
+          ((this.$refs.siteName && this.$refs.siteName.offsetWidth) || 0);
       }
-    }
-    handleLinksWrapWidth()
-    window.addEventListener('resize', handleLinksWrapWidth, false)
-  }
-}
+    };
+    handleLinksWrapWidth();
+    window.addEventListener('resize', handleLinksWrapWidth, false);
+  },
+};
 
-function css (el, property) {
+function css(el, property) {
   // NOTE: Known bug, will return 'auto' if style value is 'auto'
-  const win = el.ownerDocument.defaultView
+  const win = el.ownerDocument.defaultView;
   // null means not to return pseudo styles
-  return win.getComputedStyle(el, null)[property]
+  return win.getComputedStyle(el, null)[property];
 }
 </script>
 

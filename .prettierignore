@@ -4,9 +4,10 @@
 /node_modules
 /archived
 /docs/airnode/pre-alpha
+# Do not format the Vuepress landing page below
+/docs/README.md
 
 # .vuepress
-/docs/.vuepress/components
 /docs/.vuepress/dist
 /docs/.vuepress/public
 /docs/.vuepress/styles
@@ -22,11 +23,7 @@
 /docs/airnode/v0.2/assets
 /docs/airnode/v0.2/figures
 
-# TODO: format these and remove from .prettierignore
-/README.md
-/docs/README.md
-/docs/airnode/v0.2/grp-developers/code/create-template-id.js
-/docs/airnode/v0.2/reference/specifications/ois.md
-/docs/airnode/v0.2/reference/specifications/reserved-parameters.md
-/docs/dev-airnode/README.md
-/docs/dev-airnode/sidebar.js
+# v0.3
+/docs/airnode/v0.3/assets
+/docs/airnode/v0.3/figures
+
