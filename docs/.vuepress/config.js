@@ -31,6 +31,7 @@ module.exports = {
       { text: 'GitHub', link: 'https://github.com/api3dao/api3-docs' },
     ],
     sidebar: {
+      '/airnode/v0.3/': require(`../airnode/v0.3/sidebar.js`),
       '/airnode/v0.2/': require(`../airnode/v0.2/sidebar.js`),
       '/airnode/pre-alpha/': require(`../airnode/pre-alpha/sidebar.js`),
       '/dao-members/': require(`../dao-members/sidebar.js`),

@@ -21,28 +21,6 @@ in index.styl, look for the .toc-label class.
 
 [TocHeader.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/TocHeader.vue)
 
-## Fix.vue & FixInline.vue
-
-Fix.vue and FixInline.vue are marker components used as a placeholder for items
-that need to be resolved inside a document. These are not meant to be used in
-production docs. Use only for `/next`.
-
-[Fix.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/Fix.vue)
-
-[FixInline.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/FixInline.vue)
-
-**Usage:**
-
-```html
-<Fix content="A paragraph fix tag." />
-
-<FixInline content="An inline fix tag." />
-```
-
-<Fix content="A paragraph fix tag." />
-
-The is how:<FixInline content="An inline fix tag" /> looks.
-
 ## Versions.vue and VersionsModal.vue
 
 VersionsModal.vue is a child component of Versions.vue. Versions.vue has been
