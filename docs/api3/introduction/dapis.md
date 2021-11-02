@@ -15,9 +15,9 @@ Consider the following:
   [decentrally-governed oracle networks](./decentrally-governed-oracle-networks.md)
   should be employed
 
-We can conclude that decentrally-governed networks of first-party oracles solve
-the API connectivity problem. Although this is technically correct, the same
-solution can be reached through a more useful lens.
+It can be concluded that decentrally-governed networks of first-party oracles
+solve the API connectivity problem. Although this is technically correct, the
+same solution can be reached through a more useful lens.
 
 Decentralized applications cannot access Web APIs, and oracle solutions aim to
 build decentralized interfaces to facilitate this. However, this approach

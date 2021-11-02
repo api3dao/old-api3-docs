@@ -11,9 +11,9 @@ contains the secrets that the respective Airnode deployments will need. All
 variables defined in a `secrets.env` file will be available in the `config.json`
 file via variable interpolation (e.g. `${VARIABLE_NAME}`).
 
-There are few pieces of data we **highly recommend** you provide via variables.
-The variable names shown can be adjusted to anything desired. Just be sure to
-change the correlating interpolation value in `config.json`.
+There are few pieces of data that are **highly recommend** to be provided via
+variables. The variable names shown can be adjusted to anything desired. Just be
+sure to change the correlating interpolation value in `config.json`.
 
 | Variable name           | `config.json` field name               | Description                                           |
 | ----------------------- | -------------------------------------- | ----------------------------------------------------- |

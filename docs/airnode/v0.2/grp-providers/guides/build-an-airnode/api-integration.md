@@ -196,7 +196,7 @@ _What is an API operation?_
 
 In the examples below, `GET` refers to an
 [HTTP request method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
-This implies that we could have another API operation that can be specified
+This implies that you could have another API operation that can be specified
 using a different method but the same path.
 
 > path: /data
@@ -207,7 +207,7 @@ using a different method but the same path.
 >
 > method: POST
 
-Therefore, a path is not enough to specify an API operation by itself, we must
+Therefore, a path is not enough to specify an API operation by itself, you must
 also provide a method. If a new path is needed then it must start a new object
 in paths with its own methods. Currently only the GET and POST methods are
 supported by Airnode.
@@ -379,7 +379,7 @@ the steps below.
    referenced using the apiCredential field in `config.json` later in
    [Configuring Airnode](./configuring-airnode.md#apicredentials).
 
-   > Note that we will not be entering the API key itself in the OIS, because
+   > Note that you will not be entering the API key itself in the OIS, because
    > the OIS is not meant to include any user-specific information. Security
    > credentials such as API keys go in
    > [secrets.env](../../../reference/deployment-files/secrets-env.md) file.
@@ -502,9 +502,8 @@ requesters to use the entire API functionality on-chain. Normally, oracle
 integrations strive to hard-code as many API parameters as possible because
 passing these parameters on-chain results in a gas cost overhead. However, the
 Airnode protocol uses [templates](../../../concepts/template.md) (not to be
-confused with the OIS template we are using for this guide), which allow
-requesters to specify a large number of endpoint parameters at no additional gas
-cost.
+confused with the OIS template used for this guide), which allow requesters to
+specify a large number of endpoint parameters at no additional gas cost.
 
 Note that there are some cases where you may not want to map endpoints to API
 operations one-to-one. For example, an API operation can have a `header`
@@ -582,9 +581,9 @@ endpoint can have multiple parameters.
 
 ## Conclusion
 
-This was all! We specified the API operations and Airnode endpoints. Each
-Airnode endpoint maps to an API operation, and each Airnode endpoint parameter
-or fixedOperationParameter maps to an API operation parameter. The resulting OIS
+The API operations and Airnode endpoints are now specified. Each Airnode
+endpoint maps to an API operation, and each Airnode endpoint parameter or
+fixedOperationParameter maps to an API operation parameter. The resulting OIS
 includes no user-specific information, which means that you can share it for
 others to easily provide the same services (for example, to set up a third-party
 oracle network).
@@ -596,5 +595,5 @@ However, in most cases, one would simply map API operations to Airnode endpoints
 directly, and let the requester provide all API operation parameters through the
 Airnode endpoint parameters.
 
-Now that we have our OIS object, the next step is
+Now that you have an OIS object, the next step is
 [Configuring Airnode](configuring-airnode.md).

@@ -151,7 +151,7 @@ Please feel free to contribute to any API3 GitHub repositories.
 
 ## Contributing
 
-At **API3** we are open to any proposals and improvements. Please feel free to
+At **API3** is open to any proposals and improvements. Please feel free to
 contribute.
 
 - opening issues

@@ -54,16 +54,16 @@ than using it once.
 The oracle node being stateless means that it would not be able to "remember" if
 it has made an API call associated with a request, and may repeat it under
 certain conditions. This is not an issue at the moment, because presently,
-oracles are only used for idempotent operations. However, we aim for Airnode to
-be able to support non-idempotent operations as well, so we are researching
-alternative methods to achieve this while protecting the resiliency that
-statelessness provides.
+oracles are only used for idempotent operations. The aim is for Airnode to
+support non-idempotent operations as well. There is research into alternative
+methods to achieve this while protecting the resiliency that statelessness
+provides.
 
 ## Fully-serverless stack
 
 Although serverless functions are better known for scaling automatically even
 with extreme concurrent usage (which may also come in handy in a bright future),
-we use it for different reasons:
+Airnode uses it for different reasons:
 
 - Serverless functions are stateless. This means that whatever problem occurs in
   an invocation, the next invocation will start with a clean slate. This
@@ -89,9 +89,9 @@ designed in a defensive way.
 
 There are two external parties that Airnode interacts with:
 
-- **APIs:** Although Airnode is designed for first-party oracles, we also
-  consider serving data from third-party APIs as a valid usage scenario. In this
-  case, calls made to all APIs are contained in separate serverless function
+- **APIs:** Although Airnode is designed for first-party oracles, it considers
+  serving data from third-party APIs as a valid usage scenario. In this case,
+  calls made to all APIs are contained in separate serverless function
   invocations so that they cannot induce node-level failure.
 - **Blockchain nodes:** Similarly, using blockchain (e.g., Ethereum) nodes run
   by third party service providers is considered as a valid usage scenario.
@@ -106,7 +106,7 @@ provider cannot tamper with the parameters of a request, but only deny service.
 Note that this is not the case with alternative solutions, as they treat the
 blockchain service provider as a trusted party.
 
-We recommend cloud hosting over hosting on-premises due to the superior
+Cloud hosting is recommended over hosting on-premises due to the superior
 availability of serverless functions, and also for their set-and-forget
 qualities. As a precaution, redundancy on multiple cloud providers can be
 provisioned easily and virtually at no cost thanks to the fully-serverless

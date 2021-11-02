@@ -409,7 +409,7 @@ blank.
 
 ## Summary
 
-In this guide, we created the `config.json`, `secrets.env` and `aws.env` files
+In this guide you created the `config.json`, `secrets.env` and `aws.env` files
 required to deploy an Airnode to a cloud provider (AWS). Note that `config.json`
 is user-specific and therefore it is not much use to others.
 

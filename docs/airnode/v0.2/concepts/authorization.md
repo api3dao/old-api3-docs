@@ -291,10 +291,9 @@ signature:
 
 The `setWhitelistStatusPastExpiration()` function can be called by an indefinite
 whitelister or the Airnode address to set the whitelist status of a requester
-past expiration for the Airnode–endpoint pair. This status can be useful in
-cases where we don't want to block access to an API even if the the expiration
-date has passed. For example, we might want to keep authorizing requests while a
-sum of API3 tokens is locked.
+past expiration for the Airnode–endpoint pair. This is useful to allow access to
+an API even if the the expiration date has passed. For example, keep authorizing
+requests while a sum of API3 tokens is locked.
 
 This function emits a `ExtendedWhitelistExpiration` event with the following
 signature:
@@ -368,10 +367,9 @@ signature:
 
 The `setWhitelistStatusPastExpiration()` function can be called by an indefinite
 whitelister or the manager to set the whitelist status of a requester past
-expiration for the Airnode–endpoint pair. This status can be useful in cases
-where we don't want to block access to an API even if the the expiration date
-has passed. For example, we might want to keep authorizing requests while a sum
-of API3 tokens is locked.
+expiration for the Airnode–endpoint pair. This is useful to allow access to an
+API even if the the expiration date has passed. For example, keep authorizing
+requests while a sum of API3 tokens is locked.
 
 This function emits a `ExtendedWhitelistExpiration` event with the following
 signature:
