@@ -3,29 +3,26 @@
     <NavLinks />
 
     <slot name="top" />
-    
-    <!-- wkand added 2021-09-20 -->
-    <SubSites/>
 
-    <SidebarLinks
-      :depth="0"
-      :items="items"
-    />
+    <!-- wkand added 2021-09-20 -->
+    <SubSites />
+
+    <SidebarLinks :depth="0" :items="items" />
     <slot name="bottom" />
   </aside>
 </template>
 
 <script>
-import SidebarLinks from '@theme/components/SidebarLinks.vue'
-import NavLinks from '@theme/components/NavLinks.vue'
+import SidebarLinks from '@theme/components/SidebarLinks.vue';
+import NavLinks from '@theme/components/NavLinks.vue';
 
 export default {
   name: 'Sidebar',
 
   components: { SidebarLinks, NavLinks },
 
-  props: ['items']
-}
+  props: ['items'],
+};
 </script>
 
 <style lang="stylus">

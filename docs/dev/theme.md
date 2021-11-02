@@ -26,8 +26,8 @@ is located in the route's root folder.
 
 ```json
 sidebar: {
-  '/airnode/next/': require(`../airnode/next/sidebar.js`),
-  '/airnode/v1/': require(`../airnode/v0.2/sidebar.js`),
+  '/airnode/v0.3/': require(`../airnode/v0.3/sidebar.js`),
+  '/airnode/v0.2/': require(`../airnode/v0.2/sidebar.js`),
   '/airnode/pre-alpha/': require(`../airnode/pre-alpha/sidebar.js`),
   '/dao-members/': require(`../dao-members/sidebar.js.js`),
   '/dev/': require(`../dev/sidebar.js`),

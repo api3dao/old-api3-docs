@@ -17,3 +17,11 @@ files and then use the symlink in its sidebar to render the common file.
 # ln -s <path-to-markdown-file> <symlink file-name>
 ln -s ../common/blog-posts.md symlink-blog-posts.md
 ```
+
+::: danger Warning
+
+Use the `/common` folder with caution. It is difficult to link to other internal
+docs content from docs within `/common`. See the `CommonLink.vue` component but
+think hard about using it.
+
+:::
