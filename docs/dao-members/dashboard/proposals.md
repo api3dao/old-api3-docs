@@ -131,7 +131,7 @@ To create a new proposal using the DAO dashboard:
 6. Enter the **Contract Target Signature**.
    > Defines the signature of the function to call within the target contract.
    > For the target contract USDC mentioned above use
-   > `transfer(address, unit256)`
+   > `transfer(address, uint256)`
 7. Enter an **ETH Value**.
    > You can use zero if the target function is not `payable`.
 8. Enter **Parameters** which are the arguments that will be used to satisfy the
