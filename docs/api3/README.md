@@ -34,7 +34,8 @@ problem, **API3** aims to provide a much more optimal solution.
 ::: tip API3 Whitepaper (pdf)
 
 For a detailed discussion of the API3 project, read the
-<a href="/api3-whitepaper-v1.0.1.pdf" target="api3-docs">API3 Whitepaper</a>.
+<a href="/api3-whitepaper-v1.0.1.pdf" target="_api3-whitepaper">API3
+Whitepaper</a>.
 
 :::
 
@@ -56,8 +57,8 @@ implementation.
 ::: tip
 
 Learn more about Airnode Read Section 4 of the
-[API3 Whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf)
-to learn more. _Airnode: A Node Designed for First-Party Oracles_
+<a href="/api3-whitepaper-v1.0.1.pdf#Airnode:%20A%20Node%20Designed%20for%20First-Party%20Oracles" target="_api3-whitepaper">API3
+Whitepaper</a> _Airnode: A Node Designed for First-Party Oracles_
 
 :::
 
@@ -77,7 +78,8 @@ learn more.
 ::: tab The Whitepaper
 
 **Abstract from the
-[API3 Whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf)</a>**
+<a href="/api3-whitepaper-v1.0.1.pdf" target="_api3-whitepaper">API3
+Whitepaper</a>**
 
 With decentralized applications beginning to provide meaningful services in
 areas such as decentralized finance, there is an increasing need for these

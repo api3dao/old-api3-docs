@@ -54,8 +54,8 @@ based on expert opinion. As API3 operations expand, this governance hierarchy
 may demand additional layers in the form of subDAOs.
 
 To learn more about hierarchical team structures
-<a href="/api3-whitepaper-v1.0.1.pdf#AI3%20DAO" target="api3-docs">see Section
-5.3 of the API3 Whitepaper</a>.
+<a href="/api3-whitepaper-v1.0.1.pdf#API3%20DAO" target="_api3-whitepaper"> see
+Section 5.3 of the API3 Whitepaper</a>.
 
 ### subDAO
 

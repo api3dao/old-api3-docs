@@ -70,7 +70,7 @@ them to govern in a way that minimizes **_security_** risks. "_Security_" refers
 to a "guarantee or reliability of dAPI service"
 
 Reference
-<a href="/api3-whitepaper-v1.0.1.pdf#API3 tokenomics" target="api3-docs">section
+<a href="/api3-whitepaper-v1.0.1.pdf#API3%20tokenomics" target="_api3-whitepaper">section
 5.6 _"API3 Tokenomics"_</a> of the API3 whitepaper.
 
 ### Staking
@@ -125,7 +125,7 @@ through the dispute resolution protocol, user damages will be covered from the
 pool's staked tokens.
 
 Reference
-<a href="/api3-whitepaper-v1.0.1.pdf#Collateral" target="api3-docs">section
+<a href="/api3-whitepaper-v1.0.1.pdf#Collateral" target="_api3-whitepaper">section
 5.6.2 _"Collateral"_</a> of the API3 whitepaper.
 
 ### Governance
@@ -345,7 +345,6 @@ To insure against potential system failures, the DAO pool can empower special
 `payOutClaim(address recipient, uint256 amount)` in the DAO pool contract, which
 transfers tokens from the DAO pool to the recipient. When this occurs, the total
 number of staked tokens goes down, and pool share value goes down in turn.
-
 Reference
-<a href="/api3-whitepaper-v1.0.1.pdf#Insurance process" target="api3-docs">section
+<a href="/api3-whitepaper-v1.0.1.pdf#Insurance process" target="_api3-whitepaper">section
 5.6 _"Insurance process"_</a> of the API3 whitepaper.
