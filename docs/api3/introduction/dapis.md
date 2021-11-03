@@ -22,8 +22,8 @@ same solution can be reached through a more useful lens.
 Decentralized applications cannot access Web APIs, and oracle solutions aim to
 build decentralized interfaces to facilitate this. However, this approach
 results in an inferior solution and ecosystem (see the
-[API3 Whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf)
-for a detailed explanation).
+<a href="/api3-whitepaper-v1.0.1.pdf" target="_api3-whitepaper">API3
+Whitepaper</a> for a detailed explanation).
 
 <p align="center">
   <img src="../assets/images/dapi.png" />

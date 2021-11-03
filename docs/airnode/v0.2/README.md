@@ -32,9 +32,9 @@ implementation.
 
 ::: tip
 
-Learn more about Airnode experience Read Section 4 of the
-[API3 Whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf).
-_Airnode: A Node Designed for First-Party Oracles_
+Learn more about Airnode experience. Read Section 4 of the
+<a href="/api3-whitepaper-v1.0.1.pdf#Airnode:%20A%20Node%20Designed%20for%20First-Party%20Oracles" target="_api3-whitepaper">API3
+Whitepaper</a>, _Airnode: A Node Designed for First-Party Oracles_
 
 :::
 
