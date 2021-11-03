@@ -37,7 +37,7 @@ The config.json file contents shown below is for the [Quick Deploy](./) demo.
     },
     "logFormat": "plain",
     "logLevel": "INFO",
-    "nodeVersion": "0.1.0",
+    "nodeVersion": "0.3.0",
     "region": "us-east-1",
     "stage": "dev"
   },
