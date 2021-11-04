@@ -122,7 +122,7 @@ An object containing general deployment parameters of an Airnode.
 ```json
 // nodeSettings
 {
-  "nodeVersion": "0.1.0",
+  "nodeVersion": "0.3.0",
   "cloudProvider": "aws",
   "region": "us-east-1",
   "stage": "testnet",
