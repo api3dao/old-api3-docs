@@ -31,9 +31,16 @@ provided these images will be downloaded to Docker automatically.
 - [Airnode deployer image](https://hub.docker.com/r/api3/airnode-deployer)
 - [Airnode client image](https://hub.docker.com/r/api3/airnode-client)
 
-## Cloud Provider Credentials
+Both the deployer and client images pair with a particular
+[nodeVersion](../../reference/deployment-files/config-json.html#nodeversion)
+from the [config.json](../../reference/examples/config-json.html) file. For
+convenience there are under-specified versions (e.g., `0.2`,`0.3`) and
+the`latest` version. Simply use the deployer or client image version that
+matches the `nodeVersion` from your config.json file.
 
-In order to deploy Airnode to a serverless cloud provider like AWS, you need to
-provide could provider credentials to the Airnode deployer image. The deployer
-image currently supports deploying to AWS. If you are new to AWS watch this
-[video](https://www.youtube.com/watch?v=KngM5bfpttA) to set up an AWS account.
+| Deployer or Client Image | nodeVersion |
+| ------------------------ | ----------- |
+| 0.2.2                    | 0.2.2       |
+| 0.2                      | 0.2.2       |
+| 0.3                      | 0.3.0       |
+| latest                   | 0.3.0       |

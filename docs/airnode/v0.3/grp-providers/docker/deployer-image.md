@@ -27,6 +27,14 @@ pre-configured Airnode using the deployer image.
 
 :::
 
+## Cloud Provider Credentials
+
+In order to deploy Airnode to a serverless cloud provider like AWS, you need to
+provide could provider credentials to the Airnode deployer image. The deployer
+image currently supports deploying to AWS. If you are new to AWS watch this
+[video](https://www.youtube.com/watch?v=KngM5bfpttA) to set up an AWS account
+and create cloud provider credentials.
+
 ## `deploy`
 
 The `deploy` command will create the Airnode with a cloud provider or update it
