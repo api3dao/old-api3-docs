@@ -25,18 +25,18 @@ system.
 ## DockerHub
 
 Both the Airnode client image and deployer image are available on DockerHub. It
-is not required to download these manually. When you run the Docker commands
-provided these images will be downloaded to Docker automatically.
+is not required to download these manually because they are pulled automatically
+when running the provided Docker commands.
 
 - [Airnode deployer image](https://hub.docker.com/r/api3/airnode-deployer)
 - [Airnode client image](https://hub.docker.com/r/api3/airnode-client)
 
 Both the deployer and client images pair with a particular
-[nodeVersion](../../reference/deployment-files/config-json.md#nodeversion)
-from the [config.json](../../reference/examples/config-json.md) file. For
-convenience there are under-specified versions (e.g., `0.2`,`0.3`) and
-the`latest` version. Simply use the deployer or client image version that
-matches the `nodeVersion` from your config.json file.
+[nodeVersion](../../reference/deployment-files/config-json.md#nodeversion) from
+the [config.json](../../reference/examples/config-json.md) file. It is
+recommended that the deployer or client image version match `nodeVersion`,
+though under-specified (e.g., `0.2` or `0.3`) and `latest` versions are provided
+for convenience.
 
 | Deployer or Client Image | nodeVersion |
 | ------------------------ | ----------- |
