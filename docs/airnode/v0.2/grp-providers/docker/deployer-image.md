@@ -112,3 +112,7 @@ docker run -it --rm ^
 :::
 
 ::::
+
+## Manual Removal
+
+<DeleteAirnodeAws/>

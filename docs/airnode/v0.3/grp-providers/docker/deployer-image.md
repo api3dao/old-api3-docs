@@ -113,18 +113,6 @@ docker run -it --rm ^
 
 ::::
 
-<!-- TODO: Manually remove an Airnode from AWS.
-It is possible for the deployer to get interrupted and create an Airnode
-that is in a bad state. Also the user might have deleted the S3 bucket and both
-deployer and remove will fail.
+## Manual Removal
 
-To remove Airnode manually in AWS to go these section and remove
-items that include the airnodeAddressShort in their name.
-
-Lambda
-DynamoDB
-Cloudwatch
-IAM Roles
-API Gateway (remove the api key, the gateway can stay or be removed)
-S3
--->
+<DeleteAirnodeAws/>
