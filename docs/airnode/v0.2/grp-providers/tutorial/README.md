@@ -46,7 +46,7 @@ url, a mnemonic and an apiKey.
 ## Install Prerequisites
 
 Install [Docker](https://docs.docker.com/get-docker/) if it is not present on
-your system.
+your system and launch it.
 
 ## Project Folder
 
@@ -120,7 +120,8 @@ Airnode.
 
 <DeployerPermissionsWarning/>
 
-Run the following to deploy the demo Airnode.
+Run the following command to deploy the demo Airnode. Note that the version of
+`api3/airnode-deployer` matches the `nodeVersion` in the config.json file.
 
 :::: tabs
 
