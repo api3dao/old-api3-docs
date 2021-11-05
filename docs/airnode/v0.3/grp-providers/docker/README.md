@@ -32,8 +32,8 @@ provided these images will be downloaded to Docker automatically.
 - [Airnode client image](https://hub.docker.com/r/api3/airnode-client)
 
 Both the deployer and client images pair with a particular
-[nodeVersion](../../reference/deployment-files/config-json.html#nodeversion)
-from the [config.json](../../reference/examples/config-json.html) file. For
+[nodeVersion](../../reference/deployment-files/config-json.md#nodeversion)
+from the [config.json](../../reference/examples/config-json.md) file. For
 convenience there are under-specified versions (e.g., `0.2`,`0.3`) and
 the`latest` version. Simply use the deployer or client image version that
 matches the `nodeVersion` from your config.json file.
