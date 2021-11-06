@@ -47,6 +47,8 @@ parameter `derivation-path` (`m/44'/60'/0'/0/...`). Make sure that the wallet
 that is associated with the mnemonic is funded on the target chain. The
 application will not exit until the transaction is confirmed.
 
+### Using npx
+
 **View all commands:**
 
 ```sh
@@ -57,6 +59,22 @@ npx @api3/airnode-admin --help
 
 ```sh
 npx @api3/airnode-admin $COMMAND --help
+```
+
+<divider/>
+
+## Using docker
+
+You can use the Admin CLI docker image as an alternative to `npx`.
+
+```sh
+docker run api3/airnode-admin:latest --help
+```
+
+**View the parameters of a command:**
+
+```sh
+docker run api3/airnode-admin:latest $COMMAND --help
 ```
 
 <divider/>
@@ -526,6 +544,7 @@ Airnode wallet.
 
 - [derive-airnode-xpub](admin-cli-commands.md#derive-airnode-xpub)
 - [derive-endpoint-id](admin-cli-commands.md#derive-endpoint-id)
+- [generate-mnemonic](admin-cli-commands.md#generate-mnemonic)
 
 <divider/>
 
@@ -598,6 +617,17 @@ npx @api3/airnode-admin derive-endpoint-id ^
 :::
 
 ::::
+
+<divider/>
+
+### `generate-mnemonic`
+
+Generates an unique mnemonic which can be used to create the
+[airnode wallet](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#airnodewalletmnemonic).
+
+```sh
+npx @api3/airnode-admin generate-mnemonic
+```
 
 <divider/>
 
