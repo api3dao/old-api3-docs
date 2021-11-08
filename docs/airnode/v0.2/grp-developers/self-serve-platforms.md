@@ -105,10 +105,10 @@ for support.
 _Replace parts starting with `$`_
 
 1. Clone the [Airnode monorepo](https://github.com/api3dao/airnode) (use the
-   `0.2.0` branch).
+   `v0.2.` branch).
 
 ```sh
-git clone --single-branch --branch 0.2.0 https://github.com/api3dao/airnode.git
+git clone --single-branch --branch v0.2 https://github.com/api3dao/airnode.git
 ```
 
 2. Install its dependencies and build it

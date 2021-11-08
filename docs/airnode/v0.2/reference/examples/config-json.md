@@ -6,8 +6,6 @@ title: config.json
 
 # {{$frontmatter.title}}
 
-<!-- TODO: This URL needs a repo tag for v0.2.0 -->
-
 :::: tabs
 
 ::: tab Local Chain

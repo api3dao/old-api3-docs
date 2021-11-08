@@ -47,7 +47,7 @@ parameter `derivation-path` (`m/44'/60'/0'/0/...`). Make sure that the wallet
 that is associated with the mnemonic is funded on the target chain. The
 application will not exit until the transaction is confirmed.
 
-### Using npx
+## Using npx
 
 **View all commands:**
 

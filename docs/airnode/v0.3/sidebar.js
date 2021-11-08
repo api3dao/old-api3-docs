@@ -46,6 +46,7 @@ module.exports = [
           'grp-providers/docker/',
           'grp-providers/docker/deployer-image',
           'grp-providers/docker/client-image',
+          'grp-providers/docker/admin-cli-image',
         ],
       },
       {
