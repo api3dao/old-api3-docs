@@ -120,7 +120,7 @@ should you choose.
     "cloudProvider": "aws",
     "region": "us-east-1",
     "stage": "dev",
-    "nodeVersion": "0.1.0"
+    "nodeVersion": "0.3.0"
   },
   "api": {
     "httpGatewayUrl": "https://6vmx3xp8tj.execute-api.us-east-1.amazonaws.com/v1/test"

@@ -161,7 +161,7 @@ The `nodeSettings` field holds node-specific (Airnode) configuration parameters.
     },
     "logFormat": "plain",
     "logLevel": "INFO",
-    "nodeVersion": "1.0.0",
+    "nodeVersion": "0.3.0",
     "region": "us-east-1",
     "stage": "dev"
   },
