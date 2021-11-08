@@ -3,38 +3,8 @@
 
 <template>
   <span>
-    <ul>
-      <li>
-        <a
-          :href="'https://hub.docker.com/r/api3/airnode-deployer/tags'"
-          target="_docker-hub"
-          >Airnode deployer images
-          <ExternalLinkImage />
-        </a>
-      </li>
-
-      <li>
-        <a
-          :href="'https://hub.docker.com/r/api3/airnode-client/tags'"
-          target="_docker-hub"
-          >Airnode client images
-          <ExternalLinkImage />
-        </a>
-      </li>
-
-      <!-- TODO: Uncomment once the airnode admin image is published -->
-      <!-- <li>
-        <a
-          :href="'https://hub.docker.com/r/api3/airnode-admin/tags'"
-          target="_docker-hub"
-          >Airnode admin images
-          <ExternalLinkImage />
-        </a>
-      </li> -->
-    </ul>
-
     <p>
-      The deployer and client images must pair with a particular
+      The docker images must pair with a particular
       <code>nodeVersion</code>
       from your config.json file. However there is a
       <code>latest</code> version provided for convenience which always requires
@@ -44,7 +14,7 @@
 
     <table>
       <tr>
-        <th>Deployer or Client Image</th>
+        <th>Docker Images</th>
         <th>nodeVersion</th>
       </tr>
       <tr>
