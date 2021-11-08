@@ -37,7 +37,7 @@ Example receipt:
     "cloudProvider": "aws",
     "region": "us-east-1",
     "stage": "starter-example",
-    "nodeVersion": "0.1.0"
+    "nodeVersion": "0.2.2"
   },
   "api": {
     "heartbeatId": "74dc44a1ee65",
