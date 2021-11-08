@@ -115,7 +115,7 @@ export default {
   font-size:large;
   padding:5px;
   color:gray;
-  border: 3px solid gray;
+  border: 2px solid gray;
   border-radius: 5px;
   margin-left:20px;margin-top:15px;
 }
