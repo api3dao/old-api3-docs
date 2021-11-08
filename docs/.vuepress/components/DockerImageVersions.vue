@@ -21,6 +21,16 @@
           <ExternalLinkImage />
         </a>
       </li>
+
+      <!-- TODO: Uncomment once the airnode admin image is published -->
+      <!-- <li>
+        <a
+          :href="'https://hub.docker.com/r/api3/airnode-admin/tags'"
+          target="_docker-hub"
+          >Airnode admin images
+          <ExternalLinkImage />
+        </a>
+      </li> -->
     </ul>
 
     <p>
