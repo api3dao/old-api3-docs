@@ -105,7 +105,7 @@ for support.
 _Replace parts starting with `$`_
 
 1. Clone the [Airnode monorepo](https://github.com/api3dao/airnode) (use the
-   `v0.2.` branch).
+   `v0.2` branch).
 
 ```sh
 git clone --single-branch --branch v0.2 https://github.com/api3dao/airnode.git
