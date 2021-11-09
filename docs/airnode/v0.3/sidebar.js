@@ -153,6 +153,7 @@ module.exports = [
           'reference/packages/', // Routes to the README.md in reference/packages/
           'reference/packages/admin-cli-commands',
           'reference/packages/airnode-abi',
+          'reference/packages/validator',
         ],
       },
       'reference/airnode-addresses',
