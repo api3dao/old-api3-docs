@@ -26,7 +26,8 @@ doc.
 :::
 
 Almost all commands require you to provide a blockchain `providerUrl`. Following
-are just two examples of many possibilities.
+are just two examples of many possibilities. See the
+[Chain Providers](../../concepts/chain-providers.md) doc for more information.
 
 - `https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID>`
 - `https://ropsten.infura.io/v3/<KEY>`
@@ -49,13 +50,13 @@ application will not exit until the transaction is confirmed.
 
 ## Using npx
 
-**View all commands:**
+View all commands:
 
 ```sh
 npx @api3/airnode-admin --help
 ```
 
-**View the parameters of a command:**
+View the parameters of a command:
 
 ```sh
 npx @api3/airnode-admin $COMMAND --help
@@ -63,15 +64,15 @@ npx @api3/airnode-admin $COMMAND --help
 
 <divider/>
 
-## Using docker
+## Using Docker
 
-You can use the Admin CLI docker image as an alternative to `npx`.
+Use the Admin CLI docker image as an alternative to `npx`:
 
 ```sh
 docker run api3/airnode-admin:latest --help
 ```
 
-**View the parameters of a command:**
+View the parameters of a command:
 
 ```sh
 docker run api3/airnode-admin:latest $COMMAND --help
