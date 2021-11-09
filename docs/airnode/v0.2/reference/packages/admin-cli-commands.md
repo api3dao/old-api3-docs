@@ -47,13 +47,13 @@ parameter `derivation-path` (`m/44'/60'/0'/0/...`). Make sure that the wallet
 that is associated with the mnemonic is funded on the target chain. The
 application will not exit until the transaction is confirmed.
 
-**View all commands:**
+View all commands:
 
 ```sh
 npx @api3/airnode-admin --help
 ```
 
-**View the parameters of a command:**
+View the parameters of a command:
 
 ```sh
 npx @api3/airnode-admin $COMMAND --help
