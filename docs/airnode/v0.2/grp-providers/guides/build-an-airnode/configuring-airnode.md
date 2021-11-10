@@ -277,8 +277,8 @@ can have more than one OIS object. Fill these in accordingly.
 
 [<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#rrp-endpointid)
 Add an `endpointId` to the trigger which is the ID that a requester will use for
-on-chain requests to reference a specific trigger. Use
-[`@api3/airnode-admin`](https://github.com/api3dao/airnode/tree/pre-alpha/packages/admin#derive-endpoint-id)
+on-chain requests to reference a specific trigger. Use the admin CLI command
+[derive-endpoint-id](../../../reference/packages/admin-cli-commands.html#derive-endpoint-id)
 to derive endpoint IDs using the `oisTitle` and `endpointName`.
 
 ```bash
