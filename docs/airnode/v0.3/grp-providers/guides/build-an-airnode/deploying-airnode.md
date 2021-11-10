@@ -80,7 +80,7 @@ docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
   -v "$(pwd)/config:/app/config" \
   -v "$(pwd)/output:/app/output" \
-  api3/deployer:latest deploy
+  api3/airnode-deployer:0.3.0 deploy
 ```
 
 :::
@@ -92,7 +92,7 @@ docker run -it --rm ^
   --env-file aws.env ^
   -v "%cd%/config:/app/config" ^
   -v "%cd%/output:/app/output" ^
-  api3/deployer:latest deploy
+  api3/airnode-deployer:0.3.0 deploy
 ```
 
 :::
@@ -153,7 +153,7 @@ folder. This file is needed to remove an Airnode.
 docker run -it --rm \
   --env-file aws.env \
   -v "$(pwd)/output:/app/output" \
-  api3/deployer:latest remove -r output/receipt.json
+  api3/airnode=deployer:0.3.0 remove -r output/receipt.json
 ```
 
 :::
@@ -166,7 +166,7 @@ For Windows, use CMD (and not PowerShell).
 docker run -it --rm ^
   --env-file aws.env ^
   -v "%cd%/output:/app/output" ^
-  api3/deployer:latest remove -r output/receipt.json
+  api3/airnode-deployer:0.3.0 remove -r output/receipt.json
 ```
 
 :::
