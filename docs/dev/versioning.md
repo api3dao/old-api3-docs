@@ -98,9 +98,9 @@ the new (next) version.
 
 2. The re-named `/next` folder will probably contained hyperlinks to remote
    GitHub repos. More than likely these links will need updating in the version
-   just created. Look for links that contain a previous version `/pre-alpha/`
-   `/next/` or reference the `/master` branch. The airnode repo will contain a
-   tag or release to include in the links.
+   just created. Look for links that contain a previous version such as
+   `/pre-alpha/`, `/next/`, `v0.2` or reference the `/master` branch. The
+   airnode repo will contain a tag to use for these links.
 
 3. Update the versions in `config.js`.
 
