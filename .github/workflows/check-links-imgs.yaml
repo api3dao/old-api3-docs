@@ -34,4 +34,8 @@ jobs:
       - name: Link Checker
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: find docs/ -not -path "*/.vuepress/*" -type f -name "*.md" | xargs lychee - -c .github/workflows/lychee.toml
+        run: >
+          find docs/
+          -not -path "*/.vuepress/*"
+          -not -path "docs/airnode/v0.3/*"
+          -type f -name "*.md" | xargs lychee - -c .github/workflows/lychee.toml
