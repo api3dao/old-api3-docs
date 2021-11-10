@@ -23,10 +23,53 @@ fulfilling the request. Reserved parameter names start with `_`.
 
 ## `_type`
 
-Can be `int256`, `bool`, or `bytes32`. Signifies what Solidity type the API
-response will be typecast to before fulfillment. See the
-[conversion behavior docs](https://github.com/api3dao/airnode/tree/pre-alpha/packages/adapter#conversion-behaviour)
-for details.
+Signifies what Solidity type the API response will be encoded to before
+fulfillment.
+
+We support most common
+[solidity types](https://docs.soliditylang.org/en/latest/abi-spec.html#types),
+but there a few less popular we do not support:
+
+- Custom bits integer types - e.g. `uint32` or `uint8`
+- Fixed point decimal numbers - e.g. `fixed128x18` or `ufixed128x18`
+- Custom fixed size bytes - e.g. `bytes4`
+- Tuples - e.g. `(int256, string)`
+
+### Conversion behavior
+
+Before the API response value is encoded for on chain use, it is parsed and
+converted. The conversion behaviors for any given type is explained in depth in
+the [adapter package docs](../packages/adapter.md#conversions).
+
+### Supported primitive values
+
+We support the following primitive values
+
+- `int256`
+- `uint256`
+- `bool`
+- `bytes32`
+- `address`
+- `bytes`
+- `string`
+
+### Arrays
+
+Apart from the primitives defined above, you are free to use arrays of any of
+the base types. Multidimensional arrays are supported as well. Solidity allows
+you to define fixed size arrays, which are more gas efficient to encode and you
+can use those as well.
+
+Supported examples
+
+- `int256[]` - regular integer array
+- `uint256[8]` - unsigned integer array with 8 elements
+- `int256[][]` - 2 dimensional integer array
+- `string[2][][3]` - 3 dimensional string array, where first dimension contains
+  3 elements, second unboundedly many and last dimension only 2. Notice, that
+  this
+  [definition is read backwards](https://ethereum.stackexchange.com/questions/64331/why-is-multidimensional-array-declaration-order-reversed)
+  compared to C-style languages.
 
 ## `_path`
 
@@ -53,6 +96,21 @@ and `_path` is `field1.fieldA.1`, the response will be `valueA2`.
 If the response is a literal value (i.e., not a JSON object) and `_path` is not
 provided, Airnode will use the literal value to fulfill the request.
 
+:::warning Beware the separator
+
+Make sure the keys in the path of the API response do not contain `.`, because
+it will be incorrectly considered as a separator.
+
+```
+{
+  "strage.key": "123"
+}
+```
+
+The `_path` defined as `strange.key` will not work.
+
+:::
+
 ## `_times`
 
 If `_type` is `int256` and a `_times` parameter is provided, Airnode multiplies
@@ -75,7 +133,12 @@ _times: 100
 ```
 
 the request will be fulfilled with the value `123`. Note that the number gets
-multiplied by `100`, and then gets floored.
+multiplied by `100`, and then gets floored. This is because the result of the
+multiplication is [cast](../packages/adapter.md) to `int256` afterwards.
+
+The `_times` parameter also works in conjunction with arrays and
+multidimensional arrays. All elements of the API response array will be
+multiplied before they are encoded.
 
 ## `_relay_metadata`
 
