@@ -72,7 +72,8 @@ module.exports = [
       'grp-developers/call-an-airnode',
       'grp-developers/using-templates',
       'grp-developers/fees',
-      'grp-developers/self-serve-platforms',
+      /* Hide self-serve until AN-334 if completed. */
+      //'grp-developers/self-serve-platforms',
     ],
   },
   {
