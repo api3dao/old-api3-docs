@@ -19,7 +19,7 @@ progress = false
 max_redirects = 10
 
 # Concurrency
-max_concurrency = 2
+max_concurrency = 1
 
 
 ###
@@ -70,6 +70,7 @@ exclude = [
   "execute-api.us-east-1.amazonaws.com",
   "github.com/.*.git",
   "api3.eth.link",
+  "config@1.0.0",
 ]
 
 # Exclude URLs contained in a file from checking
