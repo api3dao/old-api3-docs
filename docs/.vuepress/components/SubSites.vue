@@ -61,13 +61,7 @@ it is normal behavior to force the user to the lastest version of airnode.
         <div class="btnText">API3</div>
       </router-link>
     </div>
-    <div
-      style="
-        border-top: solid 2px lightgrey;
-        margin-top: -5px;
-        margin-bottom: -12px;
-      "
-    ></div>
+    <div class="divider"></div>
   </div>
 </template>
 
@@ -148,5 +142,11 @@ div.container {
   text-align: center;
   margin-top: 10px;
   margin-bottom: -20px;
+}
+
+.divider {
+  border-top: solid 2px lightgrey;
+  margin-top: -5px;
+  margin-bottom: -12px;
 }
 </style>
