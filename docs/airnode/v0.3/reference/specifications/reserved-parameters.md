@@ -28,12 +28,17 @@ fulfillment.
 
 We support most common
 [solidity types](https://docs.soliditylang.org/en/latest/abi-spec.html#types),
-but there a few less popular we do not support:
+but there a few less popular we do not support
 
 - Custom bits integer types - e.g. `uint32` or `uint8`
 - Fixed point decimal numbers - e.g. `fixed128x18` or `ufixed128x18`
 - Custom fixed size bytes - e.g. `bytes4`
 - Tuples - e.g. `(int256, string)`
+
+On top of solidity types, we support a few "artificial" types, that we created
+for special purpose that would otherwise be hard or impossible to represent
+
+- [`string32`](reserved-parameters.md#string32)
 
 ### Conversion behavior
 
@@ -70,6 +75,37 @@ Supported examples
   this
   [definition is read backwards](https://ethereum.stackexchange.com/questions/64331/why-is-multidimensional-array-declaration-order-reversed)
   compared to C-style languages.
+
+### string32
+
+The `string32` is an artificial type that is not supported by solidity. It is
+instead encoded to `bytes32` and provides a cheaper alternative to the regular
+`string` type with less than 32 characters.
+
+For example, if the API response is the following string `simple string` with
+length 13. It will be encoded to
+`0x73696d706c6520737472696e6700000000000000000000000000000000000000`.
+
+You can use [ethers](https://docs.ethers.io/v5/) to encode and decode the values
+off chain using the following snippet
+
+```js
+const value = 'simple string';
+const encoded = ethers.utils.formatBytes32String(value);
+const decoded = ethers.utils.parseBytes32String(encoded);
+decoded === value; // true
+```
+
+:::warning Beware the limitations
+
+While using `string32` is more efficient, decoding the original string from
+`bytes32` on chain is both difficult and expensive.
+
+Also bear in mind that this type is able to encode only strings shorter than 32
+characters. If the value is longer, it will be trimmed and only first 31
+characters will be encoded.
+
+:::
 
 ## `_path`
 

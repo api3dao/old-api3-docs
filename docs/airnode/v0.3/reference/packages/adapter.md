@@ -32,3 +32,5 @@ For example, if the API response is a USD currency, you might want to use
 `_times: "100"` to convert the value to cents.
 
 :::
+
+TODO: other conversions
