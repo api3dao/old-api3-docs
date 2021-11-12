@@ -10,23 +10,98 @@ title: Reserved parameters
 
 A requester can pass request parameters either by referencing a
 [template](../../concepts/template.md) that contains them, or as an argument of
-the request-making methods of [Airnode.sol](../../concepts/#airnoderrp-sol).In
-either case, these parameters are encoded in a `bytes`-type variable using
+the request-making methods of [Airnode.sol](../../concepts/#airnoderrp-sol). In
+either case, these parameters are encoded using the
 [Airnode ABI](airnode-abi-specifications.md). There are two types of parameters:
 
-1. [Endpoint parameters](ois.md#_5-5-parameters) mapped to API operation
-   parameters
-2. [Reserved parameters](ois.md#_5-4-reservedparameters)
-
-Reserved parameters signal to the provider to perform a specific operation while
-fulfilling the request. Reserved parameter names start with `_`.
+1. [Endpoint parameters](ois.md#_5-5-parameters) - endpoint parameters are
+   mapped to API operation parameters
+2. [Reserved parameters](ois.md#_5-4-reservedparameters) - reserved parameters
+   signal to the provider to perform a specific operation while fulfilling the
+   request. Reserved parameter names start with `_`.
 
 ## `_type`
 
-Can be `int256`, `bool`, or `bytes32`. Signifies what Solidity type the API
-response will be typecast to before fulfillment. See the
-[conversion behavior docs](https://github.com/api3dao/airnode/tree/pre-alpha/packages/adapter#conversion-behaviour)
-for details.
+Signifies what Solidity type the API response will be encoded to before
+fulfillment.
+
+We support most common
+[solidity types](https://docs.soliditylang.org/en/latest/abi-spec.html#types),
+but for example, we do not support
+
+- Custom bits integer types - e.g. `uint32` or `uint8`
+- Fixed point decimal numbers - e.g. `fixed128x18` or `ufixed128x18`
+- Custom fixed size bytes - e.g. `bytes4`
+- Tuples - e.g. `(int256, string)`
+
+On top of supported solidity types, we support a few "artificial" types, that we
+created for special purposes that would otherwise be hard or impossible to
+represent
+
+- [`string32`](reserved-parameters.md#string32-encoded-to-bytes32-on-chain)
+
+### Conversion and encoding behavior
+
+Before the API response value is encoded for on chain use, it is parsed and
+converted. The conversion behaviors for any given type is explained in depth in
+the [adapter package docs](../packages/adapter.md#conversion).
+
+The converted value is then encoded internally by
+[ethers ABI Coder](https://docs.ethers.io/v5/api/utils/abi/coder/#AbiCoder)
+using the following
+
+```js
+ethers.utils.defaultAbiCoder.encode([solidityType], [value]);
+```
+
+#### Supported primitive values
+
+We support the following primitive values
+
+- `int256`
+- `uint256`
+- `bool`
+- `bytes32`
+- `address`
+- `bytes`
+- `string`
+
+#### string32 (encoded to `bytes32` on chain)
+
+The `string32` is an artificial type that is not supported by solidity. It is
+instead encoded to `bytes32` and provides a cheaper alternative to the regular
+`string` type for values with less than 32 characters.
+
+:::warning Limitations
+
+While using `string32` is more efficient, decoding the original string from
+`bytes32` on chain is both difficult and expensive.
+
+Also bear in mind that this type is able to encode only strings shorter than 32
+characters. If the value is longer, it will be trimmed and only first 31
+characters will be encoded.
+
+:::
+
+#### Arrays
+
+Apart from the primitives defined above as well as all "artificial" types we
+created, you are free to use arrays with any of the above. Multidimensional
+arrays are supported as well. Solidity allows you to define fixed size arrays,
+which are more gas efficient to encode and you can use those as well.
+
+For example
+
+- `int256[]` - regular integer array
+- `uint256[8]` - unsigned integer array with 8 elements
+- `int256[][]` - 2 dimensional integer array
+- `string32[]` - is an array of `string32` values, which will be encoded to
+  `bytes32[]` on chain
+- `string[2][][3]` - 3 dimensional string array, where first dimension contains
+  3 elements, second unboundedly many and last dimension only 2. Notice, that
+  this
+  [definition is read backwards](https://ethereum.stackexchange.com/questions/64331/why-is-multidimensional-array-declaration-order-reversed)
+  compared to C-style languages
 
 ## `_path`
 
@@ -53,6 +128,21 @@ and `_path` is `field1.fieldA.1`, the response will be `valueA2`.
 If the response is a literal value (i.e., not a JSON object) and `_path` is not
 provided, Airnode will use the literal value to fulfill the request.
 
+:::warning Beware the separator
+
+Make sure the keys in the path of the API response do not contain `.`, because
+it will be incorrectly considered as a separator.
+
+```
+{
+  "strage.key": "123"
+}
+```
+
+The `_path` defined as `"strange.key"` will not work.
+
+:::
+
 ## `_times`
 
 If `_type` is `int256` and a `_times` parameter is provided, Airnode multiplies
@@ -75,7 +165,12 @@ _times: 100
 ```
 
 the request will be fulfilled with the value `123`. Note that the number gets
-multiplied by `100`, and then gets floored.
+multiplied by `100`, and then gets floored. This is because the result of the
+multiplication is [cast](../packages/adapter.md) to `int256` afterwards.
+
+The `_times` parameter also works in conjunction with arrays and
+multidimensional arrays. All elements of the API response array will be
+multiplied before they are encoded.
 
 ## `_relay_metadata`
 
