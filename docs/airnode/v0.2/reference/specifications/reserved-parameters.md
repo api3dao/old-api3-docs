@@ -10,22 +10,21 @@ title: Reserved parameters
 
 A requester can pass request parameters either by referencing a
 [template](../../concepts/template.md) that contains them, or as an argument of
-the request-making methods of [Airnode.sol](../../concepts/#airnoderrp-sol).In
+the request-making methods of [Airnode.sol](../../concepts/#airnoderrp-sol). In
 either case, these parameters are encoded in a `bytes`-type variable using
 [Airnode ABI](airnode-abi-specifications.md). There are two types of parameters:
 
-1. [Endpoint parameters](ois.md#_5-5-parameters) mapped to API operation
-   parameters
-2. [Reserved parameters](ois.md#_5-4-reservedparameters)
-
-Reserved parameters signal to the provider to perform a specific operation while
-fulfilling the request. Reserved parameter names start with `_`.
+1. [Endpoint parameters](ois.md#_5-5-parameters) are mapped to API operation
+   parameters.
+2. [Reserved parameters](ois.md#_5-4-reservedparameters) signal the provider to
+   perform a specific operation while fulfilling the request. Reserved parameter
+   names start with `_`.
 
 ## `_type`
 
 Can be `int256`, `bool`, or `bytes32`. Signifies what Solidity type the API
 response will be typecast to before fulfillment. See the
-[conversion behavior docs](https://github.com/api3dao/airnode/tree/pre-alpha/packages/airnode-adapter#conversion-behaviour)
+[conversion behavior docs](https://github.com/api3dao/airnode/tree/v0.2/packages/airnode-adapter#conversion-behaviour)
 for details.
 
 ## `_path`
