@@ -155,7 +155,7 @@ module.exports = [
           'reference/packages/adapter',
           'reference/packages/admin-cli-commands',
           'reference/packages/airnode-abi',
-          'reference/packages/airnode-validator',
+          'reference/packages/validator',
         ],
       },
       'reference/airnode-addresses',
