@@ -10,16 +10,15 @@ title: Reserved parameters
 
 A requester can pass request parameters either by referencing a
 [template](../../concepts/template.md) that contains them, or as an argument of
-the request-making methods of [Airnode.sol](../../concepts/#airnoderrp-sol).In
-either case, these parameters are encoded in a `bytes`-type variable using
+the request-making methods of [Airnode.sol](../../concepts/#airnoderrp-sol). In
+either case, these parameters are encoded using the
 [Airnode ABI](airnode-abi-specifications.md). There are two types of parameters:
 
-1. [Endpoint parameters](ois.md#_5-5-parameters) mapped to API operation
-   parameters
-2. [Reserved parameters](ois.md#_5-4-reservedparameters)
-
-Reserved parameters signal to the provider to perform a specific operation while
-fulfilling the request. Reserved parameter names start with `_`.
+1. [Endpoint parameters](ois.md#_5-5-parameters) - endpoint parameters are
+   mapped to API operation parameters
+2. [Reserved parameters](ois.md#_5-4-reservedparameters) - reserved parameters
+   signal to the provider to perform a specific operation while fulfilling the
+   request. Reserved parameter names start with `_`.
 
 ## `_type`
 
@@ -44,7 +43,7 @@ for special purpose that would otherwise be hard or impossible to represent
 
 Before the API response value is encoded for on chain use, it is parsed and
 converted. The conversion behaviors for any given type is explained in depth in
-the [adapter package docs](../packages/adapter.md#conversions).
+the [adapter package docs](../packages/adapter.md#conversion-and-encoding).
 
 ### Supported primitive values
 
@@ -81,20 +80,6 @@ Supported examples
 The `string32` is an artificial type that is not supported by solidity. It is
 instead encoded to `bytes32` and provides a cheaper alternative to the regular
 `string` type with less than 32 characters.
-
-For example, if the API response is the following string `simple string` with
-length 13. It will be encoded to
-`0x73696d706c6520737472696e6700000000000000000000000000000000000000`.
-
-You can use [ethers](https://docs.ethers.io/v5/) to encode and decode the values
-off chain using the following snippet
-
-```js
-const value = 'simple string';
-const encoded = ethers.utils.formatBytes32String(value);
-const decoded = ethers.utils.parseBytes32String(encoded);
-decoded === value; // true
-```
 
 :::warning Beware the limitations
 
