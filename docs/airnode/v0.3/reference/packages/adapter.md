@@ -9,9 +9,14 @@ title: Airnode Adapter
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,4]" />
 
-There are a few important behaviours to need to be noted when converting to
-various response types. The response values in the examples are the values after
-extracting from the response payload using the path.
+Airnode adapter is a package with multiple responsibilities. It is used for
+building requests from an
+[Oracle Integration Specification (OIS)](https://docs.api3.org/airnode/v0.2/grp-providers/guides/build-an-airnode/api-integration.html#ois-template),
+executing them, parsing the responses, but also converting and encoding them for
+on chain use.
+
+It is an internal dependency of Airnode, but can also be used standalone as an
+API.
 
 ## Installation
 
@@ -20,41 +25,45 @@ in your project.
 
 ```sh
 npm install --save @api3/airnode-adapter
-# Or by
+# or by
 yarn add @api3/airnode-adapter
 ```
 
-> You shouldn't need to use the adapter package directly - it's an internal
-> dependency of Airnode. However, you might want to double check the conversion
-> or encoding behaviour for which you can install this package and verify your
-> assumptions.
+You shouldn't need to use the adapter package directly. However, you might want
+to use its API to double check the conversion or encoding behaviour for which
+you can install this package and verify your assumptions.
 
-## Conversion and encoding
+## Conversion
 
-There are a few important behaviours to need to be noted when converting and
-encoded to various response types. There are a number of steps involved in this
-process
+While adapter package has many responsibilities, many of those can be treated as
+implementation details. On the other hand, there are a few important behaviors
+to be noted when converting the response values based on the target type and
+making the response transaction on chain.
 
-1. An successfull API call is made with a response value
+Alltogether, the response cycle consists of multiple steps
+
+1. An successfull API call is made and Airnode receives a response value
 2. The value to be converted is extracted from the response using the
    [`_path`](../reserved-parameters.md#path)
 3. This extracted value is converted to the target type. Conversions are
-   performed internally by the `castValue(value, type)` function.
+   performed internally by the `castValue(value, type)` function
 4. The converted value is encoded to the native solidity type based on the
    [`_type`](../reserved-parameters.md#type). Encoding is performed internally
-   by the `encodeValue(value, type)` function.
+   by the `encodeValue(value, type)` function
 
 <!-- TODO: Create a page about how to read Airnode logs (probably the troubleshooting guide) and link it-->
 
 If any of the steps above fail, an error is thrown. This will fail the given API
 request and the error reason can be found in the logs.
 
+The rest of this section covers the conversion logic for all of the supported
+types.
+
 ### `int256` or `uint256`
 
-Converting values in the following example will result in an error:
+Converting any of the values in the following example will result in an error:
 
 ```ts
-// ALL OF THESE VALUES THROW ERRORS
 const ERROR_VALUES = [
   null,
   undefined,
@@ -80,7 +89,8 @@ console.log(values);
 
 Number strings and numbers will attempt to be converted to
 [BigNumbers](https://mikemcl.github.io/bignumber.js/). The value will also be
-multiplied by the `_times` value if it is present.
+multiplied by the value of the [`_times`](../reserved-parameters.md#times)
+parameter if it is present.
 
 ```ts
 const VALID_INT_VALUES = ['123.456', 7777];
@@ -91,8 +101,7 @@ console.log(values);
 ```
 
 Conversion for `int256` and `uint256` is the same - this means that `-123` can
-be converted to `uint256`. However, this value will throw an error while
-encoding.
+be converted to `uint256`. However, an will be thrown while encoding.
 
 :::warning Flooring
 
@@ -126,9 +135,10 @@ All other values are converted to `true`.
 ### `bytes32`
 
 There is no conversion for `bytes32` - the value is expected to be a valid hex
-string representing the encoded value. This means that the encoding to bytes
+string representing the encoded 32 bytes value. This means that the encoding
 **must** be implemented on the API side. If you want to delegate the encoding to
-Airnode, see the documentation for [`string32`](adapter.md#string32).
+Airnode, see the documentation for
+[`string32`](adapter.md#string32-encoded-to-bytes32-on-chain).
 
 For example, let's say the API wants to encode the following string
 `simple string` with length 13. Its encoding is
@@ -141,21 +151,18 @@ You can use [ethers](https://docs.ethers.io/v5/) to encode these on the API side
 ```js
 const value = 'simple string';
 const encoded = ethers.utils.formatBytes32String(value);
-const decoded = ethers.utils.parseBytes32String(encoded);
-decoded === value; // true
+console.log(encoded); // 0x73696d706c6520737472696e6700000000000000000000000000000000000000
 ```
 
 ### `address`
 
 There is no conversion for `address` - the value is expected to be a string
-representing an valid address. Valid examples are
+representing a valid address. Valid examples are
 
 - `0x0765baA22F6D4A53847D63B056DC79400b9A592a` -
   [EIP-55 mixed case checksum](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-55.md)
   of an address
 - `0x0765baa22f6d4a53847d63b056dc79400b9a592a` - all lowercase address
-- `0765baA22F6D4A53847D63B056DC79400b9A592a` - address can also be sent without
-  the `0x` prefix, but this is not recommended
 
 ### `bytes`
 
@@ -165,7 +172,7 @@ string representing the encoded value. This means that the encoding to bytes
 documentation for [`string`](adapter.md#string).
 
 For example, let's say the API wants to encode the following string
-`this is an example string that is a bit longer` Its encoding is
+`this is an example string that is a bit longer`. Its encoding is
 `0x7468697320697320616e206578616d706c6520737472696e672074686174206973206120626974206c6f6e676572`.
 This is the value that should be sent as a response to Airnode request, together
 with the `0x` prefix.
@@ -222,18 +229,19 @@ using the following snippet
 const encoded =
   '0x7468697320697320616e206578616d706c6520737472696e6720746861742000';
 const decoded = ethers.utils.parseBytes32String(encoded);
-decoded === 'this is an example string that '; // true
+console.log(decoded); // "this is an example string that "
 ```
 
 ### Arrays
 
-Convertion of arrays depends on the base type. All values of the array (or
-nested array) will be converted according to the rules of the base type.
+Convertion of arrays depends on the primitive type. All values of the array (or
+nested array) will be converted according to the rules of the primitive type.
 
 For example:
 
-- `int256[]` - has base type `int256`. All elements of this array follow the
-  [`int256`](adapter.md#int256-or-uint256) rules.
+- `int256[]` - has primitive type `int256`. All elements of this array follow
+  the [`int256`](adapter.md#int256-or-uint256) rules.
 - `string32[7][][5]` - is a multidimensional array, where some dimensions are
   fixed and some not. This is irrelevant though, and all the elements are
-  converted based on [`string32`](adapter.md#string32) rules.
+  converted based on
+  [`string32`](adapter.md#string32-encoded-to-bytes32-on-chain) rules.

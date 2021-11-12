@@ -27,25 +27,34 @@ fulfillment.
 
 We support most common
 [solidity types](https://docs.soliditylang.org/en/latest/abi-spec.html#types),
-but there a few less popular we do not support
+but for example, we do not support
 
 - Custom bits integer types - e.g. `uint32` or `uint8`
 - Fixed point decimal numbers - e.g. `fixed128x18` or `ufixed128x18`
 - Custom fixed size bytes - e.g. `bytes4`
 - Tuples - e.g. `(int256, string)`
 
-On top of solidity types, we support a few "artificial" types, that we created
-for special purpose that would otherwise be hard or impossible to represent
+On top of supported solidity types, we support a few "artificial" types, that we
+created for special purposes that would otherwise be hard or impossible to
+represent
 
-- [`string32`](reserved-parameters.md#string32)
+- [`string32`](reserved-parameters.md#string32-encoded-to-bytes32-on-chain)
 
-### Conversion behavior
+### Conversion and encoding behavior
 
 Before the API response value is encoded for on chain use, it is parsed and
 converted. The conversion behaviors for any given type is explained in depth in
-the [adapter package docs](../packages/adapter.md#conversion-and-encoding).
+the [adapter package docs](../packages/adapter.md#conversion).
 
-### Supported primitive values
+The converted value is then encoded internally by
+[ethers ABI Coder](https://docs.ethers.io/v5/api/utils/abi/coder/#AbiCoder)
+using the following
+
+```js
+ethers.utils.defaultAbiCoder.encode([solidityType], [value]);
+```
+
+#### Supported primitive values
 
 We support the following primitive values
 
@@ -57,31 +66,13 @@ We support the following primitive values
 - `bytes`
 - `string`
 
-### Arrays
-
-Apart from the primitives defined above, you are free to use arrays of any of
-the base types. Multidimensional arrays are supported as well. Solidity allows
-you to define fixed size arrays, which are more gas efficient to encode and you
-can use those as well.
-
-Supported examples
-
-- `int256[]` - regular integer array
-- `uint256[8]` - unsigned integer array with 8 elements
-- `int256[][]` - 2 dimensional integer array
-- `string[2][][3]` - 3 dimensional string array, where first dimension contains
-  3 elements, second unboundedly many and last dimension only 2. Notice, that
-  this
-  [definition is read backwards](https://ethereum.stackexchange.com/questions/64331/why-is-multidimensional-array-declaration-order-reversed)
-  compared to C-style languages.
-
-### string32
+#### string32 (encoded to `bytes32` on chain)
 
 The `string32` is an artificial type that is not supported by solidity. It is
 instead encoded to `bytes32` and provides a cheaper alternative to the regular
-`string` type with less than 32 characters.
+`string` type for values with less than 32 characters.
 
-:::warning Beware the limitations
+:::warning Limitations
 
 While using `string32` is more efficient, decoding the original string from
 `bytes32` on chain is both difficult and expensive.
@@ -91,6 +82,26 @@ characters. If the value is longer, it will be trimmed and only first 31
 characters will be encoded.
 
 :::
+
+#### Arrays
+
+Apart from the primitives defined above as well as all "artificial" types we
+created, you are free to use arrays with any of the above. Multidimensional
+arrays are supported as well. Solidity allows you to define fixed size arrays,
+which are more gas efficient to encode and you can use those as well.
+
+For example
+
+- `int256[]` - regular integer array
+- `uint256[8]` - unsigned integer array with 8 elements
+- `int256[][]` - 2 dimensional integer array
+- `string32[]` - is an array of `string32` values, which will be encoded to
+  `bytes32[]` on chain
+- `string[2][][3]` - 3 dimensional string array, where first dimension contains
+  3 elements, second unboundedly many and last dimension only 2. Notice, that
+  this
+  [definition is read backwards](https://ethereum.stackexchange.com/questions/64331/why-is-multidimensional-array-declaration-order-reversed)
+  compared to C-style languages
 
 ## `_path`
 
@@ -128,7 +139,7 @@ it will be incorrectly considered as a separator.
 }
 ```
 
-The `_path` defined as `strange.key` will not work.
+The `_path` defined as `"strange.key"` will not work.
 
 :::
 
