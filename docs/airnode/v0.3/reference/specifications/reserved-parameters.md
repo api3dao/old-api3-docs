@@ -40,6 +40,10 @@ represent
 
 - [`string32`](reserved-parameters.md#string32-encoded-to-bytes32-on-chain)
 
+You can also encode multiple values for one single API call - but this impacts
+all of the reserved parameters and is explained in depth in
+[encoding multiple values](reserved-parameters.md#encoding-multiple-values).
+
 ### Conversion and encoding behavior
 
 Before the API response value is encoded for on chain use, it is parsed and
@@ -126,7 +130,9 @@ used to fulfill the request using dot notation. For example, if the API returns
 and `_path` is `field1.fieldA.1`, the response will be `valueA2`.
 
 If the response is a literal value (i.e., not a JSON object) and `_path` is not
-provided, Airnode will use the literal value to fulfill the request.
+provided or is an empty string (needed for
+[encoding multiple values](reserved-parameters.md#encoding-multiple-values)),
+Airnode will use the the API response itself to fulfill the request.
 
 :::warning Beware the separator
 
@@ -145,9 +151,9 @@ The `_path` defined as `"strange.key"` will not work.
 
 ## `_times`
 
-If `_type` is `int256` and a `_times` parameter is provided, Airnode multiplies
-the value returned by the API with the `_times` parameter before fulfilling the
-request. For example, if the API returns:
+If `_type` is `int256` or `uint256` and a valid `_times` parameter is provided
+Airnode multiplies the value returned by the API with the `_times` parameter
+before fulfilling the request. For example, if the API returns:
 
 ```
 {
@@ -161,12 +167,18 @@ and the reserved parameters are
 ```
 _type: int256
 _path: data
-_times: 100
+_times: "100"
 ```
 
 the request will be fulfilled with the value `123`. Note that the number gets
 multiplied by `100`, and then gets floored. This is because the result of the
 multiplication is [cast](../packages/adapter.md) to `int256` afterwards.
+
+Make sure to pass the `_times` parameter as string. Airnode will convert this
+string to number internally. You can also pass and empty string `""` to `_times`
+parameter - this has the same effect as if the `_times` parameter was not
+provided. However, this is important when
+[encoding multiple values](reserved-parameters.md#encoding-multiple-values).
 
 The `_times` parameter also works in conjunction with arrays and
 multidimensional arrays. All elements of the API response array will be
@@ -176,6 +188,10 @@ multiplied before they are encoded.
 
 By setting this reserved parameter to a specific version string then Airnode
 will attach its metadata as request parameters before performing the API call.
+
+Passing an empty string to `_relay_metadata` is also allowed, but has the same
+behaviour as if the argument was not specified at all. This is important for
+[encoding multiple values](reserved-parameters.md#encoding-multiple-values).
 
 For example, `v1` will add the following request parameters with their
 corresponding values:
@@ -191,7 +207,64 @@ _airnode_chain_type: 'evm',
 _airnode_airnode_rrp: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
 ```
 
-Available values: `v1`.
+Available values: `v1` or an empty string.
 
 Learn more about `_relay_meta_data` in the _Concepts and Definitions_ section
 [Authorization](../../concepts/authorization.md) doc.
+
+## Encoding multiple values
+
+Solidity has support for decoding and "destructuring" multiple values. For
+example
+
+```solidity
+function decodeMultipleParameters(bytes calldata data)
+    public
+    pure
+    returns (string memory str, uint256 num, address addr)
+{
+    (str, num, addr) = abi.decode(data, (string, uint256, address));
+}
+```
+
+The example above demonstrates the decoding on chain of three values of types
+`string`, `uint256` and `address` respectively. You can instruct Airnode to
+encode these values using the reserved parameters by separating the values using
+`,` (comma). For example using the following combination of reserved parameters
+
+```js
+{
+  _type: 'string,uint256,address',
+  _path: 'pathToString,pathToFloat,pathToAddress',
+  _times: ',10000,'
+}
+```
+
+Airnode will split the reserved parameters by `,` into "split values" and ensure
+they all contain the same number of them. It will extract and convert each of
+the "split values". Notice, that an `""` (empty string) is used to specify that
+a certain reserved parameter should not be used for a certain "split value".
+
+For example, let's say the API response looks like this
+
+```json
+{
+  "pathToString": "some string",
+  "pathToFloat": "1234.567",
+  "pathToAddress": "0xe021f6bfbdd53c3fd0c5cfd4139b51d1f3108a74"
+}
+```
+
+Airnode will extract and convert each of the "split values" separately
+
+1. Combination of `_type="string"`, `_path="pathToString"` and `__times=""`
+   results in `"some string"`
+2. Combination of `_type="uint256"`, `_path="pathToFloat"` and `__times="10000"`
+   results in `12345670`
+3. Combination of `_type="address"`, `_path="pathToAddress"` and `__times=""`
+   results in `"0xe021f6bfbdd53c3fd0c5cfd4139b51d1f3108a74"`
+
+All of these values are then together encoded to single bytes value that can be
+sent on chain. You can use
+[testing gateway](../../grp-providers/guides/build-an-airnode/deploying-airnode.html#testing-with-http-gateway)
+to inspect the raw API response, casting results and the final encoded value.
