@@ -52,9 +52,8 @@ and you simply connect your Airnode or requester contract to that deployed
 contract. See the
 [Airnode contract addresses](../reference/airnode-addresses.md) for reference.
 
-The [`@api3/airnode-admin`](../reference/packages/admin-cli-commands.md) package
-is a CLI tool used to interact with `AirnodeRrp.sol` and perform administrative
-actions.
+The [`@api3/airnode-admin`](../reference/packages/admin-cli.md) package is a CLI
+tool used to interact with `AirnodeRrp.sol` and perform administrative actions.
 
 ### IAirnodeRrp.sol
 

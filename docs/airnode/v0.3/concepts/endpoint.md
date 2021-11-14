@@ -22,8 +22,8 @@ over the request–response protocol are listed under
 
 ## `endpointId`
 
-> You can use the [admin CLI](../reference/packages/admin-cli-commands.md) to
-> derive the endpoint id from your terminal
+> You can use the [admin CLI](../reference/packages/admin-cli.md) to derive the
+> endpoint id from your terminal
 
 `endpointId` identifies specific endpoints that an Airnode serves, and is
 computed in JS (using ethers.js) as follows:

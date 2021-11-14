@@ -14,8 +14,8 @@ several packages. Some of these packages are used by dApp developers and API
 providers to interact with or to build Airnode. Some are simply used for
 internal Airnode development.
 
-- [airnode-admin](./admin-cli-commands.md)
-- [airnode-validator](./airnode-validator.md)
+- [airnode-admin](./admin-cli.md)
+- [airnode-validator](./validator.md)
 
 ---
 

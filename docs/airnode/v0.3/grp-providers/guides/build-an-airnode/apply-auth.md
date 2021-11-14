@@ -102,7 +102,7 @@ To use the RequesterAuthorizerWithAirnode authorizer:
 
 1. Add the authorizer contract address to the `chains[n].authorizers[]` array.
 2. After your Airnode is deployed, call the Admin CLI command
-   [`set-whitelist-expiration`](../../../reference/packages/admin-cli-commands.md#set-whitelist-expiration)
+   [`set-whitelist-expiration`](../../../reference/packages/admin-cli.md#set-whitelist-expiration)
    to add the desired requester contract addresses to the whitelist maintained
    by RequesterAuthorizerWithAirnode.
 

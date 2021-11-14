@@ -16,13 +16,12 @@ all gas costs, including the request fulfillment (response) transactions.
 Fees are encountered when a sponsor engages in setup activity such as sponsoring
 a requester. These are per call transaction gas costs and are relatively small.
 Funds will come from the wallet mnemonic that the sponsor supplies when calling
-certain [admin commands](../reference/packages/admin-cli-commands.md) as shown
-below.
+certain [admin commands](../reference/packages/admin-cli.md) as shown below.
 
-- [sponsor-requester](../reference/packages/admin-cli-commands.md#sponsor-requester)
-- [unsponsor-requester](../reference/packages/admin-cli-commands.md#unsponsor-requester)
-- [create-template](../reference/packages/admin-cli-commands.md#create-template)
-- [request-withdrawal](../reference/packages/admin-cli-commands.md#request-withdrawal)
+- [sponsor-requester](../reference/packages/admin-cli.md#sponsor-requester)
+- [unsponsor-requester](../reference/packages/admin-cli.md#unsponsor-requester)
+- [create-template](../reference/packages/admin-cli.md#create-template)
+- [request-withdrawal](../reference/packages/admin-cli.md#request-withdrawal)
 
 ## Airnodes
 

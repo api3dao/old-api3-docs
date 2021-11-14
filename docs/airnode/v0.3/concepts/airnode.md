@@ -50,5 +50,5 @@ by the Airnode to fulfill each request made by the requester contracts. The
 `xpub` that the owner has announced is not verified on-chain.
 
 However, the sponsor can verify it off-chain. You can use the
-[`verify-xpub`](../reference/packages/admin-cli-commands.md#verify-airnode-xpub)
-command from the admin CLI.
+[`verify-xpub`](../reference/packages/admin-cli.md#verify-airnode-xpub) command
+from the admin CLI.

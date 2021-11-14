@@ -255,7 +255,7 @@ default convention for deriving the `endpointId`.
 #### `rrp.endpointId`
 
 (required) - A identifier derived for an oisTitle/endpointName pair, see
-[derive-endpoint-id](../packages/admin-cli-commands.md#derive-endpoint-id).
+[derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id).
 
 #### `rrp.oisTitle`
 

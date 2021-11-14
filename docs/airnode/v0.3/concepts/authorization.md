@@ -62,7 +62,7 @@ abstract contract which also extends the `Whitelist` contract. This means that
 both authorizer contracts will need to whitelist requester contracts prior to
 make them available to an Airnode (For `RequesterAuthorizerWithAirnode` this can
 be done using the
-[admin-cli](../reference/packages/admin-cli-commands.md#requesterauthorizerwithairnode)).
+[admin-cli](../reference/packages/admin-cli.md#requesterauthorizerwithairnode)).
 
 The main difference between them is that `RequesterAuthorizerWithAirnode` allows
 the Airnode address to grant whitelisting roles for that specific Airnode. On
