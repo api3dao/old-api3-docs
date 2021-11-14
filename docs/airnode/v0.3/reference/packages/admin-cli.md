@@ -1,5 +1,5 @@
 ---
-title: Admin CLI Commands
+title: Admin CLI
 ---
 
 <TitleSpan>Reference</TitleSpan>
@@ -139,15 +139,15 @@ these commands connect to the
 [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/v0.2/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol)
 protocol contract where the signer is sponsor account.
 
-- [sponsor-requester](admin-cli-commands.md#sponsor-requester)
-- [unsponsor-requester](admin-cli-commands.md#unsponsor-requester)
-- [get-sponsor-status](admin-cli-commands.md#get-sponsor-status)
-- [derive-sponsor-wallet-address](admin-cli-commands.md#derive-sponsor-wallet-address)
-- [create-template](admin-cli-commands.md#create-template)
-- [get-template](admin-cli-commands.md#get-template)
-- [request-withdrawal](admin-cli-commands.md#request-withdrawal)
-- [check-withdrawal-request](admin-cli-commands.md#check-withdrawal-request)
-- [verify-airnode-xpub](admin-cli-commands.md#verify-airnode-xpub)
+- [sponsor-requester](admin-cli.md#sponsor-requester)
+- [unsponsor-requester](admin-cli.md#unsponsor-requester)
+- [get-sponsor-status](admin-cli.md#get-sponsor-status)
+- [derive-sponsor-wallet-address](admin-cli.md#derive-sponsor-wallet-address)
+- [create-template](admin-cli.md#create-template)
+- [get-template](admin-cli.md#get-template)
+- [request-withdrawal](admin-cli.md#request-withdrawal)
+- [check-withdrawal-request](admin-cli.md#check-withdrawal-request)
+- [verify-airnode-xpub](admin-cli.md#verify-airnode-xpub)
 
 <divider/>
 
@@ -162,7 +162,7 @@ Sponsoring a requester and using the returned `sponsorAddress` to derive a
 `sponsorWallet` for an Airnode creates a
 [relationship](../../concepts/sponsor.md) between the requester and the Airnode,
 see the
-[`derive-sponsor-wallet-address`](admin-cli-commands.md#derive-sponsor-wallet-address)
+[`derive-sponsor-wallet-address`](admin-cli.md#derive-sponsor-wallet-address)
 command.
 
 - `provider-url`: A valid blockchain provider URL.
@@ -297,7 +297,7 @@ Derives the address of the wallet designated by an Airnode for a
 [sponsorWallet](../../concepts/sponsor.md#sponsorwallet). This command will
 error if `airnode-xpub` does not belong to the HDNode with the path
 `m/44'/60'/0'` of the Airnode wallet. See the
-[`derive-airnode-xpub`](admin-cli-commands.md#derive-airnode-xpub) command.
+[`derive-airnode-xpub`](admin-cli.md#derive-airnode-xpub) command.
 
 - `airnode-xpub`: The extended public address of the Airnode for path
   `m/44'/60'/0'`.
@@ -508,7 +508,7 @@ address can be derived with provided Airnode
 `m/44'/60'/0'/0/0` and compares it with the `airnode-address`. This command will
 most likely be used by a [sponsor](../../concepts/sponsor.md) to verify that the
 xpub belongs to the Airnode before calling the
-[derive-sponsor-wallet-address](admin-cli-commands.md#derive-sponsor-wallet-address)
+[derive-sponsor-wallet-address](admin-cli.md#derive-sponsor-wallet-address)
 command.
 
 :::: tabs
@@ -543,9 +543,9 @@ Helper commands for a previously deployed Airnode. Some of these commands
 connect to the AirnodeRrp.sol protocol contract where the signer must be the
 Airnode wallet.
 
-- [derive-airnode-xpub](admin-cli-commands.md#derive-airnode-xpub)
-- [derive-endpoint-id](admin-cli-commands.md#derive-endpoint-id)
-- [generate-mnemonic](admin-cli-commands.md#generate-mnemonic)
+- [derive-airnode-xpub](admin-cli.md#derive-airnode-xpub)
+- [derive-endpoint-id](admin-cli.md#derive-endpoint-id)
+- [generate-mnemonic](admin-cli.md#generate-mnemonic)
 
 <divider/>
 
@@ -555,7 +555,7 @@ Derives the Airnode extended public key
 ([xpub](../../concepts/airnode.md#xpub)). This xpub must be announced via
 off-chain channels because it will be needed to derive a
 [sponsorWallet](../../concepts/sponsor.md#sponsorwallet) address. See the
-[derive-sponsor-wallet-address](admin-cli-commands.md#derive-sponsor-wallet-address)
+[derive-sponsor-wallet-address](admin-cli.md#derive-sponsor-wallet-address)
 command.
 
 - `airnode-mnemonic`: The Airnode mnemonic for which the xpub is to be derived.
@@ -646,11 +646,11 @@ These commands connect to the
 [RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/v0.2/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol)
 contract.
 
-- [set-whitelist-expiration](admin-cli-commands.md#set-whitelist-expiration)
-- [extend-whitelist-expiration](admin-cli-commands.md#extend-whitelist-expiration)
-- [set-indefinite-whitelist-status](admin-cli-commands.md#set-indefinite-whitelist-status)
-- [get-whitelist-status](admin-cli-commands.md#get-whitelist-status)
-- [is-requester-whitelisted](admin-cli-commands.md#is-requester-whitelisted)
+- [set-whitelist-expiration](admin-cli.md#set-whitelist-expiration)
+- [extend-whitelist-expiration](admin-cli.md#extend-whitelist-expiration)
+- [set-indefinite-whitelist-status](admin-cli.md#set-indefinite-whitelist-status)
+- [get-whitelist-status](admin-cli.md#get-whitelist-status)
+- [is-requester-whitelisted](admin-cli.md#is-requester-whitelisted)
 
 <divider/>
 
