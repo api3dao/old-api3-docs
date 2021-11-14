@@ -153,7 +153,7 @@ module.exports = [
         children: [
           'reference/packages/', // Routes to the README.md in reference/packages/
           'reference/packages/adapter',
-          'reference/packages/admin-cli-commands',
+          'reference/packages/admin-cli',
           'reference/packages/airnode-abi',
           'reference/packages/validator',
         ],

@@ -90,17 +90,16 @@ request. Therefore the sponsor pays for the fulfillment of the request.
 ## Admin CLI Commands
 
 There are several sponsor and requester related commands in the
-[Admin CLI Commands](../reference/packages/admin-cli-commands.md) package. You
-can also see a list of available commands using
-`npx @api3/airnode-admin --help`.
+[Admin CLI Commands](../reference/packages/admin-cli.md) package. You can also
+see a list of available commands using `npx @api3/airnode-admin --help`.
 
 In the next two sections of this doc you will use two commands from the
 @api3/airnode-admin package to _sponsor a requester_ and to _derive a sponsor
 wallet_.
 
-1. [`sponsor-requester`](../reference/packages/admin-cli-commands.md#sponsor-requester)
+1. [`sponsor-requester`](../reference/packages/admin-cli.md#sponsor-requester)
    sponsors a requester.
-2. [`derive-sponsor-wallet-address`](../reference/packages/admin-cli-commands.md#derive-sponsor-wallet-address)creates
+2. [`derive-sponsor-wallet-address`](../reference/packages/admin-cli.md#derive-sponsor-wallet-address)creates
    a sponsor wallet associated with an Airnode.
 
 ## How to Sponsor a Requester

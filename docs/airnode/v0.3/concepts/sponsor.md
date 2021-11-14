@@ -128,7 +128,7 @@ reduce unnecessary gas costs caused by microtransactions.
 
 If the sponsor decides not to use a particular `sponsorWallet` going forward,
 they can make a request to withdraw funds from it, see the
-[`request-withdrawal`](../reference/packages/admin-cli-commands.md#request-withdrawal)
+[`request-withdrawal`](../reference/packages/admin-cli.md#request-withdrawal)
 command. The Airnode listens for withdrawal requests and fulfills them
 automatically. Therefore, the sponsor should be able to receive their funds from
 their `sponsorWallet` in a few minutes notice. The `sponsorWallet` does not get
@@ -141,8 +141,7 @@ A sponsor uses a `sponsorAddress` and there the requester's on-chain
 requester to use the sponsor's `sponsorWallet` at a particular Airnode to cover
 gas costs incurred by the Airnode in response to a request.
 
-Use the
-[Admin CLI tool](../reference/packages/admin-cli-commands.md#sponsor-requester)
+Use the [Admin CLI tool](../reference/packages/admin-cli.md#sponsor-requester)
 to sponsor a requester. An example can be seem in the
 [Requesters and Sponsors](../grp-developers/requesters-sponsors.md#how-to-sponsor-a-requester)
 doc.
@@ -161,7 +160,7 @@ that the provided xpub belongs to the Airnode wallet before deriving a child
 sponsor wallet address.
 
 Use the
-[Admin CLI tool](../reference/packages/admin-cli-commands.md#derive-sponsor-wallet-address)
+[Admin CLI tool](../reference/packages/admin-cli.md#derive-sponsor-wallet-address)
 to derive a `sponsorWallet`. An example can be seem in the
 [Requesters and Sponsors](../grp-developers/requesters-sponsors.md#how-to-derive-a-sponsor-wallet)
 doc.

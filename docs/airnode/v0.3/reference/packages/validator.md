@@ -26,9 +26,9 @@ The validator's commands can be run using
 or by manually building the validator package. Using npx is the simplest method
 to interact with the validator.
 
-- [Using npx](./airnode-validator.md#using-npx)
-- [Use the SDK](./airnode-validator.md#use-the-sdk)
-- [Build Manually](./airnode-validator.md#build-manually)
+- [Using npx](./validator.md#using-npx)
+- [Use the SDK](./validator.md#use-the-sdk)
+- [Build Manually](./validator.md#build-manually)
 
 <!-- TODO: Before going through code examples first describe the 3 execution methods. -->
 
