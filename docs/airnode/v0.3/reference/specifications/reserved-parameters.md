@@ -145,9 +145,27 @@ it will be incorrectly considered as a separator.
 }
 ```
 
-The `_path` defined as `"strange.key"` will not work.
+The `_path` defined as `"strange.key"` will not work. As workaround you can
+[escape the separator](reserved-parameters.md#escaping-separators).
 
 :::
+
+### Escaping separators
+
+In rare cases, when the `_path` to the API response would contain `,` or `.`
+(comma or a dot) things get a bit complicated. Those symbols have a very
+specific meaning when parsing the reserved parameters and they need to be
+escaped if they are to be considered as literals. For example, if the API
+provider response looks like the following
+
+```
+{
+  "very,strage.key": "123"
+}
+```
+
+Then you need to escape those symbols, in this case
+`_path="very//,strage\\.key"`.
 
 ## `_times`
 
