@@ -39,6 +39,7 @@ created for special purposes that would otherwise be hard or impossible to
 represent
 
 - [`string32`](reserved-parameters.md#string32-encoded-to-bytes32-on-chain)
+- [`timestamp`](reserved-parameters.md#timestamp-encoded-to-uint256-on-chain)
 
 You can also encode multiple values for one single API call - but this impacts
 all of the reserved parameters and is explained in depth in
@@ -86,6 +87,18 @@ characters. If the value is longer, it will be trimmed and only first 31
 characters will be encoded.
 
 :::
+
+#### timestamp (encoded to `uint256` on chain)
+
+The `timestamp` is an artificial type that is not supported by solidity. It is
+instead encoded to `uint256` and specifies the UNIX timestamp value at the time
+when the transaction was encoded. You can use this value on chain to check the
+"freshness" of the Airnode response. This might be useful in certain scenarios,
+because Airnode cannot guarantee when a particular transaction will be mined on
+chain.
+
+When using the `timestamp` type, the corresponding `_path` and `_times`
+variables must be empty strings or not provided.
 
 #### Arrays
 
