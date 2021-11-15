@@ -50,10 +50,46 @@ your system and launch it.
 
 ## Project Folder
 
-Create a folder called `/quick-deploy-demo` with two more internal folders named
-`/config` and `/output`. Place the contents of the files provided
-([config.json](./config-json.md), [secrets.env](./secrets-env.md) and
-[aws.env](./aws-env.md)) into the locations show below.
+Use the following command to create a folder called `/quick-deploy-demo` with
+two more internal folders named `/config` and `/output`.
+
+:::: tabs
+
+::: tab Linux/Mac/WSL2
+
+```sh
+mkdir -p quick-deploy-demo/config quick-deploy-demo/output
+cd quick-deploy-demo
+```
+
+:::
+
+::: tab Windows
+
+For Windows, use CMD (and not PowerShell).
+
+```sh
+mkdir quick-deploy-demo\config quick-deploy-demo\output
+cd quick-deploy-demo
+```
+
+:::
+
+::::
+
+Run the following commands from the `quick-deploy-demo` directory to place the
+files ([config.json](./config-json.md), [secrets.env](./secrets-env.md) and
+[aws.env](./aws-env.md)) into the appropriate locations. By default, the
+deployer image looks for `config.json` and `secrets.env` in `/config`, `aws.env`
+in `/quick-deploy-demo` and writes `receipt.json` to the `/output` folder.
+
+```sh
+curl -s https://raw.githubusercontent.com/api3dao/api3-docs/main/docs/airnode/v0.2/grp-providers/tutorial/config.json -o config/config.json
+curl -s https://raw.githubusercontent.com/api3dao/api3-docs/main/docs/airnode/v0.2/grp-providers/tutorial/secrets.env -o config/secrets.env
+curl -s https://raw.githubusercontent.com/api3dao/api3-docs/main/docs/airnode/v0.2/grp-providers/tutorial/aws.env -o aws.env
+```
+
+The directory structure should now look as follows:
 
 ```
 quick-deploy-demo
@@ -64,10 +100,6 @@ quick-deploy-demo
 └── output
     ├── receipt.json
 ```
-
-By default, the deployer image looks for `config.json` and `secrets.env` in
-`/config`, `aws.env` in `/quick-deploy-demo` and writes `receipt.json` to the
-`/output` folder.
 
 ## Configuration
 
