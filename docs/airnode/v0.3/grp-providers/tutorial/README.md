@@ -50,6 +50,17 @@ your system and launch it.
 
 ## Project Folder
 
+<!-- TODO: Add tabs to this doc for the creation of the project folder.
+#1 tab download a zip file
+#2 tab build the project folder manually
+
+<a href="./airnode-quick-deploy-aws.zip" download>
+  Download Project Folder
+</a>
+
+TODO: add the use of the command to generate a mnemonic
+-->
+
 Create a folder called `/quick-deploy-demo` with two more internal folders named
 `/config` and `/output`. Place the contents of the files provided
 ([config.json](./config-json.md), [secrets.env](./secrets-env.md) and
