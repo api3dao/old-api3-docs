@@ -83,7 +83,7 @@ container. The below commands are run from the depicted directory.
 
 ### Running Airnode
 
-It is recommended to run the Airnode in a detached mode using the `---detach`
+It is recommended to run the Airnode in a detached mode using the `--detach`
 parameter, but you may run the it without it as well.
 
 :::: tabs
@@ -91,7 +91,7 @@ parameter, but you may run the it without it as well.
 ::: tab Linux/Mac/WSL2
 
 ```sh
-docker run ---detach \
+docker run --detach \
   --volume $(pwd)/config:/app/config \
   --name airnode \
   api3/airnode-client:0.2.2
