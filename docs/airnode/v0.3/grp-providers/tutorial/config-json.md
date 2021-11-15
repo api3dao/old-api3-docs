@@ -8,4 +8,4 @@ title: config.json
 
 The config.json file contents shown below is for the [Quick Deploy](./) demo.
 
-<<< @/docs/airnode/v0.3/grp-providers/tutorial/config.json
+<<<@/docs/airnode/v0.3/grp-providers/tutorial/quick-deploy-demo/config/config.json

@@ -8,4 +8,4 @@ title: secrets.env
 
 The secrets.env file contents shown below is for the [Quick Deploy](./) demo.
 
-<<< @/docs/airnode/v0.2/grp-providers/tutorial/secrets.env
+<<<@/docs/airnode/v0.2/grp-providers/tutorial/quick-deploy-demo/config/secrets.env

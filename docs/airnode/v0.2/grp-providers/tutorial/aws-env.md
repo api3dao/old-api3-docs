@@ -8,4 +8,4 @@ title: aws.env
 
 The aws.env file contents shown below is for the [Quick Deploy](./) demo.
 
-<<< @/docs/airnode/v0.2/grp-providers/tutorial/aws.env
+<<<@/docs/airnode/v0.2/grp-providers/tutorial/quick-deploy-demo/aws.env
