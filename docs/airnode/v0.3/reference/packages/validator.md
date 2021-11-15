@@ -27,6 +27,7 @@ or by manually building the validator package. Using npx is the simplest method
 to interact with the validator.
 
 - [Using npx](./validator.md#using-npx)
+- [Global installation](./validator.md#global-installation)
 - [Use the SDK](./validator.md#use-the-sdk)
 - [Build Manually](./validator.md#build-manually)
 
@@ -39,7 +40,25 @@ run validator commands without installing the validator npm package or having to
 manually build the validator package yourself.
 
 ```sh
-npx @api3/airnode-validator --template="config" --specs="config.json"
+npx -p @api3/airnode-validator api3-validator --template="config" --specs="config.json"
+```
+
+### Global installation
+
+The validator package can be installed globally with yarn or npm.
+
+```sh
+yarn global add @api3/airnode-validator
+```
+
+```sh
+npm install @api3/airnode-validator -g
+```
+
+After that it can be run with following command (if it was installed with yarn make sure yarn bin is added to `PATH`):
+
+```sh
+api3-validator --template="config" --specs="config.json"
 ```
 
 ### Use the SDK
