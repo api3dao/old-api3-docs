@@ -55,7 +55,8 @@ yarn global add @api3/airnode-validator
 npm install @api3/airnode-validator -g
 ```
 
-After that it can be run with following command (if it was installed with yarn make sure yarn bin is added to `PATH`):
+After that it can be run with following command (if it was installed with yarn
+make sure yarn bin is added to `PATH`):
 
 ```sh
 api3-validator --template="config" --specs="config.json"
