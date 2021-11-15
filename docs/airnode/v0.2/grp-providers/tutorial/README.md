@@ -50,10 +50,10 @@ your system and launch it.
 
 ## Project Folder
 
-Create a folder called `/quick-deploy-demo` with two more internal folders named
-`/config` and `/output`. Place the contents of the files provided
-([config.json](./config-json.md), [secrets.env](./secrets-env.md) and
-[aws.env](./aws-env.md)) into the locations show below.
+The directory structure for the demo will be as shown below. By default, the
+deployer image looks for `config.json` and `secrets.env` in `/config`, `aws.env`
+in the top-level directory (`/quick-deploy-demo` in this case) and writes
+`receipt.json` to the `/output` folder.
 
 ```
 quick-deploy-demo
@@ -65,9 +65,36 @@ quick-deploy-demo
     ├── receipt.json
 ```
 
-By default, the deployer image looks for `config.json` and `secrets.env` in
-`/config`, `aws.env` in `/quick-deploy-demo` and writes `receipt.json` to the
-`/output` folder.
+Use the command(s) below to create the `quick-deploy-demo` directory structure
+and populate it with the [config.json](./config-json.md),
+[secrets.env](./secrets-env.md) and [aws.env](./aws-env.md) files.
+
+:::: tabs
+
+::: tab Linux/Mac/WSL2
+
+```sh
+wget -r -np -nH --cut-dirs 4 https://docs.api3.org/airnode/v0.2/grp-providers/tutorial/quick-deploy-demo/
+```
+
+:::
+
+::: tab Windows
+
+For Windows, use CMD (and not PowerShell). Natively, Windows does not provide an
+analog to `wget` and therefore a series of commands is required.
+
+```sh
+mkdir quick-deploy-demo\config quick-deploy-demo\output
+cd quick-deploy-demo
+curl -s https://raw.githubusercontent.com/api3dao/api3-docs/main/docs/airnode/v0.2/grp-providers/tutorial/quick-deploy-demo/config/config.json -o config/config.json
+curl -s https://raw.githubusercontent.com/api3dao/api3-docs/main/docs/airnode/v0.2/grp-providers/tutorial/quick-deploy-demo/config/secrets.env -o config/secrets.env
+curl -s https://raw.githubusercontent.com/api3dao/api3-docs/main/docs/airnode/v0.2/grp-providers/tutorial/quick-deploy-demo/aws.env -o aws.env
+```
+
+:::
+
+::::
 
 ## Configuration
 
