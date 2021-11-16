@@ -9,9 +9,8 @@ title: Validator
 
 The
 [airnode-validator](https://github.com/api3dao/airnode/tree/v.03/packages/airnode-validator)
-package, know as the validator, is used by the Docker
-[Airnode Deployer Image](../../grp-providers/docker/deployer-image.md) to
-validate the
+package, know as the validator, is used by the
+[Docker Images](../../grp-providers/docker/) to validate the
 [configuration files](../../grp-providers/guides/build-an-airnode/configuring-airnode.md)
 you provide when deploying an Airnode. You can also use the validator to check
 the configuration files for correct formatting and other issues while creating
@@ -22,9 +21,9 @@ them.
 ## Usage
 
 The validator's commands can be run using
-[npx](https://nodejs.dev/learn/the-npx-nodejs-package-runner), the validator SDK
-or by manually building the validator package. Using npx is the simplest method
-to interact with the validator.
+[npx](https://nodejs.dev/learn/the-npx-nodejs-package-runner), installing a
+global npm package, the validator SDK or by manually building the validator
+package. Using npx is the simplest method to interact with the validator.
 
 - [Using npx](./validator.md#using-npx)
 - [Global Package](./validator.md#global-package)
@@ -40,7 +39,7 @@ run validator commands without installing the validator npm package or having to
 manually build the validator package yourself.
 
 ```sh
-npx -p @api3/airnode-validator api3-validator --template="config" --specs="config.json"
+npx @api3/airnode-validator api3-validator --template="config" --specs="config.json"
 ```
 
 ### Global Package
@@ -53,13 +52,15 @@ yarn global add @api3/airnode-validator
 # OR
 npm install @api3/airnode-validator -g
 
-# execute the validator
+# Executing the validator.
 api3-validator --template="config" --specs="config.json"
 ```
 
 ### Use the SDK
 
-The validator package exports useful functions for validation.
+The validator package exports useful functions for validation. In the output
+`valid` is set to `true` when there are no errors, however there could be
+warnings in the `messages`.
 
 ```js
 const validator = require('@api3/airnode-validator');
@@ -73,9 +74,6 @@ console.log(
   messages: { level: "error" | "warning", message: string }[]
 }
 ```
-
-In the output `valid` is set to `true` when there are no errors, however there
-could be warnings in the `messages`.
 
 ### Build Manually
 
@@ -91,7 +89,7 @@ yarn run build
 cd packages/airnode-validator
 
 # execute the validator
-yarn run cli:validator --template="config" --specs="exampleSpecs/config.specs.json"
+yarn run cli:validator --template="config" --specs="exampleSpecs/config.json"
 
 # validator output
 {
@@ -172,7 +170,7 @@ defines/specifies the API Airnode will call. _(interpolation with an env file is
 supported)_
 
 ```sh
-npx @api3/airnode-validator --template="apiSpecifications" --specs="myProject/config/apiSpecifications.json"
+npx @api3/airnode-validator --template="endpoints" --specs="myProject/config/apiSpecifications.json"
 ```
 
 ### endpoints
@@ -184,80 +182,106 @@ endpoints that map to the `ois.apiSpecifications` field in config.json.
 _(interpolation with an env file is supported)_
 
 ```sh
-npx @api3/airnode-validator --template="apiSpecifications" --specs="myProject/config/apiSpecifications.json"
+npx @api3/airnode-validator --template="apiSpecifications" --specs="myProject/config/endpoints.json"
 ```
 
 ## Convertor
 
-The convertor is useful when creating a `config.json` file. Convertor CLI
-commands work the same way as the validator and can be invoked with the
-`api3-convertor` command. The currently available conversions are from `OAS` to
-`OIS` or from `OIS` to `config`. Specification formats are case-insensitive.
+The convertor is useful to create an initial `config.json` file for an Airnode.
+Once you create an [OIS object](../specifications/ois.md), the convertor can
+create a config object along with the other fields that can be pasted into a
+`config.json` file. The file will have areas of content that are "filled-in" for
+completeness.
+
+Convertor CLI commands work the same way as the validator and can be invoked
+with the `api3-convertor` command. The version of the format (e.g., `@0.3`) can
+be provided otherwise the latest version is used.
+
+- --from: Type of object to convert (OAS or OIS).
+- --to: Type of object to convert into (OIS or config).
+- --spec: Source of the file containing the object to be converted.
+
+The currently available conversions are from `OAS` to `OIS` and from `OIS` to
+`config`. Specification formats are case-insensitive.
 
 ```sh
+# Creates an OIS object from an OAS specification file.
 npx @api3/airnode-validator api3-convertor --from="OAS" --to="OIS" --specs="exampleSpecs/OAS.specs.json"
-```
 
-The version of the format can be provided as in `api3-validator` command.
-
-```sh
+# Creates a config object with an OIS object embedded specifically using version 0.3.
 npx @api3/airnode-validator api3-convertor --from="OIS@0.3" --to="config@0.3" --specs="exampleSpecs/ois.specs.json"
 ```
 
-### Examples
+### Usage
 
-There are basically four approaches you can use to create and Airnode
-`config.json` file. Two are completely manual and two involve the use of the
-convertor.
+The following steps represent a simple workflow to create a `config.json` file
+ready for final editing.
 
-1. Simply creates a `config.json` file manually without the benefits of the
-   validator. This file would be a single file complete with the
-   [ois](../specifications/ois.md) object in it.
+#### Step 1: (optional)
 
-2. Create two files to start with: `ois.json` and `config.json`. Because the
-   `ois` object is lengthy it could be advantageous to place it in a separate
-   file `json` while working on it, then copy and paste its contents into
-   `config.json` when ready.
+If you have created an [OIS object](../specifications/ois.md) manually skip this
+step. This step creates an OIS object from an OAS specification file. The
+convertor outputs an OIS object. Paste the OIS object into a spec file (e.g.,
+`OIS.spec.json`).
 
-3. Use the approach mentioned in option #2 above to create an `ois` object
-   inside a separate `json` file. Here rather than copy/paste the `ois` object
-   into `config.json` let the convertor command create a config object for you.
-   Simply paste the convertor's output of the `config` object into an empty
-   `config.json` file. The advantage here is that the convertor will stub out a
-   new `config` object with other fields needed for the Airnode.
-
-   ```sh
-   npx @api3/airnode-validator api3-convertor --from="OIS@0.3" --to="config@0.3" --specs="my-config/ois.json"
-   ```
-
-4. Lastly the convertor can create an `ois` object from an OAS specification
-   file if you have one. The OAS file must be in json format and not yaml. The
-   newly created `ois` object will be outputted by the convertor for you to
-   paste into a new `ois.json` file. Then, using the convertor, the `ois.json`
-   file can be merged into a new `config` obj (outputted by the convertor) ready
-   to paste into a new `config.json` file.
-
-   ```sh
-   # Creates the OIS object from an OAS file.
-   npx @api3/airnode-validator api3-convertor --from="OAS" --to="OIS" --specs="my-config/OAS.json"
-
-   # Create a config.json by merging an ois object.
-   npx @api3/airnode-validator api3-convertor --from="OIS@0.3" --to="config@0.3"
-   --specs="my-config/ois.json"
-   ```
-
-### Output
-
-On top of validator output, the convertor provides an `output` object, which
-contains the converted specification.
-
-```json
-{
-  valid: boolean,
-  messages: { level: "error" | "warning", message: string }[],
-  output: object
-}
+```sh
+ # Creates the OIS object from an OAS spec file.
+ npx @api3/airnode-validator api3-convertor --from="OAS" --to="OIS" --specs="my-config/OAS.spec.json"
 ```
 
-Alternatively the convertor commands can be executed the with argument
-`--specs-only`, which will return only the converted specification.
+#### Step 2:
+
+This step creates a config object from an OIS spec file created either manually
+or by using the OAS to OIS conversion of step #1. Copy and paste the convertor
+output into a file named `config.json`.
+
+```sh
+  # Create a config object with the ois object.
+  npx @api3/airnode-validator api3-convertor --from="OIS@0.3" --to="config@0.3" --specs="my-config/ois.json"
+```
+
+#### Step 3:
+
+The newly created `config.json` file now contains five root level fields of
+which the OIS object is one. Continue to edit this file to customize how your
+Airnode will behave.
+
+- [chains](../deployment-files/config-json.md#chains)
+- [nodeSettings](../deployment-files/config-json.md#nodesettings)
+- [triggers](../deployment-files/config-json.md#triggers)
+- [ois](../deployment-files/config-json.md#ois)
+- [apiCredentials](../deployment-files/config-json.md#apicredentials)
+
+## Output
+
+The validator and its convertor implementation provide the following output. The
+`output` object contains the converted specification only when using the
+convertor. Alternatively the convertor commands can be executed the with
+argument `--specs-only`, which will return only the converted specification.
+
+```json
+// Default output
+{
+  "valid": boolean,
+  "messages": [
+    {
+      "level": "error" | "warning",
+      "message": string
+    }
+  ],
+  "output": object
+}
+
+// For convertor using --specs-only returns converted specification, (e.g., OIS object).
+{
+  "oisFormat": "1.0.0",
+  "title": "myOisTitle",
+  "version": "1.2.3",
+  "apiSpecifications": {
+    ...
+  },
+  "endpoints": [
+    ...
+  ]
+}
+```
