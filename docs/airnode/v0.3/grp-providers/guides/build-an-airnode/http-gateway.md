@@ -130,7 +130,18 @@ curl -X POST -H "x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e" ^
 Response:
 
 ```json
-{ "value": "some string" }
+{
+  "rawValue": { "usd": "6421.4" },
+  "encodedValue": "0x0000000000000000000000000000000000000000000000000000000ef373e180",
+  "values": ["64214000000"]
+}
 ```
 
-The response format is a simple JSON object: `{"value": <return value>}`.
+The response format is a simple JSON object with the following fields:
+
+- `rawValue` - the API response
+- `values` - an array of values after they are
+  [extracted and converted](../../../reference/packages/adapter.html#conversion)
+  to the target type
+- `encodedValue` - the encoded bytes value that is sent as payload in the
+  response transaction on chain
