@@ -9,7 +9,7 @@ title: Validator
 
 The
 [airnode-validator](https://github.com/api3dao/airnode/tree/v.03/packages/airnode-validator)
-package, know as the validator, is used by the
+package, known as the validator, is used by the
 [Docker Images](../../grp-providers/docker/) to validate the
 [configuration files](../../grp-providers/guides/build-an-airnode/configuring-airnode.md)
 you provide when deploying an Airnode. You can also use the validator to check
