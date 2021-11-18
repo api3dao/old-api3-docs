@@ -2,11 +2,12 @@
 title: config.json
 ---
 
-<TitleSpan>Quick Deploy Demo</TitleSpan>
+<TitleSpan>Quick Deploy AWS</TitleSpan>
 
 # {{$frontmatter.title}}
 
-The config.json file contents shown below is for the [Quick Deploy](./) demo.
+The config.json file contents shown below is for the [Quick Deploy AWS](./)
+demo.
 
 ```json
 {
@@ -14,7 +15,7 @@ The config.json file contents shown below is for the [Quick Deploy](./) demo.
     {
       "authorizers": [],
       "contracts": {
-        "AirnodeRrp": "0xe469aD70a2CD3A01F4eCb6502161A4F381c1F659"
+        "AirnodeRrp": "0xC11593B87f258672b8eB02d9A723a429b15E9E03"
       },
       "id": "4",
       "providers": {
