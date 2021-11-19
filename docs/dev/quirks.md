@@ -37,7 +37,8 @@ When you change a file that holds code and reference it using the VuePress
 markdown operator <<< and change the code, the changes may not appear.
 
 ```markdown
-<<< @/docs/airnode/next/reference/code/template-config.json
+<!-- prettier-ignore -->
+<<< @/docs/airnode/v0.3/grp-providers/tutorial/quick-deploy-local/src/config.json
 ```
 
 VuePress uses [cache-loader](https://vuepress.vuejs.org/config/#locales) by
@@ -47,6 +48,9 @@ time to get the code files changes to appear.
 ```bash
 yarn docs:dev --no-cache # remove cache before each build.
 ```
+
+Also note that it may be necessary to instruct Prettier not to format the <<<
+operator. When the path is long Prettier may add a line break before the path.
 
 ## SymLinks for README.md
 

@@ -124,7 +124,7 @@ themeConfig:{
 - Set the `latestVersion` to the start path of the latest version.
 - Set the `themeConfig.startPath` to the start path of the latest version.
 
-3. Adjust the list of sidebars as needed in `config.json`.
+4. Adjust the list of sidebars as needed in `config.json`.
 
 ```json
 sidebar: {
@@ -142,7 +142,11 @@ sidebar: {
 
 6. Change the version in `package.json` to the new version.
 
-7. Push branch changes to the repo, pull back to local main branch and run
+7. Run the `zip-files.js` script to create zip files for the necessary
+   tutorials. This will require an update to the`zip-files.js` script, see the
+   docs [Zip Tutorial Files](./zip-files.md).
+
+8. Push branch changes to the repo, pull back to local main branch and run
    `sh deploy.sh`.
 
 ## Update Older Versions
