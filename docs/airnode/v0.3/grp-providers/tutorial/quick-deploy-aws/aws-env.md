@@ -8,7 +8,5 @@ title: aws.env
 
 The aws.env file contents shown below is for the [Quick Deploy AWS](./) demo.
 
-```
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY=
-```
+<!-- prettier-ignore -->
+<<< @/docs/airnode/v0.3/grp-providers/tutorial/quick-deploy-aws/src/aws.env

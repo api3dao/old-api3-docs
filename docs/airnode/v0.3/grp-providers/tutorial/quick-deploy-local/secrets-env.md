@@ -9,7 +9,5 @@ title: secrets.env
 The secrets.env file contents shown below is for the [Quick Deploy Local](./)
 demo.
 
-```
-CHAIN_PROVIDER_URL=
-AIRNODE_WALLET_MNEMONIC=
-```
+<!-- prettier-ignore -->
+<<< @/docs/airnode/v0.3/grp-providers/tutorial/quick-deploy-local/src/secrets.env

@@ -38,16 +38,12 @@ your system and launch it.
 
 ## Project Folder
 
-<!-- TODO: Add tabs to this doc for the creation of the project folder.
-#1 tab download a zip file
-#2 tab build the project folder manually
+A project folder is needed for this demo. You can create it manually or download
+a zip file ready to go.
 
-<a href="./airnode-quick-deploy-aws.zip" download>
-  Download Project Folder
-</a>
+:::: tabs
 
-TODO: add the use of the command to generate a mnemonic
--->
+::: tab Create Manually
 
 Create a folder called `/quick-deploy-aws` with two more internal folders named
 `/config` and `/output`. Place the contents of the files provided
@@ -64,13 +60,22 @@ quick-deploy-aws
     ├── receipt.json
 ```
 
-By default, the deployer image looks for `config.json` and `secrets.env` in
-`/config` and for `aws.env` in `/quick-deploy-demo` and writes `receipt.json` to
-the `/output` folder.
+:::
+
+::: tab Download
+
+Download the <a href="/zip-files/quick-deploy-aws-v0.3.zip" download>
+quick-deploy-aws</a> project folder.
+
+:::
+
+::::
 
 ## Configuration
 
-Prepare the three configuration files.
+Prepare the three configuration files. By default, the deployer image looks for
+`config.json` and `secrets.env` in `/config`, for `aws.env` in the project root
+and writes `receipt.json` to the `/output` folder.
 
 ### config.json
 

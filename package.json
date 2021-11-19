@@ -24,6 +24,7 @@
     "colors": "^1.4.0",
     "file": "^0.2.2",
     "husky": "^7.0.4",
+    "jszip": "^3.7.1",
     "oust": "^1.2.0",
     "prettier": "^2.4.1",
     "v-click-outside": "^3.1.2",

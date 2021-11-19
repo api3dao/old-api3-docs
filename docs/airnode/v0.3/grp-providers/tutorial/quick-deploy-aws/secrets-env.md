@@ -9,8 +9,5 @@ title: secrets.env
 The secrets.env file contents shown below is for the [Quick Deploy AWS](./)
 demo.
 
-```
-CHAIN_PROVIDER_URL=
-AIRNODE_WALLET_MNEMONIC=
-HTTP_GATEWAY_API_KEY=
-```
+<!-- prettier-ignore -->
+<<< @/docs/airnode/v0.3/grp-providers/tutorial/quick-deploy-aws/src/secrets.env
