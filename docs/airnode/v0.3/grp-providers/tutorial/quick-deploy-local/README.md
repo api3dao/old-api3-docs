@@ -38,18 +38,14 @@ your system and launch it.
 
 ## Project Folder
 
-<!-- TODO: Add tabs to this doc for the creation of the project folder.
-#1 tab download a zip file
-#2 tab build the project folder manually
+A project folder is needed for this demo. You can create it manually or download
+a zip file ready to go.
 
-<a href="./airnode-quick-deploy-aws.zip" download>
-  Download Project Folder
-</a>
+:::: tabs
 
-TODO: add the use of the command to generate a mnemonic
--->
+::: tab Create Manually
 
-Create a folder called `/quick-deploy-local` with an internal folder named
+Create a folder called `quick-deploy-local` with an internal folder named
 `/config`. Place the contents of the files provided
 ([config.json](./config-json.md) and [secrets.env](./secrets-env.md)) into the
 locations show below.
@@ -61,12 +57,21 @@ quick-deploy-local
     └── secrets.env
 ```
 
-By default, the client image looks for `config.json` and `secrets.env` in the
-`/config` folder.
+:::
+
+::: tab Download
+
+Download the <a href="/zip-files/quick-deploy-local-v0.3.zip" download>
+quick-deploy-local</a> project folder.
+
+:::
+
+::::
 
 ## Configuration
 
-Prepare the two configuration files.
+Prepare the two configuration files, `config.json` and `secrets.env`. By
+default, the Airnode client image looks for them in the `/config` folder.
 
 ### config.json
 
@@ -158,7 +163,7 @@ After a successful deployment the Airnode can be tested using the
 script which allows you to execute an Airnode endpoint without accessing the
 blockchain.
 
-::: warning Warning about test-api.js
+::: warning test-api.js
 
 The `test-api.js` nodejs script is an unsupported feature used for internal
 development and should not be used for any production purposes. It is used here
@@ -166,14 +171,16 @@ purely for demonstration purposes.
 
 :::
 
-The Nodejs script `test-api.js` requires endpointId and parameters to get a
-response from an integrated API. These are already pre-filled for you in the
-request command below.
+The Nodejs script `test-api.js` requires two arguments, endpointId and
+parameters to get a response from an integrated API. These arguments come from
+the `config.json` file.
 
 - -e, --endpoint-id [string][required]: See config.json
   `triggers.rrp[0].endpointId`.
 - -p, --parameters [string] [default: "{}"]: See config.json
   `ois.endpoints[0].parameters[0].name`.
+
+The arguments are pre-filled for you in the request code below.
 
 ```sh
 # For Windows CMD replace line termination marker \ with ^
@@ -213,5 +220,5 @@ in production environments.
 This Airnode attaches itself to the Rinkeby testnet as stated in the
 `config.json` file. The Airnode, upon deployment, started contacting the
 AirnodeRrp contract on the Rinkeby testnet to gather any requests made by
-requesters to this Airnode. This tutorial did not address making a request as
-its purpose was simply to quickly deploy a functional Airnode.
+requesters to this Airnode. This tutorial did not address making a request
+on-chain as its purpose was simply to quickly deploy a functional Airnode.
