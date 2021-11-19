@@ -7,8 +7,8 @@ title: Link Validator
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-This custom Node.js script (`link-validator.js`) validates links with or without
-attached anchors.
+This custom nodejs script (`/libs/link-validator.js`) validates links with or
+without attached anchors.
 
 - my-markdown.md
 - my-markdown.md#my-anchor
@@ -73,7 +73,7 @@ Be sure to use the correct port displayed by http-server.
 
 ```sh
 // Open a new terminal window
-// From the api3-docs project root
-// Start the node script
-node link-validator.js  http://127.0.0.1:8080  ./docs/.vuepress/dist/airnode/v0.2
+// Run from the project root
+// Start the nodejs script
+node ./libs/link-validator.js  http://127.0.0.1:8080  ./docs/.vuepress/dist/airnode/v0.2
 ```

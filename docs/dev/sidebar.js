@@ -13,6 +13,7 @@ module.exports = [
       '/dev/versioning',
       '/dev/github-actions',
       '/dev/link-validator',
+      '/dev/zip-files.md',
       '/dev/prettier',
       '/dev/deployment',
       '/dev/quirks',

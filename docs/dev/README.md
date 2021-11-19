@@ -9,7 +9,9 @@ title: Setup
 
 > Looking for [Airnode Development](../dev-airnode/)?
 
-Prerequisites for a VuePress project are the same as Vue.
+Prerequisites for a VuePress project are the same as Vue. Currently the project
+is using yarn version `1.22.x`. If you are using yarn `3.x.x` then add the yarn
+cache and support files to `.gitignore` before pushing to the remote repo.
 
 ## Clone
 
@@ -37,9 +39,11 @@ script performs three steps.
 
 1. Copies an updated [Navbar.vue](./override-components.md#navbar-vue) to
    node_modules/@vuepress.
-2. Copies an updated [SearchBox.vue](./override-components.md#searchbox-vue) to
+2. Copies an updated [Sidebar.vue](./override-components.md#sidebar-vue) to
    node_modules/@vuepress.
-3. Runs a local development server (hot reload) at localhost:8080.
+3. Copies an updated [SearchBox.vue](./override-components.md#searchbox-vue) to
+   node_modules/@vuepress.
+4. Runs a local development server (hot reload) at localhost:8080.
 
 ```bash
 # run locally
