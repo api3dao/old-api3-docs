@@ -1,5 +1,7 @@
 /**
- * This library zip files into folders to be downloaded by the reader.
+ * This script zips files from a tutorial into a project folder
+ * to be downloaded by the reader. These folders are useful for the
+ * reader to use when running the tutorial.
  *
  * USAGE: see the usage instructions at
  * https://docs.api3.org/dev/zip-files.html
@@ -15,6 +17,12 @@ console.log('++++++++++++++++++++++++');
 console.log('Zip Files');
 console.log('++++++++++++++++++++++++\n');
 
+/**
+ *
+ * @param {string} vrs The version of the docs the folder is in, v0.3, v1.1
+ * @param {string} folder The folder that the tutorial is in.
+ * @param {boolean}} includeAWS If there is an aws.env file to include
+ */
 async function run(vrs, folder, includeAWS) {
   console.log(includeAWS);
   try {
