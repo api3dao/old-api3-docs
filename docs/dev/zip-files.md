@@ -17,9 +17,9 @@ When a new version of the docs is started it will be necessary to update
 
 ```js
 run('v0.3', 'quick-deploy-aws', true);
-run('v0.3', 'quick-deploy-local', false);
+run('v0.3', 'quick-deploy-container', false);
 run('v0.4', 'quick-deploy-aws', true);
-run('v0.4', 'quick-deploy-local', false);
+run('v0.4', 'quick-deploy-container', false);
 ...
 ```
 

@@ -76,4 +76,4 @@ async function run(vrs, folder, includeAWS) {
 }
 
 run('v0.3', 'quick-deploy-aws', true);
-run('v0.3', 'quick-deploy-local', false);
+run('v0.3', 'quick-deploy-container', false);
