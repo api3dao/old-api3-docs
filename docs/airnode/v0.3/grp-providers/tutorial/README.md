@@ -16,11 +16,11 @@ part.
   guide is a straight forward starter to create an Airnode on AWS. This
   deployment type is a typical production environment.
 
-- **Quick Deploy Local** or
-  [Deploying Airnode to a Docker Container](./quick-deploy-aws/): This guide is
-  a straight forward starter to create an Airnode locally in a Docker container.
-  This deployment type is a typical development environment although self hosted
-  Docker containers ca be used for production environments
+- **Quick Deploy Container** or
+  [Deploying Airnode to a Docker Container](./quick-deploy-container/): This
+  guide is a straight forward starter to create an Airnode locally in a Docker
+  container. This deployment type is a typical development environment although
+  self hosted Docker containers can be used for production environments.
 
 ::: tip Additional Examples
 
