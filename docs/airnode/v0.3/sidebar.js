@@ -54,7 +54,15 @@ module.exports = [
         collapsable: true,
         children: [
           { title: 'Overview', path: 'grp-providers/tutorial/' },
-
+          {
+            title: 'Quick Deploy Container',
+            collapsable: true,
+            children: [
+              'grp-providers/tutorial/quick-deploy-container/',
+              'grp-providers/tutorial/quick-deploy-container/config-json',
+              'grp-providers/tutorial/quick-deploy-container/secrets-env',
+            ],
+          },
           {
             title: 'Quick Deploy AWS',
             collapsable: true,
@@ -63,15 +71,6 @@ module.exports = [
               'grp-providers/tutorial/quick-deploy-aws/config-json',
               'grp-providers/tutorial/quick-deploy-aws/secrets-env',
               'grp-providers/tutorial/quick-deploy-aws/aws-env',
-            ],
-          },
-          {
-            title: 'Quick Deploy Local',
-            collapsable: true,
-            children: [
-              'grp-providers/tutorial/quick-deploy-local/',
-              'grp-providers/tutorial/quick-deploy-local/config-json',
-              'grp-providers/tutorial/quick-deploy-local/secrets-env',
             ],
           },
         ],

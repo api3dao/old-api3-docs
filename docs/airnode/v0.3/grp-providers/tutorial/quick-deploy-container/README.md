@@ -2,7 +2,7 @@
 title: Instructions
 ---
 
-<TitleSpan>Quick Deploy Local</TitleSpan>
+<TitleSpan>Quick Deploy Container</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -12,8 +12,8 @@ title: Instructions
 This demo is a simple Airnode deployment, using a hands-on approach, to better
 understand the overall deployment process of the Airnode
 [client image](../../../grp-providers/docker/deployer-image.md) which deploys
-the off-chain component of Airnode (a.k.a., the node) to a Docker container, in
-this case a locally run Docker container. It uses an API endpoint
+the off-chain component of Airnode ([a.k.a., the node](../../../)) to a Docker
+container, in this case a locally run Docker container. It uses an API endpoint
 (`GET /coins/{id}`) from
 [CoinGecko](https://www.coingecko.com/en/api/documentation?) which returns the
 current value of a coin. This demo does not detail the overall configuration of
@@ -45,13 +45,13 @@ a zip file ready to go.
 
 ::: tab Create Manually
 
-Create a folder called `quick-deploy-local` with an internal folder named
+Create a folder called `quick-deploy-container` with an internal folder named
 `/config`. Place the contents of the files provided
 ([config.json](./config-json.md) and [secrets.env](./secrets-env.md)) into the
 locations show below.
 
 ```
-quick-deploy-local
+quick-deploy-container
 ├── config
     ├── config.json
     └── secrets.env
@@ -61,8 +61,8 @@ quick-deploy-local
 
 ::: tab Download
 
-Download the <a href="/zip-files/quick-deploy-local-v0.3.zip" download>
-quick-deploy-local</a> project folder.
+Download the <a href="/zip-files/quick-deploy-container-v0.3.zip" download>
+quick-deploy-container</a> project folder.
 
 :::
 
@@ -102,7 +102,7 @@ Add values for each of the these fields.
 ## Deploy
 
 Make sure Docker is running and then execute the client image from the root of
-the `quick-deploy-local` folder.
+the `quick-deploy-container` folder.
 
 Run the following command to deploy the demo Airnode locally. Note that the
 version of `api3/airnode-deployer` matches the `nodeVersion` in the config.json
@@ -115,7 +115,7 @@ file.
 ```sh
 docker run --detach \
   --volume $(pwd)/config:/app/config \
-  --name quick-deploy-local-airnode \
+  --name quick-deploy-container-airnode \
   api3/airnode-client:0.3.0
 ```
 
@@ -126,7 +126,7 @@ docker run --detach \
 ```sh
 docker run --detach ^
   --volume %cd%/config:/app/config ^
-  --name quick-deploy-local-airnode ^
+  --name quick-deploy-container-airnode ^
   api3/airnode-client:0.3.0
 ```
 
@@ -140,9 +140,9 @@ You can start and stop the Airnode with the Docker desktop application or via
 terminal commands.
 
 ```sh
-docker stop quick-deploy-local-airnode
+docker stop quick-deploy-container-airnode
 
-docker start quick-deploy-local-airnode
+docker start quick-deploy-container-airnode
 ```
 
 ## Logs
@@ -151,9 +151,9 @@ You can view the Airnode's logs with the Docker desktop application or via
 terminal commands.
 
 ```sh
-docker logs quick-deploy-local-airnode
+docker logs quick-deploy-container-airnode
 
-docker logs --follow quick-deploy-local-airnode
+docker logs --follow quick-deploy-container-airnode
 ```
 
 ## Test the Airnode
@@ -184,7 +184,7 @@ The arguments are pre-filled for you in the request code below.
 
 ```sh
 # For Windows CMD replace line termination marker \ with ^
-docker exec -it quick-deploy-local-airnode node src/cli/test-api.js \
+docker exec -it quick-deploy-container-airnode node src/cli/test-api.js \
   -e 0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c \
   -p '{"coinId":"ethereum"}'
 
@@ -205,10 +205,14 @@ node src/cli/test-api.js \
 ## Remove the Airnode
 
 When you are done with this demo you can remove it. Do so using the Docker
-desktop application or with a Docker terminal command.
+desktop application or by using the following terminal command. When using the
+terminal command be sure to stop the container first if running.
 
 ```sh
-docker rm quick-deploy-local-airnode
+# Stop the container if it is running.
+docker stop quick-deploy-container-airnode
+
+docker rm quick-deploy-container-airnode
 ```
 
 ## Summary
