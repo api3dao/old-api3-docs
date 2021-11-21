@@ -180,7 +180,10 @@ the `config.json` file.
 - -p, --parameters [string] [default: "{}"]: See config.json
   `ois.endpoints[0].parameters[0].name`.
 
-The arguments are pre-filled for you in the request code below.
+The arguments are pre-filled for you in the request code below. Note the JSON
+response value is the ETH price multiplied by `1e6`, which results from setting
+the `_times` reserved parameter to `1000000` in `config.json`. This manipulation
+is necessary in order to correctly handle floating point numbers.
 
 ```sh
 # For Windows CMD replace line termination marker \ with ^
@@ -188,7 +191,7 @@ docker exec -it quick-deploy-container-airnode node src/cli/test-api.js \
   -e 0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c \
   -p '{"coinId":"ethereum"}'
 
-# Response
+# Response - ETH price * 1e6
 { "value": "4008350000" }
 ```
 
