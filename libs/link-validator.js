@@ -31,11 +31,11 @@ const distDir = process.argv[3];
 
 console.log;
 console.log('\n\n');
-console.log('++++++++++++++++++++++++');
-console.log('Link Validator');
-console.log('baseURL:', baseURL);
-console.log('distDir:', distDir);
-console.log('++++++++++++++++++++++++\n');
+console.log('|++++++++++++++++++++++++');
+console.log('| Link Validator');
+console.log('| baseURL:', baseURL);
+console.log('| distDir:', distDir);
+console.log('|++++++++++++++++++++++++\n');
 
 // Array of dir objects and their files {dir,files}
 let arr = [];
@@ -98,7 +98,36 @@ let linksObj = {};
 /**
  * Creates a list of file paths from the rootDir
  */
-async function start() {
+async function start(task) {
+  let passed = 0;
+  let failed = 0;
+  console.log('Checking (' + task + ')', Object.keys(linksObj).length),
+    'links.';
+  for (var key in linksObj) {
+    if (linksObj.hasOwnProperty(key)) {
+      let fail = await testLink(key, linksObj[key]);
+      if (fail === 1) {
+        totalFailedCnt++;
+      } else {
+        totalPassedCnt++;
+      }
+    }
+  }
+  console.log('\n');
+}
+
+function loadRedirects() {
+  let cnt = 1;
+  require('fs')
+    .readFileSync('./docs/.vuepress/redirects', 'utf-8')
+    .split(/\r?\n/)
+    .forEach(function (line) {
+      const arr = line.split(' ');
+      linksObj[baseURL + arr[1]] = 'redirect: ' + arr[0];
+    });
+}
+
+function loadLinks() {
   file.walkSync(distDir, tempCB);
   for (let i = 0; i < arr.length; i++) {
     for (let z = 0; z < arr[i].files.length; z++) {
@@ -109,40 +138,22 @@ async function start() {
         const htmlString = readFileSync(filePath, 'utf8');
         const links = oust(htmlString, 'links');
 
-        // Go thru the links
+        // Go thru the links and add to master list (linksObj)
         for (var x = 0; x < links.length; x++) {
           let url = links[x];
           if (url.indexOf('http://') === -1 && url.indexOf('https://') === -1) {
             url = baseURL + url;
-            linksObj[url] = filePath;
+            linksObj[url] = 'src: ' + filePath;
           } else {
-            linksObj[url] = filePath;
+            linksObj[url] = 'src: ' + filePath;
           }
         } // Finished getting all links
       } // end for
     } // end for
   }
+}
 
-  let passed = 0;
-  let failed = 0;
-  console.log('Checking links:', Object.keys(linksObj).length), 'links.';
-  for (var key in linksObj) {
-    if (linksObj.hasOwnProperty(key)) {
-      let fail = await testLink(key, linksObj[key]);
-      if (fail === 1) {
-        failed++;
-        totalFailedCnt++;
-      } else {
-        passed++;
-        totalPassedCnt++;
-      }
-    }
-  }
-
-  // Printout at the END
-  console.log('\n');
-
-  // Failures
+function printFailures() {
   if (failuresArr.length > 0) {
     console.log(colors.bold.underline.blue('Total passed: ' + totalPassedCnt));
     console.log(colors.bold.underline.red('Total failed: ' + totalFailedCnt));
@@ -150,7 +161,7 @@ async function start() {
     for (var i = 0; i < failuresArr.length; i++) {
       console.log(i + 1, '-------------------');
       console.log('|', colors.bold.red(failuresArr[i].file));
-      console.log('|', colors.bold.red(failuresArr[i].url));
+      console.log('|', colors.bold.red('link: ' + failuresArr[i].url));
       console.log('|', colors.bold.red(failuresArr[i].error));
       console.log();
     }
@@ -158,9 +169,21 @@ async function start() {
     console.log(colors.bold.green('All links OK.'));
     console.log(colors.bold.underline.blue('Total passed: ' + totalPassedCnt));
   }
-  console.log('\n++++++++++++++++++++++++');
-  console.log('END: Link Validator');
-  console.log('++++++++++++++++++++++++\n');
 }
 
-start();
+async function begin() {
+  loadRedirects();
+  await start('redirect links');
+  linksObj = {};
+  loadLinks();
+  await start('html links');
+
+  // Print failures
+  printFailures();
+
+  console.log('\n|++++++++++++++++++++++++');
+  console.log('| END: Link Validator');
+  console.log('|++++++++++++++++++++++++\n');
+}
+
+begin();
