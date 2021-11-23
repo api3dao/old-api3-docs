@@ -131,7 +131,7 @@ To create a new proposal using the DAO dashboard:
 6. Enter the **Contract Target Signature**.
    > Defines the signature of the function to call within the target contract.
    > For the target contract USDC mentioned above use
-   > `transfer(address, uint256)`
+   > `transfer(address,uint256)`
 7. Enter an **ETH Value**.
    > You can use zero if the target function is not `payable`.
 8. Enter **Parameters** which are the arguments that will be used to satisfy the
@@ -199,7 +199,7 @@ For voters to see your ENS name instead of the raw address on the proposal
 details page, you will have to use the [ENS app](https://app.ens.domains/) to
 set a reverse record pointing to your ENS name (i.e., you need to have your raw
 address point to the ENS name). If your proposal will make a
-`transfer(address,amount)` call to an ERC20 token contract where `address` is
+`transfer(address,uint256)` call to an ERC20 token contract where `address` is
 the address of a _multisig_ wallet, you can
 [set a reverse record with the multisig](https://medium.com/the-ethereum-name-service/you-can-now-manage-ens-names-with-gnosis-safe-9ddcb7e6c4ac)
 to your ENS name. See Parameters in
