@@ -98,7 +98,7 @@ let linksObj = {};
 /**
  * Creates a list of file paths from the rootDir
  */
-async function start(task) {
+async function run(task) {
   let passed = 0;
   let failed = 0;
   console.log('Checking (' + task + ')', Object.keys(linksObj).length),
@@ -119,11 +119,11 @@ async function start(task) {
 function loadRedirects() {
   let cnt = 1;
   require('fs')
-    .readFileSync('./docs/.vuepress/redirects', 'utf-8')
+    .readFileSync('./docs/.vuepress/dist/redirects-sync', 'utf-8')
     .split(/\r?\n/)
     .forEach(function (line) {
       const arr = line.split(' ');
-      linksObj[baseURL + arr[1]] = 'redirect: ' + arr[0];
+      linksObj[baseURL + arr[1]] = 'REDIRECT: ' + arr[0];
     });
 }
 
@@ -143,11 +143,45 @@ function loadLinks() {
           let url = links[x];
           if (url.indexOf('http://') === -1 && url.indexOf('https://') === -1) {
             url = baseURL + url;
-            linksObj[url] = 'src: ' + filePath;
+            linksObj[url] = 'LINK src: ' + filePath;
           } else {
-            linksObj[url] = 'src: ' + filePath;
+            linksObj[url] = 'LINK src: ' + filePath;
           }
         } // Finished getting all links
+      } // end for
+    } // end for
+  }
+}
+
+function loadImages() {
+  file.walkSync(distDir, tempCB);
+  for (let i = 0; i < arr.length; i++) {
+    for (let z = 0; z < arr[i].files.length; z++) {
+      const filePath = arr[i].dir + '/' + arr[i].files[z];
+
+      // Only html files
+      if (filePath.indexOf('.html') > 0) {
+        const htmlString = readFileSync(filePath, 'utf8');
+        const images = oust(htmlString, 'images');
+
+        // Go thru the images and add to master list (linksObj)
+        for (var x = 0; x < images.length; x++) {
+          let url = images[x];
+
+          // Some may use data:image/ because they are small and VuePress converts to data:image
+          // So skip them
+          if (url.indexOf('data:image/') === -1) {
+            if (
+              url.indexOf('http://') === -1 &&
+              url.indexOf('https://') === -1
+            ) {
+              url = baseURL + url;
+              linksObj[url] = 'IMAGE src: ' + filePath;
+            } else {
+              linksObj[url] = 'IMAGE src: ' + filePath;
+            }
+          }
+        } // Finished getting all images
       } // end for
     } // end for
   }
@@ -161,7 +195,7 @@ function printFailures() {
     for (var i = 0; i < failuresArr.length; i++) {
       console.log(i + 1, '-------------------');
       console.log('|', colors.bold.red(failuresArr[i].file));
-      console.log('|', colors.bold.red('link: ' + failuresArr[i].url));
+      console.log('|', colors.bold.red('target > ' + failuresArr[i].url));
       console.log('|', colors.bold.red(failuresArr[i].error));
       console.log();
     }
@@ -171,12 +205,15 @@ function printFailures() {
   }
 }
 
-async function begin() {
+async function start() {
   loadRedirects();
-  await start('redirect links');
+  await run('redirects');
+  linksObj = {}; // Clear master list after each run()
+  loadImages();
+  await run('images');
   linksObj = {};
   loadLinks();
-  await start('html links');
+  await run('links');
 
   // Print failures
   printFailures();
@@ -186,4 +223,4 @@ async function begin() {
   console.log('|++++++++++++++++++++++++\n');
 }
 
-begin();
+start();

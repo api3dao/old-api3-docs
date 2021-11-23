@@ -7,18 +7,24 @@ title: Link Validator
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-This custom nodejs script (`/libs/link-validator.js`) validates links with or
-without attached anchors.
-
-- my-markdown.md
-- my-markdown.md#my-anchor
-
-More than often a heading element such as **## My Heading** gets changed and
-thus breaks any link that references it. Running `link-validator.js` will locate
-these broken links.
+This custom nodejs script (`/libs/link-validator.js`) validates links (with or
+without attached anchors), images and the redirects.
 
 The link validator is a manual and time consuming process that should be
 performed as often as possible. Currently it cannot be run as a GitHub action.
+
+## Redirects
+
+Redirects are handled by reading the actual redirects from a copy of the file
+(`redirects-sync `) that is moved to the `/dist` folder after building the docs.
+This is an automated process that is only noted here to understand the need for
+the script named `sync:build:redirects`.
+
+```json
+"docs:build": "yarn sync:navbar; yarn sync:sidebar; yarn sync:searchbox; vuepress build docs; yarn sync:build:redirects;"
+
+"sync:build:redirects": "cp docs/.vuepress/redirects docs/.vuepress/dist/redirects-sync;"
+```
 
 ## Step 1: Build the Docs
 
@@ -35,7 +41,7 @@ Build the docs as usual using the standard build command provided by VuePress.
 
 You can install [http-server](https://www.npmjs.com/package/http-server)
 globally, `npm install http-server -g` or as a dev dependency,
-`npm install http-server --save-dev`.
+`yarn add --dev http-server `.
 
 Start an instance of http-server to serve the docs. Do not use the normal
 VuePress live reload server as it will not work with the script.

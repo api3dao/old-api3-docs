@@ -10,8 +10,9 @@
     "sync:navbar": "cp docs/.vuepress/components/Navbar.vue node_modules/@vuepress/theme-default/components/Navbar.vue",
     "sync:sidebar": "cp docs/.vuepress/components/Sidebar.vue node_modules/@vuepress/theme-default/components/Sidebar.vue",
     "sync:searchbox": "cp docs/.vuepress/components/SearchBox.vue node_modules/@vuepress/plugin-search/Searchbox.vue",
+    "sync:build:redirects": "cp docs/.vuepress/redirects docs/.vuepress/dist/redirects-sync",
     "docs:dev": "yarn sync:navbar; yarn sync:sidebar; yarn sync:searchbox; vuepress dev docs",
-    "docs:build": "yarn sync:navbar; yarn sync:sidebar; yarn sync:searchbox; vuepress build docs",
+    "docs:build": "yarn sync:navbar; yarn sync:sidebar; yarn sync:searchbox; vuepress build docs; yarn sync:build:redirects;",
     "format": "prettier --write ./**/*.{js,vue,md,json,yaml} --loglevel silent",
     "format:check": "prettier --check ./**/*.{js,vue,md,json,yaml}",
     "prepare": "husky install"
