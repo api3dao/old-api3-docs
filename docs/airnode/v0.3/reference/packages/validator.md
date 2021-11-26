@@ -8,7 +8,7 @@ title: Validator
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 The
-[airnode-validator](https://github.com/api3dao/airnode/tree/v.03/packages/airnode-validator)
+[airnode-validator](https://github.com/api3dao/airnode/tree/v0.2/packages/airnode-validator)
 package, known as the validator, is used by the
 [Docker Images](../../grp-providers/docker/) to validate the
 [configuration files](../../grp-providers/guides/build-an-airnode/configuring-airnode.md)

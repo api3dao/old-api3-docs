@@ -1,5 +1,5 @@
 ---
-title: Airnode ABI
+title: ABI
 ---
 
 <TitleSpan>Packages</TitleSpan>
@@ -9,10 +9,12 @@ title: Airnode ABI
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,4]" />
 
-The Airnode-ABI package a unique way to encode and decode parameters for use
-with Airnode. Parameters are provided with encoding types, names and values. The
-types are shortened and grouped with a version as the "header". The name/value
-pairs are then grouped and encoded as the rest of the body.
+The
+[airnode-abi](https://github.com/api3dao/airnode/tree/v0.2/packages/airnode-abi)
+package is a unique way to encode and decode parameters for use with Airnode.
+Parameters are provided with encoding types, names and values. The types are
+shortened and grouped with a version as the "header". The name/value pairs are
+then grouped and encoded as the rest of the body.
 
 An advantage of encoding parameters this way is that parameters can be decoded
 natively using the language(s) of the specific blockchain. In the case of EVM
