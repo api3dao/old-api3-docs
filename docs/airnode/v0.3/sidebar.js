@@ -171,6 +171,9 @@ module.exports = [
           'reference/packages/adapter',
           'reference/packages/admin-cli',
           'reference/packages/airnode-abi',
+          'reference/packages/deployer',
+          // For now this package is not added, it is considered internal use only
+          //'reference/packages/operation',
           'reference/packages/validator',
         ],
       },
