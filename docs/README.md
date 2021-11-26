@@ -13,7 +13,7 @@ features:
   details: API3 data feeds, dAPIs, aggregate data from first-party oracles, operated by some of the world’ premier API providers.
 - title: API Provider Operated
   details: Fully serverless oracle nodes that can be deployed by any API provider for free, and requires minimal day-to-day management.
-footer: MIT Licensed
+footer:
 navbar: true
 ---
 
@@ -36,3 +36,5 @@ or the back history will require two clicks.
 
 
 API3 documentation is kept as a regular repository of Markdown files for everyone to contribute. Feel free to create [issues](https://github.com/api3dao/api3-docs/issues) for discussions, proposed additions and changes.
+
+<div style="text-align:center;"><a href="https://github.com/api3dao/api3-docs/blob/main/LICENSE" target="_license">MIT Licensed</a> <ExternalLinkImage/></div>
