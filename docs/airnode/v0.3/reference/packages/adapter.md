@@ -1,5 +1,5 @@
 ---
-title: Airnode Adapter
+title: Adapter
 ---
 
 <TitleSpan>Packages</TitleSpan>
@@ -9,9 +9,10 @@ title: Airnode Adapter
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,4]" />
 
-Airnode adapter is a package with multiple responsibilities. It is used for
-building requests from an
-[Oracle Integration Specification (OIS)](https://docs.api3.org/airnode/v0.2/grp-providers/guides/build-an-airnode/api-integration.html#ois-template),
+The
+[airnode-adapter](https://github.com/api3dao/airnode/tree/v0.2/packages/airnode-adapter)
+package has multiple responsibilities. It is used for building requests from an
+[Oracle Integration Specification (OIS)](../../grp-providers/guides/build-an-airnode/api-integration.html#ois-template),
 executing them, parsing the responses, but also converting and encoding them for
 on chain use.
 
@@ -30,19 +31,19 @@ yarn add @api3/airnode-adapter
 ```
 
 You shouldn't need to use the adapter package directly. However, you might want
-to use its API to double check the conversion or encoding behaviour for which
-you can install this package and verify your assumptions.
+to use its API to double check the conversion or encoding behavior for which you
+can install this package and verify your assumptions.
 
 ## Conversion
 
-While adapter package has many responsibilities, many of those can be treated as
-implementation details. On the other hand, there are a few important behaviors
-to be noted when converting the response values based on the target type and
-making the response transaction on chain.
+While the adapter package has many responsibilities, many of those can be
+treated as implementation details. On the other hand, there are a few important
+behaviors to be noted when converting the response values based on the target
+type and making the response transaction on chain.
 
-Alltogether, the response cycle consists of multiple steps
+Altogether, the response cycle consists of multiple steps
 
-1. An successfull API call is made and Airnode receives a response value
+1. An successful API call is made and Airnode receives a response value
 2. The value to be converted is extracted from the response using the
    [`_path`](../specifications/reserved-parameters.md#path)
 3. This extracted value is converted to the target type. Conversions are

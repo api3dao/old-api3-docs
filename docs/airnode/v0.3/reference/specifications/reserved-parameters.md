@@ -154,7 +154,7 @@ it will be incorrectly considered as a separator.
 
 ```
 {
-  "strage.key": "123"
+  "strange.key": "123"
 }
 ```
 
@@ -173,12 +173,12 @@ provider response looks like the following
 
 ```
 {
-  "very,strage.key": "123"
+  "very,strange.key": "123"
 }
 ```
 
 Then you need to escape those symbols, in this case
-`_path="very//,strage\\.key"`.
+`_path="very//,strange\\.key"`.
 
 ## `_times`
 
@@ -221,7 +221,7 @@ By setting this reserved parameter to a specific version string then Airnode
 will attach its metadata as request parameters before performing the API call.
 
 Passing an empty string to `_relay_metadata` is also allowed, but has the same
-behaviour as if the argument was not specified at all. This is important for
+behavior as if the argument was not specified at all. This is important for
 [encoding multiple values](reserved-parameters.md#encoding-multiple-values).
 
 For example, `v1` will add the following request parameters with their

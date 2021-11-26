@@ -9,8 +9,10 @@ title: Admin CLI
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Use the Admin CLI tool to interact with Airnode across blockchains. There are
-commands for both developers (dApp) and API providers. Developers can sponsor
+Use the
+[airnode-admin](https://github.com/api3dao/airnode/tree/v0.2/packages/airnode-admin)
+Admin CLI tool to interact with Airnode across blockchains. There are commands
+for both developers (dApp) and API providers. Developers can sponsor
 [requester](../../concepts/requester.md) contracts and derive
 [sponsorWallets](../../concepts/sponsor.md#sponsorwallet) for Airnodes. API
 providers can build [Airnodes](../../concepts/airnode.md) that serve their API

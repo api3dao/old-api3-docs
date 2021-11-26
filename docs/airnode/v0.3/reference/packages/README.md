@@ -11,10 +11,13 @@ providers to operate their own oracles. Its code base is a monorepo managed
 using [Lerna](https://github.com/lerna/lerna). The
 [Airnode monorepo](https://github.com/api3dao/airnode/tree/v0.2/packages) has
 several packages. Some of these packages are used by dApp developers and API
-providers to interact with or to build Airnode. Some are simply used for
+providers to interact with or to build Airnode. A few are simply used for
 internal Airnode development.
 
+- [airnode-adapter](./adapter.md)
 - [airnode-admin](./admin-cli.md)
+- [airnode-abi](./airnode-abi.md)
+- [airnode-deployer](./deployer.md)
 - [airnode-validator](./validator.md)
 
 ---
