@@ -692,17 +692,12 @@ start with an underscore. See the
 [related OIS docs](../../../reference/specifications/ois.md#_5-4-reservedparameters)
 for more information.
 
-The current list of reserved parameters are `_type`, `_path`, `_times` and
-`_relay_metadata`. See the
+The current list of reserved parameters are `_type`, `_path` and `_times`. See
+the
 [reserved parameters](../../../reference/specifications/reserved-parameters.md)
 doc to understand what each of these parameters are for. In most cases, all
 three should be defined as reserved parameters with no fixed/default values, as
 doing so provides the requester with the most flexibility.
-
-Learn more about `_relay_metadata` in the concepts doc
-[Authorization](../../../concepts/authorization.md). For the purpose of this
-guide (Build an Airnode) the doc [Applying Authorization](./apply-auth.md) will
-step you through more details to setup `\_relay_metadata'.
 
 #### parameters
 

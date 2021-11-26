@@ -12,19 +12,20 @@ title: Applying Authorization (optional)
 An Airnode can authorize requester contract access to its underlying API using
 two methods.
 
-- Authorizers: Using authorizer contracts.
-- Relay Metadata: Using Airnode metadata known as (`_relay_metadata`).
+- [Authorizers](apply-auth.md#authorizers)
+- [Relay security schemes](apply-auth.md#relay-security-schemes)
 
-This guide explains how to use _authorizers_ and _relay metadata_. See the
-_Concepts and Definitions_ section
-[Authorization](../../../concepts/authorization.md) doc for details on these two
-authorization methods. You can use one or the other, or both at the same time.
+This guide focuses on the usage of these concepts. See the
+[Authorization section](../../../concepts/authorization.md) for details on these
+two authorization methods. You can use one or the other, or both at the same
+time.
 
-Complete the following before applying authorizers or integrating relay
-metadata.
+Complete the following before applying authorizers or integrating relay security
+schemes.
 
-- [API Integration](api-integration.md)
-- [Configuring Airnode](configuring-airnode.md)
+- [API Integration](./api-integration.md)
+- [Configuring Airnode](./configuring-airnode.md)
+- [Security schemes](./api-integration.md#security-schemes)
 
 When you deployed your Airnode a receipt file was generated. In it is the
 Airnode's `airnodeAddress`. Sponsors (via their sponsored requesters) use
@@ -46,16 +47,16 @@ gives access, the request will considered to be authorized. From a logical
 standpoint, the authorization outcomes get **OR**ed.
 
 You can use different authorizers contracts for your Airnode deployment per
-chain by declaring them in the config.json file under `chains[n].authorizers`.
+chain by declaring them in the `config.json` file under `chains[n].authorizers`.
 Add a list of authorizer contracts addresses for each chain. If the
 `chains[n].authorizers` array is left empty then all requests will be accepted
 by the Airnode but still could be filtered by the second method of
-authorization, [relay metadata](./apply-auth.md#relay-metadata).
+authorization, [relay security schemes](./apply-auth.md#relay-security-schemes).
 
 ```json
 {
  ...
- chains:[
+ "chains":[
     {
       "id": "1",
       ...
@@ -84,8 +85,7 @@ authorization, [relay metadata](./apply-auth.md#relay-metadata).
 The authorizers you use will authorize all requests regardless of which endpoint
 is called. Endpoints are declared in the `ois.endpoints` field of the
 `config.json` file. To further filter by a particular endpoint you must use an
-authorizer like RequesterAuthorizerWithAirnode or use
-[relay metadata](../../../concepts/authorization.md#relay-metadata).
+authorizer like RequesterAuthorizerWithAirnode.
 
 ### RequesterAuthorizerWithAirnode
 
@@ -109,36 +109,36 @@ To use the RequesterAuthorizerWithAirnode authorizer:
 Once implemented, only requester contract addresses you have added to
 RequesterAuthorizerWithAirnode will have access to your Airnode.
 
-## Relay MetaData
+## Relay security schemes
 
-You can use Airnode's
-[relay metadata](../../../concepts/authorization.md#relay-metadata) in an API
-endpoint to authorize requests with or without authorizers. Simple setup each
-endpoint to receive the metadata.
+Simply define the relay security schemes you want to use for your API.
 
-In the OIS object of the `config.json` file set a reserved parameter named
-`_relay_metadata` to have a value of `v1`.
+For example
 
 ```json
-"reservedParameters": [
-  {
-    "name": "_relay_metadata",
-    "default": "v1"
-  },
-  ...
-],
+{
+  "ois": [
+    {
+      "title": "My OIS title",
+      "apiSpecifications": {
+        "components": {
+          "securitySchemes": {
+            "forwardsRequesterAddress": {
+              "in": "query",
+              "type": "relayRequesterAddress",
+              "name": "requesterAddress"
+            }
+          }
+        },
+        "security": {
+          "forwardsRequesterAddress": []
+        }
+      }
+    }
+  ]
+}
 ```
 
-The metadata will be sent to the endpoint in the query string for GET and in the
-request body for POST. Use the metadata as required to filter inbound requests.
-
-```sh
-_airnode_airnode_id: '0x19255a4ec31e89cea54d1f125db7536e874ab4a96b4d4f6438668b6bb10a6adb',
-_airnode_requester_address: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',
-_airnode_sponsor_wallet: '0x1c5b7e13fe3977a384397b17b060Ec96Ea322dEc',
-_airnode_endpoint_id: '0xeddc421714e1b46ef350e8ecf380bd0b38a40ce1a534e7ecdf4db7dbc9319353',
-_airnode_request_id: '0xd1984b7f40c4b5484b756360f56a41cb7ee164d8acd0e0f18f7a0bbf5a353e65',
-_airnode_chain_id: '31337',
-_airnode_chain_type: 'evm',
-_airnode_airnode_rrp: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
-```
+Airnode will relay the requester address for each received request through
+`requesterAddress` name passed to your API. It will either be body for POST
+requests or query string for GET requests.
