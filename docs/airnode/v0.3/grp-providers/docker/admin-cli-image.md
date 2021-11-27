@@ -28,7 +28,7 @@ is available in the admin CLI commands doc.
 
 ## Usage
 
-The following example shows the difference between using the docker image verses
+The following example shows the difference between using the docker image versus
 npx when executing the `get-sponsor-status` admin CLI command.
 
 ```sh
