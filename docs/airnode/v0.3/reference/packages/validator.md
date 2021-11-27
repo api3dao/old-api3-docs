@@ -111,11 +111,11 @@ Options:
       --help                    Show help                              [boolean]
       --version                 Show version number                    [boolean]
   -t, --template                Path to validator template file or name of
-                                airnode specification format [string] [required]
+                                airnode specification format           [string] [required]
   -s, --specification, --specs  Path to specification file that will be
-                                validated                    [string] [required]
-  -i, --interpolate             Path to .env file that will be interpolated with
-                                specification                           [string]
+                                validated                              [string] [required]
+  -i, --secrets                 Path to .env file that will be interpolated with
+                                specification                          [string]
 ```
 
 For the `--template` argument use one of the following values which are
@@ -139,15 +139,19 @@ support fields within the config.json and must be in separate files to be
 validated.
 
 ```sh
+# Validates a completed config.json file.
 npx @api3/airnode-validator --template="config" --specs="myProject/config/config.json"
+
+# Here (optionally) the OIS object from config.json is in a separate file.
+npx @api3/airnode-validator --template="OIS" --specs="myProject/config/OIS-spec.json"
 ```
 
 You will most likely keep secrets in a file separate from the `config.json`
-file. Using interpolation with an env file is supported using the
-`--interpolate` argument.
+file. Using interpolation with an env file is supported using the `--secrets`
+argument.
 
 ```sh
-npx @api3/airnode-validator --template="config" --interpolate="secrets.env" --specs="myProject/config/config.json"
+npx @api3/airnode-validator --template="config" --secrets="secrets.env" --specs="myProject/config/config.json"
 ```
 
 ### OIS
