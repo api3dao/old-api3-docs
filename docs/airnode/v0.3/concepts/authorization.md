@@ -12,8 +12,9 @@ title: Authorization
 An Airnode can authorize requester contract access to its underlying API using
 two methods.
 
-- Authorizers: Using authorizer contracts.
-- Relay Metadata: Using Airnode relay metadata (`_relay_metadata`).
+- Authorizers - using authorizer contracts.
+- Relay security schemes - described in a
+  [separate document](../grp-providers/guides/build-an-airnode/api-integration.html#security-schemes)
 
 <divider/>
 
@@ -158,8 +159,9 @@ wide-spread adoption.
 ### Are authorizers required?
 
 Authorizers are not required. An Airnode operator could use
-[\_relay_metadata](./authorization.md#relay-metadata) to authorize API access.
-And it is possible to use both authorizers and `_relay_metadata` together.
+[relay security schemes](../grp-providers/guides/build-an-airnode/api-integration.html#security-schemes)
+to authorize API access (e.g. by [requester](./requester.html) address). And it
+is possible to use both authorizers and relay security schemes together.
 
 ### How are authorizers implemented?
 
@@ -391,61 +393,3 @@ authorization status of a request. This function will return true for all
 whitelisted requester contracts, admins and the meta-admin address.
 
 <divider/>
-
-## Relay Metadata
-
-Airnode operators can use the
-[\_relay_metadata](../reference/specifications/reserved-parameters.md#relay-metadata)
-named reserved parameter to instruct Airnode to send metadata to an endpoint.
-The endpoint can then use the metadata to process and respond (or not)
-accordingly to the requester.
-
-> ![concept-authorizer](../assets/images/concepts-relay-metadata.png)
->
-> 1. <span style="color:black;">When Airnode starts it reads its list of
->    endpoints declared in config.json.</span>
-> 2. <span style="color:black;">Airnode gathers requests from the event logs,
->    during its run cycle.</span>
-> 3. <span style="color:black;">Airnode includes metadata in requests to
->    endpoints that have an entry of <code>\_relay_metadata</code> (set to "v1")
->    in <code>endpoints[n].reservedParameters[n]</code>.</span>
-
-This option has been implemented because sometimes the Airnode operator does not
-want to use on-chain authorizers.
-
-- The parameter that authorization depends on (e.g., if the requester has paid)
-  should not be made public.
-- The Airnode operator does not want to interact with the chain to alter
-  authorization statuses (e.g., does not want to make a transaction to whitelist
-  a new requester, which will cost them gas fees).
-
-Activate the sending of the metadata by adding a reserved parameter with a name
-of `_relay_metadata` that defaults to `v1`. Note that the use of `v1` is
-specific to Airnode version `v1.x.x`. The Airnode will attach the metadata in
-the query string for `GET` and request body for `POST`, before performing the
-endpoint call.
-
-```json
-// Go to: ois.endpoints[n]reservedParameters[n].name in config.json
-"reservedParameters": [
-  ...
-  {
-    "name": "_relay_metadata",
-    "default": "v1"
-  }
-],
-```
-
-Below is a list of metadata values send to an endpoint when `_relay_metadata` is
-activated.
-
-```sh
-_airnode_airnode_id: '0x19255a4ec31e89cea54d1f125db7536e874ab4a96b4d4f6438668b6bb10a6adb',
-_airnode_requester_address: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',
-_airnode_sponsor_wallet: '0x1c5b7e13fe3977a384397b17b060Ec96Ea322dEc',
-_airnode_endpoint_id: '0xeddc421714e1b46ef350e8ecf380bd0b38a40ce1a534e7ecdf4db7dbc9319353',
-_airnode_request_id: '0xd1984b7f40c4b5484b756360f56a41cb7ee164d8acd0e0f18f7a0bbf5a353e65',
-_airnode_chain_id: '31337',
-_airnode_chain_type: 'evm',
-_airnode_airnode_rrp: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
-```

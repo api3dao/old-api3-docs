@@ -273,10 +273,6 @@ following fields:
       },
       {
         "name": "_times"
-      },
-      {
-        "name": "_relay_metadata",
-        "default": "v1"
       }
     ],
     "parameters": [
@@ -361,7 +357,7 @@ node. Each object has the following elements:
 
 (Required) The name of the reserved parameter. Always starts with `_`.
 
-Allowed values: `_type`, `_path`, `_times`, `_relay_metadata`
+Allowed values: `_type`, `_path` or `_times`
 
 #### 5.4.2. `fixed`
 

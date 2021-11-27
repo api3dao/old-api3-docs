@@ -215,34 +215,6 @@ The `_times` parameter also works in conjunction with arrays and
 multidimensional arrays. All elements of the API response array will be
 multiplied before they are encoded.
 
-## `_relay_metadata`
-
-By setting this reserved parameter to a specific version string then Airnode
-will attach its metadata as request parameters before performing the API call.
-
-Passing an empty string to `_relay_metadata` is also allowed, but has the same
-behavior as if the argument was not specified at all. This is important for
-[encoding multiple values](reserved-parameters.md#encoding-multiple-values).
-
-For example, `v1` will add the following request parameters with their
-corresponding values:
-
-```
-_airnode_airnode_id: '0x19255a4ec31e89cea54d1f125db7536e874ab4a96b4d4f6438668b6bb10a6adb',
-_airnode_requester_address: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',
-_airnode_sponsor_wallet: '0x1c5b7e13fe3977a384397b17b060Ec96Ea322dEc',
-_airnode_endpoint_id: '0xeddc421714e1b46ef350e8ecf380bd0b38a40ce1a534e7ecdf4db7dbc9319353',
-_airnode_request_id: '0xd1984b7f40c4b5484b756360f56a41cb7ee164d8acd0e0f18f7a0bbf5a353e65',
-_airnode_chain_id: '31337',
-_airnode_chain_type: 'evm',
-_airnode_airnode_rrp: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
-```
-
-Available values: `v1` or an empty string.
-
-Learn more about `_relay_meta_data` in the _Concepts and Definitions_ section
-[Authorization](../../concepts/authorization.md) doc.
-
 ## Encoding multiple values
 
 Solidity has support for decoding and "destructuring" multiple values. For
