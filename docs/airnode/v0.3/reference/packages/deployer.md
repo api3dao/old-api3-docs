@@ -55,7 +55,10 @@ yarn build
 ```
 
 - Make sure `config.json` and `secrets.env` are available in the `config`
-  directory. You can use the provided example `config.json` and `secrets.env`
+  directory. You can use the provided example
+  [config.json](https://github.com/api3dao/airnode/blob/v0.2/packages/airnode-deployer/config/config.json.example)
+  and
+  [secrets.env](https://github.com/api3dao/airnode/blob/v0.2/packages/airnode-deployer/config/secrets.env.example)
   templates to get started quickly, but you will need to edit these with your
   own API details and secrets.
 
@@ -73,8 +76,8 @@ cp config/secrets.env.example config/secrets.env
 1. Make sure you have `config.json` and `secrets.env` ready. Then, use the
    `deploy` command to trigger your first deployment.
 2. In order to update the Airnode configuration:
-   - Update the `config.json` file
-   - Run the `deploy` command again
+   - Update the `config.json` and `secrets.env` files as needed.
+   - Run the `deploy` command again.
 3. Use the `remove` command to remove the Airnode deployment. Use the `-r`
    option to provide the receipt file from the latest deployment.
 
@@ -101,8 +104,18 @@ deployer deploy --config myConfig/config.json --secrets myConfig/secrets.env -r 
 
 #### remove
 
+An Airnode can be removed using the remove command two different ways.
+
+- Best > With a deploy receipt created when the Airnode was deployed.
+- Alternate > With the Airnode short address and AWS specifications. The
+  `airnodeShortAddress` is used in the AWS console within the names of the
+  Lambda functions. The other values can be found in `config.json`.
+  - `nodeSetting.cloudProvider`
+  - `nodeSetting.stage`
+  - `nodeSetting.region`
+
 ```bash
-# Removes a deployed Airnode instance
+# Removes a deployed Airnode instance.
 
 Options:
       --version             Show version number                   [boolean]
@@ -114,6 +127,8 @@ Options:
   -c, --cloudProvider       Cloud provider                        [string]
   -e, --region              Region                                [string]
 
-  #Example
+  #Examples
   deployer remove --receipt myOutput/receipt.json
+
+  deployer remove --airnodeAddressShort abd9eaa --stage dev --cloudProvider aws --region us-east-1
 ```
