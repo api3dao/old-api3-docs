@@ -204,8 +204,8 @@ section.
 
 ## Step #3: Capture the Response
 
-As soon as the Airnode gets a request it will gather the data and start an
-on-chain transaction responding to the request. The Airnode calls the
+As soon as the Airnode gets a request it will gather the data, encode it and
+start an on-chain transaction responding to the request. The Airnode calls the
 AirnodeRrp.sol contract function `fulfill()` which in turn will call the
 requester, in this case, at `airnodeCallback`. Recall the request supplied the
 request contract address and the desired callback function which the
