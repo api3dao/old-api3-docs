@@ -147,8 +147,11 @@ received a successful response from the API provider.
 > 2.  <p class="diagram-line" style="color:green;">If AirnodeRrp.fulFill() fails internally or the underlying low level call to myFulFill() reverts then Airnode will start the process in step #3 to fail the request.</p>
 > 3.  <p class="diagram-line" style="color:green;">If Airnode errors, or is told by AirnodeRrp.fulFill() to error, it calls AirnodeRrp.fail() which removes the request from the pending list of requestIds on-chain.</p>
 
-:::tip Important to Note Fulfill is the only outcome that returns results to a
-requester contract. :::
+::: tip Important to Note
+
+Fulfill is the only outcome that returns results to a requester contract.
+
+:::
 
 For a successful request, Airnode calls the `fulfill()` function in
 AirnodeRrp.sol that will in turn call back the requester contract at
