@@ -245,7 +245,8 @@ contract MyRequester is RrpRequester {
 
 ### Response Parameters
 
-The callback to a requester will contain three parameters.
+The callback to a requester will contain two parameters as shown in the
+`airnodeCallback` function in the code sample above.
 
 - **requestId**: First acquired when making the request and passed here as a
   reference to identify which request the response is for.
