@@ -21,7 +21,7 @@ function of AirnodeRrp.sol.
 > 1.  <p class="diagram-line">The requester calls makeFullRequest() on the AirnodeRrp protocol contract.</p>
 > 2.  <p class="diagram-line">makeFullRequest() assigns a requestId to the request for tracking purposes, adds the requestId to storage, emits the request to the event logs and returns the requestId to the requester.</p>
 > 3.  <p class="diagram-line" style="color:gray;">Airnode, during its run cycle, picks the request from the event logs.</p>
-> 4.  <p class="diagram-line" style="color:blue;">Airnode gets data from the API.</p>
+> 4.  <p class="diagram-line" style="color:blue;">Airnode gets data from the API and encodes it. The encoded response must have length at most 1024 bytes. (This is negligible in practice, since large responses are costly to store)</p>
 > 5.  <p class="diagram-line" style="color:green;">Airnode sends the response to fulFill() in AirnodeRrp which in turn removes the pending requestId from storage and forwards the response to myFulFill(). The requestId is included as part of the response.</p>
 
 Learn more on how to [Call an Airnode](../grp-developers/call-an-airnode.md).
