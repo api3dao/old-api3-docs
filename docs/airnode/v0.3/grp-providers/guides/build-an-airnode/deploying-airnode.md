@@ -16,6 +16,7 @@ next step is to deploy the Airnode.
 ::: tip Complete the following before deploying your Airnode.
 
 - [API Integration](api-integration.md)
+- [API Security](api-security.md)
 - [Configuring Airnode](configuring-airnode.md)
 - [Applying Authorization](./apply-auth.md) optional
 - [Heartbeat](./heartbeat.md) optional
@@ -59,7 +60,6 @@ my-airnode
 │   ├── config.json
 │   └── secrets.env
 └── output
-    ├── receipt.json
 ```
 
 From the root of the project directory run the Docker
@@ -99,8 +99,8 @@ docker run -it --rm ^
 
 ::::
 
-When the deployment is complete a
-`receipt.json' file is placed into the `/output` folder.
+When the deployment is complete a `receipt.json` file is placed into the
+`/output` folder.
 
 ### receipt.json
 
