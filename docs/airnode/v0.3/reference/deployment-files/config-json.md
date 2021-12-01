@@ -6,7 +6,7 @@ title: config.json
 
 # {{$frontmatter.title}}
 
-<TocHeader /> 
+<TocHeader />
 <TOC class="table-of-contents" :include-level="[2, 4]" />
 
 The `config.json` defines a single Airnode deployment. The file contents are a
@@ -123,8 +123,11 @@ An object containing general deployment parameters of an Airnode.
 // nodeSettings
 {
   "nodeVersion": "0.3.0",
-  "cloudProvider": "aws",
-  "region": "us-east-1",
+  "cloudProvider": {
+    "type": "gcp",
+    "region": "us-east1",
+    "projectId": "${PROJECT_ID}"
+  },
   "stage": "testnet",
   "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
   "heartbeat": {
@@ -144,11 +147,27 @@ An object containing general deployment parameters of an Airnode.
 
 ### `cloudProvider`
 
-(required) - The cloud provider that the node will be deployed at. Currently,
-only `aws` is supported for serverless
+(required) - The cloud provider that the node will be deployed at and its
+configuration.
+
+#### `cloudProvider.type`
+
+(required) - Currently `aws` and `gcp` are supported for serverless
 ([deployer-image](../../grp-providers/docker/deployer-image.md)). Use `local` if
 you want to run Airnode as a docker container locally
 ([client-image](../../grp-providers/docker/client-image.md)).
+
+#### `cloudProvider.region`
+
+(required for AWS and GCP) - The cloud provider region that the node will be
+deployed at. See the cloud provider's documentation for possible values. When
+using GCP, make sure to choose a
+[**zone** not a location](https://cloud.google.com/compute/docs/regions-zones)
+
+#### `cloudProvider.projectId`
+
+(required for GCP) - Project ID of the GCP project the Airnode will be deployed
+under.
 
 ### `airnodeWalletMnemonic`
 
@@ -180,6 +199,7 @@ purposes.
 ### `httpGateway`
 
 The Airnode's HTTP gateway to test out endpoints without using the blockchain.
+Currently supported only by AWS cloud provider.
 
 #### `httpGateway.enabled`
 
@@ -203,11 +223,6 @@ The Airnode's HTTP gateway to test out endpoints without using the blockchain.
 
 (required) - The version of the node (Airnode) that will be deployed with this
 config object.
-
-### `region`
-
-(required) - The cloud provider region that the node will be deployed at. See
-the cloud provider's documentation for possible values.
 
 ### `stage`
 

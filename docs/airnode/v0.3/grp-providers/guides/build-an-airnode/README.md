@@ -38,7 +38,7 @@ The main focus of creating an Airnode is the preparation of three files that
 both define and support its creation.
 
 - `config.json`: Defines the Airnode and its behavior.
-- `secrets.env `: Hold secrets referenced by `config.json` using interpolation.
+- `secrets.env`: Hold secrets referenced by `config.json` using interpolation.
 - `aws.env`: Holds the AWS credentials used by the Docker deployer image to
   deploy the Airnode to AWS.
 

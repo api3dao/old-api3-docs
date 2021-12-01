@@ -73,6 +73,15 @@ module.exports = [
               'grp-providers/tutorial/quick-deploy-aws/aws-env',
             ],
           },
+          {
+            title: 'Quick Deploy GCP',
+            collapsable: true,
+            children: [
+              'grp-providers/tutorial/quick-deploy-gcp/',
+              'grp-providers/tutorial/quick-deploy-gcp/config-json',
+              'grp-providers/tutorial/quick-deploy-gcp/secrets-env',
+            ],
+          },
         ],
       },
       //'grp-providers/validator',

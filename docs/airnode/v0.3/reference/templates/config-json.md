@@ -48,7 +48,10 @@ building a config.json file.
     }
   ],
   "nodeSettings": {
-    "cloudProvider": "aws",
+    "cloudProvider": {
+      "type": "aws",
+      "region": "<FILL_*>"
+    },
     "airnodeWalletMnemonic": "<FILL_*>",
     "heartbeat": {
       "enabled": true,
@@ -63,7 +66,6 @@ building a config.json file.
     "logFormat": "json",
     "logLevel": "INFO",
     "nodeVersion": "0.3.0",
-    "region": "<FILL_*>",
     "stage": "<FILL_*>"
   },
   "triggers": {

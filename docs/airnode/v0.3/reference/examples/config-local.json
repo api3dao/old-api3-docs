@@ -15,7 +15,9 @@
     }
   ],
   "nodeSettings": {
-    "cloudProvider": "local",
+    "cloudProvider": {
+      "type": "local"
+    },
     "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
     "httpGateway": {
       "enabled": false

@@ -28,8 +28,10 @@ Turn on the optional heartbeat functionality by setting all fields in the
   environment:{...},
   nodeSettings:{
       "nodeVersion": "0.3.0",
-      "cloudProvider": "aws",
-      "region": "us-east-1",
+      "cloudProvider": {
+        "type": "aws",
+        "region": "us-east-1"
+      },
       "stage": "testnet",
       "airnodeWalletMnemonic": "<FILL_*>",
       "heartbeat": {

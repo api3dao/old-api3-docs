@@ -16,7 +16,7 @@ Airnode is deployed with two files:
   Airnode deployments will use.
 
 - [aws.env](./aws-env.md) is the file that holds credentials if the Airnode is
-  deployed to a cloud provider like AWS. It is required by the Docker
+  deployed to AWS cloud provider. It is required by the Docker
   [deployer image](../../grp-providers/docker/deployer-image.md).
 
 Airnode deployments utilizes secrets such as security scheme values (i.e., API
@@ -25,8 +25,8 @@ standard shell variable interpolation syntax (e.g. `${VARIABLE}`) to insert
 values from `secrets.env`. That way the secrets are kept separately but are
 available as part of the configuration during the Airnode runtime.
 
-The `config.json` file does reference values in `aws.env` as it is read directly
-by the deployer image.
+The `config.json` file does NOT reference values in `aws.env` as it is read
+directly by the deployer image.
 
 The deployer image outputs a [`receipt.json`](receipt-json.md) file after
 deployment, which contains information about the deployment that can be referred

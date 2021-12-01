@@ -147,7 +147,10 @@ The `nodeSettings` field holds node-specific (Airnode) configuration parameters.
 ```json
 {
 "nodeSettings": {
-    "cloudProvider": "aws",
+    "cloudProvider": {
+      "type": "aws",
+      "region": "us-east-1"
+    },
     "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
     "heartbeat": {
       "enabled": true,
@@ -162,7 +165,6 @@ The `nodeSettings` field holds node-specific (Airnode) configuration parameters.
     "logFormat": "plain",
     "logLevel": "INFO",
     "nodeVersion": "0.3.0",
-    "region": "us-east-1",
     "stage": "dev"
   },
 ```
@@ -170,13 +172,23 @@ The `nodeSettings` field holds node-specific (Airnode) configuration parameters.
 #### cloudProvider
 
 [<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#cloudprovider)
-Indicates which cloud provider Airnode should be deployed with or if it should
-be run locally. The deployer currently supports `aws` or `local`.
+Indicates which cloud provider Airnode should be deployed with and its
+configuration. There are currently three options available: `aws`, `gcp`
+(deployed using the docker [deployer-image](../../docker/deployer-image.md)) and
+`local` (deployed using the docker
+[client-image](../../docker/client-image.md)).
 
-- `aws`: Airnode is deployed using the docker
-  [deployer-image](../../docker/deployer-image.md).
-- `local`: Airnode is deployed using the docker
-  [client-image](../../docker/client-image.md).
+- type: Type of the cloud provider. Can be `aws`, `gcp` or `local`.
+- region: (AWS and GCP only) Refers to which region of the cloud provider
+  Airnode will be deployed at. An example value for AWS would be `us-east-1`.
+  When using GCP, use
+  [**zone** not a location](https://cloud.google.com/compute/docs/regions-zones).
+  Note that transferring a deployment from one region to the other is not
+  trivial at this moment (i.e., it does not take one command like deployment,
+  but rather three). Therefore, try to pick a region and stick to it for this
+  specific deployment.
+- projectId: (GCP only) Project ID of the GCP project the Airnode will be
+  deployed under.
 
 #### airnodeWalletMnemonic
 
@@ -237,16 +249,6 @@ Indicates which node (Airnode) version this `config.json` is prepared for. Since
 the `config.json` format can be expected to change with node versions, using a
 `config.json` prepared for one Airnode version with another may result in
 unexpected issues. The current node version is `1.0.0`.
-
-#### region
-
-[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#region)
-This field can be seen as an extension of `cloudProvider`, it refers to which
-region of the cloud provider Airnode will be deployed at. An example value for
-AWS would be `us-east-1`. Note that transferring a deployment from one region to
-the other is not trivial at this moment (i.e., it does not take one command like
-deployment, but rather three). Therefore, try to pick a region and stick to it
-for this specific deployment.
 
 #### stage
 
@@ -388,9 +390,11 @@ refer to
 [Reference > Deployment Files > secrets.env](../../../reference/deployment-files/secrets-env.md)
 as needed.
 
-## Creating `aws.env`
+## AWS setup (AWS deployment only)
 
-When it is time to deploy the Airnode to a cloud provider (AWS), the Docker
+### Creating `aws.env` (AWS only)
+
+When it is time to deploy the Airnode to AWS, the Docker
 [deployer image](../../docker/deployer-image.md) will need the AWS credentials
 to build the node on AWS Lambda.
 
@@ -407,11 +411,45 @@ AWS_SECRET_ACCESS_KEY=ABC7...89
 Here is an [example file](../../../reference/templates/aws-env.md) that is left
 blank.
 
+## GCP setup (GCP deployment only)
+
+### Creating a GCP project
+
+First, you need to
+[create a GCP project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
+under which will the Airnode be deployed. Once the project is created, insert
+its project ID into your [config.json](./configuring-airnode.md#cloudProvider).
+
+### Enable required APIs
+
+In order for Airnode to deploy sucessfully, you need to enable these APIs for
+your GCP project:
+
+- [CloudFunction API](https://console.cloud.google.com/apis/library/cloudfunctions.googleapis.com)
+- [Cloud Build API](https://console.cloud.google.com/apis/library/cloudbuild.googleapis.com)
+- [Cloud Scheduler API](https://console.cloud.google.com/apis/library/cloudscheduler.googleapis.com)
+
+After enabling these, wait a few minutes before the deployment itself so the
+changes will take place.
+
+### Obtain credentials
+
+The easiest way to obtain GCP credentials is via
+[Google Cloud SDK](https://cloud.google.com/sdk/docs/install). Once installed,
+run the following command to retrieve your
+[Application Default Credentials](https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login):
+
+```bash
+gcloud auth application-default login --project <PROJECT ID>
+```
+
+where `<PROJECT ID>` is your project ID.
+
 ## Summary
 
-In this guide you created the `config.json`, `secrets.env` and `aws.env` files
-required to deploy an Airnode to a cloud provider (AWS). Note that `config.json`
-is user-specific and therefore it is not much use to others.
+In this guide you created the `config.json`, `secrets.env` and obtained cloud
+provider credentials required to deploy an Airnode to a cloud provider. Note
+that `config.json` is user-specific and therefore it is not much use to others.
 
 The `secrets.env`and `aws.env` files contains keys, chain provider urls and
 security credentials, so they should be kept secret. Make sure that you do not
