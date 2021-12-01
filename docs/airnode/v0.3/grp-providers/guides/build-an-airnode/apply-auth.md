@@ -20,13 +20,6 @@ This guide focuses on the usage of these concepts. See the
 two authorization methods. You can use one or the other, or both at the same
 time.
 
-Complete the following before applying authorizers or integrating relay security
-schemes.
-
-- [API Integration](./api-integration.md)
-- [Configuring Airnode](./configuring-airnode.md)
-- [Security schemes](./api-integration.md#security-schemes)
-
 When you deployed your Airnode a receipt file was generated. In it is the
 Airnode's `airnodeAddress`. Sponsors (via their sponsored requesters) use
 `airnodeAddress` and an `endpointId` to make requests to your Airnode's
@@ -109,11 +102,15 @@ To use the RequesterAuthorizerWithAirnode authorizer:
 Once implemented, only requester contract addresses you have added to
 RequesterAuthorizerWithAirnode will have access to your Airnode.
 
-## Relay security schemes
+## Relay Security Schemes
 
-Simply define the relay security schemes you want to use for your API.
+Define the relay security schemes you want to use for your API. See the
+[Supported Security Schemes](./api-security.md#supported-security-schemes)
+section of the API Security doc for more details about _relay security schemes_.
 
-For example
+In the following example Airnode will relay the requester address (named
+`requesterAddress`) to the API operation. The value of `requesterAddress` will
+either be in the body for a POST request or query string for a GET request.
 
 ```json
 {
@@ -138,7 +135,3 @@ For example
   ]
 }
 ```
-
-Airnode will relay the requester address for each received request through
-`requesterAddress` name passed to your API. It will either be body for POST
-requests or query string for GET requests.

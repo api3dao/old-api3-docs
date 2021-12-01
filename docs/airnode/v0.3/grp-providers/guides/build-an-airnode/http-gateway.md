@@ -1,5 +1,5 @@
 ---
-title: HTTP Gateway
+title: HTTP Gateway (optional)
 ---
 
 <TitleSpan>Build an Airnode</TitleSpan>
@@ -18,12 +18,6 @@ only available when deploying an Airnode to a cloud provider's serverless
 service.
 
 > ![gateway](../../../assets/images/gateway.png)
-
-::: warning HTTP Gateway (optional)
-
-Using the HTTP gateway functionality with Airnode is optional.
-
-:::
 
 ## Setup
 
