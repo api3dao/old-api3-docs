@@ -6,7 +6,7 @@ title: Reserved parameters
 
 # {{$frontmatter.title}}
 
-<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,4]" />
 
 A requester can pass request parameters either by referencing a
 [template](../../concepts/template.md) that contains them, or as an argument of
@@ -25,18 +25,18 @@ either case, these parameters are encoded using the
 Signifies what Solidity type the API response will be encoded to before
 fulfillment.
 
-We support most common
+Support is provided for most common
 [solidity types](https://docs.soliditylang.org/en/latest/abi-spec.html#types),
-but for example, we do not support
+but the following are not supported.
 
 - Custom bits integer types - e.g. `uint32` or `uint8`
 - Fixed point decimal numbers - e.g. `fixed128x18` or `ufixed128x18`
 - Custom fixed size bytes - e.g. `bytes4`
 - Tuples - e.g. `(int256, string)`
 
-On top of supported solidity types, we support a few "artificial" types, that we
-created for special purposes that would otherwise be hard or impossible to
-represent
+On top of supported solidity types, there is support for a few "artificial"
+types created for special purposes that would otherwise be hard or impossible to
+represent.
 
 - [`string32`](reserved-parameters.md#string32-encoded-to-bytes32-on-chain)
 - [`timestamp`](reserved-parameters.md#timestamp-encoded-to-uint256-on-chain)
@@ -59,9 +59,7 @@ using the following
 ethers.utils.defaultAbiCoder.encode([solidityType], [value]);
 ```
 
-#### Supported primitive values
-
-We support the following primitive values
+#### Supported Primitive Values
 
 - `int256`
 - `uint256`
@@ -163,7 +161,7 @@ The `_path` defined as `"strange.key"` will not work. As workaround you can
 
 :::
 
-### Escaping separators
+### Escaping Separators
 
 In rare cases, when the `_path` to the API response would contain `,` or `.`
 (comma or a dot) things get a bit complicated. Those symbols have a very
@@ -215,7 +213,7 @@ The `_times` parameter also works in conjunction with arrays and
 multidimensional arrays. All elements of the API response array will be
 multiplied before they are encoded.
 
-## Encoding multiple values
+## Encoding Multiple Values
 
 Solidity has support for decoding and "destructuring" multiple values. For
 example
