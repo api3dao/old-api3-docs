@@ -7,7 +7,7 @@ title: API Integration
 # {{$frontmatter.title}}
 
 <TocHeader />
-<TOC class="table-of-contents" :include-level="[2,5]" />
+<TOC class="table-of-contents" :include-level="[2,4]" />
 
 A successful integration of an API with an Airnode requires the mapping of each
 other's interface. This is accomplished using an OIS
@@ -19,7 +19,8 @@ basic steps.
 - Airnode endpoints are specified
 - Airnode endpoints are mapped to API operations
 
-> ![api-integration-ois](../../../assets/images/api-integration-ois.png) >
+<!-- prettier-ignore-->
+> ![api-integration-ois](../../../assets/images/api-integration-ois.png)
 > <br/><br/>
 >
 > <p class="diagram-line">The OIS object in config.json contains mapping information of API operations to Airnode endpoint definitions.</p>
@@ -259,9 +260,9 @@ the non-nested application/json content-type is supported.
 
 It is not necessary to specify all API operation parameters, but only the ones
 the on-chain requester will need to be able to provide (see Airnode endpoint
-[parameters](api-integration.md#parameters)), and the ones that you want to
+[parameters](./api-integration.md#parameters)), and the ones that you want to
 hard-code a value for (see Airnode endpoint
-[fixed operation parameters](api-integration.md#fixedoperationparameters)).
+[fixed operation parameters](./api-integration.md#fixedoperationparameters)).
 
 ```json
 "paths": {
@@ -319,303 +320,7 @@ it will not return an error if omitted.
 | ------ | ------- | ----- | ----- |
 | GET    | /tokens | query | limit |
 
-### Security schemes
-
-OIS security is inspired by OAS security practices. This is implemented using
-the security schemes and security field. Working with security schemes can be
-described in three steps
-
-1. [Define the security schemes for an OIS](api-integration.md#define-the-security-schemes-for-an-ois)
-2. [Turn on the defined security schemes](api-integration.md#turn-on-the-defined-security-schemes)
-3. [Specify the values for the defined security schemes](api-integration.md#specify-the-values-for-the-defined-security-schemes)
-
-All supported security schemes are described in detail in the
-[supported security schemes section](api-integration.md#supported-security-schemes).
-
-#### Security scheme example
-
-Here is an example of a partial `config.json` which demonstrates the usage of
-security scheme and security field.
-
-```json
-{
-  "ois": [
-    {
-      "title": "My OIS title",
-      "apiSpecifications": {
-        "components": {
-          "securitySchemes": {
-            "requiresXApiKey": {
-              "in": "header",
-              "type": "apiKey",
-              "name": "X-api-key"
-            }
-          }
-        },
-        "security": {
-          "requiresXApiKey": []
-        }
-      }
-    }
-  ],
-  "apiCredentials": [
-    {
-      "oisTitle": "My OIS title",
-      "securitySchemeName": "requiresXApiKey",
-      "securitySchemeValue": "${X_API_KEY}"
-    }
-  ]
-}
-```
-
-#### Define the security schemes for an OIS
-
-You use `ois[n].apiSpecifications.components.securitySchemes` to define the
-security schemes your API will use. Consider the partial `config.json` above
-that declares a security scheme named "requiresXApiKey". This scheme declares
-that the API requires an API key that must exist in the HTTP header named
-"X-api-key".
-
-#### Turn on the defined security schemes
-
-When the scheme is defined, it is not turned on by default. You need to
-explicitely list the security schemes you intend to use in the `security` field
-located in `ois[n].apiSpecifications.security` object. The keys in this object
-are the names of security schemes to be used. Use empty array (`[]`) as values
-for now.
-
-_We are aware that this step seems like extra work since there is no reason to
-define a security schema that will not be used. However, we may support
-[more complex authentication](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#security-requirement-object)
-logic in the future and using `[]` allows us to implement it without a breaking
-change._
-
-#### Specify the values for the defined security schemes
-
-We showed how to define and turn on a security scheme, but it is still unclear
-who provides the value and how it is set - we will describe this in depth in
-this section.
-
-The authentication schemes are intended to be common for the whole OIS and set
-by the API provider using `apiCredentials` part of the `config.json`. The
-`apiCredentials` is an array which specifies the values for all security schemes
-in all OIS definitions. Each element of this array contains the following fields
-
-- `oisTitle` is the title of the OIS for the particular security scheme
-- `securitySchemeName` is the name of the security scheme
-- `securitySchemeValue` is the actual value that should be used by Airnode when
-  making the API request. This value is usually a secret and it is recommended
-  to interpolate it from `secrets.env`.
-
-If you want to base your API authentication on dynamic data, for example
-[requester](../../concepts/requester.html) address, you can utilize the "relay"
-security schemes [described below](api-integration.md#relayrequesteraddress)
-which can forward this data to your API.
-
-::: warning Relay security schemes do not require a scheme value
-
-The "relay" security schemes do not require the value, because it will be
-provided (relayed) by Airnode depending on the particular request.
-
-:::
-
-#### Supported security schemes
-
-Each security scheme has a certain type specified by the required `type`
-property inside the security scheme definition. We support the following
-security scheme types
-
-- [`apiKey`](api-integration.md#apikey)
-- [`http`](api-integration.md#http)
-- [`relayRequesterAddress`](api-integration.md#relayrequesteraddress)
-- [`relayChainId`](api-integration.md#relaychainid)
-- [`relayChainType`](api-integration.md#relaychaintype)
-
-##### apiKey
-
-The `apiKey` security schema type allows you to define an API key for your API.
-It is an object which consists of the following fields
-
-- `type` must be `apiKey`
-- `in` can be one of the `query`, `header` or `cookie`. This value specifies how
-  should the value be sent to your API.
-
-::: warning Using the "query" option
-
-When using the `query` option, the API key will be sent in the request body for
-POST requests and in query string for GET requests.
-
-:::
-
-- `name` is the name of the API key that should be sent to your API. For example
-  "X-Api-Key".
-
-Schema definition example:
-
-```json
-{
-  "requiresXApiKey": {
-    "in": "header",
-    "type": "apiKey",
-    "name": "X-api-key"
-  }
-}
-```
-
-and `apiCredentials` example:
-
-```json
-{
-  "oisTitle": "Ois Title",
-  "securitySchemeName": "requiresXApiKey",
-  "securitySchemeValue": "${X_API_KEY}" // interpolated from secrets.env
-}
-```
-
-##### http
-
-The `http` security schema type allows you to define a `basic` or `bearer`
-authentication. It consists of the following fields
-
-- `type` must be `http`
-- `scheme` is either `basic` or `bearer`
-
-Schema definition example:
-
-```json
-{
-  "requiresBasicAuth": {
-    "scheme": "basic",
-    "type": "http"
-  }
-}
-```
-
-and `apiCredentials` example:
-
-```json
-{
-  "oisTitle": "Ois Title",
-  "securitySchemeName": "requiresBasicAuth",
-  "securitySchemeValue": "${BASE_64_ENCODED_BASIC_AUTH}" // interpolated from secrets.env
-}
-```
-
-This security schema will always be sent in the headers. The security scheme
-value should be base64 encoded value "username:password" for `basic` auth and
-the encoded token for `bearer` auth.
-
-##### relayRequesterAddress
-
-The `relayRequesterAddress` security schema type instructs Airnode to forward
-the [requester](../../concepts/requester.html) address to your API. The schema
-definition is similar to the [`apiKey`](api-integration.md#apikey), however the
-`type` must be `relayRequesterAddress`.
-
-Schema definition example:
-
-```json
-{
-  "in": "header",
-  "type": "relayRequesterAddress",
-  "name": "requesterAddress"
-}
-```
-
-since this value will be relayed by Airnode, there is no `apiCredentials`
-definition.
-
-Note that Airnode is just relaying (forwarding) the requester address to your
-API and does not perform any additional logic. If you intend to implement some
-logic based on the requester, you need to do so in the implementation of your
-API.
-
-##### relayChainId
-
-The `relayChainId` security schema type instructs Airnode to forward the chain
-id to your API. The schema definition is similar to the
-[`apiKey`](api-integration.md#apikey), however the `type` must be
-`relayChainId`.
-
-Schema definition example:
-
-```json
-{
-  "in": "query",
-  "type": "relayChainId",
-  "name": "chainId"
-}
-```
-
-since this value will be relayed by Airnode, there is no `apiCredentials`
-definition.
-
-##### relayChainType
-
-The `relayChainType` security schema type instructs Airnode to forward the chain
-type to your API. The schema definition is similar to the
-[`apiKey`](api-integration.md#apikey), however the `type` must be
-`relayChainType`.
-
-Schema definition example:
-
-```json
-{
-  "in": "query",
-  "type": "relayChainType",
-  "name": "chainType"
-}
-```
-
-since this value will be relayed by Airnode, there is no `apiCredentials`
-definition.
-
-#### API Operations needing different security schemes
-
-Currently, if you want different API routes to use different security schemes
-(or some use none) they must be grouped in different OIS objects based on their
-common security schemes. For example, your API has four operations, three
-require an API key in the HTTP header, another (public `/ping` endpoint)
-requires no security.
-
-- The first three API operations might be in the `ois[0]` object with a security
-  scheme named _requiresXApiKey_ of type _apiKey_ as shown above.
-- The /ping API operation would be in `ois[1]` which would not have any
-  `component.securitySchemes` and `security` would be an empty array.
-
-#### Multiple security schemes
-
-You can use multiple security schemes (e.g., an API key goes in the header, and
-an additional secret goes in the query).
-
-```json
-// inside ois[n].apiSpecifications.
-"components": {
-  "securitySchemes": {
-    "requiresXApiKey": {
-      "type": "apiKey",
-      "in": "header",
-      "name": "X-api-key"
-    },
-    "specificQuerySecret": {
-      "type": "apiKey",
-      "in": "query",
-      "name": "secret"
-    }
-  }
-},
-"security": {
-  "requiresXApiKey": [],
-  "specificQuerySecret": []
-}
-```
-
-#### No Security
-
-If the API you are integrating is publicly accessible, you can set both the
-`security schemes` and `security` fields to empty objects.
-
-<!--------------- STEP 3 ---------------->
+<!--------------- STEP 1 ---------------->
 
 ## Step 3: Specifying Airnode Endpoints
 
@@ -628,8 +333,8 @@ For example, if your API operation returns an asset price given its ticker
 ticker as a parameter. The resulting endpoint would be a general one that
 returns prices for any kind of asset. On the other hand, you can hardcode `BTC`
 as the asset whose price will be returned (using
-[fixed operation parameters](./api-integration.md#fixedoperationparameters)),
-which would make your endpoint a specific one that only returns the BTC price.
+[fixed operation parameters](./api-security.md#fixedoperationparameters)), which
+would make your endpoint a specific one that only returns the BTC price.
 
 The recommended endpoint definition pattern is to create an Airnode endpoint for
 each API operation, and allow the requesters to provide all operation parameters
