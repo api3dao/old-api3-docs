@@ -9,10 +9,10 @@ title: Configuring Airnode
 <TocHeader />
 <TOC class="table-of-contents" :include-level=[2,5] />
 
-::: tip Tips
+::: tip Complete the following before configuring your Airnode.
 
-Be sure to complete [API Integration](api-integration.md) before configuring
-your Airnode.
+- [API Integration](api-integration.md)
+- [API Security](api-security.md)
 
 [<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md)
 This icon links to additional field information in the reference section.

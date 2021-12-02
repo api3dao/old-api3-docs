@@ -27,7 +27,6 @@ my-airnode
 │   ├── config.json
 │   └── secrets.env
 └── output
-    ├── receipt.json
 ```
 
 Within this project, build out the configuration files and run the deployment.
@@ -44,8 +43,8 @@ both define and support its creation.
 
 ## Deployment
 
-Lastly is the deployment. There are two ways to run the Airnode. The most
-popular is with a cloud provider like AWS. You would use the Docker
+Last is the deployment. There are two ways to run the Airnode. The most popular
+is with a cloud provider like AWS or GCP. You would use the Docker
 [deployer image](../docker/../../docker/deployer-image.md) for this type of
 deployment. This guide (Build an Airnode) will use the deployer image.
 
@@ -56,6 +55,7 @@ Docker [client image](../../docker/client-image.md) for this type of deployment.
 Complete the following to build and deploy an Airnode.
 
 - [API Integration](api-integration.md)
+- [API Security](api-security.md)
 - [Configuring Airnode](configuring-airnode.md)
 - [Applying Authorization](./apply-auth.md) optional
 - [Heartbeat](./heartbeat.md) optional

@@ -8,7 +8,7 @@ module.exports = [
   {
     title: 'API Providers',
     initialOpenGroupIndex: 0,
-    collapsable: false,
+    collapsable: true,
     children: [
       'grp-providers/', // Routes to the README.md in grp-providers
       {
@@ -26,6 +26,7 @@ module.exports = [
         children: [
           'grp-providers/guides/build-an-airnode/',
           'grp-providers/guides/build-an-airnode/api-integration',
+          'grp-providers/guides/build-an-airnode/api-security',
           'grp-providers/guides/build-an-airnode/configuring-airnode',
           'grp-providers/guides/build-an-airnode/apply-auth',
           {
@@ -90,7 +91,7 @@ module.exports = [
   {
     title: 'Developers',
     initialOpenGroupIndex: 0,
-    collapsable: false,
+    collapsable: true,
     children: [
       'grp-developers/', // Routes to the README.md in grp-developers
       'grp-developers/requesters-sponsors',
@@ -121,7 +122,7 @@ module.exports = [
   {
     title: 'Reference',
     initialOpenGroupIndex: -1,
-    collapsable: true,
+    collapsable: false,
     children: [
       {
         title: 'Specifications',

@@ -1,5 +1,5 @@
 ---
-title: HTTP Gateway (AWS only)
+title: HTTP Gateway (optional)
 ---
 
 <TitleSpan>Build an Airnode</TitleSpan>
@@ -17,12 +17,6 @@ in confirmation your integration is set up properly. The HTTP gateway feature is
 only available when deploying an Airnode to AWS cloud provider.
 
 > ![gateway](../../../assets/images/gateway.png)
-
-::: warning HTTP Gateway (optional)
-
-Using the HTTP gateway functionality with Airnode is optional.
-
-:::
 
 ## Setup
 
