@@ -75,11 +75,12 @@ Airnode uses it for different reasons:
   _set-and-forget_ possible.
 - Serverless functions are priced on-demand. Especially considering that Airnode
   will not require major concurrent usage, this will result in great
-  cost-efficiency (and even let the user stay below
-  [Free Tier](https://aws.amazon.com/free) limits).
+  cost-efficiency (and even let the user stay below free tier
+  ([AWS](https://aws.amazon.com/free), [GCP](https://cloud.google.com/free))
+  limits).
 - Bare serverless functions are easy to port across cloud providers (e.g., using
-  [Serverless Framework](https://www.serverless.com/)), especially when their
-  cloud provider-specific dependencies are limited.
+  [Terraform Framework](https://www.terraform.io/)), especially when their cloud
+  provider-specific dependencies are limited.
 
 ## Approach to security
 

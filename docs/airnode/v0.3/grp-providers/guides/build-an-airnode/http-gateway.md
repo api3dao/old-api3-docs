@@ -14,8 +14,7 @@ gateway allows the testing of defined Airnode endpoints without accessing the
 blockchain. You provide endpoint arguments directly to the Airnode with a tool.
 of your choice and get a response from an integrated API operation. This results
 in confirmation your integration is set up properly. The HTTP gateway feature is
-only available when deploying an Airnode to a cloud provider's serverless
-service.
+only available when deploying an Airnode to AWS cloud provider.
 
 > ![gateway](../../../assets/images/gateway.png)
 
@@ -30,7 +29,10 @@ Enable the HTTP gateway by setting two fields in the config.json
 
 ```json
 "nodeSettings": {
-  "cloudProvider": "aws",
+  "cloudProvider": {
+    "type": "aws",
+    "region": "us-east-1"
+  },
   "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
   "heartbeat": {...},
   "httpGateway": {

@@ -3,12 +3,12 @@
     {
       "authorizers": [],
       "contracts": {
-        "AirnodeRrp": "0x534DfA0d242e7fDCFD096C2B1a3D70F172008778"
+        "AirnodeRrp": "0xC11593B87f258672b8eB02d9A723a429b15E9E03"
       },
       "id": "4",
       "providers": {
-        "rinkeby": {
-          "url": "${RINKEBY_PROVIDER_URL}"
+        "myChainProvider": {
+          "url": "${CHAIN_PROVIDER_URL}"
         }
       },
       "type": "evm"
@@ -16,19 +16,13 @@
   ],
   "nodeSettings": {
     "cloudProvider": {
-      "type": "aws",
-      "region": "us-east-1"
+      "type": "gcp",
+      "region": "us-east1",
+      "projectId": "${PROJECT_ID}"
     },
     "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
     "heartbeat": {
-      "enabled": true,
-      "apiKey": "${HEARTBEAT_API_KEY}",
-      "id": "${HEARTBEAT_ID}",
-      "url": "${HEARTBEAT_URL}"
-    },
-    "httpGateway": {
-      "enabled": true,
-      "apiKey": "${HTTP_GATEWAY_API_KEY}"
+      "enabled": false
     },
     "logFormat": "plain",
     "logLevel": "INFO",
@@ -39,7 +33,7 @@
     "rrp": [
       {
         "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
-        "oisTitle": "CoinGecko basic request",
+        "oisTitle": "CoinGecko Basic Request",
         "endpointName": "coinMarketData"
       }
     ]
@@ -47,7 +41,7 @@
   "ois": [
     {
       "oisFormat": "1.0.0",
-      "title": "CoinGecko basic request",
+      "title": "CoinGecko Basic Request",
       "version": "1.0.0",
       "apiSpecifications": {
         "servers": [
@@ -103,6 +97,7 @@
             "method": "get",
             "path": "/coins/{id}"
           },
+          "testable": true,
           "fixedOperationParameters": [
             {
               "operationParameter": {

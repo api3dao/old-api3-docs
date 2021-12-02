@@ -34,8 +34,10 @@ Example receipt:
   },
   "deployment": {
     "airnodeAddressShort": "a30ca71",
-    "cloudProvider": "aws",
-    "region": "us-east-1",
+    "cloudProvider": {
+      "type": "aws",
+      "region": "us-east-1"
+    },
     "stage": "starter-example",
     "nodeVersion": "0.3.0"
   },

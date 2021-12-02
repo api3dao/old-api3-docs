@@ -29,11 +29,29 @@ pre-configured Airnode using the deployer image.
 
 ## Cloud Provider Credentials
 
-In order to deploy Airnode to a serverless cloud provider like AWS, you need to
-provide could provider credentials to the Airnode deployer image. The deployer
-image currently supports deploying to AWS. If you are new to AWS watch this
+In order to deploy Airnode to a serverless cloud provider, you need to provide
+could provider credentials to the Airnode deployer image. The deployer image
+currently supports deploying to AWS and GCP.
+
+### AWS
+
+If you are new to AWS watch this
 [video](https://www.youtube.com/watch?v=KngM5bfpttA) to set up an AWS account
 and create cloud provider credentials.
+
+### GCP
+
+- Create a
+  [Google Cloud project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
+- Enable
+  [CloudFunction API](https://console.cloud.google.com/apis/library/cloudfunctions.googleapis.com),
+  [Cloud Build API](https://console.cloud.google.com/apis/library/cloudbuild.googleapis.com)
+  and
+  [Cloud Scheduler API](https://console.cloud.google.com/apis/library/cloudscheduler.googleapis.com)
+  for your project
+- Install [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) and
+  obtain your
+  [Application Default Credentials](https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login)
 
 ## `deploy`
 
@@ -42,12 +60,14 @@ if it already exists. Three files are needed to run the deploy command.
 
 - config.json
 - secrets.env
-- aws.env
+- aws.env (AWS only)
 
 A `receipt.json` file will be created upon completion. It contains some
 deployment information and is used to remove the Airnode.
 
 <DeployerPermissionsWarning/>
+
+# AWS
 
 :::: tabs
 
@@ -80,10 +100,37 @@ docker run -it --rm ^
 
 ::::
 
+### GCP
+
+:::: tabs
+
+::: tab Linux/Mac/WSL2
+
+```sh
+docker run -it --rm \
+  -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
+  -v "${HOME}/.config/gcloud:/app/gcloud"
+  -v "$(pwd)/config:/app/config" \
+  -v "$(pwd)/output:/app/output" \
+  api3/airnode-deployer:0.3.0 deploy
+```
+
+:::
+
+::: tab Windows
+
+<!-- TODO, not sure how GCP credentials will be obtained on Windows and where will they be stored -->
+
+:::
+
+::::
+
 ## `remove`
 
 When an Airnode was deployed using the `deploy` command a `receipt.json` file
 was created. Use this file to remove an Airnode.
+
+### AWS
 
 :::: tabs
 
@@ -108,6 +155,31 @@ docker run -it --rm ^
   -v "%cd%/output:/app/output" ^
   api3/airnode-deployer:0.3 remove -r output/receipt.json
 ```
+
+:::
+
+::::
+
+### GCP
+
+:::: tabs
+
+::: tab Linux/Mac/WSL2
+
+```sh
+docker run -it --rm \
+  -v "${HOME}/.config/gcloud:/app/gcloud"
+  -v "$(pwd)/output:/app/output" \
+  api3/airnode=deployer:0.3.0 remove -r output/receipt.json
+```
+
+:::
+
+::: tab Windows
+
+For Windows, use CMD (and not PowerShell).
+
+<!-- TODO, not sure how GCP credentials will be obtained on Windows and where will they be stored -->
 
 :::
 

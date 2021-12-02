@@ -21,10 +21,10 @@ console.log('++++++++++++++++++++++++\n');
  *
  * @param {string} vrs The version of the docs the folder is in, v0.3, v1.1
  * @param {string} folder The folder that the tutorial is in.
- * @param {boolean}} includeAWS If there is an aws.env file to include
+ * @param {string} provider What provider are files packed for
  */
-async function run(vrs, folder, includeAWS) {
-  console.log(includeAWS);
+async function run(vrs, folder, provider) {
+  console.log(provider);
   try {
     var zip = new JSZip();
 
@@ -39,7 +39,7 @@ async function run(vrs, folder, includeAWS) {
       'utf8'
     );
     let awsData;
-    if (includeAWS) {
+    if (provider === 'aws') {
       // prettier-ignore
       awsData = fs.readFileSync(
         'docs/airnode/' + vrs + '/grp-providers/tutorial/' + folder + '/src/aws.env',
@@ -52,8 +52,10 @@ async function run(vrs, folder, includeAWS) {
       .folder('config')
       .file('config.json', configData)
       .file('secrets.env', secretsData);
-    if (includeAWS) {
+    if (provider === 'aws') {
       zip.folder(folder).file('aws.env', awsData);
+    }
+    if (provider !== 'local') {
       zip.folder(folder).folder('output');
     }
 
@@ -75,5 +77,6 @@ async function run(vrs, folder, includeAWS) {
   }
 }
 
-run('v0.3', 'quick-deploy-aws', true);
-run('v0.3', 'quick-deploy-container', false);
+run('v0.3', 'quick-deploy-aws', 'aws');
+run('v0.3', 'quick-deploy-gcp', 'gcp');
+run('v0.3', 'quick-deploy-container', 'local');

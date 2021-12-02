@@ -16,6 +16,10 @@ part.
   guide is a straight forward starter to create an Airnode on AWS. This
   deployment type is a typical production environment.
 
+- **Quick Deploy GCP** or [Deploying Airnode to GCP](./quick-deploy-gcp/): This
+  guide is a straight forward starter to create an Airnode on GCP. This
+  deployment type is a typical production environment.
+
 - **Quick Deploy Container** or
   [Deploying Airnode to a Docker Container](./quick-deploy-container/): This
   guide is a straight forward starter to create an Airnode locally in a Docker
@@ -32,5 +36,6 @@ of the Airnode repo.
 - Run Airnode as a docker container locally, but connected to the hardhat
   (local) network.
 - Deploy Airnode on AWS and use the Rinkeby network.
+- Deploy Airnode on GCP and use the Rinkeby network.
 
 :::

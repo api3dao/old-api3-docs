@@ -152,7 +152,6 @@ Options:
   -c, --configuration, --config, --conf  Path to configuration file       [string] [default: "config/config.json"]
   -s, --secrets                          Path to secrets file             [string] [default: "config/secrets.env"]
   -r, --receipt                          Output path for receipt file     [string] [default: "output/receipt.json"]
-      --interactive                      Run in interactive mode          [boolean] [default: true]
 
 # Example
 deployer deploy --config myConfig/config.json --secrets myConfig/secrets.env -r myOutput/receipt.json
@@ -163,28 +162,30 @@ deployer deploy --config myConfig/config.json --secrets myConfig/secrets.env -r 
 An Airnode can be removed using the remove command two different ways.
 
 - **Best:** With a deployment receipt created when the Airnode was deployed.
-- **Alternate:** With the Airnode short address and AWS specifications. The
-  `airnodeShortAddress` is used in the AWS console within the names of the
-  Lambda functions. The other values can be found in `config.json`.
-  - `nodeSetting.cloudProvider`
+- **Alternate:** With the Airnode short address and cloud provider
+  specifications. The `airnodeShortAddress` is used in the cloud console within
+  the names of the serverless functions. The other values can be found in
+  `config.json`.
+  - `nodeSetting.cloudProvider.type`
+  - `nodeSetting.cloudProvider.region`
+  - `nodeSetting.cloudProvider.projectId` (GCP only)
   - `nodeSetting.stage`
-  - `nodeSetting.region`
 
 ```bash
 # Removes a deployed Airnode instance.
 
-Options:
-      --version             Show version number                   [boolean]
-      --debug               Run in debug mode                     [boolean] [default: false]
-      --help                Show help                             [boolean]
-  -r, --receipt             Path to receipt file                  [string]
-  -a, --airnodeAddressShort Airnode address (short version)       [string]
-  -s, --stage               Stage (environment)                   [string]
-  -c, --cloudProvider       Cloud provider                        [string]
-  -e, --region              Region                                [string]
+      --version                Show version number                [boolean]
+      --debug                  Run in debug mode                  [boolean] [default: false]
+      --help                   Show help                          [boolean]
+  -r, --receipt                Path to receipt file               [string]
+  -a, --airnode-address-short  Airnode Address (short version)    [string]
+  -s, --stage                  Stage (environment)                [string]
+  -c, --cloud-provider         Cloud provider                     [choices: "aws", "gcp"]
+  -e, --region                 Region                             [string]
+  -p, --project-id             Project ID (GCP only)              [string]
 
   #Examples
   deployer remove --receipt myOutput/receipt.json
 
-  deployer remove --airnodeAddressShort abd9eaa --stage dev --cloudProvider aws --region us-east-1
+  deployer remove --airnode-address-short abd9eaa --stage dev --cloud-provider aws --region us-east-1
 ```
