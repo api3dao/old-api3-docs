@@ -6,11 +6,9 @@ title: config.json
 
 # {{$frontmatter.title}}
 
-<!-- TODO: This URL needs a repo tag for v0.2.0 -->
-
 :::: tabs
 
-::: tab Local Chain
+::: tab Local Chain/Airnode
 
 You can also view this example
 [config.json](https://github.com/api3dao/airnode/blob/v0.3/packages/airnode-node/config/config.json.example)
@@ -20,13 +18,13 @@ in the Airnode repo.
 
 :::
 
-::: tab Chain Provider
+::: tab Cloud Chain/Airnode
 
 You can also view this example
 [config.json](https://github.com/api3dao/airnode/blob/v0.3/packages/airnode-deployer/config/config.json.example)
 in the Airnode repo.
 
-<<< @/docs/airnode/v0.3/reference/examples/config-provider.json
+<<< @/docs/airnode/v0.3/reference/examples/config-cloud.json
 
 :::
 

@@ -126,7 +126,7 @@ An object containing general deployment parameters of an Airnode.
   "cloudProvider": {
     "type": "gcp",
     "region": "us-east1",
-    "projectId": "${PROJECT_ID}"
+    "projectId": "${GCP_PROJECT_ID}"
   },
   "stage": "testnet",
   "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",

@@ -17,7 +17,8 @@
   "nodeSettings": {
     "cloudProvider": {
       "type": "aws",
-      "region": "us-east-1"
+      "region": "us-east-1",
+      "projectId": "${GCP_PROJECT_ID}" // Used for type=gcp only
     },
     "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
     "heartbeat": {
