@@ -21,4 +21,7 @@ HEARTBEAT_ID="<FILL_*>"
 HEARTBEAT_URL="<FILL_*>"
 
 HTTP_GATEWAY_API_KEY="<FILL_*>"
+
+# Used for GCP only
+GCP_PROJECT_ID="<FILL_*>"
 ```

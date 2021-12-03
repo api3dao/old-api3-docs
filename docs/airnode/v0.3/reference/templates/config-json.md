@@ -21,8 +21,7 @@ explain contents of the template.
 
 Consider the following relationships.
 
-- `ois[0].title` is related to `triggers.rrp[0].oisTitle` when they share the
-  same field name.
+- `ois[0].title` is related to `triggers.rrp[0].oisTitle`.
 
 - `ois[0].apiSpecifications.paths[path][method].parameters[0].in` shows up in
   `ois[0].endpoints[0].fixedOperationParameters[0].operationParameter.in`
@@ -49,8 +48,9 @@ building a config.json file.
   ],
   "nodeSettings": {
     "cloudProvider": {
-      "type": "aws",
-      "region": "<FILL_*>"
+      "type": "aws", // local, aws or gcp
+      "region": "<FILL_*>",
+      "projectId": "${GCP_PROJECT_ID}" // Use for type=gcp only
     },
     "airnodeWalletMnemonic": "<FILL_*>",
     "heartbeat": {
