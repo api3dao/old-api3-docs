@@ -105,11 +105,14 @@ docker run -it --rm ^
 
 ### GCP
 
+The location of the credentials file for GCP varies depending on which operating
+system you use.
+
 :::: tabs
 
 ::: tab Linux/Mac/WSL2
 
-```
+```sh
 docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
   -v "${HOME}/.config/gcloud:/app/gcloud"
@@ -124,7 +127,13 @@ docker run -it --rm \
 
 For Windows, use CMD (and not PowerShell).
 
-<!-- TODO, not sure how GCP credentials will be obtained on Windows and where will they be stored -->
+```sh
+docker run -it --rm ^
+  -v "%cd%/config:/app/config" ^
+  -v "%cd%/output:/app/output" ^
+  -v "C:/Users/<username>/AppData/Roaming/gcloud:/app/gcloud" ^
+  api3/airnode-deployer:0.3.0 deploy
+```
 
 :::
 
@@ -207,6 +216,9 @@ docker run -it --rm ^
 
 ### GCP
 
+The location of the credentials file for GCP varies depending on which operating
+system you use.
+
 :::: tabs
 
 ::: tab Linux/Mac/WSL2
@@ -224,7 +236,12 @@ docker run -it --rm \
 
 For Windows, use CMD (and not PowerShell).
 
-<!-- TODO, not sure how GCP credentials will be obtained on Windows and where will they be stored -->
+```sh
+docker run -it --rm ^
+  -v "%cd%/output:/app/output" ^
+  -v "C:/Users/<username>/AppData/Roaming/gcloud:/app/gcloud" ^
+  api3/airnode-deployer:0.3.0 remove -r output/receipt.json
+```
 
 :::
 
