@@ -141,6 +141,9 @@ Airnode.
 Run the following command to deploy the demo Airnode. Note that the version of
 `api3/airnode-deployer` matches the `nodeVersion` in the config.json file.
 
+If you deploy to GCP, the location of the credentials file will vary depending
+on which operating system you use.
+
 :::: tabs
 
 ::: tab Linux/Mac/WSL2
@@ -160,7 +163,14 @@ docker run -it --rm \
 
 For Windows, use CMD (and not PowerShell).
 
-<!-- TODO, not sure how GCP credentials will be obtained on Windows and where will they be stored -->
+```sh
+docker run -it --rm \
+  -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
+  -v "${HOME}/.config/gcloud:/app/gcloud"
+  -v "$(pwd)/config:/app/config" \
+  -v "$(pwd)/output:/app/output" \
+  api3/airnode-deployer:0.3.0 deploy
+```
 
 :::
 
@@ -190,6 +200,9 @@ When you are done with this demo you can remove it. When the Airnode was
 deployed a `receipt.json` file was created in the `/output` folder. This file is
 needed to remove an Airnode.
 
+If you deployed the Airnode to GCP, the location of the credentials file will
+vary depending on which operating system you use.
+
 :::: tabs
 
 ::: tab Linux/Mac/WSL2
@@ -207,7 +220,12 @@ docker run -it --rm \
 
 For Windows, use CMD (and not PowerShell).
 
-<!-- TODO, not sure how GCP credentials will be obtained on Windows and where will they be stored -->
+```sh
+docker run -it --rm ^
+  -v "%cd%/output:/app/output" ^
+  -v "C:/Users/<username>/AppData/Roaming/gcloud:/app/gcloud" ^
+  api3/airnode-deployer:0.3.0 remove -r output/receipt.json
+```
 
 :::
 
