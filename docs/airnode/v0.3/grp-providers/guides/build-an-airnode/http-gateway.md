@@ -16,6 +16,12 @@ of your choice and get a response from an integrated API operation. This results
 in confirmation your integration is set up properly. The HTTP gateway feature is
 only available when deploying an Airnode to AWS cloud provider.
 
+::: warning HTTP Gateway Support
+
+As of this release HTTP Gateway is only supported for AWS Airnode deployments.
+
+:::
+
 > ![gateway](../../../assets/images/gateway.png)
 
 ## Setup
