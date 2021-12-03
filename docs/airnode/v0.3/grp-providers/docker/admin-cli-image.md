@@ -10,7 +10,7 @@ title: Airnode Admin CLI Image
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 <!-- TODO: link [docker hub](https://hub.docker.com/r/api3/airnode-admin) once image is published -->
-<!-- TODO: link [Airnode repository](https://github.com/api3dao/airnode/tree/v0.2/packages/airnode-admin/docker) once image is published -->
+<!-- TODO: link [Airnode repository](https://github.com/api3dao/airnode/tree/v0.3/packages/airnode-admin/docker) once image is published -->
 
 Use the admin CLI image as an alternative method to execute
 [Admin CLI Commands](../../reference/packages/admin-cli.md) using npx. Either
