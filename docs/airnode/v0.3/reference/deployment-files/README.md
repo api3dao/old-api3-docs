@@ -28,6 +28,6 @@ available as part of the configuration during the Airnode runtime.
 The `config.json` file does NOT reference values in `aws.env` as it is read
 directly by the deployer image.
 
-The deployer image outputs a [`receipt.json`](receipt-json.md) file after
+The deployer image outputs a [receipt.json](receipt-json.md) file after
 deployment, which contains information about the deployment that can be referred
 to later on for interaction or removal.
