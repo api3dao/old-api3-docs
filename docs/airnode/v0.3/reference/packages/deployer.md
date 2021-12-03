@@ -146,12 +146,14 @@ deployment and can be used to remove the Airnode.
 # This can be used for a new deployment or to update an existing deployment.
 
 Options:
-      --version                          Show version number              [boolean]
-      --debug                            Run in debug mode                [boolean] [default: false]
-      --help                             Show help                        [boolean]
-  -c, --configuration, --config, --conf  Path to configuration file       [string] [default: "config/config.json"]
-  -s, --secrets                          Path to secrets file             [string] [default: "config/secrets.env"]
-  -r, --receipt                          Output path for receipt file     [string] [default: "output/receipt.json"]
+      --version                          Show version number                                                   [boolean]
+      --debug                            Run in debug mode                                    [boolean] [default: false]
+      --skip-version-check               Allow deployments even if the nodeVersion in config.json does not match the
+                                         deployer version                                     [boolean] [default: false]
+      --help                             Show help                                                             [boolean]
+  -c, --configuration, --config, --conf  Path to configuration file             [string] [default: "config/config.json"]
+  -s, --secrets                          Path to secrets file                   [string] [default: "config/secrets.env"]
+  -r, --receipt                          Output path for receipt file          [string] [default: "output/receipt.json"]
 
 # Example
 deployer deploy --config myConfig/config.json --secrets myConfig/secrets.env -r myOutput/receipt.json
@@ -174,18 +176,20 @@ An Airnode can be removed using the remove command two different ways.
 ```bash
 # Removes a deployed Airnode instance.
 
-      --version                Show version number                [boolean]
-      --debug                  Run in debug mode                  [boolean] [default: false]
-      --help                   Show help                          [boolean]
-  -r, --receipt                Path to receipt file               [string]
-  -a, --airnode-address-short  Airnode Address (short version)    [string]
-  -s, --stage                  Stage (environment)                [string]
-  -c, --cloud-provider         Cloud provider                     [choices: "aws", "gcp"]
-  -e, --region                 Region                             [string]
-  -p, --project-id             Project ID (GCP only)              [string]
+Options:
+      --version                Show version number                                                             [boolean]
+      --debug                  Run in debug mode                                              [boolean] [default: false]
+      --skip-version-check     Allow deployments even if the nodeVersion in config.json does not match the deployer
+                               version                                                        [boolean] [default: false]
+      --help                   Show help                                                                       [boolean]
+  -r, --receipt                Path to receipt file                                                             [string]
+  -a, --airnode-address-short  Airnode Address (short version)                                                  [string]
+  -s, --stage                  Stage (environment)                                                              [string]
+  -c, --cloud-provider         Cloud provider                                                    [choices: "aws", "gcp"]
+  -e, --region                 Region                                                                           [string]
+  -p, --project-id             Project ID (GCP only)                                                            [string]
 
-  #Examples
-  deployer remove --receipt myOutput/receipt.json
-
-  deployer remove --airnode-address-short abd9eaa --stage dev --cloud-provider aws --region us-east-1
+# Examples
+deployer remove --receipt myOutput/receipt.json
+deployer remove --airnode-address-short abd9eaa --stage dev --cloud-provider aws --region us-east-1
 ```
