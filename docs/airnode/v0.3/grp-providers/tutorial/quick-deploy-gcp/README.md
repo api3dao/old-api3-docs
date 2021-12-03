@@ -148,7 +148,7 @@ Run the following command to deploy the demo Airnode. Note that the version of
 ```sh
 docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
-  -v "${HOME}/.config/gcloud:/app/gcloud"
+  -v "${HOME}/.config/gcloud:/app/gcloud" \
   -v "$(pwd)/config:/app/config" \
   -v "$(pwd)/output:/app/output" \
   api3/airnode-deployer:0.3.0 deploy
