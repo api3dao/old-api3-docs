@@ -123,6 +123,8 @@ docker run --detach \
 
 ::: tab Windows CMD
 
+For Windows, use CMD (and not PowerShell).
+
 ```sh
 docker run --detach ^
   --volume %cd%/config:/app/config ^

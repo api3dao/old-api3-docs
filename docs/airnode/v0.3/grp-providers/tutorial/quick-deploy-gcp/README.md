@@ -158,6 +158,8 @@ docker run -it --rm \
 
 ::: tab Windows
 
+For Windows, use CMD (and not PowerShell).
+
 <!-- TODO, not sure how GCP credentials will be obtained on Windows and where will they be stored -->
 
 :::
@@ -196,7 +198,7 @@ needed to remove an Airnode.
 docker run -it --rm \
   -v "${HOME}/.config/gcloud:/app/gcloud"
   -v "$(pwd)/output:/app/output" \
-  api3/airnode=deployer:0.3.0 remove -r output/receipt.json
+  api3/airnode-deployer:0.3.0 remove -r output/receipt.json
 ```
 
 :::
