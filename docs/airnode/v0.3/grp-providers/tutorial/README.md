@@ -29,7 +29,7 @@ part.
 ::: tip Additional Examples
 
 There are additional examples of Airnode deployments in the
-[examples package](https://github.com/api3dao/airnode/tree/v0.2/packages/airnode-examples)
+[examples package](https://github.com/api3dao/airnode/tree/v0.3/packages/airnode-examples)
 of the Airnode repo.
 
 - Run Airnode as a docker container locally while connected to Rinkeby network.

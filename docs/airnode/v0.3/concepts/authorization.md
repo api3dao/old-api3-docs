@@ -13,8 +13,9 @@ An Airnode can authorize requester contract access to its underlying API using
 two methods.
 
 - Authorizers - using authorizer contracts.
-- Relay security schemes - described in a
-  [separate document](../grp-providers/guides/build-an-airnode/api-integration.html#security-schemes)
+- Relay security schemes - described in the build an airnode
+  [API Security](../grp-providers/guides/build-an-airnode/api-security.html#supported-security-schemes)
+  doc.
 
 <divider/>
 
@@ -159,7 +160,7 @@ wide-spread adoption.
 ### Are authorizers required?
 
 Authorizers are not required. An Airnode operator could use
-[relay security schemes](../grp-providers/guides/build-an-airnode/api-integration.html#security-schemes)
+[relay security schemes](../grp-providers/guides/build-an-airnode/api-security.html#supported-security-schemes)
 to authorize API access (e.g. by [requester](./requester.html) address). And it
 is possible to use both authorizers and relay security schemes together.
 

@@ -4,6 +4,7 @@ module.exports = {
    * List all base routes that are to become versions here.
    */
   versions: [
+    { name: 'v0.3', url: '/airnode/v0.3/' },
     { name: 'v0.2', url: '/airnode/v0.2/' },
     { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
   ],
@@ -11,7 +12,7 @@ module.exports = {
    * Indicates the path to the latest Airnode version.
    * Used by sub-sites component.
    */
-  latestVersion: '/airnode/v0.2/',
+  latestVersion: '/airnode/v0.3/',
   head: [['link', { rel: 'icon', href: '/img/small-logo.png' }]],
   title: 'Documentation',
   base: '/',
@@ -21,7 +22,7 @@ module.exports = {
     extractHeaders: ['h2', 'h3', 'h4', 'h5'],
   },
   themeConfig: {
-    startPath: '/airnode/v0.2/',
+    startPath: '/airnode/v0.3/',
     sidebarDepth: 0,
     displayAllHeaders: false,
     logo: '/img/logo.png',

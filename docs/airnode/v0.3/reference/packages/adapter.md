@@ -10,7 +10,7 @@ title: Adapter
 <TOC class="table-of-contents" :include-level="[2,4]" />
 
 The
-[airnode-adapter](https://github.com/api3dao/airnode/tree/v0.2/packages/airnode-adapter)
+[airnode-adapter](https://github.com/api3dao/airnode/tree/v0.3/packages/airnode-adapter)
 package has multiple responsibilities. It is used for building requests from an
 [Oracle Integration Specification (OIS)](../../grp-providers/guides/build-an-airnode/api-integration.html#ois-template),
 executing them, parsing the responses, but also converting and encoding them for

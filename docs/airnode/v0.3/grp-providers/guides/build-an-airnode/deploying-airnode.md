@@ -29,7 +29,7 @@ next step is to deploy the Airnode.
 The recommended way to deploy Airnode is by using the Docker
 [deployer image](../../docker/deployer-image.md). This image is simply a wrapper
 around the
-[deployer CLI](https://github.com/api3dao/airnode/tree/v0.2/packages/airnode-deployer).
+[deployer CLI](https://github.com/api3dao/airnode/tree/v0.3/packages/airnode-deployer).
 Try out the [Quick Deploy](../../tutorial/) tutorial if you wish to become
 familiar with the deployer image first.
 
@@ -170,14 +170,20 @@ should you choose.
 }
 ```
 
-## Testing with HTTP Gateway (AWS only)
+## Testing with HTTP Gateway
+
+::: warning HTTP Gateway Support
+
+As of this release HTTP Gateway is only supported for AWS Airnode deployments.
+
+:::
 
 If you opted to enable the HTTP Gateway it can be used to test the Airnode while
 bypassing the chain it was deployed to. There are two examples in other docs
 that detail how to do this.
 
 - [HTTP Gateway](./http-gateway.md#using-curl)
-- [Quick Deploy](../../tutorial/README.md#test-the-airnode)
+- [Quick Deploy AWS](../../tutorial/quick-deploy-aws/#test-the-airnode)
 
 ## Removing the Airnode
 

@@ -21,4 +21,4 @@ may specify the request such that the request is fulfilled by the Airnode
 calling back another contract.
 
 See the
-[Airnode requester examples](https://github.com/api3dao/airnode/tree/v0.2/packages/airnode-examples/contracts).
+[Airnode requester examples](https://github.com/api3dao/airnode/tree/v0.3/packages/airnode-examples/contracts).
