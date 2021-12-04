@@ -17,48 +17,36 @@ All plugins are installed as
 
 ## VuePress Plugins
 
-There Vuepress plugins are used and added by VuePress when a project is created.
-They only need to be updated as new releases come forward. The versions of each
+Vuepress plugins are used and added by VuePress when a project is created. They
+only need to be updated as new releases come forward. The versions of each
 should always be in sync (the same). These plugins are not explained further in
 this document.
 
-- @vuepress/plugin-back-to-top
-- @vuepress/plugin-medium-zoom
-- vuepress
+### @vuepress/plugin-back-to-top
+
+Places an up arrow in hte bottom right corner that takes the reader to the top
+of the current page.
+
+### @vuepress/plugin-medium-zoom
+
+Causes a click on an image to bring the image full screen. Enlarging the image
+is not guaranteed.
+
+### @vuepress/last-updated
+
+By default, this plugin produces a 13-bit timestamp for each page, you can also
+pass in a transformer to convert it to any format that you want.
 
 ### @vuepress/plugin-html-redirect
 
-The following Vuepress plugin is used to establish redirects for external sites
-that wish to target a particular page in the docs while using a permanent link
-in its code.
-
-- @vuepress/plugin-html-redirect
-
-For example: `/latest/members` will always be pointed to the latest version of
-the docs. These mappings are in the `docs/.vuepress/redirects` file.
-
-```bash
-# When pre-alpha is the latest version,
-/latest /airnode/pre-alpha
-/airnode /airnode/pre-alpha
-...
-
-# it changes to 0.2 when 0.2.x becomes the latest version.
-/latest/ /airnode/v0.2
-/airnode /airnode/v0.2
-...
-```
-
-Note that a redirect is to a directory path and not to a file. There must be a
-README.md file in the directory that Vuepress can display. Going to an file will
-cause a problem in production and display a counter. However this will not
-happen in development. Most likely this is a problem with the plugin as at Jul,
-5th 2021.
+The `@vuepress/plugin-html-redirect` plugin is used to establish static
+redirects for external sites. See the [Redirects](./redirects.md) doc for
+details
 
 ## Community Plugins
 
-api3-docs uses a few community plugins and packages to enhance the user
-experience.
+The docs use a few community plugins and packages to enhance the reader
+experience and to validate certain content.
 
 - v-click-outside
 - vuepress-plugin-element-tabs

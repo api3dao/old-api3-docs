@@ -12,7 +12,7 @@ module.exports = {
    * Indicates the path to the latest Airnode version.
    * Used by sub-sites component.
    */
-  latestVersion: '/airnode/v0.3/',
+  latestVersion: '/airnode/v0.3/', // enhanceApp.js expects the leading and trailing / to be present
   head: [['link', { rel: 'icon', href: '/img/small-logo.png' }]],
   title: 'Documentation',
   base: '/',
