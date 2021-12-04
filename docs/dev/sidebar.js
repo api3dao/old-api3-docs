@@ -14,6 +14,7 @@ module.exports = [
       '/dev/github-actions',
       '/dev/link-validator',
       '/dev/zip-files.md',
+      '/dev/redirects.md',
       '/dev/prettier',
       '/dev/deployment',
       '/dev/quirks',
