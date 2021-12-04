@@ -333,8 +333,8 @@ For example, if your API operation returns an asset price given its ticker
 ticker as a parameter. The resulting endpoint would be a general one that
 returns prices for any kind of asset. On the other hand, you can hardcode `BTC`
 as the asset whose price will be returned (using
-[fixed operation parameters](./api-security.md#fixedoperationparameters)), which
-would make your endpoint a specific one that only returns the BTC price.
+[fixed operation parameters](./api-integration.md#fixedoperationparameters)),
+which would make your endpoint a specific one that only returns the BTC price.
 
 The recommended endpoint definition pattern is to create an Airnode endpoint for
 each API operation, and allow the requesters to provide all operation parameters

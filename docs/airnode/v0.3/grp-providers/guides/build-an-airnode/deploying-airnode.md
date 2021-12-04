@@ -183,7 +183,7 @@ bypassing the chain it was deployed to. There are two examples in other docs
 that detail how to do this.
 
 - [HTTP Gateway](./http-gateway.md#using-curl)
-- [Quick Deploy](../../tutorial/README.md#test-the-airnode)
+- [Quick Deploy AWS](../../tutorial/quick-deploy-aws/#test-the-airnode)
 
 ## Removing the Airnode
 
