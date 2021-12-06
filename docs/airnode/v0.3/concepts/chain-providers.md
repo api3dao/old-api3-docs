@@ -9,7 +9,7 @@ title: Chain Providers
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Chain providers provide access to an evm on behave of an API provider. Your
+Chain providers provide access to an evm on behalf of an API provider. Your
 Airnode will interact with one or more chain providers and respond to requests.
 You can use multiple chain providers for each chain and declare multiple chains
 each with one of more chain providers. Below are some of the chain providers you
@@ -68,7 +68,7 @@ Multiple providers can be used per chain. Simply add another object to
         "url": "${INFURA_RINKEBY_PROVIDER_URL}"
       },
       "infura_ropsten": {
-        "url": "${INFURA_ROPSTEN_PROVIDER_URL}"
+        "url": "${ALCHEMY_RINKEBY_PROVIDER_URL}"
       }
     ]
   }
@@ -96,7 +96,7 @@ each has a unique `id` and `type` and a list of `providers` for each.
         "url": "${INFURA_RINKEBY_PROVIDER_URL}"
       },
       "infura_ropsten": {
-        "url": "${INFURA_ROPSTEN_4_PROVIDER_URL}"
+        "url": "${ALCHEMY_RINKEBY_PROVIDER_URL}"
       }
     ]
   },
@@ -111,7 +111,7 @@ each has a unique `id` and `type` and a list of `providers` for each.
     "type": "evm",
     "providers": [
       "infura_ropsten": {
-        "url": "${INFURA_ROPSTEN_3_PROVIDER_URL}"
+        "url": "${INFURA_ROPSTEN_PROVIDER_URL}"
       }
     ]
   }
