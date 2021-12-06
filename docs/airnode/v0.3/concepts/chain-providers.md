@@ -9,7 +9,7 @@ title: Chain Providers
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Chain providers provide access to an evm on behave of an API provider. Your
+Chain providers provide access to an evm on behalf of an API provider. Your
 Airnode will interact with one or more chain providers and respond to requests.
 You can use multiple chain providers for each chain and declare multiple chains
 each with one of more chain providers. Below are some of the chain providers you
