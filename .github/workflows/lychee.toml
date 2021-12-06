@@ -71,6 +71,7 @@ exclude = [
   "github.com/.*.git",
   "api3.eth.link",
   "config@1.0.0",
+  ".*/NOT-A-REAL-FILE.html",
 ]
 
 # Exclude URLs contained in a file from checking
