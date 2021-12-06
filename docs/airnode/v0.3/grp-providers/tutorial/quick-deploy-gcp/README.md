@@ -164,11 +164,10 @@ docker run -it --rm \
 For Windows, use CMD (and not PowerShell).
 
 ```sh
-docker run -it --rm \
-  -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
-  -v "${HOME}/.config/gcloud:/app/gcloud"
-  -v "$(pwd)/config:/app/config" \
-  -v "$(pwd)/output:/app/output" \
+docker run -it --rm ^
+  -v "%cd%/config:/app/config" ^
+  -v "%cd%/output:/app/output" ^
+  -v "%AppData%/gcloud:/app/gcloud" ^
   api3/airnode-deployer:0.3.0 deploy
 ```
 
@@ -223,7 +222,7 @@ For Windows, use CMD (and not PowerShell).
 ```sh
 docker run -it --rm ^
   -v "%cd%/output:/app/output" ^
-  -v "C:/Users/<username>/AppData/Roaming/gcloud:/app/gcloud" ^
+  -v "%AppData%/gcloud:/app/gcloud" ^
   api3/airnode-deployer:0.3.0 remove -r output/receipt.json
 ```
 

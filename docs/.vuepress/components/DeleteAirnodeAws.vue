@@ -5,12 +5,9 @@ https://renatello.com/dynamic-drop-down-list-in-vue-js/
 <template>
   <span>
     <p>
-      Optionally you can remove your Airnode from AWS manually though it is
-      highly recommended that you do so using the deployer image's
-      <code>remove</code> command. Airnode has a presence in several areas of
-      AWS. An Airnode has a <code>airnodeAddressShort</code> (e.g.,
-      <code>0ab830c</code>) that is included in the named elements of the
-      following AWS features.
+      Airnode has a presence in several areas of AWS. An Airnode has a
+      <code>airnodeAddressShort</code> (e.g., <code>0ab830c</code>) that is
+      included in the named elements of the following AWS features.
     </p>
 
     <p style="color: #a52a2a">
