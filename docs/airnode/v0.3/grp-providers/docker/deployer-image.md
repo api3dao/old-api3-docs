@@ -53,7 +53,7 @@ and create cloud provider credentials.
   obtain your
   [Application Default Credentials](https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login)
 
-## `deploy`
+## deploy
 
 The `deploy` command will create the Airnode with a cloud provider or update it
 if it already exists. Three files are needed to run the deploy command.
@@ -67,7 +67,7 @@ deployment information and is used to remove the Airnode.
 
 <DeployerPermissionsWarning/>
 
-# AWS
+### AWS
 
 :::: tabs
 
@@ -134,7 +134,7 @@ docker run -it --rm ^
 
 ::::
 
-## `remove`
+## remove
 
 When an Airnode was deployed using the `deploy` command a `receipt.json` file
 was created. Use this file to remove an Airnode.
