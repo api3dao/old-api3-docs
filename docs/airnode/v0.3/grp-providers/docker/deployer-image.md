@@ -126,7 +126,7 @@ docker run -it --rm \
 docker run -it --rm ^
   -v "%cd%/config:/app/config" ^
   -v "%cd%/output:/app/output" ^
-  -v "C:/Users/<username>/AppData/Roaming/gcloud:/app/gcloud" ^
+  -v "%AppData%/gcloud:/app/gcloud" ^
   api3/airnode-deployer:0.3.0 deploy
 ```
 
@@ -194,7 +194,7 @@ For Windows, use CMD (and not PowerShell).
 ```sh
 docker run -it --rm ^
   -v "%cd%/output:/app/output" ^
-  -v "C:/Users/<username>/AppData/Roaming/gcloud:/app/gcloud" ^
+  -v "%AppData%/gcloud:/app/gcloud" ^
   api3/airnode-deployer:0.3.0 remove -r output/receipt.json
 ```
 
@@ -203,5 +203,10 @@ docker run -it --rm ^
 ::::
 
 ## Manual Removal
+
+Optionally you can remove an Airnode manually though it is highly recommended
+that you do so using the deployer image's `remove` command.
+
+### AWS
 
 <DeleteAirnodeAws/>
