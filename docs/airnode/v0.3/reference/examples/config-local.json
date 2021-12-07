@@ -15,10 +15,10 @@
     }
   ],
   "nodeSettings": {
+    "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
     "cloudProvider": {
       "type": "local"
     },
-    "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
     "httpGateway": {
       "enabled": false
     },
@@ -28,7 +28,6 @@
     "logFormat": "plain",
     "logLevel": "INFO",
     "nodeVersion": "0.3.1",
-    "region": "us-east-1",
     "stage": "dev"
   },
   "triggers": {
