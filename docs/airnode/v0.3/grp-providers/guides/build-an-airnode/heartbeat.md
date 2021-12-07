@@ -21,7 +21,7 @@ Turn on the optional heartbeat functionality by setting all fields in the
   chains:{...},
   environment:{...},
   nodeSettings:{
-      "nodeVersion": "0.3.0",
+      "nodeVersion": "0.3.1",
       "cloudProvider": {
         "type": "aws",
         "region": "us-east-1"

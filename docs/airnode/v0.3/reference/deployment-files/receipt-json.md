@@ -39,7 +39,7 @@ Example receipt:
       "region": "us-east-1"
     },
     "stage": "starter-example",
-    "nodeVersion": "0.3.0"
+    "nodeVersion": "0.3.1"
   },
   "api": {
     "heartbeatId": "74dc44a1ee65",
