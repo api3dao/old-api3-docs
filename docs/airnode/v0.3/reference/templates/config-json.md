@@ -65,7 +65,7 @@ building a config.json file.
     },
     "logFormat": "json",
     "logLevel": "INFO",
-    "nodeVersion": "0.3.0",
+    "nodeVersion": "0.3.1",
     "stage": "<FILL_*>"
   },
   "triggers": {
