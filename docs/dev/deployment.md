@@ -79,13 +79,26 @@ of the /dist folder gets the latest from all contributors.
    - Return to your local repo and switch to the main branch.
    - Pull remote main to local main.
 
-4. Verify the proper versions (**versions key**) are listed in config.json.
-   Currently there is only one version `pre-alpha`.
+4. Verify the proper versions are listed in config.json.
 
    ```json
-     versions:[
-       {name:'pre-alpha', url:'/pre-alpha/'},
-     ],
+    versions: [
+      { name: 'v0.3', url: '/airnode/v0.3/' },
+      { name: 'v0.2', url: '/airnode/v0.2/' },
+      { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
+    ],
+   ```
+
+   Check the currentVersion in config.json.
+
+   ```json
+   latestVersion: '/airnode/v0.3/',
+   ```
+
+   Check the startPath in config.json.
+
+   ```json
+   startPath: '/airnode/v0.3/',
    ```
 
 5. Deploy

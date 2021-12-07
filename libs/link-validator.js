@@ -9,22 +9,21 @@ var colors = require('colors');
 const oust = require('oust');
 const axios = require('axios');
 const { getSystemErrorMap } = require('util');
+//const { versions } = require('process');
 
 /**
- * node index.js http:localhost:8080 docs/.vuepress/dist
+ * node ./libs/link-validator.js  http://127.0.0.1:8082  ./docs/.vuepress/dist/airnode/v0.3
  * Gather args
  * [2] (baseURL) the target URL (http://localhost:8080) for link verification.
  * [3] (distDir) is the sub-directory (usually dist) with the html docs. If /dist is
- *     used then all folders are validated. Suggest that you narrow the scope.
- *     The following are suggested folders to check as needed:
+ *     used then all folders are validated. Suggest narrowing the scope.
+ *     The following (partial list) are suggested folders to check.
  *
- *     /dist/airnode/pre-alpha
  *     /dist/dao-members
  *     /dist/common
- *     /dist/airnode/v0.2
+ *     /dist/airnode/v0.3
  *     /dist/airnode/next
  *     /dist/dev
- *     /dist/dev-airnode
  */
 const baseURL = process.argv[2];
 const distDir = process.argv[3];
@@ -116,7 +115,54 @@ async function run(task) {
   console.log('\n');
 }
 
-function loadRedirects() {
+/**
+ * Validates monorepo README links that point back to the docs.
+ * Reads a list of READMEs from the monorepo-readmes file.
+ */
+async function loadMonorepoReadmes() {
+  console.log(
+    'Reading README files from GitHub. Will only check those with links to docs.api3.org, please wait...'
+  );
+  const data = readFileSync('./docs/.vuepress/dist/monorepo-readmes-sync', {
+    encoding: 'utf8',
+    flag: 'r',
+  });
+  let readmeArr = data.split(/\r?\n/);
+  let cnt = 1;
+  for (let i = 0; i < readmeArr.length; i++) {
+    // Empty or short lines in file
+    if (readmeArr[i].length > 6) {
+      await callGitHub(readmeArr[i], cnt);
+      cnt++;
+    }
+  }
+  process.stdout.moveCursor(0, -1); // up one line
+  process.stdout.clearLine(1); // from cursor to end
+
+  async function callGitHub(url, cnt) {
+    try {
+      console.log(cnt + '.', url);
+      axios.defaults.timeout = 10000;
+      const response = await axios.get(url);
+      const linksArr = oust(response.data, 'links');
+      for (let i = 0; i < linksArr.length; i++) {
+        if (linksArr[i].indexOf('docs.api3.org/') > -1) {
+          linksObj[linksArr[i]] = 'monorepo readmeUrl: ' + url;
+        }
+      }
+      // Pause because calling GitHub rapidly upsets them.
+      await new Promise((resolve) => setTimeout(resolve, 300));
+      process.stdout.moveCursor(0, -1); // up one line
+      process.stdout.clearLine(1); // from cursor to end
+    } catch (error) {
+      process.stdout.write(
+        colors.bold.red('Failed to get README from monorepo:', url, '\n')
+      );
+    }
+  }
+}
+
+async function loadRedirects() {
   let cnt = 1;
   require('fs')
     .readFileSync('./docs/.vuepress/dist/redirects-sync', 'utf-8')
@@ -127,7 +173,7 @@ function loadRedirects() {
     });
 }
 
-function loadLinks() {
+async function loadLinks() {
   file.walkSync(distDir, tempCB);
   for (let i = 0; i < arr.length; i++) {
     for (let z = 0; z < arr[i].files.length; z++) {
@@ -153,7 +199,7 @@ function loadLinks() {
   }
 }
 
-function loadImages() {
+async function loadImages() {
   file.walkSync(distDir, tempCB);
   for (let i = 0; i < arr.length; i++) {
     for (let z = 0; z < arr[i].files.length; z++) {
@@ -187,7 +233,7 @@ function loadImages() {
   }
 }
 
-function printFailures() {
+async function printFailures() {
   if (failuresArr.length > 0) {
     console.log(colors.bold.underline.blue('Total passed: ' + totalPassedCnt));
     console.log(colors.bold.underline.red('Total failed: ' + totalFailedCnt));
@@ -206,17 +252,24 @@ function printFailures() {
 }
 
 async function start() {
-  loadRedirects();
-  await run('redirects');
   linksObj = {}; // Clear master list after each run()
-  loadImages();
-  await run('images');
+  await loadMonorepoReadmes();
+  await run('monorepo links');
+
   linksObj = {};
-  loadLinks();
+  await loadRedirects();
+  await run('redirects');
+
+  linksObj = {};
+  await loadImages();
+  await run('images');
+
+  linksObj = {};
+  await loadLinks();
   await run('links');
 
   // Print failures
-  printFailures();
+  await printFailures();
 
   console.log('\n|++++++++++++++++++++++++');
   console.log('| END: Link Validator');
