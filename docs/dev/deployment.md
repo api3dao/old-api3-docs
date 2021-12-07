@@ -69,24 +69,17 @@ of the /dist folder gets the latest from all contributors.
    git push -f git@github.com:api3dao/api3-docs.git main:gh-pages
    ```
 
-2a. (optional) Run `yarn test:links:prod` to verify hyperlinks. 2a. Run the
-[Link Validator](link-validator.md) to verify hyperlinks and any anchors.
+2. Run the [Link Validator](link-validator.md) to verify hyperlinks and any
+   anchors.
 
-3. Git
-
-   - Commit and push local work to the remote repo.
-   - From the remote repo, merge contributing branches to main.
-   - Return to your local repo and switch to the main branch.
-   - Pull remote main to local main.
-
-4. Verify the proper versions are listed in config.json.
+3. Verify the proper versions are listed in config.json.
 
    ```json
-    versions: [
-      { name: 'v0.3', url: '/airnode/v0.3/' },
-      { name: 'v0.2', url: '/airnode/v0.2/' },
-      { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
-    ],
+   versions: [
+     { name: 'v0.3', url: '/airnode/v0.3/' },
+     { name: 'v0.2', url: '/airnode/v0.2/' },
+     { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
+   ],
    ```
 
    Check the currentVersion in config.json.
@@ -100,6 +93,13 @@ of the /dist folder gets the latest from all contributors.
    ```json
    startPath: '/airnode/v0.3/',
    ```
+
+4. Git
+
+   - Commit and push local work to the remote repo.
+   - From the remote repo, merge contributing branches to main.
+   - Return to your local repo and switch to the main branch.
+   - Pull remote main to local main.
 
 5. Deploy
 
