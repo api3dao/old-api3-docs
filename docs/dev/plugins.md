@@ -24,7 +24,7 @@ this document.
 
 ### @vuepress/plugin-back-to-top
 
-Places an up arrow in hte bottom right corner that takes the reader to the top
+Places an up arrow in the bottom right corner that takes the reader to the top
 of the current page.
 
 ### @vuepress/plugin-medium-zoom
