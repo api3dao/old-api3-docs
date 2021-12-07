@@ -70,8 +70,12 @@ docs/
  |- dev/
  |- dev-airnode/
  |- dao-members
-
 ```
+
+### DockerImageVersion Component
+
+Make sure the component is up-to-date with the deployers listed on
+[Docker Hub](https://hub.docker.com/u/api3);
 
 ### Versions
 
