@@ -21,13 +21,11 @@ Turn on the optional heartbeat functionality by setting all fields in the
   chains:{...},
   environment:{...},
   nodeSettings:{
-      "nodeVersion": "0.3.1",
+      "airnodeWalletMnemonic": "<FILL_*>",
       "cloudProvider": {
         "type": "aws",
         "region": "us-east-1"
       },
-      "stage": "testnet",
-      "airnodeWalletMnemonic": "<FILL_*>",
       "heartbeat": {
         "enabled": true,
         "url": "${HEARTBEAT_URL}",
@@ -39,7 +37,9 @@ Turn on the optional heartbeat functionality by setting all fields in the
         "apiKey": "${HTTP_GATEWAY_API_KEY}"
       },
       "logFormat": "json",
-      "logLevel": "INFO"
+      "logLevel": "INFO",
+      "nodeVersion": "0.3.1",
+      "stage": "testnet",
   }
 }
 ```
