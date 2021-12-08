@@ -151,7 +151,7 @@ async function loadMonorepoReadmes() {
         }
       }
       // Pause because calling GitHub rapidly upsets them.
-      await new Promise((resolve) => setTimeout(resolve, 300));
+      await new Promise((resolve) => setTimeout(resolve, 200));
       process.stdout.moveCursor(0, -1); // up one line
       process.stdout.clearLine(1); // from cursor to end
     } catch (error) {
@@ -163,13 +163,15 @@ async function loadMonorepoReadmes() {
 }
 
 async function loadRedirects() {
-  let cnt = 1;
   require('fs')
     .readFileSync('./docs/.vuepress/dist/redirects-sync', 'utf-8')
     .split(/\r?\n/)
     .forEach(function (line) {
-      const arr = line.split(' ');
-      linksObj[baseURL + arr[1]] = 'REDIRECT: ' + arr[0];
+      if (line != 'undefined' && line.length > 3) {
+        // No empty lines or short typos
+        const arr2 = line.split(' ');
+        linksObj[baseURL + arr2[1]] = 'REDIRECT: ' + arr2[0];
+      }
     });
 }
 
