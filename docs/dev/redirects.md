@@ -7,35 +7,6 @@ title: Redirects
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-The docs use two methods for redirects, dynamic and static.
-
-## Dynamic
-
-A Vue global guard is used to watch for the use of `/airnode/latest/` in the URL
-and re-directs to the `latestVersion` from config.json. The code for the global
-guard is located in `enhanceApp.js`. The main use case for the guard is to allow
-the Airnode mono repo the ability to point links to the latest version of the
-docs.
-
-The guard only replaces `/airnode/latest/` with the latest version of Airnode.
-
-```bash
-https://docs.api3.org/airnode/latest/concepts/airnode-auth.html
-> becomes
-https://docs.api3.org/airnode/v0.3/concepts/airnode-auth.html
-```
-
-The guard does not validate the integrity of the URL portion the follows
-`/airnode/latest/`.
-
-```bash
-https://docs.api3.org/airnode/latest/concepts/NOT-A-REAL-FILE.html
-> becomes
-https://docs.api3.org/airnode/v0.3/concepts/NOT-A-REAL-FILE.html
-```
-
-## Static
-
 The Vuepress plugin `@vuepress/plugin-html-redirect` is used to establish
 redirects for external sites that wish to target a particular page in the docs
 while using a permanent link in its code.
@@ -49,7 +20,7 @@ Airnode docs. These mappings are in the `/docs/.vuepress/redirects` file.
 /airnode /airnode/v0.3
 ```
 
-**Use cases:**
+## Use Cases
 
 - Correct any inbound URLs (from external inbound links) that may contain an
   invalid path to a doc until the source of the URL is corrected.
@@ -68,3 +39,8 @@ As of Dec/2021 this problem has disappeared and HTML files are now in the
 redirects file.
 
 :::
+
+## Latest Redirects
+
+<LatestRedirects/>
+{{ $site.pages.path }}
