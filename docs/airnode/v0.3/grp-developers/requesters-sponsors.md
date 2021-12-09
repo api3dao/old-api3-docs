@@ -31,9 +31,9 @@ between requesters and Airnodes.
 
 ### Sponsor's Requester/Airnode Relationships
 
-As a sponsor you will use the mnemonic from a digital wallet you own to
-"**sponsor a requester**" and then use its default account as a
-[sponsorAddress](../concepts/sponsor.md#sponsoraddress) to "**derive a
+As a sponsor you will use the public address from an account within a mnemonic
+you own to "**sponsor a requester**" and then use the public address (now know
+as a [sponsorAddress](../concepts/sponsor.md#sponsoraddress)) to "**derive a
 [sponsorWallet](../concepts/sponsor.md#sponsorwallet)**" for an Airnode. This
 action creates a relationship between a sponsor's requester and a particular
 Airnode. You do this because a sponsor is the entity that pays for the
@@ -41,11 +41,23 @@ fulfillment of a request, the gas costs the Airnode will incur. These costs will
 be withdrawn from the `sponsorWallet` of the Airnode when the requester calls
 it.
 
-In the diagram below a sponsor uses a mnemonic to sponsor a requester with the
-Admin CLI. The CLI will use the default address of the mnemonic as the
-`sponsorAddress` for the sponsorship. Next the sponsor will derive a
-`sponsorWallet` for an Airnode using the `sponsorAddress`. The requester can now
-make requests of the Airnode.
+::: tip sponsorAddress
+
+A [sponsorAddress](../concepts/sponsor.html#sponsoraddress) is a public address
+of an account from a mnemonic, usually the default account. Rather than the
+default account another account from the mnemonic can be used. The
+`sponsorAddress` is used to uniquely identify a sponsor.
+
+:::
+
+1. In the diagram below a sponsor uses a `sponsorAddress` to sponsor a requester
+   with the Admin CLI. The CLI will use the default address of the mnemonic
+   passed as the `sponsorAddress` for the sponsorship unless another account is
+   specified.
+
+2. Next the sponsor will derive a `sponsorWallet` for an Airnode using the
+   `sponsorAddress`.
+3. The requester can now make requests of the Airnode.
 
 > ![image](../assets/images/sponsor-overview.png)
 
@@ -53,46 +65,50 @@ make requests of the Airnode.
 
 In the above diagram it is possible to use the same sponsorAddress
 `(0xF4...dDyu9)` to derive other sponsor wallets for other Airnodes. And it is
-possible to sponsor more than one requester with the same mnemonic. However it
-is important to remember that all requesters can now access all the Airnodes
-regardless if they need to. There is no harm in this scenario.
+possible to sponsor more than one requester with the same `sponsorAddress`.
+However it is important to remember that all requesters can now access all the
+Airnodes regardless if they need to. There is no harm in this scenario.
 
 ### Advanced Scenarios
 
 - **Two requesters, one Airnode, one sponsorWallet**:
 
-  Two requesters sponsored with the same mnemonic, which returns a
-  `sponsorAddress` (e.g., `0xF4...dDyu9`), would access the same Airnode using a
-  single sponsorWallet derived by the sponsorAddress.
+  Two requesters sponsored with the same `sponsorAddress` (e.g., `0xF4...dDyu9`)
+  would access the same Airnode using a single sponsorWallet derived by the
+  `sponsorAddress`.
 
 - **Two requesters, one Airnode, two sponsorWallets**:
 
-  Sponsor two different requesters with different mnemonics which results in
-  each having a separate `sponsorAddress` (e.g., `0xF4...dDyu9` and
-  `0xG9...fFzc5`). Using these separate sponsorAddresses you can derive two
-  separate sponsorWallets for the same Airnode. Now each requester will deplete
-  funds from a separate Airnode sponsorWallet when using the Airnode.
+  Sponsor two different requesters each with a different `sponsorAddress` (e.g.,
+  `0xF4...dDyu9` and `0xG9...fFzc5`). Using the separate sponsorAddresses you
+  can derive two separate sponsorWallets for the same Airnode. Now each
+  requester will deplete funds from a separate Airnode sponsorWallet when using
+  the Airnode.
 
 - **One requester, two Airnodes, two sponsorWallets**:
 
   A requester can make requests from two different Airnodes. Sponsor the
-  requester with a mnemonic where the resulting sponsorship returns a
-  `sponsorAddress`. Derive two sponsorWallets, one for each of two the Airnodes,
-  using the `sponsorAddress`. Despite the fact that the sponsorWallet for each
-  Airnode was derived with the same `sponsorAddress`, the sponsorWallets are
-  different since they are derived using the airnode's xpub plus the
-  `sponsorAddress`. The sponsor must fund both wallets separately using the
-  unique `sponsorWalletAddress` of the two sponsorWallets.
+  requester with a `sponsorAddress`. Derive two sponsorWallets, one for each of
+  two the Airnodes, using the `sponsorAddress`. Despite the fact that the
+  sponsorWallet for each Airnode was derived with the same `sponsorAddress` the
+  sponsorWallets are different since they are derived using the airnode's xpub
+  plus the `sponsorAddress`. The sponsor must fund both wallets separately using
+  the unique `sponsorWalletAddress` of the two sponsorWallets.
 
 ### Things to Remember
 
-When you sponsor a requester with a mnemonic (returning a `sponsorAddress`), you
-are giving it permission to use the sponsorWallet (associated with a Airnode)
-that was derived using the same `sponsorAddress`.
+When you sponsor a requester with a `sponsorAddress` you are giving it
+permission to use the sponsorWallet (associated with a Airnode) that was derived
+using the same `sponsorAddress`.
 
 When the requester makes a request to the Airnode, the Airnode will use funds
 from the corresponding sponsorWallet to pay gas costs in response to the
 request. Therefore the sponsor pays for the fulfillment of the request.
+
+Sponsors need to keep their sponsorWallets topped off if they want Airnodes to
+fulfill requests made by their requesters. However this does not cover the cost
+of API data that the Airnode serves, see
+[API Provider Fees](fees.md#api-provider-fees).
 
 ## Admin CLI Commands
 
@@ -111,28 +127,22 @@ wallet_.
 
 ## How to Sponsor a Requester
 
-When a sponsor uses a mnemonic to "sponsor a requester" and the resulting
-'sponsorAddress` to "derive a sponsorWallet" for an Airnode, the requester will
-have permission to make requests to the Airnode on behave of the sponsor. This
-allows the sponsor to cover the gas costs incurred by the Airnode when
-responding to the request. Sponsors need to keep their sponsorWallets topped off
-if they want Airnodes to fulfill requests made by their requesters. However this
-does not cover the cost of API data that the Airnode serves, see
-[API Provider Fees](fees.md#api-provider-fees).
-
 To sponsor a requester execute the `sponsor-requester` command using the
 parameters detailed in the list below. Your requester should already be deployed
 on-chain. This command has transaction gas costs.
 
 - `providerURL`: A blockchain provider URL (such as Infura) with providerID for
   the desired network.
-- `mnemonic`: Used for gas costs to fund the sponsorship and used to derive the
-  sponsorAddress from the default address. The sponsorAddress will be needed to
-  derive a sponsorWallet for an Airnode.
-- `requesterAddress`: The address of the requester contract.
+- `sponsor-mnemonic`: Used for gas costs to fund the sponsorship and used to
+  derive the sponsorAddress from the default address. The sponsorAddress will be
+  needed to derive a sponsorWallet for an Airnode.
+- `requester-address`: Address of the requester contract.
+- `derivation-path (optional)` (_not used in the example below_): Selects an
+  alternate account to use from the mnemonic rather than the default account.
 
-The command `sponsor-requester` will return the requesterAddress and
-sponsorAddress.
+Executing the command
+[sponsor-requester](../reference/packages/admin-cli.html#sponsor-requester) will
+sponsor a requester and returns the requesterAddress and sponsorAddress.
 
 :::: tabs
 
@@ -141,8 +151,8 @@ sponsorAddress.
 ```bash
 npx @api3/airnode-admin sponsor-requester \
   --providerUrl https://ropsten.infura.io/v3/<KEY> \
-  --mnemonic "cricket...oppose" \
-  --requester 0x2c...gDER7
+  --sponsor-mnemonic "cricket...oppose" \
+  --requester-address 0x2c...gDER7
 
 Requester 0x2c...gDER7 sponsored using sponsorAddress 0xF4...dDyu9
 ```
@@ -154,8 +164,8 @@ Requester 0x2c...gDER7 sponsored using sponsorAddress 0xF4...dDyu9
 ```
 npx @api3/airnode-admin sponsor-requester ^
   --providerUrl https://ropsten.infura.io/v3/<KEY> ^
-  --mnemonic "cricket...oppose" ^
-  --requester 0x2c...gDER7
+  --sponsor-mnemonic "cricket...oppose" ^
+  --requester-address 0x2c...gDER7
 
 Requester 0x2c...gDER7 sponsored using sponsorAddress 0xF4...dDyu9
 ```
@@ -174,15 +184,16 @@ the Airnode. Learn more about a
 [sponsorWallet](../concepts/sponsor.md#sponsorwallet).
 
 To derive a sponsorWallet for an Airnode execute the
-`derive-sponsor-wallet-address` command using the parameters detailed in the
-list below. There are no transaction gas costs to do so.
+[derive-sponsor-wallet-address](../reference/packages/admin-cli.html#derive-sponsor-wallet-address)
+command using the parameters detailed in the list below. There are no
+transaction gas costs to do so.
 
-- `providerURL`: A blockchain provider URL (such as Infura) with providerID for
-  a desired network.
-- `airnode`: The address of the desired Airnode.
-- `sponsor`: The sponsorAddress (an address of an Ethereum account) owned by a
-  sponsor. Usually the sponsorAddress is the one returned when sponsoring a
-  requester.
+- `airnode-xpub`: The extended public address of the Airnode for path
+  m/44'/60'/0'.
+- `airnode-address`: The public address of the desired Airnode.
+- `sponsor-address`: The sponsorAddress (an address of an Ethereum account)
+  owned by a sponsor. Usually the sponsorAddress is the one returned when
+  sponsoring a requester.
 
 The command `derive-sponsor-wallet-address` will return the public address
 (`sponsorWalletAddress`) of the sponsorWallet to be funded by the sponsor.
@@ -193,9 +204,9 @@ The command `derive-sponsor-wallet-address` will return the public address
 
 ```bash
 npx @api3/airnode-admin derive-sponsor-wallet-address \
-  --providerUrl https://ropsten.infura.io/v3/<KEY> \
-  --airnode 0xe1...dF05s \
-  --sponsor 0xF4...dDyu9
+  --airnode-xpub xpub6CUGRUo... \
+  --airnode-address 0xe1...dF05s \
+  --sponsor-address 0xF4...dDyu9
 
 Sponsor wallet address: 0x14D5a34E5a370b9951Fef4f8fbab2b1016D557d9
 ```
@@ -206,9 +217,9 @@ Sponsor wallet address: 0x14D5a34E5a370b9951Fef4f8fbab2b1016D557d9
 
 ```bash
 npx @api3/airnode-admin derive-sponsor-wallet-address ^
-  --providerUrl https://ropsten.infura.io/v3/<KEY> ^
-  --airnode 0xe1...dF05s ^
-  --sponsor 0xF4...dDyu9
+  --airnode-xpub xpub6CUGRUo... ^
+  --airnode-address 0xe1...dF05s ^
+  --sponsor-address 0xF4...dDyu9
 
 Sponsor wallet address: 0x14D5a34E5a370b9951Fef4f8fbab2b1016D557d9
 ```
@@ -216,6 +227,11 @@ Sponsor wallet address: 0x14D5a34E5a370b9951Fef4f8fbab2b1016D557d9
 :::
 
 ::::
+
+Sponsors need to keep their sponsorWallets topped off if they want Airnodes to
+fulfill requests made by their requesters. However this does not cover the cost
+of API data that the Airnode serves, see
+[API Provider Fees](fees.md#api-provider-fees).
 
 If you forget the public address (`sponsorWalletAddress`) of the sponsorWallet
 simply run `derive-sponsor-wallet-address` again. Since the wallet already
@@ -226,13 +242,13 @@ address.
 
 ## Record Keeping
 
-During and after deriving a sponsorWallet and sponsoring requesters there are a
+During and after sponsoring requesters and deriving a sponsorWallet there are a
 few things to keep track of.
 
 | Item                   | Description                                                                                                                                                                                                                                                          |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sponsor's mnemonc      | The mnemonic used by the sponsor when sponsoring a requester.                                                                                                                                                                                                        |
-| sponsor address        | Derived from the sponsor's mnemonic (default account) when sponsoring a requester. Record which `sponsorAddress` was used to create a sponsorWallet for each Airnode.                                                                                                |
+| sponsor's mnemonic     | The mnemonic from which the `sponsorAddress` was extracted.                                                                                                                                                                                                          |
+| sponsor address        | The public address of an account derived from a sponsor's mnemonic when sponsoring a requester. Record which `sponsorAddress` was used to create a sponsorWallet for each Airnode.                                                                                   |
 | sponsor wallet address | Record the `sponsorWalletAddress` of the sponsorWallet derived for an Airnode. For each Airnode you have derived a sponsorWallet, the Airnode keeps the private key and returns the public address (`sponsorWalletAddress`) which is used to fund the sponsorWallet. |
 
 You can acquire the public address (`sponsorWalletAddress`) of a sponsorWallet
