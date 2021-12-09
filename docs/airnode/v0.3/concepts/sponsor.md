@@ -136,10 +136,12 @@ deleted, and can be used in the future simply by funding it again.
 
 ## Sponsoring a Requester
 
-A sponsor uses a `sponsorAddress` and there the requester's on-chain
-`requesterAddress` when sponsoring a requester. This sponsorship allows the
-requester to use the sponsor's `sponsorWallet` at a particular Airnode to cover
-gas costs incurred by the Airnode in response to a request.
+A sponsor uses a mnemonic and a requester's on-chain `requesterAddress` to
+sponsor a requester. This sponsorship uses the default account of the mnemonic
+(known as the `sponsorAddress`) to create the relationship. It is possible to
+use a different account from the the mnemonic if desired. This sponsorship
+allows the requester to use the sponsor's `sponsorWallet` for a particular
+Airnode to cover gas costs incurred by the Airnode in response to a request.
 
 Use the [Admin CLI tool](../reference/packages/admin-cli.md#sponsor-requester)
 to sponsor a requester. An example can be seem in the
