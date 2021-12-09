@@ -92,7 +92,7 @@ template is created when the parameters are the same.
 ## Part #2: Upload Template
 
 Use the
-[create-template](https://github.com/api3dao/airnode/tree/beta-protocol/packages/admin#create-template)
+[create-template](https://github.com/api3dao/airnode/tree/v0.2/packages/airnode-admin#create-template)
 command in the @api3/airnode-admin package to move your template on-chain. The
 command`create-template`reads a file, uses its contents to create a template and
 returns a`templateId`. To create a new template record you will need the
