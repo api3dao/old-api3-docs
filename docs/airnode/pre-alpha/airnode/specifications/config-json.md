@@ -82,7 +82,8 @@ Can be `aws`.
 - `region` - The cloud provider region that the node will be deployed at.
 
 - `stage` - The label used to distinguish between multiple deployments of the same provider on a cloud provider.
-For example, the provider may make multiple deployments with `stage`s set as `dev`, `ropsten`, `mainnet`, where each of these deployments would use the same private key and have the same `providerId`.
+For example, the provider may make multiple deployments with `stage`s set as `dev`, `ropsten`, `mainnet`, where each of these deployments would use the same private key and have the same `providerId`. `stage` cannot be longer than 16 characters and can only include alphanumeric
+characters (`a–z`, `A–Z`, `0–9`) and hyphens (`-`).
 
 - `logFormat` - The format that Airnode should use to output logs. Either `json` or `plain`.
 
