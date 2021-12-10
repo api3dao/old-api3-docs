@@ -146,9 +146,8 @@ sidebar: {
 
 6. Change the version in `package.json` to the new version.
 
-7. Run the `zip-files.js` script to create zip files for the necessary
-   tutorials. This will require an update to the`zip-files.js` script, see the
-   docs [Zip Tutorial Files](./zip-files.md).
+7. Update the zip files for the necessary tutorials. See
+   [Zip Tutorial Files](./zip-files.md).
 
 8. Push branch changes to the repo, pull back to local main branch and run
    `sh deploy.sh`.

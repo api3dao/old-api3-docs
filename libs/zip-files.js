@@ -1,5 +1,9 @@
 /**
- * This script zips files from a tutorial into a project folder
+ * @deprecated Since version v0.3. Will be deleted at v1.0.0. Starting with
+ * v0.4, use the manual zip file build instead which is documented in
+ * https://docs.api3.org/dev/zip-files.html.
+ *
+ * @description This script zips files from a tutorial into a project folder
  * to be downloaded by the reader. These folders are useful for the
  * reader to use when running the tutorial.
  *

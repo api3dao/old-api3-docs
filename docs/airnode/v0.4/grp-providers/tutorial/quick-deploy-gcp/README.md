@@ -56,7 +56,6 @@ quick-deploy-gcp
 │   ├── config.json
 │   └── secrets.env
 └── output
-    ├── receipt.json
 ```
 
 :::
@@ -106,7 +105,7 @@ Add values for each of the these fields.
   [Create a GCP project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
   under which will the Airnode be deployed and copy the project ID.
 
-### GCP project setup & credentials
+### GCP Project Setup & Credentials
 
 In order for Airnode to deploy successfully, you need to enable these APIs for
 your GCP project:
@@ -132,7 +131,7 @@ where `<PROJECT ID>` is your project ID.
 ## Deploy
 
 Make sure Docker is running and then execute the deployer image from the root of
-the `quick-deploy-demo` folder. A `receipt.json` file will be created upon
+the `quick-deploy-gcp` folder. A `receipt.json` file will be created upon
 completion. It contains some deployment information and is used to remove the
 Airnode.
 
@@ -175,7 +174,7 @@ docker run -it --rm ^
 
 ::::
 
-## Confirm the Airnode deployment
+## Confirm the Airnode Deployment
 
 After a successful deployment you can see the Airnode logs in your
 [GCP Logs Explorer](https://console.cloud.google.com/logs). If you can see logs

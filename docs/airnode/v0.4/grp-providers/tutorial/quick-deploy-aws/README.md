@@ -57,7 +57,6 @@ quick-deploy-aws
 │   ├── config.json
 │   └── secrets.env
 └── output
-    ├── receipt.json
 ```
 
 :::
@@ -121,7 +120,7 @@ do not have an account watch this
 ## Deploy
 
 Make sure Docker is running and then execute the deployer image from the root of
-the `quick-deploy-demo` folder. A `receipt.json` file will be created upon
+the `quick-deploy-aws` folder. A `receipt.json` file will be created upon
 completion. It contains some deployment information and is used to remove the
 Airnode.
 
