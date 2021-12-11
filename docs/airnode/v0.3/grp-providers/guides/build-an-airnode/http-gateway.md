@@ -143,7 +143,7 @@ The response format is a simple JSON object with the following fields:
 
 - `rawValue` - the API response
 - `values` - an array of values after they are
-  [extracted and converted](../../../reference/packages/adapter.html#conversion)
+  [extracted and converted](../../../reference/packages/adapter.md#conversion)
   to the target type
 - `encodedValue` - the encoded bytes value that is sent as payload in the
   response transaction on chain

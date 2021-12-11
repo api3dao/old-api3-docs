@@ -43,10 +43,10 @@ it.
 
 ::: tip sponsorAddress
 
-A [sponsorAddress](../concepts/sponsor.html#sponsoraddress) is a public address
-of an account from a mnemonic, usually the default account. Rather than the
-default account another account from the mnemonic can be used. The
-`sponsorAddress` is used to uniquely identify a sponsor.
+A [sponsorAddress](../concepts/sponsor.md#sponsoraddress) is a public address of
+an account from a mnemonic, usually the default account. Rather than the default
+account another account from the mnemonic can be used. The `sponsorAddress` is
+used to uniquely identify a sponsor.
 
 :::
 
@@ -141,7 +141,7 @@ on-chain. This command has transaction gas costs.
   alternate account to use from the mnemonic rather than the default account.
 
 Executing the command
-[sponsor-requester](../reference/packages/admin-cli.html#sponsor-requester) will
+[sponsor-requester](../reference/packages/admin-cli.md#sponsor-requester) will
 sponsor a requester and returns the requesterAddress and sponsorAddress.
 
 :::: tabs
@@ -184,7 +184,7 @@ the Airnode. Learn more about a
 [sponsorWallet](../concepts/sponsor.md#sponsorwallet).
 
 To derive a sponsorWallet for an Airnode execute the
-[derive-sponsor-wallet-address](../reference/packages/admin-cli.html#derive-sponsor-wallet-address)
+[derive-sponsor-wallet-address](../reference/packages/admin-cli.md#derive-sponsor-wallet-address)
 command using the parameters detailed in the list below. There are no
 transaction gas costs to do so.
 
