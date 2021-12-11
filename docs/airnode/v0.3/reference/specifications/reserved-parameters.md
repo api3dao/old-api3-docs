@@ -267,5 +267,5 @@ Airnode will extract and convert each of the "split values" separately
 
 All of these values are then together encoded to single bytes value that can be
 sent on chain. You can use
-[testing gateway](../../grp-providers/guides/build-an-airnode/deploying-airnode.html#testing-with-http-gateway)
+[testing gateway](../../grp-providers/guides/build-an-airnode/deploying-airnode.md#testing-with-http-gateway)
 to inspect the raw API response, casting results and the final encoded value.

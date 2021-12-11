@@ -71,6 +71,8 @@ exclude = [
   "github.com/.*.git",
   "api3.eth.link",
   "config@1.0.0",
+  "config@0.3",
+  "OIS@0.3",
   ".*/NOT-A-REAL-FILE.html",
 ]
 
