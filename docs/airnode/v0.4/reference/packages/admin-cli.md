@@ -625,7 +625,7 @@ npx @api3/airnode-admin derive-endpoint-id ^
 
 ### `generate-mnemonic`
 
-Generates an unique mnemonic which can be used to create the
+Generates a unique mnemonic which can be used to create the
 [airnode wallet](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#airnodewalletmnemonic).
 
 ```sh

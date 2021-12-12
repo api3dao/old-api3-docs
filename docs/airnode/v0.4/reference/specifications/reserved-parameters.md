@@ -143,7 +143,7 @@ and `_path` is `field1.fieldA.1`, the response will be `valueA2`.
 If the response is a literal value (i.e., not a JSON object) and `_path` is not
 provided or is an empty string (needed for
 [encoding multiple values](reserved-parameters.md#encoding-multiple-values)),
-Airnode will use the the API response itself to fulfill the request.
+Airnode will use the API response itself to fulfill the request.
 
 :::warning Beware the separator
 

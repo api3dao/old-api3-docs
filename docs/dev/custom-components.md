@@ -25,7 +25,7 @@ in index.styl, look for the .toc-label class.
 
 VersionsModal.vue is a child component of Versions.vue. Versions.vue has been
 added to the navbar to allow users to switch between versions of the docs. It
-has been added to the [Navbar.vue](override-components.md#navbar-vue) vuepress
+has been added to the [Navbar.vue](override-components.md#navbar-vue) VuePress
 component which api3-docs overrides.
 
 [Versions.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/Versions.vue)

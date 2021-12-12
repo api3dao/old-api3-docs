@@ -13,7 +13,7 @@ The Build an Airnode guide will discuss, in detail, how an Airnode is
 constructed. But first, see the [Quick Deploy](../../tutorial/README.md) demos
 to get a simple understanding of an Airnode deployment. The demos
 [Quick Deploy AWS](../../tutorial/quick-deploy-aws/) and
-[Quick Deploy GCP](../../tutorial/quick-deploy-gcp/) each have pre-configured
+[Quick Deploy GCP](../../tutorial/quick-deploy-gcp/) each have preconfigured
 downloadable project folders with files for a typical deployment. This guide
 primarily focuses on a deployment to AWS but describes changes that are needed
 for GCP deployments when encountered.

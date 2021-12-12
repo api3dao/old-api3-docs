@@ -37,7 +37,7 @@ sure to ask any questions you have on
   one of our hackathons.
 
 - (For the curious) Explore all the repos hosted on
-  [our Github](https://github.com/api3dao), go through the issues, PRs, etc.
+  [our GitHub](https://github.com/api3dao), go through the issues, PRs, etc.
 
 This guide will be updated as more materials are produced. Please feel free to
 create [issues](https://github.com/api3dao/api3-docs/issues) to make

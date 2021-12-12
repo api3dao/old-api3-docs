@@ -11,7 +11,7 @@ title: Getting Started
 
 The Build an Airnode guide will discuss, in detail, how an Airnode is
 constructed. But first, see the [Quick Deploy](../../tutorial/README.md) demo to
-get a simple understanding of an Airnode deployment. The demo has pre-configured
+get a simple understanding of an Airnode deployment. The demo has preconfigured
 files for a typical deployment.
 
 ## Project Folder

@@ -262,8 +262,8 @@ adjusted, but it will always stay between a designated maximum and minimum.
 Rewards Distribution User X stakes 600 tokens and user Y stakes 400, so there is
 a 60% (X) 40% (Y) split ownership in the 1000 token DAO pool. For a particular
 week the reward payout is 1% (10 total tokens) and the pool is now 1010 tokens.
-X at 60% now has 606 tokens and and Y has 404. Remember that the 10 reward
-tokens will not vest for a period of one year.
+X at 60% now has 606 tokens and Y has 404. Remember that the 10 reward tokens
+will not vest for a period of one year.
 
 :::
 
@@ -337,7 +337,7 @@ the pool is now 996.6 tokens. X and Y now own 498.3 tokens each based on their
 
 :::
 
-### ClaimManager
+### ClaimsManager
 
 To insure against potential system failures, the DAO pool can empower special
 `ClaimsManager` contracts to withdraw staked tokens directly. Approved

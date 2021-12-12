@@ -9,7 +9,7 @@ title: Airnode ABI
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,4]" />
 
-The Airnode-ABI package a unique way to encode and decode parameters for use
+The airnode-abi package a unique way to encode and decode parameters for use
 with Airnode. Parameters are provided with encoding types, names and values. The
 types are shortened and grouped with a version as the "header". The name/value
 pairs are then grouped and encoded as the rest of the body.

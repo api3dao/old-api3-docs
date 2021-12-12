@@ -12,7 +12,7 @@ Using the [airnode-starter](https://github.com/api3dao/airnode-starter/tree/pre-
 - Prepare tutorial requirements.
 - Deploy an Airnode on a supported chain.
 - Make a request to the deployed Airnode in a contract.
-- Undeploy the Airnode.
+- Remove the Airnode.
 
 You can skip [Step #1: Deploy an Airnode](airnode-starter.md#step-1-deploy-an-airnode) and use the Airnode that we have deployed on **Ropsten** if preferred. You are recommended to read the contents of the [scripts](https://github.com/api3dao/airnode-starter/tree/pre-alpha/scripts) as you run them, and read the entire readme before starting.
 
