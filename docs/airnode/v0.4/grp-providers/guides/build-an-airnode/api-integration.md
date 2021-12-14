@@ -76,7 +76,7 @@ make the necessary modifications to conform to the OIS format).
 If you already have an OAS file it may be possible to convert it to OIS. To
 assist in converting between various specifications e.g. from OAS to OIS, there
 is a `convert` command within the Airnode
-[validator](../../../reference/packages/validator.html#convertor) package.
+[validator](../../../reference/packages/validator.md#convertor) package.
 
 :::
 

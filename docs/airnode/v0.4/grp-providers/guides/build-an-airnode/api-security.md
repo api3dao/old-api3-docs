@@ -128,9 +128,9 @@ the encoded token for `bearer` auth.
 ### relayRequesterAddress
 
 The `relayRequesterAddress` security schema type instructs Airnode to forward
-the [requester](../../../concepts/requester.html) address to your API. The
-schema definition is similar to the [`apiKey`](./api-security.md#apikey),
-however the `type` must be `relayRequesterAddress`.
+the [requester](../../../concepts/requester.md) address to your API. The schema
+definition is similar to the [`apiKey`](./api-security.md#apikey), however the
+`type` must be `relayRequesterAddress`.
 
 Schema definition example:
 
@@ -274,10 +274,9 @@ in all OIS definitions. Each element of this array contains the following fields
   to interpolate it from `secrets.env`.
 
 If you want to base your API authentication on dynamic data, for example
-[requester](../../../concepts/requester.html) address, you can utilize the
-"relay" security schemes
-[described above](./api-security.md#relayrequesteraddress) which can forward
-this data to your API.
+[requester](../../../concepts/requester.md) address, you can utilize the "relay"
+security schemes [described above](./api-security.md#relayrequesteraddress)
+which can forward this data to your API.
 
 ::: warning Relay security schemes do not require a scheme value
 
