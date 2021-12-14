@@ -26,13 +26,17 @@ is located in the route's root folder.
 
 ```json
 sidebar: {
+  '/airnode/v0.4/': require(`../airnode/v0.4/sidebar.js`),
   '/airnode/v0.3/': require(`../airnode/v0.3/sidebar.js`),
   '/airnode/v0.2/': require(`../airnode/v0.2/sidebar.js`),
   '/airnode/pre-alpha/': require(`../airnode/pre-alpha/sidebar.js`),
-  '/dao-members/': require(`../dao-members/sidebar.js.js`),
+  '/beacon/v0.1/': require(`../beacon/v0.1/sidebar.js`),
+  '/ois/v1.0.0/': require(`../ois/v1.0.0/sidebar.js`),
+  '/dao-members/': require(`../dao-members/sidebar.js`),
+  '/api3/': require(`../api3/sidebar.js`),
   '/dev/': require(`../dev/sidebar.js`),
-  '/dev-airnode/': require(`../dev-airnode/sidebar.js`)
-}
+  '/dev-airnode/': require(`../dev-airnode/sidebar.js`),
+},
 ```
 
 ## config.markdown

@@ -8,11 +8,15 @@ module.exports = {
     { name: 'v0.2', url: '/airnode/v0.2/' },
     { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
   ],
+  versionsBeacon: [{ name: 'v0.1', url: '/beacon/v0.1/' }],
+  versionsOis: [{ name: 'v1.0.0', url: '/ois/v1.0.0/' }],
   /**
    * Indicates the path to the latest Airnode version.
-   * Used by sub-sites component.
+   * Used by document-sets Vue component.
    */
-  latestVersion: '/airnode/v0.3/', // enhanceApp.js expects the leading and trailing / to be present
+  latestVersion: '/airnode/v0.3/',
+  latestBeaconVersion: '/beacon/v0.1/',
+  latestOisVersion: '/ois/v1.0.0/',
   head: [['link', { rel: 'icon', href: '/img/small-logo.png' }]],
   title: 'Documentation',
   base: '/',
@@ -36,6 +40,8 @@ module.exports = {
       '/airnode/v0.3/': require(`../airnode/v0.3/sidebar.js`),
       '/airnode/v0.2/': require(`../airnode/v0.2/sidebar.js`),
       '/airnode/pre-alpha/': require(`../airnode/pre-alpha/sidebar.js`),
+      '/beacon/v0.1/': require(`../beacon/v0.1/sidebar.js`),
+      '/ois/v1.0.0/': require(`../ois/v1.0.0/sidebar.js`),
       '/dao-members/': require(`../dao-members/sidebar.js`),
       '/api3/': require(`../api3/sidebar.js`),
       '/dev/': require(`../dev/sidebar.js`),

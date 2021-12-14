@@ -7,22 +7,21 @@ Parent of VersionsModal.vue. Opens a modal of user version selections.
 
 <template>
   <span class="nav-site" v-bind:style="{ display: showMenu }">
-    <button class="navsite-btn" @click="openModal">
-      <!--{{this.$page.path.split('/')[2].replace(/\//g,'')}}-->
-      {{ this.versionDisplay }}
+    <button class="nav-site-btn" @click="openModal">
+      {{ versionDisplay }}
     </button>
     <VersionsModal
       v-if="showModal"
       :showModal="showModal"
       @clicked="onChildClick"
       :env="environment"
-      :versions="versions"
+      :versions="workingVersion"
     />
   </span>
 </template>
 
 <script>
-import { env, versions } from '../config.js';
+import { env, versions, versionsBeacon, versionsOis } from '../config.js';
 import VersionsModal from './VersionsModal';
 
 export default {
@@ -34,6 +33,9 @@ export default {
     environment: env,
     showModal: false,
     versions: versions,
+    versionsBeacon: versionsBeacon,
+    versionsOis: versionsOis,
+    workingVersion: null,
     showMenu: 'none',
     versionDisplay: '',
   }),
@@ -45,9 +47,21 @@ export default {
       // The modal will send a msg to close when user clicks outside the modal
       this.showModal = false;
     },
-    showVersionMenu() {
-      if (this.$route.path.indexOf('/airnode/') > -1) {
+    setVersionMenu() {
+      if (
+        this.$route.path.indexOf('/airnode/v') > -1 ||
+        this.$route.path.indexOf('/airnode/pre-alpha') > -1
+      ) {
         this.versionDisplay = this.$page.path.split('/')[2].replace(/\//g, '');
+        this.workingVersion = this.versions;
+        this.showMenu = 'block';
+      } else if (this.$route.path.indexOf('/beacon/v') > -1) {
+        this.versionDisplay = this.$page.path.split('/')[2].replace(/\//g, '');
+        this.workingVersion = this.versionsBeacon;
+        this.showMenu = 'block';
+      } else if (this.$route.path.indexOf('/ois/v') > -1) {
+        this.versionDisplay = this.$page.path.split('/')[2].replace(/\//g, '');
+        this.workingVersion = this.versionsOis;
         this.showMenu = 'block';
       } else {
         this.showMenu = 'none';
@@ -56,19 +70,19 @@ export default {
   },
   watch: {
     $route($event) {
-      this.showVersionMenu();
+      this.setVersionMenu();
     },
   },
   mounted() {
     this.$nextTick(function () {
-      this.showVersionMenu();
+      this.setVersionMenu();
     });
   },
 };
 </script>
 
 <style scoped>
-button.navsite-btn {
+button.nav-site-btn {
   outline: none;
   color: #7ce3cb;
   background-color: black;

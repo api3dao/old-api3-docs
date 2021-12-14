@@ -7,15 +7,25 @@ title: Versioning
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-All versions of the docs are inside the api3-docs repo. Versioning of the docs
-is not implemented using traditional tags in a GitHub repo. This allows all
-versions to be available while using the docs. It also allows older versions to
-be updated independently of any other version.
+The docs are group into documents sets. Some of these sets are versioned such as
+Airnode (`airnode/v0.4/`);
+
+- Airnode (versioned)
+- API3
+- Beacon (versioned)
+- DAO Members
+- OIS (versioned)
+
+All versions of a particular document set are maintained in the api3-docs repo.
+Versioning of a document set is not implemented using traditional tags in a
+GitHub repo. This allows all document set versions to be available while using
+the docs. It also allows older versions to be updated independently of any other
+version.
 
 ## Overview
 
-Read through the following sub-section explanations before proceeding with the
-[Create a Version](./versioning.md#create-a-version) section of this doc.
+Before creating a new version of a document set be sure to understand and verify
+the following are up-to-date.
 
 - [Redirects](./versioning.md#redirects)
 - [Base Routes](./versioning.md#base-routes)
@@ -56,100 +66,130 @@ was changes to: <code>/r/reserved-parameters
 ### Base Routes
 
 All sub-folders in _/docs_ are base routes except for `/.vuepress`. Each
-represents a logical group or set of documentation. The `/airnode` folder
-contains versions of the Airnode docs.
+represents a logical group or _document set_. The `/airnode` folder contains
+versions of the Airnode document set.
 
 ```text
 docs/
- |- airnode/
-    |- next/
-    |- pre-alpha/
-    |- v0.2/
- |- api3/
- |- common/
- |- dev/
- |- dev-airnode/
- |- dao-members
+ ├── airnode/
+    ├── next/
+    ├── pre-alpha/
+    └── v0.2/
+ ├── api3/
+ ├── beacon
+    └── v0.1/
+ ├── common/
+ ├── dev/
+ ├── dev-airnode/
+ └── dao-members
+ ├── ois
+    └── v1.0.0/
 ```
 
 ### DockerImageVersion Component
 
-Make sure the component is up-to-date with the deployers listed on
+Make sure this component is up-to-date with the deployment images listed on
 [Docker Hub](https://hub.docker.com/u/api3);
 
 ### Versions
 
-A route in the `/airnode` folder becomes a version of the Airnode docs when
-declared as a version in _.vuepress/config.json_.
+A version sub-route in the versioned folders for `/airnode, /beacon and /ois`
+become their respective versions. A corresponding versions array is declared in
+_.vuepress/config.json_ for each.
 
 - **name:** The name of the version to display in the pick-list and as the
   current route in the navbar.
 - **url:** The entry path to the version, usually an airnode route.
 
 ```json
-versions:[
-  {name:'v0.2', url:'/airnode/v0.2/'},
-  {name:'pre-alpha', url:'/airnode/pre-alpha/'},
+// The versions field is the Airnode version.
+array.
+versions: [
+  { name: 'v0.3', url: '/airnode/v0.3/' },
+  { name: 'v0.2', url: '/airnode/v0.2/' },
+  { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
+],
+versionsBeacon: [
+  { name: 'v0.1', url: '/beacon/v0.1/' }
+  ],
+versionsOis: [
+  { name: 'v1.0.0', url: '/ois/v1.0.0/' }
 ],
 ```
 
 ## Create a Version
 
-It is assumed that the `/next` folder is the work in progress that will become
-the new (next) version.
+1. If using a `/next` folder for any versioned document set change the name of
+   the `/next` folder (e.g. `/v0.2`).
 
-1. Change the name of the `/next` folder (e.g. `/v0.2`).
+2. Markdown pages will probably contained hyperlinks to remote GitHub repos.
+   More than likely these links will need updating in the version just created.
+   Look for links that contain a previous version such as `/pre-alpha/`,
+   `/next/`, `v0.2` or reference the `/master` branch. The airnode repo will
+   contain a tag to use for these links.
 
-2. The re-named `/next` folder will probably contained hyperlinks to remote
-   GitHub repos. More than likely these links will need updating in the version
-   just created. Look for links that contain a previous version such as
-   `/pre-alpha/`, `/next/`, `v0.2` or reference the `/master` branch. The
-   airnode repo will contain a tag to use for these links.
+3. Update the document set versions in `config.js`.
 
-3. Update the versions in `config.js`.
+   - Update the `versions` key in `/doc/.vuepress/config.json`. Provide the
+     version name and url. The url is the first markdown file to show when a
+     version is selected in the navbar. A url without a file will load the root
+     README.md file of the base route by default.
+   - Set the `latestVersion` to the start path of the latest version.
 
-```json
-versions:[
-  {name:'v0.2', url:'/airnode/v0.2/'},
-  {name:'pre-alpha', url:'/airnode/pre-alpha/'},
-  ...
-],
-latestVersion: '/airnode/v0.2/',
-...
-themeConfig:{
-  startPath:'/airnode/v0.2/',
-}
-```
+   ```json
+   /**
+   * List all base routes that are to become versions here.
+   */
+   versions: [
+     { name: 'v0.3', url: '/airnode/v0.3/' },
+     { name: 'v0.2', url: '/airnode/v0.2/' },
+     { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
+   ],
+   versionsBeacon: [{ name: 'v0.1', url: '/beacon/v0.1/' }],
+   versionsOis: [{ name: 'v1.0.0', url: '/ois/v1.0.0/' }],
+   /**
+   * Indicates the path to the latest Airnode version.
+   * Used by document-sets Vue component.
+   */
+   latestVersion: '/airnode/v0.3/',
+   latestBeaconVersion: '/beacon/v0.1/',
+   latestOisVersion: '/ois/v1.0.0/',
+   ```
 
-- Update the `versions` key in `/doc/.vuepress/config.json`. Provide the version
-  name and url. The url is the first markdown file to show when a version is
-  selected in the navbar. A url without a file will load the root README.md file
-  of the base route by default.
-- Set the `latestVersion` to the start path of the latest version.
-- Set the `themeConfig.startPath` to the start path of the latest version.
+4. Update the Airnode `startPath` in `config.json` if it has changed.
 
-4. Adjust the list of sidebars as needed in `config.json`.
+   - Set the `themeConfig.startPath` to the start path of the latest Airnode
+     version.
 
-```json
-sidebar: {
-  '/airnode/v0.2/': require(`../airnode/v0.2/sidebar.js`),
-  '/airnode/pre-alpha/': require(`../airnode/pre-alpha/sidebar.js`),
-  '/dao-members/': require(`../dao-members/sidebar.js`),
-  '/api3/': require(`../api3/sidebar.js`),
-  '/dev/': require(`../dev/sidebar.js`),
-  '/dev-airnode/': require(`../dev-airnode/sidebar.js`),
-},
-```
+   ```json
+   themeConfig:{
+   startPath:'/airnode/v0.4/',
+   }
+   ```
 
-5. Point all [redirects](versioning.md#redirects), when relevant, to the new
-   version in the `/docs/.vuepress.redirects` file.
+5. Adjust the list of sidebars as needed in `config.json`.
 
-6. Change the version in `package.json` to the new version.
+   ```json
+   sidebar: {
+     '/airnode/v0.2/': require(`../airnode/v0.2/sidebar.js`),
+     '/airnode/pre-alpha/': require(`../airnode/pre-alpha/sidebar.js`),
+     '/dao-members/': require(`../dao-members/sidebar.js`),
+     '/api3/': require(`../api3/sidebar.js`),
+     '/dev/': require(`../dev/sidebar.js`),
+     '/dev-airnode/': require(`../dev-airnode/sidebar.js`),
+   },
+   ```
 
-7. Update the zip files for the necessary tutorials. See
+6. Point all [redirects](versioning.md#redirects), when relevant, to new
+   versions in the `/docs/.vuepress.redirects` file.
+
+7. Change the version in `package.json` to the new version. This version
+   reflects a release of the docs and is not shown anywhere in hte docs.
+
+8. Update the zip files for the necessary tutorials. See
    [Zip Tutorial Files](./zip-files.md).
 
-8. Push branch changes to the repo, pull back to local main branch and run
+9. Push branch changes to the repo, pull back to local main branch and run
    `sh deploy.sh`.
 
 ## Update Older Versions
