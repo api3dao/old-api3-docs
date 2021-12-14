@@ -70,7 +70,7 @@ been added to **Navbar.vue**.
 
 The override component Sidebar.vue is a replacement for the VuePress
 Sidebar.vue. The custom component
-[DocumentSets.vue](./custom-components.md#document-sets-vue) has been added to
+[DocumentSets.vue](./custom-components.md#documentsets-vue) has been added to
 **Sidebar.vue**.
 
 #### Changes
