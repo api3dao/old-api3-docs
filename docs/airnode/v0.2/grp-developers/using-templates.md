@@ -61,7 +61,7 @@ First create a file that contains a template object. Below is an example. You
 will need the address of the Airnode and its endpointId to be called. Below are
 links that discuss request parameters if you need help.
 
-- [Reference > Reqeust-Response Protocol > Request](../concepts/request.md)
+- [Reference > Request-Response Protocol > Request](../concepts/request.md)
 - [Calling an Airnode](../grp-developers/call-an-airnode.md#request-parameters)
 
 ```

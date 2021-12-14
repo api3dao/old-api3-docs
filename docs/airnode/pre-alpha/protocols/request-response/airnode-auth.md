@@ -7,7 +7,7 @@ title: Airnode Authentication
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-API providers can instruct Airnode to authenticate requests to thei endpoints. This is done by setting up a security scheme in the config.json file for their Airnode. Airnode supports three methods of authentication from the OpenAPI specification.
+API providers can instruct Airnode to authenticate requests to their endpoints. This is done by setting up a security scheme in the config.json file for their Airnode. Airnode supports three methods of authentication from the OpenAPI specification.
 
 >![airnode-auth](../../figures/concepts-airnode-auth.png)
 

@@ -199,7 +199,7 @@ all fields in the config.json section nodeSettings.heartbeat. See the
 
 - enabled: Enable/disable Airnode's heartbeat.
 - url: The URL to make the heartbeat request to.
-- apiKey: The API key to authenticate against the eartbeat URL.
+- apiKey: The API key to authenticate against the heartbeat URL.
 - id: The Airnode heartbeat ID for accounting purposes.
 
 #### httpGateway
@@ -251,7 +251,7 @@ for this specific deployment.
 #### stage
 
 [<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#stage)
-This field allows the depolyment of multiple Airnodes with the same provider ID.
+This field allows the deployment of multiple Airnodes with the same provider ID.
 For example, the provider may deploy one Airnode with the stage `api3` to serve
 API3 dAPIs, and one with the stage `public` that serves the public. A regular
 user will have a single deployment, so feel free to set any descriptive name as

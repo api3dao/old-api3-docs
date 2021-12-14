@@ -7,7 +7,7 @@ title: Redirects
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-The Vuepress plugin `@vuepress/plugin-html-redirect` is used to establish
+The VuePress plugin `@vuepress/plugin-html-redirect` is used to establish
 redirects for external sites that wish to target a particular page in the docs
 while using a permanent link in its code.
 
@@ -30,7 +30,7 @@ Airnode docs. These mappings are in the `/docs/.vuepress/redirects` file.
 ::: warning Watch for this Issue
 
 Note that a redirect is to a directory path and not to a file. There must be a
-README.md file in the directory that Vuepress can display. Going to an file will
+README.md file in the directory that VuePress can display. Going to a file will
 cause a problem in production and display a counter. However this will not
 happen in development. Most likely this is a problem with the plugin as at Jul,
 5th 2021.

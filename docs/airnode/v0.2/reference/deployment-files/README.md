@@ -12,7 +12,7 @@ Airnode is deployed with two files:
   integrations and various node and deployment parameters.
 
 - [secrets.env](./secrets-env.md) is the file that keeps the secret parameters
-  (airnode mnemonic, API keys, blockchain provider URLs nad others) that the
+  (airnode mnemonic, API keys, blockchain provider URLs and others) that the
   Airnode deployments will use.
 
 - [aws.env](./aws-env.md) is the file that holds credentials if the Airnode is

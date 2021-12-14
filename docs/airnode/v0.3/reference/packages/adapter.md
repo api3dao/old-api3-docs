@@ -43,7 +43,7 @@ type and making the response transaction on chain.
 
 Altogether, the response cycle consists of multiple steps
 
-1. An successful API call is made and Airnode receives a response value
+1. A successful API call is made and Airnode receives a response value
 2. The value to be converted is extracted from the response using the
    [`_path`](../specifications/reserved-parameters.md#path)
 3. This extracted value is converted to the target type. Conversions are
@@ -103,7 +103,7 @@ console.log(values);
 ```
 
 Conversion for `int256` and `uint256` is the same - this means that `-123` can
-be converted to `uint256`. However, an will be thrown while encoding.
+be converted to `uint256`. However, an error will be thrown while encoding.
 
 :::warning Flooring
 
@@ -236,7 +236,7 @@ console.log(decoded); // "this is an example string that "
 
 ### Arrays
 
-Convertion of arrays depends on the primitive type. All values of the array (or
+Conversion of arrays depends on the primitive type. All values of the array (or
 nested array) will be converted according to the rules of the primitive type.
 
 For example:

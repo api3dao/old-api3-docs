@@ -92,5 +92,5 @@ Here are some examples:
 - Respond to requests from requesters that have paid their monthly subscription fee in DAI
 - Respond to individual requests for which a per-call fee has been paid in API3 tokens
 - Respond to requests made by clients that were whitelisted by the API3 DAO
-- Respond to requests made by requesters who have been whitelisted by the API provider backend (for example, based on Paypal payments)
+- Respond to requests made by requesters who have been whitelisted by the API provider backend (for example, based on PayPal payments)
 - ...

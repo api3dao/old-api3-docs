@@ -172,7 +172,7 @@ and encode it as such. Then, Airnode would decode it as
 
 ### Omitted types
 
-`array` and `tuple` are ommiited because they are not suitable to be used as API
+`array` and `tuple` are omitted because they are not suitable to be used as API
 parameters. `uint8-uint128`, `int8-int128`, `bytes1-bytes31` are omitted because
 they are padded to 32 bytes by the ABI encoder anyway (meaning that the user
 should simply typecast these to the 32-byte versions).
@@ -186,7 +186,7 @@ bytes32 boolAsBytes32 = boolAsBool ? bytes32("true") : bytes32("false");
 ```
 
 This works because both `bool(true)` and `bytes32("true")` would be decoded as
-`"true"` at the Airnode-end, and vice versa.
+`"true"` by the Airnode, and vice versa.
 
 ### Size limit
 

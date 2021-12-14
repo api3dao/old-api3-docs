@@ -17,7 +17,7 @@ if `patterns` is not present in config.json.
 patterns: ['**/*.md', '**/*.vue'],
 ```
 
-If needed files or a entire folder can be excluded as show below
+If needed files or an entire folder can be excluded as show below
 `'!not-this-folder/**'` using (!).
 
 ```json

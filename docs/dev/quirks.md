@@ -21,7 +21,7 @@ While the message does not seem to be an issue it is annoying. Adding
 ## @vuepress/plugin-html-redirect
 
 Note that a redirect is to a directory path and not to a file. There must be a
-README.md file in the directory that Vuepress can display. Going to an file will
+README.md file in the directory that VuePress can display. Going to a file will
 cause a problem in production and display a counter. However this will not
 happen in development. Most likely this is a problem with the plugin as at Jul,
 5th 2021.
@@ -60,5 +60,5 @@ Studio Code to redraw the legends correctly to the right of the filename.
 ## Chrome Console Error (app.js)
 
 It may be time to clear Chrome's cached files during development if there is a
-console error referencing tha fact that `app.js` cannot be found. This seems
+console error referencing the fact that `app.js` cannot be found. This seems
 very rare.
