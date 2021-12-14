@@ -158,7 +158,7 @@ npx @api3/airnode-validator --template="config" --secrets="secrets.env" --specs=
 
 The following code example validates an `ois` field that has been placed in a
 file separate from its config.json file. The
-[ois field](../specifications/ois.html) contains the mapping between an API and
+[ois field](../specifications/ois.md) contains the mapping between an API and
 Airnode endpoints. _(interpolation with an env file is supported)_
 
 ```sh
@@ -169,7 +169,7 @@ npx @api3/airnode-validator --template="OIS" --specs="myProject/config/ois.json"
 
 The following code example validates an `ois.apiSpecifications` field that has
 been placed in a file separate from its config.json file. The
-[ois.apiSpecifications field](../specifications/ois.html#_4-apispecifications)
+[ois.apiSpecifications field](../specifications/ois.md#_4-apispecifications)
 defines/specifies the API Airnode will call. _(interpolation with an env file is
 supported)_
 
@@ -181,7 +181,7 @@ npx @api3/airnode-validator --template="endpoints" --specs="myProject/config/api
 
 The following code example validates an `ois.endpoints` field that has been
 placed in a file separate from its config.json file. The
-[ois.endpoints field](../specifications/ois.html#_5-endpoints) are Airnode
+[ois.endpoints field](../specifications/ois.md#_5-endpoints) are Airnode
 endpoints that map to the `ois.apiSpecifications` field in config.json.
 _(interpolation with an env file is supported)_
 

@@ -23,8 +23,8 @@ the
 in the Airnode repository.
 
 Additional information about the
-[admin CLI image](../../../v0.3/reference/packages/admin-cli.html#using-docker)
-is available in the admin CLI commands doc.
+[admin CLI image](../../../v0.3/reference/packages/admin-cli.md#using-docker) is
+available in the admin CLI commands doc.
 
 ## Usage
 

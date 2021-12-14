@@ -160,12 +160,13 @@ parameters to pass on to `airnode.makeFullRequest`.
 
 - **parameters**: Specify the API parameters and any
   [reserved parameters](../reference/specifications/reserved-parameters.md),
-  these must be encoded. See [Airnode ABI specifications]() for how these are
-  encoded.
+  these must be encoded. See
+  [Airnode ABI specifications](../reference/specifications/airnode-abi-specifications.md)
+  for how these are encoded.
 
   In most cases the parameters will be encoded off-chain and passed to the
   requester which will only forward them. You can use the
-  [@api3/airnode-abi]()../reference/specifications/airnode-abi-specifications.html#api3-airnode-abi)
+  [@api3/airnode-abi](../reference/specifications/airnode-abi-specifications.md#api3-airnode-abi)
   package for the encoding and decoding. Take a look at the javascript snippet
   below.
 
