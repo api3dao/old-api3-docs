@@ -72,6 +72,12 @@ designated to the sponsor. This allows the sponsor to cover the gas cost of
 request fulfillments by the Airnode since the sponsor must send funds to this
 wallet before making the request.
 
+Requests from the same sponsor wallet are performed sequentially to respect the
+transaction nonce. Single Airnode run will only attemp to serve oldest 5
+requests to prevent timeout issues. For high volatility use cases it is
+recommended to use multiple sponsors (and thus sponsor wallets) as the requests
+from different sponsor wallets are performed in parallel.
+
 ### Derivation Path
 
 Each sponsor is identified by a `sponsorAddress`, and their sponsor wallets are
