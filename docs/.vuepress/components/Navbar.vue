@@ -1,6 +1,10 @@
 <template>
   <header class="navbar">
-    <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')" />
+    <!-- Changed: 2021-12-15 wkande: The hamburger menu (below) displays on hte landing page 
+    but does not do anything and really is not needed. Commenting it out below hides it and 
+    oddly enough it appears anyway on mobile once the reader enters the SPA.
+    -->
+    <!--SidebarButton @toggle-sidebar="$emit('toggle-sidebar')" /-->
 
     <!-- 
       Changed: 2021-03-08 wkande: Logo now goes to https://api3.org.
