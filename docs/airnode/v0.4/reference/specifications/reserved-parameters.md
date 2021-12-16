@@ -143,7 +143,7 @@ and `_path` is `field1.fieldA.1`, the response will be `valueA2`.
 If the response is a literal value (i.e., not a JSON object) and `_path` is not
 provided or is an empty string (needed for
 [encoding multiple values](reserved-parameters.md#encoding-multiple-values)),
-Airnode will use the the API response itself to fulfill the request.
+Airnode will use the API response itself to fulfill the request.
 
 :::warning Beware the separator
 
@@ -267,5 +267,5 @@ Airnode will extract and convert each of the "split values" separately
 
 All of these values are then together encoded to single bytes value that can be
 sent on chain. You can use
-[testing gateway](../../grp-providers/guides/build-an-airnode/deploying-airnode.html#testing-with-http-gateway)
+[testing gateway](../../grp-providers/guides/build-an-airnode/deploying-airnode.md#testing-with-http-gateway)
 to inspect the raw API response, casting results and the final encoded value.

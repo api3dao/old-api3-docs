@@ -4,8 +4,8 @@
 
     <slot name="top" />
 
-    <!-- wkand added 2021-09-20 -->
-    <SubSites />
+    <!-- wkande added 2021-09-20 replaces the sub-sites component. -->
+    <DocumentSets />
 
     <SidebarLinks :depth="0" :items="items" />
     <slot name="bottom" />
@@ -18,6 +18,11 @@ import NavLinks from '@theme/components/NavLinks.vue';
 
 export default {
   name: 'Sidebar',
+
+  // Added wkande 2021-12-13 usable for various reasons.
+  data: () => ({
+    env: process.env.NODE_ENV,
+  }),
 
   components: { SidebarLinks, NavLinks },
 

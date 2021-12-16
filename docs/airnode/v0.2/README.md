@@ -225,7 +225,7 @@ following requests made by the sponsor. This scheme has significant advantages:
   operations. In this scheme, the node operator never has to think about their
   node wallet balance.
 
-- As seen in a attack performed on an Airnode competitor's data feeds, oracle
+- As seen in an attack performed on an Airnode competitor's data feeds, oracle
   nodes that use a common wallet to fulfill requests are susceptible to
   attackers spamming requests to drain their wallets. The solution to this is
   for the node operators to maintain a whitelist of trusted addresses that they
@@ -243,7 +243,7 @@ following requests made by the sponsor. This scheme has significant advantages:
   is no longer a concern, as each sponsor will have a separate transaction
   queue. Then, sponsors whose requests are not time-critical would be able to
   provide the fulfillment gas price as a request parameter and enjoy service at
-  a much lower gas cost. This scheme can be expected to synergize with EIP1559.
+  a much lower gas cost. This scheme can be expected to synergize with EIP-1559.
 
 Finally, let us briefly mention how the Airnode protocol approaches
 monetization. It is common for a project-specific token to be worked into the

@@ -45,7 +45,7 @@ This contract has two key responsibilities:
 - It is used by requesters to make requests.
 - It is used by Airnodes to fulfill requests.
 
-However, this contract is shared for all requesters and Airnodes on a particulat
+However, this contract is shared for all requesters and Airnodes on a particular
 chain. This means that neither Airnode operators nor requesters need to deploy
 this contract themselves. Instead, API3 will deploy this contract once per chain
 and you simply connect your Airnode or requester contract to that deployed

@@ -23,7 +23,7 @@ The deployer image has two commands.
 ::: tip Quick Deploy Demo
 
 See the [Quick Deploy](../tutorial/) demo to quickly `deploy` and `remove` a
-pre-configured Airnode using the deployer image.
+preconfigured Airnode using the deployer image.
 
 :::
 

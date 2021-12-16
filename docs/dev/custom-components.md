@@ -25,17 +25,17 @@ in index.styl, look for the .toc-label class.
 
 VersionsModal.vue is a child component of Versions.vue. Versions.vue has been
 added to the navbar to allow users to switch between versions of the docs. It
-has been added to the [Navbar.vue](override-components.md#navbar-vue) vuepress
+has been added to the [Navbar.vue](override-components.md#navbar-vue) VuePress
 component which api3-docs overrides.
 
 [Versions.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/Versions.vue)
 
 [VersionsModal.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/VersionsModal.vue)
 
-## SubSites.vue
+## DocumentSets.vue
 
-SubSites.vue is placed on the top of
-[Sidebar.vue](override-components.md#sidebar-vue). It contains icons with
-hard-coded links to sub-sites (routes) such as Airnode, DAO Members and API3.
+DocumentSets.vue is placed on the top of
+[Sidebar.vue](override-components.md#sidebar-vue). It contains a pick list to
+the different document sets of which some are versioned.
 
-[SubSites.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/SubSites.vue)
+[DocumentSets.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/DocumentSets.vue)

@@ -72,27 +72,11 @@ of the /dist folder gets the latest from all contributors.
 2. Run the [Link Validator](link-validator.md) to verify hyperlinks and any
    anchors.
 
-3. Verify the proper versions are listed in config.json.
+3. Verify the proper [versions](./versioning.md) are up-to-date in config.json.
 
-   ```json
-   versions: [
-     { name: 'v0.3', url: '/airnode/v0.3/' },
-     { name: 'v0.2', url: '/airnode/v0.2/' },
-     { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
-   ],
-   ```
-
-   Check the currentVersion in config.json.
-
-   ```json
-   latestVersion: '/airnode/v0.3/',
-   ```
-
-   Check the startPath in config.json.
-
-   ```json
-   startPath: '/airnode/v0.3/',
-   ```
+   - Document set versions.
+   - Document set latest version.
+   - Check the Airnode startPath.
 
 4. Git
 

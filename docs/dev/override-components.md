@@ -15,16 +15,16 @@ when running or building the project locally.
 
 - Navbar.vue > @vuepress/themeConfig/components
 - Search.vue > @vuepress/plugin-search
+- Sidebar.vue > @vuepress/themeConfig/components
 - Home.vue > is not moved to @vuepress, it is defined as a layout page inside
   the root/README.md frontmatter definitions
 
 ## Home.vue
 
-The override component Home.use is a replacement for the VuePress Home.vue. It
+The override component Home.vue is a replacement for the VuePress Home.vue. It
 provides a replacement layout for the root README.md file which is rendered as
-the Home or Landing Page. The action button will now pick up the last page the
-user was on before returning to the Home page and use it when returning to the
-docs.
+the Home or Landing Page. The action button will pick up the last page the user
+was on before returning to the Home page and use it when returning to the docs.
 
 #### Changes
 
@@ -52,7 +52,7 @@ actionLink () {
 
 ## Navbar.vue
 
-The override component Navbar.use is a replacement for the VuePress Navbar.vue.
+The override component Navbar.vue is a replacement for the VuePress Navbar.vue.
 The custom component
 [Versions.vue](./custom-components.md#versions-vue-and-versionsmodal-vue) has
 been added to **Navbar.vue**.
@@ -68,20 +68,20 @@ been added to **Navbar.vue**.
 
 ## Sidebar.vue
 
-The override component Sidebar.use is a replacement for the VuePress
+The override component Sidebar.vue is a replacement for the VuePress
 Sidebar.vue. The custom component
-[SubSites.vue](./custom-components.md#subsites-vue) has been added to
+[DocumentSets.vue](./custom-components.md#documentsets-vue) has been added to
 **Sidebar.vue**.
 
 #### Changes
 
-- Adds a set of sub-site buttons on top of the sidebar.
+- Adds a pick list of document sets on top of the sidebar.
 
 [Sidebar.vue](https://github.com/api3dao/api3-docs/blob/stage/docs/.vuepress/components/Sidebar.vue)
 
 ## SearchBox.vue
 
-The override component SearchBox.use is a replacement for the VuePress
+The override component SearchBar.vue is a replacement for the VuePress
 SearchBox.vue. The files **match-query.js** and **search.svg** are located in
 .vuepress/components only for the purpose of running SearchBox.vue in
 development mode. They currently are not altered.

@@ -1,4 +1,7 @@
 <!--
+@deprecated: This component has been replaced with DocumentSets.vue.
+
+
 This component places icons (sub-sites) in the header of the sidebar. 
 
 NOTE: When this component is MOUNTED (as it is mounted from a landing page click),

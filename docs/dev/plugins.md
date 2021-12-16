@@ -17,7 +17,7 @@ All plugins are installed as
 
 ## VuePress Plugins
 
-Vuepress plugins are used and added by VuePress when a project is created. They
+VuePress plugins are used and added by VuePress when a project is created. They
 only need to be updated as new releases come forward. The versions of each
 should always be in sync (the same). These plugins are not explained further in
 this document.

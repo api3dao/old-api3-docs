@@ -123,7 +123,7 @@ Currently Airnode supports the following parameter types for use with `in`.
 
 When integrating a POST method, define the body parameters with `in: query`. Airnode will convert all `query` types into the `requestBody`. Note that only the non-nested application/json content-type is supported.
 
-It is not necessary to specify all API operation parameters, but only the ones that you want the on-chain requester to be able to provide (see [endpoint parameters](api-integration.md#parameters)), and the ones that you want to to hard-code a value for (see [fixed operation parameters](api-integration.md#fixedoperationparameters)).
+It is not necessary to specify all API operation parameters, but only the ones that you want the on-chain requester to be able to provide (see [endpoint parameters](api-integration.md#parameters)), and the ones that you want to hardcode a value for (see [fixed operation parameters](api-integration.md#fixedoperationparameters)).
 
 ### Security schemes
 

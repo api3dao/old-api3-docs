@@ -14,7 +14,7 @@ two methods.
 
 - Authorizers - using authorizer contracts.
 - Relay security schemes - described in the build an airnode
-  [API Security](../grp-providers/guides/build-an-airnode/api-security.html#supported-security-schemes)
+  [API Security](../grp-providers/guides/build-an-airnode/api-security.md#supported-security-schemes)
   doc.
 
 <divider/>
@@ -69,8 +69,7 @@ be done using the
 The main difference between them is that `RequesterAuthorizerWithAirnode` allows
 the Airnode address to grant whitelisting roles for that specific Airnode. On
 the other hand, `RequesterAuthorizerWithManager` allows the manager address
-(read: the API3 DAO) to grant whitelisting roles roles for all Airnodes that use
-it.
+(read: the API3 DAO) to grant whitelisting roles for all Airnodes that use it.
 
 Some common functions available are:
 
@@ -160,9 +159,9 @@ wide-spread adoption.
 ### Are authorizers required?
 
 Authorizers are not required. An Airnode operator could use
-[relay security schemes](../grp-providers/guides/build-an-airnode/api-security.html#supported-security-schemes)
-to authorize API access (e.g. by [requester](./requester.html) address). And it
-is possible to use both authorizers and relay security schemes together.
+[relay security schemes](../grp-providers/guides/build-an-airnode/api-security.md#supported-security-schemes)
+to authorize API access (e.g. by [requester](./requester.md) address). And it is
+possible to use both authorizers and relay security schemes together.
 
 ### How are authorizers implemented?
 
@@ -273,7 +272,7 @@ signature:
 
 #### setWhitelistExpiration
 
-The `setWhitelistExpiration()` function can be called by a whitelist expiraiton
+The `setWhitelistExpiration()` function can be called by a whitelist expiration
 setter or the Airnode address to set the whitelisting expiration of a requester
 for the Airnode–endpoint pair. This can hasten expiration.
 
@@ -295,7 +294,7 @@ signature:
 The `setWhitelistStatusPastExpiration()` function can be called by an indefinite
 whitelister or the Airnode address to set the whitelist status of a requester
 past expiration for the Airnode–endpoint pair. This is useful to allow access to
-an API even if the the expiration date has passed. For example, keep authorizing
+an API even if the expiration date has passed. For example, keep authorizing
 requests while a sum of API3 tokens is locked.
 
 This function emits a `ExtendedWhitelistExpiration` event with the following
@@ -371,7 +370,7 @@ signature:
 The `setWhitelistStatusPastExpiration()` function can be called by an indefinite
 whitelister or the manager to set the whitelist status of a requester past
 expiration for the Airnode–endpoint pair. This is useful to allow access to an
-API even if the the expiration date has passed. For example, keep authorizing
+API even if the expiration date has passed. For example, keep authorizing
 requests while a sum of API3 tokens is locked.
 
 This function emits a `ExtendedWhitelistExpiration` event with the following

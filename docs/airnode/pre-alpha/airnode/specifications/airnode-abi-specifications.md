@@ -145,7 +145,7 @@ A simple workaround is to encode a `bool` type parameter as `bytes32` as:
 ```solidity
 bytes32 boolAsBytes32 = boolAsBool ? bytes32("true") : bytes32("false");
 ```
-This works because both `bool(true)` and `bytes32("true")` would be decoded as `"true"` at the Airnode-end, and vice versa.
+This works because both `bool(true)` and `bytes32("true")` would be decoded as `"true"` by the Airnode, and vice versa.
 
 ### Size limit
 

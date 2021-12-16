@@ -76,7 +76,7 @@ make the necessary modifications to conform to the OIS format).
 If you already have an OAS file it may be possible to convert it to OIS. To
 assist in converting between various specifications e.g. from OAS to OIS, there
 is a `convert` command within the Airnode
-[validator](../../../reference/packages/validator.html#convertor) package.
+[validator](../../../reference/packages/validator.md#convertor) package.
 
 :::
 
@@ -358,7 +358,7 @@ After this brief detour, let us get back to filling in our OIS template.
 
 ### Endpoints
 
-The field `endpoints` is a array, with each row representing an Airnode
+The field `endpoints` is an array, with each row representing an Airnode
 endpoint. The first field you need to fill in is `name`. Make sure that it is
 descriptive and unique from other endpoint names. If you are integrating API
 operations to Airnode endpoints one-to-one, using the API operation path as the
