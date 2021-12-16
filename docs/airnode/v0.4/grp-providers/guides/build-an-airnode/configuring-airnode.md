@@ -77,6 +77,14 @@ Below is a simple chain array with a single chain provider.
     },
     "id": "4",
     "type": "evm",
+    "options": {
+      "txType": "eip1559",
+      "priorityFee": {
+        "value": "3.12",
+        "unit": "gwei"
+      },
+      "baseFeeMultiplier": "2"
+    },
     "providers": [
       "infura_rinkeby": {
         "url": "${INFURA_RINKEBY_PROVIDER_URL}"

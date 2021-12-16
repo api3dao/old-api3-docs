@@ -57,7 +57,15 @@ respective parameters.
         "url": "${CP_INFURA_MAINNET_URL}"
       }
     },
-    "type": "evm"
+    "type": "evm",
+    "options": {
+      "txType": "eip1559",
+      "priorityFee": {
+        "value": "3.12",
+        "unit": "gwei"
+      },
+      "baseFeeMultiplier": "2"
+    }
   },
   {
     "authorizers": [],
@@ -70,7 +78,15 @@ respective parameters.
         "url": "${CP_INFURA_ROPSTEN_URL}"
       }
     },
-    "type": "evm"
+    "type": "evm",
+    "options": {
+      "txType": "eip1559",
+      "priorityFee": {
+        "value": "3.12",
+        "unit": "gwei"
+      },
+      "baseFeeMultiplier": "2"
+    }
   }
 ]
 ```
@@ -103,6 +119,31 @@ URLs of each of these chain providers in their respective `url` fields.
 ### `type`
 
 (required) - The type of chain. Currently only `evm` is supported.
+
+### `options`
+
+(required) - An object that configures chain-related options.
+
+#### `options.txType`
+
+(required) - The transaction type to use:
+
+- `"legacy"` - Legacy Transaction Type
+- `"eip1559"` -
+  [EIP-1559 Transaction Type](https://eips.ethereum.org/EIPS/eip-1559)
+
+#### `options.priorityFee`
+
+(optional) - An object that configures the EIP-1559 Priority Fee (defaults
+to`{"value": "3.12", "value": "gwei"}`)
+
+#### `options.baseFeeMultiplier`
+
+(optional) - Configures the EIP-1559 Base Fee to Maximum Fee Multiplier
+(defaults to `"2"`)
+
+The resulting Maximum Fee will equal
+`(Base Fee * baseFeeMultiplier) + priorityFee`
 
 <!--
 - `blockHistoryLimit` (optional) - the number of blocks in the past that the Airnode deployment should search for requests. Defaults to `300` (roughly 1 hour for Ethereum).
