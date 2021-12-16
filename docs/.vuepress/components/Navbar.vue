@@ -1,15 +1,17 @@
 <template>
   <header class="navbar">
-    <!-- Changed: 2021-12-15 wkande: The hamburger menu (below) displays on hte landing page 
-    but does not do anything and really is not needed. Commenting it out below hides it and 
-    oddly enough it appears anyway on mobile once the reader enters the SPA.
+    <!-- 
+      Changed: 2021-12-15 wkande: The hamburger menu (below) displays on the landing page for mobile.
+      Added v-if="isLandingPage" to prevent this.
     -->
-    <!--SidebarButton @toggle-sidebar="$emit('toggle-sidebar')" /-->
+    <SidebarButton
+      @toggle-sidebar="$emit('toggle-sidebar')"
+      v-if="!isLandingPage"
+    />
 
     <!-- 
       Changed: 2021-03-08 wkande: Logo now goes to https://api3.org.
     -->
-
     <a href="https://api3.org" class="home-link">
       <img
         v-if="$site.themeConfig.logo"
@@ -86,6 +88,8 @@ export default {
   data() {
     return {
       linksWrapMaxWidth: null,
+      // Added 2021-12-15 wkande, see comment above in template.
+      isLandingPage: false,
     };
   },
 
@@ -117,6 +121,13 @@ export default {
     };
     handleLinksWrapWidth();
     window.addEventListener('resize', handleLinksWrapWidth, false);
+
+    // Added 2021-12-15 wkande: the navbar reloads every time the landing page is visited
+    // and when entering the SPA. We do not want the hamburger menu to show for the
+    // landing page.
+    this.$nextTick(function () {
+      if (this.$route.path === '/') this.isLandingPage = true;
+    });
   },
 };
 
