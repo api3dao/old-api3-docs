@@ -133,17 +133,20 @@ template argument (i.e., `--template="config@0.3"`).
 
 ### config
 
-The following code example validates a config.json file. This is the most common
-validation use case. The other templates (`apiSpecifications, endpoints, OIS`)
-support fields within the config.json and must be in separate files to be
-validated.
+The following code example validates a `config.json` file. This is the most
+common validation use case. The other templates
+(`apiSpecifications, endpoints, OIS`) support fields within the config.json and
+must be in separate files to be validated.
 
 ```sh
-# Validates a completed config.json file.
+# Validates a completed config.json file using the latest template version.
 npx @api3/airnode-validator --template="config" --specs="myProject/config/config.json"
 
-# Here (optionally) the OIS object from config.json is in a separate file.
-npx @api3/airnode-validator --template="OIS" --specs="myProject/config/OIS-spec.json"
+# Uses the 0.4 template version.
+npx @api3/airnode-validator --template="config@0.4" --specs="myProject/config/config.json"
+
+# Uses the 0.3 template version.
+npx @api3/airnode-validator --template="config@0.3" --specs="myProject/config/config.json"
 ```
 
 You will most likely keep secrets in a file separate from the `config.json`
@@ -156,37 +159,38 @@ npx @api3/airnode-validator --template="config" --secrets="secrets.env" --specs=
 
 ### OIS
 
-The following code example validates an `ois` field that has been placed in a
-file separate from its config.json file. The
+The following code example validates an `ois` object that has been placed in a
+file separate from a `config.json` file. The
 [ois field](../specifications/ois.md) contains the mapping between an API and
 Airnode endpoints. _(interpolation with an env file is supported)_
 
 ```sh
-npx @api3/airnode-validator --template="OIS" --specs="myProject/config/ois.json"
+# Validates an OIS object from an ois-spec.json file.
+npx @api3/airnode-validator --template="OIS" --specs="myProject/config/ois-spec.json"
 ```
 
 ### apiSpecifications
 
-The following code example validates an `ois.apiSpecifications` field that has
-been placed in a file separate from its config.json file. The
+The following code example validates an `ois.apiSpecifications` object that has
+been placed in a file separate from a `config.json` file. The
 [ois.apiSpecifications field](../specifications/ois.md#_4-apispecifications)
 defines/specifies the API Airnode will call. _(interpolation with an env file is
 supported)_
 
 ```sh
-npx @api3/airnode-validator --template="endpoints" --specs="myProject/config/apiSpecifications.json"
+npx @api3/airnode-validator --template="apiSpecifications" --specs="myProject/config/apiSpecifications.json"
 ```
 
 ### endpoints
 
-The following code example validates an `ois.endpoints` field that has been
-placed in a file separate from its config.json file. The
+The following code example validates an `ois.endpoints` object that has been
+placed in a file separate from a `config.json` file. The
 [ois.endpoints field](../specifications/ois.md#_5-endpoints) are Airnode
 endpoints that map to the `ois.apiSpecifications` field in config.json.
 _(interpolation with an env file is supported)_
 
 ```sh
-npx @api3/airnode-validator --template="apiSpecifications" --specs="myProject/config/endpoints.json"
+npx @api3/airnode-validator --template="endpoints" --specs="myProject/config/endpoints.json"
 ```
 
 ## Convertor
@@ -201,22 +205,12 @@ The currently available conversions are from (`OAS` to `OIS`) and from (`OIS` to
 `config`). Specification formats are case-insensitive.
 
 Convertor CLI commands work the same way as the validator and can be invoked
-with the `api3-convertor` command. The version of the format (e.g., `@0.3`) can
+with the `api3-convertor` command. The version of the format (e.g., `@0.4`) can
 be provided otherwise the latest version is used.
 
 - --from: Type of object to convert (OAS or OIS).
 - --to: Type of object to convert into (OIS or config).
-- --template: Converts an _OAS object to an OIS object_ or an _OIS object to a
-  config.json file_ using a conversion template.
 - --spec: Source of the file containing the object to be converted.
-
-Using a `--template` allows for a conversion described by its name. See the list
-of available templates in the
-[airnode-validator](https://github.com/api3dao/airnode/tree/master/packages/airnode-validator/conversions)
-package in the Airnode monorepo.
-
-- oas@3.0------ois@0.2.json - OAS to OIS with both versions specified.
-- oas@3.0------ois.json - OAS version specified but uses the latest OIS version.
 
 ```sh
 # Creates an OIS object from an OAS specification file.
@@ -224,10 +218,6 @@ npx @api3/airnode-validator api3-convertor --from="OAS" --to="OIS" --specs="exam
 
 # Creates a config file with an OIS object embedded specifically using version 0.3.
 npx @api3/airnode-validator api3-convertor --from="OIS@0.3" --to="config@0.3" --specs="exampleSpecs/ois.specs.json"
-
-# Create a config file using a conversion template. If the OIS version is not specified the latest version is used.
-yarn run cli:convertor --template="conversions/oas@3.0------ois@0.2.json" --specs="myProject/config/oas.json"
-yarn run cli:convertor --template="conversions/oas@3.0------ois.json" --specs="myProject/config/oas.json"
 ```
 
 ### Usage
@@ -238,28 +228,24 @@ ready for final editing.
 #### Step 1: (optional)
 
 If you have manually created an [OIS object](../specifications/ois.md) skip this
-step. This step creates an OIS object from an OAS specification file. The
-convertor outputs an OIS object. Paste the OIS object into a spec file (e.g.,
-`OIS.spec.json`).
+step. In this step the convertor creates an OIS object from an OAS specification
+file. The convertor outputs an OIS object. Paste the OIS object into a spec file
+(e.g., `OIS.spec.json`).
 
 ```sh
  # Creates the OIS object from an OAS spec file.
  npx @api3/airnode-validator api3-convertor --from="OAS" --to="OIS" --specs="my-config/OAS.spec.json"
- # OR: Use a template with the latest versions.
- npx @api3/airnode-validator api3-convertor --template="conversions/oas------ois.json" --specs="my-config/OAS.spec.json"
 ```
 
 #### Step 2:
 
-This step creates a config object from an OIS spec file created either manually
-or by using the OAS to OIS conversion of step #1. Copy and paste the convertor
-output into a file named `config.json`.
+This step creates a config object from an OIS object. The OIS object could have
+been created manually or by using the OAS to OIS conversion of step #1. Copy and
+paste the convertor output into a file named `config.json`.
 
 ```sh
   # Create a config object with the ois object.
   npx @api3/airnode-validator api3-convertor --from="OIS@0.3" --to="config@0.3" --specs="my-config/ois.json"
-  # OR: Use a template with the latest versions.
-  npx @api3/airnode-validator api3-convertor --template="conversions/ois------config.json" --specs="my-config/OAS.spec.json"
 ```
 
 #### Step 3:
@@ -291,7 +277,7 @@ argument `--specs-only`, which will return only the converted specification.
       "message": string
     }
   ],
-  "output": object
+  "output": objectß
 }
 
 // For convertor using --specs-only returns converted specification, (e.g., OIS object).
