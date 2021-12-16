@@ -174,7 +174,11 @@ the non-nested application/json content-type is supported.
 
 (Required) The type of the security scheme.
 
-Allowed values: `apiKey`, `http`
+Allowed values:
+
+- `apiKey`, `http`: Used by an API to authenticate Airnode.
+- `relayRequesterAddress`, `relayChainId`, `relayChainType`: Used by an API to
+  acquire information about the requester.
 
 OAS equivalent: `components.securitySchemes.{securitySchemeName}.type`
 
@@ -198,24 +202,58 @@ OAS equivalent: `components.securitySchemes.{securitySchemeName}.in`
 the
 [Authorization header as defined in RFC7235](https://tools.ietf.org/html/rfc7235#section-5.1).
 
-Allowed values:
+Allowed values: (`basic` and `bearer`)
 
 <!--The values used SHOULD be registered in the [IANA Authentication Scheme registry](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml). The OIS object supports-->
-
-`basic` and `bearer`.
 
 OAS equivalent: `components.securitySchemes.{securitySchemeName}.scheme`
 
 ### 4.4. `security`
 
-(Required) An object containing all security schemes that need to be used to
-access the API. Applies to all operations. Unlike in OAS, security cannot be a
-list. Each security scheme maps to an empty list as:
+(Required) An object containing all security schemes required by an API call.
+Applies to all operations. A security scheme can contain information required by
+the API to authenticate Airnode as well as information about the requester the
+API may also require. Read more about security schemes in the
+[API Security](../../grp-providers/guides/build-an-airnode/api-security.md)
+section of the _Build an Airnode_ guide and the
+[Airnode Authentication](../../concepts/airnode-auth.md) section of _Concepts
+and Definitions_.
+
+The `security` object maintains the names of all the security schemes used. Each
+security scheme in `security` maps to an empty list. The empty list will be used
+by future versions of Airnode for individual endpoint authentication. The
+`components.securitySchemes.{name}` object defines the security schemes. Unlike
+OAS `security` is an object, not an array.
 
 ```json
+// OIS object
+"components": {
+  "securitySchemes": {
+    "my-api-key-scheme": {
+      "in": "query",
+      "type": "apiKey",
+      "name": "access_key"
+      "scheme": "<FILL_*>" // Used when type="http".
+    }
+  }
+},
 "security": {
-  "mySecurityScheme1": []
+  "my-api-key-scheme": []
 }
+```
+
+The `apiCredential` object holds credentials needed by the security scheme if
+any.
+
+```json
+// config.json root object
+"apiCredentials": [
+    {
+      "oisTitle": "my-ois-title", // Must match the ois.title field the security scheme is in.
+      "securitySchemeName": "my-api-key-scheme",
+      "securitySchemeValue": "${API_KEY}" // In secrets.env
+    }
+  ]
 ```
 
 OAS equivalent: `security`, or `security.0` if security is a list.
@@ -223,10 +261,11 @@ OAS equivalent: `security`, or `security.0` if security is a list.
 ::: warning Please note:
 
 Currently Airnode reads the security schemes from `component.securitySchemes`
-and not `security`. Using the `security` field now provides for a smooth
-transition to future releases of Airnode with regards to security scheme
-implementation. This will allow assigning of security schemes to individual API
-operations. Currently security schemes are assign to the entire API.
+and not `security`. Using the `security` field now (in conjunction with
+`component.securitySchemes`) provides for a smooth transition to future releases
+of Airnode with regards to security scheme implementation. This will allow
+assigning of security schemes to individual API operations. Currently security
+schemes are assign to the entire API.
 
 :::
 
