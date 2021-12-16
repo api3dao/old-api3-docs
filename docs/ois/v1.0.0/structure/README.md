@@ -1,8 +1,8 @@
 ---
-title: What is OIS?
+title: Overview
 ---
 
-<TitleSpan>OIS</TitleSpan>
+<TitleSpan>OIS Structure</TitleSpan>
 
 # {{$frontmatter.title}}
 
