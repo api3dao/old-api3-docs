@@ -7,7 +7,7 @@ it will always default to the startPath in config.json.
 
 <template>
   <div>
-    <div style="padding-left: 12px; margin-top: 3px" v-if="isMounted">
+    <div style="padding-left: 12px; margin-top: -4px" v-if="isMounted">
       <!-- Current Route -->
       <div class="list-line">
         <div

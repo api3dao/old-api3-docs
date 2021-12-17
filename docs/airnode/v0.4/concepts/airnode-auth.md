@@ -67,7 +67,7 @@ curl -H "Authorization: Bearer RZ8Y65TG" \
 
 ## API Key
 
-Some APIs use an `apiKey` for authorization. The API provider supplies an
+Some APIs use an `apiKey` for authentication. The API provider supplies an
 `apiKey` used by Airnode to authenticate itself to API endpoints. Airnode can
 send the `apiKey` three ways.
 
