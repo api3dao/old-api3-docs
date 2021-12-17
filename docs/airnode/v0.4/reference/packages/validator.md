@@ -60,12 +60,18 @@ api3-validator --template="config" --specs="config.json"
 
 The validator package exports useful functions for validation. In the output
 `valid` is set to `true` when there are no errors, however there could be
-warnings in the `messages`.
+warnings in the `messages`. The validator uses the latest template unless a
+template version is applied.
 
 ```js
 const validator = require('@api3/airnode-validator');
+// Using the latest template.
 console.log(
   validator.validateWithTemplate('exampleSpecs/config.specs.json', 'config')
+);
+// Using a versioned template.
+console.log(
+  validator.validateWithTemplate('exampleSpecs/config.specs.json', 'config@0.4')
 );
 
 # Outputs json
