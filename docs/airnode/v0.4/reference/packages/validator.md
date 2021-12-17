@@ -133,15 +133,17 @@ case-insensitive.
 - [endpoints](./validator.md#endpoints)
 
 The validator will automatically validate the latest available version of a
-template when the template does not contain a specific version (i.e.,
-`--template="config"`). If a specific version is needed it can be appended to
-template argument (i.e., `--template="config@0.3"`).
+template (i.e., `--template="config"`) when the template does not contain a
+specific version . If a specific version is needed it can be appended to the
+template argument (i.e., `--template="config@0.3"`). You can see the different
+[template versions](https://github.com/api3dao/airnode/tree/master/packages/airnode-validator/templates)
+in the validator package of the Airnode monorepo.
 
 ### config
 
 The following code example validates a `config.json` file. This is the most
 common validation use case. The other templates
-(`apiSpecifications, endpoints, OIS`) support fields within the config.json and
+(`apiSpecifications, endpoints, OIS`) support objects within the config.json and
 must be in separate files to be validated.
 
 ```sh
@@ -150,9 +152,6 @@ npx @api3/airnode-validator --template="config" --specs="myProject/config/config
 
 # Uses the 0.4 template version.
 npx @api3/airnode-validator --template="config@0.4" --specs="myProject/config/config.json"
-
-# Uses the 0.3 template version.
-npx @api3/airnode-validator --template="config@0.3" --specs="myProject/config/config.json"
 ```
 
 You will most likely keep secrets in a file separate from the `config.json`
@@ -166,9 +165,9 @@ npx @api3/airnode-validator --template="config" --secrets="secrets.env" --specs=
 ### OIS
 
 The following code example validates an `ois` object that has been placed in a
-file separate from a `config.json` file. The
-[ois field](../specifications/ois.md) contains the mapping between an API and
-Airnode endpoints. _(interpolation with an env file is supported)_
+file separate from a `config.json` file. The [ois](../specifications/ois.md)
+object contains the mapping between an API and Airnode endpoints. _Interpolation
+with an env file is supported._
 
 ```sh
 # Validates an OIS object from an ois-spec.json file.
@@ -178,10 +177,11 @@ npx @api3/airnode-validator --template="OIS" --specs="myProject/config/ois-spec.
 ### apiSpecifications
 
 The following code example validates an `ois.apiSpecifications` object that has
-been placed in a file separate from a `config.json` file. The
-[ois.apiSpecifications field](../specifications/ois.md#_4-apispecifications)
-defines/specifies the API Airnode will call. _(interpolation with an env file is
-supported)_
+been placed in a file separate from a `config.json` file and its parent object
+`ois`. The
+[ois.apiSpecifications](../specifications/ois.md#_4-apispecifications) object
+defines/specifies the API Airnode will call. _Interpolation with an env file is
+supported._
 
 ```sh
 npx @api3/airnode-validator --template="apiSpecifications" --specs="myProject/config/apiSpecifications.json"
@@ -190,10 +190,10 @@ npx @api3/airnode-validator --template="apiSpecifications" --specs="myProject/co
 ### endpoints
 
 The following code example validates an `ois.endpoints` object that has been
-placed in a file separate from a `config.json` file. The
-[ois.endpoints field](../specifications/ois.md#_5-endpoints) are Airnode
-endpoints that map to the `ois.apiSpecifications` field in config.json.
-_(interpolation with an env file is supported)_
+placed in a file separate from a `config.json` file and its parent object `ois`.
+The [ois.endpoints](../specifications/ois.md#_5-endpoints) object contains
+Airnode endpoints that map to the `ois.apiSpecifications` object. _Interpolation
+with an env file is supported._
 
 ```sh
 npx @api3/airnode-validator --template="endpoints" --specs="myProject/config/endpoints.json"
