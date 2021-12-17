@@ -7,7 +7,6 @@ it will always default to the startPath in config.json.
 
 <template>
   <div>
-    <!-- MOBILE -->
     <div style="padding-left: 12px; margin-top: 3px" v-if="isMounted">
       <!-- Current Route -->
       <div class="list-line">
@@ -191,8 +190,9 @@ export default {
 }
 
 .icon-shrink {
-  width: 61px;
-  height: 53px;
+  width: 45px;
+  height: 39px;
+  margin-top: 8px;
 }
 
 .route-link {
