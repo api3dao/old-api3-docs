@@ -71,7 +71,7 @@ console.log(
 );
 // Using a versioned template.
 console.log(
-  validator.validateWithTemplate('exampleSpecs/config@0.4.specs.json', 'config')
+  validator.validateWithTemplate('exampleSpecs/config@0.4.specs.json', 'config@0.4')
 );
 
 # Outputs json
