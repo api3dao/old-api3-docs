@@ -177,7 +177,7 @@ the non-nested application/json content-type is supported.
 Allowed values:
 
 - `apiKey`, `http`: Used by an API to authenticate Airnode.
-- `relayRequesterAddress`, `relayChainId`, `relayChainType`: Used by an API to
+- `relayRequesterAddress`, `relayChainId`, `relayChainType`: Allows an API to
   acquire information about the requester.
 
 OAS equivalent: `components.securitySchemes.{securitySchemeName}.type`
