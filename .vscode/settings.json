@@ -3,9 +3,10 @@
     "markdownlint","searchbox","loglevel"
   ],
   "cSpell.words": [
+    "Airnode",
+    "errored",
     "Keccak",
-    "MYOISTITLE",
-    "errored"
+    "MYOISTITLE"
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true
