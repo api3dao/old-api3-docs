@@ -96,7 +96,18 @@ wallet non-hardened derivation path goes up to 2^31. This requires the division
 of these 160 bits into six 31 bit-long chunks, therefore derivation path for a
 sponsor wallet of a requester would be:
 
-`m / 0 / sponsor && 0x7FFFFFFF / (sponsor >> 31) && 0x7FFFFFFF / (sponsor >> 62) && 0x7FFFFFFF / (sponsor >> 93) && 0x7FFFFFFF / (sponsor >> 124) && 0x7FFFFFFF / (sponsor >> 155) && 0x7FFFFFFF`
+<!-- TODO: The Derivation Path shown below will change in v0.4. Watch the
+JIRA issue AN-453. -->
+
+```sh
+m/44'/60'/0'/0/...
+  /1st least significant 31-bits of the sponsor address (sponsor && 0x7FFFFFFF)…
+  /2nd least significant 31-bits of the sponsor address (sponsor >> 31 && 0x7FFFFFFF)…
+  /3rd least significant 31-bits of the sponsor address (sponsor >> 62 && 0x7FFFFFFF)…
+  /4th least significant 31-bits of the sponsor address (sponsor >> 93 && 0x7FFFFFFF)…
+  /5th least significant 31-bits of the sponsor address (sponsor >> 124 && 0x7FFFFFFF)…
+  /6th least significant 31-bits of the sponsor address (sponsor >> 155 && 0x7FFFFFFF)
+```
 
 Anyone can use the xpub that the Airnode has announced (through off-chain
 channels) and the sponsor's `sponsorAddress` to derive a `sponsorWalletAddress`
