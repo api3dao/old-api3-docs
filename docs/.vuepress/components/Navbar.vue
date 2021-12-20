@@ -2,11 +2,11 @@
   <header class="navbar">
     <!-- 
       Changed: 2021-12-15 wkande: The hamburger menu (below) displays on the landing page for mobile.
-      Added v-if="isLandingPage" to prevent this.
+      Added v-show="isLandingPage" to prevent this.
     -->
     <SidebarButton
       @toggle-sidebar="$emit('toggle-sidebar')"
-      v-if="!isLandingPage"
+      v-show="!isLandingPage"
     />
 
     <!-- 
