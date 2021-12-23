@@ -114,8 +114,18 @@ export default {
   },
   methods: {
     selectIcon(path) {
+      console.log(1, path);
       // Close the mobile list
       this.showDocSets = false;
+
+      // If the path is still part of the displayed DocSet
+      // then do not proceed to change the docSet.
+      console.log('a', path.substring(0, 13));
+      console.log('b', this.docSets[0].path);
+      if (path.substring(0, 13) === this.docSets[0].path) {
+        return;
+      }
+
       // Sort the docSets array
       this.docSets.sort((a, b) =>
         a.name.toLowerCase() > b.name.toLowerCase()
@@ -124,6 +134,8 @@ export default {
           ? -1
           : 0
       );
+
+      // Place the current docSet at the top of the array.
       for (var i = 0; i < this.docSets.length; i++) {
         // Airnode (versioned)
         if (
@@ -166,6 +178,7 @@ export default {
   mounted() {
     // Code that will run only after the entire view has been rendered
     this.$nextTick(function () {
+      console.log('mounted');
       // TEMP remove Beacon and OIS for now
       if (this.env != 'development') {
         this.docSets.splice(1, 1);
