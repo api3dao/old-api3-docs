@@ -1,12 +1,10 @@
 ---
-title: Overview
+title: Why use Beacons?
 ---
 
-<TitleSpan>Create a Beacon</TitleSpan>
+<TitleSpan>Beacons</TitleSpan>
 
 # {{$frontmatter.title}}
-
-<BeaconWarning/>
 
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
