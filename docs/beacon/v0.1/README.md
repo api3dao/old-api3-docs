@@ -66,3 +66,22 @@ manually. These updates are triggered by requests made through the
 request–response protocol, see [Refresh a Beacon](./refresh-a-beacon.md). The
 requester [sponsorWallet](/airnode/v0.4/concepts/sponsor.md#sponsorwallet) must
 be funded to pay for the gas cost of the update.
+
+## dAPIs (Building on Beacons)
+
+dAPIs are an on-chain component of aggregated Beacon values.
+
+::: warning Under Development
+
+dAPIs are under development for release in the near future.
+
+:::
+
+A dAPI will consume data from Beacons in order to provide an aggregate value.
+For example, there could be a dAPI for the ETH/USD price where it fetches
+different prices from multiple beacons like a coingecko ETH/USD beacon, a
+binance ETH/USD beacon and so on. The dAPI will aggregate and provide a value
+for the ETH/USD pair.
+
+A dApp would call a dAPI much like they would call a Beacon to get an instant
+response.

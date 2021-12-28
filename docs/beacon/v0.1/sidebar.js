@@ -15,6 +15,9 @@ module.exports = [
     children: [
       'functions/', // README
       'functions/read-beacon',
+      'functions/reader-can-read-beacon',
+      'functions/beaconid-reader-whiteliststatus',
+      'functions/request-beacon-update',
     ],
   },
 ];
