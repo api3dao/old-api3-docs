@@ -19,7 +19,10 @@
           "unit": "gwei"
         },
         "baseFeeMultiplier": "2"
-      }
+      },
+      "blockHistoryLimit": 300,
+      "minConfirmations": 0,
+      "ignoreBlockedRequestsAfterBlocks": 20
     }
   ],
   "nodeSettings": {
