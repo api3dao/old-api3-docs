@@ -1,5 +1,7 @@
 /latest /airnode/v0.3
 /airnode /airnode/v0.3
+/beacon /beacon/v0.1
+/beacons /beacon/v0.1
 /pre-alpha /airnode/pre-alpha
 /next /airnode/v0.4
 /v0.2 /airnode/v0.2
