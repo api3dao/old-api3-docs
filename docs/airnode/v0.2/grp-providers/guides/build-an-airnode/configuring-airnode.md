@@ -233,10 +233,12 @@ Set one of four possible log levels.
 #### nodeVersion
 
 [<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#nodeversion)
-Indicates which node (Airnode) version this `config.json` is prepared for. Since
-the `config.json` format can be expected to change with node versions, using a
-`config.json` prepared for one Airnode version with another may result in
-unexpected issues. The current node version is `1.0.0`.
+Of the form `#.#.#`, this field indicates which node (Airnode) version this
+`config.json` is prepared for. Since the `config.json` format can be expected to
+change with node versions, using a `config.json` prepared for one Airnode
+version with another may result in unexpected issues. See the
+[Releases page of the Airnode repo](https://github.com/api3dao/airnode/releases)
+for available versions.
 
 #### region
 
