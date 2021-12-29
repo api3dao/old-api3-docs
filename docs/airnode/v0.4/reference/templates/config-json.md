@@ -43,7 +43,18 @@ building a config.json file.
           "url": "${CHAIN_PROVIDER_URL}" // In secrets.env
         }
       },
-      "type": "<FILL_*>"
+      "type": "<FILL_*>",
+      "options": {
+        "txType": "<FILL_*>",
+        "priorityFee": {
+          "value": "<FILL_*>",
+          "unit": "<FILL_*>"
+        },
+        "baseFeeMultiplier": "<FILL_*>"
+      },
+      "blockHistoryLimit": "<FILL_*>",
+      "minConfirmations": "<FILL_*>",
+      "ignoreBlockedRequestsAfterBlocks": "<FILL_*>"
     }
   ],
   "nodeSettings": {
