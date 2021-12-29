@@ -77,18 +77,19 @@ There are two types of requests provided by the AirnodeRrp.sol contract. See the
 type.
 
 This example will use a [full request](../concepts/request.md#full-request) type
-(note the `airnode.makeFullRequest` function call in the code below) which is
+(note the `airnodeRrp.makeFullRequest` function call in the code below) which is
 called from the requester's own function `callTheAirnode`. The function
 `makeFullRequest` requires that the requester pass all parameters needed by
 Airnode to call its underlying API.
 
-Once the request has been made to `airnode.makeFullRequest` the AirnodeRrp.sol
-contract will return a `requestId` confirming the request has been accepted and
-is in process of being executed. Your requester would most likely wish to track
-all `requestId`s. Note the line `incomingFulfillments[requestId] = true;` in the
-code below that stores the `requestId`s in a mapping. This will be useful when
-the Airnode responds to the requester later at the function (`airnodeCallback`)
-with the `requestId` and the `data` requested.
+Once the request has been made to `airnodeRrp.makeFullRequest` the
+AirnodeRrp.sol contract will return a `requestId` confirming the request has
+been accepted and is in process of being executed. Your requester would most
+likely wish to track all `requestId`s. Note the line
+`incomingFulfillments[requestId] = true;` in the code below that stores the
+`requestId`s in a mapping. This will be useful when the Airnode responds to the
+requester later at the function (`airnodeCallback`) with the `requestId` and the
+`data` requested.
 
 ```solidity
 import "@api3/airnode-protocol/contracts/rrp/requesters/RrpRequester.sol";
@@ -111,7 +112,7 @@ contract MyRequester is RrpRequester {
       )
       external
   {
-      bytes32 requestId = airnode.makeFullRequest( // Make the Airnode request
+      bytes32 requestId = airnodeRrp.makeFullRequest( // Make the Airnode request
           airnode,                        // airnode
           endpointId,                     // endpointId
           sponsor,                        // sponsor's address
@@ -142,7 +143,7 @@ some or all of the required parameters. Learn more about
 
 Since the `callTheAirnode` function is going to make a
 [full request](../concepts/request.md#full-request) it must gather the following
-parameters to pass on to `airnode.makeFullRequest`.
+parameters to pass on to `airnodeRrp.makeFullRequest`.
 
 - **airnode** and **endpointId**: As a pair these uniquely identify the endpoint
   desired at a particular Airnode.
@@ -199,7 +200,7 @@ parameters to pass on to `airnode.makeFullRequest`.
   ```
 
 For additional information on request parameters when calling
-`airnode.makeFullRequest()` see
+`airnodeRrp.makeFullRequest()` see
 [Request Parameters](../concepts/request.md#request-parameters) in the Reference
 section.
 
