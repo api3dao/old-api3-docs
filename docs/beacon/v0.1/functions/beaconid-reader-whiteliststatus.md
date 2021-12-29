@@ -9,6 +9,13 @@ title: beaconIdToReaderToWhitelistStatus()
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
+::: danger TODO:
+
+- What is returned if the reader is not whitelisted for the Beacon ID?
+- The return value `indefiniteWhitelistCount` needs a better explanation.
+
+:::
+
 For on-chain smart contracts, the function
 [beaconIdToReaderToWhitelistStatus()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L322-L342)
 returns detailed whitelisting status for the reader address and the beaconID
@@ -51,10 +58,3 @@ contract mySmartContract {
   the reader will expire.
 - `uint192 indefiniteWhitelistCount` - Number of times `reader` was whitelisted
   indefinitely for `templateId`.
-
-::: danger TODO:
-
-- What is returned if the reader is not whitelisted for the Beacon ID?
-- The return value `indefiniteWhitelistCount` needs a better explanation.
-
-:::

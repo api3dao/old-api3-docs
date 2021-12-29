@@ -117,11 +117,25 @@ export default {
       // Close the mobile list
       this.showDocSets = false;
 
-      // If the path is still part of the displayed DocSet
-      // then do not proceed to change the docSet.
-      if (path.substring(0, 13) === this.docSets[0].path) {
-        return;
+      // START TEMPORARY
+      // This is a temp fix until Beacons go into prod. If the user discovers
+      // Beacons (via url) then add it into the pick list.
+      let flag = false;
+      for (var i = 0; i < this.docSets.length; i++) {
+        if (this.docSets[i].name === 'Beacons') {
+          flag = true;
+          break;
+        }
       }
+      if (!flag && path.indexOf('/beacon/v') > -1) {
+        this.docSets.push({
+          name: 'Beacons',
+          iconActive: '/img/Beacons-icon-black.png',
+          iconInactive: '/img/Beacons-icon-black.png',
+          path: latestBeaconVersion,
+        });
+      }
+      /// END TEMPORARY
 
       // Sort the docSets array
       this.docSets.sort((a, b) =>

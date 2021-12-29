@@ -9,6 +9,12 @@ title: requestBeaconUpdate()
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
+::: danger TODO:
+
+Incomplete
+
+:::
+
 Anyone can trigger an update to a Beacon however doing so will incur gas costs.
 Normally the Airnode that is paired with the Beacon triggers an update when the
 tolerance of the Beacon's value is out of range.
@@ -32,9 +38,3 @@ import "@api3/airnode-protocol";
 ## Parameters
 
 ## Returns
-
-::: danger TODO:
-
-Incomplete
-
-:::

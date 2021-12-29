@@ -34,12 +34,12 @@ selection of third parties.
 
 ## Simple Implementation
 
-The Beacon Server is a contract that maintains a cache of on-chain Beacon values
-readily available for smart contracts to retrieve instantly as illustrated in
-figure below. A Beacon is updated when a pre-defined tolerance of the Beacon's
-value is detected. Each Beacon has its own configuration for updates. See
-[Call a Beacon](./call-a-beacon.md) and learn how your smart contract can access
-a Beacon .
+The Beacon Server contract (_RrpBeaconServer.sol_) maintains a cache of on-chain
+Beacon values readily available for smart contracts to retrieve instantly as
+illustrated in figure below. A Beacon is updated when a pre-defined tolerance of
+the Beacon's value is detected. Each Beacon has its own configuration for
+updates. See the [readBeacon()](./functions/read-beacon.md) function doc and
+learn how your smart contract can access a Beacon .
 
 > ![dapp-beacon.png](./assets/images/dapp-beacon.png)
 
@@ -58,14 +58,6 @@ falls outside the Beacons value's defined tolerance. Note that a Airnode can be
 related to more than one Beacon.
 
 > ![beacon-airnode.png](./assets/images/beacon-airnode.png)
-
-## Refresh a Beacon
-
-A requester (dApp smart contract) can request a Beacon's value be updated
-manually. These updates are triggered by requests made through the
-request–response protocol, see [Refresh a Beacon](./refresh-a-beacon.md). The
-requester [sponsorWallet](/airnode/v0.4/concepts/sponsor.md#sponsorwallet) must
-be funded to pay for the gas cost of the update.
 
 ## dAPIs (Building on Beacons)
 

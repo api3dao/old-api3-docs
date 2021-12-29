@@ -8,3 +8,9 @@ title: Why use Beacons?
 
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
+
+::: danger TODO:
+
+Content
+
+:::
