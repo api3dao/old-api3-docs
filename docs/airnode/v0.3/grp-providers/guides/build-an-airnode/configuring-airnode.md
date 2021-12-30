@@ -76,12 +76,15 @@ Below is a simple chain array with a single chain provider.
       "AirnodeRrp": "0xF6d267546...BC9A384fa418"
     },
     "id": "4",
-    "type": "evm",
     "providers": [
       "infura_rinkeby": {
         "url": "${INFURA_RINKEBY_PROVIDER_URL}"
       }
-    ]
+    ],
+    "type": "evm",
+    "blockHistoryLimit": 300,
+    "minConfirmations": 0,
+    "ignoreBlockedRequestsAfterBlocks": 20
   }
 ],
 ```
