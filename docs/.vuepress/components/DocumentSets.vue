@@ -130,8 +130,8 @@ export default {
       if (!flag && path.indexOf('/beacon/v') > -1) {
         this.docSets.push({
           name: 'Beacons',
-          iconActive: '/img/Beacons-icon-black.png',
-          iconInactive: '/img/Beacons-icon-black.png',
+          iconActive: '/img/Beacons-active.png',
+          iconInactive: '/img/Beacons-default.png',
           path: latestBeaconVersion,
         });
       }
