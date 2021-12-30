@@ -11,7 +11,10 @@
           "url": "${LOCAL_PROVIDER_URL}"
         }
       },
-      "type": "evm"
+      "type": "evm",
+      "blockHistoryLimit": 300,
+      "minConfirmations": 0,
+      "ignoreBlockedRequestsAfterBlocks": 20
     }
   ],
   "nodeSettings": {
