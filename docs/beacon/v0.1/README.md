@@ -27,7 +27,7 @@ Web3-enabled API of the source data provider - not a third-party or a network of
 third party middlemen.
 
 The provider-operated nature of Beacons allows any dApp to consider the
-off-chain reputation of the data provider and their suitability for your use
+off-chain reputation of the data provider and their suitability for any use
 case. Bringing this level of transparency to the source of data in smart
 contracts gives dApp developers confidence rather than relying on a pseudonymous
 selection of third parties.
@@ -37,9 +37,10 @@ selection of third parties.
 The Beacon Server contract (_RrpBeaconServer.sol_) maintains a cache of on-chain
 Beacon values readily available for smart contracts to retrieve instantly as
 illustrated in figure below. A Beacon is updated when a pre-defined tolerance of
-the Beacon's value is detected. Each Beacon has its own configuration for
-updates. See the [readBeacon()](./functions/read-beacon.md) function doc and
-learn how your smart contract can access a Beacon .
+the Beacon's value is detected. Each Beacon has its own configuration parameters
+that define when and how it updates. See the
+[readBeacon()](./functions/read-beacon.md) function doc and learn how your smart
+contract can access a Beacon .
 
 > ![dapp-beacon.png](./assets/images/dapp-beacon.png)
 
@@ -61,19 +62,28 @@ related to more than one Beacon.
 
 ## dAPIs (Building on Beacons)
 
-dAPIs are an on-chain component of aggregated Beacon values.
+To further exploit the benefit of Beacons, forthcoming dAPIs will enable dApp
+developers a powerful new tool to quickly acquire aggregated Beacon values
+on-chain.
 
-::: warning Under Development
+dAPIs, like Beacons, are data feeds built entirely on-chain by aggregating data
+from more than one Beacon. Because they are built on top of the Beacon layer
+their data is also from first-party API provider _owned and operated Airnodes_.
 
-dAPIs are under development for release in the near future.
+::: tip dAPIs are under development for a pending release.
+
+&nbsp;
 
 :::
 
-A dAPI will consume data from Beacons in order to provide an aggregate value.
-For example, there could be a dAPI for the ETH/USD price where it fetches
-different prices from multiple beacons like a coingecko ETH/USD beacon, a
-binance ETH/USD beacon and so on. The dAPI will aggregate and provide a value
-for the ETH/USD pair.
+> ![beacon-airnode.png](./assets/images/dapi-beacons.png)
+>
+> <p class="diagram-line" style="color:gray;margin-top:6px;">A dApp would call a dAPI much like a Beacon to get an instant
+> response.</p>
 
-A dApp would call a dAPI much like they would call a Beacon to get an instant
-response.
+dAPIs consume data from Beacons in order to provide an aggregate value. For
+example, there could be a dAPI for the ETH/USD price where it fetches different
+prices from multiple Beacons such as a CoinGecko ETH/USD beacon, a Binance
+ETH/USD beacon and so on. Such an dAPI would aggregate and provide a value for
+the ETH/USD pair. This is just one use case for a dAPI from endless
+possibilities.

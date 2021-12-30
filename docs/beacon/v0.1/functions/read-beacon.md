@@ -30,9 +30,12 @@ contract mySmartContract {
     int224 private value;
     uint32 private timestamp;
 
-    function myGetBeaconValue(address _contractAddress, bytes32 beaconId) private {
+    function myGetBeaconValue(
+        address _beaconContractAddress,
+        bytes32 _beaconId
+    ) private {
         // Calling the BeaconServer for a Beacon value.
-        (value, timestamp) = RrpBeaconServer(_contractAddress).readBeacon(beaconId);
+        (value, timestamp) = RrpBeaconServer(_beaconContractAddress).readBeacon(_beaconId);
     }
 }
 ```
@@ -45,6 +48,17 @@ contract mySmartContract {
 
 - `int224 value` - The value of the Beacon.
 - `uint32 timestamp` - The timestamp associated with the Beacon value.
+
+::: tip Please note:
+
+The `RrpBeaconServer.sol` contract casts the reported data point to `int224`. If
+this is a problem (because the reported data may not fit into 224 bits or it is
+of a completely different type such as `bytes32`), do not use this contract and
+implement a customized version instead. The contract casts the timestamps to
+`uint32`, which means it will not work work past-2106 in the current form. If
+this is an issue, consider casting the timestamps to a larger type.
+
+:::
 
 If the `timestamp` of a Beacon is zero, this means that it was never written to.
 This may be the case for new Beacons. Therefore a zero value in the `value`
