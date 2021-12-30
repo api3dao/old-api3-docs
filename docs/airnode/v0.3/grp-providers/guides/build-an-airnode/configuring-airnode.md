@@ -126,20 +126,23 @@ The type of the chain. Only `evm` is supported at this time. See additional
 definition in the
 [reference section](../../../reference/deployment-files/config-json.md#type).
 
-<!-- This is on hold as there is an incomplete GitHub issue to implement these.
-https://github.com/api3dao/airnode/issues/41
 #### blockHistoryLimit
 
-`blockHistoryLimit` (optional) - the number of blocks in the past that the Airnode deployment should search for requests. Defaults to `300` (roughly 1 hour for Ethereum).
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#blockhistorylimit)
+The number of blocks in the past that the Airnode deployment should search for
+requests. Defaults to `300` (roughly 1 hour for Ethereum).
 
 #### minConfirmations
 
-`minConfirmations` (optional) - the number of confirmations required for a request to be considered valid. Defaults to `0`.
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#minconfirmations)
+The number of confirmations required for a request to be considered valid.
+Defaults to `0`.
 
 #### ignoreBlockedRequestsAfterBlocks
 
-`ignoreBlockedRequestsAfterBlocks` (optional) - the number of blocks that need to pass for the node to start ignoring blocked requests. Defaults to `20`.
--->
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#ignoreblockedrequestsafterblocks)
+The number of blocks that need to pass for the node to start ignoring blocked
+requests. Defaults to `20`.
 
 ### nodeSettings
 

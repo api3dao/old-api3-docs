@@ -8,7 +8,7 @@ module.exports = [
   {
     title: 'API Providers',
     initialOpenGroupIndex: 0,
-    collapsable: false,
+    collapsable: true,
     children: [
       'grp-providers/', // Routes to the README.md in grp-providers
       {
