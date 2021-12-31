@@ -84,25 +84,9 @@ console.log(
 ### Build Manually
 
 You can clone and build the Airnode monorepo then run the validator as a yarn
-script from inside the `packages/airnode-validator` directory.
-
-```sh
-# download and build the airnode monorepo
-git clone git@github.com:api3dao/airnode.git
-cd airnode
-yarn run bootstrap
-yarn run build
-cd packages/airnode-validator
-
-# execute the validator
-yarn run cli:validator --template="config" --specs="exampleSpecs/config.json"
-
-# validator output
-{
-  "valid": true,
-  "messages": []
-}
-```
+script from inside the `packages/airnode-validator` directory. The instructions
+to do so are in the monorepo validator package
+[README](https://github.com/api3dao/airnode/tree/master/packages/airnode-validator).
 
 ## Examples
 
