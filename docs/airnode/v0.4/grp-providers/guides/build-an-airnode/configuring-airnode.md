@@ -91,11 +91,12 @@ Below is a simple chain array with a single chain provider.
     ],
     "type": "evm",
     "blockHistoryLimit": 300,
-    "minConfirmations": 0,
     "ignoreBlockedRequestsAfterBlocks": 20
   }
 ],
 ```
+
+<!-- "minConfirmations": 0, -->
 
 #### authorizers
 
@@ -152,11 +153,11 @@ An object that configures chain-related options.
 The number of blocks in the past that the Airnode deployment should search for
 requests. Defaults to `300` (roughly 1 hour for Ethereum).
 
-#### minConfirmations
+<!-- #### minConfirmations
 
 [<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#minconfirmations)
 The number of confirmations required for a request to be considered valid.
-Defaults to `0`.
+Defaults to `0`. -->
 
 #### ignoreBlockedRequestsAfterBlocks
 

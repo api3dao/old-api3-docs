@@ -59,7 +59,6 @@ respective parameters.
     },
     "type": "evm",
     "blockHistoryLimit": 300,
-    "minConfirmations": 0,
     "ignoreBlockedRequestsAfterBlocks": 20
   },
   {
@@ -77,6 +76,8 @@ respective parameters.
   }
 ]
 ```
+
+<!-- "minConfirmations": 0, -->
 
 ### `authorizers`
 
@@ -109,17 +110,17 @@ URLs of each of these chain providers in their respective `url` fields.
 
 ### `blockHistoryLimit`
 
-(optional) - the number of blocks in the past that the Airnode deployment should
+(optional) - The number of blocks in the past that the Airnode deployment should
 search for requests. Defaults to `300` (roughly 1 hour for Ethereum).
 
-### `minConfirmations`
+<!--### `minConfirmations`
 
-(optional) - the number of confirmations required for a request to be considered
-valid. Defaults to `0`.
+(optional) - The number of confirmations required for a request to be considered
+valid. Defaults to `0`. -->
 
 ### `ignoreBlockedRequestsAfterBlocks`
 
-(optional) - the number of blocks that need to pass for the node to start
+(optional) - The number of blocks that need to pass for the node to start
 ignoring blocked requests. Defaults to `20`. A request is blocked whenever the
 API call cannot be made. For example, endpoint (specified by its id in the
 request) cannot be found in config.json.
