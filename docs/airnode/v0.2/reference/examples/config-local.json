@@ -13,7 +13,6 @@
       },
       "type": "evm",
       "blockHistoryLimit": 300,
-      "minConfirmations": 0,
       "ignoreBlockedRequestsAfterBlocks": 20
     }
   ],

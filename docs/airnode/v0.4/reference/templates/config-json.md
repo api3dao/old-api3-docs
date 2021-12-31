@@ -29,6 +29,8 @@ Consider the following relationships.
 See [config.json](../deployment-files/config-json.md) as a reference while
 building a config.json file.
 
+<!-- "minConfirmations": "<FILL_*>", -->
+
 ```json
 {
   "chains": [
@@ -53,7 +55,6 @@ building a config.json file.
         "baseFeeMultiplier": "<FILL_*>"
       },
       "blockHistoryLimit": "<FILL_*>",
-      "minConfirmations": "<FILL_*>",
       "ignoreBlockedRequestsAfterBlocks": "<FILL_*>"
     }
   ],
