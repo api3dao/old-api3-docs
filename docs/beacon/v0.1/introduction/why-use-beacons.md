@@ -6,8 +6,8 @@ title: Why use Beacons?
 
 # {{$frontmatter.title}}
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<!--TocHeader />
+<TOC class="table-of-contents" :include-level="[2,3]" /-->
 
 As on-chain first-party data feeds, Beacons offer a simple and trusted
 composability layer for building more transparent, reliable, and cost-efficient
