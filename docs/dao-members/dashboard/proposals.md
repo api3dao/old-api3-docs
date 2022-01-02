@@ -44,21 +44,21 @@ page displays proposals that have been executed or rejected.
 
 1. Navigate to the **Governance** page.
 
-> Here you can browse and create proposals, view the treasury, and delegate your
-> votes. **Active proposals** lists all proposals open for voting.
+   > Here you can browse and create proposals, view the treasury, and delegate
+   > your votes. **Active proposals** lists all proposals open for voting.
 
-> There are two types of proposals, primary and secondary. Primary proposals
-> require an absolute majority vote, while secondary proposals require a 15%
-> vote to pass. For each proposal in the list you can see the title, proposal
-> type, vote deadline, and vote status.
+   > There are two types of proposals, primary and secondary. Primary proposals
+   > require an absolute majority vote, while secondary proposals require a 15%
+   > vote to pass. For each proposal in the list you can see the title, proposal
+   > type, vote deadline, and vote status.
 
-> To view additional details click on the desired proposal. The detail view
-> shows your vote delegation status and a **Summary** section with the details
-> of the proposal.
+   > To view additional details click on the desired proposal. The detail view
+   > shows your vote delegation status and a **Summary** section with the
+   > details of the proposal.
 
 2. To view previous governance proposals, navigate to the **History** page.
 
-> Proposals in the history list have either been executed or rejected.
+   > Proposals in the history list have either been executed or rejected.
 
 :::
 
@@ -77,7 +77,7 @@ page displays proposals that have been executed or rejected.
 Proposals are an important part of DAO governance and can be used to fund DAO
 projects or ratify DAO level decisions like updating the stake target.
 
-Creating a proposal involves the following steps:
+Creating a proposal is a process:
 
 1. (Recommended) Promote your idea and gather feedback on the API3 forum using a
    [sentiment check post](https://forum.api3.org/t/sentiment-check-template/56).
@@ -92,12 +92,30 @@ Creating a proposal involves the following steps:
 4. Provide a link to this proposal in the official proposal forum thread to
    direct community members on where to vote.
 
-To create a new proposal using the DAO dashboard:
-
   <!--**Proposal Types**
 
   In general, a proposal type of _Primary_ has a larger treasury and more permissions but has more stringent voting settings than a _Secondary_ type. For a technical breakdown of the different permissions granted to the DAO's proposal types (and corresponding Agents) see this [README](https://github.com/api3dao/api3-dao/blob/develop/packages/dao/README.md#permissions).
   -->
+
+#### Important Tips
+
+::: tip Public Address and ENS Names
+
+For public addresses use the checksum version of the address where some
+alphabetical characters are capitalized. Copy your address to etherscan to get
+its checksum value. ENS names are allowed. See the
+[Using ENS Names](proposals.md#using-ens-names) section below.
+
+:::
+
+::: tip USDC Precision
+
+USDC uses 6 decimal places of precision as opposed to 18 that many other ERC20
+tokens use. Add 6 zeros after the amount you are asking for.
+
+:::
+
+To create a new proposal using the DAO dashboard:
 
 :::: tabs
 
@@ -107,12 +125,12 @@ To create a new proposal using the DAO dashboard:
 
 2. Select the **Proposal Type** on the proposal form.
 
-> Proposals can be submitted to either the _Primary_ or _Secondary_ voting
-> types. These two types have access to separate treasuries, have different
-> voting settings, and have different permissions to change contract settings.
-> For a technical breakdown of the different permissions granted to the DAO's
-> proposal types (and corresponding Agents) see this
-> [README](https://github.com/api3dao/api3-dao/blob/develop/packages/dao/README.md#permissions).
+   > Proposals can be submitted to either the _Primary_ or _Secondary_ voting
+   > types. These two types have access to separate treasuries, have different
+   > voting settings, and have different permissions to change contract
+   > settings. For a technical breakdown of the different permissions granted to
+   > the DAO's proposal types (and corresponding Agents) see this
+   > [README](https://github.com/api3dao/api3-dao/blob/develop/packages/dao/README.md#permissions).
 
 3. Enter a descriptive **Title**.
 
@@ -121,34 +139,44 @@ To create a new proposal using the DAO dashboard:
    > list.
 
 4. Enter a **Description** that details the proposal.
+
    > A description can be typed text but consider using a PDF hosted on IPFS.
    > See the [Using IPFS for Proposals](proposals.md#using-ipfs-for-proposals)
    > section below. Also consider adding a link back the forum where you posted
    > your proposal for discussion.
+
 5. Enter the **Target Contract** address.
+
    > This is the address of the contract to call. For example the commonly used
    > target contract for USDC is `0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48`.
+
 6. Enter the **Contract Target Signature**.
+
    > Defines the signature of the function to call within the target contract.
    > For the target contract USDC mentioned above use
    > `transfer(address,uint256)`. <span style="color:orange">Do not use any
    > spaces in the signature: leading, trailing or otherwise.</span>
+
 7. Enter an **ETH Value**.
+
    > You can use zero if the target function is not `payable`.
+
 8. Enter **Parameters** which are the arguments that will be used to satisfy the
    signature of the target contract function.
+
    > The arguments must be provided in JSON array format where the values are
    > stringified.
 
-> For public addresses use the checksum version of the address where some
-> alphabetical characters are capitalized. Copy your address to etherscan to get
-> its checksum value. ENS names are allowed. See the
-> [Using ENS Names](proposals.md#using-ens-names) section below.
+   ```json
+   ["0xF4EB52Cf9D31a...d1663d78ddDEE9", "500000000000"]
+   ```
 
-> When using USDC remember it has 6 decimals. Add 6 zeros after the amount you
-> are asking for.
+   In the example above 50,0000 USDC would be the transfer amount payable to
+   `0xF4EB52Cf9D31a...d1663d78ddDEE9` when calling the target contract
+   `0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48`.
 
 9. When you are ready, click the **Create** button at the bottom of the page.
+
    > The proposal is then added to the proposal list and can be voted on.
 
 :::
@@ -165,12 +193,12 @@ To create a new proposal using the DAO dashboard:
 
 A proposal is ready for execution if:
 
-1. the proposal hasn't already been executed, and
+1. The proposal hasn't already been executed, and
 2. greater than 50% of all voting power has voted "yes" on the proposal,
 
 OR
 
-1. the proposal hasn't already been executed, and
+1. The proposal hasn't already been executed, and
 2. the proposal's voting period has ended, and
 3. the total "yes" vote exceeds the "no" vote, and
 4. at least 50% (for Primary voting app proposals) or 15% (for Secondary voting
