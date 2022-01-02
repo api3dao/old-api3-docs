@@ -171,7 +171,7 @@ To create a new proposal using the DAO dashboard:
    ["0xF4EB52Cf9D31a...d1663d78ddDEE9", "500000000000"]
    ```
 
-   In the example above 50,0000 USDC would be the transfer amount payable to
+   In the example above 500,000 USDC would be the transfer amount payable to
    `0xF4EB52Cf9D31a...d1663d78ddDEE9` when calling the target contract
    `0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48`.
 
