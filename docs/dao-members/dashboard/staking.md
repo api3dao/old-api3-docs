@@ -52,14 +52,14 @@ to the mainnet for production use.
 > <br/>Click image to enlarge.
 > </p>
 
-On the left is the annual percentage yield which is the return on investment
-after one year. Below that is current inflation rate. Rewards are updated weekly
-based on the percentage of the staking target met, which is calculated by the
-staked amount divided by the staking target.
+On the left is the annual percentage yield which is the approximate return on
+investment after one year. Below that is current inflation rate. Rewards are
+updated weekly based on the percentage of the staking target met, which is
+calculated by the staked amount divided by the staking target.
 
-At the bottom of the page there are two sections, **Balance and Staking**. The
-balance section allows you to deposit and withdraw your tokens while the staking
-section allows you to stake and unstake your tokens.
+At the bottom of the page there are two sections, **Balance** and **Staking**.
+The balance section allows you to deposit and withdraw your tokens while the
+staking section allows you to stake and unstake your tokens.
 
 :::
 
@@ -77,7 +77,7 @@ section allows you to stake and unstake your tokens.
 
 Before tokens can be staked you must deposit them in the DAO pool. Doing so will
 remove them from your wallet and place them into the DAO pool under the control
-of its smart contracts. Deposited tokens show as WITHDRAWABLE can be removed
+of its smart contracts. Deposited tokens show as WITHDRAWABLE and can be removed
 from the DAO pool at any time and returned to your wallet.
 
 :::: tabs
@@ -93,7 +93,8 @@ from the DAO pool at any time and returned to your wallet.
    **_Approve_** button.
 3. Enter the number of tokens to deposit and click the **_Deposit_** button.
    > Note that deposited tokens are not staked. They will not earn rewards or
-   > grant you governance rights.
+   > grant you governance rights. You can use the "Deposit and Stake" button to
+   > deposit and stake them in one transaction to save some gas.
 
 ---
 

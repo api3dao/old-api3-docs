@@ -38,11 +38,11 @@ tokens to the DAO pool you gain access to weekly staking rewards but also share
 in the risk of dAPI insurance. You are also granted voting rights on active DAO
 proposals and inflationary rewards.
 
-To stake your tokens see [StakingTokens](../dashboard/staking.md). You can stake
-as many times as you’d like. Your percentage of all the tokens in the DAO pool
-are directly related to your percentage of the rewards and the risks. If you
-stake 10% of the pool you earn 10% of rewards and will pay 10% of insurance
-claims.
+To stake your tokens see the [staking tokens section](../dashboard/staking.md).
+You can stake as many times as you’d like. Your percentage of all the tokens in
+the DAO pool are directly related to your percentage of the rewards and the
+risks. If you stake 10% of the pool you earn 10% of rewards and will pay 10% of
+insurance claims.
 
 ## Token Utilities
 
@@ -97,11 +97,13 @@ rewards and exposes you to insurance claim risks.
 - Staked tokens in the DAO pool are used to cover potential financial losses
   from dAPI malfunctions that the dAPI consumer might incur.
 
-To stake your tokens use the [Dashboard](../dashboard/staking.md). You can stake
-as many times as you’d like. Your percentage of all the tokens in the DAO pool
-are directly related to your percentage of the rewards and the risks. If you
-stake 10% of the pool you earn 10% of rewards and will pay 10% of insurance
-claims.
+<!-- This whole section could be removed as it is already written in "Staked Tokens" above -->
+
+To stake your tokens use see the
+[staking tokens section](../dashboard/staking.md). You can stake as many times
+as you’d like. Your percentage of all the tokens in the DAO pool are directly
+related to your percentage of the rewards and the risks. If you stake 10% of the
+pool you earn 10% of rewards and will pay 10% of insurance claims.
 
 ### Collateral
 

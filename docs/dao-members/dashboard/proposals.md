@@ -10,7 +10,7 @@ title: Working with Proposals
 Staking tokens in the DAO pool gives you governance rights to create and vote on
 proposals.
 
-To create a proposal, you must not have created a proposal in the last seven
+To create a proposal, you must **not** have created a proposal in the last seven
 days and you must hold at least 0.1% of the total pool shares. This required
 percentage, as well as other DAO parameters, can be adjusted by the DAO as
 described in
@@ -36,7 +36,9 @@ post your own delegate pitch.
 ## Proposals and History
 
 The **Governance** page displays a list of active proposals and the **History**
-page displays proposals that have been executed or rejected.
+page displays proposals that have expired. They are either passed or rejected.
+Passed proposals might also be executed (but there can be cases where the
+proposal cannot be executed - e.g. incorrect proposal parameters).
 
 :::: tabs
 
@@ -125,8 +127,8 @@ To create a new proposal using the DAO dashboard:
 
 2. Select the **Proposal Type** on the proposal form.
 
-   > Proposals can be submitted to either the _Primary_ or _Secondary_ voting
-   > types. These two types have access to separate treasuries, have different
+   > Proposals can be submitted as either the _Primary_ or _Secondary_ voting
+   > type. These two types have access to separate treasuries, have different
    > voting settings, and have different permissions to change contract
    > settings. For a technical breakdown of the different permissions granted to
    > the DAO's proposal types (and corresponding Agents) see this
@@ -150,6 +152,8 @@ To create a new proposal using the DAO dashboard:
    > This is the address of the contract to call. For example the commonly used
    > target contract for USDC is `0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48`.
 
+   <!-- TODO: How to obtain the address above? -->
+
 6. Enter the **Contract Target Signature**.
 
    > Defines the signature of the function to call within the target contract.
@@ -165,7 +169,7 @@ To create a new proposal using the DAO dashboard:
    signature of the target contract function.
 
    > The arguments must be provided in JSON array format where the values are
-   > stringified.
+   > stringified. For empty parameters use `[]`.
 
    ```json
    ["0xF4EB52Cf9D31a...d1663d78ddDEE9", "500000000000"]
@@ -205,8 +209,8 @@ OR
    app proposals) of all voting power has voted "yes" on the proposal.
 
 Once a proposal has satisfied either set of criteria, anyone can send a
-transaction executing it using the Execute button that appears on its details
-page, as shown below:
+transaction executing it using the <ins>Execute</ins> button that appears on its
+details page, as shown below:
 
 > <p align="left">
 >  <img src="../figures/dashboard/executable-proposal.png" width="400" />
