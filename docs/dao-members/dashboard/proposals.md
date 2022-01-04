@@ -11,16 +11,16 @@ Staking tokens in the DAO pool gives you governance rights to create and vote on
 proposals.
 
 To create a proposal, you must not have created a proposal in the last seven
-days and you must hold at least 0.1% of the total pool shares. This required
-percentage, as well as other DAO parameters, can be adjusted by the DAO as
-described in
+days and you must hold at least 0.1% of the total staked tokens in the pool.
+This required percentage, as well as other DAO parameters, can be adjusted by
+the DAO as described in
 [Dashboard Attributes](../contract-architecture/dashboard-attributes.md). To
-view the percentage of pool shares for an address, visit the
+view the percentage of staked tokens in the pool for an address, visit the
 [DAO Tracker wallets page](https://enormous.cloud/dao/api3/tracker/wallets).
 
-You can vote on all proposals regardless of the percentage of pool shares you
-own. See [How to Vote](voting.md) for instructions. Alternatively, you can
-delegate your voting power to someone else. See the
+You can vote on all proposals regardless of the percentage of staked tokens in
+the pool you own. See [How to Vote](voting.md) for instructions. Alternatively,
+you can delegate your voting power to someone else. See the
 [delegation pitch section](https://forum.api3.org/c/delegation-pitch/7) of the
 API3 forum for posts by community members offering to act as delegates or to
 post your own delegate pitch.
@@ -168,12 +168,14 @@ To create a new proposal using the DAO dashboard:
    > stringified.
 
    ```json
-   ["0xF4EB52Cf9D31a...d1663d78ddDEE9", "500000000000"]
+   ["0xF4EB52Cf9D31a...d1663d78ddDEE9", "499999000000"]
    ```
 
-   In the example above 500,000 USDC would be the transfer amount payable to
-   `0xF4EB52Cf9D31a...d1663d78ddDEE9` when calling the target contract
-   `0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48`.
+   In the example above, the respective Agent (primary or secondary) would be
+   calling the USDC contract (`0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48`) to
+   transfer 499,999 USDC to `0xF4EB52Cf9D31a...d1663d78ddDEE9`. Note that since
+   `transfer(address,uint256)` transfers funds from the sender to the specified
+   address, the USDC is asked to be supplied from the Agent's balance.
 
 9. When you are ready, click the **Create** button at the bottom of the page.
 
@@ -191,6 +193,9 @@ To create a new proposal using the DAO dashboard:
 
 ## Proposal Execution
 
+<!-- The following is the older version of execution rules. This was not
+very accurate, see PR: AN384 proposals #516.
+
 A proposal is ready for execution if:
 
 1. The proposal hasn't already been executed, and
@@ -207,6 +212,19 @@ OR
 Once a proposal has satisfied either set of criteria, anyone can send a
 transaction executing it using the Execute button that appears on its details
 page, as shown below:
+-->
+
+A proposal is ready for execution if:
+
+1. The proposal hasn't already been executed, and
+2. the proposal's voting period has ended, and
+3. the total "yes" vote exceeds the "no" vote, and
+4. (for Secondary type proposals) at least 15% of all voting power has voted
+   "yes" on the proposal.
+
+Primary type proposals require 50% of all voting power to have voted "yes" on
+the proposal. Both primary and secondary type proposals execute immediately once
+50% of all voting power has voted "yes" on them.
 
 > <p align="left">
 >  <img src="../figures/dashboard/executable-proposal.png" width="400" />

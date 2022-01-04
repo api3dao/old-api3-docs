@@ -20,8 +20,8 @@ for how to deploy a copy of the DAO.
 | DAO Pool         | `0x6dd655f10d4b9e242ae186d9050b68f725c76d76` |
 | Primary Voting   | `0xdb6c812e439ce5c740570578681ea7aadba5170b` |
 | Secondary Voting | `0x1c8058e72e4902b3431ef057e8d9a58a73f26372` |
-| Primary agent    | `0xd9f80bdb37e6bad114d747e60ce6d2aaf26704ae` |
-| Secondary agent  | `0x556ecbb0311d350491ba0ec7e019c354d7723ce0` |
+| Primary Agent    | `0xd9f80bdb37e6bad114d747e60ce6d2aaf26704ae` |
+| Secondary Agent  | `0x556ecbb0311d350491ba0ec7e019c354d7723ce0` |
 | Convenience      | `0x95087266018b9637aff3d76d4e0cad7e52c19636` |
 
 <!-- Add mainnet addresses to this list -->
