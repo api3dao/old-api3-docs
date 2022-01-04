@@ -121,12 +121,15 @@ export default {
       // This is a temp fix until Beacons go into prod. If the user discovers
       // Beacons (via url) then add it into the pick list.
       let flag = false;
+      // The Beacon doc set is already included so stop this function
       for (var i = 0; i < this.docSets.length; i++) {
         if (this.docSets[i].name === 'Beacons') {
           flag = true;
           break;
         }
       }
+      // If Beacons are lot already loaded and the path is off /beacons then
+      // add them to the doc set
       if (!flag && path.indexOf('/beacon/v') > -1) {
         this.docSets.push({
           name: 'Beacons',
@@ -150,31 +153,31 @@ export default {
       for (var i = 0; i < this.docSets.length; i++) {
         // Airnode (versioned)
         if (
-          path.indexOf('/airnode/') > -1 &&
-          this.docSets[i].path.indexOf('/airnode/') > -1
+          path.indexOf('/airnode/v') > -1 &&
+          this.docSets[i].path.indexOf('/airnode/v') > -1
         ) {
           let arr = path.split('/');
           this.docSets[i].path = '/' + arr[1] + '/' + arr[2] + '/';
         }
         // Beacon (versioned)
         else if (
-          path.indexOf('/beacon/') > -1 &&
-          this.docSets[i].path.indexOf('/beacon/') > -1
+          path.indexOf('/beacon/v') > -1 &&
+          this.docSets[i].path.indexOf('/beacon/v') > -1
         ) {
           let arr = path.split('/');
           this.docSets[i].path = '/' + arr[1] + '/' + arr[2] + '/';
         }
         // OIS (versioned)
         else if (
-          path.indexOf('/ois/') > -1 &&
-          this.docSets[i].path.indexOf('/ois/') > -1
+          path.indexOf('/ois/v') > -1 &&
+          this.docSets[i].path.indexOf('/ois/v') > -1
         ) {
           let arr = path.split('/');
           this.docSets[i].path = '/' + arr[1] + '/' + arr[2] + '/';
         }
 
-        // Splice and push selected row to top of array
-        if (this.docSets[i].path === path) {
+        // Splice and push the path to top of doc set array
+        if (path.indexOf(this.docSets[i].path) > -1) {
           const obj = this.docSets[i];
           this.docSets.splice(i, 1);
           this.docSets.unshift(obj);
