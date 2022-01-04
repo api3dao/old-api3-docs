@@ -82,8 +82,8 @@ their data is also from first-party API provider _owned and operated Airnodes_.
 > response.</p>
 
 dAPIs consume data from Beacons in order to provide an aggregate value. For
-example, there could be a dAPI for the ETH/USD price where it fetches different
-prices from multiple Beacons such as a CoinGecko ETH/USD beacon, a Binance
-ETH/USD beacon and so on. Such an dAPI would aggregate and provide a value for
-the ETH/USD pair. This is just one use case for a dAPI from endless
-possibilities.
+example, in the diagram above there could be a dAPI for the ETH/USD price where
+it fetches different prices from multiple Beacons such as a CoinGecko ETH/USD
+beacon value, a Binance ETH/USD beacon value and so on. Such an dAPI would
+aggregate and provide a value for the ETH/USD pair. This is just one use case
+for a dAPI from endless possibilities.

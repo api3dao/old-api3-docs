@@ -9,7 +9,7 @@ module.exports = [
     ],
   },
   {
-    title: 'RrpBeaconServer Functions',
+    title: 'Beacon Server Functions',
     initialOpenGroupIndex: 1,
     collapsable: false,
     children: [
