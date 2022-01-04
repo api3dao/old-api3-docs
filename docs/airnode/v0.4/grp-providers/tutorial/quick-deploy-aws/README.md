@@ -171,8 +171,8 @@ integrated API.
 
 Looking at the config.json shows that the HTTP Gateway was activated for our
 Airnode. Furthermore the endpoint for `/coins/{id}` is set to be testable, see
-`endpoints[0]`. While the Airnode is enabled for the gateway, each individual
-endpoint must be marked as `testable` to allow access.
+`triggers.rrp[0]`. When a testing gateway is enabled for an Airnode, each
+individual endpoint trigger must be marked as `testable` to allow access.
 
 ```json
 "nodeSettings": {
@@ -183,15 +183,13 @@ endpoint must be marked as `testable` to allow access.
   },
 ...
 },
-"endpoints": [
+"triggers": {
+  "rrp": [
     {
-      "name": "coinMarketData",
-      "operation": {
-        "method": "get",
-        "path": "/coins/{id}"
-      },
-      "testable":true, // This endpoint can be tested by the gateway
-      ...
+      "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
+      "oisTitle": "CoinGecko Basic Request",
+      "endpointName": "coinMarketData",
+      "testable": true // This endpoint can be tested by the gateway
     }
   ]
 }
