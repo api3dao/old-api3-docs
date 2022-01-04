@@ -19,9 +19,8 @@ passes.
 
 The API3 DAO has installed two instances of its voting app, primary and
 secondary versions, along with two Aragon Agents that they control. The primary
-app commands a larger treasury and can update all DAO settings, while the
-secondary commands a much smaller treasury and can update some of the DAO
-settings.
+commands a larger treasury and can update all DAO settings, while the secondary
+commands a much smaller treasury and can update some of the DAO settings.
 
 See the
 [Api3Voting.sol](https://github.com/api3dao/api3-dao/tree/main/packages/dao/contracts)
