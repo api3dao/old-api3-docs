@@ -49,24 +49,22 @@ Enable the HTTP gateway by setting two fields in the config.json
 },
 ```
 
-You must also add the
-[testable](../../../reference/specifications/ois.md#_5-9-testable) boolean flag
-for each endpoint you want to test in the OIS (`ois.endpoints[n]testable`). This
-indicates whether the endpoint can be used via HTTP gateway or not. It’s
-optional and by default is false.
+You must also add the [testable](./configuring-airnode.md#testable-optional)
+boolean flag for each endpoint you want to test in the respective `triggers`
+object (`triggers.rrp[n].testable`). This indicates whether the endpoint can be
+used via the HTTP gateway or not. It’s optional and by default is `false`.
 
 ```json
 // in config.json
-// ois.endpoints[n].testable
-"ois":{
-  "endpoints":[
-  {
-    "name": "convertToUSD",
-    "operation": {...},
-    "testable": true,
-    ...
+"triggers": {
+  "rrp": [
+    {
+      "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
+      "oisTitle": "CoinGecko Basic Request",
+      "endpointName": "coinMarketData",
+      "testable": true // This endpoint can be tested by the gateway
+    }
   ]
-  ...
 }
 ```
 

@@ -322,6 +322,13 @@ npx @api3/airnode-admin derive-endpoint-id \
   --endpointName "My endpoint name..."
 ```
 
+#### testable (Optional)
+
+Optional flag that indicates if the endpoint can be tested with the HTTP
+gateway. The gateway must be enabled.
+
+Allowed values: `true` or `false`.
+
 ### ois
 
 The `ois` field is a list OIS objects that Airnode will be serving. This means

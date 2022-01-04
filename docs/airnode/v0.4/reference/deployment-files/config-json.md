@@ -318,18 +318,23 @@ default convention for deriving the `endpointId`.
 
 (required) - An array of endpoints from OIS that the Airnode will respond to.
 
-#### `rrp.endpointId`
+#### `rrp[n].endpointId`
 
 (required) - A identifier derived for an oisTitle/endpointName pair, see
 [derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id).
 
-#### `rrp.oisTitle`
+#### `rrp[n].oisTitle`
 
 (required) - The title of an OIS object.
 
-#### `rrp.endpointName`
+#### `rrp[n].endpointName`
 
 (required) - The endpoint name of an OIS endpoint.
+
+#### `rrp[n].testable`
+
+(optional) - Flag that indicates whether the endpoint can be tested with the
+HTTP gateway. The gateway must be enabled.
 
 ## ois
 

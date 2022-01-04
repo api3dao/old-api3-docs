@@ -323,8 +323,7 @@ following fields:
           "in": "query"
         }
       }
-    ],
-    "testable": true
+    ]
   }
 ]
 ```
@@ -480,10 +479,3 @@ OAS equivalent: `paths.{path}.{method}.description` of corresponding operation
 (Optional) URL to external documentation for the endpoint.
 
 OAS equivalent: `paths.{path}.{method}.externalDocs` of corresponding operation
-
-### 5.9. `testable`
-
-(Optional) Flag that indicates if the endpoint can be tested with the HTTP
-gateway. The gateway must be enabled.
-
-Allowed values: true, false
