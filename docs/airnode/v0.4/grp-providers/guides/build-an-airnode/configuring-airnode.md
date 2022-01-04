@@ -303,14 +303,14 @@ a trigger for each endpoint in your OIS object.
 
 #### oisTitle & endpointName
 
-[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#rrp-oistitle)
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#rrp-n-oistitle)
 Each trigger has an `oisTitle` and `endpointName` that allow you to refer to one
 of the endpoints in an OIS object. Remember that an Airnode's config.json file
 can have more than one OIS object. Fill these in accordingly.
 
 #### endpointId
 
-[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#rrp-endpointid)
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#rrp-n-endpointid)
 Add an `endpointId` to the trigger which is the ID that a requester will use for
 on-chain requests to reference a specific trigger. Use the admin CLI command
 [derive-endpoint-id](../../../reference/packages/admin-cli.md#derive-endpoint-id)
