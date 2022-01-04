@@ -207,7 +207,7 @@ be provided otherwise the latest version is used.
 npx @api3/airnode-validator api3-convertor --from="OAS" --to="OIS" --specs="exampleSpecs/OAS.specs.json"
 
 # Creates a config file with an OIS object embedded specifically using version 0.3.
-npx @api3/airnode-validator api3-convertor --from="OIS@0.3" --to="config@0.3" --specs="exampleSpecs/ois.specs.json"
+npx @api3/airnode-validator api3-convertor --from="ois@1.0" --to="config@0.3" --specs="exampleSpecs/ois.specs.json"
 ```
 
 ### Usage
@@ -235,7 +235,7 @@ paste the convertor output into a file named `config.json`.
 
 ```sh
   # Create a config object with the ois object.
-  npx @api3/airnode-validator api3-convertor --from="OIS@0.3" --to="config@0.3" --specs="my-config/ois.json"
+  npx @api3/airnode-validator api3-convertor --from="ois@1.0" --to="config@0.3" --specs="my-config/ois.json"
 ```
 
 #### Step 3:
