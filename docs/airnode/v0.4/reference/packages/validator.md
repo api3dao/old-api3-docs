@@ -183,6 +183,10 @@ with an env file is supported._
 npx @api3/airnode-validator --template="endpoints" --specs="myProject/config/endpoints.json"
 ```
 
+<!-- PLEASE NOTE:
+THE CONVERTOR HAS BEEN COMMENTED OUT AS OF Jan 5th, 2021.
+
+
 ## Convertor
 
 The convertor is useful to create an initial `config.json` file for an Airnode.
@@ -250,12 +254,17 @@ Airnode will behave.
 - [ois](../deployment-files/config-json.md#ois)
 - [apiCredentials](../deployment-files/config-json.md#apicredentials)
 
+-->
+
 ## Output
 
-The validator and its convertor implementation provide the following output. The
+<!--The validator and its convertor implementation provide the following output. The
 `output` object contains the converted specification only when using the
 convertor. Alternatively the convertor commands can be executed the with
 argument `--specs-only`, which will return only the converted specification.
+-->
+
+The validator provides the following output.
 
 ```json
 // Default output
@@ -269,6 +278,9 @@ argument `--specs-only`, which will return only the converted specification.
   ],
   "output": objectß
 }
+```
+
+<!--
 
 // For convertor using --specs-only returns converted specification, (e.g., OIS object).
 {
@@ -282,4 +294,4 @@ argument `--specs-only`, which will return only the converted specification.
     ...
   ]
 }
-```
+-->
