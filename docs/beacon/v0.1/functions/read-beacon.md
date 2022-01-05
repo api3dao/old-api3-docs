@@ -42,6 +42,8 @@ contract mySmartContract {
 
 ## Parameters
 
+`readBeacon(bytes32 _beaconId)`
+
 - `bytes32 beaconId` - The ID of the Beacon to retrieve a value for.
 
 ## Returns
