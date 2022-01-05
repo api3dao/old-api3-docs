@@ -78,7 +78,7 @@ their data is also from first-party API provider _owned and operated Airnodes_.
 
 > ![beacon-airnode.png](./assets/images/dapi-beacons.png)
 >
-> <p class="diagram-line" style="color:gray;margin-top:6px;">A dApp would call a dAPI much like a Beacon to get an instant
+> <p class="diagram-line" style="color:gray;margin-top:6px;">A dApp would call a dAPI, as it would a Beacon, to get an instant
 > response.</p>
 
 dAPIs consume data from Beacons in order to provide an aggregate value. For
