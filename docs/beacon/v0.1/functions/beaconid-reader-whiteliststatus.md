@@ -11,7 +11,6 @@ title: beaconIdToReaderToWhitelistStatus()
 
 ::: danger TODO:
 
-- What is returned if the reader is not whitelisted for the Beacon ID?
 - The return value `indefiniteWhitelistCount` needs a better explanation.
 
 :::
@@ -50,7 +49,7 @@ contract mySmartContract {
 
 ## Parameters
 
-`readerCanReadBeacon(bytes32 beaconId, address reader)`
+`beaconIdToReaderToWhitelistStatus(bytes32 beaconId, address reader)`
 
 - `bytes32 beaconId` - The ID of the beacon.
 - `address reader` - The address to get the whitelist details for.
@@ -61,3 +60,10 @@ contract mySmartContract {
   the reader will expire.
 - `uint192 indefiniteWhitelistCount` - Number of times `reader` was whitelisted
   indefinitely for `templateId`.
+
+When the `address` has not been whitelisted this function returns:
+
+```bash
+expirationTimestamp   uint64 :  0
+indefiniteWhitelistCount   uint192 :  0
+```
