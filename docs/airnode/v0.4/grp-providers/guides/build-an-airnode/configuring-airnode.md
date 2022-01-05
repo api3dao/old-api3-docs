@@ -322,11 +322,11 @@ npx @api3/airnode-admin derive-endpoint-id \
   --endpointName "My endpoint name..."
 ```
 
-#### testable (Optional)
+#### testable
 
-Optional flag that indicates if the endpoint can be tested with the HTTP
-gateway. The gateway must be enabled.
-
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#rrp-n-testable)
+Optional flag that indicates if the endpoint can be tested with the HTTP gateway
+when the [HTTP gateway](./configuring-airnode.md#httpgateway) is enabled.
 Allowed values: `true` or `false`.
 
 ### ois
