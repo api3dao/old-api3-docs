@@ -280,8 +280,8 @@ config object.
 (required) - The label used to distinguish between multiple deployments of the
 same Airnode on a cloud provider. For example, the same Airnode may have
 multiple deployments with `stage` set to a different value (dev, public, prod).
-`stage` cannot be longer than 16 characters and can only include alphanumeric
-characters (`a–z`, `A–Z`, `0–9`) and hyphens (`-`).
+`stage` cannot be longer than 16 characters and can only include lowercase
+alphanumeric characters (`a–z`, `0–9`) and hyphens (`-`).
 
 ## triggers
 
