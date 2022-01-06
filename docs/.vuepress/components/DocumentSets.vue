@@ -118,37 +118,28 @@ export default {
       this.showDocSets = false;
 
       // START TEMPORARY
-      // This is a temp fix until Beacons/OIS go into prod. If the user discovers
+      // This is a temp fix until Beacons/OIS goes into prod. If the user discovers
       // Beacons or OIS (via url) then add it into the pick list.
       let flag = false;
-      // The Beacon doc set is already included so stop this function
       for (var i = 0; i < this.docSets.length; i++) {
-        if (this.docSets[i].name === 'Beacons') {
+        if (
+          this.docSets[i].name === 'Beacons' ||
+          this.docSets[i].name === 'OIS'
+        ) {
           flag = true;
           break;
         }
       }
-      let flagOIS = false;
-      // The OIS doc set is already included so stop this function
-      for (var i = 0; i < this.docSets.length; i++) {
-        if (this.docSets[i].name === 'OIS') {
-          flagOIS = true;
-          break;
-        }
-      }
-      // If Beacons are not already loaded and the path is off /beacons then
-      // add them to the doc set
-      if (!flag && path.indexOf('/beacon/v') > -1) {
+      if (
+        !flag &&
+        (path.indexOf('/beacon/v') > -1 || path.indexOf('/ois/v') > -1)
+      ) {
         this.docSets.push({
           name: 'Beacons',
           iconActive: '/img/Beacons-active.png',
           iconInactive: '/img/Beacons-default.png',
           path: latestBeaconVersion,
         });
-      }
-      // If OIS are not already loaded and the path is off /ois then
-      // add them to the doc set
-      if (!flagOIS && path.indexOf('/ois/v') > -1) {
         this.docSets.push({
           name: 'OIS',
           iconActive: '/img/ois-active.png',
