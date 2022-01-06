@@ -16,8 +16,6 @@ you provide when deploying an Airnode. You can also use the validator to check
 the configuration files for correct formatting and other issues while creating
 them.
 
-<!-- TODO: Mention the convertor early around here. -->
-
 ## Usage
 
 The validator's commands can be run using
