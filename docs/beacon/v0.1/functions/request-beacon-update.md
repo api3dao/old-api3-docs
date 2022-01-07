@@ -11,9 +11,9 @@ title: requestBeaconUpdate()
 
 ::: danger TODO:
 
-- More on acquiring a Beacon templateId.
-- If the update fails and it is important to the caller to know, how do they
-  check?
+1. More on acquiring a Beacon templateId.
+2. If the update fails and it is important to the caller to know, how do they
+   check?
 
 :::
 
