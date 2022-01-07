@@ -71,6 +71,7 @@ OpenAPI specifications of the API that you are going to integrate, you are about
 80% done, because you can copy paste entire sections (but make sure that you
 make the necessary modifications to conform to the OIS format).
 
+<!--
 ::: tip
 
 If you already have an OAS file it may be possible to convert it to OIS. To
@@ -79,6 +80,7 @@ is a `convert` command within the Airnode
 [validator](../../../reference/packages/validator.md#convertor) package.
 
 :::
+-->
 
 This guide will assume you do not have the OpenAPI specifications of the API
 that you will be integrating.

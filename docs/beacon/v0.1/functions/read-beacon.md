@@ -9,6 +9,12 @@ title: readBeacon()
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
+::: warning TODO:
+
+Get link from BD for whitelisting requests.
+
+:::
+
 Reading a Beacon value is simple and straight forward. For on-chain smart
 contracts the `msg.sender` received by the function
 [readBeacon()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L286-L307)
@@ -41,6 +47,8 @@ contract mySmartContract {
 ```
 
 ## Parameters
+
+`readBeacon(bytes32 _beaconId)`
 
 - `bytes32 beaconId` - The ID of the Beacon to retrieve a value for.
 

@@ -49,10 +49,10 @@ Enable the HTTP gateway by setting two fields in the config.json
 },
 ```
 
-You must also add the [testable](./configuring-airnode.md#testable-optional)
-boolean flag for each endpoint you want to test in the respective `triggers`
-object (`triggers.rrp[n].testable`). This indicates whether the endpoint can be
-used via the HTTP gateway or not. It’s optional and by default is `false`.
+You must also add the [testable](./configuring-airnode.md#testable) boolean flag
+for each endpoint you want to test in the respective `triggers` object
+(`triggers.rrp[n].testable`). This indicates whether the endpoint can be used
+via the HTTP gateway or not. It’s optional and by default is `false`.
 
 ```json
 // in config.json

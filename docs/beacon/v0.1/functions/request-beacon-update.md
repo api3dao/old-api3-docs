@@ -11,7 +11,6 @@ title: requestBeaconUpdate()
 
 ::: danger TODO:
 
-- Needs links to sponsor and sponsorWallets.
 - More on acquiring a Beacon templateId.
 - If the update fails and it is important to the caller to know, how do they
   check?
@@ -26,6 +25,21 @@ To trigger an update to a Beacon's value call the function
 [requestBeaconUpdate()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L184-L232).
 Triggering a Beacon update does not require that the caller be whitelisted. This
 is because the caller will be paying the gas costs.
+
+There are two requirements for `requestBeaconUpdate()` to be called:
+
+1. The [sponsor](../../../airnode/v0.4/concepts/sponsor.md) must call
+   [setSponsorshipStatus()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol#L36)
+   of the AirnodeRrp contract to sponsor the RrpBeaconServer contract.
+
+2. The sponsor must call
+   [setUpdatePermissionStatus()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L169)
+   of the RrpBeaconServer contract to give request update permission to the user
+   of this method. The template and additional parameters used here must specify
+   a single point of data of type `int256` and an additional timestamp of type
+   `uint256` to be returned because this is what `fulfill()` expects. This point
+   of data must be castable to `int224` and the timestamp must be castable to
+   `uint32`.
 
 ## Example Code
 
@@ -60,11 +74,13 @@ contract mySmartContract {
 
 ## Parameters
 
+`requestBeaconUpdate( bytes32 _templateId, address _sponsor, address _sponsorWallet, bytes calldata _parameters )`
+
 - `bytes32 templateId` - Template ID of the beacon to be updated.
 - `address sponsor` - Sponsor whose wallet will be used to fulfill this request.
 - `address sponsorWallet` - Sponsor wallet that will be used to fulfill this
   request.
-- `bytes calldata paramters` - Parameters provided by the requester in addition
+- `bytes calldata parameters` - Parameters provided by the requester in addition
   to the parameters in the template.
 
 ## Returns
