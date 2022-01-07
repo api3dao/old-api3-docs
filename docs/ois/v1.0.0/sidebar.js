@@ -1,14 +1,8 @@
 module.exports = [
   {
-    title: 'Introduction',
+    title: '',
     initialOpenGroupIndex: 1,
     collapsable: false,
-    children: [''],
-  },
-  {
-    title: 'OIS Structure',
-    initialOpenGroupIndex: 1,
-    collapsable: false,
-    children: ['structure/'],
+    children: ['', 'ois.md', 'example.md'],
   },
 ];
