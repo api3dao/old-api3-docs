@@ -8,7 +8,6 @@ var file = require('file');
 var colors = require('colors');
 const oust = require('oust');
 const axios = require('axios');
-const { getSystemErrorMap } = require('util');
 //const { versions } = require('process');
 
 /**
@@ -58,6 +57,15 @@ function tempCB(dirPath, dirs, files) {
 
 async function testLink(url, filePath) {
   try {
+    // TODO: This needs to moved to an ignore file
+    let ignore = [
+      'https://staging.api3.eth.link/#/',
+      'https://www.coingecko.com/en/api/documentation',
+    ];
+    if (ignore.includes(url)) {
+      return;
+    }
+
     axios.defaults.timeout = 10000;
     const response = await axios.get(url);
 
