@@ -22,7 +22,7 @@ The DAO dashboard focuses on your interaction with the DAO:
 
 - Access the [DAO Dashboard](https://api3.eth.link/) on **Mainnet**.
 
-- Access the [Stage DAO Dashboard](https://staging.api3.eth.link/) on Rinkeby.
+- Access the [Stage DAO Dashboard](https://staging.api3.eth.link/#/) on Rinkeby.
   This is a staging area for beta and other testing but may not be available at
   certain times.
 

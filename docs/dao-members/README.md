@@ -17,7 +17,7 @@ following topics are covered:
 
 ::: tip DAO Dashboard
 
-Access the [DAO Dashboard](https://api3.eth.link/) on **Mainnet**.
+Access the [DAO Dashboard](https://api3.eth.link/#/) on **Mainnet**.
 
 :::
 
