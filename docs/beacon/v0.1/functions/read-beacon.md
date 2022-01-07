@@ -9,9 +9,9 @@ title: readBeacon()
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-::: warning TODO:
+::: danger TODO:
 
-Get link from BD for whitelisting requests.
+1. Get link from BD for whitelisting requests.
 
 :::
 
