@@ -13,7 +13,7 @@ This demo is a simple Airnode deployment, using a hands-on approach, to better
 understand the overall deployment process of the
 [deployer image](../../grp-providers/docker/deployer-image.md). It uses an API
 endpoint (`GET /coins/{id}`) from
-[CoinGecko](https://www.coingecko.com/en/api/documentation?) which returns the
+[CoinGecko](https://www.coingecko.com/en/api/documentation) which returns the
 current value of a coin. This demo does not detail the overall configuration of
 an Airnode, it is just a quick start.
 
