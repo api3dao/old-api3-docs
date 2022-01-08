@@ -214,10 +214,10 @@ OAS equivalent: `components.securitySchemes.{securitySchemeName}.scheme`
 Applies to all operations. A security scheme can contain information required by
 the API to authenticate Airnode as well as information about the requester the
 API may also require. Read more about security schemes in the
-[API Security](../../grp-providers/guides/build-an-airnode/api-security.md)
+[API Security](../../airnode/v0.3/grp-providers/guides/build-an-airnode/api-security.md)
 section of the _Build an Airnode_ guide and the
-[Airnode Authentication](../../concepts/airnode-auth.md) section of _Concepts
-and Definitions_.
+[Airnode Authentication](../../airnode/v0.3/concepts/airnode-auth.md) section of
+_Concepts and Definitions_.
 
 The `security` object maintains the names of all the security schemes used. Each
 security scheme in `security` maps to an empty list. The empty list will be used
