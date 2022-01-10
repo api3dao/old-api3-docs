@@ -12,9 +12,8 @@ title: Adapter
 The
 [airnode-adapter](https://github.com/api3dao/airnode/tree/v0.3/packages/airnode-adapter)
 package has multiple responsibilities. It is used for building requests from an
-[Oracle Integration Specification (OIS)](../../grp-providers/guides/build-an-airnode/api-integration.md#ois-template),
-executing them, parsing the responses, but also converting and encoding them for
-on chain use.
+[Oracle Integration Specification (OIS)](/ois/v1.0.0/), executing them, parsing
+the responses, but also converting and encoding them for on chain use.
 
 It is an internal dependency of Airnode, but can also be used standalone as an
 API.

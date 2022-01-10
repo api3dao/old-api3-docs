@@ -254,7 +254,7 @@ The callback to a requester will contain two parameters as shown in the
   reference to identify which request the response is for.
 - **data**: For a successful response the requested data which has been encoded
   and will contain a
-  [timestamp](../reference/specifications/reserved-parameters.md#timestamp-encoded-to-uint256-on-chain)
+  [timestamp](/ois/v1.0.0/reserved-parameters.md#timestamp-encoded-to-uint256-on-chain)
   in addition to other response data. Decode it using the function `decode()`
   from the `abi` object.
 
