@@ -6,10 +6,8 @@ title: OIS Template
 
 # {{$frontmatter.title}}
 
-An
-[OIS (Oracle Integration Specifications)](../../grp-providers/guides/build-an-airnode/api-integration.md#ois-template)
-json object is part of an Airnode's
-[config.json](../deployment-files/config-json.md) file.
+An OIS (Oracle Integration Specifications) JSON object is part of an Airnode's
+`config.json` file.
 
 In the OIS template, there are some fields that contain <FILL\_\*>. This means
 that the value you will be replacing this with is independent from the other

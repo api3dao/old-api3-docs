@@ -42,14 +42,14 @@ type and making the response transaction on chain.
 
 Altogether, the response cycle consists of multiple steps
 
-1. A successful API call is made and Airnode receives a response value
+1. A successful API call is made and Airnode receives a response value.
 2. The value to be converted is extracted from the response using the
-   [`_path`](../specifications/reserved-parameters.md#path)
+   [\_path](/ois/v1.0.0/reserved-parameters.md#path) from the OIS object.
 3. This extracted value is converted to the target type. Conversions are
-   performed internally by the `castValue(value, type)` function
+   performed internally by the `castValue(value, type)` function.
 4. The converted value is encoded to the native solidity type based on the
-   [`_type`](../specifications/reserved-parameters.md#type). Encoding is
-   performed internally by the `encodeValue(value, type)` function
+   [\_type](/ois/v1.0.0/reserved-parameters.md#type) from the OIS object.
+   Encoding is performed internally by the `encodeValue(value, type)` function.
 
 <!-- TODO: Create a page about how to read Airnode logs (probably the troubleshooting guide) and link it-->
 
@@ -90,8 +90,7 @@ console.log(values);
 Number strings and numbers will attempt to be converted to
 [BigNumbers](https://mikemcl.github.io/bignumber.js/). The value will also be
 multiplied by the value of the
-[`_times`](../specifications/reserved-parameters.md#times) parameter if it is
-present.
+[\_times](/ois/v1.0.0/reserved-parameters.md#times) parameter if it is present.
 
 ```ts
 const VALID_INT_VALUES = ['123.456', 7777];
@@ -108,7 +107,7 @@ be converted to `uint256`. However, an error will be thrown while encoding.
 
 Beware that any floating point number will be **floored**. This is necessary,
 because floating point numbers are not valid in solidity. To mitigate precision
-loss, you can use the [`_times`](../specifications/reserved-parameters.md#times)
+loss, you can use the [`_times`](/ois/v1.0.0/reserved-parameters.md#times)
 parameter that is sufficiently large.
 
 For example, if the API response is a USD currency, you might want to use

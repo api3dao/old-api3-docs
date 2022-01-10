@@ -14,11 +14,13 @@ Airnode's defined endpoints in an OIS object but do not map to operation
 parameters (API parameters). They are used by Airnode for special purposes.
 
 A requester can pass request parameters either by referencing a
-[template](../../concepts/template.md) that contains them, or as an argument of
-the request-making methods of [AirnodeRrp.sol](../../concepts/#airnoderrp-sol).
-In either case, these parameters are encoded using the
-[AirnodeRrp ABI](airnode-abi-specifications.md). There are two types of
-parameters which are part of the [OIS](/ois/v1.0.0/) object:
+[template](/airnode/v0.4/concepts/template.md) that contains them, or as an
+argument of the request-making methods of
+[AirnodeRrp.sol](/airnode/v0.4/concepts/#airnoderrp-sol). In either case, these
+parameters are encoded using the
+[AirnodeRrp ABI](/airnode/v0.4/reference/specifications/airnode-abi-specifications.md).
+There are two types of parameters which are part of the [OIS](/ois/v1.0.0/)
+object:
 
 1. [Endpoint parameters](/ois/v1.0.0/ois.md#_5-5-parameters) - endpoint
    parameters are mapped to API operation parameters
@@ -48,14 +50,16 @@ represent.
 - [`timestamp`](reserved-parameters.md#timestamp-encoded-to-uint256-on-chain)
 
 You can also encode multiple values for one single API call - but this impacts
-all of the reserved parameters and is explained in depth in
-[encoding multiple values](reserved-parameters.md#encoding-multiple-values).
+all of the reserved parameters and is explained in the
+[Encoding Multiple Values](./reserved-parameters.md#encoding-multiple-values)
+section below.
 
 ### Conversion and encoding behavior
 
 Before the API response value is encoded for on chain use, it is parsed and
 converted. The conversion behaviors for any given type is explained in depth in
-the [adapter package docs](../packages/adapter.md#conversion).
+the
+[adapter package docs](/airnode/v0.4/reference/packages/adapter.md#conversion).
 
 The converted value is then encoded internally by
 [ethers ABI Coder](https://docs.ethers.io/v5/api/utils/abi/coder/#AbiCoder)
@@ -148,7 +152,7 @@ and `_path` is `field1.fieldA.1`, the response will be `valueA2`.
 
 If the response is a literal value (i.e., not a JSON object) and `_path` is not
 provided or is an empty string (needed for
-[encoding multiple values](reserved-parameters.md#encoding-multiple-values)),
+[encoding multiple values](./reserved-parameters.md#encoding-multiple-values)),
 Airnode will use the API response itself to fulfill the request.
 
 :::warning Beware the separator
@@ -163,7 +167,7 @@ it will be incorrectly considered as a separator.
 ```
 
 The `_path` defined as `"strange.key"` will not work. As workaround you can
-[escape the separator](reserved-parameters.md#escaping-separators).
+[escape the separator](./reserved-parameters.md#escaping-separators).
 
 :::
 
@@ -207,13 +211,14 @@ _times: "100"
 
 the request will be fulfilled with the value `123`. Note that the number gets
 multiplied by `100`, and then gets floored. This is because the result of the
-multiplication is [cast](../packages/adapter.md) to `int256` afterwards.
+multiplication is [cast](/airnode/v0.4/reference/packages/adapter.md) to
+`int256` afterwards.
 
 Make sure to pass the `_times` parameter as string. Airnode will convert this
 string to number internally. You can also pass and empty string `""` to `_times`
 parameter - this has the same effect as if the `_times` parameter was not
 provided. However, this is important when
-[encoding multiple values](reserved-parameters.md#encoding-multiple-values).
+[encoding multiple values](./reserved-parameters.md#encoding-multiple-values).
 
 The `_times` parameter also works in conjunction with arrays and
 multidimensional arrays. All elements of the API response array will be
@@ -273,5 +278,5 @@ Airnode will extract and convert each of the "split values" separately
 
 All of these values are then together encoded to single bytes value that can be
 sent on chain. You can use
-[testing gateway](../../grp-providers/guides/build-an-airnode/deploying-airnode.md#testing-with-http-gateway)
+[testing gateway](/airnode/v0.4/grp-providers/guides/build-an-airnode/deploying-airnode.md#testing-with-http-gateway)
 to inspect the raw API response, casting results and the final encoded value.
