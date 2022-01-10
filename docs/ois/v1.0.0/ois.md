@@ -384,8 +384,9 @@ cannot be overridden by the requester.
 ### 5.4. `reservedParameters`
 
 (Optional) A list of objects that specify reserved endpoint parameters that do
-not map to operation parameters, but used for special purposes by the oracle
-node. Each object has the following elements:
+not map to operation parameters, but are used for special purposes by the oracle
+node. See the [Reserved Parameters](./reserved-parameters.md) doc for an
+in-depth explanation. Each object has the following elements:
 
 - [`name`](ois.md#_5-4-1-name)
 - [`fixed`](ois.md#_5-4-2-fixed)
