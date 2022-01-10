@@ -10,15 +10,16 @@ title: Reserved parameters
 
 A requester can pass request parameters either by referencing a
 [template](../../concepts/template.md) that contains them, or as an argument of
-the request-making methods of [Airnode.sol](../../concepts/#airnoderrp-sol). In
-either case, these parameters are encoded using the
-[Airnode ABI](airnode-abi-specifications.md). There are two types of parameters:
+the request-making methods of [AirnodeRrp.sol](../../concepts/#airnoderrp-sol).
+In either case, these parameters are encoded using the
+[AirnodeRrp ABI](airnode-abi-specifications.md). There are two types of
+parameters which are part of the [OIS](/ois/v1.0.0/) object:
 
-1. [Endpoint parameters](ois.md#_5-5-parameters) - endpoint parameters are
-   mapped to API operation parameters
-2. [Reserved parameters](ois.md#_5-4-reservedparameters) - reserved parameters
-   signal to the provider to perform a specific operation while fulfilling the
-   request. Reserved parameter names start with `_`.
+1. [Endpoint parameters](/ois/v1.0.0/ois.md#_5-5-parameters) - endpoint
+   parameters are mapped to API operation parameters
+2. [Reserved parameters](/ois/v1.0.0/ois.md#_5-4-reservedparameters) - reserved
+   parameters signal to the provider to perform a specific operation while
+   fulfilling the request. Reserved parameter names start with `_`.
 
 ## `_type`
 
