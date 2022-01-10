@@ -13,6 +13,10 @@ it will always default to the startPath in config.json.
         ><span class="btnText">Airnode →</span></router-link
       >
 
+      <router-link class="nav-link action-button btn" to="/ois/v1.0.0/"
+        ><span class="btnText">OIS →</span></router-link
+      >
+
       <router-link class="nav-link action-button btn" to="/dao-members/"
         ><span class="btnText">DAO Members →</span></router-link
       >

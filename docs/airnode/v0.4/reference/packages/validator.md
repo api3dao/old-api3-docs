@@ -146,10 +146,10 @@ npx @api3/airnode-validator --template="config" --secrets="secrets.env" --specs=
 
 ### OIS
 
-The following code example validates an `ois` object that has been placed in a
-file separate from a `config.json` file. The [ois](../specifications/ois.md)
-object contains the mapping between an API and Airnode endpoints. _Interpolation
-with an env file is supported._
+The following code example validates an [OIS](/ois/v1.0.0/ois.md) object that
+has been placed in a file separate from a `config.json` file. The OIS object
+contains the mapping between an API and Airnode endpoints. _Interpolation with
+an env file is supported._
 
 ```sh
 # Validates an OIS object from an ois-spec.json file.
@@ -160,10 +160,9 @@ npx @api3/airnode-validator --template="OIS" --specs="myProject/config/ois-spec.
 
 The following code example validates an `ois.apiSpecifications` object that has
 been placed in a file separate from a `config.json` file and its parent object
-`ois`. The
-[ois.apiSpecifications](../specifications/ois.md#_4-apispecifications) object
-defines/specifies the API Airnode will call. _Interpolation with an env file is
-supported._
+`ois`. The [ois.apiSpecifications](/ois/v1.0.0/ois.md#_4-apispecifications)
+object defines/specifies the API Airnode will call. _Interpolation with an env
+file is supported._
 
 ```sh
 npx @api3/airnode-validator --template="apiSpecifications" --specs="myProject/config/apiSpecifications.json"
@@ -173,9 +172,9 @@ npx @api3/airnode-validator --template="apiSpecifications" --specs="myProject/co
 
 The following code example validates an `ois.endpoints` object that has been
 placed in a file separate from a `config.json` file and its parent object `ois`.
-The [ois.endpoints](../specifications/ois.md#_5-endpoints) object contains
-Airnode endpoints that map to the `ois.apiSpecifications` object. _Interpolation
-with an env file is supported._
+The [ois.endpoints](/ois/v1.0.0/ois.md#_5-endpoints) object contains Airnode
+endpoints that map to the `ois.apiSpecifications` object. _Interpolation with an
+env file is supported._
 
 ```sh
 npx @api3/airnode-validator --template="endpoints" --specs="myProject/config/endpoints.json"
@@ -188,7 +187,7 @@ THE CONVERTOR HAS BEEN COMMENTED OUT AS OF Jan 5th, 2021.
 ## Convertor
 
 The convertor is useful to create an initial `config.json` file for an Airnode.
-Once you create an [OIS object](../specifications/ois.md), the convertor can
+Once you create an [OIS object](/ois/v1.0.0/ois.md), the convertor can
 create a config object along with the other fields that can be pasted into a
 `config.json` file. The file will have areas of content that are "filled-in" for
 completeness.
@@ -219,7 +218,7 @@ ready for final editing.
 
 #### Step 1: (optional)
 
-If you have manually created an [OIS object](../specifications/ois.md) skip this
+If you have manually created an [OIS object](/ois/v1.0.0/ois.md) skip this
 step. In this step the convertor creates an OIS object from an OAS specification
 file. The convertor outputs an OIS object. Paste the OIS object into a spec file
 (e.g., `OIS.spec.json`).

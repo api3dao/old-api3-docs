@@ -118,33 +118,21 @@ export default {
       this.showDocSets = false;
 
       // START TEMPORARY
-      // This is a temp fix until Beacons/OIS goes into prod. If the user discovers
-      // Beacons or OIS (via url) then add it into the pick list.
+      // This is a temp fix until Beacons goes into prod. If the user discovers
+      // Beacons (via url) then add it into the pick list.
       let flag = false;
       for (var i = 0; i < this.docSets.length; i++) {
-        if (
-          this.docSets[i].name === 'Beacons' ||
-          this.docSets[i].name === 'OIS'
-        ) {
+        if (this.docSets[i].name === 'Beacons') {
           flag = true;
           break;
         }
       }
-      if (
-        !flag &&
-        (path.indexOf('/beacon/v') > -1 || path.indexOf('/ois/v') > -1)
-      ) {
+      if (!flag && path.indexOf('/beacon/v') > -1) {
         this.docSets.push({
           name: 'Beacons',
           iconActive: '/img/Beacons-active.png',
           iconInactive: '/img/Beacons-default.png',
           path: latestBeaconVersion,
-        });
-        this.docSets.push({
-          name: 'OIS',
-          iconActive: '/img/ois-active.png',
-          iconInactive: '/img/ois-inactive.png',
-          path: latestOisVersion,
         });
       }
       /// END TEMPORARY
@@ -203,8 +191,7 @@ export default {
     this.$nextTick(function () {
       // TEMP remove Beacon and OIS for now
       if (this.env != 'development') {
-        this.docSets.splice(1, 1);
-        this.docSets.splice(1, 1);
+        this.docSets.splice(1, 1); // Removes Beacons
       }
       this.selectIcon(this.$route.path);
       this.isMounted = true;

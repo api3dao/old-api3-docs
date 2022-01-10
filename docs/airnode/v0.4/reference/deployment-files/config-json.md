@@ -31,7 +31,7 @@ database of an Airnode deployment. It contains five fields as show below.
   by which an available protocol (currently only RRP) and under what endpoint
   ID.
 - [ois](./config-json.md#ois): API specifications and the corresponding on-chain
-  endpoints, kept as [OIS](../specifications/ois.md) objects.
+  endpoints, kept as [OIS](/ois/v1.0.0/ois.md) objects.
 - [apiCredentials](./config-json.md#apicredentials): Which API credentials will
   be usable by which OIS and security scheme.
 
@@ -296,7 +296,8 @@ defined in an OIS.
     {
       "endpointId": "0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5",
       "oisTitle": "myOisTitle",
-      "endpointName": "myEndpointName"
+      "endpointName": "myEndpointName",
+      "testable":true,
     },
     ...
   ]
@@ -334,14 +335,15 @@ default convention for deriving the `endpointId`.
 #### `rrp[n].testable`
 
 (optional) - Flag that indicates whether the endpoint can be tested with the
-HTTP gateway. The gateway must be enabled.
+HTTP gateway. Defaults to false. The gateway must be enabled.
 
 ## ois
 
 A list of OIS objects. Since each OIS specifies the integration of an API to an
 oracle, a single Airnode deployment can serve multiple APIs. To avoid
-duplication of content, see the [OIS doc](../specifications/ois.md) for a
-complete example and the explanation of its fields.
+duplication of content, see the
+[Oracle Integration Specifications (OIS)](/ois/v1.0.0/) for a complete example
+and the explanation of its fields.
 
 ## apiCredentials
 

@@ -11,9 +11,8 @@ title: API Integration
 
 A successful integration of an API with an Airnode requires the mapping of each
 other's interface. This is accomplished using an OIS
-([Oracle Integration Specifications](../../../reference/specifications/ois.md))
-json object, found in the config.json file, that is designed to follow three
-basic steps.
+([Oracle Integration Specifications](/ois/v1.0.0/ois.md)) json object, found in
+the config.json file, that is designed to follow three basic steps.
 
 - API operations are specified
 - Airnode endpoints are specified
@@ -395,13 +394,12 @@ operation parameter cannot be in both `endpoints.*.fixedOperationParameters` and
 The requester can provide some parameters that are not mapped to API operation
 parameters. These parameters are called "reserved parameters", and their names
 start with an underscore. See the
-[related OIS docs](../../../reference/specifications/ois.md#_5-4-reservedparameters)
-for more information.
+[related OIS docs](/ois/v1.0.0/ois.md#_5-4-reservedparameters) for more
+information.
 
 The current list of reserved parameters are `_type`, `_path` and `_times`. See
-the
-[reserved parameters](../../../reference/specifications/reserved-parameters.md)
-doc to understand what each of these parameters are for. In most cases, all
+[Reserved Parameters](/ois/v1.0.0/reserved-parameters.md) in the OIS document
+set to understand what each of these parameters are for. In most cases, all
 three should be defined as reserved parameters with no fixed/default values, as
 doing so provides the requester with the most flexibility.
 

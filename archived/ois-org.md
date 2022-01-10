@@ -1,8 +1,8 @@
 ---
-title: Specification
+title: Oracle Integration Specifications (OIS) 1.0.0
 ---
 
-<TitleSpan>OIS</TitleSpan>
+<TitleSpan>Specifications</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,8 +10,8 @@ title: Specification
 
 The Oracle Integration Specification (OIS) is based on
 [Open API specification (OAS)](https://swagger.io/specification/), but there are
-some differences, so be sure focus on the following documentation when working
-on your OIS file.
+some differences, so be sure to read our documentation when working on your OIS
+file.
 
 ::: warning OAS
 
@@ -38,11 +38,11 @@ for an overview of OIS.
 
 An OIS has five fields.
 
-- [oisFormat](ois.md#_1-oisformat)
-- [title](ois.md#_2-title)
-- [version](ois.md#_3-version)
-- [apiSpecifications](ois.md#_4-apispecifications)
-- [endpoints](ois.md#_5-endpoints)
+- [`oisFormat`](ois.md#_1-oisformat)
+- [`title`](ois.md#_2-title)
+- [`version`](ois.md#_3-version)
+- [`apiSpecifications`](ois.md#_4-apispecifications)
+- [`endpoints`](ois.md#_5-endpoints)
 
 `apiSpecifications` describe the API's operations which are mapped to the
 `endpoints` that Airnode exposes on-chain.
@@ -133,7 +133,7 @@ multiple elements)
 (Required) An object where operations can be found under `{path}.{method}` with
 the following elements:
 
-- [`parameters`](#4_1-parameters)
+- [`parameters`](#431-parameters)
 
 #### 4.2.1. `parameters`
 
@@ -214,10 +214,10 @@ OAS equivalent: `components.securitySchemes.{securitySchemeName}.scheme`
 Applies to all operations. A security scheme can contain information required by
 the API to authenticate Airnode as well as information about the requester the
 API may also require. Read more about security schemes in the
-[API Security](../../airnode/v0.3/grp-providers/guides/build-an-airnode/api-security.md)
+[API Security](../../grp-providers/guides/build-an-airnode/api-security.md)
 section of the _Build an Airnode_ guide and the
-[Airnode Authentication](../../airnode/v0.3/concepts/airnode-auth.md) section of
-_Concepts and Definitions_.
+[Airnode Authentication](../../concepts/airnode-auth.md) section of _Concepts
+and Definitions_.
 
 The `security` object maintains the names of all the security schemes used. Each
 security scheme in `security` maps to an empty list. The empty list will be used
@@ -384,9 +384,8 @@ cannot be overridden by the requester.
 ### 5.4. `reservedParameters`
 
 (Optional) A list of objects that specify reserved endpoint parameters that do
-not map to operation parameters, but are used for special purposes by the oracle
-node. See the [Reserved Parameters](./reserved-parameters.md) doc for an
-in-depth explanation. Each object has the following elements:
+not map to operation parameters, but used for special purposes by the oracle
+node. Each object has the following elements:
 
 - [`name`](ois.md#_5-4-1-name)
 - [`fixed`](ois.md#_5-4-2-fixed)
