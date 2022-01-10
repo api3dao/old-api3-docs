@@ -10,8 +10,8 @@ title: Specification
 
 The Oracle Integration Specification (OIS) is based on
 [Open API specification (OAS)](https://swagger.io/specification/), but there are
-some differences, so be sure to read our documentation when working on your OIS
-file.
+some differences, so be sure focus on the following documentation when working
+on your OIS file.
 
 ::: warning OAS
 
@@ -38,11 +38,11 @@ for an overview of OIS.
 
 An OIS has five fields.
 
-- [`oisFormat`](ois.md#_1-oisformat)
-- [`title`](ois.md#_2-title)
-- [`version`](ois.md#_3-version)
-- [`apiSpecifications`](ois.md#_4-apispecifications)
-- [`endpoints`](ois.md#_5-endpoints)
+- [oisFormat](ois.md#_1-oisformat)
+- [title](ois.md#_2-title)
+- [version](ois.md#_3-version)
+- [apiSpecifications](ois.md#_4-apispecifications)
+- [endpoints](ois.md#_5-endpoints)
 
 `apiSpecifications` describe the API's operations which are mapped to the
 `endpoints` that Airnode exposes on-chain.
@@ -133,7 +133,7 @@ multiple elements)
 (Required) An object where operations can be found under `{path}.{method}` with
 the following elements:
 
-- [`parameters`](#431-parameters)
+- [`parameters`](#4_1-parameters)
 
 #### 4.2.1. `parameters`
 
