@@ -12,8 +12,6 @@ title: requestBeaconUpdate()
 ::: danger TODO:
 
 1. More on acquiring a Beacon templateId.
-2. If the update fails and it is important to the caller to know, how do they
-   check?
 
 :::
 
@@ -86,3 +84,15 @@ contract mySmartContract {
 ## Returns
 
 Nothing
+
+It may be important to the caller of `requestBeaconUpdate()` to determine if the
+requested update failed. There are three probable methods to check.
+
+1. The caller should check the `timestamp` returned by `readBeacon()` function
+   to be sure it is fresh enough.
+
+2. If a more accurate determination is required, call `readBeacon()` and acquire
+   the `timestamnp`, then call `requestBeaconUpdate()`. The next call to
+   `readBeacon()` should have a newer `timestamp`.
+
+3. Use an off-chain app that subscribes to events of `RrpBeaconServer.sol`.
