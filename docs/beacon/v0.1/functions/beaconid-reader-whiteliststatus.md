@@ -9,17 +9,17 @@ title: beaconIdToReaderToWhitelistStatus()
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-::: danger TODO:
-
-1. Get link from BD for whitelisting requests.
-
-:::
-
 For on-chain smart contracts, the function
 [beaconIdToReaderToWhitelistStatus()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L363-L383)
 returns detailed whitelisting status for the `reader` and `beaconId` parameters.
-Please contact the [API3 Business Development API Team](https://api3.org) to be
-whitelisted.
+
+::: tip Get Whitelisted
+
+Please contact the
+[API3 Business Development API Team](https://api3dao.typeform.com/to/O1Uvxc8m)
+about Beacon whitelisting.
+
+:::
 
 ## Example Code
 
