@@ -12,15 +12,11 @@ title: beaconIdToReaderToWhitelistStatus()
 ::: danger TODO:
 
 1. Get link from BD for whitelisting requests.
-2. This description in the return value for `uint192 indefiniteWhitelistCount`
-   seems wrong. <br/>**Number of times reader was whitelisted indefinitely for
-   templateId.** <br/>Should `templateId` be `beaconId`? The code comments also
-   say `templateId`.
 
 :::
 
 For on-chain smart contracts, the function
-[beaconIdToReaderToWhitelistStatus()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L322-L342)
+[beaconIdToReaderToWhitelistStatus()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L363-L383)
 returns detailed whitelisting status for the `reader` and `beaconId` parameters.
 Please contact the [API3 Business Development API Team](https://api3.org) to be
 whitelisted.
@@ -63,7 +59,7 @@ contract mySmartContract {
 - `uint64 private expirationTimestamp` - Timestamp at which the whitelisting of
   the reader will expire.
 - `uint192 indefiniteWhitelistCount` - Number of times `reader` was whitelisted
-  indefinitely for `templateId`. A reader is indefinitely whitelisted by the
+  indefinitely for `beaconId`. A reader is indefinitely whitelisted by the
   whitelist manager account or by any other account that has the
   [INDEFINITE_WHITELISTER_ROLE_DESCRIPTION](https://github.com/api3dao/airnode/blob/6d902da259ec3084c8f4764cadc74e270e5c7162/packages/airnode-protocol/contracts/whitelist/WhitelistRoles.sol#L32-L33)
   role. Each time an authorized account indefinitely whitelists the reader a
