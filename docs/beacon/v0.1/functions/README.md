@@ -9,12 +9,6 @@ title: Overview
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-::: danger TODO:
-
-Complete the contract addresses.
-
-:::
-
 [RrpBeaconServer.sol](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol)
 serves Beacons sourced from Airnode. A Beacon is a live data point associated
 with a `beaconId` which is derived from a `templateId` and additional
@@ -47,7 +41,7 @@ RrpBeaconServer(address _beaconContractAddress).readBeacon(
 
 | Network | Chain ID | Contract Address |
 | ------- | -------- | ---------------- |
-| mainnet | #        | #                |
+| mainnet | n/a      | n/a              |
 
 ## Solidity Videos
 

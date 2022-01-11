@@ -9,22 +9,27 @@ title: readBeacon()
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-::: danger TODO:
+Reading a Beacon value is simple and straight forward. For on-chain smart
+contracts the `msg.sender` argument received by the function
+[readBeacon()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L286-L307)
+must be whitelisted.
 
-1. Get link from BD for whitelisting requests.
+::: tip Get Whitelisted
+
+Please contact the
+[API3 Business Development API Team](https://api3dao.typeform.com/to/O1Uvxc8m)
+about Beacon whitelisting.
 
 :::
-
-Reading a Beacon value is simple and straight forward. For on-chain smart
-contracts the `msg.sender` received by the function
-[readBeacon()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L286-L307)
-must be whitelisted. Please contact the
-[API3 Business Development API Team](https://api3.org) to be whitelisted.
 
 Calling from off-chain code (_using a library such as `ether.js`_) is not
 subject to whitelisting. Off-chain code is beyond the scope of this doc.
 
 ## Example Code
+
+There is an additional example of a contract that reads a Beacon in the
+[beacon-reader-example](https://github.com/api3dao/beacon-reader-example/blob/bec63-beacon-starter/contracts/BeaconReaderExample.sol)
+GitHub repository.
 
 ```solidity
 // SPDX-License-Identifier: MIT
