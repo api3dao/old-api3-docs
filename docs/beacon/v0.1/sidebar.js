@@ -6,6 +6,7 @@ module.exports = [
     children: [
       '', //README
       'introduction/why-use-beacons',
+      'introduction/hackathon',
     ],
   },
   {
@@ -18,6 +19,17 @@ module.exports = [
       'functions/reader-can-read-beacon',
       'functions/beaconid-reader-whiteliststatus',
       'functions/request-beacon-update',
+    ],
+  },
+
+  {
+    title: 'Reference',
+    initialOpenGroupIndex: 1,
+    collapsable: false,
+    children: [
+      'reference/ids.md',
+      'reference/contract-addresses.md',
+      'reference/beacon-catalog.md',
     ],
   },
 ];

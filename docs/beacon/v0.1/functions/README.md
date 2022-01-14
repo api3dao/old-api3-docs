@@ -2,7 +2,7 @@
 title: Overview
 ---
 
-<TitleSpan>Beacons</TitleSpan>
+<TitleSpan>Functions</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,8 +10,8 @@ title: Overview
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 [RrpBeaconServer.sol](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol)
-serves Beacons sourced from Airnode. A Beacon is a live data point associated
-with a `beaconId` which is derived from a `templateId` and additional
+serves Beacon values sourced from Airnode. A Beacon is a live data point
+associated with a `beaconId` which is derived from a `templateId` and additional
 parameters. This is suitable where the more recent data point is always more
 favorable, e.g., in the context of an asset price data feed.
 
@@ -29,19 +29,8 @@ individually or combined to build decentralized data feeds or
 
 ## RrpBeaconServer Contract Addresses
 
-Following is a list of the contract addresses for `RrpBeaconServer.sol`
-currently deployed. Use them to make function calls on `RrpBeaconServer.sol`.
-
-```solidity
-(int224 value, uint32 timestamp) =
-RrpBeaconServer(address _beaconContractAddress).readBeacon(
-  bytes32 beaconId
-);
-```
-
-| Network | Chain ID | Contract Address |
-| ------- | -------- | ---------------- |
-| mainnet | n/a      | n/a              |
+See the [Contract Addresses](../reference/contract-addresses.md) doc for a list
+of addresses available on specific networks.
 
 ## Solidity Videos
 

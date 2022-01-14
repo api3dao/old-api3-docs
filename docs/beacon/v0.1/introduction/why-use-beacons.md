@@ -2,7 +2,7 @@
 title: Why use Beacons?
 ---
 
-<TitleSpan>Beacons</TitleSpan>
+<TitleSpan>Introduction</TitleSpan>
 
 # {{$frontmatter.title}}
 

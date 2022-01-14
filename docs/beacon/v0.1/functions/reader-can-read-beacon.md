@@ -2,7 +2,7 @@
 title: readerCanReadBeacon()
 ---
 
-<TitleSpan>Beacons</TitleSpan>
+<TitleSpan>Functions</TitleSpan>
 
 # {{$frontmatter.title}}
 

@@ -2,7 +2,7 @@
 title: beaconIdToReaderToWhitelistStatus()
 ---
 
-<TitleSpan>Beacons</TitleSpan>
+<TitleSpan>Functions</TitleSpan>
 
 # {{$frontmatter.title}}
 
