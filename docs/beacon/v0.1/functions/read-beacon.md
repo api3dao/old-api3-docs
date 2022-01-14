@@ -2,7 +2,7 @@
 title: readBeacon()
 ---
 
-<TitleSpan>Beacons</TitleSpan>
+<TitleSpan>Functions</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -11,7 +11,7 @@ title: readBeacon()
 
 Reading a Beacon value is simple and straight forward. For on-chain smart
 contracts the `msg.sender` argument received by the function
-[readBeacon()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L286-L307)
+[readBeacon()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L326-L361)
 must be whitelisted.
 
 ::: tip Get Whitelisted
@@ -28,7 +28,7 @@ subject to whitelisting. Off-chain code is beyond the scope of this doc.
 ## Example Code
 
 There is an additional example of a contract that reads a Beacon in the
-[beacon-reader-example](https://github.com/api3dao/beacon-reader-example/blob/bec63-beacon-starter/contracts/BeaconReaderExample.sol)
+[beacon-reader-example](https://github.com/api3dao/beacon-reader-example/blob/bec63-beacon-reader-example/contracts/BeaconReaderExample.sol)
 GitHub repository.
 
 ```solidity
@@ -36,7 +36,6 @@ GitHub repository.
 pragma solidity ^0.8.3;
 
 import "@api3/airnode-protocol";
-
 contract mySmartContract {
     int224 private value;
     uint32 private timestamp;

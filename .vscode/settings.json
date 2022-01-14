@@ -7,7 +7,9 @@
     "Airnodes",
     "errored",
     "Keccak",
-    "MYOISTITLE"
+    "MYOISTITLE",
+    "castable",
+    "hackathon"
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true

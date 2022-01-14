@@ -120,7 +120,7 @@ export default {
       // START TEMPORARY
       // This is a temp fix until Beacons goes into prod. If the user discovers
       // Beacons (via url) then add it into the pick list.
-      let flag = false;
+      /*let flag = false;
       for (var i = 0; i < this.docSets.length; i++) {
         if (this.docSets[i].name === 'Beacons') {
           flag = true;
@@ -134,7 +134,7 @@ export default {
           iconInactive: '/img/Beacons-default.png',
           path: latestBeaconVersion,
         });
-      }
+      }*/
       /// END TEMPORARY
 
       // Sort the docSets array
@@ -190,9 +190,9 @@ export default {
     // Code that will run only after the entire view has been rendered
     this.$nextTick(function () {
       // TEMP remove Beacon and OIS for now
-      if (this.env != 'development') {
+      /*if (this.env != 'development') {
         this.docSets.splice(1, 1); // Removes Beacons
-      }
+      }*/
       this.selectIcon(this.$route.path);
       this.isMounted = true;
     });

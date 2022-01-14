@@ -2,7 +2,7 @@
 title: requestBeaconUpdate()
 ---
 
-<TitleSpan>Beacons</TitleSpan>
+<TitleSpan>Functions</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -39,7 +39,6 @@ There are two requirements for `requestBeaconUpdate()` to be called:
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.3;
 
-import "@api3/airnode-protocol";
 import "@api3/airnode-protocol";
 contract mySmartContract {
     uint64 private expirationTimestamp;

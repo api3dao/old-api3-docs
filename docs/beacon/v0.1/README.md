@@ -2,7 +2,7 @@
 title: What is a Beacon?
 ---
 
-<TitleSpan>Beacons</TitleSpan>
+<TitleSpan>Introduction</TitleSpan>
 
 # {{$frontmatter.title}}
 
