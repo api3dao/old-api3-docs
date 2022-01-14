@@ -56,7 +56,7 @@ Note that a sponsor could use multiple addresses from multiple wallets. Below
 are some example reasons why one would want to have multiple `sponsorAddress`
 identities on-chain:
 
-- To keep separate `sponsor-wallets` for two separate use-cases for easier
+- To keep separate `sponsorWallets` for two separate use-cases for easier
   accounting.
 - To duplicate transaction queues for a single use-case and increase response
   throughput.
@@ -82,25 +82,17 @@ from different sponsor wallets are performed in parallel.
 
 Each sponsor is identified by a `sponsorAddress`, and their sponsor wallets are
 designated implicitly by a derivation path. The derivation path for a
-`sponsorWallet` starts with `m/44'/60'/0'/0/...` The zero here is allocated for
+`sponsorWallet` starts with `m/44'/60'/0'/1/...` The one here is allocated for
 RRP, and the other branches will be used to derive the sponsor wallets for other
-protocols such as PSP.
+protocols.
 
-The path of a `sponsorWallet` for the request–response protocol is
-`m/44'/60'/0'/0/${sponsorAddress}`. Other branches such as `m/44'/60'/0'/1/...`,
-`m/44'/60'/0'/2/...`, etc. are reserved for other protocols (e.g., the pub–sub
-protocol).
-
-An Ethereum address is 20 bytes-long, which makes 160 bits. Each index in the HD
-wallet non-hardened derivation path goes up to 2^31. This requires the division
-of these 160 bits into six 31 bit-long chunks, therefore derivation path for a
-sponsor wallet of a requester would be:
-
-<!-- TODO: The Derivation Path shown below will change in v0.4. Watch the
-JIRA issue AN-453. -->
+An Ethereum address is 20 bytes-long, which makes it 160 bits. Each index in the
+HD wallet non-hardened derivation path goes up to 2^31. This requires the
+division of these 160 bits into six 31 bit-long chunks, therefore derivation
+path for a sponsor wallet of a requester would be:
 
 ```sh
-m/44'/60'/0'/0/...
+m/44'/60'/0'/1/...
   /1st least significant 31-bits of the sponsor address (sponsor && 0x7FFFFFFF)…
   /2nd least significant 31-bits of the sponsor address (sponsor >> 31 && 0x7FFFFFFF)…
   /3rd least significant 31-bits of the sponsor address (sponsor >> 62 && 0x7FFFFFFF)…
