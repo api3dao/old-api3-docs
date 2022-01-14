@@ -1,6 +1,7 @@
 {
   "chains": [
     {
+      "maxConcurrency": 100,
       "authorizers": [],
       "contracts": {
         "AirnodeRrp": "0xC11593B87f258672b8eB02d9A723a429b15E9E03"

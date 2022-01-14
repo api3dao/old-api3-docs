@@ -69,6 +69,7 @@ Below is a simple chain array with a single chain provider.
 ```json
 "chains": [
   {
+    "maxConcurrency": 100,
     "authorizers": [
       "0x5Fgh48...3F6f64180acc"
     ],
@@ -97,6 +98,46 @@ Below is a simple chain array with a single chain provider.
 ```
 
 <!-- "minConfirmations": 0, -->
+
+#### maxConcurrency
+
+Airnode is designed to scale well with the number of requests made. To
+accomplish this, it spawns new cloud functions (called handlers) when necessary
+and these handlers run in parallel.
+
+The maximum concurrency specifies the maximum number of concurrent handler calls
+per single Airnode invocation. If you set this field to value X, then Airnode
+will guarantee that:
+
+- At most X api calls are made to the API
+- At most X transactions (made by blockchain providers) will be made by the
+  blockchain providers of the respective chain
+
+When doing this, Airnode will calculate the total number of requests reported by
+all blockchain providers. If this number exceeds the maximum concurrency limit
+it will start dropping the latest requests from the blockchain provider with the
+maximum number of requests until the number of them is under the limit.
+
+For example, let's say we have `maxConcurrency` set to 5 and we have three
+providers (A, B and C) and they reported the following requests:
+
+- A1, A2, A3, A4 and A5
+- B1, B2 and B3
+- C1 and C2
+
+We would end up with the following requests: A1, A2, B1, B2 and C2. Note that
+neither of the providers has more than 2 requests, but this is still not enough
+to meet the limit so request C2 is dropped as well.
+
+::: warning
+
+Note, that this limit only applies to the requests initiated on chain. For
+example, requests initiated using http gateway are not included in this limit.
+
+Also note, that this limit is configured per chain and the limits of different
+chains are unrelated to each other.
+
+:::
 
 #### authorizers
 

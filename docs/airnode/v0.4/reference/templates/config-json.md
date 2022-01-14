@@ -35,6 +35,7 @@ building a config.json file.
 {
   "chains": [
     {
+      "maxConcurrency": "<FILL_NUMBER>",
       "authorizers": ["<FILL_*>"],
       "contracts": {
         "AirnodeRrp": "<FILL_*>"

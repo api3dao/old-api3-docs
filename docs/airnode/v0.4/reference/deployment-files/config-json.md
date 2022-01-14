@@ -46,6 +46,7 @@ respective parameters.
 // chains
 [
   {
+    "maxConcurrency": 100,
     "authorizers": ["0xeabb...C123", "0xCE5e...1abc"],
     "contracts": {
       "AirnodeRRP": "0x12B4...0C1a"
@@ -72,6 +73,7 @@ respective parameters.
     "ignoreBlockedRequestsAfterBlocks": 20
   },
   {
+    "maxConcurrency": 100,
     "authorizers": [],
     "contracts": {
       "AirnodeRRP": "0xf1d4...0bd1"
@@ -94,6 +96,11 @@ respective parameters.
   }
 ]
 ```
+
+### `maxConcurrency`
+
+See
+[maxConcurrency](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#maxconcurrency)
 
 ### `authorizers`
 
