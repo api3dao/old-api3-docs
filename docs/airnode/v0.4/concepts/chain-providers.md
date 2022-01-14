@@ -29,6 +29,7 @@ Airnode. It then applies an arbitrary name for the blockchain provider
 ```json
 "chains": [
   {
+    "maxConcurrency": 100,
     "authorizers": [
       "0x5Fgh48...3F6f64180acc"
     ],
@@ -63,6 +64,7 @@ Multiple providers can be used per chain. Simply add another object to
 ```json
 "chains": [
   {
+    "maxConcurrency": 100,
     "authorizers": [
       "0x5Fgh48...3F6f64180acc"
     ],
@@ -99,6 +101,7 @@ each has a unique `id` and `type` and a list of `providers` for each.
 ```json
 "chains": [
   {
+    "maxConcurrency": 100,
     "authorizers": [
       "0x5Fgh48...3F6f64180acc"
     ],
@@ -125,6 +128,7 @@ each has a unique `id` and `type` and a list of `providers` for each.
     ]
   },
   {
+    "maxConcurrency": 100,
     "authorizers": [
       "0x5gh48...3F6f6418dee9"
     ],
