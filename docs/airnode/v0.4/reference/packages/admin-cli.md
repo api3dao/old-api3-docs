@@ -39,9 +39,9 @@ The CLI connects to the
 or the
 [RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/v0.3/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol)
 contract, which addresses are derived from the current chain. You can optionally
-specify the contract addresses yourself by providing optional `airnode-rrp` or
-`requester-authorizer-with-airnode` command argument with the address of the
-deployed contract on your targeted chain.
+specify the contract addresses yourself by providing optional
+`airnode-rrp-address` or `requester-authorizer-with-airnode` command argument
+with the address of the deployed contract on your targeted chain.
 
 Commands that require `mnemonic` will make an on-chain transaction. The
 application will derive the account from the mnemonic with default ethereum
@@ -173,8 +173,8 @@ command.
   `derivation-path` is specified. It's also used to pay gas costs from the
   mnemonic's default account unless a `derivation-path` is specified.
 - `requester-address`: The contract address of the requester to sponsor.
-- `airnode-rrp (optional)`: The public address of the AirnodeRrp.sol protocol
-  contract.
+- `airnode-rrp-address (optional)`: The public address of the AirnodeRrp.sol
+  protocol contract.
 - `derivation-path (optional)`: Selects an alternate account to use from the
   mnemonic rather than the default.
 
@@ -218,8 +218,8 @@ from the `mnemonic` you provide here has to belong to the sponsor.
   to sponsor the requester. Used to pay gas costs from the mnemonic's default
   account unless a `derivation-path` is specified.
 - `requester-address`: The contract address of the requester to unsponsor.
-- `airnode-rrp (optional)`: The public address of the AirnodeRrp.sol protocol
-  contract.
+- `airnode-rrp-address (optional)`: The public address of the AirnodeRrp.sol
+  protocol contract.
 - `derivation-path (optional)`: Selects an alternate account to use from the
   mnemonic rather than the default.
 
@@ -261,8 +261,8 @@ otherwise).
 - `sponsor-address`: The `sponsorAddress` returned when the requester was
   sponsored.
 - `requester-address`: The requester contract address.
-- `airnode-rrp (optional)`: The public address of the AirnodeRrp.sol protocol
-  contract.
+- `airnode-rrp-address (optional)`: The public address of the AirnodeRrp.sol
+  protocol contract.
 
 :::: tabs
 
@@ -345,8 +345,8 @@ template file.
 - `mnemonic`: Used to pay gas costs from the mnemonic's default account unless a
   `derivation-path` is specified.
 - `template-file-path`: Path to the template file to create on-chain.
-- `airnode-rrp (optional)`: The public address of the AirnodeRrp.sol protocol
-  contract.
+- `airnode-rrp-address (optional)`: The public address of the AirnodeRrp.sol
+  protocol contract.
 - `derivation-path (optional)`: Selects an alternate account to use from the
   mnemonic rather than the default.
 
@@ -384,8 +384,8 @@ Returns the [template](../../concepts/template.md) for the given `template-id`.
 
 - `provider-url`: A valid blockchain provider URL.
 - `template-id`: The id of a template to return.
-- `airnode-rrp (optional)`: The public address of the AirnodeRrp.sol protocol
-  contract.
+- `airnode-rrp-address (optional)`: The public address of the AirnodeRrp.sol
+  protocol contract.
 
 :::: tabs
 
@@ -429,8 +429,8 @@ derived from the `mnemonic` will be used to return the funds.
 - `sponsor-wallet-address`: The pubic address of the sponsorWallet to withdraw
   from. This address was returned by the `derive-sponsor-wallet-address`
   command.
-- `airnode-rrp (optional)`: The public address of the AirnodeRrp.sol protocol
-  contract.
+- `airnode-rrp-address (optional)`: The public address of the AirnodeRrp.sol
+  protocol contract.
 - `derivation-path (optional)` : The destination address of the `mnemonic`
   parameter to add the withdrawn funds to if the default address is not desired.
 
@@ -472,8 +472,8 @@ request with the given ID (`withdrawal-request-id`).
 - `provider-url`: A valid blockchain provider URL.
 - `withdrawal-request-id`: This id was returned by the `request-withdrawal`
   command.
-- `airnode-rrp (optional)`: The public address of the AirnodeRrp.sol protocol
-  contract.
+- `airnode-rrp-address (optional)`: The public address of the AirnodeRrp.sol
+  protocol contract.
 
 :::: tabs
 
@@ -548,6 +548,7 @@ Airnode wallet.
 - [derive-airnode-xpub](admin-cli.md#derive-airnode-xpub)
 - [derive-endpoint-id](admin-cli.md#derive-endpoint-id)
 - [generate-mnemonic](admin-cli.md#generate-mnemonic)
+- [derive-airnode-address](admin-cli.md#derive-airnode-address)
 
 <divider/>
 
@@ -630,6 +631,19 @@ Generates a unique mnemonic which can be used to create the
 
 ```sh
 npx @api3/airnode-admin generate-mnemonic
+```
+
+<divider/>
+
+### `derive-airnode-address`
+
+Derives the [airnode address](../../concepts/airnode.html#airnodeaddress) which
+is the identifier of the particular Airnode on chain. You need this identifier
+for many other admin CLI commands, such as
+[derive-sponsor-wallet-address](admin-cli.md#derive-sponsor-wallet-address).
+
+```sh
+npx @api3/airnode-admin derive-airnode-address
 ```
 
 <divider/>
