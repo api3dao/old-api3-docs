@@ -24,6 +24,7 @@ requires three files as input.
 
 - [config.json](./config-json.md)
 - [secrets.env](./secrets-env.md)
+- gcp.json
 
 For the purpose of this demo these files have been created and only require a
 few minor changes on your part to make the deployment of the demo Airnode
@@ -107,26 +108,24 @@ Add values for each of the these fields.
 
 ### GCP Project Setup & Credentials
 
-In order for Airnode to deploy successfully, you need to enable these APIs for
-your GCP project:
+First, you need to
+[create a GCP project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
+under which will the Airnode be deployed. Once the project is created, insert
+its project ID into your [config.json](./configuring-airnode.md#cloudProvider).
 
-- [CloudFunction API](https://console.cloud.google.com/apis/library/cloudfunctions.googleapis.com)
-- [Cloud Build API](https://console.cloud.google.com/apis/library/cloudbuild.googleapis.com)
-- [Cloud Scheduler API](https://console.cloud.google.com/apis/library/cloudscheduler.googleapis.com)
+In order for Airnode to deploy successfully, you need to enable
+[App Engine Admin API](https://console.cloud.google.com/apis/library/appengine.googleapis.com)
+for your GCP project. After enabling it, wait a few minutes before the
+deployment itself so the change will take place.
 
-After enabling these, wait a few minutes before the deployment itself so the
-changes will take place.
+Create a new service account from the
+[Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts)
+menu. Grant this service account access to the project by adding a role `Owner`
+during the creation process.
 
-The easiest way to obtain GCP credentials is via
-[Google Cloud SDK](https://cloud.google.com/sdk/docs/install). Once installed,
-run the following command to retrieve your
-[Application Default Credentials](https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login):
-
-```bash
-gcloud auth application-default login --project <PROJECT ID>
-```
-
-where `<PROJECT ID>` is your project ID.
+Once the account is created, add a new access key of type JSON for this account.
+Download the key file as `gcp.json` under the main `/quick-deploy-gcp`
+directory.
 
 ## Deploy
 
@@ -140,9 +139,6 @@ Airnode.
 Run the following command to deploy the demo Airnode. Note that the version of
 `api3/airnode-deployer` matches the `nodeVersion` in the config.json file.
 
-If you deploy to GCP, the location of the credentials file will vary depending
-on which operating system you use.
-
 :::: tabs
 
 ::: tab Linux/Mac/WSL2
@@ -150,7 +146,7 @@ on which operating system you use.
 ```sh
 docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
-  -v "${HOME}/.config/gcloud:/app/gcloud" \
+  -v "$(pwd)/gcp.json:/app/gcp.json" \
   -v "$(pwd)/config:/app/config" \
   -v "$(pwd)/output:/app/output" \
   api3/airnode-deployer:0.4.0 deploy
@@ -164,9 +160,9 @@ For Windows, use CMD (and not PowerShell).
 
 ```sh
 docker run -it --rm ^
+  -v "%cd%/gcp.json:/app/gcp.json" ^
   -v "%cd%/config:/app/config" ^
   -v "%cd%/output:/app/output" ^
-  -v "%AppData%/gcloud:/app/gcloud" ^
   api3/airnode-deployer:0.4.0 deploy
 ```
 
@@ -198,16 +194,13 @@ When you are done with this demo you can remove it. When the Airnode was
 deployed a `receipt.json` file was created in the `/output` folder. This file is
 needed to remove an Airnode.
 
-If you deployed the Airnode to GCP, the location of the credentials file will
-vary depending on which operating system you use.
-
 :::: tabs
 
 ::: tab Linux/Mac/WSL2
 
 ```sh
 docker run -it --rm \
-  -v "${HOME}/.config/gcloud:/app/gcloud"
+  -v "$(pwd)/gcp.json:/app/gcp.json" \
   -v "$(pwd)/output:/app/output" \
   api3/airnode-deployer:0.4.0 remove -r output/receipt.json
 ```
@@ -220,8 +213,8 @@ For Windows, use CMD (and not PowerShell).
 
 ```sh
 docker run -it --rm ^
+  -v "%cd%/gcp.json:/app/gcp.json" ^
   -v "%cd%/output:/app/output" ^
-  -v "%AppData%/gcloud:/app/gcloud" ^
   api3/airnode-deployer:0.4.0 remove -r output/receipt.json
 ```
 

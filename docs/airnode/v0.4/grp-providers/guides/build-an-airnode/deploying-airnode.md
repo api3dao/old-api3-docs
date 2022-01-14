@@ -50,12 +50,14 @@ If you do not already have docker installed go to the
 ## Deployment
 
 At this point your project should resemble the following. The `config.json`,
-`secrets.env` and `aws.env` (if deploying to AWS) files should be ready to go.
-Other files you may have added are expected but not used by the deployer image.
+`secrets.env`, `aws.env` (if deploying to AWS) and `gcp.json` (if deploying to
+GCP) files should be ready to go. Other files you may have added are expected
+but not used by the deployer image.
 
 ```
 my-airnode
 ├── aws.env
+├── gcp.json
 ├── config
 │   ├── config.json
 │   └── secrets.env
@@ -105,9 +107,6 @@ docker run -it --rm ^
 
 ### GCP
 
-The location of the credentials file for GCP varies depending on which operating
-system you use.
-
 :::: tabs
 
 ::: tab Linux/Mac/WSL2
@@ -115,7 +114,7 @@ system you use.
 ```sh
 docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
-  -v "${HOME}/.config/gcloud:/app/gcloud"
+  -v "$(pwd)/gcp.json:/app/gcp.json" \
   -v "$(pwd)/config:/app/config" \
   -v "$(pwd)/output:/app/output" \
   api3/airnode-deployer:0.4.0 deploy
@@ -129,9 +128,9 @@ For Windows, use CMD (and not PowerShell).
 
 ```sh
 docker run -it --rm ^
+  -v "%cd%/gcp.json:/app/gcp.json" ^
   -v "%cd%/config:/app/config" ^
   -v "%cd%/output:/app/output" ^
-  -v "%AppData%/gcloud:/app/gcloud" ^
   api3/airnode-deployer:0.4.0 deploy
 ```
 
@@ -222,16 +221,13 @@ docker run -it --rm ^
 
 ### GCP
 
-The location of the credentials file for GCP varies depending on which operating
-system you use.
-
 :::: tabs
 
 ::: tab Linux/Mac/WSL2
 
 ```sh
 docker run -it --rm \
-  -v "${HOME}/.config/gcloud:/app/gcloud"
+  -v "$(pwd)/gcp.json:/app/gcp.json" \
   -v "$(pwd)/output:/app/output" \
   api3/airnode-deployer:0.4.0 remove -r output/receipt.json
 ```
@@ -244,8 +240,8 @@ For Windows, use CMD (and not PowerShell).
 
 ```sh
 docker run -it --rm ^
+  -v "%cd%/gcp.json:/app/gcp.json" ^
   -v "%cd%/output:/app/output" ^
-  -v "%AppData%/gcloud:/app/gcloud" ^
   api3/airnode-deployer:0.4.0 remove -r output/receipt.json
 ```
 

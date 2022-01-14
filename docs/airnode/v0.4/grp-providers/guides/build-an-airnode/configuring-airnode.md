@@ -30,8 +30,8 @@ interpolation.
 >
 > - <p class="diagram-line">The <b>config.json</b> file is used during the deployment/redeployment of an Airnode to configure its behavior and to provide mappings of API operations.</p>
 > - <p class="diagram-line">The <b>secrets.env</b> file holds values for config.json that must be kept secret.</p>
-> - <p class="diagram-line">The <b>aws.json</b> file holds AWS credentials for deployments targeted to AWS Lambda.</p>
-> - <p class="diagram-line">The user's local <b>gcloud</b>:/app/gcloud db holds gcloud credentials for deployments targeted to GCP cloud functions.</p>
+> - <p class="diagram-line">The <b>aws.env</b> file holds AWS credentials for deployments targeted to AWS.</p>
+> - <p class="diagram-line">The <b>gcp.json</b> file holds GCP credentials for deployments targeted to GCP.</p>
 
 The following example files are useful while reading this doc.
 
@@ -501,30 +501,22 @@ First, you need to
 under which will the Airnode be deployed. Once the project is created, insert
 its project ID into your [config.json](./configuring-airnode.md#cloudProvider).
 
-### Enable required APIs
+### Enable required API
 
-In order for Airnode to deploy successfully, you need to enable these APIs for
-your GCP project:
+In order for Airnode to deploy successfully, you need to enable
+[App Engine Admin API](https://console.cloud.google.com/apis/library/appengine.googleapis.com)
+for your GCP project. After enabling it, wait a few minutes before the
+deployment itself so the change will take place.
 
-- [CloudFunction API](https://console.cloud.google.com/apis/library/cloudfunctions.googleapis.com)
-- [Cloud Build API](https://console.cloud.google.com/apis/library/cloudbuild.googleapis.com)
-- [Cloud Scheduler API](https://console.cloud.google.com/apis/library/cloudscheduler.googleapis.com)
+### Creating a service account
 
-After enabling these, wait a few minutes before the deployment itself so the
-changes will take place.
+Create a new service account from the
+[Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts)
+menu. Grant this service account access to the project by adding a role `Owner`
+during the creation process.
 
-### Obtain credentials
-
-The easiest way to obtain GCP credentials is via
-[Google Cloud SDK](https://cloud.google.com/sdk/docs/install). Once installed,
-run the following command to retrieve your
-[Application Default Credentials](https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login):
-
-```bash
-gcloud auth application-default login --project <PROJECT ID>
-```
-
-where `<PROJECT ID>` is your project ID.
+Once the account is created, add a new access key of type JSON for this account.
+Download the key file as `gcp.json`.
 
 ## Summary
 
@@ -532,11 +524,11 @@ In this guide you created the `config.json`, `secrets.env` and obtained cloud
 provider credentials required to deploy an Airnode to a cloud provider. Note
 that `config.json` is user-specific and therefore it is not much use to others.
 
-The `secrets.env`and `aws.env` files contains keys, chain provider urls and
-security credentials, so they should be kept secret. Make sure that you do not
-push your credentials (`secrets.env` and `aws.env`) to a repository or otherwise
-expose them as these credentials can be used to gain access to your Airnode's
-private key and AWS account.
+The `secrets.env`, `aws.env` and `gcp.json` files contains keys, chain provider
+urls and security credentials, so they should be kept secret. Make sure that you
+do not push your credentials to a repository or otherwise expose them as these
+credentials can be used to gain access to your Airnode's private key, AWS
+account or GCP account.
 
 The next three steps in this guide are optional.
 

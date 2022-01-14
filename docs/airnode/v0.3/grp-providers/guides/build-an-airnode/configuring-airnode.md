@@ -30,7 +30,7 @@ within the config.json file using interpolation.
 >
 > - <p class="diagram-line">The <b>config.json</b> file is used during the deployment/redeployment of an Airnode to configure its behavior and to provide mappings of API operations.</p>
 > - <p class="diagram-line">The <b>secrets.env</b> file holds values for config.json that must be kept secret.</p>
-> - <p class="diagram-line">The <b>aws.json</b> file holds AWS credentials for deployments targeted to AWS Lambda.</p>
+> - <p class="diagram-line">The <b>aws.env</b> file holds AWS credentials for deployments targeted to AWS.</p>
 > - <p class="diagram-line">The user's local <b>gcloud</b>:/app/gcloud db holds gcloud credentials for deployments targeted to GCP cloud functions.</p>
 
 The following example files are useful while reading this doc.
