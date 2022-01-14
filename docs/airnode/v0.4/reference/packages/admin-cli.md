@@ -416,9 +416,17 @@ npx @api3/airnode-admin get-template ^
 ### `request-withdrawal`
 
 Requests a [withdrawal](../../concepts/sponsor.md#withdrawals) from a
-[sponsorWallet](../../concepts/sponsor.md#sponsorwallet) managed by an Airnode
-and returns a `withdrawal-request-id` for tracking purposes. The default account
-derived from the `mnemonic` will be used to return the funds.
+[sponsorWallet](../../concepts/sponsor.md#sponsorwallet) managed by an Airnode.
+
+The funds will be returned to the account derived from the `sponsor-mnemonic`.
+This account must belong to a [sponsor](../../concepts/sponsor.html) for the
+specified [sponsor wallet address](../../concepts/sponsor.html#sponsorwallet) in
+the command.
+
+After the request is made, it needs to be fulfilled by Airnode, so the return
+value of this command is only a `withdrawal-request-id` which you can use to
+call [check-withdrawal-request](admin-cli.md#check-withdrawal-request) to see
+whether the request was processed or not.
 
 - `provider-url`: A valid blockchain provider URL.
 - `sponsor-mnemonic`: A wallet owned by the sponsor. Used to pay gas costs from
@@ -467,7 +475,8 @@ npx @api3/airnode-admin request-withdrawal ^
 ### `check-withdrawal-request`
 
 Checks the status of the [withdrawal](../../concepts/sponsor.md#withdrawals)
-request with the given ID (`withdrawal-request-id`).
+request with the given `withdrawal-request-id` from the
+[request withdrawal command](admin-cli.md#request-withdrawal) above.
 
 - `provider-url`: A valid blockchain provider URL.
 - `withdrawal-request-id`: This id was returned by the `request-withdrawal`
