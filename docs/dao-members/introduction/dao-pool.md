@@ -245,6 +245,10 @@ Rewards are added as staked API3 tokens into the DAO pool each time the
 API3 tokens is minted and added to the DAO pool:
 
 > `rewardAmount = totalStakedTokens * APR * epochLengthInSeconds / yearInSeconds / 100`
+>
+> (see the
+> [smart contract source](https://github.com/api3dao/api3-dao/blob/main/packages/pool/contracts/RewardUtils.sol#L24)
+> for more information).
 
 In addition, each time `mintReward` is called, the annual percentage (the reward
 rate) is updated up or down by the APR update step size (1%), according to
