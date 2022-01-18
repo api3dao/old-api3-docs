@@ -1,21 +1,20 @@
 module.exports = {
   env: process.env.NODE_ENV,
-  /**
-   * List all base routes that are to become versions here.
-   */
+  /// Airnode doc set version pick list.
   versions: [
     { name: 'v0.3', url: '/airnode/v0.3/' },
     { name: 'v0.2', url: '/airnode/v0.2/' },
     { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
   ],
+  /// Beacon doc set version pick list.
   versionsBeacon: [{ name: 'v0.1', url: '/beacon/v0.1/' }],
+  /// OIS doc set version pick list.
   versionsOis: [{ name: 'v1.0.0', url: '/ois/v1.0.0/' }],
-  /**
-   * Indicates the path to the latest Airnode version.
-   * Used by document-sets Vue component.
-   */
+  /// Latest/current Airnode doc set version.
   latestVersion: '/airnode/v0.3/',
+  /// Latest/current Beacon doc set version.
   latestBeaconVersion: '/beacon/v0.1/',
+  /// Latest/current OIS doc set version.
   latestOisVersion: '/ois/v1.0.0/',
   head: [['link', { rel: 'icon', href: '/img/small-logo.png' }]],
   title: 'Documentation',
