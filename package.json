@@ -22,7 +22,7 @@
     "@vuepress/plugin-back-to-top": "^1.8.2",
     "@vuepress/plugin-html-redirect": "^0.1.4",
     "@vuepress/plugin-medium-zoom": "^1.8.2",
-    "axios": "^0.21.1",
+    "axios": "^0.24.0",
     "colors": "^1.4.0",
     "file": "^0.2.2",
     "husky": "^7.0.4",
