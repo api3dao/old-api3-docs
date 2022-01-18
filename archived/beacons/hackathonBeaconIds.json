@@ -1,0 +1,1472 @@
+[
+    {
+      "templateId": "0x008060e029c29617e7af0d0b0e5ec5bafb3f2403d5322b0d691f81fe62cc0452",
+      "parameters": "0x316262626200000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006274635f757364000000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e767761702c000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e743235362c74696d657374616d70000000000000000000000000000000005f74696d65730000000000000000000000000000000000000000000000000000313030303030302c000000000000000000000000000000000000000000000000",
+      "decodedParameters": [
+        {
+          "name": "pair",
+          "type": "bytes32",
+          "value": "btc_usd"
+        },
+        {
+          "name": "_path",
+          "type": "bytes32",
+          "value": "payload.vwap,"
+        },
+        {
+          "name": "_type",
+          "type": "bytes32",
+          "value": "int256,timestamp"
+        },
+        {
+          "name": "_times",
+          "type": "bytes32",
+          "value": "1000000,"
+        }
+      ],
+      "beaconId": "0x0ea5232857bb57ade2581004c15c46990b795f0be68476b4622a5787513a1c9e",
+      "chains": [
+        {
+          "name": "ropsten",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "rinkeby",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "goerli",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "polygon-mumbai",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        }
+      ],
+      "template": {
+        "airnode": "0xF0f875aa568521FBd5246fAE7260E04d9ED6511b",
+        "endpointId": "0x1877d4f8d95cd67a9f81326c32dda82cad3594832ef066c803c1baef02957c25",
+        "parameters": "0x316262626200000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006274635f757364000000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e767761702c000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e743235362c74696d657374616d70000000000000000000000000000000005f74696d65730000000000000000000000000000000000000000000000000000313030303030302c000000000000000000000000000000000000000000000000",
+        "templateId": "0x008060e029c29617e7af0d0b0e5ec5bafb3f2403d5322b0d691f81fe62cc0452",
+        "decodedParameters": [
+          {
+            "name": "pair",
+            "type": "bytes32",
+            "value": "btc_usd"
+          },
+          {
+            "name": "_path",
+            "type": "bytes32",
+            "value": "payload.vwap,"
+          },
+          {
+            "name": "_type",
+            "type": "bytes32",
+            "value": "int256,timestamp"
+          },
+          {
+            "name": "_times",
+            "type": "bytes32",
+            "value": "1000000,"
+          }
+        ],
+        "chains": [
+          "ropsten",
+          "rinkeby",
+          "goerli",
+          "polygon-mumbai"
+        ],
+        "sourceFile": "0x008060e029c29617e7af0d0b0e5ec5bafb3f2403d5322b0d691f81fe62cc0452.json"
+      },
+      "extraTemplateData": {
+        "endpointId": "0x1877d4f8d95cd67a9f81326c32dda82cad3594832ef066c803c1baef02957c25",
+        "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
+        "oisTitle": "Amberdata-Lite"
+      }
+    },
+    {
+      "templateId": "0x13a49162b764b0035587d5aa260156533975905bc1b89df9d2b43bd185186306",
+      "parameters": "0x316262626200000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006574685f757364630000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e767761702c000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e743235362c74696d657374616d70000000000000000000000000000000005f74696d65730000000000000000000000000000000000000000000000000000313030303030302c000000000000000000000000000000000000000000000000",
+      "decodedParameters": [
+        {
+          "name": "pair",
+          "type": "bytes32",
+          "value": "eth_usdc"
+        },
+        {
+          "name": "_path",
+          "type": "bytes32",
+          "value": "payload.vwap,"
+        },
+        {
+          "name": "_type",
+          "type": "bytes32",
+          "value": "int256,timestamp"
+        },
+        {
+          "name": "_times",
+          "type": "bytes32",
+          "value": "1000000,"
+        }
+      ],
+      "beaconId": "0xad3df870c3d71b2b1127ad11fb5222df2b6daa4614d93e4488c3969b8a863a4b",
+      "chains": [
+        {
+          "name": "ropsten",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "rinkeby",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "goerli",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "polygon-mumbai",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        }
+      ],
+      "template": {
+        "airnode": "0xF0f875aa568521FBd5246fAE7260E04d9ED6511b",
+        "endpointId": "0x1877d4f8d95cd67a9f81326c32dda82cad3594832ef066c803c1baef02957c25",
+        "parameters": "0x316262626200000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006574685f757364630000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e767761702c000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e743235362c74696d657374616d70000000000000000000000000000000005f74696d65730000000000000000000000000000000000000000000000000000313030303030302c000000000000000000000000000000000000000000000000",
+        "templateId": "0x13a49162b764b0035587d5aa260156533975905bc1b89df9d2b43bd185186306",
+        "decodedParameters": [
+          {
+            "name": "pair",
+            "type": "bytes32",
+            "value": "eth_usdc"
+          },
+          {
+            "name": "_path",
+            "type": "bytes32",
+            "value": "payload.vwap,"
+          },
+          {
+            "name": "_type",
+            "type": "bytes32",
+            "value": "int256,timestamp"
+          },
+          {
+            "name": "_times",
+            "type": "bytes32",
+            "value": "1000000,"
+          }
+        ],
+        "chains": [
+          "ropsten",
+          "rinkeby",
+          "goerli",
+          "polygon-mumbai"
+        ],
+        "sourceFile": "0x13a49162b764b0035587d5aa260156533975905bc1b89df9d2b43bd185186306.json"
+      },
+      "extraTemplateData": {
+        "endpointId": "0x1877d4f8d95cd67a9f81326c32dda82cad3594832ef066c803c1baef02957c25",
+        "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
+        "oisTitle": "Amberdata-Lite"
+      }
+    },
+    {
+      "templateId": "0x35aefcf99bddc49a5e128533f641a218987451cd46316bbfac5d55bd31b6f398",
+      "parameters": "0x31626200000000000000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e666173742e67617350726963652c000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e743235362c74696d657374616d7000000000000000000000000000000000",
+      "decodedParameters": [
+        {
+          "name": "_path",
+          "type": "bytes32",
+          "value": "payload.fast.gasPrice,"
+        },
+        {
+          "name": "_type",
+          "type": "bytes32",
+          "value": "int256,timestamp"
+        }
+      ],
+      "beaconId": "0x7de3d098ea0e4b375268085f338ef6811f2868b4924b7e927039257ad6df1213",
+      "chains": [
+        {
+          "name": "ropsten",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "rinkeby",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "goerli",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "polygon-mumbai",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        }
+      ],
+      "template": {
+        "airnode": "0xF0f875aa568521FBd5246fAE7260E04d9ED6511b",
+        "endpointId": "0x4f49fd59bb43c0c9c1becabd0a15eea1358c190fb56d2bd3275a962321b94886",
+        "parameters": "0x31626200000000000000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e666173742e67617350726963652c000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e743235362c74696d657374616d7000000000000000000000000000000000",
+        "templateId": "0x35aefcf99bddc49a5e128533f641a218987451cd46316bbfac5d55bd31b6f398",
+        "decodedParameters": [
+          {
+            "name": "_path",
+            "type": "bytes32",
+            "value": "payload.fast.gasPrice,"
+          },
+          {
+            "name": "_type",
+            "type": "bytes32",
+            "value": "int256,timestamp"
+          }
+        ],
+        "chains": [
+          "ropsten",
+          "rinkeby",
+          "goerli",
+          "polygon-mumbai"
+        ],
+        "sourceFile": "0x35aefcf99bddc49a5e128533f641a218987451cd46316bbfac5d55bd31b6f398.json"
+      },
+      "extraTemplateData": {
+        "endpointId": "0x4f49fd59bb43c0c9c1becabd0a15eea1358c190fb56d2bd3275a962321b94886",
+        "endpointName": "GET /transactions/gas/predictions",
+        "oisTitle": "Amberdata-Lite"
+      }
+    },
+    {
+      "templateId": "0x46cdd8fd5e8fa9a8b49c2dac298307cca1c4cfb9ee7e82a6b6c736e075a76a5d",
+      "parameters": "0x316262626200000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006574685f757364000000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e767761702c000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e743235362c74696d657374616d70000000000000000000000000000000005f74696d65730000000000000000000000000000000000000000000000000000313030303030302c000000000000000000000000000000000000000000000000",
+      "decodedParameters": [
+        {
+          "name": "pair",
+          "type": "bytes32",
+          "value": "eth_usd"
+        },
+        {
+          "name": "_path",
+          "type": "bytes32",
+          "value": "payload.vwap,"
+        },
+        {
+          "name": "_type",
+          "type": "bytes32",
+          "value": "int256,timestamp"
+        },
+        {
+          "name": "_times",
+          "type": "bytes32",
+          "value": "1000000,"
+        }
+      ],
+      "beaconId": "0x31b117a9b87827f27b755866842966d63fb5e8710b321c9117789d67e3511616",
+      "chains": [
+        {
+          "name": "ropsten",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "rinkeby",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "goerli",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "polygon-mumbai",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        }
+      ],
+      "template": {
+        "airnode": "0xF0f875aa568521FBd5246fAE7260E04d9ED6511b",
+        "endpointId": "0x1877d4f8d95cd67a9f81326c32dda82cad3594832ef066c803c1baef02957c25",
+        "parameters": "0x316262626200000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006574685f757364000000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e767761702c000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e743235362c74696d657374616d70000000000000000000000000000000005f74696d65730000000000000000000000000000000000000000000000000000313030303030302c000000000000000000000000000000000000000000000000",
+        "templateId": "0x46cdd8fd5e8fa9a8b49c2dac298307cca1c4cfb9ee7e82a6b6c736e075a76a5d",
+        "decodedParameters": [
+          {
+            "name": "pair",
+            "type": "bytes32",
+            "value": "eth_usd"
+          },
+          {
+            "name": "_path",
+            "type": "bytes32",
+            "value": "payload.vwap,"
+          },
+          {
+            "name": "_type",
+            "type": "bytes32",
+            "value": "int256,timestamp"
+          },
+          {
+            "name": "_times",
+            "type": "bytes32",
+            "value": "1000000,"
+          }
+        ],
+        "chains": [
+          "ropsten",
+          "rinkeby",
+          "goerli",
+          "polygon-mumbai"
+        ],
+        "sourceFile": "0x46cdd8fd5e8fa9a8b49c2dac298307cca1c4cfb9ee7e82a6b6c736e075a76a5d.json"
+      },
+      "extraTemplateData": {
+        "endpointId": "0x1877d4f8d95cd67a9f81326c32dda82cad3594832ef066c803c1baef02957c25",
+        "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
+        "oisTitle": "Amberdata-Lite"
+      }
+    },
+    {
+      "templateId": "0x91f694a9b2a4d7353c17362a0a2c4018796f36741c14e427aa0e78d58954a9a5",
+      "parameters": "0x316262626200000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006574685f627463000000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e767761702c000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e743235362c74696d657374616d70000000000000000000000000000000005f74696d65730000000000000000000000000000000000000000000000000000313030303030302c000000000000000000000000000000000000000000000000",
+      "decodedParameters": [
+        {
+          "name": "pair",
+          "type": "bytes32",
+          "value": "eth_btc"
+        },
+        {
+          "name": "_path",
+          "type": "bytes32",
+          "value": "payload.vwap,"
+        },
+        {
+          "name": "_type",
+          "type": "bytes32",
+          "value": "int256,timestamp"
+        },
+        {
+          "name": "_times",
+          "type": "bytes32",
+          "value": "1000000,"
+        }
+      ],
+      "beaconId": "0xc6f1b03828364e53afda085fb9eb4b8ebda0ef70b2caafef4a32a5eedee174a6",
+      "chains": [
+        {
+          "name": "ropsten",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "rinkeby",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "goerli",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "polygon-mumbai",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        }
+      ],
+      "template": {
+        "airnode": "0xF0f875aa568521FBd5246fAE7260E04d9ED6511b",
+        "endpointId": "0x1877d4f8d95cd67a9f81326c32dda82cad3594832ef066c803c1baef02957c25",
+        "parameters": "0x316262626200000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006574685f627463000000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e767761702c000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e743235362c74696d657374616d70000000000000000000000000000000005f74696d65730000000000000000000000000000000000000000000000000000313030303030302c000000000000000000000000000000000000000000000000",
+        "templateId": "0x91f694a9b2a4d7353c17362a0a2c4018796f36741c14e427aa0e78d58954a9a5",
+        "decodedParameters": [
+          {
+            "name": "pair",
+            "type": "bytes32",
+            "value": "eth_btc"
+          },
+          {
+            "name": "_path",
+            "type": "bytes32",
+            "value": "payload.vwap,"
+          },
+          {
+            "name": "_type",
+            "type": "bytes32",
+            "value": "int256,timestamp"
+          },
+          {
+            "name": "_times",
+            "type": "bytes32",
+            "value": "1000000,"
+          }
+        ],
+        "chains": [
+          "ropsten",
+          "rinkeby",
+          "goerli",
+          "polygon-mumbai"
+        ],
+        "sourceFile": "0x91f694a9b2a4d7353c17362a0a2c4018796f36741c14e427aa0e78d58954a9a5.json"
+      },
+      "extraTemplateData": {
+        "endpointId": "0x1877d4f8d95cd67a9f81326c32dda82cad3594832ef066c803c1baef02957c25",
+        "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
+        "oisTitle": "Amberdata-Lite"
+      }
+    },
+    {
+      "templateId": "0xae29d1671cc0df2ccd14cfd4ad094857ad06e6881132fedc195b56ceef9b396a",
+      "parameters": "0x316262626200000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006461695f657468000000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e767761702c000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e743235362c74696d657374616d70000000000000000000000000000000005f74696d65730000000000000000000000000000000000000000000000000000313030303030302c000000000000000000000000000000000000000000000000",
+      "decodedParameters": [
+        {
+          "name": "pair",
+          "type": "bytes32",
+          "value": "dai_eth"
+        },
+        {
+          "name": "_path",
+          "type": "bytes32",
+          "value": "payload.vwap,"
+        },
+        {
+          "name": "_type",
+          "type": "bytes32",
+          "value": "int256,timestamp"
+        },
+        {
+          "name": "_times",
+          "type": "bytes32",
+          "value": "1000000,"
+        }
+      ],
+      "beaconId": "0x51e69816ce48ce503eb8a0b9b2f87e3cce93765483f3cef71380436e7821c628",
+      "chains": [
+        {
+          "name": "ropsten",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "rinkeby",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "goerli",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "polygon-mumbai",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        }
+      ],
+      "template": {
+        "airnode": "0xF0f875aa568521FBd5246fAE7260E04d9ED6511b",
+        "endpointId": "0x1877d4f8d95cd67a9f81326c32dda82cad3594832ef066c803c1baef02957c25",
+        "parameters": "0x316262626200000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006461695f657468000000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e767761702c000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e743235362c74696d657374616d70000000000000000000000000000000005f74696d65730000000000000000000000000000000000000000000000000000313030303030302c000000000000000000000000000000000000000000000000",
+        "templateId": "0xae29d1671cc0df2ccd14cfd4ad094857ad06e6881132fedc195b56ceef9b396a",
+        "decodedParameters": [
+          {
+            "name": "pair",
+            "type": "bytes32",
+            "value": "dai_eth"
+          },
+          {
+            "name": "_path",
+            "type": "bytes32",
+            "value": "payload.vwap,"
+          },
+          {
+            "name": "_type",
+            "type": "bytes32",
+            "value": "int256,timestamp"
+          },
+          {
+            "name": "_times",
+            "type": "bytes32",
+            "value": "1000000,"
+          }
+        ],
+        "chains": [
+          "ropsten",
+          "rinkeby",
+          "goerli",
+          "polygon-mumbai"
+        ],
+        "sourceFile": "0xae29d1671cc0df2ccd14cfd4ad094857ad06e6881132fedc195b56ceef9b396a.json"
+      },
+      "extraTemplateData": {
+        "endpointId": "0x1877d4f8d95cd67a9f81326c32dda82cad3594832ef066c803c1baef02957c25",
+        "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
+        "oisTitle": "Amberdata-Lite"
+      }
+    },
+    {
+      "templateId": "0xce4ad44fb1f9784d6563e84d396d4e3f7d4e8fe13e02044a3f54623a03f2f8fa",
+      "parameters": "0x316262626200000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006574685f757364740000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e767761702c000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e743235362c74696d657374616d70000000000000000000000000000000005f74696d65730000000000000000000000000000000000000000000000000000313030303030302c000000000000000000000000000000000000000000000000",
+      "decodedParameters": [
+        {
+          "name": "pair",
+          "type": "bytes32",
+          "value": "eth_usdt"
+        },
+        {
+          "name": "_path",
+          "type": "bytes32",
+          "value": "payload.vwap,"
+        },
+        {
+          "name": "_type",
+          "type": "bytes32",
+          "value": "int256,timestamp"
+        },
+        {
+          "name": "_times",
+          "type": "bytes32",
+          "value": "1000000,"
+        }
+      ],
+      "beaconId": "0xabdcc4af7c4d24c84c634b796a50d468f2778b5d43b4f733c6b67cae24208c08",
+      "chains": [
+        {
+          "name": "ropsten",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "rinkeby",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "goerli",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "polygon-mumbai",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        }
+      ],
+      "template": {
+        "airnode": "0xF0f875aa568521FBd5246fAE7260E04d9ED6511b",
+        "endpointId": "0x1877d4f8d95cd67a9f81326c32dda82cad3594832ef066c803c1baef02957c25",
+        "parameters": "0x316262626200000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006574685f757364740000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e767761702c000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e743235362c74696d657374616d70000000000000000000000000000000005f74696d65730000000000000000000000000000000000000000000000000000313030303030302c000000000000000000000000000000000000000000000000",
+        "templateId": "0xce4ad44fb1f9784d6563e84d396d4e3f7d4e8fe13e02044a3f54623a03f2f8fa",
+        "decodedParameters": [
+          {
+            "name": "pair",
+            "type": "bytes32",
+            "value": "eth_usdt"
+          },
+          {
+            "name": "_path",
+            "type": "bytes32",
+            "value": "payload.vwap,"
+          },
+          {
+            "name": "_type",
+            "type": "bytes32",
+            "value": "int256,timestamp"
+          },
+          {
+            "name": "_times",
+            "type": "bytes32",
+            "value": "1000000,"
+          }
+        ],
+        "chains": [
+          "ropsten",
+          "rinkeby",
+          "goerli",
+          "polygon-mumbai"
+        ],
+        "sourceFile": "0xce4ad44fb1f9784d6563e84d396d4e3f7d4e8fe13e02044a3f54623a03f2f8fa.json"
+      },
+      "extraTemplateData": {
+        "endpointId": "0x1877d4f8d95cd67a9f81326c32dda82cad3594832ef066c803c1baef02957c25",
+        "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
+        "oisTitle": "Amberdata-Lite"
+      }
+    },
+    {
+      "templateId": "0xcf3e24aa342597015c648a504a2b5da7a104ded5493250a646a422a63efc3d7f",
+      "parameters": "0x316262626200000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006461695f757364000000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e767761702c000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e743235362c74696d657374616d70000000000000000000000000000000005f74696d65730000000000000000000000000000000000000000000000000000313030303030302c000000000000000000000000000000000000000000000000",
+      "decodedParameters": [
+        {
+          "name": "pair",
+          "type": "bytes32",
+          "value": "dai_usd"
+        },
+        {
+          "name": "_path",
+          "type": "bytes32",
+          "value": "payload.vwap,"
+        },
+        {
+          "name": "_type",
+          "type": "bytes32",
+          "value": "int256,timestamp"
+        },
+        {
+          "name": "_times",
+          "type": "bytes32",
+          "value": "1000000,"
+        }
+      ],
+      "beaconId": "0x7dc902d031210e287c5693f11e6d874d4ead1622489048952fb6847420a47588",
+      "chains": [
+        {
+          "name": "ropsten",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "rinkeby",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "goerli",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "polygon-mumbai",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        }
+      ],
+      "template": {
+        "airnode": "0xF0f875aa568521FBd5246fAE7260E04d9ED6511b",
+        "endpointId": "0x1877d4f8d95cd67a9f81326c32dda82cad3594832ef066c803c1baef02957c25",
+        "parameters": "0x316262626200000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006461695f757364000000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e767761702c000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e743235362c74696d657374616d70000000000000000000000000000000005f74696d65730000000000000000000000000000000000000000000000000000313030303030302c000000000000000000000000000000000000000000000000",
+        "templateId": "0xcf3e24aa342597015c648a504a2b5da7a104ded5493250a646a422a63efc3d7f",
+        "decodedParameters": [
+          {
+            "name": "pair",
+            "type": "bytes32",
+            "value": "dai_usd"
+          },
+          {
+            "name": "_path",
+            "type": "bytes32",
+            "value": "payload.vwap,"
+          },
+          {
+            "name": "_type",
+            "type": "bytes32",
+            "value": "int256,timestamp"
+          },
+          {
+            "name": "_times",
+            "type": "bytes32",
+            "value": "1000000,"
+          }
+        ],
+        "chains": [
+          "ropsten",
+          "rinkeby",
+          "goerli",
+          "polygon-mumbai"
+        ],
+        "sourceFile": "0xcf3e24aa342597015c648a504a2b5da7a104ded5493250a646a422a63efc3d7f.json"
+      },
+      "extraTemplateData": {
+        "endpointId": "0x1877d4f8d95cd67a9f81326c32dda82cad3594832ef066c803c1baef02957c25",
+        "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
+        "oisTitle": "Amberdata-Lite"
+      }
+    },
+    {
+      "templateId": "0xd12f8c90560654113d4b34f70e2076601e3cb6a8702bb092ee6242f9238016d2",
+      "parameters": "0x31626262620000000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000757364745f7573640000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e767761702c000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e743235362c74696d657374616d70000000000000000000000000000000005f74696d65730000000000000000000000000000000000000000000000000000313030303030302c000000000000000000000000000000000000000000000000",
+      "decodedParameters": [
+        {
+          "name": "pair",
+          "type": "bytes32",
+          "value": "usdt_usd"
+        },
+        {
+          "name": "_path",
+          "type": "bytes32",
+          "value": "payload.vwap,"
+        },
+        {
+          "name": "_type",
+          "type": "bytes32",
+          "value": "int256,timestamp"
+        },
+        {
+          "name": "_times",
+          "type": "bytes32",
+          "value": "1000000,"
+        }
+      ],
+      "beaconId": "0x8072ca6c606eabf39c58dfa22b28550f96371d72caf9d0de3da3ef674c64314a",
+      "chains": [
+        {
+          "name": "ropsten",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "rinkeby",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "goerli",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "polygon-mumbai",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        }
+      ],
+      "template": {
+        "airnode": "0xF0f875aa568521FBd5246fAE7260E04d9ED6511b",
+        "endpointId": "0x1877d4f8d95cd67a9f81326c32dda82cad3594832ef066c803c1baef02957c25",
+        "parameters": "0x31626262620000000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000757364745f7573640000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e767761702c000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e743235362c74696d657374616d70000000000000000000000000000000005f74696d65730000000000000000000000000000000000000000000000000000313030303030302c000000000000000000000000000000000000000000000000",
+        "templateId": "0xd12f8c90560654113d4b34f70e2076601e3cb6a8702bb092ee6242f9238016d2",
+        "decodedParameters": [
+          {
+            "name": "pair",
+            "type": "bytes32",
+            "value": "usdt_usd"
+          },
+          {
+            "name": "_path",
+            "type": "bytes32",
+            "value": "payload.vwap,"
+          },
+          {
+            "name": "_type",
+            "type": "bytes32",
+            "value": "int256,timestamp"
+          },
+          {
+            "name": "_times",
+            "type": "bytes32",
+            "value": "1000000,"
+          }
+        ],
+        "chains": [
+          "ropsten",
+          "rinkeby",
+          "goerli",
+          "polygon-mumbai"
+        ],
+        "sourceFile": "0xd12f8c90560654113d4b34f70e2076601e3cb6a8702bb092ee6242f9238016d2.json"
+      },
+      "extraTemplateData": {
+        "endpointId": "0x1877d4f8d95cd67a9f81326c32dda82cad3594832ef066c803c1baef02957c25",
+        "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
+        "oisTitle": "Amberdata-Lite"
+      }
+    },
+    {
+      "templateId": "0xfdd77a1208e279748c30666828ad48e6687f72cc8f44cb1c354b12bb61c4fb47",
+      "parameters": "0x31626262620000000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000757364635f7573640000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e767761702c000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e743235362c74696d657374616d70000000000000000000000000000000005f74696d65730000000000000000000000000000000000000000000000000000313030303030302c000000000000000000000000000000000000000000000000",
+      "decodedParameters": [
+        {
+          "name": "pair",
+          "type": "bytes32",
+          "value": "usdc_usd"
+        },
+        {
+          "name": "_path",
+          "type": "bytes32",
+          "value": "payload.vwap,"
+        },
+        {
+          "name": "_type",
+          "type": "bytes32",
+          "value": "int256,timestamp"
+        },
+        {
+          "name": "_times",
+          "type": "bytes32",
+          "value": "1000000,"
+        }
+      ],
+      "beaconId": "0x554e214e0a87aedde2c46eaca40f5f1b2fe6c689002d5ac34e46fb2f0f57f3fb",
+      "chains": [
+        {
+          "name": "ropsten",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "rinkeby",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "goerli",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        },
+        {
+          "name": "polygon-mumbai",
+          "apiProviderAirkeeperDeviationPercentage": 1,
+          "api3AirkeeperDeviationPercentage": 2,
+          "sponsor": "0x9f58989539B8c90cdDE06Cb568e41e3DeB73df90",
+          "apiProviderAirkeeperSponsor": "0x1A40773c2cFb7CCa34Cbd2287097A80Cba28b9E5",
+          "api3AirkeeperSponsor": "0xf08DA3Cb3eaeD0a22814f1A34cA82C686ba13168",
+          "sponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "apiProviderAirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 2,
+            "units": "ether"
+          },
+          "api3AirkeeperSponsorWalletBalanceAlertThreshold": {
+            "amount": 1,
+            "units": "ether"
+          }
+        }
+      ],
+      "template": {
+        "airnode": "0xF0f875aa568521FBd5246fAE7260E04d9ED6511b",
+        "endpointId": "0x1877d4f8d95cd67a9f81326c32dda82cad3594832ef066c803c1baef02957c25",
+        "parameters": "0x31626262620000000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000757364635f7573640000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e767761702c000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e743235362c74696d657374616d70000000000000000000000000000000005f74696d65730000000000000000000000000000000000000000000000000000313030303030302c000000000000000000000000000000000000000000000000",
+        "templateId": "0xfdd77a1208e279748c30666828ad48e6687f72cc8f44cb1c354b12bb61c4fb47",
+        "decodedParameters": [
+          {
+            "name": "pair",
+            "type": "bytes32",
+            "value": "usdc_usd"
+          },
+          {
+            "name": "_path",
+            "type": "bytes32",
+            "value": "payload.vwap,"
+          },
+          {
+            "name": "_type",
+            "type": "bytes32",
+            "value": "int256,timestamp"
+          },
+          {
+            "name": "_times",
+            "type": "bytes32",
+            "value": "1000000,"
+          }
+        ],
+        "chains": [
+          "ropsten",
+          "rinkeby",
+          "goerli",
+          "polygon-mumbai"
+        ],
+        "sourceFile": "0xfdd77a1208e279748c30666828ad48e6687f72cc8f44cb1c354b12bb61c4fb47.json"
+      },
+      "extraTemplateData": {
+        "endpointId": "0x1877d4f8d95cd67a9f81326c32dda82cad3594832ef066c803c1baef02957c25",
+        "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
+        "oisTitle": "Amberdata-Lite"
+      }
+    }
+  ]

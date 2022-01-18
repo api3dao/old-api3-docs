@@ -29,7 +29,7 @@ module.exports = [
     children: [
       'reference/ids.md',
       'reference/contract-addresses.md',
-      'reference/beacon-catalog.md',
+      'reference/beacon-ids.md',
     ],
   },
 ];

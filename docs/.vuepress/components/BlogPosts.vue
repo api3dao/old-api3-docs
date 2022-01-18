@@ -1,6 +1,6 @@
 <!--
-  This component displays Medium blog posts that are related to 
-  the API3 Whtepaper. It loads the titles from blog-posts.json which 
+  This component displays Medium blog posts.
+  It loads the titles from blog-posts.json which 
   must be updated on a regular basis.
 -->
 

@@ -17,6 +17,6 @@ with Airnode version `v0.3.1`.
 | Network | Address                                    |
 | ------- | ------------------------------------------ |
 | Mainnet | n/a                                        |
-| Rinkeby | 0xe33f10dB5189d6f759BF07d4B8B70ca84138FB8f |
-| Mumbai  | 0x36aab914fAA2B3Bb396BAF067603b959bEcf1B49 |
 | Goerli  | 0x06DC65d26ecD289058014b7A23c94182ab198020 |
+| Mumbai  | 0x36aab914fAA2B3Bb396BAF067603b959bEcf1B49 |
+| Rinkeby | 0xe33f10dB5189d6f759BF07d4B8B70ca84138FB8f |
