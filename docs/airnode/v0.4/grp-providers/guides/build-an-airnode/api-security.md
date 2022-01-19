@@ -53,7 +53,7 @@ provide any values as they are extracted from the request by Airnode.
 
 ### apiKey
 
-The `apiKey` security schema type allows you to define an API key for your API.
+The `apiKey` security scheme type allows you to define an API key for your API.
 It is an object which consists of the following fields
 
 - `type` must be `apiKey`
@@ -70,7 +70,7 @@ POST requests and in query string for GET requests.
 - `name` is the name of the API key that should be sent to your API. For example
   "X-Api-Key".
 
-Schema definition example:
+Scheme definition example:
 
 ```json
 {
@@ -94,13 +94,13 @@ and `apiCredentials` example:
 
 ### http
 
-The `http` security schema type allows you to define a `basic` or `bearer`
+The `http` security scheme type allows you to define a `basic` or `bearer`
 authentication. It consists of the following fields
 
 - `type` must be `http`
 - `scheme` is either `basic` or `bearer`
 
-Schema definition example:
+Scheme definition example:
 
 ```json
 {
@@ -121,18 +121,18 @@ and `apiCredentials` example:
 }
 ```
 
-This security schema will always be sent in the headers. The security scheme
+This security scheme will always be sent in the headers. The security scheme
 value should be base64 encoded value "username:password" for `basic` auth and
 the encoded token for `bearer` auth.
 
 ### relayRequesterAddress
 
-The `relayRequesterAddress` security schema type instructs Airnode to forward
-the [requester](../../../concepts/requester.md) address to your API. The schema
+The `relayRequesterAddress` security scheme type instructs Airnode to forward
+the [requester](../../../concepts/requester.md) address to your API. The scheme
 definition is similar to the [`apiKey`](./api-security.md#apikey), however the
 `type` must be `relayRequesterAddress`.
 
-Schema definition example:
+Scheme definition example:
 
 ```json
 {
@@ -152,11 +152,11 @@ API.
 
 ### relayChainId
 
-The `relayChainId` security schema type instructs Airnode to forward the chain
-id to your API. The schema definition is similar to the
+The `relayChainId` security scheme type instructs Airnode to forward the chain
+id to your API. The scheme definition is similar to the
 [`apiKey`](./api-security.md#apikey), however the `type` must be `relayChainId`.
 
-Schema definition example:
+Scheme definition example:
 
 ```json
 {
@@ -171,12 +171,12 @@ definition.
 
 ### relayChainType
 
-The `relayChainType` security schema type instructs Airnode to forward the chain
-type to your API. The schema definition is similar to the
+The `relayChainType` security scheme type instructs Airnode to forward the chain
+type to your API. The scheme definition is similar to the
 [`apiKey`](./api-security.md#apikey), however the `type` must be
 `relayChainType`.
 
-Schema definition example:
+Scheme definition example:
 
 ```json
 {
@@ -252,7 +252,7 @@ are the names of security schemes to be used. Use empty array (`[]`) as values
 for now.
 
 _Be aware that this step seems like extra work since there is no reason to
-define a security schema that will not be used. However, Airnode may support
+define a security scheme that will not be used. However, Airnode may support
 [more complex authentication](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#security-requirement-object)
 logic in the future and using `[]` allows its implementation without a breaking
 change._
