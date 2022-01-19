@@ -22,7 +22,7 @@ API3 has set up Beacons (supported by Airnodes) using the following versions.
 Access Beacons using the `RrpBeaconSerever.sol` contract. Specific network
 addresses for the contract are in the
 [Contract Addresses](../reference/contract-addresses.md) doc. For _#BUIDLWEEK_
-please use either the Goerli or Mumbai network.
+please use either the Goerli or Polygon-Mumbai network.
 
 ## Amberdata Beacons
 
@@ -38,7 +38,8 @@ function [readBeacon()](../functions/read-beacon.md).
 
 For _#BUIDLWEEK_ you do not need to contact the API3 Business Development Team
 for access to the Amberdata Beacons mentioned above. You can whitelist yourself
-on the Goerli or Mumbai networks using [etherscan](https://etherscan.io/).
+on the Goerli or Polygon-Mumbai networks using
+[etherscan](https://etherscan.io/).
 
 :::
 
