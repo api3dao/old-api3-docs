@@ -31,6 +31,8 @@ types are supported.
 - [relayRequesterAddress](./api-security.md#relayrequesteraddress)
 - [relayChainId](./api-security.md#relaychainid)
 - [relayChainType](./api-security.md#relaychaintype)
+- [relaySponsorAddress](./api-security.md#relaysponsoraddress)
+- [relaySponsorWalletAddress](./api-security.md#relaysponsorwalletaddress)
 
 **Authentication Security Schemes**
 
@@ -183,6 +185,47 @@ Scheme definition example:
   "in": "query",
   "type": "relayChainType",
   "name": "chainType"
+}
+```
+
+since this value will be relayed by Airnode, there is no `apiCredentials`
+definition.
+
+### relaySponsorAddress
+
+The `relaySponsorAddress` security schema type instructs Airnode to forward the
+[sponsor address](../../../concepts/sponsor.html#sponsoraddress) to your API.
+The schema definition is similar to the [`apiKey`](./api-security.md#apikey),
+however the `type` must be `relaySponsorAddress`.
+
+Schema definition example:
+
+```json
+{
+  "in": "query",
+  "type": "relaySponsorAddress",
+  "name": "sponsorAddress"
+}
+```
+
+since this value will be relayed by Airnode, there is no `apiCredentials`
+definition.
+
+### relaySponsorWalletAddress
+
+The `relaySponsorWalletAddress` security schema type instructs Airnode to
+forward the [sponsor wallet address](concepts/sponsor.html#sponsorwallet) to
+your API. The schema definition is similar to the
+[`apiKey`](./api-security.md#apikey), however the `type` must be
+`relaySponsorWalletAddress`.
+
+Schema definition example:
+
+```json
+{
+  "in": "query",
+  "type": "relaySponsorWalletAddress",
+  "name": "sponsorWalletAddress"
 }
 ```
 
