@@ -232,22 +232,23 @@ schedule.
 
 Reward amount is represented as APR (annual percentage rate). You can derive APY
 (annual percentage yield) using an
-[online calculator](https://www.aprtoapy.com/). Each week, stakers get paid
-roughly APR/52. There is a governable "APR update step", which is the step size
-each week the APR will be updated with. Also there are governable minimum and
-maximum APR values, but these (especially maximum APR) are there as safety
-measures and should not affect rewards in day-to-day operation. In general,
-governing the stake target will be the primary tool for regulating rewards.
+[online calculator](https://www.aprtoapy.com/). There is a governable "APR
+update step", which is the step size each week the APR will be updated with.
+Also there are governable minimum and maximum APR values, but these (especially
+maximum APR) are there as safety measures and should not affect rewards in
+day-to-day operation. In general, governing the stake target will be the primary
+tool for regulating rewards.
 
 Rewards are added as staked API3 tokens into the DAO pool each time the
 `mintReward` function is called. `mintReward` is callable by anyone, once per
-"epoch" (currently 1 week). When it is called, an amount of API3 tokens is
-minted and added to the DAO pool:
+"epoch" (and single epoch length is 1 week). When it is called, an amount of
+API3 tokens is minted and added to the DAO pool:
 
-> `rewardAmount = totalStakedTokens * APR * epochLength / epochsPerYear / 100`
-
-In other words, _the reward is the annual percentage (APR) increase divided by
-the number of epochs per year (currently ~52)_.
+> `rewardAmount = totalStakedTokens * APR * epochLengthInSeconds / yearInSeconds / 100`
+>
+> (see the
+> [smart contract source](https://github.com/api3dao/api3-dao/blob/main/packages/pool/contracts/RewardUtils.sol#L24)
+> for more information).
 
 In addition, each time `mintReward` is called, the annual percentage (the reward
 rate) is updated up or down by the APR update step size (1%), according to
