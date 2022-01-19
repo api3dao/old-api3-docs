@@ -44,14 +44,13 @@ and create cloud provider credentials.
 - Create a
   [Google Cloud project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
 - Enable
-  [CloudFunction API](https://console.cloud.google.com/apis/library/cloudfunctions.googleapis.com),
-  [Cloud Build API](https://console.cloud.google.com/apis/library/cloudbuild.googleapis.com)
-  and
-  [Cloud Scheduler API](https://console.cloud.google.com/apis/library/cloudscheduler.googleapis.com)
+  [App Engine Admin API](https://console.cloud.google.com/apis/library/appengine.googleapis.com)
   for your project
-- Install [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) and
-  obtain your
-  [Application Default Credentials](https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login)
+- Create a new
+  [service account](https://console.cloud.google.com/iam-admin/serviceaccounts)
+  with the `Owner` role
+- Add a new access key of type JSON for the service account and download it as
+  `gcp.json`
 
 ## deploy
 
@@ -61,6 +60,7 @@ if it already exists. Three files are needed to run the deploy command.
 - config.json
 - secrets.env
 - aws.env (AWS only)
+- gcp.json (GCP only)
 
 A `receipt.json` file will be created upon completion. It contains some
 deployment information and is used to remove the Airnode.
@@ -102,9 +102,6 @@ docker run -it --rm ^
 
 ### GCP
 
-The location of the credentials file for GCP varies depending on which operating
-system you use.
-
 :::: tabs
 
 ::: tab Linux/Mac/WSL2
@@ -112,7 +109,7 @@ system you use.
 ```sh
 docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
-  -v "${HOME}/.config/gcloud:/app/gcloud"
+  -v "$(pwd)/gcp.json:/app/gcp.json" \
   -v "$(pwd)/config:/app/config" \
   -v "$(pwd)/output:/app/output" \
   api3/airnode-deployer:0.4.0 deploy
@@ -124,9 +121,9 @@ docker run -it --rm \
 
 ```sh
 docker run -it --rm ^
+  -v "%cd%/gcp.json:/app/gcp.json" ^
   -v "%cd%/config:/app/config" ^
   -v "%cd%/output:/app/output" ^
-  -v "%AppData%/gcloud:/app/gcloud" ^
   api3/airnode-deployer:0.4.0 deploy
 ```
 
@@ -171,16 +168,13 @@ docker run -it --rm ^
 
 ### GCP
 
-The location of the credentials file for GCP varies depending on which operating
-system you use.
-
 :::: tabs
 
 ::: tab Linux/Mac/WSL2
 
 ```sh
 docker run -it --rm \
-  -v "${HOME}/.config/gcloud:/app/gcloud"
+  -v "$(pwd)/gcp.json:/app/gcp.json" \
   -v "$(pwd)/output:/app/output" \
   api3/airnode=deployer:0.4.0 remove -r output/receipt.json
 ```
@@ -193,8 +187,8 @@ For Windows, use CMD (and not PowerShell).
 
 ```sh
 docker run -it --rm ^
+  -v "%cd%/gcp.json:/app/gcp.json" ^
   -v "%cd%/output:/app/output" ^
-  -v "%AppData%/gcloud:/app/gcloud" ^
   api3/airnode-deployer:0.4.0 remove -r output/receipt.json
 ```
 
