@@ -14,9 +14,9 @@ with Airnode version `v0.3.1`.
 
 <!-- These are from https://github.com/api3dao/beacon-setup-guide/blob/main/deployments/0.3.1/goerli.json -->
 
-| Network | Address                                    |
-| ------- | ------------------------------------------ |
-| Mainnet | n/a                                        |
-| Goerli  | 0x06DC65d26ecD289058014b7A23c94182ab198020 |
-| Mumbai  | 0x36aab914fAA2B3Bb396BAF067603b959bEcf1B49 |
-| Rinkeby | 0xe33f10dB5189d6f759BF07d4B8B70ca84138FB8f |
+| Network        | Address                                    |
+| -------------- | ------------------------------------------ |
+| Mainnet        | n/a                                        |
+| Goerli         | 0x2cFda716b751eb406C5124C6E4428F2AEA453D96 |
+| Polygon-Mumbai | 0xFF298a3169117606BDA78eD6C04917224968f9b5 |
+| Rinkeby        | 0x2cFda716b751eb406C5124C6E4428F2AEA453D96 |
