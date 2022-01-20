@@ -13,7 +13,7 @@
     "templateId": "0x008060e029c29617e7af0d0b0e5ec5bafb3f2403d5322b0d691f81fe62cc0452",
     "oisTitle": "Amberdata-Lite",
     "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
-    "beaconId": "0x0ea5232857bb57ade2581004c15c46990b795f0be68476b4622a5787513a1c9e"
+    "beaconId": "0x9ff48eeb5e408f691ce8752a6ef73a3f2a7a6d7739fa4788ad1587c6336c6499"
   },
   {
     "templateParameters": [
@@ -29,7 +29,7 @@
     "templateId": "0x13a49162b764b0035587d5aa260156533975905bc1b89df9d2b43bd185186306",
     "oisTitle": "Amberdata-Lite",
     "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
-    "beaconId": "0xad3df870c3d71b2b1127ad11fb5222df2b6daa4614d93e4488c3969b8a863a4b"
+    "beaconId": "0x77898871469bda1f390433935691dea2022f7a7e76fc6cb8d4466a20fe659004"
   },
   {
     "templateParameters": [
@@ -41,7 +41,7 @@
     "templateId": "0x35aefcf99bddc49a5e128533f641a218987451cd46316bbfac5d55bd31b6f398",
     "oisTitle": "Amberdata-Lite",
     "endpointName": "GET /transactions/gas/predictions",
-    "beaconId": "0x7de3d098ea0e4b375268085f338ef6811f2868b4924b7e927039257ad6df1213"
+    "beaconId": "0xdcf801ee9030dd1679bdde8dc9db6063a1fe82e6ade0963600029ccec8b6eaec"
   },
   {
     "templateParameters": [
@@ -57,7 +57,7 @@
     "templateId": "0x46cdd8fd5e8fa9a8b49c2dac298307cca1c4cfb9ee7e82a6b6c736e075a76a5d",
     "oisTitle": "Amberdata-Lite",
     "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
-    "beaconId": "0x31b117a9b87827f27b755866842966d63fb5e8710b321c9117789d67e3511616"
+    "beaconId": "0xf3d20642ee07e908c9291477b029cf4cb21f63e80a5fb76341a100ee00822d5f"
   },
   {
     "templateParameters": [
@@ -73,7 +73,7 @@
     "templateId": "0x91f694a9b2a4d7353c17362a0a2c4018796f36741c14e427aa0e78d58954a9a5",
     "oisTitle": "Amberdata-Lite",
     "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
-    "beaconId": "0xc6f1b03828364e53afda085fb9eb4b8ebda0ef70b2caafef4a32a5eedee174a6"
+    "beaconId": "0xaf554978b53098221ed85cf1d19364596b4dbcb2389f0dd3736b9b09786d9230"
   },
   {
     "templateParameters": [
@@ -89,7 +89,7 @@
     "templateId": "0xae29d1671cc0df2ccd14cfd4ad094857ad06e6881132fedc195b56ceef9b396a",
     "oisTitle": "Amberdata-Lite",
     "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
-    "beaconId": "0x51e69816ce48ce503eb8a0b9b2f87e3cce93765483f3cef71380436e7821c628"
+    "beaconId": "0xf2edf992f8458360836355949191d7dd01816bfb1fafa9089ba645b7b9f57a21"
   },
   {
     "templateParameters": [
@@ -105,7 +105,7 @@
     "templateId": "0xce4ad44fb1f9784d6563e84d396d4e3f7d4e8fe13e02044a3f54623a03f2f8fa",
     "oisTitle": "Amberdata-Lite",
     "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
-    "beaconId": "0xabdcc4af7c4d24c84c634b796a50d468f2778b5d43b4f733c6b67cae24208c08"
+    "beaconId": "0x80b6e94b044c5fd4661777cae8c4600a9d52be4c35be93736a132886fb533c24"
   },
   {
     "templateParameters": [
@@ -121,7 +121,7 @@
     "templateId": "0xcf3e24aa342597015c648a504a2b5da7a104ded5493250a646a422a63efc3d7f",
     "oisTitle": "Amberdata-Lite",
     "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
-    "beaconId": "0x7dc902d031210e287c5693f11e6d874d4ead1622489048952fb6847420a47588"
+    "beaconId": "0x9bb6dddba9e50091a48e86dd07cc20fc73c4f68eff6e4a9ce2d01f66e34314a5"
   },
   {
     "templateParameters": [
@@ -137,7 +137,7 @@
     "templateId": "0xd12f8c90560654113d4b34f70e2076601e3cb6a8702bb092ee6242f9238016d2",
     "oisTitle": "Amberdata-Lite",
     "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
-    "beaconId": "0x8072ca6c606eabf39c58dfa22b28550f96371d72caf9d0de3da3ef674c64314a"
+    "beaconId": "0xfba61cf959282738d6b245e5203b72c9ba7355b3bd1f74d67e91b249eaa145e0"
   },
   {
     "templateParameters": [
@@ -153,6 +153,6 @@
     "templateId": "0xfdd77a1208e279748c30666828ad48e6687f72cc8f44cb1c354b12bb61c4fb47",
     "oisTitle": "Amberdata-Lite",
     "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
-    "beaconId": "0x554e214e0a87aedde2c46eaca40f5f1b2fe6c689002d5ac34e46fb2f0f57f3fb"
+    "beaconId": "0xae2ee59a0945dbc086d56f9e266ceb995378cab7e36210b020b0fae5a3959e0e"
   }
 ]

@@ -15,15 +15,15 @@ A `beaconId` and its `templateId` are identical across chains. Only the
 
 | Name     | Description                                                      | `beaconId`                                                         |
 | :------- | :--------------------------------------------------------------- | :----------------------------------------------------------------- |
-| btc_usd  | Value of BTC in USD                                              | 0x0ea5232857bb57ade2581004c15c46990b795f0be68476b4622a5787513a1c9e |
-| eth_btc  | Value of ETH in BTC                                              | 0xc6f1b03828364e53afda085fb9eb4b8ebda0ef70b2caafef4a32a5eedee174a6 |
-| eth_usd  | Value of ETH in USD                                              | 0x31b117a9b87827f27b755866842966d63fb5e8710b321c9117789d67e3511616 |
-| eth_usdc | Value of ETH in USDC                                             | 0xad3df870c3d71b2b1127ad11fb5222df2b6daa4614d93e4488c3969b8a863a4b |
-| eth_usdt | Value of ETH in USDT                                             | 0xabdcc4af7c4d24c84c634b796a50d468f2778b5d43b4f733c6b67cae24208c08 |
-| dai_eth  | Value of DAI in ETH                                              | 0x51e69816ce48ce503eb8a0b9b2f87e3cce93765483f3cef71380436e7821c628 |
-| dai_usd  | Value of DAI in USD                                              | 0x7dc902d031210e287c5693f11e6d874d4ead1622489048952fb6847420a47588 |
-| usdc_usd | Value of USDC in USD                                             | 0x554e214e0a87aedde2c46eaca40f5f1b2fe6c689002d5ac34e46fb2f0f57f3fb |
-| usdt_usd | Value of USDT in USD                                             | 0x8072ca6c606eabf39c58dfa22b28550f96371d72caf9d0de3da3ef674c64314a |
-| gasPrice | The gas price prediction for fast confirmation of a transaction. | 0x7de3d098ea0e4b375268085f338ef6811f2868b4924b7e927039257ad6df1213 |
+| btc_usd  | Value of BTC in USD                                              | 0x9ff48eeb5e408f691ce8752a6ef73a3f2a7a6d7739fa4788ad1587c6336c6499 |
+| eth_btc  | Value of ETH in BTC                                              | 0xaf554978b53098221ed85cf1d19364596b4dbcb2389f0dd3736b9b09786d9230 |
+| eth_usd  | Value of ETH in USD                                              | 0xf3d20642ee07e908c9291477b029cf4cb21f63e80a5fb76341a100ee00822d5f |
+| eth_usdc | Value of ETH in USDC                                             | 0x77898871469bda1f390433935691dea2022f7a7e76fc6cb8d4466a20fe659004 |
+| eth_usdt | Value of ETH in USDT                                             | 0x80b6e94b044c5fd4661777cae8c4600a9d52be4c35be93736a132886fb533c24 |
+| dai_eth  | Value of DAI in ETH                                              | 0xf2edf992f8458360836355949191d7dd01816bfb1fafa9089ba645b7b9f57a21 |
+| dai_usd  | Value of DAI in USD                                              | 0x9bb6dddba9e50091a48e86dd07cc20fc73c4f68eff6e4a9ce2d01f66e34314a5 |
+| usdc_usd | Value of USDC in USD                                             | 0xae2ee59a0945dbc086d56f9e266ceb995378cab7e36210b020b0fae5a3959e0e |
+| usdt_usd | Value of USDT in USD                                             | 0xfba61cf959282738d6b245e5203b72c9ba7355b3bd1f74d67e91b249eaa145e0 |
+| gasPrice | The gas price prediction for fast confirmation of a transaction. | 0xdcf801ee9030dd1679bdde8dc9db6063a1fe82e6ade0963600029ccec8b6eaec |
 
 <!-- | OLD ?    | Is this to be removed? | x5a2645e149678440f775c0ec18f92ac28bd7e8329b19e0e97d14e5dc0702ea59  | -->

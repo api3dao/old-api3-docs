@@ -28,24 +28,26 @@ subject to whitelisting. Off-chain code is beyond the scope of this doc.
 ## Example Code
 
 There is an additional example of a contract that reads a Beacon in the
-[beacon-reader-example](https://github.com/api3dao/beacon-reader-example/blob/bec63-beacon-reader-example/contracts/BeaconReaderExample.sol)
+[beacon-reader-example](https://github.com/api3dao/beacon-reader-example/blob/main/contracts/BeaconReaderExample.sol)
 GitHub repository.
 
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.3;
 
-import "@api3/airnode-protocol";
+import "@api3/airnode-protocol/contracts/rrp/requesters/interfaces/IRrpBeaconServer.sol";
 contract mySmartContract {
-    int224 private value;
-    uint32 private timestamp;
 
     function myGetBeaconValue(
         address _beaconContractAddress,
         bytes32 _beaconId
-    ) private {
+    ) external {
+        int224 private value;
+        uint32 private timestamp;
+
         // Calling the BeaconServer for a Beacon value.
-        (value, timestamp) = RrpBeaconServer(_beaconContractAddress).readBeacon(_beaconId);
+        (value, timestamp) =
+            RrpBeaconServer(_beaconContractAddress).readBeacon(_beaconId);
     }
 }
 ```

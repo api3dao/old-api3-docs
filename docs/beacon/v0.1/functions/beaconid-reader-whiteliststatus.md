@@ -27,23 +27,24 @@ about Beacon whitelisting.
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.3;
 
-import "@api3/airnode-protocol";
+import "@api3/airnode-protocol/contracts/rrp/requesters/interfaces/IRrpBeaconServer.sol";
 contract mySmartContract {
+
+  function myReadableDetails(
+    bytes32 _beaconId
+    address _beaconContractAddress
+  ) external {
     uint64 private expirationTimestamp;
     uint192 private indefiniteWhitelistCount;
 
-    function myReadableDetails(
-      bytes32 _beaconId
-      address _beaconContractAddress
-    ) private {
-        // Calling the BeaconServer for detailed whitelist status
-        // where "this" is the contract address of this contract (myReadableDetails).
-        (expirationTimestamp, indefiniteWhitelistCount) =
-            RrpBeaconServer(_beaconContractAddress).beaconIdToReaderToWhitelistStatus(
-              _beaconId,
-              this
-            );
-    }
+    // Calling the BeaconServer for detailed whitelist status
+    // where "this" is the contract address of this contract (myReadableDetails).
+    (expirationTimestamp, indefiniteWhitelistCount) =
+      RrpBeaconServer(_beaconContractAddress).beaconIdToReaderToWhitelistStatus(
+        _beaconId,
+        this
+      );
+  }
 }
 ```
 

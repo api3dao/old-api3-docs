@@ -184,7 +184,7 @@ versionsOis: [
    versions in the `/docs/.vuepress.redirects` file.
 
 7. Change the version in `package.json` to the new version. This version
-   reflects a release of the docs and is not shown anywhere in hte docs.
+   reflects a release of the docs and is not shown anywhere in the docs.
 
 8. Update the zip files for the necessary tutorials. See
    [Zip Tutorial Files](./zip-files.md).

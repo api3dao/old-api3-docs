@@ -47,6 +47,6 @@ function in the monorepo.
 Create a `beaconId` by hashing the `templateId` and the Beacon parameters. See
 the
 [requestBeaconUpdate()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L213)
-function in hte monorepo.
+function in the monorepo.
 
 The `templateId` cannot be derived from the `beaconId`.
