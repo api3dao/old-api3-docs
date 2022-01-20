@@ -27,7 +27,17 @@ commit and caches that installation for fast execution.
 - [lychee.toml](https://github.com/api3dao/api3-docs/blob/main/.github/workflows/lychee.toml) >
   Action Configuration
 
-## Scheduled config PR
+## Firebase
+
+The
+[firebase-deployment.yml](https://github.com/api3dao/api3-docs/blob/main/.github/workflows/firebase-deployment.yml)
+Action provides docs site branch deployments so developers can preview how their
+documentation will look once live in production. The Action includes a series of
+build and deploy steps followed by a github-script step that comments on the
+push commit or PR with the deployment URL. Deployed sites are automatically
+deleted after 30 days of inactivity on the branch.
+
+## Scheduled config PR (currently disabled)
 
 To keep the docs current, this daily action pulls config files from the
 `airnode` repo and uses the
