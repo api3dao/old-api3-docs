@@ -39,27 +39,25 @@ There are two requirements for `requestBeaconUpdate()` to be called:
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.3;
 
-import "@api3/airnode-protocol";
+import "@api3/airnode-protocol/contracts/rrp/requesters/interfaces/IRrpBeaconServer.sol";
 contract mySmartContract {
-    uint64 private expirationTimestamp;
-    uint192 private indefiniteWhitelistCount;
 
-    function myRequestUpdate(
-        address _beaconContractAddress,
-        bytes32 _templateId,
-        address _sponsor,
-        address _sponsorWallet,
-        bytes calldata _parameters
-    ) private {
-        // Calling the BeaconServer to update a Beacon.
-        (expirationTimestamp, indefiniteWhitelistCount) =
-            RrpBeaconServer(_beaconContractAddress).requestBeaconUpdate(
-              _templateId,
-              _sponsor,
-              _sponsorWallet,
-              _parameters
-            );
-    }
+   function myRequestUpdate(
+      address _beaconContractAddress,
+      bytes32 _templateId,
+      address _sponsor,
+      address _sponsorWallet,
+      bytes calldata _parameters
+   ) external {
+
+      // Calling the BeaconServer to update a Beacon.
+      RrpBeaconServer(_beaconContractAddress).requestBeaconUpdate(
+         _templateId,
+         _sponsor,
+         _sponsorWallet,
+         _parameters
+      );
+   }
 }
 ```
 
