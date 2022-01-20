@@ -52,6 +52,19 @@
       -->
       <Versions />
 
+      <!-- Added: wkande: Job posting icon. -->
+      <RouterLink to="/api3/introduction/work" class="home-link"
+        ><img
+          src="/img/work.png"
+          style="
+            width: 28px;
+            height: 28px;
+            padding-top: 4px;
+            margin-right: 10px;
+          "
+        />
+      </RouterLink>
+
       <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia" />
       <!-- 
         Updated: wkande: There are paths where the SearchBox cannot be added 

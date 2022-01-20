@@ -11,6 +11,7 @@ module.exports = [
       'introduction/first-party-oracles',
       'introduction/decentrally-governed-oracle-networks',
       'introduction/dapis',
+      'introduction/work',
     ],
   },
 ];
