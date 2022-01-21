@@ -4,6 +4,12 @@ title: Work with API3
 
 # {{$frontmatter.title}}
 
+::: danger TODO:
+
+Need a point of contact such as an email address.
+
+:::
+
 Consider working with the Core Development Team at API3. Our search for you is
 never ending. We want talented individuals that think blockchain technology is
 _the_ big thing, that are ready to make it better and embrace collaboration as
@@ -17,10 +23,11 @@ it help organizations. Motivations for adopting DevOps methodologies are varied.
 Our Core Development Team embraces automation, experimentation, multi-hat roles,
 supporting each other and building it right.
 
-## Contact Info
+## Think About It
 
-::: danger TODO:
+<!-- prettier-ignore-->
+Here are some great roles we need help with. Then again, maybe you can define one for us. <EmailAddress/>
 
-Need a point of contact
+- [Senior QA/QC Blockchain Engineer](https://weworkremotely.com/remote-jobs/api3-senior-qa-qc-blockchain-engineer)
 
-:::
+- [Blockchain Technical Project Manager](https://weworkremotely.com/remote-jobs/api3-blockchain-technical-project-manager)
