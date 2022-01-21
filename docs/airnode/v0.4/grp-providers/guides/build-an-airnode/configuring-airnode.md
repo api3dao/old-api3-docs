@@ -499,7 +499,7 @@ blank.
 First, you need to
 [create a GCP project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
 under which will the Airnode be deployed. Once the project is created, insert
-its project ID into your [config.json](./configuring-airnode.md#cloudprovider).
+its [projectId](./configuring-airnode.md#cloudprovider) into your config.json.
 
 ### Enable required API
 
@@ -508,7 +508,7 @@ In order for Airnode to deploy successfully, you need to enable
 for your GCP project. After enabling it, wait a few minutes before the
 deployment itself so the change will take place.
 
-### Creating a service account
+### Creating a Service Account
 
 Create a new service account from the
 [Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts)
