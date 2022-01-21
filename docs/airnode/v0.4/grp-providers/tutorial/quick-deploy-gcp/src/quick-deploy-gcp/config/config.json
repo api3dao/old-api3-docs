@@ -33,6 +33,9 @@
     "heartbeat": {
       "enabled": false
     },
+    "httpGateway": {
+      "enabled": false,
+    },
     "logFormat": "plain",
     "logLevel": "INFO",
     "nodeVersion": "0.4.0",
