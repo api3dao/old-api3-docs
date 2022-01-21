@@ -6,12 +6,17 @@ title: Beacon IDs
 
 # {{$frontmatter.title}}
 
+<TocHeader />
+<TOC class="table-of-contents" :include-level="[2,3]" />
+
 <!--Use the Beacon with ID
 `0x5a2645e149678440f775c0ec18f92ac28bd7e8329b19e0e97d14e5dc0702ea59` which
 returns the BTC price from Amberdata, just trust us.-->
 
 A `beaconId` and its `templateId` are identical across chains. Only the
 `beaconId` is needed to get a Beacon's value.
+
+## Amberdata Beacons
 
 | Name     | Description                                                      | `beaconId`                                                         |
 | :------- | :--------------------------------------------------------------- | :----------------------------------------------------------------- |
@@ -27,3 +32,10 @@ A `beaconId` and its `templateId` are identical across chains. Only the
 | gasPrice | The gas price prediction for fast confirmation of a transaction. | 0xdcf801ee9030dd1679bdde8dc9db6063a1fe82e6ade0963600029ccec8b6eaec |
 
 <!-- | OLD ?    | Is this to be removed? | x5a2645e149678440f775c0ec18f92ac28bd7e8329b19e0e97d14e5dc0702ea59  | -->
+
+## Monitor
+
+View the status of Beacons on the API3 monitor website
+[https://monitor.api3.org/](https://monitor.api3.org/).
+
+![monitor.png](../assets/images/monitor.png)
