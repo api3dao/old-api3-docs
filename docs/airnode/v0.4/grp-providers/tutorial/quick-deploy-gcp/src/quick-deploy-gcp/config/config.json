@@ -34,7 +34,7 @@
       "enabled": false
     },
     "httpGateway": {
-      "enabled": false,
+      "enabled": false
     },
     "logFormat": "plain",
     "logLevel": "INFO",
