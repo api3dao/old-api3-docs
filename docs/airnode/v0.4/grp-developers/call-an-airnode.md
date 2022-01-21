@@ -36,8 +36,8 @@ Airnode.
 
 > ![request-flow](../assets/images/call-an-airnode.png)
 >
-> 1.  <p class="diagram-line" style="color:green;">A requester makes a request to the AirnodeRrp contract which adds the requestId to storage, emits the request to the event logs and returns the requestId to the requester. The request is retrieved by the Airnode during its next run cycle. It then verifies the requester is authorized by checking authorizer contracts assigned to the Airnode.</p>
-> 2.  <p class="diagram-line" style="color:blue;">If the request is authorized, Airnode proceeds to respond. It first gathers the requested data from the API and calls the <code>fulfill()</code> function in AirnodeRrp, which removes the pending requestId from storage and makes a callback to <code>myFulfill()</code>. Gas costs associated with the response are covered by the sponsor of the requester.</p>
+> 1.  <p class="diagram-line" style="color:green;">A requester makes a request to the AirnodeRrp contract which adds the <code>requestId</code> to storage, emits the request to the event logs and returns the <code>requestId</code> to the requester. The request is retrieved by the Airnode during its next run cycle. It then verifies the requester is authorized by checking authorizer contracts assigned to the Airnode.</p>
+> 2.  <p class="diagram-line" style="color:blue;">If the request is authorized, Airnode proceeds to respond. It first gathers the requested data from the API and calls the <code>fulfill()</code> function in AirnodeRrp, which removes the pending <code>requestId</code> from storage and makes a callback to <code>myFulfill()</code>. Gas costs associated with the response are covered by the sponsor of the requester.</p>
 
 This remainder of this doc focuses on the requester implementation, it's
 deployment and sponsoring.
