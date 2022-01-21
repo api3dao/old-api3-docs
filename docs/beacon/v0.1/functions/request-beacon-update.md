@@ -21,11 +21,11 @@ is because the caller will be paying the gas costs.
 There are two requirements for `requestBeaconUpdate()` to be called:
 
 1. The [sponsor](../../../airnode/v0.4/concepts/sponsor.md) must call
-   [setSponsorshipStatus()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol#L36)
+   [setSponsorshipStatus()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol#L36-L58)
    of the AirnodeRrp contract to sponsor the RrpBeaconServer contract.
 
 2. The sponsor must call
-   [setUpdatePermissionStatus()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L169)
+   [setUpdatePermissionStatus()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L169-L182)
    of the RrpBeaconServer contract to give request update permission to the user
    of this method. The template and additional parameters used here must specify
    a single point of data of type `int256` and an additional timestamp of type

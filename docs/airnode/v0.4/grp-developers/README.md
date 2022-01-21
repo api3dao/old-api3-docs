@@ -22,10 +22,10 @@ In summary you only need to do two things.
 
 > ![call](../assets/images/developer-overview.png)
 >
-> 1.  <p class="diagram-line" style="color:black;">The requester (myContract.sol) makes a request to the RRP protocol contract (AirnodeRrp.sol) by calling `makeFullRequest()` which adds the request to the event logs and returns a requestId to the requester.</p>
+> 1.  <p class="diagram-line" style="color:black;">The requester (myContract.sol) makes a request to the RRP protocol contract (AirnodeRrp.sol) by calling <code>makeFullRequest()</code> which adds the request to the event logs and returns a <code>requestId</code> to the requester.</p>
 > 2.  <p class="diagram-line" style="color:black;">Airnode retrieves the on-chain request from the event logs.</p>
 > 3.  <p class="diagram-line" style="color:green;">Airnode gathers response data from the API specified in the request.</p>
-> 4.  <p class="diagram-line" style="color:blue;">Airnode performs a callback to a named function `myFulfill()` in myContract.sol via the AirnodeRrp.sol function `fulfill()` with the requested data and the requestId.</p>
+> 4.  <p class="diagram-line" style="color:blue;">Airnode performs a callback to a named function <code>myFulfill()</code> in myContract.sol via the AirnodeRrp.sol function <code>fulfill()</code> with the requested data and the <code>requestId</code>.</p>
 
 For a more detailed diagram see the first image in the
 [Calling an Airnode](./call-an-airnode.md) doc.
