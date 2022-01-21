@@ -48,7 +48,7 @@ a zip file ready to go.
 
 Create a folder called `/quick-deploy-gcp` with two more internal folders named
 `/config` and `/output`. Place the contents of the files provided
-([config.json](./config-json.md) and [secrets.env](./secrets-env.md) into the
+([config.json](./config-json.md) and [secrets.env](./secrets-env.md)) into the
 locations show below.
 
 ```
@@ -111,7 +111,8 @@ Add values for each of the these fields.
 First, you need to
 [create a GCP project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
 under which will the Airnode be deployed. Once the project is created, insert
-its project ID into your [config.json](./configuring-airnode.md#cloudProvider).
+its project ID into your
+[config.json](../../guides/build-an-airnode/configuring-airnode.md#cloudprovider).
 
 In order for Airnode to deploy successfully, you need to enable
 [App Engine Admin API](https://console.cloud.google.com/apis/library/appengine.googleapis.com)
