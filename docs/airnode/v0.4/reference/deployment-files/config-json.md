@@ -240,7 +240,7 @@ purposes.
 
 #### `heartbeat.enabled`
 
-(required) - Enable/disable Airnode's heartbeat.
+(required) - Enable/disable, using true/false, Airnode's heartbeat.
 
 #### `heartbeat.apiKey`
 
@@ -256,12 +256,13 @@ purposes.
 
 ### `httpGateway`
 
-The Airnode's HTTP gateway to test out endpoints without using the blockchain.
-Currently supported only by AWS cloud provider.
+(required) - The Airnode's HTTP gateway to test out endpoints without using the
+blockchain. Currently supported only by AWS cloud provider.
 
 #### `httpGateway.enabled`
 
-(required) - Enable/disable Airnode's HTTP gateway.
+(required) - Enable/disable, using true/false, Airnode's access to the HTTP
+gateway.
 
 #### `httpGateway.apiKey`
 

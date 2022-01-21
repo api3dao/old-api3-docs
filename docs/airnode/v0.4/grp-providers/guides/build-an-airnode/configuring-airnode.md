@@ -275,7 +275,7 @@ send some metrics from its run. Turn on the heartbeat functionality by setting
 all fields in the config.json section nodeSettings.heartbeat. See the
 [Heartbeat](./heartbeat.md) doc for more info.
 
-- enabled: Enable/disable Airnode's heartbeat.
+- enabled: Enable/disable, using true/false, Airnode's heartbeat.
 - url: The URL to make the heartbeat request to.
 - apiKey: The API key to authenticate against the heartbeat URL.
 - id: The Airnode heartbeat ID for accounting purposes.
@@ -292,7 +292,8 @@ As of this release HTTP Gateway is only supported for AWS Airnode deployments.
 
 :::
 
-- enabled: Enable/disable Airnode's Access to the HTTP gateway
+- enabled: Enable/disable, using true/false, Airnode's access to the HTTP
+  gateway.
 - apiKey: A user defined API key to authenticate against the gateway. The key
   must have a length of between 30 - 120 characters.
 
