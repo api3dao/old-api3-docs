@@ -214,8 +214,9 @@ definition.
 ### relaySponsorWalletAddress
 
 The `relaySponsorWalletAddress` security schema type instructs Airnode to
-forward the [sponsor wallet address](concepts/sponsor.html#sponsorwallet) to
-your API. The schema definition is similar to the
+forward the
+[sponsor wallet address](../../../concepts/sponsor.html#sponsorwallet) to your
+API. The schema definition is similar to the
 [`apiKey`](./api-security.md#apikey), however the `type` must be
 `relaySponsorWalletAddress`.
 

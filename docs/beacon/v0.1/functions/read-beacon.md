@@ -28,7 +28,7 @@ subject to whitelisting. Off-chain code is beyond the scope of this doc.
 ## Example Code
 
 There is an additional example of a contract that reads a Beacon in the
-[beacon-reader-example](https://github.com/api3dao/beacon-reader-example/blob/bec63-beacon-reader-example/contracts/BeaconReaderExample.sol)
+[beacon-reader-example](https://github.com/api3dao/beacon-reader-example/blob/main/contracts/BeaconReaderExample.sol)
 GitHub repository.
 
 ```solidity
