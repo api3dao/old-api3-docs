@@ -57,14 +57,18 @@ function tempCB(dirPath, dirs, files) {
 
 async function testLink(url, filePath) {
   try {
-    // TODO: This needs to moved to an ignore file
+    // START: ignore section
+    // TODO: This needs to move to an ignore file.
     let ignore = [
       'https://staging.api3.eth.link/#/',
       'https://www.coingecko.com/en/api/documentation',
     ];
-    if (ignore.includes(url)) {
+    // Some a tags may have javascript:void(0) in href
+    if (ignore.indexOf(url) > -1 || url.indexOf('javascript:void(0)') > -1) {
+      console.log('>', url);
       return;
     }
+    // END: ignore section
 
     axios.defaults.timeout = 10000;
     const response = await axios.get(url);

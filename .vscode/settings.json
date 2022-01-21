@@ -11,6 +11,7 @@
     "castable",
     "hackathon",
     "axios",
+    "wkande"
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true
