@@ -65,7 +65,6 @@ async function testLink(url, filePath) {
     ];
     // Some a tags may have javascript:void(0) in href
     if (ignore.indexOf(url) > -1 || url.indexOf('javascript:void(0)') > -1) {
-      console.log('>', url);
       return;
     }
     // END: ignore section
