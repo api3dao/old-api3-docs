@@ -101,6 +101,7 @@ Below is a simple chain array with a single chain provider.
 
 #### maxConcurrency
 
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#maxconcurrency)
 Airnode is designed to scale well with the number of requests made. To
 accomplish this, it spawns new cloud functions (called handlers) when necessary
 and these handlers run in parallel.
@@ -118,21 +119,21 @@ all blockchain providers. If this number exceeds the maximum concurrency limit
 it will start dropping the latest requests from the blockchain provider with the
 maximum number of requests until the number of them is under the limit.
 
-For example, let's say we have `maxConcurrency` set to 5 and we have three
-providers (A, B and C) and they reported the following requests:
+For example, if `maxConcurrency` set to 5 and there are three providers (A, B
+and C) and they reported the following requests:
 
 - A1, A2, A3, A4 and A5
 - B1, B2 and B3
 - C1 and C2
 
-We would end up with the following requests: A1, A2, B1, B2 and C2. Note that
-neither of the providers has more than 2 requests, but this is still not enough
-to meet the limit so request C2 is dropped as well.
+The above example results in the following requests: A1, A2, B1, B2 and C2. Note
+that neither of the providers has more than 2 requests, but this is still not
+enough to meet the limit so request C2 is dropped as well.
 
 ::: warning
 
 Note, that this limit only applies to the requests initiated on chain. For
-example, requests initiated using http gateway are not included in this limit.
+example, requests initiated using HTTP gateway are not included in this limit.
 
 Also note, that this limit is configured per chain and the limits of different
 chains are unrelated to each other.
@@ -337,20 +338,26 @@ your `stage`.
 ### triggers
 
 The `triggers` field allows you to expose Airnode endpoints from an OIS
-selectively. For example, your OIS may include ten endpoints, but you may only
-want to serve two. Instead of modifying the OIS, you would simply create
-triggers for the two. List the endpoints that you want to serve with the
-request–response protocol under `triggers.rrp`. In most cases, you would create
-a trigger for each endpoint in your OIS object.
+selectively for a particular protocol. For example, your OIS may include ten
+endpoints, but you may only want to serve two. Instead of modifying the OIS, you
+would simply create triggers for the two. List the endpoints that you want to
+serve with the request–response protocol under `triggers.rrp`. In most cases,
+you would create a trigger for each endpoint in your OIS object.
 
-#### oisTitle & endpointName
+#### rrp
+
+[<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#rrp)
+An array of endpoints from OIS that the Airnode will respond to for the RRP
+protocol.
+
+##### oisTitle & endpointName
 
 [<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#rrp-n-oistitle)
 Each trigger has an `oisTitle` and `endpointName` that allow you to refer to one
 of the endpoints in an OIS object. Remember that an Airnode's config.json file
 can have more than one OIS object. Fill these in accordingly.
 
-#### endpointId
+##### endpointId
 
 [<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#rrp-n-endpointid)
 Add an `endpointId` to the trigger which is the ID that a requester will use for
@@ -364,7 +371,7 @@ npx @api3/airnode-admin derive-endpoint-id \
   --endpointName "My endpoint name..."
 ```
 
-#### testable
+##### testable
 
 [<img :src="$withBase('/img/info8.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#rrp-n-testable)
 Optional flag that indicates if the endpoint can be tested with the HTTP gateway
