@@ -62,7 +62,7 @@ submitted as **strings** in order to preserve precision.
 import { encode } from '@api3/airnode-abi';
 
 const parameters = [
-  { type: 'bytes32', name: 'from', value: 'ETH' },
+  { type: 'string32', name: 'from', value: 'ETH' },
   { type: 'uint256', name: 'amount', value: '100000' },
 ];
 const encodedData = encode(parameters);

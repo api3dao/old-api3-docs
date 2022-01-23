@@ -177,8 +177,8 @@ parameters to pass on to `airnodeRrp.makeFullRequest`.
   import { encode } from '@api3/airnode-abi';
 
   const parameters = [
-    { type: 'bytes32', name: 'coin', value: 'ETH' },
-    { type: 'bytes32', name: 'apiKey', value: 'UHHS7SRGC975E' },
+    { type: 'string32', name: 'coin', value: 'ETH' },
+    { type: 'string32', name: 'apiKey', value: 'UHHS7SRGC975E' },
   ];
   const encodedData = encode(parameters);
 
@@ -193,9 +193,9 @@ parameters to pass on to `airnodeRrp.makeFullRequest`.
   // Solidity snippet
 
   abi.encode(
-    bytes32("1SS"),
-    bytes32("period"), "30d",
-    bytes32("symbols"), "btc,eth,matic,link,uni,sushi,aave,chz,theta,rsr,grt,enj,ocean,kacy"
+    string32("1SS"),
+    string32("period"), "30d",
+    string32("symbols"), "btc,eth,matic,link,uni,sushi,aave,chz,theta,rsr,grt,enj,ocean,kacy"
   )
   ```
 
