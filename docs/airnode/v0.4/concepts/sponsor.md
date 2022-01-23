@@ -78,18 +78,44 @@ requests to prevent timeout issues. For high volatility use cases it is
 recommended to use multiple sponsors (and thus sponsor wallets) as the requests
 from different sponsor wallets are performed in parallel.
 
+::: tip Wallet and Protocols
+
+A sponsorWallet derived for a particular sponsor depends on the Airnode protocol
+(RRP, the forthcoming PSP protocol, etc.). This means that a sponsorWallet
+address derived for a particular sponsor will be different for each protocol.
+This is intentional and allows a particular sponsor to only fund a particular
+protocol (e.g. only RRP).
+
+:::
+
 ### Derivation Path
 
 Each sponsor is identified by a `sponsorAddress`, and their sponsor wallets are
-designated implicitly by a derivation path. The derivation path for a
-`sponsorWallet` starts with `m/44'/60'/0'/1/...` The one here is allocated for
-RRP, and the other branches will be used to derive the sponsor wallets for other
-protocols.
+designated implicitly by a derivation path. For the RRP protocol the derivation
+path for a `sponsorWallet` starts with `m/44'/60'/0'/1/...`. Other branches will
+be used to derive the sponsor wallets for other protocols.
+
+| Protocol          | Derivation Path      |
+| :---------------- | :------------------- |
+| RRP               | `m/44'/60'/0'/1/...` |
+| PSP (forthcoming) | `m/44'/60'/0'/2/...` |
+
+::: warning Understanding Derivation Paths
+
+It is not important to understand derivation paths, you can simply use the
+addresses the admin CLI derives for you.
+
+:::
+
+The general path for connecting to the base Ethereum set of addresses looks like
+this: `m/44’/60’/0’/0`. This sequence is broken down into different sections and
+changes based on what is being worked with. The sequence goes:
+`m’ / purpose’ / coin_type’ / account’ / change / address_index`
 
 An Ethereum address is 20 bytes-long, which makes it 160 bits. Each index in the
 HD wallet non-hardened derivation path goes up to 2^31. This requires the
 division of these 160 bits into six 31 bit-long chunks, therefore derivation
-path for a sponsor wallet of a requester would be:
+path for a sponsor wallet of a requester using the RRP protocol would be:
 
 ```sh
 m/44'/60'/0'/1/...
