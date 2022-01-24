@@ -95,11 +95,6 @@ designated implicitly by a derivation path. For the RRP protocol the derivation
 path for a `sponsorWallet` starts with `m/44'/60'/0'/1/...`. Other branches will
 be used to derive the sponsor wallets for other protocols.
 
-| Protocol          | Derivation Path      |
-| :---------------- | :------------------- |
-| RRP               | `m/44'/60'/0'/1/...` |
-| PSP (forthcoming) | `m/44'/60'/0'/2/...` |
-
 ::: warning Understanding Derivation Paths
 
 It is not important to understand derivation paths, you can simply use the
@@ -110,7 +105,10 @@ addresses the admin CLI derives for you.
 The general path for connecting to the base Ethereum set of addresses looks like
 this: `m/44’/60’/0’/0`. This sequence is broken down into different sections and
 changes based on what is being worked with. The sequence goes:
-`m’ / purpose’ / coin_type’ / account’ / change / address_index`
+`m’ / purpose’ / coin_type’ / account’ / change / address_index`. The `change`
+part of the BIP44 derivation path is used to determine which protocol a sponsor
+wallet path will be for. Here (`m/44'/60'/0'/1/...`) has been reserved for the
+RRP protocol where the value of `change` is 1.
 
 An Ethereum address is 20 bytes-long, which makes it 160 bits. Each index in the
 HD wallet non-hardened derivation path goes up to 2^31. This requires the
