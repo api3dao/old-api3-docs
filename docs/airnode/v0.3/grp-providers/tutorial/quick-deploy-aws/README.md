@@ -73,9 +73,9 @@ quick-deploy-aws</a> project folder.
 
 ## Configuration
 
-Prepare the three configuration files. By default, the deployer image looks for
-`config.json` and `secrets.env` in `/config`, for `aws.env` in the project root
-and writes `receipt.json` to the `/output` folder.
+Prepare the three configuration files. By default, the Airnode deployer image
+looks for `config.json` and `secrets.env` in `/config`, for `aws.env` in the
+project root and writes `receipt.json` to the `/output` folder.
 
 ### config.json
 

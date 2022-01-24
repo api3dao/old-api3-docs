@@ -73,7 +73,7 @@ quick-deploy-gcp</a> project folder.
 ## Configuration
 
 Prepare the configuration files, setup a GCP project and obtain credentials. By
-default, the deployer image looks for `config.json` and `secrets.env` in
+default, the Airnode deployer image looks for `config.json` and `secrets.env` in
 `/config` and writes `receipt.json` to the `/output` folder.
 
 ### config.json
