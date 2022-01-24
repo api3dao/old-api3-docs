@@ -51,40 +51,41 @@ solutions that are currently available, and how to solve this problem with Airno
 
 ## Benefits of Disintermediation
 
-There is a simple solution to intermediaries: First-party oracles; that is, 
-oracles operated by the API providers themselves. API providers operating their
-own oracles means they would be signing their responses with their private keys 
-at the smart contract platform protocol-level, which is the best proof that the
-data is not tampered with. Moreover, first-party oracles are private by default, 
-as a third party cannot observe the raw data from the API being processed, which
-allows them to be used in a wider variety of use cases natively.
+First-party oracles are a simple solution to the problem of using intermediaries. 
+In principle, these are oracles operated by the API providers themselves, 
+who would sign responses  with their private keys at the protocol level of 
+the smart contract platform. This approach is the best proof that the data 
+is not tampered with. Moreover, first-party oracles are private by default 
+since a third party cannot observe the raw data from the API being processed, 
+which expands the range of use cases where they can be used natively.
 
 A data feed composed of first-party oracles would be more cost-efficient compared 
-to one employing middlemen, as one needs to pay middlemen both fortheir services 
-and to incentivize them against attacking the data feed (referred to as the middleman 
-tax). In addition, a data feed composed of first-party oracles will need fewer oracles, 
-as it would not need over-redundant decentralization at the oracle level to protect 
-against attacks from third-parties. Assuming that each API is typically served by at 
-least two third-party oracles, data feeds powered by first-party oracles would be at least
-50% more efficient in terms of gas costs, by a conservative estimate.
+to one employing middlemen since one needs to pay them both for their services 
+and to de-incentivize attacks of the data feed (referred to as the middleman 
+tax). In addition, such data feed will need fewer oracles as it wouldn't need 
+redundant decentralization at the oracle level to protect against third-party attacks. 
+Assuming that each API is typically served by at least two third-party oracles, 
+we conservatively estimate that data feeds powered by first-party oracles would 
+be at least 50% more efficient in terms of gas costs.
 
 First-party oracles also provide much needed transparency in terms of the data 
-source and the degree of decentralization. Since each API provider will operate
-an oracle—which will be visible on-chain—the number of oracles serving a data 
-feed will accurately represent how decentralized it is, as there is a one-to-one
-mapping between oracle and data source. Furthermore, the API providers would 
-publish their on-chain identities through off-chain channels, which would allow
-the users to verify whose data they are consuming at a given time.
+source and the degree of decentralization. Given that each API provider operates
+an oracle (which can be seen on-chain), the number of oracles serving a data 
+feed will accurately represent the extent to which it is decentralized. This is
+because there is a one-to-one mapping between the oracle and the data source. 
+Furthermore, API providers would publish their on-chain identities through 
+off-chain channels, which would allow users to verify whose data they are 
+consuming at a given time.
 
-Finally, having the API providers operate the oracles helps solves the legal 
-issues as the API services no longer need to be licensed to a third party and
-the API providers receive the entire revenue. Furthermore, this solves the 
-rent-seeking third-party oracles problem, and allows the funds to be redirected
-to the group that is doing the heavy lifting, the API providers. Incentivizing 
-API providers aligns their financial interests with the ones of the API3
-ecosystem, resulting in a strong mutual bond between the two. 
+Finally, having API providers operate oracles helps to tackle legal issues 
+as API services no longer need to be licensed to a third party and API providers 
+receive the entire revenue. Furthermore, this solves the rent-seeking third-party
+oracle problem and allows for the funds to be redirected to the group that is doing
+the heavy lifting, i. e. the API providers. Incentivizing API providers aligns 
+their financial interests with the ones of the API3 ecosystem, resulting in a 
+strong mutual bond between the two. 
 
-## Off-Chain Signing of Data
+## Off-Chain Data Signing
 
 There is a hybrid solution that still depends on third-party oracles, yet does 
 not let them tamper with the data. In this scheme, the API provider signs their
