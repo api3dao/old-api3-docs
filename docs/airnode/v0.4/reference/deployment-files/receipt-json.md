@@ -23,7 +23,12 @@ fulfill each request made by the requester contracts.
   [heartbeat](../../grp-providers/guides/build-an-airnode/heartbeat.md) or
   [testing gateway](../../grp-providers/guides/build-an-airnode/http-gateway.md))
 
-Example receipt:
+A `receipt.json` file is created for both a AWS or GCP deployment. A receipt is
+not generated for client deployments (deploying to a Docker container).
+
+:::: tabs
+
+::: tab AWS
 
 ```json
 {
@@ -47,3 +52,32 @@ Example receipt:
   }
 }
 ```
+
+:::
+
+::: tab GCP
+
+```json
+{
+  "airnodeWallet": {
+    "airnodeAddress": "0xAcCc602FA6d1dD57cE11559Fe0c07895396a7359",
+    "airnodeAddressShort": "accc602",
+    "airnodeXpub": "xpub6C6wfzZ8EptS8Ti2xZgukJFWkgBcFY2ygU4BDTTGtR2GmX3vvrx3YFat3i1XLfwvhtiCEty1GZnV1MSCKBBt7uYKBbrHaqWvP623w9jUNhW"
+  },
+  "deployment": {
+    "airnodeAddressShort": "accc602",
+    "cloudProvider": {
+      "type": "gcp",
+      "region": "us-east4",
+      "projectId": "api3-753118"
+    },
+    "stage": "dev",
+    "nodeVersion": "0.4.0"
+  },
+  "api": {}
+}
+```
+
+:::
+
+::::
