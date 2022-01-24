@@ -7,103 +7,105 @@ title: The Airnode
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Airnode is a serverless oracle node implemented with a "set and forget"
-philosophy. Airnode is composed of two parts: the off-chain **Airnode** (a.k.a.
-"the node") deployed as self hosted or cloud provider functions (e.g., AWS or
-GCP) and the on-chain **protocol contract** AirnodeRrp.sol.
+Airnode is a serverless oracle node implemented with a "set and forget" 
+philosophy. Airnode is composed of two parts: the off-chain **Airnode** 
+(a.k.a. "the node") deployed as self-hosted or cloud provider functions 
+(e.g., AWS or GCP) and the on-chain **protocol contract** AirnodeRrp.sol.
 
 > ![2-parts](./assets/images/summary-airnode-2-parts.png) <br/><br/>
 >
-> <p class="diagram-line" style="color:gray;">Airnode is composed of two parts: the off-chain Airnode (a.k.a. "the node") deployed usually as cloud provider functions (e.g., AWS or GCP) and the on-chain protocol contract  AirnodeRrp.sol.</p>
+> <p class="diagram-line" style="color:gray;">Airnode consists of two parts: 
+the off-chain Airnode (a.k.a. "the node"), usually deployed as a set of cloud provider 
+functions (e.g., AWS or GCP), and the on-chain protocol contract  AirnodeRrp.sol.</p>
 
-At its core, **Airnode** brings the ability for API providers to easily run
-their own _oracle nodes_. This allows them to provide their data on-chain,
-without an intermediary, to any _decentralized app_ \(dApp\) interested in their
-services.
+At its core, **Airnode** lets API providers easily run their own _oracle nodes_. 
+That way, they can provide data to any on-chain _decentralized app_ \(dApp\) 
+that's interested in their services, all without an intermediary.
 
-At the heart of this mechanism sits **Airnode**, an open-source oracle node.
+At the heart of this mechanism sits **Airnode**, an open-source oracle node. 
 It's designed to be easily deployed by any API provider with almost no
-maintenance. Because of Airnode, dApp developers can write _smart contracts_ to
+maintenance. Airnode lets dApp developers write _smart contracts_ that 
 interact with the on-chain data of API providers.
 
-Airnode is designed with mechanisms to remove the on-chain or off-chain concerns
-of API providers. The set-and-forget framework of Airnode is all about ease of
-implementation.
+Airnode is designed with mechanisms that eliminate both on-chain and 
+off-chain concerns of API providers. The set-and-forget framework of Airnode 
+is all about its ease of implementation.
 
 ::: tip
 
-Learn more about the Airnode experience. Read Section 4 of the
-<a href="/api3-whitepaper-v1.0.2.pdf#Airnode:%20A%20Node%20Designed%20for%20First-Party%20Oracles" target="_api3-whitepaper">API3
-Whitepaper</a>, _Airnode: A Node Designed for First-Party Oracles_
+If you want to learn more about the Airnode experience, read 
+Section 4 of the <a href="/api3-whitepaper-v1.0.2.pdf#Airnode:%20A%20Node%20Designed%20for%20First-Party%20Oracles" 
+target="_api3-whitepaper">API3 Whitepaper</a>, _Airnode: A Node Designed for First-Party Oracles_.
 
 :::
 
 ## Designed for First-Party Oracles
 
-First-party oracles are integral to the API3 solution. This means each API is
-served by an oracle that is operated by the entity that owns the API, rather
-than a third party. This doc discusses the benefits of using first-party
-oracles, why it is not feasible for API providers to operate their own oracles
-with current available solutions and how to solve this problem with Airnode.
+First-party oracles are integral to the API3 solution. This means that each API 
+is served by an oracle that is operated by the owner of an API  instead of a 
+third party. 
+
+This doc discusses the benefits of using first-party oracles, the reasons why 
+it is not feasible for API providers to operate their own oracles with the 
+solutions that are currently available, and how to solve this problem with Airnode.
 
 ## Benefits of Disintermediation
 
-There is a simple solution to intermediaries: First-party oracles; that is,
+There is a simple solution to intermediaries: First-party oracles; that is, 
 oracles operated by the API providers themselves. API providers operating their
-own oracles means they would be signing their responses with their private keys
+own oracles means they would be signing their responses with their private keys 
 at the smart contract platform protocol-level, which is the best proof that the
-data is not tampered with. Moreover, first-party oracles are private by default,
+data is not tampered with. Moreover, first-party oracles are private by default, 
 as a third party cannot observe the raw data from the API being processed, which
 allows them to be used in a wider variety of use cases natively.
 
-A data feed composed of first-party oracles would be more cost-efficient
-compared to one employing middlemen, as one needs to pay middlemen both for
-their services and to incentivize them against attacking the data feed (referred
-to as the middleman tax). In addition, a data feed composed of first-party
-oracles will need fewer oracles, as it would not need over-redundant
-decentralization at the oracle level to protect against attacks from
-third-parties. Assuming that each API is typically served by at least two
-third-party oracles, data feeds powered by first-party oracles would be at least
+A data feed composed of first-party oracles would be more cost-efficient compared 
+to one employing middlemen, as one needs to pay middlemen both fortheir services 
+and to incentivize them against attacking the data feed (referred to as the middleman 
+tax). In addition, a data feed composed of first-party oracles will need fewer oracles, 
+as it would not need over-redundant decentralization at the oracle level to protect 
+against attacks from third-parties. Assuming that each API is typically served by at 
+least two third-party oracles, data feeds powered by first-party oracles would be at least
 50% more efficient in terms of gas costs, by a conservative estimate.
 
-First-party oracles also provide much needed transparency in terms of the data
+First-party oracles also provide much needed transparency in terms of the data 
 source and the degree of decentralization. Since each API provider will operate
-an oracle—which will be visible on-chain—the number of oracles serving a data
+an oracle—which will be visible on-chain—the number of oracles serving a data 
 feed will accurately represent how decentralized it is, as there is a one-to-one
-mapping between oracle and data source. Furthermore, the API providers would
+mapping between oracle and data source. Furthermore, the API providers would 
 publish their on-chain identities through off-chain channels, which would allow
 the users to verify whose data they are consuming at a given time.
 
-Finally, having the API providers operate the oracles helps solves the legal
+Finally, having the API providers operate the oracles helps solves the legal 
 issues as the API services no longer need to be licensed to a third party and
-the API providers receive the entire revenue. Furthermore, this solves the
+the API providers receive the entire revenue. Furthermore, this solves the 
 rent-seeking third-party oracles problem, and allows the funds to be redirected
-to the group that is doing the heavy lifting, the API providers. Incentivizing
+to the group that is doing the heavy lifting, the API providers. Incentivizing 
 API providers aligns their financial interests with the ones of the API3
-ecosystem, resulting in a strong mutual bond between the two.
+ecosystem, resulting in a strong mutual bond between the two. 
 
 ## Off-Chain Signing of Data
 
-There is a hybrid solution that still depends on third-party oracles, yet does
+There is a hybrid solution that still depends on third-party oracles, yet does 
 not let them tamper with the data. In this scheme, the API provider signs their
-data with their private key off-chain and serves it over a regular API endpoint.
+data with their private key off-chain and serves it over a regular API endpoint. 
 Third party oracles call this endpoint to get the signed data and post it to the
-chain. The authenticity of the data — that it is not tampered with by the third
+chain. The authenticity of the data — that it is not tampered with by the third 
 party oracles — can then be verified on-chain using the public key of the API
 provider.
 
-Although it eliminates the risk of data tampering at the oracle level, this
+Although it eliminates the risk of data tampering at the oracle level, this 
 solution is essentially a half-measure. By depending on third-party oracles, it
-continues suffering from the ecosystem issues caused by depending on third-party
+continues suffering from the ecosystem issues caused by depending on third-party 
 oracles, and, in addition, requires modifications at the API-side to implement
-off-chain signing. This results in a severely limited API selection even
-compared to the regular third party oracle based solutions, and restricts the
+off-chain signing. This results in a severely limited API selection even compared 
+to the regular third party oracle based solutions, and restricts the
 ecosystem growth potential of the solution to the application-scale.
 
 ## Barriers to API Providers Operating Oracles
 
-During work from the past, API3 communicated with API providers extensively and
-observed the following barriers to oracle onboarding and operation:
+During work from the past, API3 communicated with API providers extensively 
+and observed the following barriers to oracle onboarding and operation:
 
 1. Traditional API providers are typically not more familiar with blockchain
    technologies than the general public. This applies even for the ones that
