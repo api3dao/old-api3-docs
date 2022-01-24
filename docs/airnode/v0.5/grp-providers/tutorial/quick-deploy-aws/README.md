@@ -206,8 +206,9 @@ also use
 (WSL2) to run CURL for Linux.
 
 In order to test the endpoint make an HTTP POST request with the `endpointId` as
-a path parameter, the `x-api-key` in the header and endpoint parameters in the
-request body as a key/value pairs.
+a path parameter, the `Content-Type` header set to `application/json`, the
+`x-api-key` header and endpoint parameters in the request body as a key/value
+pairs.
 
 - `-v`: Verbose output is optional.
 - `-H`: The `x-api-key` using the value of `HTTP_GATEWAY_API_KEY` from
@@ -229,7 +230,10 @@ Request:
 ::: tab Linux/Mac/WSL2
 
 ```sh
-curl -v -H 'x-api-key: 123-my-key-must-be-30-characters-min' \
+curl -v \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'x-api-key: 123-my-key-must-be-30-characters-min' \
 -d '{"parameters": {"coinId": "api3"}}' \
 '<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c'
 ```
@@ -239,7 +243,10 @@ curl -v -H 'x-api-key: 123-my-key-must-be-30-characters-min' \
 ::: tab Windows
 
 ```sh
-curl -v -H "x-api-key: 123-my-key-must-be-30-characters-min" ^
+curl -v ^
+-X POST ^
+-H 'Content-Type: application/json' ^
+-H "x-api-key: 123-my-key-must-be-30-characters-min" ^
 -d "{\"parameters\": {\"coinId\": \"api3\"}}" ^
 <httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c
 ```

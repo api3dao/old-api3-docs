@@ -272,7 +272,7 @@ purposes.
 
 [<img :src="$withBase('/img/info5.png')" alt="info" class="infoIcon2">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpgateway)
 (required) - The Airnode's HTTP gateway to test out endpoints without using the
-blockchain. Currently supported only by AWS cloud provider.
+blockchain.
 
 #### `httpGateway.enabled`
 

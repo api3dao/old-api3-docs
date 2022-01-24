@@ -171,18 +171,13 @@ should you choose.
 
 ## Testing with HTTP Gateway
 
-::: warning HTTP Gateway Support
-
-As of this release HTTP Gateway is only supported for AWS Airnode deployments.
-
-:::
-
 If you opted to enable the HTTP Gateway it can be used to test the Airnode while
 bypassing the chain it was deployed to. There are two examples in other docs
 that detail how to do this.
 
 - [HTTP Gateway](./http-gateway.md#using-curl)
 - [Quick Deploy AWS](../../tutorial/quick-deploy-aws/#test-the-airnode)
+- [Quick Deploy GCP](../../tutorial/quick-deploy-gcp/#test-the-airnode)
 
 ## Removing the Airnode
 

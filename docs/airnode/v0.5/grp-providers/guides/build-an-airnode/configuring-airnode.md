@@ -287,12 +287,6 @@ all fields in the config.json section nodeSettings.heartbeat. See the
 The gateway allows the testing of defined endpoints without accessing the
 blockchain. See the [HTTP Gateway](./http-gateway.md) doc for more info.
 
-::: warning HTTP Gateway Support
-
-As of this release HTTP Gateway is only supported for AWS Airnode deployments.
-
-:::
-
 - enabled: Enable/disable, using true/false, Airnode's access to the HTTP
   gateway.
 - apiKey: A user defined API key to authenticate against the gateway. The key

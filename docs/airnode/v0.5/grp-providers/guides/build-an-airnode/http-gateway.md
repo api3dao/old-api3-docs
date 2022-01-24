@@ -16,12 +16,6 @@ of your choice and get a response from an integrated API operation. This results
 in confirmation your integration is set up properly. The HTTP gateway feature is
 only available when deploying an Airnode to AWS cloud provider.
 
-::: warning HTTP Gateway Support
-
-As of this release HTTP Gateway is only supported for AWS Airnode deployments.
-
-:::
-
 > ![gateway](../../../assets/images/gateway.png)
 
 ## Setup
@@ -78,8 +72,9 @@ specified heartbeat URL.
 ## Using CURL
 
 In order to test an endpoint, via the HTTP gateway, make an HTTP POST request
-with endpointId as a path parameter, the x-api-key in the header and endpoint
-parameters in the request body. As an alternative to CURL try an app such as
+with endpointId as a path parameter, the `Content-Type` header set to
+`application/json`, the `x-api-key` header and endpoint parameters in the
+request body. As an alternative to CURL try an app such as
 [Insomnia](https://insomnia.rest/) or
 [Postman](https://www.postman.com/product/rest-client/). Windows users can also
 use
@@ -92,6 +87,7 @@ use
 
 | parameter         | in     | CURL options                                             |
 | ----------------- | ------ | -------------------------------------------------------- |
+| Content-Type      | header | `-H 'Content-Type: application/json'`                    |
 | x-api-key         | header | `-H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e'`   |
 | endpointId        | path   | `0xf466b8feec...99e9f9f90453c`                           |
 | &lt;user-defined> | body   | `-d '{"parameters": {"param1": "string", "param2": 5}}'` |
@@ -108,7 +104,10 @@ Request:
 ::: tab Linux/Mac/WSL2
 
 ```sh
-curl -X POST -H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e' \
+curl \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e' \
 -d '{"parameters": {"param1": "string", "param2": 5}}' \
 '<httpGatewayUrl>/0xf466b8feec...99e9f9f90453c'
 ```
@@ -118,7 +117,10 @@ curl -X POST -H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e' \
 ::: tab Windows
 
 ```sh
-curl -X POST -H "x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e" ^
+curl ^
+-X POST ^
+-H 'Content-Type: application/json' ^
+-H "x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e" ^
 -d "{\"parameters\": {\"param1\": \"string\", \"param2\": 5}}" ^
 <httpGatewayUrl>/0xf466b8feec...99e9f9f90453c
 ```
