@@ -45,7 +45,7 @@ First-party oracles are integral to the API3 solution. This means that each API
 is served by an oracle that is operated by the owner of an API  instead of a 
 third party. 
 
-This doc discusses the benefits of using first-party oracles, the reasons why 
+This document discusses the benefits of using first-party oracles, the reasons why 
 it is not feasible for API providers to operate their own oracles with the 
 solutions that are currently available, and how to solve this problem with Airnode.
 
@@ -63,7 +63,7 @@ A data feed composed of first-party oracles would be more cost-efficient compare
 to one employing middlemen since one needs to pay them both for their services 
 and to de-incentivize attacks of the data feed (referred to as the middleman 
 tax). In addition, such data feed will need fewer oracles as it wouldn't need 
-redundant decentralization at the oracle level to protect against third-party attacks. 
+over-redundant decentralization at the oracle level to protect against third-party attacks. 
 Assuming that each API is typically served by at least two third-party oracles, 
 we conservatively estimate that data feeds powered by first-party oracles would 
 be at least 50% more efficient in terms of gas costs.
@@ -88,24 +88,23 @@ strong mutual bond between the two.
 ## Off-Chain Data Signing
 
 There is a hybrid solution that still depends on third-party oracles, yet does 
-not let them tamper with the data. In this scheme, the API provider signs their
-data with their private key off-chain and serves it over a regular API endpoint. 
-Third party oracles call this endpoint to get the signed data and post it to the
-chain. The authenticity of the data — that it is not tampered with by the third 
-party oracles — can then be verified on-chain using the public key of the API
-provider.
+not let them tamper with the data. In this scheme, the API providers sign their
+data with their private key off-chain and serve it over a regular API endpoint. 
+Third-party oracles call this endpoint to get the signed data and post it to the
+chain. The authenticity of the data — i.e. no tampering by third-party oracles — 
+can then be verified on-chain using the public key of the API provider.
 
-Although it eliminates the risk of data tampering at the oracle level, this 
+Although this eliminates the risk of data tampering at the oracle level, this 
 solution is essentially a half-measure. By depending on third-party oracles, it
-continues suffering from the ecosystem issues caused by depending on third-party 
-oracles, and, in addition, requires modifications at the API-side to implement
-off-chain signing. This results in a severely limited API selection even compared 
-to the regular third party oracle based solutions, and restricts the
-ecosystem growth potential of the solution to the application-scale.
+continues suffering from the ecosystem issues caused by this and, additionally, 
+it requires API modifications to implement off-chain signing. This results in 
+a severely limited API selection even compared to the regular third-party 
+oracle-based solutions, and restricts the growth potential of the solution's
+ecosystem to the application-scale.
 
 ## Barriers to API Providers Operating Oracles
 
-During work from the past, API3 communicated with API providers extensively 
+In its previous efforts, API3 communicated with API providers extensively 
 and observed the following barriers to oracle onboarding and operation:
 
 1. Traditional API providers are typically not more familiar with blockchain
@@ -119,63 +118,62 @@ and observed the following barriers to oracle onboarding and operation:
    were to obtain the specific know-how needed by hiring the few node operators
    that are available, this would not be a scalable solution.
 
-3. Operating an oracle node consumes a lot of resources in the form of manhours
+3. Operating an oracle node consumes a lot of resources in the form of person-hours
    and infrastructure costs. Unless one is guaranteed significant subsidies or
    future profits, operating an oracle node is financially infeasible.
 
-4. Operating an oracle node requires the API provider to transact with
+4. Operating an oracle node requires the API providers to transact with
    cryptocurrencies. Specifically, they must pay for gas costs in the native
    currency (e.g., ETH) and receive payments in one or more cryptocurrencies.
-   This disqualifies the vast majority of API providers due to compliance, legal
-   and accounting reasons. In addition, any scheme that requires API providers
-   to stake funds is categorically rejected for similar financial risk-related
-   reasons.
+   This disqualifies the vast majority of API providers for compliance-related,
+   legal and accounting reasons. In addition, any scheme that requires API providers
+   to stake funds is categorically rejected for similar reasons related to 
+   financia risks.
 
 ## Airnode Features
 
 Airnode is a fully-serverless oracle node that is designed specifically for API
-providers to operate their own oracles. It addresses many of the oracle
-node-related issues API provider face:
+providers to operate their own oracles. It addresses many of the issues API providers 
+face in relation to oracle nodes:
 
 1. It does not require any specific know-how to operate. In fact, it is
-   difficult to even speak of an operation, as Airnode is designed to be
-   completely set and forget.
+   difficult to even speak of any operation as Airnode is designed around the 
+   "set and forget" principle.
 
 2. It does not require any day-to-day maintenance such as updating the operating
-   system or monitoring the node for uptime owing to existing fully managed
+   system or monitoring the node for uptime thanks to existing fully managed
    serverless technology. It is designed to be stateless, which makes it
-   extremely resilient against any problem that can cause permanent downtime and
-   require node operator intervention.
+   extremely resilient against any problems that can cause permanent downtime and
+   require an operator intervention.
 
-3. It is built on services priced on-demand, meaning that the node operator is
-   charged only as much as their node is used. This allows any API provider to
+3. It is built on services priced on-demand, meaning that the node operators are
+   charged only by the usage of their node. This allows API providers to
    run an oracle for free and start paying only after they start generating
    revenue.
 
-4. It does not require the node operator to handle cryptocurrency at all. Its
+4. It does not require the node operators to handle cryptocurrency at all. Its
    protocol is designed in a way that the requester covers all gas costs.
 
 One way to see Airnode is as a lightweight wrapper around a Web API that allows
 it to communicate with smart contract platforms with no overhead or payment
-token friction. Regarding the level of involvement required from the API
-provider, using Airnode can be likened to utilizing an API gateway that makes an
+token friction. In terms of the involvement required from an API provider, 
+using Airnode can be likened to using an API gateway that makes an
 API accessible over the Web, rather than operating a blockchain node as a
 side-business. The intent is for Airnode to become as ubiquitous and mundane for
 APIs as using an API gateway, which will make a vast variety of first-party
 oracles available to API3.
 
-API providers invest significant resources to build a highly available
-infrastructure. It is important for the oracle node implementation to not
-contain single points of failure that may cause downtime. Existing solutions
+API providers invest significant resources to build infrastructure that has high
+availability rates. It is important for the oracle node implementation not to
+contain individual points of failure that might cause downtime. Existing solutions
 using third-party oracles depend on over-redundancy at the oracle level to cover
 for this, which results in excessive costs. API3 envisions each API to only be
 served by its first-party oracle, which means the redundancy has to be
-implemented at the level of the individual Airnode. The node being
-fully-serverless enables this to be done easily across different availability
-zones of a single cloud provider, or even across multiple cloud providers. It
-should also be mentioned that it will be possible to containerize Airnode and
-operate it on-premises, yet using the serverless version will be recommended for
-almost all use cases.
+implemented at the level of the individual Airnode. The fact that the node is 
+fully serverless facilitates this across different availability zones of 
+a single cloud provider, or even across multiple cloud providers. Apart from that, 
+it will be possible to containerize Airnode and operate it on-premises. However, 
+using the serverless version will be recommended for almost all use cases.
 
 Airnode is developed by the founding members of API3 and is now open-sourced.
 The software is feature-complete for current protocols, and further development
@@ -183,18 +181,18 @@ will be funded by API3 in the form of grants.
 
 ## Airnode Protocol
 
-Preferring the better specified API connectivity problem over the oracle
+Preferring the better-specified API connectivity problem over the oracle
 problem, API3 believes that an oracle node should be designed to interface APIs
-to smart contract platforms very well, rather than as a sandbox that can
-purportedly be used for any purpose imaginable. Based on this philosophy, the
+with smart contract platforms very well, rather than as a sandbox that can
+purportedly be used for any imaginable purpose. Based on this philosophy, the
 Airnode protocol is designed to follow the self-emergent patterns used by APIs
 to achieve as transparent and frictionless of an API–smart contract platform
 interface as possible.
 
 The first and the most commonly used API style follows the request–response
 pattern, where the user makes a request with parameters and the API responds as
-soon as possible. This will be the first pattern that Airnode will support, as
-it is easy to standardize and integrate with existing APIs that follow the same
+soon as possible. This is the first pattern that Airnode supports since it is 
+easy to standardize and integrate with existing APIs that follow the same
 pattern. An example use case of this scheme would be requesting the result of a
 specific match to be delivered, which can be used to resolve the respective
 prediction market. In addition, Airnode is planned to support the
@@ -206,14 +204,14 @@ Either of these patterns can be used to implement the live data feeds that DeFi
 applications use today, but they can also support a much larger variety of use
 cases in the form of dAPIs.
 
-The Airnode protocol is designed in a way that the request contract's sponsor
-assumes all gas costs, even including the request fulfillment (response)
+The Airnode protocol is designed in such a way that the request contract's sponsor
+assumes all gas costs, including even the request fulfillment (response)
 transactions. This is achieved by each Airnode having a separate wallet for each
 sponsor, similar to how cryptocurrency exchanges automatically designate wallets
-for users to deposit funds to. The sponsor funds this wallet with the native
-currency (e.g., ETH), either in a lump sum or through per-request
-microtransactions. The funds in this wallet are used to fulfill all of the
-following requests made by the sponsor. This scheme has significant advantages:
+to which the users will deposit funds. The sponsor funds this wallet with the native
+currency (e.g. ETH) either in a lump sum or through per-request microtransactions. 
+The funds in this wallet are used to fulfill all of the following requests made 
+by the sponsor. This scheme has significant advantages:
 
 - The volatility in gas costs and payment token prices (e.g., LINK) makes it
   virtually impossible for oracles to set profitable yet competitive prices.
