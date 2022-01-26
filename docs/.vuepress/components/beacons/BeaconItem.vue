@@ -13,6 +13,7 @@
 
 <script>
 export default {
+  name: 'BeaconItem',
   props: ['beacon'],
 };
 </script>
