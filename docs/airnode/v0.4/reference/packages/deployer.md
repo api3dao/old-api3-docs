@@ -141,6 +141,14 @@ When completed the `deploy` command creates a receipt using the path and name
 from the `--receipt` argument. The receipt contains metadata about the
 deployment and can be used to remove the Airnode.
 
+::: warning Simultaneous deployments
+
+Please, avoid running multiple deployment commands simultaneously. Doing so
+might result in a broken deployment without an option to either fix it or remove
+it.
+
+:::
+
 ```bash
 # Deploys an Airnode instance using the `config.json` and `secrets.env` files.
 # This can be used for a new deployment or to update an existing deployment.
