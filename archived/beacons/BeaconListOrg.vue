@@ -82,7 +82,7 @@ import axios from 'axios';
 //const axios = require('axios');
 
 export default {
-  name: 'BeaconCatalog',
+  name: 'TestBeacon',
   props: { tab: String },
   data: () => ({
     showCatalog: true,
@@ -102,7 +102,16 @@ export default {
         content: 'amberdata shows the current value of btc in usdc btc to usdc',
         show: true, // Set to false for context search
       },
-    ], // Manual list until the services repo is completed
+      {
+        name: 'BTC to ETH',
+        provider: 'Amberdata',
+        description: 'Shows the current value of BTC in ETH',
+        beaconId: '2222222443546547657999999999999',
+        templateId: 'n/a',
+        content: 'amberdata shows the current value of btc in eth',
+        show: true, // Set to false for context search
+      },
+    ],
   }),
   async mounted() {
     /*for (const el of servicesBeacons) {
@@ -146,12 +155,12 @@ export default {
       }
     }*/
 
-    this.arr = medium;
+    /*this.arr = medium;
     this.arr.forEach((group) => {
       group.posts.forEach((post) => {
         this.mediumByDate.push(post);
       });
-    });
+    });*/
     this.beacons.sort(this.sortByDate);
   },
   methods: {
