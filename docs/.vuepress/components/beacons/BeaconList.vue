@@ -31,7 +31,6 @@ import axios from 'axios';
 
 export default {
   name: 'BeaconList',
-  props: { tab: String },
   data: () => ({
     beaconInfo: beaconInfo,
     env: env,
