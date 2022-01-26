@@ -9,6 +9,7 @@
     <!-- Filter -->
     <input
       id="searchText"
+      class="beacon-filter-input"
       v-on:keyup="find($event)"
       placeholder="Filter (contains all)"
     />
@@ -110,7 +111,7 @@ export default {
 h4 {
   margin-bottom: -10px;
 }
-input {
+.beacon-filter-input {
   margin-top: 10px;
   font-size: large;
 
