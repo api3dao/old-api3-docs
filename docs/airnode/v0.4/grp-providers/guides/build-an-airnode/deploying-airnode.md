@@ -70,13 +70,8 @@ When the deployment has completed a `receipt.json` file will be written to the
 `/output` folder. This file contains important configuration information about
 the Airnode and is needed to remove the Airnode should the need arise.
 
-::: warning Simultaneous deployments
-
-Please, avoid running multiple deployment commands simultaneously. Doing so
-might result in a broken deployment without an option to either fix it or remove
-it.
-
-:::
+<!-- Use of .html below is intended. -->
+<airnode-WarningSimultaneousDeployments removeLink="../../docker/deployer-image.html#manual-removal"/>
 
 <DeployerPermissionsWarning/>
 

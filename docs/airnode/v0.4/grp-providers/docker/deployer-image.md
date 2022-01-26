@@ -65,13 +65,8 @@ if it already exists. Three files are needed to run the deploy command.
 A `receipt.json` file will be created upon completion. It contains some
 deployment information and is used to remove the Airnode.
 
-::: warning Simultaneous deployments
-
-Please, avoid running multiple deployment commands simultaneously. Doing so
-might result in a broken deployment without an option to either fix it or remove
-it.
-
-:::
+<!-- Use of .html below is intended. -->
+<airnode-WarningSimultaneousDeployments removeLink="./deployer-image.html#manual-removal"/>
 
 <DeployerPermissionsWarning/>
 

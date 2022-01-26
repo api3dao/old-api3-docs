@@ -134,20 +134,15 @@ and
 templates to get started quickly, but you will need to edit these with your own
 API details and secrets.
 
+<!-- Use of .html below is intended. -->
+<airnode-WarningSimultaneousDeployments removeLink="../../grp-providers/docker/deployer-image.html#manual-removal"/>
+
 Make sure `config.json` and `secrets.env` are available in the path for the
 `--configuration` argument.
 
 When completed the `deploy` command creates a receipt using the path and name
 from the `--receipt` argument. The receipt contains metadata about the
 deployment and can be used to remove the Airnode.
-
-::: warning Simultaneous deployments
-
-Please, avoid running multiple deployment commands simultaneously. Doing so
-might result in a broken deployment without an option to either fix it or remove
-it.
-
-:::
 
 ```bash
 # Deploys an Airnode instance using the `config.json` and `secrets.env` files.
