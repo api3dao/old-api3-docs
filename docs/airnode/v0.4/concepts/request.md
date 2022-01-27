@@ -174,8 +174,9 @@ message.
 
 As noted in the diagram above, if the transaction that calls `fulfill()` returns
 `false`, the Airnode decodes the revert string and calls the `fail()` method to
-report the failure. The node will not attempt to fulfill a failed request
-afterwards.
+report the failure. For privacy and security reasons, API error messages are not
+sent on-chain. Also note that the node will not attempt to fulfill a failed
+request afterwards.
 
 Airnode is stateless, which means that there is no database storing which
 requests have been fulfilled or failed, which are waiting on confirmations and
