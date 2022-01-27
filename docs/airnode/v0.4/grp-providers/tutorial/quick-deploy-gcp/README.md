@@ -125,8 +125,8 @@ menu. Grant this service account access to the project by adding a role `Owner`
 during the creation process.
 
 Once the account is created, add a new access key of type JSON for this account.
-Download the key file as `gcp.json` under the main `/quick-deploy-gcp`
-directory.
+Download the key file as `gcp.json` and place in the root of the
+`/quick-deploy-gcp` directory.
 
 ## Deploy
 
@@ -174,23 +174,110 @@ docker run -it --rm ^
 
 ::::
 
-## Confirm the Airnode Deployment
+## Test the Airnode
 
-After a successful deployment you can see the Airnode logs in your
-[GCP Logs Explorer](https://console.cloud.google.com/logs). If you can see logs
-like
+After a successful deployment the Airnode can be tested directly using the
+[HTTP Gateway](../../guides/build-an-airnode/http-gateway.md) without accessing
+the blockchain. You provide endpoint parameters to get a response from an
+integrated API.
 
-```
-INFO Coordinator starting...
+### HTTP Gateway
+
+Looking at the config.json code snippet below shows the HTTP Gateway was
+activated for our Airnode. Furthermore the endpoint for `/coins/{id}` with an
+`endpointId` of `0xf...53c` is set to be `testable:true`. Each individual
+`endpointId` in `triggers.rrp[n]` must be marked as `testable: true || false` to
+allow for the desired access.
+
+```json
+"nodeSettings": {
+ ...
+  "httpGateway": {
+    "enabled": true, // The gateway is activated for this Airnode
+    "apiKey": "${HTTP_GATEWAY_API_KEY}" // Gateway apiKey
+  },
 ...
-INFO Pending requests: 0 API call(s), 0 withdrawal(s)
-...
-INFO Coordinator completed
+},
+"triggers": {
+  "rrp": [
+    {
+      "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
+      "oisTitle": "CoinGecko Basic Request",
+      "endpointName": "coinMarketData",
+      "testable": true // This endpoint can be tested by the gateway
+    }
+  ]
+}
 ```
 
-the Airnode is up and running.
+### Execute Endpoint
 
-<!-- Not really sure what else to put here. HTTP gateway is not available for GCP -->
+Use CURL to execute the Airnode and get the results from the CoinGecko endpoint
+`/coins/{id}` bypassing the Rinkeby test network that Airnode was deployed for.
+As an alternative to CURL try an app such as [Insomnia](https://insomnia.rest/)
+or [Postman](https://www.postman.com/product/rest-client/). Windows users can
+also use
+[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install)
+(WSL2) to run CURL for Linux.
+
+In order to test an endpoint make a HTTP POST request with the `endpointId` as a
+path parameter, the `Content-Type` header set to `application/json`, the
+`x-api-key` header set to the key and place the endpoint parameter in the
+request body as a key/value pair.
+
+- `-X`: POST
+- `-H`: The `Content-Type` using the value of `application/json`.
+- `-H`: The `x-api-key` using the value of `HTTP_GATEWAY_API_KEY` from
+  `secrets.env` file.
+- `-d`: Use request body data to pass the endpoint parameter key/value pair.
+
+URL:
+
+`<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c`
+
+- `<httpGatewayUrl>`: The base URL to the gateway, found in the `receipts.json`
+  file. Update the placeholder in the CURL example below with its value.
+- `0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c`: Passed
+  as a path parameter, the endpointId to call, see `triggers.rrp[0].endpointId`
+  in the `config.json` file.
+
+Request:
+
+:::: tabs
+
+::: tab Linux/Mac/WSL2
+
+```sh
+curl -v \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'x-api-key: 123-my-key-must-be-30-characters-min' \
+-d '{"parameters": {"coinId": "api3"}}' \
+'<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c'
+```
+
+:::
+
+::: tab Windows
+
+```sh
+curl -v ^
+-X POST ^
+-H 'Content-Type: application/json' ^
+-H "x-api-key: 123-my-key-must-be-30-characters-min" ^
+-d "{\"parameters\": {\"coinId\": \"api3\"}}" ^
+<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c
+```
+
+:::
+
+::::
+
+Response:
+
+```json
+{ "value": "4060000" }
+```
 
 ## Remove the Airnode
 

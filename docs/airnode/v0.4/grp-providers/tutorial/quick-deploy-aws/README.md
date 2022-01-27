@@ -172,10 +172,11 @@ integrated API.
 
 ### HTTP Gateway
 
-Looking at the config.json shows that the HTTP Gateway was activated for our
-Airnode. Furthermore the endpoint for `/coins/{id}` is set to be testable, see
-`triggers.rrp[0]`. When a testing gateway is enabled for an Airnode, each
-individual endpoint trigger must be marked as `testable` to allow access.
+Looking at the config.json code snippet below shows the HTTP Gateway was
+activated for our Airnode. Furthermore the endpoint for `/coins/{id}` with an
+`endpointId` of `0xf...53c` is set to be `testable:true`. Each individual
+`endpointId` in `triggers.rrp[n]` must be marked as `testable: true || false` to
+allow for the desired access.
 
 ```json
 "nodeSettings": {
@@ -208,16 +209,20 @@ also use
 [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install)
 (WSL2) to run CURL for Linux.
 
-In order to test the endpoint make an HTTP POST request with the `endpointId` as
-a path parameter, the `x-api-key` in the header and endpoint parameters in the
-request body as a key/value pairs.
+In order to test an endpoint make a HTTP POST request with the `endpointId` as a
+path parameter, the `Content-Type` header set to `application/json`, the
+`x-api-key` header set to the key and place the endpoint parameter in the
+request body as a key/value pair.
 
-- `-v`: Verbose output is optional.
+- `-X`: POST
+- `-H`: The `Content-Type` using the value of `application/json`.
 - `-H`: The `x-api-key` using the value of `HTTP_GATEWAY_API_KEY` from
   `secrets.env` file.
-- `-d`: Use request body data to pass all endpoint parameters.
+- `-d`: Use request body data to pass the endpoint parameter key/value pair.
 
-Breaking down the URL in the CURL command below:
+URL:
+
+`<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c`
 
 - `<httpGatewayUrl>`: The base URL to the gateway, found in the `receipts.json`
   file. Update the placeholder in the CURL example below with its value.
@@ -232,7 +237,10 @@ Request:
 ::: tab Linux/Mac/WSL2
 
 ```sh
-curl -v -H 'x-api-key: 123-my-key-must-be-30-characters-min' \
+curl -v \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'x-api-key: 123-my-key-must-be-30-characters-min' \
 -d '{"parameters": {"coinId": "api3"}}' \
 '<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c'
 ```
@@ -242,7 +250,10 @@ curl -v -H 'x-api-key: 123-my-key-must-be-30-characters-min' \
 ::: tab Windows
 
 ```sh
-curl -v -H "x-api-key: 123-my-key-must-be-30-characters-min" ^
+curl -v ^
+-X POST ^
+-H 'Content-Type: application/json' ^
+-H "x-api-key: 123-my-key-must-be-30-characters-min" ^
 -d "{\"parameters\": {\"coinId\": \"api3\"}}" ^
 <httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c
 ```
