@@ -39,3 +39,19 @@ DocumentSets.vue is placed on the top of
 the different document sets of which some are versioned.
 
 [DocumentSets.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/DocumentSets.vue)
+
+## JobsIcon.vue
+
+This component displays a checkmark badge when a new job(s) is posted. It is
+triggered off the `jobPageRevision` field in `config.js`. The browser stores a
+key in localStorage (equal to the current value of `jobPageRevision`) if the
+reader has visited the job page followed by the hiding of the badge. So if the
+browser localStorage key `jobPageRevision` equals the config.js field
+`jobPageRevision`, the badge is hidden.
+
+All the logic for the jobs icon and its badge are self contained in this
+component.
+
+Anytime you add a new job to the `workd.md` page, increment the
+`jobPageRevision` field in the `config.js` file by (1) before redeploying the
+docs. Doing so will cause the badge to reappear for all readers.
