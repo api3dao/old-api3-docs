@@ -16,6 +16,8 @@ module.exports = {
   latestBeaconVersion: '/beacon/v0.1/',
   /// Latest/current OIS doc set version.
   latestOisVersion: '/ois/v1.0.0/',
+  /// Job page revision, incremented when a new job(s) is added
+  jobPageRevision: 3,
   head: [['link', { rel: 'icon', href: '/img/small-logo.png' }]],
   title: 'Documentation',
   base: '/',
