@@ -89,7 +89,7 @@ button.nav-site-btn {
   border: solid 0px black;
   font-weight: bold;
   font-size: medium;
-  margin-right: 27px;
+  margin-right: 18px;
   cursor: pointer;
 }
 </style>
