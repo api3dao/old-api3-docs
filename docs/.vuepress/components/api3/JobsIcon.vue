@@ -58,6 +58,6 @@ export default {
     width: 28px;
     height: 28px;
     padding-top: 4px;
-    margin-right: 10px
+    margin-right: 18px
 }
 </style>
