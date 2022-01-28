@@ -42,16 +42,29 @@ the different document sets of which some are versioned.
 
 ## JobsIcon.vue
 
-This component displays a checkmark badge when a new job(s) is posted. It is
-triggered off the `jobPageRevision` field in `config.js`. The browser stores a
-key in localStorage (equal to the current value of `jobPageRevision`) if the
-reader has visited the job page followed by the hiding of the badge. So if the
-browser localStorage key `jobPageRevision` equals the config.js field
-`jobPageRevision`, the badge is hidden.
+This component displays a _Job Icon_ that links to a job listing page in the
+API3 document set. It also displays a checkmark badge when a counter
+(`jobPageRevision`) from the `config.js` file is incremented and is larger than
+the counter stored in the browser's localStorage by the SPA.
+
+Therefore, when the user visits the job page the SPA stores a reference to the
+`jobPageRevision` integer locally in the browser's localStorage. The badge will
+be removed for the life of the SPA. So if the browser localStorage key
+`jobPageRevision` equals the config.js field `jobPageRevision`, the badge is
+hidden.
 
 All the logic for the jobs icon and its badge are self contained in this
 component.
 
-Anytime you add a new job to the `workd.md` page, increment the
+Anytime you wish to force the reappearance of the badge, increment the
 `jobPageRevision` field in the `config.js` file by (1) before redeploying the
-docs. Doing so will cause the badge to reappear for all readers.
+docs. Once incremented the badge will eventually reappear. This is accomplished
+by the reader's behavior.
+
+- The reader launches the doc site from a blank browser page thus loading the
+  SPA.
+- The reader reloads the currently displayed SPA.
+
+Not all readers will experience the reappearance of the badge at the same time.
+There is no backend support such as websockets for the docs to implement such
+behavior at his time.
