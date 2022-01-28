@@ -52,18 +52,9 @@
       -->
       <Versions />
 
-      <!-- Added: wkande: Job posting icon. -->
-      <RouterLink to="/api3/introduction/work" class="home-link"
-        ><img
-          src="/img/work.png"
-          style="
-            width: 28px;
-            height: 28px;
-            padding-top: 4px;
-            margin-right: 10px;
-          "
-        />
-      </RouterLink>
+      <!-- Added: wkande: Job posting icon. 
+      -->
+      <api3-JobsIcon v-show="!isLandingPage" />
 
       <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia" />
       <!-- 
@@ -97,7 +88,6 @@ export default {
     SearchBox,
     AlgoliaSearchBox,
   },
-
   data() {
     return {
       linksWrapMaxWidth: null,
@@ -105,14 +95,12 @@ export default {
       isLandingPage: false,
     };
   },
-
   computed: {
     algolia() {
       return (
         this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
       );
     },
-
     isAlgoliaSearch() {
       return this.algolia && this.algolia.apiKey && this.algolia.indexName;
     },

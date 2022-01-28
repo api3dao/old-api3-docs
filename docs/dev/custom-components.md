@@ -39,3 +39,32 @@ DocumentSets.vue is placed on the top of
 the different document sets of which some are versioned.
 
 [DocumentSets.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/DocumentSets.vue)
+
+## JobsIcon.vue
+
+This component displays a _Job Icon_ that links to a job listing page in the
+API3 document set. It also displays a checkmark badge when a counter
+(`jobPageRevision`) from the `config.js` file is incremented and is larger than
+the counter stored in the browser's localStorage by the SPA.
+
+Therefore, when the user visits the job page the SPA stores a reference to the
+`jobPageRevision` integer locally in the browser's localStorage. The badge will
+be removed for the life of the SPA. So if the browser localStorage key
+`jobPageRevision` equals the config.js field `jobPageRevision`, the badge is
+hidden.
+
+All the logic for the jobs icon and its badge are self contained in this
+component.
+
+Anytime you wish to force the reappearance of the badge, increment the
+`jobPageRevision` field in the `config.js` file by (1) before redeploying the
+docs. Once incremented the badge will eventually reappear. This is accomplished
+by the reader's behavior.
+
+- The reader launches the doc site from a blank browser page thus loading the
+  SPA.
+- The reader reloads the currently displayed SPA.
+
+Not all readers will experience the reappearance of the badge at the same time.
+There is no backend support such as websockets for the docs to implement such
+behavior at his time.
