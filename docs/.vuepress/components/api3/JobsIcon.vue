@@ -1,3 +1,12 @@
+<!--
+  This component displays a checkmark badge when a new job(s) 
+  is posted. It is triggered off the jobPageRevision field in
+  config.js. The browser stores a key in localStorage if the reader
+  has visited the job page and the badge is hidden. So if the browser
+  localStorage key = the config.js field jobPageRevision, the badge 
+  is hidden.
+-->
+
 <template>
   <div>
     <RouterLink to="/api3/introduction/work" class="home-link"
