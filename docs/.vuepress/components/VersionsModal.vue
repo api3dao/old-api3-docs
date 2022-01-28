@@ -57,7 +57,7 @@ export default {
   border-radius: 6px;
   color: gray;
   position: absolute;
-  top: 129px;
+  top: 139px;
   left: 93px;
   transform: translate(-50%, -50%);
   width: 100px;
