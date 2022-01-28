@@ -54,7 +54,7 @@
 
       <!-- Added: wkande: Job posting icon. 
       -->
-      <api3-JobsIcon />
+      <api3-JobsIcon v-show="!isLandingPage" />
 
       <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia" />
       <!-- 
