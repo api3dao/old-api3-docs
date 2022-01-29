@@ -14,6 +14,9 @@
     "wkande",
     "VWAP",
     "BUIDLWEEK",
+    "chainapi",
+    "collapsable",
+    "frontmatter"
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true

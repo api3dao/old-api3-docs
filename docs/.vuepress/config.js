@@ -43,6 +43,7 @@ module.exports = {
       '/airnode/pre-alpha/': require(`../airnode/pre-alpha/sidebar.js`),
       '/beacon/v0.1/': require(`../beacon/v0.1/sidebar.js`),
       '/ois/v1.0.0/': require(`../ois/v1.0.0/sidebar.js`),
+      '/chainapi/': require(`../chainapi/sidebar.js`),
       '/dao-members/': require(`../dao-members/sidebar.js`),
       '/api3/': require(`../api3/sidebar.js`),
       '/dev/': require(`../dev/sidebar.js`),

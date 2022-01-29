@@ -15,7 +15,24 @@ it will always default to the startPath in config.json.
           style="cursor: pointer"
           v-on:click="showDocSets = !(showDocSets != false)"
         >
-          <img :src="docSets[0].iconActive" class="icon-shrink" />
+          <img
+            v-show="docSets[0].name !== 'ChainAPI'"
+            :src="docSets[0].iconActive"
+            class="icon-shrink"
+          />
+          <!-- This is temp for ChainAPI. Remove the v-show in hte directive above
+          when ChainAPI is removed. -->
+          <img
+            v-show="docSets[0].name === 'ChainAPI'"
+            :src="docSets[0].iconActive"
+            class="icon-shrink-chainapi"
+            style="
+              width: 35px;
+              height: 35px;
+              margin-top: 10px;
+              margin-bottom: 2px;
+            "
+          />
           <span class="list-line-name" style="margin-top: 12px; color: black">{{
             docSets[0].name
           }}</span>
@@ -41,15 +58,17 @@ it will always default to the startPath in config.json.
             :to="{ path: item.path }"
             v-if="index > 0"
           >
+            <!-- Temp until ChainAPI moves out of the docs -->
             <img
-              :src="item.iconActive"
-              class="icon-shrink"
-              v-if="item.active"
+              :src="item.iconInactive"
+              class="icon-shrink-chainapi"
+              v-if="!item.active && item.name === 'ChainAPI'"
             />
+            <!-- For ChainAPI update the v-if statement -->
             <img
               :src="item.iconInactive"
               class="icon-shrink"
-              v-if="!item.active"
+              v-if="!item.active && item.name !== 'ChainAPI'"
             />
             <span class="list-line-name">{{ item.name }}</span>
           </router-link>
@@ -91,6 +110,12 @@ export default {
         path: latestOisVersion,
       },
       {
+        name: 'ChainAPI',
+        iconActive: '/img/chainapi-active.png',
+        iconInactive: '/img/chainapi-inactive.png',
+        path: '/chainapi/',
+      },
+      {
         name: 'DAO Members',
         iconActive: '/img/02-DAO-State=Active@2x-1.png',
         iconInactive: '/img/02-DAO-State=Default@2x-1.png',
@@ -118,23 +143,23 @@ export default {
       this.showDocSets = false;
 
       // START TEMPORARY
-      // This is a temp fix until Beacons goes into prod. If the user discovers
-      // Beacons (via url) then add it into the pick list.
-      /*let flag = false;
+      // This is a temp fix until ChainAPI goes into prod. If the user discovers
+      // ChainAPI (via url) then add it into the pick list.
+      let flag = false;
       for (var i = 0; i < this.docSets.length; i++) {
-        if (this.docSets[i].name === 'Beacons') {
+        if (this.docSets[i].name === 'ChainAPI') {
           flag = true;
           break;
         }
       }
-      if (!flag && path.indexOf('/beacon/v') > -1) {
+      if (!flag && path.indexOf('/chainapi') > -1) {
         this.docSets.push({
-          name: 'Beacons',
-          iconActive: '/img/Beacons-active.png',
-          iconInactive: '/img/Beacons-default.png',
-          path: latestBeaconVersion,
+          name: 'ChainAPI',
+          iconActive: '/img/chainapi-active.png',
+          iconInactive: '/img/chainapi-inactive.png',
+          path: '/chainapi/',
         });
-      }*/
+      }
       /// END TEMPORARY
 
       // Sort the docSets array
@@ -189,10 +214,10 @@ export default {
   mounted() {
     // Code that will run only after the entire view has been rendered
     this.$nextTick(function () {
-      // TEMP remove Beacon and OIS for now
-      /*if (this.env != 'development') {
-        this.docSets.splice(1, 1); // Removes Beacons
-      }*/
+      // TEMP remove ChainApi for now
+      if (this.env != 'development') {
+        this.docSets.splice(3, 1); // Removes ChainApi
+      }
       this.selectIcon(this.$route.path);
       this.isMounted = true;
     });
@@ -215,6 +240,12 @@ export default {
   width: 45px;
   height: 39px;
   margin-top: 8px;
+}
+.icon-shrink-chainapi {
+  width: 39px;
+  height: 39px;
+  margin-top: 8px;
+  margin-right: 7px;
 }
 
 .route-link {
