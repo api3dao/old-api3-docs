@@ -26,6 +26,12 @@ it will always default to the startPath in config.json.
             v-show="docSets[0].name === 'ChainAPI'"
             :src="docSets[0].iconActive"
             class="icon-shrink-chainapi"
+            style="
+              width: 35px;
+              height: 35px;
+              margin-top: 10px;
+              margin-bottom: 2px;
+            "
           />
           <span class="list-line-name" style="margin-top: 12px; color: black">{{
             docSets[0].name
