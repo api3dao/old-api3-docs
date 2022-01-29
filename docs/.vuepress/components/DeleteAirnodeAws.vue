@@ -1,4 +1,9 @@
 <!--
+This component displays a simple form to guide the reader through
+a manual removal of an Airnode from AWS. Prior to Airnode v0.4 the 
+DynamoDB was used for an Airnode. Because DynamoDB was removed in v0.4
+a new property was added allowing the parent component to show the 
+DynamoDB instructions which are normally hidden.
 https://renatello.com/dynamic-drop-down-list-in-vue-js/
 -->
 
@@ -65,7 +70,7 @@ https://renatello.com/dynamic-drop-down-list-in-vue-js/
         : There are up to five functions to delete.
       </li>
 
-      <li><a :href="'https://' +region + '.console.aws.amazon.com/dynamodbv2/home?region=' + region + '#/tables'" target="_aws-console">DynamoDB<ExternalLinkImage/></a>
+      <li v-show="dynamoDB==='show'"><a :href="'https://' +region + '.console.aws.amazon.com/dynamodbv2/home?region=' + region + '#/tables'" target="_aws-console">DynamoDB<ExternalLinkImage/></a>
         : There is one table to delete.
       </li>
 
@@ -95,6 +100,7 @@ https://renatello.com/dynamic-drop-down-list-in-vue-js/
 <script>
 export default {
   name: 'delete-airnode',
+  props: ['dynamoDB'],
   data: () => ({
     region: 'us-east-1',
   }),

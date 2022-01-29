@@ -16,7 +16,8 @@
     "BUIDLWEEK",
     "chainapi",
     "collapsable",
-    "frontmatter"
+    "frontmatter",
+    "picklist",
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true

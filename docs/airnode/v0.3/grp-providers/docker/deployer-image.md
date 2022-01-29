@@ -209,4 +209,4 @@ that you do so using the deployer image's `remove` command.
 
 ### AWS
 
-<DeleteAirnodeAws/>
+<DeleteAirnodeAws dynamoDB="show"/>
