@@ -151,8 +151,6 @@ deployment and can be used to remove the Airnode.
 Options:
       --version                          Show version number                                                   [boolean]
       --debug                            Run in debug mode                                    [boolean] [default: false]
-      --skip-version-check               Allow deployments even if the nodeVersion in config.json does not match the
-                                         deployer version                                     [boolean] [default: false]
       --help                             Show help                                                             [boolean]
   -c, --configuration, --config, --conf  Path to configuration file             [string] [default: "config/config.json"]
   -s, --secrets                          Path to secrets file                   [string] [default: "config/secrets.env"]
@@ -182,8 +180,6 @@ An Airnode can be removed using the remove command two different ways.
 Options:
       --version                Show version number                                                             [boolean]
       --debug                  Run in debug mode                                              [boolean] [default: false]
-      --skip-version-check     Allow deployments even if the nodeVersion in config.json does not match the deployer
-                               version                                                        [boolean] [default: false]
       --help                   Show help                                                                       [boolean]
   -r, --receipt                Path to receipt file                                                             [string]
   -a, --airnode-address-short  Airnode Address (short version)                                                  [string]
