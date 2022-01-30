@@ -307,6 +307,12 @@ config object.
 (required) - The label used to distinguish between multiple deployments of the
 same Airnode on a cloud provider.
 
+### `skipValidation`
+
+[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#skipvalidation)
+(optional) - Whether the config.json validation should be skipped. Defaults to
+`false`.
+
 ## triggers
 
 An array that maps external triggers such as a request made through RRP (or a

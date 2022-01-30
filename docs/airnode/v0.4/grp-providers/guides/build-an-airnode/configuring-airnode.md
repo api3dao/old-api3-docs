@@ -329,6 +329,13 @@ a different value (dev, public, prod). `stage` cannot be longer than 16
 characters and can only include lowercase alphanumeric characters (`a–z`, `0–9`)
 and hyphens (`-`).
 
+#### skipValidation
+
+[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#skipvalidation)
+This is an optional attribute which decides whether Airnode validates the
+config.json during deployment or when run in a docker. Possible values are
+`true` and `false`. By default, this flag is set to `false`.
+
 ### triggers
 
 The `triggers` field allows you to expose Airnode endpoints from an OIS
