@@ -11,11 +11,13 @@
 
     <!-- 
       Changed: 2021-03-08 wkande: Logo now goes to https://api3.org.
+      Changed: 2022-01-31 wkande: The logo is now clipped fro very narrow mobile devices.
     -->
     <a href="https://api3.org" class="home-link">
       <img
         v-if="$site.themeConfig.logo"
         class="logo"
+        v-bind:class="{ 'logo-clipped': clipLogo }"
         :src="$withBase($site.themeConfig.logo)"
         :alt="$siteTitle"
       />
@@ -29,7 +31,7 @@
       -->
       <span
         v-on:click="$themeConfig.startPath = $route.fullPath"
-        v-if="$siteTitle"
+        v-show="$siteTitle"
         ref="siteName"
         class="site-name"
         :class="{ 'can-hide': $site.themeConfig.logo }"
@@ -37,6 +39,7 @@
       >
     </RouterLink>
 
+    <!-- Links to the right of the searchBox. --->
     <div
       class="links"
       :style="
@@ -47,20 +50,11 @@
           : {}
       "
     >
-      <!-- 
-        Added: wkande: This adds the custom Versions component 
-      -->
+      <!-- Added: wkande: This adds the custom Versions component. -->
       <Versions />
 
-      <!-- Added: wkande: Job posting icon. 
-      -->
-      <api3-JobsIcon v-show="!isLandingPage" />
-
       <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia" />
-      <!-- 
-        Updated: wkande: There are paths where the SearchBox cannot be added 
-      -->
-
+      <!-- Updated: wkande: There are paths where the SearchBox cannot be added. -->
       <SearchBox
         v-else-if="
           $route.path != '/' &&
@@ -68,6 +62,9 @@
           $page.frontmatter.search !== false
         "
       />
+      <!-- Added: wkande: Job posting icon. -->
+      <api3-JobsIcon class="can-hide" />
+
       <NavLinks class="can-hide" />
     </div>
   </header>
@@ -93,6 +90,7 @@ export default {
       linksWrapMaxWidth: null,
       // Added 2021-12-15 wkande, see comment above in template.
       isLandingPage: false,
+      clipLogo: true,
     };
   },
   computed: {
@@ -113,7 +111,13 @@ export default {
     const handleLinksWrapWidth = () => {
       if (document.documentElement.clientWidth < MOBILE_DESKTOP_BREAKPOINT) {
         this.linksWrapMaxWidth = null;
+        if (document.documentElement.clientWidth < 281) {
+          this.clipLogo = true;
+        } else {
+          this.clipLogo = false;
+        }
       } else {
+        this.clipLogo = false;
         this.linksWrapMaxWidth =
           this.$el.offsetWidth -
           NAVBAR_VERTICAL_PADDING -
@@ -140,6 +144,12 @@ function css(el, property) {
 }
 </script>
 
+<!-- clip--path
+  /* all (top, right, bottom, left)
+  https://css-playground.com/view/65/clipping-paths-with-clip-path*/
+ number push to the center, not outside positions
+-->
+
 <style lang="stylus">
 $navbar-vertical-padding = 0.7rem
 $navbar-horizontal-padding = 1.5rem
@@ -154,6 +164,8 @@ $navbar-horizontal-padding = 1.5rem
     min-width $navbarHeight - 1.4rem
     margin-right 0.8rem
     vertical-align top
+  .logo-clipped
+    clip-path inset(0px 55px 0px 0px)
   .site-name
     font-size 1.3rem
     font-weight 600

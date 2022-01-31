@@ -51,13 +51,13 @@ export default {
 .jobsBadge {
     position:relative;
     top:1px;
-    left:39px;
+    left:29px;
     font-size:small;
 }
 .jobsIcon {
     width: 28px;
     height: 28px;
     padding-top: 4px;
-    margin-right: 18px
+    margin-right: 28px
 }
 </style>
