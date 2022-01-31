@@ -19,16 +19,15 @@ module.exports = {
   /// Job page revision, incremented when a new job(s) is added
   jobPageRevision: 3,
   head: [
-    ['link', { rel: 'icon', href: '/img/small-logo.png' }],
-    // user-scalable=no keeps the searchBox from widening the navbar when active.
     [
       'meta',
       {
         name: 'viewport',
         content:
-          'content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0',
+          'width=device-width,user-scalable=yes,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0',
       },
     ],
+    ['link', { rel: 'icon', href: '/img/small-logo.png' }],
   ],
   title: 'Documentation',
   base: '/',
