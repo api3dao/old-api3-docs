@@ -11,9 +11,15 @@
       id="searchText"
       class="beacon-filter-input"
       v-on:keyup="find($event)"
-      placeholder="Filter (contains all)"
+      placeholder="Filter (must contain all)"
     />
     <hr />
+    <div style="padding-left: 55px">
+      <img src="/img/spinner.gif" v-show="showSpinner" />
+    </div>
+    <p v-show="error !== null" class="error">
+      The Beacon list failed to load: ({{ error }})
+    </p>
     <!-- Beacon List -->
     <beacons-BeaconItem
       v-for="(item, i) in beacons"
@@ -37,40 +43,50 @@ export default {
     showCatalog: true,
     showDetail: false,
     loaded: false,
+    showSpinner: false,
+    error: null,
     row: 0, // User selected row.
     lastScrollPosition: 0, // The last know scroll position.
     beacons: [],
   }),
   mounted() {
     this.$nextTick(async function () {
-      // Get the Beacons from GitHub
-      const response = await axios.get(
-        'https://raw.githubusercontent.com/api3dao/operations/amberdata-lite-deployment/data/apis/Amberdata/documentation_beacons_lite.json'
-      );
-      // item,show needs to be set before copying the response data to the beacons array
-      for (let i = 0; i < response.data.length; i++) {
-        let item = response.data[i];
-        item.show = true;
-        item.name = this.beaconInfo[item.beaconId].name || '?';
-        item.desc = this.beaconInfo[item.beaconId].desc || '?';
-        item.provider = this.beaconInfo[item.beaconId].provider || '?';
-        item.content = this.beaconInfo[item.beaconId].content;
-        item.tag = this.beaconInfo[item.beaconId].tag || '?';
-        item.content +=
-          ' ' +
-          item.name.toLowerCase() +
-          ' ' +
-          item.beaconId.toLowerCase() +
-          ' ' +
-          item.desc.toLowerCase() +
-          ' ' +
-          item.provider.toLowerCase() +
-          ' ' +
-          item.tag.toLowerCase();
+      try {
+        // Get the Beacons from GitHub
+        this.showSpinner = true;
+        this.error = null;
+        const response = await axios.get(
+          'https://raw.githubusercontent.com/api3dao/operations/amberdata-lite-deployment/data/apis/Amberdata/documentation_beacons_lite.json'
+        );
+        // item,show needs to be set before copying the response data to the beacons array
+        for (let i = 0; i < response.data.length; i++) {
+          let item = response.data[i];
+          item.show = true;
+          item.name = this.beaconInfo[item.beaconId].name || '?';
+          item.desc = this.beaconInfo[item.beaconId].desc || '?';
+          item.provider = this.beaconInfo[item.beaconId].provider || '?';
+          item.content = this.beaconInfo[item.beaconId].content;
+          item.tag = this.beaconInfo[item.beaconId].tag || '?';
+          item.content +=
+            ' ' +
+            item.name.toLowerCase() +
+            ' ' +
+            item.beaconId.toLowerCase() +
+            ' ' +
+            item.desc.toLowerCase() +
+            ' ' +
+            item.provider.toLowerCase() +
+            ' ' +
+            item.tag.toLowerCase();
+        }
+        this.beacons = response.data;
+        this.beacons.sort(this.sortByName);
+      } catch (err) {
+        console.log(err.toString());
+        this.error = err.toString();
       }
-      this.beacons = response.data;
+      this.showSpinner = false;
       this.loaded = true;
-      this.beacons.sort(this.sortByName);
     });
   },
   methods: {
@@ -109,6 +125,9 @@ export default {
 <style>
 h4 {
   margin-bottom: -10px;
+}
+.error {
+  color: red;
 }
 .beacon-filter-input {
   margin-top: 10px;
