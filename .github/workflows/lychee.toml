@@ -75,6 +75,7 @@ exclude = [
   "OIS@0.3",
   ".*/NOT-A-REAL-FILE.html",
   "@0.3",
+  "etherscan.io",
 ]
 
 # Exclude URLs contained in a file from checking
