@@ -33,8 +33,8 @@ export default {
   name: 'BeaconItem',
   props: ['beacon'],
   data: () => ({
-    tryData: null,
-    showTrySpinner: false,
+    //tryData: null,
+    //showTrySpinner: false,
   }),
   methods: {
     showDetails(id) {
