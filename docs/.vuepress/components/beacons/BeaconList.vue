@@ -57,7 +57,7 @@ export default {
         this.showSpinner = true;
         this.error = null;
         const response = await axios.get(
-          'https://raw.githubusercontent.com/api3dao/operations/documentation-trimmed-metadata-export/data/documentation_metadata.json'
+          'https://raw.githubusercontent.com/api3dao/operations/main/data/documentation_metadata.json'
         );
         // item.show needs to be set before copying the response data to the beacons array
         for (let i = 0; i < response.data.beacons.length; i++) {
