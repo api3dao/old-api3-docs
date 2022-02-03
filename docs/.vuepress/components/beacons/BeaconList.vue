@@ -57,12 +57,11 @@ export default {
         this.showSpinner = true;
         this.error = null;
         const response = await axios.get(
-          'https://raw.githubusercontent.com/api3dao/operations/83e503ef480a7350dd432d57b182f08e358c4f2f/data/documentation_metadata.json'
-          //'https://raw.githubusercontent.com/api3dao/operations/amberdata-lite-deployment/data/apis/Amberdata/documentation_beacons_lite.json'
+          'https://raw.githubusercontent.com/api3dao/operations/documentation-trimmed-metadata-export/data/documentation_metadata.json'
         );
         // item.show needs to be set before copying the response data to the beacons array
-        for (let i = 0; i < response.data.length; i++) {
-          let item = response.data[i];
+        for (let i = 0; i < response.data.beacons.length; i++) {
+          let item = response.data.beacons[i];
           item.show = true;
           item.showDetails = false;
           item.content =
@@ -72,7 +71,7 @@ export default {
             ' ' +
             item.chains.toString().toLowerCase().replace(/,/g, ' ');
         }
-        this.beacons = response.data;
+        this.beacons = response.data.beacons;
         this.beacons.sort(this.sortByName);
       } catch (err) {
         console.error(err.toString());
