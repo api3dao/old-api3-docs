@@ -18,6 +18,8 @@
     "collapsable",
     "frontmatter",
     "picklist",
+    "styl",
+    "Whitelister",
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true
