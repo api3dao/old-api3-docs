@@ -9,6 +9,7 @@
     <!-- Filter -->
     <input
       id="searchText"
+      spellcheck="false"
       class="beacon-filter-input"
       v-on:keyup="find($event)"
       placeholder="Filter (must contain all)"
@@ -31,22 +32,22 @@
 </template>
 
 <script>
-import { beaconInfo } from './beaconInfo.json';
-import { env } from '../../config.js';
+//import { beaconInfo } from './beaconInfo.json';
+//import { env } from '../../config.js';
 import axios from 'axios';
 
 export default {
   name: 'BeaconList',
   data: () => ({
-    beaconInfo: beaconInfo,
-    env: env,
-    showCatalog: true,
-    showDetail: false,
+    //beaconInfo: beaconInfo,
+    //env: env,
+    //showCatalog: true,
+    //showDetail: false,
     loaded: false,
     showSpinner: false,
     error: null,
-    row: 0, // User selected row.
-    lastScrollPosition: 0, // The last know scroll position.
+    //row: 0, // User selected row.
+    //lastScrollPosition: 0, // The last know scroll position.
     beacons: [],
   }),
   mounted() {
@@ -56,33 +57,24 @@ export default {
         this.showSpinner = true;
         this.error = null;
         const response = await axios.get(
-          'https://raw.githubusercontent.com/api3dao/operations/amberdata-lite-deployment/data/apis/Amberdata/documentation_beacons_lite.json'
+          'https://raw.githubusercontent.com/api3dao/operations/main/data/documentation_metadata.json'
         );
-        // item,show needs to be set before copying the response data to the beacons array
-        for (let i = 0; i < response.data.length; i++) {
-          let item = response.data[i];
+        // item.show needs to be set before copying the response data to the beacons array
+        for (let i = 0; i < response.data.beacons.length; i++) {
+          let item = response.data.beacons[i];
           item.show = true;
-          item.name = this.beaconInfo[item.beaconId].name || '?';
-          item.desc = this.beaconInfo[item.beaconId].desc || '?';
-          item.provider = this.beaconInfo[item.beaconId].provider || '?';
-          item.content = this.beaconInfo[item.beaconId].content;
-          item.tag = this.beaconInfo[item.beaconId].tag || '?';
-          item.content +=
+          item.showDetails = false;
+          item.content =
+            item.templateName.toLowerCase() +
             ' ' +
-            item.name.toLowerCase() +
+            item.apiName.toLowerCase() +
             ' ' +
-            item.beaconId.toLowerCase() +
-            ' ' +
-            item.desc.toLowerCase() +
-            ' ' +
-            item.provider.toLowerCase() +
-            ' ' +
-            item.tag.toLowerCase();
+            item.chains.toString().toLowerCase().replace(/,/g, ' ');
         }
-        this.beacons = response.data;
+        this.beacons = response.data.beacons;
         this.beacons.sort(this.sortByName);
       } catch (err) {
-        console.log(err.toString());
+        console.error(err.toString());
         this.error = err.toString();
       }
       this.showSpinner = false;
@@ -91,10 +83,10 @@ export default {
   },
   methods: {
     sortByName(a, b) {
-      if (b.name.toLowerCase() > a.name.toLowerCase()) {
+      if (b.templateName.toLowerCase() > a.templateName.toLowerCase()) {
         return -1;
       }
-      if (b.name.toLowerCase() < a.name.toLowerCase()) {
+      if (b.templateName.toLowerCase() < a.templateName.toLowerCase()) {
         return 1;
       }
       return 0;
@@ -123,6 +115,9 @@ export default {
 </script>
 
 <style>
+/* BeaconItem.vue will see this import. */
+@import '../../styles/switcher.styl';
+
 h4 {
   margin-bottom: -10px;
 }
@@ -134,7 +129,7 @@ h4 {
   font-size: large;
 
   width: 98%;
-  max-width: 560px;
+  max-width: 630px;
   border: 2px solid lightgrey;
   border-radius: 2px;
   padding: 3px;
