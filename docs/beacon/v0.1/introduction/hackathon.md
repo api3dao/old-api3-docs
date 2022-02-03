@@ -9,13 +9,6 @@ title: ETHDenver - Feb 2022
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-::: danger TODO:
-
-- Get the URL to the etherscan whitelist contract.
-- Add instructions on the function to call to self whitelist.
-
-:::
-
 Experience API3 **Beacons** at ETHDenver (February 11-20, 2022) during
 [#BUIDLWEEK](https://www.ethdenver.com/buidlweek).
 
@@ -29,9 +22,9 @@ API3 has set up Beacons (supported by Airnodes) using the following versions.
 ## Contract Addresses
 
 Access Beacons using the appropriate `RrpBeaconServer.sol` contract address for
-the network you choose to work with. Specific network addresses for the contract
-are in the [Contract Addresses](../reference/contract-addresses.md) doc. For
-_#BUIDLWEEK_ please use any of the following networks.
+the network you choose to work with. Specific network addresses are in the
+[Contract Addresses](../reference/contract-addresses.md) doc. For _#BUIDLWEEK_
+please use any of the following networks.
 
 | Network        | Faucet                                                                   |
 | :------------- | :----------------------------------------------------------------------- |
@@ -43,15 +36,14 @@ _#BUIDLWEEK_ please use any of the following networks.
 ## Amberdata Beacons
 
 [Amberdata](https://amberdata.io) has connected some of their great API
-endpoints to API3 Beacons for _#BUIDLWEEK_. They are available on the Goerli and
-Mumbai networks. See the [Beacon IDs](../reference/beacon-ids.md) doc for a list
-of beaconIds used to access Beacon values with the `RrpBeaconServer.sol`
-contract function [readBeacon()](../functions/read-beacon.md).
+endpoints to API3 Beacons for _#BUIDLWEEK_. See the
+[Beacon IDs](../reference/beacon-ids.md) doc for a list of beaconIds used to
+access Beacon values with the `RrpBeaconServer.sol` contract function
+[readBeacon()](../functions/read-beacon.md).
 
-The Amberdata Beacon values provided for the hackathon are VWAP pair values.
-VWAP (Volume Weighted Average Price), is the average price of an asset over a
-time interval, based on both volume and price. VWAP is an aggregated form of
-trade data. Nine of the Beacon values provided for the hackathon are VWAP.
+The Amberdata Beacon values provided for the hackathon are VWAP (Volume Weighted
+Average Price) pair values and are an aggregated form of trade data. VWAP is the
+average price of an asset over a time interval, based on both volume and price.
 Please see the Amberdata documentation links below for a better understanding of
 the values provided.
 
@@ -65,13 +57,30 @@ the values provided.
 ::: warning Please Note
 
 For _#BUIDLWEEK_ you do not need to contact the API3 Business Development Team
-for access to the Amberdata Beacons mentioned above. You can whitelist yourself
-on the Goerli or Polygon-Mumbai networks using
-[etherscan](https://etherscan.io/).
+for access to the Amberdata Beacons. You can whitelist yourself on the supported
+testnets using [etherscan](https://etherscan.io/).
 
 :::
 
-TODO: whitelisting instructions go here.
+### Self Whitelisting
+
+You self-whitelist your smart contract using etherscan.
+
+1. Open Etherscan and select the desired testnet using the icon to the right of
+   the Sign-In button in the top right corner.
+
+2. Enter the address for the
+   [SelfServeRrpBeaconServerWhitelister.sol](../reference/contract-addresses.md#selfserverrpbeaconserverwhitelister-sol)
+   contract in the search field.
+
+3. Click _contract > write contract > connect to web3_. Connect your wallet
+   using the testnet you have selected in Etherscan.
+
+4. Select the `whitelistReader` function (#5) and enter the
+   [beaconId](../reference/beacon-ids.md) and the address of your smart contract
+   (reader).
+
+5. Select the Write button and execute the transaction from your wallet.
 
 ## Work with API3
 
