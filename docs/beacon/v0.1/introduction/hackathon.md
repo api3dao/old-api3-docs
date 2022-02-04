@@ -52,6 +52,15 @@ the values provided.
   (VWAP)
 - [Gas Predictions](https://docs.amberdata.io/reference#get-gas-predictions)
 
+## Beacon Reader Example
+
+A great place to get started is the
+[beacon-reader-example](https://github.com/api3dao/beacon-reader-example) GitHub
+repository. This starter project steps through reading Beacon values from a
+smart contract. Be sure to read through some of the example code such as the
+[BeaconReaderExample.sol](https://github.com/api3dao/beacon-reader-example/blob/main/contracts/BeaconReaderExample.sol)
+smart contract.
+
 ## Beacon Whitelisting
 
 ::: warning Please Note
