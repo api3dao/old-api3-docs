@@ -7,13 +7,13 @@ title: Instructions
 # {{$frontmatter.title}}
 
 <TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TOC class="table-of-contents" :include-level="[2,4]" />
 
 This demo is a simple Airnode deployment, using a hands-on approach, to better
 understand the overall deployment process of the Airnode
 [deployer image](../../../grp-providers/docker/deployer-image.md) which deploys
 the off-chain component of Airnode (a.k.a., the node) to AWS. It uses an API
-endpoint (`GET /coins/{id}`) from
+endpoint (`GET /simple/price`) from
 [CoinGecko](https://www.coingecko.com/en/api/documentation) which returns the
 current value of a coin. This demo does not detail the overall configuration of
 an Airnode, it is just a quick start.
@@ -226,7 +226,7 @@ Breaking down the URL in the CURL command below:
   as a path parameter, the endpointId to call, see `triggers.rrp[0].endpointId`
   in the `config.json` file.
 
-Request:
+#### Request
 
 :::: tabs
 
@@ -252,7 +252,7 @@ curl -v -H "x-api-key: 123-my-key-must-be-30-characters-min" ^
 
 ::::
 
-Response:
+#### Response
 
 ```json
 {
@@ -265,6 +265,11 @@ Response:
   "values": ["3550000"]
 }
 ```
+
+Note the JSON response `values` is the API3 price multiplied by `1e6`, which
+results from setting the `_times` reserved parameter to `1000000` in
+`config.json`. This manipulation is necessary in order to correctly handle
+floating point numbers.
 
 - `encodedValue`: This is the only field that gets sent to a requester (smart
   contract) on-chain. It is the encoded bytes of the `values` field. A requester
@@ -279,7 +284,7 @@ Response:
   The HTTP gateway provides this as a convenience and never sends the decoded
   `values` to a requester on-chain.
 
-## Remove the Airnode
+### Remove the Airnode
 
 When you are done with this demo you can remove it. When the Airnode was
 deployed a `receipt.json` file was created in the `/output` folder. This file is

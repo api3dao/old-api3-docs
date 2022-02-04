@@ -51,36 +51,16 @@
           }
         ],
         "paths": {
-          "/coins/{id}": {
+          "/simple/price": {
             "get": {
               "parameters": [
                 {
-                  "in": "path",
-                  "name": "id"
+                  "in": "query",
+                  "name": "ids"
                 },
                 {
                   "in": "query",
-                  "name": "localization"
-                },
-                {
-                  "in": "query",
-                  "name": "tickers"
-                },
-                {
-                  "in": "query",
-                  "name": "market_data"
-                },
-                {
-                  "in": "query",
-                  "name": "community_data"
-                },
-                {
-                  "in": "query",
-                  "name": "developer_data"
-                },
-                {
-                  "in": "query",
-                  "name": "sparkline"
+                  "name": "vs_currencies"
                 }
               ]
             }
@@ -96,53 +76,10 @@
           "name": "coinMarketData",
           "operation": {
             "method": "get",
-            "path": "/coins/{id}"
+            "path": "/simple/price"
           },
           "testable": true,
-          "fixedOperationParameters": [
-            {
-              "operationParameter": {
-                "in": "query",
-                "name": "localization"
-              },
-              "value": "false"
-            },
-            {
-              "operationParameter": {
-                "in": "query",
-                "name": "tickers"
-              },
-              "value": "false"
-            },
-            {
-              "operationParameter": {
-                "in": "query",
-                "name": "market_data"
-              },
-              "value": "true"
-            },
-            {
-              "operationParameter": {
-                "in": "query",
-                "name": "community_data"
-              },
-              "value": "false"
-            },
-            {
-              "operationParameter": {
-                "in": "query",
-                "name": "developer_data"
-              },
-              "value": "false"
-            },
-            {
-              "operationParameter": {
-                "in": "query",
-                "name": "sparkline"
-              },
-              "value": "false"
-            }
-          ],
+          "fixedOperationParameters": [],
           "reservedParameters": [
             {
               "name": "_type",
@@ -150,7 +87,7 @@
             },
             {
               "name": "_path",
-              "fixed": "market_data.current_price.usd"
+              "fixed": "api3.usd"
             },
             {
               "name": "_times",
@@ -159,10 +96,17 @@
           ],
           "parameters": [
             {
-              "name": "coinId",
+              "name": "coinIds",
               "operationParameter": {
-                "in": "path",
-                "name": "id"
+                "in": "query",
+                "name": "ids"
+              }
+            },
+            {
+              "name": "coinVs_currencies",
+              "operationParameter": {
+                "in": "query",
+                "name": "vs_currencies"
               }
             }
           ]
