@@ -9,20 +9,24 @@
       {{ beacon.apiName }}
     </div>
     <div class="beacon-name">{{ beacon.templateName }}</div>
+    <div class="beacon-description beacon-sub-line">
+      {{ beacon.description }}
+    </div>
     <div class="beacon-id beacon-sub-line">
       {{ beacon.beaconId }}
     </div>
+
     <div v-show="beacon.showDetails === true" class="beacon-display-box">
-      <button class="beaconTryItBtn" @click="execute()">Try It</button>
+      <!--button class="beaconTryItBtn" @click="execute()">Try It</button>
       <img
         src="/img/spinner.gif"
         v-show="showTrySpinner"
         style="width: 20px; position: relative; top: 6px"
-      />
+      /-->
       <!-- prettier-ignore -->
-      <code style="position: relative; top: 1px" v-show="tryData">{{ tryData }}</code>
+      <!--code style="position: relative; top: 1px" v-show="tryData">{{ tryData }}</code-->
       <!-- prettier-ignore -->
-      <pre style="background-color:lightgrey;" v-show="tryError"><code style="background-color:lightgrey;color:red;">{{tryError}}</code></pre>
+      <!--pre style="background-color:lightgrey;" v-show="tryError"><code style="background-color:lightgrey;color:red;">{{tryError}}</code></pre-->
       <!-- prettier-ignore -->
       <pre><code>"decodedParameters": {{beacon.decodedParameters}}</code></pre>
     </div>
@@ -98,7 +102,6 @@ export default {
 }
 .beacon-sub-line {
   padding-left: 10px;
-  font-size: small;
   border-left: solid lightgrey 3px;
 }
 .beacon-display-box {
@@ -112,7 +115,12 @@ export default {
   margin-left: -5px;
   margin-bottom: 5px;
 }
+.beacon-description {
+  font-size: medium;
+  color: gray;
+}
 .beacon-id {
+  font-size: small;
   max-width: 600px;
   overflow-wrap: break-word;
 }
