@@ -27,6 +27,15 @@ individually or combined to build decentralized data feeds or
 - [requestBeaconUpdate()](./request-beacon-update.md) - Triggers an update to a
   Beacon's value.
 
+## Beacon Reader Example
+
+A great place to get started is the
+[beacon-reader-example](https://github.com/api3dao/beacon-reader-example) GitHub
+repository. This starter project steps through reading Beacon values from a
+smart contract. Be sure to read through some of the example code such as the
+[BeaconReaderExample.sol](https://github.com/api3dao/beacon-reader-example/blob/main/contracts/BeaconReaderExample.sol)
+smart contract.
+
 ## RrpBeaconServer Contract Addresses
 
 See the [Contract Addresses](../reference/contract-addresses.md) doc for a list
