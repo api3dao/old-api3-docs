@@ -32,22 +32,14 @@
 </template>
 
 <script>
-//import { beaconInfo } from './beaconInfo.json';
-//import { env } from '../../config.js';
 import axios from 'axios';
 
 export default {
   name: 'BeaconList',
   data: () => ({
-    //beaconInfo: beaconInfo,
-    //env: env,
-    //showCatalog: true,
-    //showDetail: false,
     loaded: false,
     showSpinner: false,
     error: null,
-    //row: 0, // User selected row.
-    //lastScrollPosition: 0, // The last know scroll position.
     beacons: [],
   }),
   mounted() {

@@ -80,7 +80,7 @@ You self-whitelist your smart contract using etherscan.
    [beaconId](../reference/beacon-ids.md) and the address of your smart contract
    (reader).
 
-5. Select the Write button and execute the transaction from your wallet.
+5. Select the _Write_ button and execute the transaction from your wallet.
 
 ## Work with API3
 

@@ -9,18 +9,24 @@
       {{ beacon.apiName }}
     </div>
     <div class="beacon-name">{{ beacon.templateName }}</div>
+    <div class="beacon-description beacon-sub-line">
+      {{ beacon.description }}
+    </div>
     <div class="beacon-id beacon-sub-line">
       {{ beacon.beaconId }}
     </div>
+
     <div v-show="beacon.showDetails === true" class="beacon-display-box">
       <!--button class="beaconTryItBtn" @click="execute()">Try It</button>
       <img
         src="/img/spinner.gif"
         v-show="showTrySpinner"
         style="width: 20px; position: relative; top: 6px"
-      />
-      < prettier-ignore >
-      <code style="position: relative; top: 1px" v-show="tryData">{{ tryData }}</code-->
+      /-->
+      <!-- prettier-ignore -->
+      <!--code style="position: relative; top: 1px" v-show="tryData">{{ tryData }}</code-->
+      <!-- prettier-ignore -->
+      <!--pre style="background-color:lightgrey;" v-show="tryError"><code style="background-color:lightgrey;color:red;">{{tryError}}</code></pre-->
       <!-- prettier-ignore -->
       <pre><code>"decodedParameters": {{beacon.decodedParameters}}</code></pre>
     </div>
@@ -33,31 +39,33 @@ export default {
   name: 'BeaconItem',
   props: ['beacon'],
   data: () => ({
-    //tryData: null,
-    //showTrySpinner: false,
+    env: process.env.NODE_ENV,
+    tryData: null,
+    tryError: null,
+    showTrySpinner: false,
+    url: 'https://api3-docs-backend.herokuapp.com/beacons/',
   }),
+  mounted() {
+    if (this.env !== 'production') {
+      this.url = 'http://localhost:3000/beacons/';
+    }
+    this.$nextTick(async function () {});
+  },
   methods: {
     showDetails(id) {
+      this.tryError = null;
       this.beacon.showDetails = !this.beacon.showDetails;
     },
-    /**
-     * This method is not used. It may be evaluated for future use.
-     */
     async execute() {
       try {
-        console.log('start');
         this.showTrySpinner = true;
-        this.errorTry = null;
+        this.tryError = null;
         this.tryData = null;
-        const response = await axios.get(
-          'http://localhost:3000/beacons/' + this.beacon.beaconId
-        );
-        console.log(response.data);
-
+        const response = await axios.get(this.url + this.beacon.beaconId);
         this.tryData = response.data;
       } catch (err) {
-        console.error(err.toString());
-        this.error = err.toString();
+        if (!err.response) this.tryError = err;
+        else this.tryError = err.response.data;
       }
       this.showTrySpinner = false;
     },
@@ -76,11 +84,12 @@ export default {
 .beaconTryItBtn {
   background-color: #2196f3;
   border-radius: 0.5em;
-  border: 1px solid white;
+  border: 1px solid #2196f3;
   font-weight: bold;
   cursor: pointer;
   color: white;
   margin-top: 7px;
+  padding: 3px;
 }
 .beacon-box {
   padding-top: 5px;
@@ -93,7 +102,6 @@ export default {
 }
 .beacon-sub-line {
   padding-left: 10px;
-  font-size: small;
   border-left: solid lightgrey 3px;
 }
 .beacon-display-box {
@@ -107,7 +115,12 @@ export default {
   margin-left: -5px;
   margin-bottom: 5px;
 }
+.beacon-description {
+  font-size: medium;
+  color: gray;
+}
 .beacon-id {
+  font-size: small;
   max-width: 600px;
   overflow-wrap: break-word;
 }
