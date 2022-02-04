@@ -13,16 +13,16 @@
       {{ beacon.beaconId }}
     </div>
     <div v-show="beacon.showDetails === true" class="beacon-display-box">
-      <!--button class="beaconTryItBtn" @click="execute()">Try It</button>
+      <button class="beaconTryItBtn" @click="execute()">Try It</button>
       <img
         src="/img/spinner.gif"
         v-show="showTrySpinner"
         style="width: 20px; position: relative; top: 6px"
-      /-->
+      />
       <!-- prettier-ignore -->
-      <!--code style="position: relative; top: 1px" v-show="tryData">{{ tryData }}</code-->
+      <code style="position: relative; top: 1px" v-show="tryData">{{ tryData }}</code>
       <!-- prettier-ignore -->
-      <!--pre style="background-color:lightgrey;" v-show="tryError"><code style="background-color:lightgrey;color:red;">{{tryError}}</code></pre-->
+      <pre style="background-color:lightgrey;" v-show="tryError"><code style="background-color:lightgrey;color:red;">{{tryError}}</code></pre>
       <!-- prettier-ignore -->
       <pre><code>"decodedParameters": {{beacon.decodedParameters}}</code></pre>
     </div>
