@@ -283,7 +283,7 @@ floating point numbers.
   The HTTP gateway provides this as a convenience and never sends the decoded
   `values` to a requester on-chain.
 
-### Remove the Airnode
+## Remove the Airnode
 
 When you are done with this demo you can remove it. When the Airnode was
 deployed a `receipt.json` file was created in the `/output` folder. This file is
