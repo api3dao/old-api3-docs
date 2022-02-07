@@ -13,7 +13,7 @@ This demo is a simple Airnode deployment, using a hands-on approach, to better
 understand the overall deployment process of the Airnode
 [deployer image](../../../grp-providers/docker/deployer-image.md) which deploys
 the off-chain component of Airnode (a.k.a., the node) to AWS. It uses an API
-endpoint (`GET /coins/{id}`) from
+endpoint (`GET /simple/price`) from
 [CoinGecko](https://www.coingecko.com/en/api/documentation) which returns the
 current value of a coin. This demo does not detail the overall configuration of
 an Airnode, it is just a quick start.
@@ -172,7 +172,7 @@ integrated API.
 ### HTTP Gateway
 
 Looking at the config.json code snippet below shows the HTTP Gateway was
-activated for our Airnode. Furthermore the endpoint for `/coins/{id}` with an
+activated for our Airnode. Furthermore the endpoint for `/simple/price` with an
 `endpointId` of `0xf...53c` is set to be `testable:true`. Each individual
 `endpointId` in `triggers.rrp[n]` must be marked as `testable: true || false` to
 allow for the desired access.
@@ -201,10 +201,11 @@ allow for the desired access.
 ### Execute Endpoint
 
 Use CURL to execute the Airnode and get the results from the CoinGecko endpoint
-`/coins/{id}` bypassing the Rinkeby test network that Airnode was deployed for.
-As an alternative to CURL try an app such as [Insomnia](https://insomnia.rest/)
-or [Postman](https://www.postman.com/product/rest-client/). Windows users can
-also use
+`/simple/price` bypassing the Rinkeby test network that Airnode was deployed
+for. As an alternative to CURL try an app such as
+[Insomnia](https://insomnia.rest/) or
+[Postman](https://www.postman.com/product/rest-client/). Windows users can also
+use
 [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install)
 (WSL2) to run CURL for Linux.
 

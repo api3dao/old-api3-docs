@@ -14,7 +14,7 @@ understand the overall deployment process of the Airnode
 [client image](../../../grp-providers/docker/deployer-image.md) which deploys
 the off-chain component of Airnode ([a.k.a., the node](../../../)) to a Docker
 container, in this case a locally run Docker container. It uses an API endpoint
-(`GET /coins/{id}`) from
+(`GET /simple/price`) from
 [CoinGecko](https://www.coingecko.com/en/api/documentation) which returns the
 current value of a coin. This demo does not detail the overall configuration of
 an Airnode, it is just a quick start.
