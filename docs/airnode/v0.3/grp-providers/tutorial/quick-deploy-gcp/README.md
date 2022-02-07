@@ -32,9 +32,9 @@ url, and a mnemonic.
 
 ## Install Prerequisites
 
-- Install [Docker](https://docs.docker.com/get-docker/) if it is not present on
-  your system and launch it
-- Install [Google Cloud SDK](https://cloud.google.com/sdk/docs/install)
+- Install the [Docker Desktop](https://docs.docker.com/get-docker/) and launch
+  it.
+- Install [Google Cloud SDK](https://cloud.google.com/sdk/docs/install).
 
 ## Project Folder
 

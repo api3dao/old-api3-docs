@@ -33,8 +33,7 @@ url, a mnemonic and a self-defined apiKey for the HTTP testing gateway.
 
 ## Install Prerequisites
 
-Install [Docker](https://docs.docker.com/get-docker/) if it is not present on
-your system and launch it.
+Install the [Docker Desktop](https://docs.docker.com/get-docker/) and launch it.
 
 ## Project Folder
 
