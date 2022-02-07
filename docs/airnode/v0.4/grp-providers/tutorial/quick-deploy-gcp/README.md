@@ -7,13 +7,13 @@ title: Instructions
 # {{$frontmatter.title}}
 
 <TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TOC class="table-of-contents" :include-level="[2,4]" />
 
 This demo is a simple Airnode deployment, using a hands-on approach, to better
 understand the overall deployment process of the Airnode
 [deployer image](../../../grp-providers/docker/deployer-image.md) which deploys
 the off-chain component of Airnode (a.k.a., the node) to GCP. It uses an API
-endpoint (`GET /coins/{id}`) from
+endpoint (`GET /simple/price`) from
 [CoinGecko](https://www.coingecko.com/en/api/documentation) which returns the
 current value of a coin. This demo does not detail the overall configuration of
 an Airnode, it is just a quick start.
@@ -184,7 +184,7 @@ integrated API.
 ### HTTP Gateway
 
 Looking at the config.json code snippet below shows the HTTP Gateway was
-activated for our Airnode. Furthermore the endpoint for `/coins/{id}` with an
+activated for our Airnode. Furthermore the endpoint for `/simple/price` with an
 `endpointId` of `0xf...53c` is set to be `testable:true`. Each individual
 `endpointId` in `triggers.rrp[n]` must be marked as `testable: true || false` to
 allow for the desired access.
@@ -213,10 +213,11 @@ allow for the desired access.
 ### Execute Endpoint
 
 Use CURL to execute the Airnode and get the results from the CoinGecko endpoint
-`/coins/{id}` bypassing the Rinkeby test network that Airnode was deployed for.
-As an alternative to CURL try an app such as [Insomnia](https://insomnia.rest/)
-or [Postman](https://www.postman.com/product/rest-client/). Windows users can
-also use
+`/simple/price` bypassing the Rinkeby test network that Airnode was deployed
+for. As an alternative to CURL try an app such as
+[Insomnia](https://insomnia.rest/) or
+[Postman](https://www.postman.com/product/rest-client/). Windows users can also
+use
 [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install)
 (WSL2) to run CURL for Linux.
 
@@ -241,7 +242,7 @@ URL:
   as a path parameter, the endpointId to call, see `triggers.rrp[0].endpointId`
   in the `config.json` file.
 
-Request:
+#### Request
 
 :::: tabs
 
@@ -252,7 +253,7 @@ curl -v \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'x-api-key: 123-my-key-must-be-30-characters-min' \
--d '{"parameters": {"coinId": "api3"}}' \
+-d '{"parameters": {"coinIds": "api3", "coinVs_currencies": "usd"}}' \
 '<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c'
 ```
 
@@ -265,19 +266,29 @@ curl -v ^
 -X POST ^
 -H 'Content-Type: application/json' ^
 -H "x-api-key: 123-my-key-must-be-30-characters-min" ^
--d "{\"parameters\": {\"coinId\": \"api3\"}}" ^
-<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c
+-d '{"parameters": {"coinIds": "api3", "coinVs_currencies": "usd"}}' ^
+"<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c"
 ```
 
 :::
 
 ::::
 
-Response:
+#### Response
 
 ```json
-{ "value": "4060000" }
+{
+  "encodedValue": "0x0000000000000000000000000000000000000000000000000000000000362b30",
+  "rawValue": {
+    "api3": {
+      "usd": 3.55
+    }
+  },
+  "values": ["3550000"]
+}
 ```
+
+<airnode-tutorials-TutorialResponse/>
 
 ## Remove the Airnode
 
