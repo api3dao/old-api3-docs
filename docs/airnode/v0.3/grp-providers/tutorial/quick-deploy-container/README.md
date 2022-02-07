@@ -195,7 +195,6 @@ docker exec -it quick-deploy-container-airnode node src/cli/test-api.js \
 ### Response
 
 ```sh
-# Response - API3 price * 1e6
 {
   "encodedValue": "0x0000000000000000000000000000000000000000000000000000000000362b30",
   "rawValue": {
@@ -207,23 +206,7 @@ docker exec -it quick-deploy-container-airnode node src/cli/test-api.js \
 }
 ```
 
-Note the JSON response `values` is the API3 price multiplied by `1e6`, which
-results from setting the `_times` reserved parameter to `1000000` in
-`config.json`. This manipulation is necessary in order to correctly handle
-floating point numbers.
-
-- `encodedValue`: This is the only field that gets sent to a requester (smart
-  contract) on-chain. It is the encoded bytes of the `values` field. A requester
-  must decode it to read the response values. <br/><br/>
-- `rawValue`: The API's response to Airnode. Presented by the HTTP gateway as a
-  convenience. This is never sent to a requester on-chain. <br/><br/>
-- `values`: A array of values after they are
-  [extracted and converted](../../../reference/packages/adapter.md#conversion)
-  from the `encodedValue` to the target type, in this case `api3.usd` from
-  `_path` in
-  [reservedParameters](../../../reference/specifications/reserved-parameters.md#path).
-  The HTTP gateway provides this as a convenience and never sends the decoded
-  `values` to a requester on-chain.
+<airnode-tutorials-TutorialResponse/>
 
 ### Request using Docker Container CLI
 

@@ -186,14 +186,13 @@ response value is the ETH price multiplied by `1e6`, which results from setting
 the `_times` reserved parameter to `1000000` in `config.json`. This manipulation
 is necessary in order to correctly handle floating point numbers.
 
+### Request
+
 ```sh
 # For Windows CMD replace line termination marker \ with ^
 docker exec -it quick-deploy-container-airnode node src/cli/test-api.js \
   -e 0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c \
-  -p '{"coinId":"ethereum"}'
-
-# Response - ETH price * 1e6
-{ "value": "4008350000" }
+  -p '{"coinIds":"api3", "coinVs_currencies":"usd"}'
 ```
 
 Alternately you could run the test using the CLI command prompt provided for the
@@ -203,8 +202,20 @@ container in the Docker desktop application.
 # For Windows CMD replace line termination marker \ with ^
 node src/cli/test-api.js \
   -e 0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c \
-  -p '{"coinId":"ethereum"}'
+  -p '{"coinIds":"api3", "coinVs_currencies":"usd"}'
 ```
+
+### Response
+
+```json
+{
+  "encodedValue": "0x0000000000000000000000000000000000000000000000000000000000362b30",
+  "rawValue": { "api3": { "usd": 3.55 } },
+  "values": ["3550000"]
+}
+```
+
+<airnode-tutorials-TutorialResponse/>
 
 ## Remove the Airnode
 
@@ -222,7 +233,7 @@ docker rm quick-deploy-container-airnode
 ## Summary
 
 You have deployed an Airnode into a Docker container and tested it using the
-`test-api.js` nodejs script. Please remember the script is not supported for use
+`test-api.js` Nodejs script. Please remember the script is not supported for use
 in production environments.
 
 This Airnode attaches itself to the Rinkeby testnet as stated in the

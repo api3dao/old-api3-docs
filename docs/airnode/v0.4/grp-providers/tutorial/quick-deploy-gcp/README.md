@@ -7,7 +7,7 @@ title: Instructions
 # {{$frontmatter.title}}
 
 <TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TOC class="table-of-contents" :include-level="[2,4]" />
 
 This demo is a simple Airnode deployment, using a hands-on approach, to better
 understand the overall deployment process of the Airnode
@@ -242,7 +242,7 @@ URL:
   as a path parameter, the endpointId to call, see `triggers.rrp[0].endpointId`
   in the `config.json` file.
 
-Request:
+#### Request
 
 :::: tabs
 
@@ -253,7 +253,7 @@ curl -v \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'x-api-key: 123-my-key-must-be-30-characters-min' \
--d '{"parameters": {"coinId": "api3"}}' \
+-d '{"parameters": {"coinIds": "api3", "coinVs_currencies": "usd"}}' \
 '<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c'
 ```
 
@@ -266,19 +266,29 @@ curl -v ^
 -X POST ^
 -H 'Content-Type: application/json' ^
 -H "x-api-key: 123-my-key-must-be-30-characters-min" ^
--d "{\"parameters\": {\"coinId\": \"api3\"}}" ^
-<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c
+-d '{"parameters": {"coinIds": "api3", "coinVs_currencies": "usd"}}' ^
+"<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c"
 ```
 
 :::
 
 ::::
 
-Response:
+#### Response
 
 ```json
-{ "value": "4060000" }
+{
+  "encodedValue": "0x0000000000000000000000000000000000000000000000000000000000362b30",
+  "rawValue": {
+    "api3": {
+      "usd": 3.55
+    }
+  },
+  "values": ["3550000"]
+}
 ```
+
+<airnode-tutorials-TutorialResponse/>
 
 ## Remove the Airnode
 
