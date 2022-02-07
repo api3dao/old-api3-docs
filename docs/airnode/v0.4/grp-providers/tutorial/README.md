@@ -26,11 +26,11 @@ part.
   container. This deployment type is a typical development environment although
   self hosted Docker containers can be used for production environments.
 
-::: tip Additional Examples
+::: tip Monorepo Examples
 
 There are additional examples of Airnode deployments in the
 [examples package](https://github.com/api3dao/airnode/tree/v0.3/packages/airnode-examples)
-of the Airnode repo.
+of the Airnode monorepo.
 
 - Run Airnode as a docker container locally while connected to Rinkeby network.
 - Run Airnode as a docker container locally, but connected to the hardhat
