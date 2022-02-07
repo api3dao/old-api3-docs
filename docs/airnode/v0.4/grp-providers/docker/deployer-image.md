@@ -20,9 +20,9 @@ The deployer image has two commands.
 - `deploy`: Deploys or updates an Airnode using configuration files.
 - `remove`: Removes an Airnode using its `receipt.json` file.
 
-::: tip Quick Deploy Demo
+::: tip Quick Deploy Demos
 
-See the [Quick Deploy](../tutorial/) demo to quickly `deploy` and `remove` a
+See the [Quick Deploy Demos](../tutorial/) to quickly `deploy` and `remove` a
 preconfigured Airnode using the deployer image.
 
 :::
