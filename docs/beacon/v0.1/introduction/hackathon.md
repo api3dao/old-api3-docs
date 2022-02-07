@@ -67,15 +67,15 @@ smart contract.
 
 For _#BUIDLWEEK_ you do not need to contact the API3 Business Development Team
 for access to the Amberdata Beacons. You can whitelist yourself on the supported
-testnets using [etherscan](https://etherscan.io/).
+testnets using the respective blockchain explorer of the testnet ([etherscan](https://etherscan.io/) or [polygonscan](https://polygonscan.com/)).
 
 :::
 
 ### Self Whitelisting
 
-You self-whitelist your smart contract using etherscan.
+You self-whitelist your smart contract using Etherscan or Polygonscan.
 
-1. Open Etherscan and select the desired testnet using the icon to the right of
+1. Open Etherscan/Polygonscan and select the desired testnet using the icon to the right of
    the Sign-In button in the top right corner.
 
 2. Enter the address for the
@@ -83,7 +83,7 @@ You self-whitelist your smart contract using etherscan.
    contract in the search field.
 
 3. Click _contract > write contract > connect to web3_. Connect your wallet
-   using the testnet you have selected in Etherscan.
+   using the testnet you have selected in Etherscan/Polygonscan.
 
 4. Select the `whitelistReader` function (#5) and enter the
    [beaconId](../reference/beacon-ids.md) and the address of your smart contract
