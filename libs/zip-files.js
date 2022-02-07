@@ -3,6 +3,11 @@
  * v0.4, use the manual zip file build instead which is documented in
  * https://docs.api3.org/dev/zip-files.html.
  *
+ * Update (02-07-2022) v.03 is no longer zipped with this library. Like
+ * v0.4 they are created manually by hte author and then added to
+ * /public/zip-files. Running this library does nothing.
+ *
+ *
  * @description This script zips files from a tutorial into a project folder
  * to be downloaded by the reader. These folders are useful for the
  * reader to use when running the tutorial.
@@ -81,6 +86,7 @@ async function run(vrs, folder, provider) {
   }
 }
 
-run('v0.3', 'quick-deploy-aws', 'aws');
+/*run('v0.3', 'quick-deploy-aws', 'aws');
 run('v0.3', 'quick-deploy-gcp', 'gcp');
 run('v0.3', 'quick-deploy-container', 'local');
+*/

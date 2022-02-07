@@ -7,13 +7,13 @@ title: Instructions
 # {{$frontmatter.title}}
 
 <TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TOC class="table-of-contents" :include-level="[2,4]" />
 
 This demo is a simple Airnode deployment, using a hands-on approach, to better
 understand the overall deployment process of the Airnode
 [deployer image](../../../grp-providers/docker/deployer-image.md) which deploys
 the off-chain component of Airnode (a.k.a., the node) to AWS. It uses an API
-endpoint (`GET /coins/{id}`) from
+endpoint (`GET /simple/price`) from
 [CoinGecko](https://www.coingecko.com/en/api/documentation) which returns the
 current value of a coin. This demo does not detail the overall configuration of
 an Airnode, it is just a quick start.
@@ -33,8 +33,7 @@ url, a mnemonic and a self-defined apiKey for the HTTP testing gateway.
 
 ## Install Prerequisites
 
-Install [Docker](https://docs.docker.com/get-docker/) if it is not present on
-your system and launch it.
+Install the [Docker Desktop](https://docs.docker.com/get-docker/) and launch it.
 
 ## Project Folder
 
@@ -170,10 +169,10 @@ integrated API.
 
 ### HTTP Gateway
 
-Looking at the config.json shows that the HTTP Gateway was activated for our
-Airnode. Furthermore the endpoint for `/coins/{id}` is set to be testable, see
-`endpoints[0]`. While the Airnode is enabled for the gateway, each individual
-endpoint must be marked as `testable` to allow access.
+Looking at the config.json shows that the HTTP Gateway was activated for the
+Airnode. Furthermore the endpoint with a `path` of `/simple/price` is set to be
+testable, see `endpoints[0]`. While the Airnode is enabled for the gateway, each
+individual endpoint must be marked as `testable` to allow access.
 
 ```json
 "nodeSettings": {
@@ -189,7 +188,7 @@ endpoint must be marked as `testable` to allow access.
       "name": "coinMarketData",
       "operation": {
         "method": "get",
-        "path": "/coins/{id}"
+        "path": "/simple/price"
       },
       "testable":true, // This endpoint can be tested by the gateway
       ...
@@ -201,10 +200,11 @@ endpoint must be marked as `testable` to allow access.
 ### Execute Endpoint
 
 Use CURL to execute the Airnode and get the results from the CoinGecko endpoint
-`/coins/{id}` bypassing the Rinkeby test network that Airnode was deployed for.
-As an alternative to CURL try an app such as [Insomnia](https://insomnia.rest/)
-or [Postman](https://www.postman.com/product/rest-client/). Windows users can
-also use
+`/simple/price` bypassing the Rinkeby test network that Airnode was deployed
+for. As an alternative to CURL try an app such as
+[Insomnia](https://insomnia.rest/) or
+[Postman](https://www.postman.com/product/rest-client/). Windows users can also
+use
 [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install)
 (WSL2) to run CURL for Linux.
 
@@ -225,7 +225,7 @@ Breaking down the URL in the CURL command below:
   as a path parameter, the endpointId to call, see `triggers.rrp[0].endpointId`
   in the `config.json` file.
 
-Request:
+#### Request
 
 :::: tabs
 
@@ -233,7 +233,7 @@ Request:
 
 ```sh
 curl -v -H 'x-api-key: 123-my-key-must-be-30-characters-min' \
--d '{"parameters": {"coinId": "api3"}}' \
+-d '{"parameters": {"coinIds": "api3", "coinVs_currencies": "usd"}}' \
 '<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c'
 ```
 
@@ -243,7 +243,7 @@ curl -v -H 'x-api-key: 123-my-key-must-be-30-characters-min' \
 
 ```sh
 curl -v -H "x-api-key: 123-my-key-must-be-30-characters-min" ^
--d "{\"parameters\": {\"coinId\": \"api3\"}}" ^
+-d "{\"parameters\": {\"coinId\": \"api3\", \"coinVs_currencies\": \"usd\"}}" ^
 <httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c
 ```
 
@@ -251,13 +251,39 @@ curl -v -H "x-api-key: 123-my-key-must-be-30-characters-min" ^
 
 ::::
 
-Response:
+#### Response
 
 ```json
-{ "value": "4060000" }
+{
+  "encodedValue": "0x0000000000000000000000000000000000000000000000000000000000362b30",
+  "rawValue": {
+    "api3": {
+      "usd": 3.55
+    }
+  },
+  "values": ["3550000"]
+}
 ```
 
-## Remove the Airnode
+Note the JSON response `values` is the API3 price multiplied by `1e6`, which
+results from setting the `_times` reserved parameter to `1000000` in
+`config.json`. This manipulation is necessary in order to correctly handle
+floating point numbers.
+
+- `encodedValue`: This is the only field that gets sent to a requester (smart
+  contract) on-chain. It is the encoded bytes of the `values` field. A requester
+  must decode it to read the response values. <br/><br/>
+- `rawValue`: The API's response to Airnode. Presented by the HTTP gateway as a
+  convenience. This is never sent to a requester on-chain. <br/><br/>
+- `values`: A array of values after they are
+  [extracted and converted](../../../reference/packages/adapter.md#conversion)
+  from the `encodedValue` to the target type, in this case `api3.usd` from
+  `_path` in
+  [reservedParameters](../../../reference/specifications/reserved-parameters.md#path).
+  The HTTP gateway provides this as a convenience and never sends the decoded
+  `values` to a requester on-chain.
+
+### Remove the Airnode
 
 When you are done with this demo you can remove it. When the Airnode was
 deployed a `receipt.json` file was created in the `/output` folder. This file is

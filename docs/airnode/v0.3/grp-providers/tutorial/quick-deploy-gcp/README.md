@@ -13,7 +13,7 @@ This demo is a simple Airnode deployment, using a hands-on approach, to better
 understand the overall deployment process of the Airnode
 [deployer image](../../../grp-providers/docker/deployer-image.md) which deploys
 the off-chain component of Airnode (a.k.a., the node) to GCP. It uses an API
-endpoint (`GET /coins/{id}`) from
+endpoint (`GET /simple/price`) from
 [CoinGecko](https://www.coingecko.com/en/api/documentation) which returns the
 current value of a coin. This demo does not detail the overall configuration of
 an Airnode, it is just a quick start.
@@ -32,9 +32,9 @@ url, and a mnemonic.
 
 ## Install Prerequisites
 
-- Install [Docker](https://docs.docker.com/get-docker/) if it is not present on
-  your system and launch it
-- Install [Google Cloud SDK](https://cloud.google.com/sdk/docs/install)
+- Install the [Docker Desktop](https://docs.docker.com/get-docker/) and launch
+  it.
+- Install [Google Cloud SDK](https://cloud.google.com/sdk/docs/install).
 
 ## Project Folder
 
@@ -106,7 +106,7 @@ Add values for each of the these fields.
   [Create a GCP project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
   under which will the Airnode be deployed and copy the project ID.
 
-### GCP project setup & credentials
+### GCP Project Setup & Credentials
 
 In order for Airnode to deploy successfully, you need to enable these APIs for
 your GCP project:
@@ -141,7 +141,7 @@ Airnode.
 Run the following command to deploy the demo Airnode. Note that the version of
 `api3/airnode-deployer` matches the `nodeVersion` in the config.json file.
 
-If you deploy to GCP, the location of the credentials file will vary depending
+When deploying to GCP, the location of the credentials file will vary depending
 on which operating system you use.
 
 :::: tabs
@@ -175,11 +175,11 @@ docker run -it --rm ^
 
 ::::
 
-## Confirm the Airnode deployment
+## Confirm the Airnode Deployment
 
 After a successful deployment you can see the Airnode logs in your
-[GCP Logs Explorer](https://console.cloud.google.com/logs). If you can see logs
-like
+[GCP Logs Explorer](https://console.cloud.google.com/logs). If the logs look
+like the following illustration, the Airnode is up and running.
 
 ```
 INFO Coordinator starting...
@@ -189,8 +189,6 @@ INFO Pending requests: 0 API call(s), 0 withdrawal(s)
 INFO Coordinator completed
 ```
 
-the Airnode is up and running.
-
 <!-- Not really sure what else to put here. HTTP gateway is not available for GCP -->
 
 ## Remove the Airnode
@@ -199,8 +197,8 @@ When you are done with this demo you can remove it. When the Airnode was
 deployed a `receipt.json` file was created in the `/output` folder. This file is
 needed to remove an Airnode.
 
-If you deployed the Airnode to GCP, the location of the credentials file will
-vary depending on which operating system you use.
+The location of the credentials file will vary depending on which operating
+system you use.
 
 :::: tabs
 
