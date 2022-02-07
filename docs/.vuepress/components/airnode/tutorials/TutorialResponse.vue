@@ -27,19 +27,12 @@
       </li>
       <li>
         <code>values</code>: A array of values after they are
-        <router-link
-          href="reservedParameters"
-          to="../../../reference/packages/adapter.html#conversion"
-          >extracted and converted</router-link
-        >
+        <router-link :to="encodeURL">extracted and converted</router-link>
         from the <code>encodedValue</code> to the target type, in this case
         <code>api3.usd</code> from <code>_path</code> in
-        <router-link
-          href="reservedParameters"
-          to="../../../reference/specifications/reserved-parameters.html#path"
-          >reservedParameters</router-link
-        >. The HTTP gateway provides this as a convenience and never sends the
-        decoded <code>values</code> to a requester on-chain.
+        <router-link :to="reservedURL">reservedParameters</router-link>. The
+        HTTP gateway provides this as a convenience and never sends the decoded
+        <code>values</code> to a requester on-chain.
       </li>
     </ul>
   </div>
@@ -48,7 +41,10 @@
 <script>
 export default {
   name: 'TutorialResponse',
-  props: [],
+  data: () => ({
+    reservedURL: '/ois/v1.0.0/reserved-parameters.html#path',
+    encodeURL: '../../../reference/packages/adapter.html#conversion',
+  }),
 };
 </script>
 
