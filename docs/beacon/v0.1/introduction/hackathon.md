@@ -54,9 +54,11 @@ the values provided.
 
 ## Creating a starter project
 
-The easiest way to create a new project is by running our CLI tool, which
+### Using a CLI tool
+
+The easiest way to create a new project is by running a CLI tool, which
 generates the minimal project files that will get you started with building your
-application based on our beacons. Simply run:
+application based on beacons. Simply run:
 
 ```
 npx --package @api3/services --call create-beacon-reader-app
@@ -64,7 +66,7 @@ npx --package @api3/services --call create-beacon-reader-app
 
 The CLI tool will ask you for path in which to initialize the project and
 template on which the project files are based. As of now, there is only one
-template to choose (using javascript + hardhat), but we will create more
+template to choose (using javascript + hardhat), but there will be more
 templates in the future. You can also show help or pass the arguments directly:
 
 ```
@@ -74,7 +76,16 @@ npx --package @api3/services --call "create-beacon-reader-app --help"
 npx --package @api3/services --call "create-beacon-reader-app  --path=./my-app --template=javascript-ethers-hardhat"
 ```
 
-Alternatively, you can clone the
+::: warning Git needed
+
+In order to install the `@api3/services` repository you need to have `git`
+installed.
+
+:::
+
+### Clone or download an existing repo
+
+Alternatively, you can clone or download the
 [beacon-reader-example](https://github.com/api3dao/beacon-reader-example)
 repository from GitHub. This project was created by the services CLI tool
 mentioned above.
