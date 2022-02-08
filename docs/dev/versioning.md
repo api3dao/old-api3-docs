@@ -33,18 +33,16 @@ the following are up-to-date.
 
 ### Versions
 
-A version sub-route in the versioned folders for `/airnode, /beacon and /ois`
-become their respective versions. A corresponding versions array is declared in
+A versioned sub-route in the version folders for `/airnode, /beacon and /ois`
+becomes their respective version. A corresponding versions array is declared in
 _.vuepress/config.json_ for each.
 
-- **name:** The name of the version to display in the pick-list and as the
-  current route in the navbar.
-- **url:** The entry path to the version, usually an airnode route.
+- **name:** The name of the version to display in the pick-list.
+- **url:** The entry path to the version, its current route in the navbar.
 
 ```json
-// The versions field is the Airnode version.
-array.
 versions: [
+  { name: 'v0.4', url: '/airnode/v0.4/' },
   { name: 'v0.3', url: '/airnode/v0.3/' },
   { name: 'v0.2', url: '/airnode/v0.2/' },
   { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
