@@ -87,3 +87,5 @@
 /airnode/latest/reference/templates/config-json.html /airnode/v0.3/reference/templates/config-json.html
 /airnode/latest/reference/templates/ois-json.html /airnode/v0.3/reference/templates/ois-json.html
 /airnode/latest/reference/templates/secrets-env.html /airnode/v0.3/reference/templates/secrets-env.html
+/beacon/latest/functions/ /beacon/v0.1/functions/
+
