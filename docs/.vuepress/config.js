@@ -2,7 +2,7 @@ module.exports = {
   env: process.env.NODE_ENV,
   /// Airnode doc set version pick list.
   versions: [
-    { name: 'v0.4', url: '/airnode/v0.3/' },
+    { name: 'v0.4', url: '/airnode/v0.4/' },
     { name: 'v0.3', url: '/airnode/v0.3/' },
     { name: 'v0.2', url: '/airnode/v0.2/' },
     { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
