@@ -97,6 +97,45 @@ and some of the example code such as the
 [BeaconReaderExample.sol](https://github.com/api3dao/beacon-reader-example/blob/main/contracts/BeaconReaderExample.sol)
 smart contract.
 
+## Services API
+
+The `@api3/services` API exposes two functions:
+
+1. [whitelistBeaconReader](https://github.com/api3dao/services/blob/main/src/index.ts#L66) -
+   This function can be used to programatically whitelist a beacon reader to
+   read values from a particular beacon. You can see it used by the whitelisting
+   script in the beacon reader example project
+   [here](https://github.com/api3dao/beacon-reader-example/blob/main/scripts/whitelist-reader.js#L34).
+   This functions requires 5 parameters:
+   - `beaconId` - the `beaconId` to be whitelisted
+   - `beaconReaderAddress` - the address of the beacon reader contract that you
+     implemented and deployed
+   - `chain` - the name of the chain, e.g. `ropsten`
+   - `providerUrl` - the URL of the blockchain provider that should be used to
+     create a transaction
+   - `senderAccount` - an object with two fields, `mnemonic` (required) and
+     `derivationPath` (optional) specifying an account that should be used to
+     make the whitelisting transaction
+2. [getServiceData](https://github.com/api3dao/services/blob/main/src/index.ts#L27) -
+   You can use this function to get the details of the particular beacon. Most
+   important fields are address of `RrpBeaconServer` (which you need to deploy
+   the beacon reader smart contract) and `beaconId` (which you need to read a
+   beacon value). This function requires 3 parameters:
+   - `apiName` - The
+     [name of the api](https://github.com/api3dao/operations/tree/main/data/apis).
+     Currently, only option is `Amberdata`
+   - `beaconName` - one of the filenames (without extension) from
+     [this directory](https://github.com/api3dao/operations/tree/main/data/apis/Amberdata/beacons),
+     e.g. `eth_usd`
+   - `chain` - the name of the chain, e.g. `ropsten`
+
+However, using the services API is not required to create an beacon reader
+application. You can whitelist a beacon reader smart contract manually. You can
+also get the `beaconId` from
+[beacon IDs docs section](../reference/beacon-ids.md) and an address of the
+`RrpBeaconServer` from the
+[Contract Addresses docs section](../reference/contract-addresses.md).
+
 ## Beacon Whitelisting
 
 ::: warning Please Note
@@ -108,9 +147,33 @@ testnets using the respective blockchain explorer of the testnet
 
 :::
 
+Before a smart contract can read a beacon value, it first needs to be
+whitelisted. This is a way for API providers to protect and monetize their data.
+For production there will be different means of whitelisting. However, for the
+hackaton all of the Amberdata endpoints can be self-whitelisted. This means that
+when you deploy a smart contract that reads the beacon value you can whitelist
+that beacon yourself.
+
+::: warning Whitelisting works per beacon reader
+
+When you deploy multiple beacon reader smart contracts, each of them needs to
+whitelisted. However, you need to whitelist a particular beacon reader only
+once.
+
+:::
+
+### Whitelisting using API3 services API
+
+If you created your application using the service CLI or downloaded beacon
+reader example project, you can whitelist it using `whitelist-reader` script.
+Refer to the [README.md](https://github.com/api3dao/beacon-reader-example) and
+[implementation](https://github.com/api3dao/beacon-reader-example/blob/main/scripts/whitelist-reader.js)
+for more details.
+
 ### Self Whitelisting
 
-You self-whitelist your smart contract using Etherscan or Polygonscan.
+Another option to self-whitelist your smart contract using Etherscan or
+Polygonscan.
 
 1. Open Etherscan/Polygonscan and select the desired testnet using the icon to
    the right of the Sign-In button in the top right corner.
