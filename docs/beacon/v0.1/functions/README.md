@@ -27,12 +27,48 @@ individually or combined to build decentralized data feeds or
 - [requestBeaconUpdate()](./request-beacon-update.md) - Triggers an update to a
   Beacon's value.
 
-## Beacon Reader Example
+## Creating a starter project
 
-A great place to get started is the
-[beacon-reader-example](https://github.com/api3dao/beacon-reader-example) GitHub
-repository. This starter project steps through reading Beacon values from a
-smart contract. Be sure to read through some of the example code such as the
+### Using a CLI tool
+
+The easiest way to create a new project is by running a CLI tool, which
+generates the minimal project files that will get you started with building your
+application based on beacons. Simply run:
+
+```
+npx --package @api3/services --call create-beacon-reader-app
+```
+
+The CLI tool will ask you for path in which to initialize the project and
+template on which the project files are based. As of now, there is only one
+template to choose (using javascript + hardhat), but there will be more
+templates in the future. You can also show help or pass the arguments directly:
+
+```
+# To show help
+npx --package @api3/services --call "create-beacon-reader-app --help"
+# To provide the path and template directly through CLI
+npx --package @api3/services --call "create-beacon-reader-app  --path=./my-app --template=javascript-ethers-hardhat"
+```
+
+::: warning Git needed
+
+In order to install the `@api3/services` repository you need to have `git`
+installed.
+
+:::
+
+### Clone or download an existing repo
+
+Alternatively, you can clone or download the
+[beacon-reader-example](https://github.com/api3dao/beacon-reader-example)
+repository from GitHub. This project was created by the services CLI tool
+mentioned above.
+
+This starter project steps through reading a Beacon value from a smart contract.
+Be sure to read through the
+[README.md](https://github.com/api3dao/beacon-reader-example/blob/main/README.md)
+and some of the example code such as the
 [BeaconReaderExample.sol](https://github.com/api3dao/beacon-reader-example/blob/main/contracts/BeaconReaderExample.sol)
 smart contract.
 
