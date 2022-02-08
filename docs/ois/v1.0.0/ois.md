@@ -370,11 +370,12 @@ the following elements:
 
 #### 5.3.1. `operationParameter`
 
-(Required) An object that refers to an operation parameter, has the following
-elements:
+(Required) An object that refers to an operation parameter with the following
+elements.
 
 - [`name`](ois.md#_4-4-1-1-name)
-- [`in`](ois.md#_4-4-1-2-in)
+- [`in`](ois.md#_4-4-1-2-in): Must be one of three possible values
+  (`query, header and cookie`).
 
 #### 5.3.2. `value`
 
