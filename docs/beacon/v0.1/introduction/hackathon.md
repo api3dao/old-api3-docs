@@ -128,6 +128,12 @@ You self-whitelist your smart contract using Etherscan or Polygonscan.
 
 5. Select the _Write_ button and execute the transaction from your wallet.
 
+## Getting Help
+
+During the Hackathon you can access the
+[Discord support channel](https://discord.com/channels/758003776174030948/871787274386411580)
+for assistance.
+
 ## Work with API3
 
 Consider working with the Core Development Team at API3. Our search for you is
