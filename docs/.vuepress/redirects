@@ -2,6 +2,7 @@
 /airnode /airnode/v0.3
 /beacon /beacon/v0.1
 /beacons /beacon/v0.1
+/beacon/latest/ /beacon/v0.1/
 /ois /ois/v1.0.0
 /pre-alpha /airnode/pre-alpha
 /next /airnode/v0.4
@@ -20,11 +21,14 @@
 /pre-alpha/airnode/specifications/reserved-parameters.html /airnode/pre-alpha/airnode/specifications/reserved-parameters.html
 /pre-alpha/guides/docker/deployer-image.html /airnode/pre-alpha/guides/docker/deployer-image.html
 /pre-alpha/protocols/request-response/authorizer.html /airnode/pre-alpha/protocols/request-response/authorizer.html
+
+/beacon/latest/functions/ /beacon/v0.1/functions/
+/beacon/latest/functions/#creating-a-starter-project /beacon/v0.1/functions/#creating-a-starter-project
+
 /airnode/latest/concepts/ /airnode/v0.3/concepts/
 /airnode/latest/concepts/airnode.html /airnode/v0.3/concepts/airnode.html
 /airnode/latest/concepts/authorization.html /airnode/v0.3/concepts/authorization.html
 /airnode/latest/concepts/airnode-auth.html /airnode/v0.3/concepts/airnode-auth.html
-/airnode/latest/ /airnode/v0.3/
 /airnode/latest/concepts/chain-providers.html /airnode/v0.3/concepts/chain-providers.html
 /airnode/latest/concepts/requester.html /airnode/v0.3/concepts/requester.html
 /airnode/latest/concepts/template.html /airnode/v0.3/concepts/template.html
@@ -87,5 +91,3 @@
 /airnode/latest/reference/templates/config-json.html /airnode/v0.3/reference/templates/config-json.html
 /airnode/latest/reference/templates/ois-json.html /airnode/v0.3/reference/templates/ois-json.html
 /airnode/latest/reference/templates/secrets-env.html /airnode/v0.3/reference/templates/secrets-env.html
-/beacon/latest/functions/ /beacon/v0.1/functions/
-
