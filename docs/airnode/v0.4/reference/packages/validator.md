@@ -8,7 +8,7 @@ title: Validator
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 The
-[airnode-validator](https://github.com/api3dao/airnode/tree/v0.3/packages/airnode-validator)
+[airnode-validator](https://github.com/api3dao/airnode/tree/v0.4/packages/airnode-validator)
 package, known as the validator, is used by the
 [Docker Images](../../grp-providers/docker/) to validate the
 [configuration files](../../grp-providers/guides/build-an-airnode/configuring-airnode.md)
@@ -84,7 +84,7 @@ console.log(
 You can clone and build the Airnode monorepo then run the validator as a yarn
 script from inside the `packages/airnode-validator` directory. The instructions
 to do so are in the monorepo validator package
-[README](https://github.com/api3dao/airnode/tree/master/packages/airnode-validator).
+[README](https://github.com/api3dao/airnode/tree/v0.4/packages/airnode-validator).
 
 ## Examples
 
@@ -118,7 +118,7 @@ The validator will automatically validate the latest available version of a
 template (i.e., `--template="config"`) when the template does not contain a
 specific version . If a specific version is needed it can be appended to the
 template argument (i.e., `--template="config@0.3"`). You can see the different
-[template versions](https://github.com/api3dao/airnode/tree/master/packages/airnode-validator/templates)
+[template versions](https://github.com/api3dao/airnode/tree/v0.4/packages/airnode-validator/templates)
 in the validator package of the Airnode monorepo.
 
 ### config

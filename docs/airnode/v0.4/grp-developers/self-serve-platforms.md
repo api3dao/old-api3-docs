@@ -120,14 +120,14 @@ yarn run build
 ```
 
 3. Go to the
-   [protocol package](https://github.com/api3dao/airnode/tree/v0.3/packages/airnode-protocol)
+   [protocol package](https://github.com/api3dao/airnode/tree/v0.4/packages/airnode-protocol)
 
 ```sh
 cd packages/airnode-protocol
 ```
 
 4. Create a `credentials.json` file, similar to
-   [credentials.example.json](https://github.com/api3dao/airnode/blob/v0.3/packages/airnode-protocol/credentials.example.json)
+   [credentials.example.json](https://github.com/api3dao/airnode/blob/v0.4/packages/airnode-protocol/credentials.example.json)
 
 ```sh
 cp credentials.example.json credentials.json
@@ -151,7 +151,7 @@ protocol contracts. Make sure that it is funded (if applicable).
 protocol contracts.
 
 6. Add the following entry to
-   [hardhat.config.js](https://github.com/api3dao/airnode/blob/v0.3/packages/airnode-protocol/hardhat.config.js)
+   [hardhat.config.js](https://github.com/api3dao/airnode/blob/v0.4/packages/airnode-protocol/hardhat.config.js)
 
 ```js
 $CHAIN_NAME: {
@@ -161,7 +161,7 @@ $CHAIN_NAME: {
 ```
 
 7. Add the following script to
-   [package.json](https://github.com/api3dao/airnode/blob/v0.3/packages/airnode-protocol/package.json)
+   [package.json](https://github.com/api3dao/airnode/blob/v0.4/packages/airnode-protocol/package.json)
 
 ```json
 "deploy:$CHAIN_NAME": "hardhat deploy --network $CHAIN_NAME"
@@ -169,7 +169,7 @@ $CHAIN_NAME: {
 
 1. Finally, run the added script to deploy the contracts, which will record the
    deployment details including the contract address in the
-   [`/deployments`](https://github.com/api3dao/airnode/tree/v0.3/packages/airnode-protocol/deployments)
+   [`/deployments`](https://github.com/api3dao/airnode/tree/v0.4/packages/airnode-protocol/deployments)
    directory.
 
 ```sh

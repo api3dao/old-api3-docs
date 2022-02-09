@@ -2,6 +2,7 @@ module.exports = {
   env: process.env.NODE_ENV,
   /// Airnode doc set version pick list.
   versions: [
+    { name: 'v0.4', url: '/airnode/v0.4/' },
     { name: 'v0.3', url: '/airnode/v0.3/' },
     { name: 'v0.2', url: '/airnode/v0.2/' },
     { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
@@ -11,7 +12,7 @@ module.exports = {
   /// OIS doc set version pick list.
   versionsOis: [{ name: 'v1.0.0', url: '/ois/v1.0.0/' }],
   /// Latest/current Airnode doc set version.
-  latestVersion: '/airnode/v0.3/',
+  latestVersion: '/airnode/v0.4/',
   /// Latest/current Beacon doc set version.
   latestBeaconVersion: '/beacon/v0.1/',
   /// Latest/current OIS doc set version.
@@ -37,7 +38,7 @@ module.exports = {
     extractHeaders: ['h2', 'h3', 'h4', 'h5'],
   },
   themeConfig: {
-    startPath: '/airnode/v0.3/',
+    startPath: '/airnode/v0.4/',
     sidebarDepth: 0,
     displayAllHeaders: false,
     logo: '/img/logo.png',
