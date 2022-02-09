@@ -16,8 +16,8 @@ Airnode docs. These mappings are in the `/docs/.vuepress/redirects` file.
 
 ```bash
 # Points to v0.3 of Airnode
-/latest /airnode/v0.3
-/airnode /airnode/v0.3
+/latest /airnode/v0.4
+/airnode /airnode/v0.4
 ```
 
 ## Use Cases
@@ -39,6 +39,38 @@ As of Dec/2021 this problem has disappeared and HTML files are now in the
 redirects file.
 
 :::
+
+## Hard Coded Redirects
+
+Certain routes in the `/docs/.vuepress/redirects` file should never be changed
+unless the owner approves. It may be necessary to update the paths as it is
+likely to contain changes to the paths. Change `/next` to the proper release if
+needed.
+
+```{6-8}
+/latest /v0.2
+/latest/members /v0.2/members
+/airnode-starter /pre-alpha/tutorials/airnode-starter.html
+/pre-alpha/airnode-starter /pre-alpha/tutorials/airnode-starter.html
+...
+/r/reserved-parameters /next/reference/specifications/reserved-parameters.html
+// becomes
+/r/reserved-parameters /v.02/reference/specifications/reserved-parameters.html
+```
+
+Check that the directory path to a file has not changed.
+
+For example if:<code>/r/reserved-parameters
+/next/reference/<span style="color:red;">specifications</span>/reserved-parameters.html</code>
+was changed to: <code>/r/reserved-parameters
+/next/reference/<span style="color:red;">specs</span>/reserved-parameters.html</code>
+
+Boost to the latest version.
+
+For example: <code>/r/reserved-parameters
+/<span style="color:red;">v0.2</span>/reference/specifications/reserved-parameters.html</code>
+was changes to: <code>/r/reserved-parameters
+/<span style="color:red;">v0.3</span>/reference/specs/reserved-parameters.html</code>
 
 ## Latest Redirects
 
