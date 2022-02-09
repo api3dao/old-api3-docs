@@ -183,20 +183,20 @@ integrated API.
 
 ### HTTP Gateway
 
-Looking at the config.json code snippet below shows the HTTP Gateway was
-activated for our Airnode. Furthermore the endpoint for `/simple/price` with an
-`endpointId` of `0xf...53c` is set to be `testable:true`. Each individual
-`endpointId` in `triggers.rrp[n]` must be marked as `testable: true || false` to
-allow for the desired access.
+Looking at the [config.json](./config-json.md) code snippet below shows the HTTP
+gateway was activated for the Airnode. Furthermore the endpoint for
+`/simple/price` (with an `endpointId` of `0xf...53c`) has been added to
+`triggers[n].http[n]`. Only those endpoints added to the `http` array can be
+tested.
 
 ```json
 "nodeSettings": {
- ...
+  ...
   "httpGateway": {
     "enabled": true, // The gateway is activated for this Airnode
     "apiKey": "${HTTP_GATEWAY_API_KEY}" // Gateway apiKey
   },
-...
+  ...
 },
 "triggers": {
   "rrp": [
@@ -204,7 +204,13 @@ allow for the desired access.
       "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
       "oisTitle": "CoinGecko Basic Request",
       "endpointName": "coinMarketData",
-      "testable": true // This endpoint can be tested by the gateway
+    }
+  ],
+  "http": [
+    {
+      "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
+      "oisTitle": "CoinGecko Basic Request",
+      "endpointName": "coinMarketData",
     }
   ]
 }
