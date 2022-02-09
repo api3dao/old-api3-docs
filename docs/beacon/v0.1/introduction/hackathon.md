@@ -172,7 +172,7 @@ for more details.
 
 ### Self Whitelisting
 
-Another option to self-whitelist your smart contract using Etherscan or
+Another option to self-whitelist your smart contract is by using Etherscan or
 Polygonscan.
 
 1. Open Etherscan/Polygonscan and select the desired testnet using the icon to
