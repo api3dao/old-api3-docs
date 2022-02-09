@@ -339,32 +339,17 @@ config.json during deployment or when run in a docker. Possible values are
 ### triggers
 
 The `triggers` field allows you to expose Airnode endpoints from an OIS
-selectively for a particular protocol. For example, your OIS may include ten
-endpoints, but you may only want to serve two. Instead of modifying the OIS, you
-would simply create triggers for the two. List the endpoints that you want to
-serve with the request–response protocol under `triggers.rrp`. In most cases,
-you would create a trigger for each endpoint in your OIS object.
+selectively for the RRP protocol or via the HTTP gateway. For example, your OIS
+may include 10 endpoints, but you may only want to serve 2 for RRP and all 10
+for the gateway.
 
-#### rrp
+List the endpoints that you want to serve with the request–response protocol
+(RRP) under `triggers.rrp`. List the endpoints that you want to serve with the
+HTTP gateway under `triggers.http`. In most cases, you would create a trigger
+for each endpoint in your OIS object.
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#rrp)
-An array of endpoints from OIS that the Airnode will respond to for the RRP
-protocol.
-
-##### oisTitle & endpointName
-
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#rrp-n-oistitle)
-Each trigger has an `oisTitle` and `endpointName` that allow you to refer to one
-of the endpoints in an OIS object. Remember that an Airnode's config.json file
-can have more than one OIS object. Fill these in accordingly.
-
-##### endpointId
-
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#rrp-n-endpointid)
-Add an `endpointId` to the trigger which is the ID that a requester will use for
-on-chain requests to reference a specific trigger. Use the admin CLI command
-[derive-endpoint-id](../../../reference/packages/admin-cli.md#derive-endpoint-id)
-to derive endpoint IDs using the `oisTitle` and `endpointName`.
+Both `rrp` and `http` require an `endpointId` which can be derived from the
+`oisTitle` and `endpointName`.
 
 ```bash
 npx @api3/airnode-admin derive-endpoint-id \
@@ -372,12 +357,38 @@ npx @api3/airnode-admin derive-endpoint-id \
   --endpointName "My endpoint name..."
 ```
 
-##### testable
+#### rrp
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#rrp-n-testable)
-Optional flag that indicates if the endpoint can be tested with the HTTP gateway
-when the [HTTP gateway](./configuring-airnode.md#httpgateway) is enabled.
-Allowed values: `true` or `false`.
+[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#rrp)
+An array of endpoints from OIS that the Airnode will respond to for the RRP
+protocol. Only endpoints listed here will be served through the RRP protocol
+[AirnodeRrp.sol](../../../concepts/airnode.md).
+
+- oisTitle & endpointName: Each trigger has an `oisTitle` and `endpointName`
+  that allow you to refer to one of the endpoints in an OIS object. Remember
+  that an Airnode's config.json file can have more than one OIS object.
+
+- endpointId: Add an `endpointId` to the trigger which is the ID that a
+  requester will use for on-chain requests to reference a specific trigger. Use
+  the admin CLI command
+  [derive-endpoint-id](../../../reference/packages/admin-cli.md#derive-endpoint-id)
+  to derive endpoint IDs using the `oisTitle` and `endpointName`.
+
+#### http
+
+[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#http)
+An array of endpoints from OIS that the Airnode will respond to for the HTTP
+gateway. Only endpoints listed here can be tested via the HTTP gateway.
+
+- oisTitle & endpointName: Each trigger has an `oisTitle` and `endpointName`
+  that allow you to refer to one of the endpoints in an OIS object. Remember
+  that an Airnode's config.json file can have more than one OIS object.
+
+- endpointId: Add an `endpointId` to the trigger which is the ID that a
+  requester will use for on-chain requests to reference a specific trigger. Use
+  the admin CLI command
+  [derive-endpoint-id](../../../reference/packages/admin-cli.md#derive-endpoint-id)
+  to derive endpoint IDs using the `oisTitle` and `endpointName`.
 
 ### ois
 

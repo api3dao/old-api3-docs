@@ -64,23 +64,19 @@ View the parameters of a command:
 npx @api3/airnode-admin $COMMAND --help
 ```
 
-<divider/>
-
 ## Using Docker
 
 Use the Admin CLI docker image as an alternative to `npx`:
 
 ```sh
-docker run api3/airnode-admin:0.4.0 --help
+docker run api3/airnode-admin:0.5.0 --help
 ```
 
 View the parameters of a command:
 
 ```sh
-docker run api3/airnode-admin:0.4.0 $COMMAND --help
+docker run api3/airnode-admin:0.5.0 $COMMAND --help
 ```
-
-<divider/>
 
 ## SDK
 
@@ -129,8 +125,6 @@ adminSdk.airnodeRrp = airnodeRrp.connect(someOtherWallet);
 The SDK will also provide TS typings out of the box. Please, refer to the
 implementation for more details.
 
-<divider/>
-
 ## Sponsors
 
 Commands related to a [sponsor's](../../concepts/sponsor.md) relationships
@@ -150,8 +144,6 @@ protocol contract where the signer is sponsor account.
 - [request-withdrawal](admin-cli.md#request-withdrawal)
 - [check-withdrawal-request](admin-cli.md#check-withdrawal-request)
 - [verify-airnode-xpub](admin-cli.md#verify-airnode-xpub)
-
-<divider/>
 
 ### `sponsor-requester`
 
@@ -204,8 +196,6 @@ npx @api3/airnode-admin sponsor-requester ^
 
 ::::
 
-<divider/>
-
 ### `unsponsor-requester`
 
 Removes the sponsorship of a [requester](../../concepts/requester.md) contract
@@ -249,8 +239,6 @@ npx @api3/airnode-admin unsponsor-requester ^
 
 ::::
 
-<divider/>
-
 ### `get-sponsor-status`
 
 Returns the sponsor status for a given [sponsor](../../concepts/sponsor.md) and
@@ -289,8 +277,6 @@ npx @api3/airnode-admin get-sponsor-status ^
 :::
 
 ::::
-
-<divider/>
 
 ### `derive-sponsor-wallet-address`
 
@@ -331,8 +317,6 @@ npx @api3/airnode-admin derive-sponsor-wallet-address ^
 :::
 
 ::::
-
-<divider/>
 
 ### `create-template`
 
@@ -376,8 +360,6 @@ npx @api3/airnode-admin create-template ^
 
 ::::
 
-<divider/>
-
 ### `get-template`
 
 Returns the [template](../../concepts/template.md) for the given `template-id`.
@@ -410,8 +392,6 @@ npx @api3/airnode-admin get-template ^
 :::
 
 ::::
-
-<divider/>
 
 ### `request-withdrawal`
 
@@ -470,8 +450,6 @@ npx @api3/airnode-admin request-withdrawal ^
 
 ::::
 
-<divider/>
-
 ### `check-withdrawal-request`
 
 Checks the status of the [withdrawal](../../concepts/sponsor.md#withdrawals)
@@ -507,8 +485,6 @@ npx @api3/airnode-admin check-withdrawal-request ^
 :::
 
 ::::
-
-<divider/>
 
 ### `verify-airnode-xpub`
 
@@ -546,8 +522,6 @@ npx @api3/airnode-admin verify-airnode-xpub ^
 
 ::::
 
-<divider/>
-
 ## Airnodes
 
 Helper commands for a previously deployed Airnode. Some of these commands
@@ -558,8 +532,6 @@ Airnode wallet.
 - [derive-endpoint-id](admin-cli.md#derive-endpoint-id)
 - [generate-mnemonic](admin-cli.md#generate-mnemonic)
 - [derive-airnode-address](admin-cli.md#derive-airnode-address)
-
-<divider/>
 
 ### `derive-airnode-xpub`
 
@@ -591,8 +563,6 @@ npx @api3/airnode-admin derive-airnode-xpub --airnode-mnemonic "nature about sal
 :::
 
 ::::
-
-<divider/>
 
 ### `derive-endpoint-id`
 
@@ -631,8 +601,6 @@ npx @api3/airnode-admin derive-endpoint-id ^
 
 ::::
 
-<divider/>
-
 ### `generate-mnemonic`
 
 Generates a unique mnemonic which can be used to create the
@@ -641,8 +609,6 @@ Generates a unique mnemonic which can be used to create the
 ```sh
 npx @api3/airnode-admin generate-mnemonic
 ```
-
-<divider/>
 
 ### `derive-airnode-address`
 
@@ -654,8 +620,6 @@ for many other admin CLI commands, such as
 ```sh
 npx @api3/airnode-admin derive-airnode-address
 ```
-
-<divider/>
 
 ## RequesterAuthorizerWithAirnode
 
@@ -676,8 +640,6 @@ contract.
 - [set-indefinite-whitelist-status](admin-cli.md#set-indefinite-whitelist-status)
 - [get-whitelist-status](admin-cli.md#get-whitelist-status)
 - [is-requester-whitelisted](admin-cli.md#is-requester-whitelisted)
-
-<divider/>
 
 ### `set-whitelist-expiration`
 
@@ -732,8 +694,6 @@ npx @api3/airnode-admin set-whitelist-expiration ^
 
 ::::
 
-<divider/>
-
 ### `extend-whitelist-expiration`
 
 Called by the Airnode wallet or a whitelist expiration extender to extend the
@@ -785,8 +745,6 @@ npx @api3/airnode-admin extend-whitelist-expiration ^
 :::
 
 ::::
-
-<divider/>
 
 ### `set-indefinite-whitelist-status`
 
@@ -841,8 +799,6 @@ npx @api3/airnode-admin set-indefinite-whitelist-status ^
 
 ::::
 
-<divider/>
-
 ### `get-whitelist-status`
 
 Called to get the detailed whitelist status of a requester for the
@@ -884,8 +840,6 @@ npx @api3/airnode-admin get-whitelist-status ^
 
 ::::
 
-<divider/>
-
 ### `is-requester-whitelisted`
 
 Called to check if a requester is whitelisted to use the Airnode–endpoint pair.
@@ -926,8 +880,6 @@ npx @api3/airnode-admin is-requester-whitelisted ^
 :::
 
 ::::
-
-<divider/>
 
 ## More Examples
 

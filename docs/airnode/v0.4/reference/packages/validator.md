@@ -117,7 +117,7 @@ case-insensitive.
 The validator will automatically validate the latest available version of a
 template (i.e., `--template="config"`) when the template does not contain a
 specific version . If a specific version is needed it can be appended to the
-template argument (i.e., `--template="config@0.3"`). You can see the different
+template argument (i.e., `--template="config@0.4"`). You can see the different
 [template versions](https://github.com/api3dao/airnode/tree/v0.4/packages/airnode-validator/templates)
 in the validator package of the Airnode monorepo.
 
@@ -207,8 +207,8 @@ be provided otherwise the latest version is used.
 # Creates an OIS object from an OAS specification file.
 npx @api3/airnode-validator api3-convertor --from="OAS" --to="OIS" --specs="exampleSpecs/OAS.specs.json"
 
-# Creates a config file with an OIS object embedded specifically using version 0.3.
-npx @api3/airnode-validator api3-convertor --from="ois@1.0" --to="config@0.3" --specs="exampleSpecs/ois.specs.json"
+# Creates a config file with an OIS object embedded specifically using version 0.4.
+npx @api3/airnode-validator api3-convertor --from="ois@1.0" --to="config@0.4" --specs="exampleSpecs/ois.specs.json"
 ```
 
 ### Usage
@@ -236,7 +236,7 @@ paste the convertor output into a file named `config.json`.
 
 ```sh
   # Create a config object with the ois object.
-  npx @api3/airnode-validator api3-convertor --from="ois@1.0" --to="config@0.3" --specs="my-config/ois.json"
+  npx @api3/airnode-validator api3-convertor --from="ois@1.0" --to="config@0.4" --specs="my-config/ois.json"
 ```
 
 #### Step 3:

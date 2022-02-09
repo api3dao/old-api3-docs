@@ -88,6 +88,13 @@ building a config.json file.
         "oisTitle": "<FILL_OIS_TITLE>",
         "endpointName": "<FILL_ENDPOINT_NAME>"
       }
+    ],
+    "http": [
+      {
+        "endpointId": "<FILL_*>",
+        "oisTitle": "<FILL_OIS_TITLE>",
+        "endpointName": "<FILL_ENDPOINT_NAME>"
+      }
     ]
   },
   "ois": [

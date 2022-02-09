@@ -44,7 +44,7 @@ not generated for client deployments (deploying to a Docker container).
       "region": "us-east-1"
     },
     "stage": "starter-example",
-    "nodeVersion": "0.4.0"
+    "nodeVersion": "0.5.0"
   },
   "api": {
     "heartbeatId": "74dc44a1ee65",
@@ -72,7 +72,7 @@ not generated for client deployments (deploying to a Docker container).
       "projectId": "api3-753118"
     },
     "stage": "dev",
-    "nodeVersion": "0.4.0"
+    "nodeVersion": "0.5.0"
   },
   "api": {}
 }

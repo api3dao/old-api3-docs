@@ -14,7 +14,7 @@ gateway allows the testing of defined Airnode endpoints without accessing the
 blockchain. You provide endpoint arguments directly to the Airnode with a tool.
 of your choice and get a response from an integrated API operation. This results
 in confirmation your integration is set up properly. The HTTP gateway feature is
-only available when deploying an Airnode to AWS cloud provider.
+available when deploying to both the AWS and GCP cloud providers.
 
 > ![gateway](../../../assets/images/gateway.png)
 
@@ -43,10 +43,10 @@ Enable the HTTP gateway by setting two fields in the config.json
 },
 ```
 
-You must also add the [testable](./configuring-airnode.md#testable) boolean flag
-for each endpoint you want to test in the respective `triggers` object
-(`triggers.rrp[n].testable`). This indicates whether the endpoint can be used
-via the HTTP gateway or not. It’s optional and by default is `false`.
+You must also add each endpoint to test in the `triggers[n].http[n]` array. The
+`rrp` field serves its endpoints on-chain. The `http` field serves its endpoints
+via the HTTP gateway. It may be desirable to serve some or all endpoints
+on-chain and only some via the gateway, or vise versa.
 
 ```json
 // in config.json
@@ -56,7 +56,13 @@ via the HTTP gateway or not. It’s optional and by default is `false`.
       "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
       "oisTitle": "CoinGecko Basic Request",
       "endpointName": "coinMarketData",
-      "testable": true // This endpoint can be tested by the gateway
+    }
+  ],
+  "http": [
+    {
+      "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
+      "oisTitle": "CoinGecko Basic Request",
+      "endpointName": "coinMarketData",
     }
   ]
 }
