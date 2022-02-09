@@ -69,7 +69,7 @@ console.log(
 );
 // Using a versioned template.
 console.log(
-  validator.validateWithTemplate('exampleSpecs/config.specs.json', 'config@0.4')
+  validator.validateWithTemplate('exampleSpecs/config.specs.json', 'config@0.5')
 );
 
 # Outputs json
@@ -132,8 +132,8 @@ must be in separate files to be validated.
 # Validates a completed config.json file using the latest template version.
 npx @api3/airnode-validator --template="config" --specs="myProject/config/config.json"
 
-# Uses the 0.4 template version.
-npx @api3/airnode-validator --template="config@0.4" --specs="myProject/config/config.json"
+# Uses the 0.5 template version.
+npx @api3/airnode-validator --template="config@0.5" --specs="myProject/config/config.json"
 ```
 
 You will most likely keep secrets in a file separate from the `config.json`
@@ -196,7 +196,7 @@ The currently available conversions are from (`OAS` to `OIS`) and from (`OIS` to
 `config`). Specification formats are case-insensitive.
 
 Convertor CLI commands work the same way as the validator and can be invoked
-with the `api3-convertor` command. The version of the format (e.g., `@0.4`) can
+with the `api3-convertor` command. The version of the format (e.g., `@5`) can
 be provided otherwise the latest version is used.
 
 - --from: Type of object to convert (OAS or OIS).

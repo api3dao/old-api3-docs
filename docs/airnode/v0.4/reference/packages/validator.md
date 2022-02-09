@@ -117,7 +117,7 @@ case-insensitive.
 The validator will automatically validate the latest available version of a
 template (i.e., `--template="config"`) when the template does not contain a
 specific version . If a specific version is needed it can be appended to the
-template argument (i.e., `--template="config@0.3"`). You can see the different
+template argument (i.e., `--template="config@0.4"`). You can see the different
 [template versions](https://github.com/api3dao/airnode/tree/v0.4/packages/airnode-validator/templates)
 in the validator package of the Airnode monorepo.
 
