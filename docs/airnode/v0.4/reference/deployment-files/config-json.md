@@ -326,10 +326,15 @@ defined in an OIS.
     {
       "endpointId": "0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5",
       "oisTitle": "myOisTitle",
-      "endpointName": "myEndpointName",
-      "testable":true,
-    },
-    ...
+      "endpointName": "myEndpointName"
+    }
+  ],
+  "rrp": [
+    {
+      "endpointId": "0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5",
+      "oisTitle": "myOisTitle",
+      "endpointName": "myEndpointName"
+    }
   ]
 }
 ```
@@ -364,10 +369,24 @@ the RRP protocol.
 
 (required) - The endpoint name of an OIS endpoint.
 
-#### `rrp[n].testable`
+### `http`
 
-(optional) - Flag that indicates whether the endpoint can be tested with the
-HTTP gateway. Defaults to false. The gateway must be enabled.
+[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#http)
+(required) - An array of endpoints from OIS that the Airnode will respond to for
+the HTTP gateway.
+
+#### `http[n].endpointId`
+
+(required) - A identifier derived for an oisTitle/endpointName pair, see
+[derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id).
+
+#### `http[n].oisTitle`
+
+(required) - The title of an OIS object.
+
+#### `http[n].endpointName`
+
+(required) - The endpoint name of an OIS endpoint.
 
 ## ois
 
