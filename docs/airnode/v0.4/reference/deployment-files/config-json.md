@@ -99,27 +99,27 @@ respective parameters.
 
 ### `maxConcurrency`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#maxconcurrency)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#maxconcurrency)
 (required) - The maximum concurrency specifies the maximum number of concurrent
 handler calls per single Airnode invocation.
 
 ### `authorizers`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#authorizers)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#authorizers)
 (required) - The list of authorizer contract addresses specifying the
 authorization patterns that the Airnode should use. An empty array would
 allow-all.
 
 ### `contracts`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#contracts)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#contracts)
 (required) - An object that keeps the addresses of the protocol contracts
 deployed on the respective chain. It must include the `AirnodeRRP` contract
 address.
 
 ### `id`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#id)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#id)
 (required) - The corresponding chain (or network) ID. If this is an
 Ethereum-based chain, `id` should be the chain ID as described in
 [EIP-155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md#list-of-chain-ids).
@@ -127,19 +127,19 @@ Refer to the documentations of the chain you will be using to find its chain ID.
 
 ### `providers`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#providers)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#providers)
 (required) - List of chain providers that will be used. Note that multiple of
 them can be used simultaneously. The Airnode deployment will expect to find the
 URLs of each of these chain providers in their respective `url` fields.
 
 ### `type`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#type)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#type)
 (required) - The type of chain. Currently only `evm` is supported.
 
 ### `options`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#options)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#options)
 (required) - An object that configures chain-related options.
 
 #### `options.txType`
@@ -165,7 +165,7 @@ The resulting Maximum Fee will equal
 
 ### `blockHistoryLimit`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#blockhistorylimit)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#blockhistorylimit)
 (optional) - The number of blocks in the past that the Airnode deployment should
 search for requests. Defaults to `300` (roughly 1 hour for Ethereum).
 
@@ -176,7 +176,7 @@ valid. Defaults to `0`.-->
 
 ### `ignoreBlockedRequestsAfterBlocks`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#ignoreblockedrequestsafterblocks)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#ignoreblockedrequestsafterblocks)
 (optional) - The number of blocks that need to pass for the node to start
 ignoring blocked requests. Defaults to `20`. A request is blocked whenever the
 API call cannot be made. For example, endpoint (specified by its id in the
@@ -216,7 +216,7 @@ An object containing general deployment parameters of an Airnode.
 
 ### `cloudProvider`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#cloudprovider)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#cloudprovider)
 (required) - The cloud provider that the node will be deployed at and its
 configuration.
 
@@ -241,12 +241,12 @@ under.
 
 ### `airnodeWalletMnemonic`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#airnodewalletmnemonic)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#airnodewalletmnemonic)
 (required) - The wallet mnemonic that will be used by the Airnode.
 
 ### `heartbeat`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#heartbeat)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#heartbeat)
 (required) - The Airnode's "call home" functionality. Airnode can periodically
 make a request to the specified URL signaling that it's active. There are plans
 in the future to allow the sending of a payload with information for reporting
@@ -270,7 +270,7 @@ purposes.
 
 ### `httpGateway`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpgateway)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpgateway)
 (required) - The Airnode's HTTP gateway can test endpoints without using the
 blockchain.
 
@@ -285,31 +285,31 @@ gateway.
 
 ### `logFormat`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#logformat)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#logformat)
 (required) - The format that will be used to output logs. Either `json` or
 `plain`.
 
 ### `logLevel`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#loglevel)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#loglevel)
 (required) - The highest verbosity level of the logs that will be outputted.
 `DEBUG`, `INFO`, `WARN` or `ERROR`.
 
 ### `nodeVersion`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#nodeversion)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#nodeversion)
 (required) - The version of the node (Airnode) that will be deployed with this
 config object.
 
 ### `stage`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#stage)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#stage)
 (required) - The label used to distinguish between multiple deployments of the
 same Airnode on a cloud provider.
 
 ### `skipValidation`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#skipvalidation)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#skipvalidation)
 (optional) - Whether the config.json validation should be skipped. Defaults to
 `false`.
 
@@ -352,7 +352,7 @@ default convention for deriving the `endpointId`.
 
 ### `rrp`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#rrp)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#rrp)
 (required) - An array of endpoints from OIS that the Airnode will respond to for
 the RRP protocol.
 
@@ -371,7 +371,7 @@ the RRP protocol.
 
 ### `http`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#http)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#http)
 (required) - An array of endpoints from OIS that the Airnode will respond to for
 the HTTP gateway.
 
@@ -443,19 +443,19 @@ Use of apiCredentials is not required, leave its array empty.
 
 ### `oisTitle`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#oistitle)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#oistitle)
 (required) - The `ois.title` of the OIS where the `securitySchemeName` can be
 found.
 
 ### `securitySchemeName`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#securityschemename)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#securityschemename)
 (required) - The name of a security scheme from
 `ois[n].components.securitySchemes.{securitySchemeName}`.
 
 ### `securitySchemeValue`
 
-[<img :src="$withBase('/img/info-blue-20.png')" alt="info" class="infoIcon">](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#securityschemevalue)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#securityschemevalue)
 (required) - The value of the security scheme used (as defined by
 `ois[n].components.securitySchemes.{securitySchemeName}` for the authentication.
 Usually stored in `secrets.env`.
