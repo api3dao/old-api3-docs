@@ -1,12 +1,13 @@
 ---
 title: Specification
+airnodeVersion: v0.4
 ---
 
 <TitleSpan>OIS</TitleSpan>
 
 # {{$frontmatter.title}}
 
-<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,4]" />
 
 The Oracle Integration Specification (OIS) is based on
 [Open API specification (OAS)](https://swagger.io/specification/), but there are
@@ -162,6 +163,7 @@ the non-nested application/json content-type is supported.
 
 ### 4.3. `components`
 
+[<InfoBtnBlue/>](/airnode/v0.4/grp-providers/guides/build-an-airnode/api-security.md#supported-security-schemes)
 (Required) An object where security schemes can be found under
 `securitySchemes.{securitySchemeName}` with the following elements:
 
@@ -176,10 +178,15 @@ the non-nested application/json content-type is supported.
 
 Allowed values:
 
-- `apiKey`, `http`: Used by an API to authenticate Airnode.
-- `relayRequesterAddress`, `relayChainId`, `relayChainType`,
-  `relaySponsorAddress`, `relaySponsorWalletAddress`: Allows an API to acquire
-  information about the requester.
+- Used by an API to authenticate Airnode.
+  - `apiKey`
+  - `http`
+- Allows an API to acquire information about the requester and/or the chain.
+  - `relayRequesterAddress`
+  - `relaySponsorAddress`
+  - `relaySponsorWalletAddress`
+  - `relayChainId`
+  - `relayChainType`
 
 OAS equivalent: `components.securitySchemes.{securitySchemeName}.type`
 
@@ -362,20 +369,21 @@ respective operation
 
 ### 5.3. `fixedOperationParameters`
 
+[<InfoBtnBlue/>](/airnode/v0.4/grp-providers/guides/build-an-airnode/api-integration.md#fixedoperationparameters)
 (Required) A list of objects specifying fixed operation parameters. While
 required, the fixedOperationParameters array can be left empty. Each object has
 the following elements:
 
-- [`operationParameter`](ois.md#_5-3-1-operationparameter)
-- [`value`](ois.md#_5-3-2-value)
+- [operationParameter](ois.md#_5-3-1-operationparameter)
+- [value](ois.md#_5-3-2-value)
 
 #### 5.3.1. `operationParameter`
 
 (Required) An object that refers to an operation parameter with the following
 elements.
 
-- [`name`](ois.md#_4-4-1-1-name)
-- [`in`](ois.md#_4-4-1-2-in): Must be one of three possible values
+- [name](ois.md#_4-4-1-1-name)
+- [in](ois.md#_4-4-1-2-in): Must be one of three possible values
   (`query, header and cookie`).
 
 #### 5.3.2. `value`
@@ -385,14 +393,15 @@ cannot be overridden by the requester.
 
 ### 5.4. `reservedParameters`
 
+[<InfoBtnBlue/>](/airnode/v0.4/grp-providers/guides/build-an-airnode/api-integration.md#reservedparameters)
 (Optional) A list of objects that specify reserved endpoint parameters that do
 not map to operation parameters, but are used for special purposes by the oracle
 node. See the [Reserved Parameters](./reserved-parameters.md) doc for an
 in-depth explanation. Each object has the following elements:
 
-- [`name`](ois.md#_5-4-1-name)
-- [`fixed`](ois.md#_5-4-2-fixed)
-- [`default`](ois.md#_5-4-3-default)
+- [name](ois.md#_5-4-1-name)
+- [fixed](ois.md#_5-4-2-fixed)
+- [default](ois.md#_5-4-3-default)
 
 #### 5.4.1. `name`
 
@@ -414,12 +423,12 @@ provided.
 (Optional) A list of objects that specify endpoint parameters that map to
 operation parameters. Each object has the following elements:
 
-- [`operationParameter`](ois.md#_5-5-1-operationparameter)
-- [`name`](ois.md#_5-5-2-name)
-- [`default`](ois.md#_5-5-3-default)
-- [`description`\*](ois.md#_5-5-4-description)
-- [`required`\*](ois.md#_5-5-5-required)
-- [`example`\*](ois.md#_5-5-6-example)
+- [operationParameter](ois.md#_5-5-1-operationparameter)
+- [name](ois.md#_5-5-2-name)
+- [default](ois.md#_5-5-3-default)
+- [description \*](ois.md#_5-5-4-description)
+- [require \*](ois.md#_5-5-5-required)
+- [example \*](ois.md#_5-5-6-example)
 
 #### 5.5.1. `operationParameter`
 

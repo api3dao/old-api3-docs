@@ -34,8 +34,8 @@ Signifies what Solidity type the API response will be encoded to before
 fulfillment.
 
 Support is provided for most common
-[solidity types](https://docs.soliditylang.org/en/latest/abi-spec.html#types),
-but the following are not supported.
+[solidity types](https://docs.soliditylang.org/en/latest/abi-spec.md#types), but
+the following are not supported.
 
 - Custom bits integer types - e.g. `uint32` or `uint8`
 - Fixed point decimal numbers - e.g. `fixed128x18` or `ufixed128x18`

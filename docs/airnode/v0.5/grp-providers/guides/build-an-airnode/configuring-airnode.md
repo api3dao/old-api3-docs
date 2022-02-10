@@ -14,8 +14,8 @@ title: Configuring Airnode
 - [API Integration](api-integration.md)
 - [API Security](api-security.md)
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md)
-This icon links to additional field information in the reference section.
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md) This icon
+links to additional field information in the reference section.
 
 :::
 
@@ -101,7 +101,7 @@ Below is a simple chain array with a single chain provider.
 
 #### maxConcurrency
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#maxconcurrency)
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#maxconcurrency)
 Airnode is designed to scale well with the number of requests made. To
 accomplish this, it spawns new cloud functions (called handlers) when necessary
 and these handlers run in parallel.
@@ -142,22 +142,22 @@ chains are unrelated to each other.
 
 #### authorizers
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#authorizers)
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#authorizers)
 The list of authorizer contract addresses the Airnode deployment will set
 on-chain. See the [Authorization](../../../concepts/authorization.md) doc for
 more information.
 
 #### contracts
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#contracts)
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#contracts)
 Contains the addresses of the contracts that implement the Airnode protocols.
 Although you can deploy these contracts yourself, you are recommended to use the
 ones that were deployed by API3. You can find them in the list above.
 
 #### id
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#id)
-An Airnode can serve multiple chains simultaneously. Set the ID of the desired
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#id) An
+Airnode can serve multiple chains simultaneously. Set the ID of the desired
 chain in `id` (e.g., `4` for Rinkeby test network). See the list of supported
 chains in the
 [Airnode Contract Addresses](../../../reference/airnode-addresses.md) doc. See
@@ -166,7 +166,7 @@ additional definition in the
 
 #### providers
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#providers)
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#providers)
 Airnode can use multiple Ethereum providers per chain. These could be a private
 Ethereum node, or an Ethereum service provider such as Infura. Accordingly, the
 `providers` field is a list which allows for multiple Ethereum providers. Enter
@@ -175,15 +175,15 @@ usually is kept in the `secrets.env` file. The name is used in logs.
 
 #### type
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#type)
-The type of the chain. Only `evm` is supported at this time. See additional
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#type) The
+type of the chain. Only `evm` is supported at this time. See additional
 definition in the
 [reference section](../../../reference/deployment-files/config-json.md#type).
 
 #### options
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#options)
-An object that configures chain-related options.
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#options) An
+object that configures chain-related options.
 
 - txType: The transaction type to use.
 - priorityFee: An object that configures the EIP-1559 Priority Fee.
@@ -191,19 +191,19 @@ An object that configures chain-related options.
 
 #### blockHistoryLimit
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#blockhistorylimit)
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#blockhistorylimit)
 The number of blocks in the past that the Airnode deployment should search for
 requests. Defaults to `300` (roughly 1 hour for Ethereum).
 
 <!-- #### minConfirmations
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#minconfirmations)
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#minconfirmations)
 The number of confirmations required for a request to be considered valid.
 Defaults to `0`. -->
 
 #### ignoreBlockedRequestsAfterBlocks
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#ignoreblockedrequestsafterblocks)
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#ignoreblockedrequestsafterblocks)
 The number of blocks that need to pass for the node to start ignoring blocked
 requests. Defaults to `20`.
 
@@ -238,7 +238,7 @@ The `nodeSettings` field holds node-specific (Airnode) configuration parameters.
 
 #### cloudProvider
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#cloudprovider)
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#cloudprovider)
 Indicates which cloud provider Airnode should be deployed with and its
 configuration. There are currently three options available: `aws`, `gcp`
 (deployed using the docker [deployer-image](../../docker/deployer-image.md)) and
@@ -259,7 +259,7 @@ configuration. There are currently three options available: `aws`, `gcp`
 
 #### airnodeWalletMnemonic
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#airnodewalletmnemonic)
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#airnodewalletmnemonic)
 An API provider provides a mnemonic to be used as the Airnode's BIP 44 wallet
 from which the Airnode's [address](../../../concepts/airnode.md#airnodeaddress)
 will be derived. It is not required to fund the wallet to run the Airnode but
@@ -268,7 +268,7 @@ Airnode on-chain which is optional.
 
 #### heartbeat
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#heartbeat)
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#heartbeat)
 At the end of each of Airnode's runs (every minute), Airnode can make an HTTP
 POST request to a specified URL. This is both to signal that the Airnode is
 alive and working (useful especially right after the deployment) and also to
@@ -283,7 +283,7 @@ all fields in the config.json section nodeSettings.heartbeat. See the
 
 #### httpGateway
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#httpgateway)
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#httpgateway)
 The gateway allows the testing of defined endpoints without accessing the
 blockchain. See the [HTTP Gateway](./http-gateway.md) doc for more info.
 
@@ -294,7 +294,7 @@ blockchain. See the [HTTP Gateway](./http-gateway.md) doc for more info.
 
 #### logFormat
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#logformat)
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#logformat)
 Set one of two possible log formats.
 
 - json
@@ -302,7 +302,7 @@ Set one of two possible log formats.
 
 #### logLevel
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#loglevel)
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#loglevel)
 Set one of four possible log levels.
 
 - DEBUG
@@ -312,7 +312,7 @@ Set one of four possible log levels.
 
 #### nodeVersion
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#nodeversion)
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#nodeversion)
 Of the form `#.#.#`, this field indicates which node (Airnode) version this
 `config.json` is prepared for. Since the `config.json` format can be expected to
 change with node versions, using a `config.json` prepared for one Airnode
@@ -322,16 +322,16 @@ for available versions.
 
 #### stage
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#stage)
-This field allows the deployment of multiple Airnodes with the same provider ID.
-For example, the same Airnode may have multiple deployments with `stage` set to
-a different value (dev, public, prod). `stage` cannot be longer than 16
-characters and can only include lowercase alphanumeric characters (`a–z`, `0–9`)
-and hyphens (`-`).
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#stage) This
+field allows the deployment of multiple Airnodes with the same provider ID. For
+example, the same Airnode may have multiple deployments with `stage` set to a
+different value (dev, public, prod). `stage` cannot be longer than 16 characters
+and can only include lowercase alphanumeric characters (`a–z`, `0–9`) and
+hyphens (`-`).
 
 #### skipValidation
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#skipvalidation)
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#skipvalidation)
 This is an optional attribute which decides whether Airnode validates the
 config.json during deployment or when run in a docker. Possible values are
 `true` and `false`. By default, this flag is set to `false`.
@@ -359,8 +359,8 @@ npx @api3/airnode-admin derive-endpoint-id \
 
 #### rrp
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#rrp)
-An array of endpoints from OIS that the Airnode will respond to for the RRP
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#rrp) An
+array of endpoints from OIS that the Airnode will respond to for the RRP
 protocol. Only endpoints listed here will be served through the RRP protocol
 [AirnodeRrp.sol](../../../concepts/airnode.md).
 
@@ -376,8 +376,8 @@ protocol. Only endpoints listed here will be served through the RRP protocol
 
 #### http
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#http)
-An array of endpoints from OIS that the Airnode will respond to for the HTTP
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#http) An
+array of endpoints from OIS that the Airnode will respond to for the HTTP
 gateway. Only endpoints listed here can be tested via the HTTP gateway.
 
 - oisTitle & endpointName: Each trigger has an `oisTitle` and `endpointName`
@@ -443,18 +443,18 @@ any security scheme.
 
 #### `oisTitle`
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#oistitle)
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#oistitle)
 The `ois.title` of the OIS where the `securitySchemeName` can be found.
 
 #### `securitySchemeName`
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#securityschemename)
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#securityschemename)
 The name of a security scheme from
 `ois[n].components.securitySchemes.{securitySchemeName}`.
 
 #### `securitySchemeValue`
 
-[<img :src="$withBase('/img/info-green-20.png')" alt="info" class="infoIcon">](../../../reference/deployment-files/config-json.md#securityschemevalue)
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#securityschemevalue)
 The value of the security scheme used (as defined by
 `ois[n].components.securitySchemes.{securitySchemeName}` for the authentication.
 Usually stored in `secrets.env`.
