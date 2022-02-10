@@ -399,8 +399,8 @@ Requests a [withdrawal](../../concepts/sponsor.md#withdrawals) from a
 [sponsorWallet](../../concepts/sponsor.md#sponsorwallet) managed by an Airnode.
 
 The funds will be returned to the account derived from the `sponsor-mnemonic`.
-This account must belong to a [sponsor](../../concepts/sponsor.html) for the
-specified [sponsor wallet address](../../concepts/sponsor.html#sponsorwallet) in
+This account must belong to a [sponsor](../../concepts/sponsor.md) for the
+specified [sponsor wallet address](../../concepts/sponsor.md#sponsorwallet) in
 the command.
 
 After the request is made, it needs to be fulfilled by Airnode, so the return
@@ -612,9 +612,9 @@ npx @api3/airnode-admin generate-mnemonic
 
 ### `derive-airnode-address`
 
-Derives the [airnode address](../../concepts/airnode.html#airnodeaddress) which
-is the identifier of the particular Airnode on chain. You need this identifier
-for many other admin CLI commands, such as
+Derives the [airnode address](../../concepts/airnode.md#airnodeaddress) which is
+the identifier of the particular Airnode on chain. You need this identifier for
+many other admin CLI commands, such as
 [derive-sponsor-wallet-address](admin-cli.md#derive-sponsor-wallet-address).
 
 ```sh

@@ -72,9 +72,14 @@ exclude = [
   "api3.eth.link",
   "config@1.0.0",
   "config@0.3",
+  "config@0.4",
+  "config@0.5",
   "OIS@0.3",
+  "ois@1.0",
   ".*/NOT-A-REAL-FILE.html",
   "@0.3",
+  "@0.4",
+  "@0.5",
   "etherscan.io",
 ]
 
