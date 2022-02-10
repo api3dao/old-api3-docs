@@ -74,5 +74,12 @@ was changes to: <code>/r/reserved-parameters
 
 ## Latest Redirects
 
+::: danger Empty Lines
+
+There cannot be empty lines in the body of the file, only at the end. This will
+generate a non-fatal error when building the docs.
+
+:::
+
 <LatestRedirects/>
 {{ $site.pages.path }}
