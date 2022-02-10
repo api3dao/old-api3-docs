@@ -16,8 +16,8 @@ Experience API3 **Beacons** at ETHDenver (February 11-20, 2022) during
 
 API3 has set up Beacons (supported by Airnodes) using the following versions.
 
-- Airnode version `v0.3.1`
-- Beacon version `v0.1.0`
+- Airnode version `v0.3`
+- `@api3/services` package version `v0.1`
 
 ## Contract Addresses
 
