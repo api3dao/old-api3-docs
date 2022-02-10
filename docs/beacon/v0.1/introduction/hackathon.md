@@ -129,7 +129,7 @@ The `@api3/services` API exposes two functions:
      e.g. `eth_usd`
    - `chain` - the name of the chain, e.g. `ropsten`
 
-However, using the services API is not required to create an beacon reader
+However, using the services API is not required to create a beacon reader
 application. You can whitelist a beacon reader smart contract manually. You can
 also get the `beaconId` from
 [beacon IDs docs section](../reference/beacon-ids.md) and an address of the
