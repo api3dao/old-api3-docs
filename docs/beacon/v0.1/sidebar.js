@@ -27,7 +27,7 @@ module.exports = [
     initialOpenGroupIndex: 1,
     collapsable: false,
     children: [
-      'reference/ids.md',
+      'reference/beacon-scheme.md',
       'reference/contract-addresses.md',
       'reference/beacon-ids.md',
     ],
