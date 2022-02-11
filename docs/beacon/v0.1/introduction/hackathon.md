@@ -59,7 +59,7 @@ The easiest way to create a new Beacon reader project is by running the
 get you started. Simply run:
 
 ```
-npx --package @api3/services --call create-beacon-reader-app
+npm exec --package @api3/services --call create-beacon-reader-app
 ```
 
 The CLI tool will ask you for the path in which the project will be initialized
@@ -69,9 +69,9 @@ yet there will be more in the future. See below for more options:
 
 ```
 # To show help
-npx --package @api3/services --call "create-beacon-reader-app --help"
+npm exec --package @api3/services --call "create-beacon-reader-app --help"
 # To provide the path and template directly through CLI
-npx --package @api3/services --call "create-beacon-reader-app  --path=./my-app --template=javascript-ethers-hardhat"
+npm exec --package @api3/services --call "create-beacon-reader-app  --path=./my-app --template=javascript-ethers-hardhat"
 ```
 
 ::: warning Git needed
