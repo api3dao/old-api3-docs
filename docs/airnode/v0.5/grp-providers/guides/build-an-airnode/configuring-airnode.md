@@ -291,6 +291,9 @@ blockchain. See the [HTTP Gateway](./http-gateway.md) doc for more info.
   gateway.
 - apiKey: A user defined API key to authenticate against the gateway. The key
   must have a length of between 30 - 120 characters.
+- maxConcurrency: (optional) A number higher than zero representing the maximum
+  number of serverless functions serving HTTP gateway requests running at the
+  same time. When omitted, there is no maximum concurrency set.
 
 #### logFormat
 

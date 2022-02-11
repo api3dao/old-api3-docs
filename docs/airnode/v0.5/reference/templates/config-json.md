@@ -74,7 +74,8 @@ building a config.json file.
     },
     "httpGateway": {
       "enabled": true,
-      "apiKey": "${HTTP_GATEWAY_API_KEY}" // In secrets.env
+      "apiKey": "${HTTP_GATEWAY_API_KEY}", // In secrets.env
+      "maxConcurrency": 20
     },
     "logFormat": "json",
     "logLevel": "INFO",

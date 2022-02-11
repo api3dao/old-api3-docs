@@ -26,6 +26,9 @@ Enable the HTTP gateway by setting two fields in the config.json
 - **enabled**: A boolean setting enable/disable for the Airnode's HTTP gateway.
 - **apiKey**: A user defined API key to authenticate against the gateway. The
   key must have a length of between 30 - 120 characters.
+- **maxConcurrency**: (optional) A number higher than zero representing the
+  maximum number of serverless functions serving HTTP gateway requests running
+  at the same time. When omitted, there is no maximum concurrency set.
 
 ```json
 "nodeSettings": {
@@ -37,7 +40,8 @@ Enable the HTTP gateway by setting two fields in the config.json
   "heartbeat": {...},
   "httpGateway": {
     "enabled": true,
-    "apiKey": "${HTTP_GATEWAY_API_KEY}"
+    "apiKey": "${HTTP_GATEWAY_API_KEY}",
+    "maxConcurrency": 20
   },
   ...
 },
