@@ -207,7 +207,8 @@ An object containing general deployment parameters of an Airnode.
   },
   "httpGateway": {
     "enabled": true,
-    "apiKey": "${HTTP_GATEWAY_API_KEY}"
+    "apiKey": "${HTTP_GATEWAY_API_KEY}",
+    "maxConcurrency": 20
   },
   "logFormat": "json",
   "logLevel": "INFO"
@@ -282,6 +283,12 @@ gateway.
 #### `httpGateway.apiKey`
 
 (only if enabled) - The API key to authenticate against the gateway.
+
+#### `httpGateway.maxConcurrency`
+
+(only if enabled, optional) - A number higher than zero representing the maximum
+number of serverless functions serving HTTP gateway requests running at the same
+time. When omitted, there is no maximum concurrency set.
 
 ### `logFormat`
 
