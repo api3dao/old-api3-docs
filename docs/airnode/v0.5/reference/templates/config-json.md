@@ -75,11 +75,11 @@ building a config.json file.
     "httpGateway": {
       "enabled": true,
       "apiKey": "${HTTP_GATEWAY_API_KEY}", // In secrets.env
-      "maxConcurrency": 20
+      "maxConcurrency": "<FILL_NUMBER>"
     },
     "logFormat": "json",
     "logLevel": "INFO",
-    "nodeVersion": "0.4.0",
+    "nodeVersion": "0.5.0",
     "stage": "<FILL_*>"
   },
   "triggers": {

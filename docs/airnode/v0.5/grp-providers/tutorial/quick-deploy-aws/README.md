@@ -182,7 +182,8 @@ tested.
   ...
   "httpGateway": {
     "enabled": true, // The gateway is activated for this Airnode
-    "apiKey": "${HTTP_GATEWAY_API_KEY}" // Gateway apiKey
+    "apiKey": "${HTTP_GATEWAY_API_KEY}", // Gateway apiKey
+    "maxConcurrency": 20
   },
   ...
 },
