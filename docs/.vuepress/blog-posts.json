@@ -170,12 +170,18 @@
           "dt": "2021-07-02",
           "title": "The History of Socialized Risk (Part 1 of 2)",
           "url": "https://medium.com/api3/redefining-trust-the-history-of-socialized-risk-part-1-of-2-7b73c242d9dd"
+        },
+        {
+          "date": "Nov 05, 2021",
+          "dt": "2021-11-05",
+          "title": "Weaknesses in Modern Voting Systems",
+          "url": "https://medium.com/api3/weaknesses-in-modern-voting-systems-b680d25aaafb"
         }
       ]
     },
 
     {
-      "tag": "Development",
+      "tag": "Core Technical Team",
       "posts": [
         {
           "date": "Jan 31, 2021",
@@ -260,10 +266,15 @@
           "dt": "2021-12-31",
           "title": "API3 Core Technical Team Report, December 2021",
           "url": "https://bbenligiray.medium.com/api3-core-technical-team-report-december-2021-a5571304ae31"
+        },
+        {
+          "date": "Jan 31, 2022",
+          "dt": "2022-01-31",
+          "title": "API3 Core Technical Team Report, January 2021",
+          "url": "https://bbenligiray.medium.com/api3-core-technical-team-report-january-2022-85e55e1aa4af"
         }
       ]
     },
-
     {
       "tag": "Integration Team",
       "posts": [
@@ -275,7 +286,46 @@
         }
       ]
     },
-
+    {
+      "tag": "Operations Team",
+      "posts": [
+        {
+          "date": "Jan 11, 2022",
+          "dt": "2022-01-11",
+          "title": "API3 Operations Update: 2021 End",
+          "url": "https://medium.com/api3/operations-updates-c1bb7f2a0748"
+        },
+        {
+          "date": "Feb 03, 2022",
+          "dt": "2022-02-03",
+          "title": "API3 Operations Update: January 2022",
+          "url": "https://medium.com/api3/api3-operations-update-january-2022-bf20c44e3036"
+        }
+      ]
+    },
+    {
+      "tag": "Enterprise Development Team",
+      "posts": [
+        {
+          "date": "Sep 16, 2021",
+          "dt": "2021-09-16",
+          "title": "API3 Enterprise Development Report, August/September 2021",
+          "url": "https://medium.com/@gio_lesna/api3-enterprise-development-report-september-2021-da09e065121"
+        },
+        {
+          "date": "Oct 26, 2021",
+          "dt": "2021-10-26",
+          "title": "API3 Enterprise Development Report, September/October 2021",
+          "url": "https://medium.com/@gio_lesna/api3-enterprise-development-report-september-october-2021-5de302a859b9"
+        },
+        {
+          "date": "Jan 27, 2022",
+          "dt": "2022-01-27",
+          "title": "API3 Enterprise Development Report, November-December 2021, January 2022",
+          "url": "https://medium.com/api3/api3-enterprise-development-report-november-december-2021-january-2022-7e100b52f5d8"
+        }
+      ]
+    },
     {
       "tag": "Standalone Posts",
       "posts": [
