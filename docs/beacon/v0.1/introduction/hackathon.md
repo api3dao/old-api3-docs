@@ -12,33 +12,14 @@ title: ETHDenver - Feb 2022
 > **Experience building with Beacons at ETHDenver during
 > [#BUIDLWEEK](https://www.ethdenver.com/buidlweek)!**
 
-API3 has set up Beacons using the first-party oracle operated by Amberdata, and
-this guide will walk you through developing a "Beacon reader" smart contract
-using them.
-
-## Dependencies
-
-Amberdata is using [Airnode `v0.3`](/airnode/v0.3) as the oracle node, which we
-have developed to enable API provider-operated oracles. You are recommended to
-use `v0.1` of `@api3/services` in your project to easily fetch the information
-needed to read a specific Beacon.
-
-## Networks
-
-The Beacons are made available on the following networks for _#BUIDLWEEK_:
-
-| Network        | Faucet                                                                   |
-| :------------- | :----------------------------------------------------------------------- |
-| Goerli         | [https://faucet.goerli.mudit.blog/](https://faucet.goerli.mudit.blog/)   |
-| Polygon-Mumbai | [https://faucet.polygon.technology/](https://faucet.polygon.technology/) |
-| Rinkeby        | [https://www.rinkebyfaucet.com/](https://www.rinkebyfaucet.com/)         |
-| Ropsten        | [https://faucet.egorfine.com/](https://faucet.egorfine.com/)             |
+This guide will walk you through developing a smart contract that uses the
+Beacons that API3 has set up using the first-party oracle operated by Amberdata.
 
 ## Amberdata Beacons
 
 [Amberdata](https://amberdata.io) is among the leading cryptocurreny market data
-providers and has made some of their API endpoints available as Beacons, which
-will be very useful in building DeFi applications. You can see the complete list
+providers and has made some of their API endpoints available as Beacons for you
+to build DeFi applications with. You can see the complete list
 [here](../reference/beacon-ids.md). These Beacons represent VWAP (Volume
 Weighted Average Price) pair values and are an aggregated form of trade data.
 VWAP is the average price of an asset over a time interval, based on both volume
@@ -50,52 +31,135 @@ understanding of the values provided.
   (VWAP)
 - [Gas Predictions](https://docs.amberdata.io/reference#get-gas-predictions)
 
-## Creating a starter project
+## Requirements
 
-### Using the CLI tool
+The Beacons are made available on the following networks:
 
-The easiest way to create a new Beacon reader project is by running the
-`@api3/services` CLI tool, which generates the minimal project files that will
-get you started. Simply run:
+| Network        | Faucet                                                                   |
+| :------------- | :----------------------------------------------------------------------- |
+| Ropsten        | [https://faucet.egorfine.com/](https://faucet.egorfine.com/)             |
+| Rinkeby        | [https://www.rinkebyfaucet.com/](https://www.rinkebyfaucet.com/)         |
+| Goerli         | [https://faucet.goerli.mudit.blog/](https://faucet.goerli.mudit.blog/)   |
+| Polygon-Mumbai | [https://faucet.polygon.technology/](https://faucet.polygon.technology/) |
 
-```
-npm exec --package @api3/services --call create-beacon-reader-app
-```
+Choose the network that you want to work on, create a wallet with a mnemonic,
+and fund it from the respective faucet.
 
-The CLI tool will ask you for the path in which the project will be initialized
-and the template on which the project files will be based on. As of now, there
-is only one template to choose, which uses JavaScript, ethers.js and Hardhat,
-yet there will be more in the future. See below for more options:
+::: tip
 
-```
-# To show help
-npm exec --package @api3/services --call "create-beacon-reader-app --help"
-# To provide the path and template directly through CLI
-npm exec --package @api3/services --call "create-beacon-reader-app  --path=./my-app --template=javascript-ethers-hardhat"
-```
-
-::: warning Git needed
-
-In order to install the `@api3/services` repository you need to have `git`
-installed.
+You can run `npx @api3/airnode-admin generate-mnemonic` to generate a mnemonic.
 
 :::
 
-### Clone or download an existing repo
+You will also need a blockchain provider URL. You can create a free
+[Infura](https://infura.io/) account for Ropsten, Rinkeby and Goerli, or use one
+of the
+[publicly available provider URLs](https://docs.polygon.technology/docs/develop/network-details/network/#mumbai-testnet)
+for Polygon-Mumbai such as `https://rpc-mumbai.matic.today`. Your wallet
+mnemonic and blockchain provider URL will go in your `credentials.json` file in
+the following steps.
 
-Alternatively, you can clone or download the
-[beacon-reader-example](https://github.com/api3dao/beacon-reader-example)
-repository from GitHub. This project was created by the CLI tool mentioned
-above.
+## Instructions
 
-This starter project steps through reading a Beacon value from a smart contract.
-Be sure to read through the
-[README.md](https://github.com/api3dao/beacon-reader-example/blob/main/README.md)
-and the example code such as the
-[BeaconReaderExample.sol](https://github.com/api3dao/beacon-reader-example/blob/main/contracts/BeaconReaderExample.sol)
-smart contract.
+Clone the
+[Beacon reader example](https://github.com/api3dao/beacon-reader-example):
 
-## Services API
+```sh
+git clone https://github.com/api3dao/beacon-reader-example.git
+cd beacon-reader-example
+```
+
+Install the dependencies:
+
+```sh
+npm install
+```
+
+### Tests
+
+Run the unit tests defined in the `test/` directory:
+
+```sh
+npm run test
+```
+
+### Network: `localhost`
+
+Start a local Ethereum node on a separate terminal:
+
+```sh
+npm run eth-node
+```
+
+Deploy `MockRrpBeaconServer`, `BeaconReaderExample`, and mock-set a beacon
+value:
+
+```sh
+npm run deploy:localhost
+```
+
+You can skip the whitelisting step on `localhost`.
+
+Have `BeaconReaderExample` read the mocked beacon value and print it on the
+terminal:
+
+```sh
+npm run read-beacon:localhost
+```
+
+### Networks: `ropsten`, `rinkeby`, `goerli`, `polygon-mumbai`
+
+Create a `credentials.json` file at the root of the repo, similar to
+`credentials.example.json`. Fill in the mnemonic and the provider URL for the
+chain you will be working on.
+
+::: tip
+
+You can replace `polygon-mumbai` in the following commands with `ropsten`,
+`rinkeby` or `goerli`.
+
+:::
+
+Deploy `BeaconReaderExample` that is pointed to the pre-deployed
+`RrpBeaconServer`:
+
+```sh
+npm run deploy:polygon-mumbai
+```
+
+Whitelist the `BeaconReaderExample` you have deployed for the `eth_usd` Beacon
+powered by Amberdata:
+
+```sh
+npm run whitelist-reader:polygon-mumbai
+```
+
+Have `BeaconReaderExample` read the Beacon value and print it on the terminal:
+
+```sh
+npm run read-beacon:polygon-mumbai
+```
+
+::: tip
+
+You can read beacons other than `eth_usd` by modifying
+`scripts/whitelist-reader.js` and `scripts/read-beacon.js`. Refer to the
+[docs](https://docs.api3.org/beacon/v0.1/reference/beacon-ids.html) for a
+complete list.
+
+:::
+
+This should get you started on building a project that uses Beacons! Continue
+reading if you want to learn more.
+
+## Dependencies
+
+Amberdata is using [Airnode `v0.3`](/airnode/v0.3) as the oracle node, which we
+have developed to enable API provider-operated oracles. You are recommended to
+use `v0.1` of `@api3/services` in your project to easily fetch the information
+about a specific Beacon.
+
+## `@api3/services` API
 
 The `@api3/services` API exposes two functions:
 
@@ -105,8 +169,9 @@ The `@api3/services` API exposes two functions:
    particular Beacon. You can see it used by the whitelisting script in the
    Beacon reader example project
    [here](https://github.com/api3dao/beacon-reader-example/blob/main/scripts/whitelist-reader.js#L34).
-   This functions requires 5 parameters:
-   - `beaconId` - the `beaconId` for which the Beacon reader will be whitelisted
+   This function requires 5 parameters:
+   - `beaconId` - the ID of the Beacon for which the Beacon reader will be
+     whitelisted
    - `beaconReaderAddress` - the address of the Beacon reader that will be
      whitelisted
    - `chain` - the name of the chain, e.g. `ropsten`
@@ -116,10 +181,10 @@ The `@api3/services` API exposes two functions:
      `derivationPath` (optional) specifying the account that will be used to
      make the whitelisting transaction
 2. [getServiceData](https://github.com/api3dao/services/blob/main/src/index.ts#L27) -
-   You can use this function to get the details of the particular Beacon. Most
-   important fields are the address of `RrpBeaconServer` (which you need to
-   deploy your Beacon reader smart contract) and `beaconId` (which you need to
-   read a Beacon value). This function requires 3 parameters:
+   You can use this function to get the details of a particular Beacon. The most
+   important fields that this will return are the address of `RrpBeaconServer`
+   (which you need to deploy your Beacon reader smart contract) and `beaconId`
+   (which you need to read a Beacon value). This function requires 3 parameters:
    - `apiName` - the
      [name of the API](https://github.com/api3dao/operations/tree/main/data/apis).
      Currently, the only option is `Amberdata`
@@ -131,55 +196,39 @@ The `@api3/services` API exposes two functions:
 Using `@api3/services` is not required to create a Beacon reader application.
 You can whitelist a Beacon reader smart contract manually by following the
 instructions below. You can get the `beaconId` from
-[Beacon IDs docs section](../reference/beacon-ids.md) and an address of the
+[Beacon IDs Section](../reference/beacon-ids.md) and an address of the
 `RrpBeaconServer` from the
-[Contract Addresses docs section](../reference/contract-addresses.md).
+[Contract Addresses Section](../reference/contract-addresses.md).
 
-## Beacon Whitelisting
+## Whitelisting
 
-::: warning Please Note
+Before a smart contract can read a Beacon value, it needs to be whitelisted by
+an on-chain mechanism authorized by the API3 DAO. This is done for protection
+and monetization of premium, first-party oracle services. The Beacons set up for
+the hackathon allow self-whitelisting, which means that you are allowed to make
+the transaction that will whitelist your contract to read the specific Beacon.
 
-For _#BUIDLWEEK_, you do not need to contact an API3 DAO representative to gain
-access to the Amberdata Beacons. You can whitelist yourself on the supported
-testnets using a blockchain explorer compatible with the network you are working
-with (e.g., [etherscan](https://etherscan.io/) or
-[polygonscan](https://polygonscan.com/)).
+::: tip
 
-:::
-
-Before a smart contract can read a Beacon value, it first needs to be
-whitelisted by an on-chain mechanism authorized by the API3 DAO. This is done
-for protection and monetization of premium, first-party oracle services. The
-Beacons set up for the hackathon allow self-whitelisting, which means that you
-are allowed to make the transaction that will whitelist your contract to read
-the specific Beacon.
-
-::: warning Whitelisting works per Beacon reader
-
-When you deploy multiple Beacon reader smart contracts, each of them needs to
-whitelisted.
+Amberdata Beacons are made available on a number of testnets for _#BUIDLWEEK_.
+For production usage, you will need to get in contact with an API3 DAO
+representative to have your contract whitelisted for it to be able to read
+Beacons.
 
 :::
 
-### Whitelisting using API3 services API
+### Manual whitelisting
 
-If you created your application using the `@api3/services` CLI or based it on
-the Beacon reader example project, you can whitelist your contract using the
-`whitelist-reader` script. Refer to the
-[README.md](https://github.com/api3dao/beacon-reader-example) and
-[implementation](https://github.com/api3dao/beacon-reader-example/blob/main/scripts/whitelist-reader.js)
-for more details.
+In addition to using the `@api3/services` API, you can manually whitelist your
+contracts by making a transaction over a block explorer.
 
-### Self-whitelisting
-
-Another option to self-whitelist your smart contract is by using Etherscan or
-Polygonscan.
-
-1. Open Etherscan/Polygonscan and select the desired testnet using the icon to
-   the right of the Sign-In button in the top right corner.
+1. Open
+   [Etherscan](https://etherscan.io/)/[Polygonscan](https://polygonscan.com/)
+   and select the desired testnet using the icon to the right of the Sign-In
+   button in the top right corner.
 
 2. Enter the address for the
-   [SelfServeRrpBeaconServerWhitelister.sol](../reference/contract-addresses.md#selfserverrpbeaconserverwhitelister-sol)
+   [SelfServeRrpBeaconServerWhitelister](../reference/contract-addresses.md#selfserverrpbeaconserverwhitelister-sol)
    contract in the search field.
 
 3. Click _contract > write contract > connect to web3_. Connect your wallet
@@ -190,6 +239,13 @@ Polygonscan.
    (i.e., Beacon reader).
 
 5. Click the _Write_ button and execute the transaction from your wallet.
+
+::: warning
+
+Each deployed Beacon reader contract needs to be whitelisted for all the
+respective Beacons that it will read.
+
+:::
 
 ## Getting Help
 
