@@ -1,32 +1,31 @@
 <template>
   <div v-show="beacon.show === true" class="beacon-box" :key="beacon.beaconId">
-    <!-- //https://www.javascripttutorial.net/javascript-dom/javascript-checkbox/ -->
-    <label class="switch beacon-display-cb">
-      <input type="checkbox" @click="showDetails()" />
-      <span class="slider round"></span>
-    </label>
     <div class="provider">
       {{ beacon.apiName }}
     </div>
-    <div class="beacon-name">{{ beacon.templateName }}</div>
+
+    <div
+      class="beacon-name"
+      style="cursor: pointer; user-select: none"
+      @click="showDetails()"
+    >
+      {{ beacon.templateName }}
+      <img
+        :src="getArrowSrc()"
+        style="cursor: pointer; height: 12px; margin-top: 0px"
+      />
+    </div>
+
     <div class="beacon-description beacon-sub-line">
       {{ beacon.description }}
     </div>
     <div class="beacon-id beacon-sub-line">
-      {{ beacon.beaconId }}
+      Beacon ID: {{ beacon.beaconId }}
     </div>
 
     <div v-show="beacon.showDetails === true" class="beacon-display-box">
-      <!--button class="beaconTryItBtn" @click="execute()">Try It</button>
-      <img
-        src="/img/spinner.gif"
-        v-show="showTrySpinner"
-        style="width: 20px; position: relative; top: 6px"
-      /-->
-      <!-- prettier-ignore -->
-      <!--code style="position: relative; top: 1px" v-show="tryData">{{ tryData }}</code-->
-      <!-- prettier-ignore -->
-      <!--pre style="background-color:lightgrey;" v-show="tryError"><code style="background-color:lightgrey;color:red;">{{tryError}}</code></pre-->
+      <hr />
+      <div class="beacon-id">Template ID: {{ beacon.templateId }}</div>
       <!-- prettier-ignore -->
       <pre><code>"decodedParameters": {{beacon.decodedParameters}}</code></pre>
     </div>
@@ -52,6 +51,10 @@ export default {
     this.$nextTick(async function () {});
   },
   methods: {
+    getArrowSrc() {
+      if (!this.beacon.showDetails) return '/img/arrow-right-16.png';
+      else return '/img/arrow-down-16.png';
+    },
     showDetails(id) {
       this.tryError = null;
       this.beacon.showDetails = !this.beacon.showDetails;
@@ -76,20 +79,10 @@ export default {
 <style>
 .provider {
   float: right;
-  padding-right: 0px;
+  padding-right: 15px;
   color: gray;
   font-size: x-small;
   font-weight: bold;
-}
-.beaconTryItBtn {
-  background-color: #2196f3;
-  border-radius: 0.5em;
-  border: 1px solid #2196f3;
-  font-weight: bold;
-  cursor: pointer;
-  color: white;
-  margin-top: 7px;
-  padding: 3px;
 }
 .beacon-box {
   padding-top: 5px;
@@ -123,9 +116,5 @@ export default {
   font-size: small;
   max-width: 600px;
   overflow-wrap: break-word;
-}
-.beacon-display-cb {
-  float: right;
-  margin-top: -10px;
 }
 </style>
