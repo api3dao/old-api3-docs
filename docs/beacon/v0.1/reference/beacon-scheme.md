@@ -1,5 +1,5 @@
 ---
-title: IDs
+title: Beacon ID Scheme
 ---
 
 <TitleSpan>Reference</TitleSpan>

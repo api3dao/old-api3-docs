@@ -107,9 +107,6 @@ export default {
 </script>
 
 <style>
-/* BeaconItem.vue will see this import. */
-@import '../../styles/switcher.styl';
-
 h4 {
   margin-bottom: -10px;
 }

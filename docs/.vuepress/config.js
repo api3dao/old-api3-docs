@@ -107,7 +107,6 @@ module.exports = {
     ],
     ['vuepress-plugin-table-of-contents'],
     //['vue-pdf'],
-    ['@vuepress/medium-zoom'],
     ['vuepress-plugin-element-tabs'],
     ['@vuepress/last-updated'],
     ['@vuepress/back-to-top', true],
