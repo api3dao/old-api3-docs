@@ -17,9 +17,9 @@ The API3 project has a completely open, decentralized and direct governance
 model. Any API3 token holder can stake the DAO pool and obtain direct voting
 privileges in the DAO and thus participate in the governance of the project
 directly. In addition, stakers receive
-[inflationary rewards](dao-pool.md#inflationary-rewards) and any additional
+[Inflationary Rewards](dao-pool.md#inflationary-rewards) and any additional
 benefits that the DAO may decide on in the future. The staked API3 tokens will
-back an on-chain [coverage service](dao-pool.md#coverage-service) as collateral
+back an on-chain [Coverage Service](dao-pool.md#coverage-service) as collateral
 to provide dAPI users with quantifiable and trustless security guarantees.
 
 The DAO votes on high-level matters such as staking incentives and

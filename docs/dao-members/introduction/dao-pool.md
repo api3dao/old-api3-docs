@@ -57,7 +57,7 @@ _Main utilities of the API3 token._
 
 1. [Staking](dao-pool.md#staking): Grants membership in the API3 DAO and rights
    to [inflationary rewards](dao-pool.md#inflationary-rewards).
-1. [Collateral](dao-pool.md#collateral): Backs coverages services that protect
+1. [Collateral](dao-pool.md#collateral): Backs coverage services that protect
    users from damages caused by dAPI malfunctions.
 1. [Governance](dao-pool.md#governance): Grants direct representation in the
    API3 DAO.
@@ -81,6 +81,10 @@ _security_ in the form of the coverage service. The DAO pool also grants you
 inflationary rewards and exposes you to the risk of coverage service claims.
 
 > ![dao-pool-staking](../assets/images/dao-pool-staking.png)
+>
+> <p class="diagram-line" style="color:gray;margin-top:25px;">Staked tokens in the DAO pool grant 
+> governance voting rights, inflationary rewards and are used to fund the coverage 
+> service which exposes staked tokens to the risks of coverage service claims.</p>
 
 **Benefits:**
 
@@ -118,7 +122,7 @@ Exposing the governing parties to the risk would align their incentives with
 that of the DAO. The governing parties need to be penalized when a dAPI
 malfunction occurs using an onchain coverage service that provides dAPI users
 with quantifiable and trustless security guarantees. The
-[coverage service](dao-pool.md#coverage-service) uses staked tokens of the DAO
+[Coverage Service](dao-pool.md#coverage-service) uses staked tokens of the DAO
 pool as collateral, which means that when a dAPI malfunction is confirmed
 through the dispute resolution protocol, user damages will be covered from the
 pool's staked tokens.
@@ -161,7 +165,7 @@ clients. API3 follows the same scheme for dAPIs.
 To gain access to a dAPI, a dApp will pay a recurring subscription fee, which
 may be fixed or customized for the dApp based on a specific use case. These
 prices will be determined by the respective team, and will include a premium if
-the dApp wants to receive the [coverage service](dao-pool.md#coverage-service).
+the dApp wants to receive the [Coverage Service](dao-pool.md#coverage-service).
 The payment can be made in any cryptocurrency, which will be received by the DAO
 in API3 tokens through a liquidity pool-based decentralized exchange.
 
@@ -187,6 +191,8 @@ mechanic will produce positive staking incentives using inflationary rewards and
 claim risks rather than revenue sharing.
 
 > ![dao-pool-staking-2](../assets/images/dao-pool-staking-2.png)
+>
+> <p class="diagram-line" style="color:gray;margin-top:25px;">Fees from revenue are burned. Inflationary rewards are distributed by the DAO. Coverage service claims are paid to dAPI covered entities from the pool of staked tokens.</p>
 
 ### Earning Rewards
 
@@ -347,4 +353,4 @@ transfers tokens from the DAO pool to the recipient. When this occurs, the total
 number of staked tokens goes down, and pool share value goes down in turn.
 Reference
 <a href="/api3-whitepaper-v1.0.2.pdf#Insurance process" target="_api3-whitepaper">section
-6.3 _"Insurance process"_</a> of the API3 whitepaper.
+6.3 _"Coverage service process"_</a> of the API3 whitepaper.
