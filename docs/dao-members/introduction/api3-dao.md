@@ -19,9 +19,8 @@ privileges in the DAO and thus participate in the governance of the project
 directly. In addition, stakers receive
 [inflationary rewards](dao-pool.md#inflationary-rewards) and any additional
 benefits that the DAO may decide on in the future. The staked API3 tokens will
-back an on-chain [insurance service](dao-pool.md#insurance-service) as
-collateral to provide dAPI users with quantifiable and trustless security
-guarantees.
+back an on-chain [coverage service](dao-pool.md#coverage-service) as collateral
+to provide dAPI users with quantifiable and trustless security guarantees.
 
 The DAO votes on high-level matters such as staking incentives and
 collateralization, as well as grant proposals that provide DAO treasury funds to

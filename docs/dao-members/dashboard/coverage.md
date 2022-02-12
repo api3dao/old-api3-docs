@@ -1,5 +1,5 @@
 ---
-title: Insurance Service
+title: Coverage Service
 ---
 
 # {{$frontmatter.title}}
@@ -14,9 +14,9 @@ This doc is a placeholder for now. Do not add it to production docs.
 
 -->
 
-::: warning Insurance under development As of July 8th, 2021 the ClaimsManagers
-contracts that implements insurance claims have not been implemented and is
-scheduled for a later date. :::
+::: warning Coverage Services are under development As of July 8th, 2021 the
+ClaimsManagers contracts that implements coverage claims have not been
+implemented and is scheduled for a later date. :::
 
 To insure against potential system failures, the DAO pool can empower special
 `ClaimsManager` contracts to withdraw staked tokens directly. Approved
