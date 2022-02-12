@@ -14,10 +14,10 @@ themselves, without third-party oracle nodes as middlemen. Beacons allow smart
 contract developers to connect their Web3 applications to continuously updated
 streams of off-chain data, such as the latest cryptocurrency, stock and
 commodities prices. They can power various decentralized applications, such as
-DeFi lending, synthetic assets, stable coins, derivatives, insurance, NFTs and
-more. Operated by the market’s most trusted and reliable data providers, Beacons
-are a transparent, cost efficient and scalable way for smart contracts to
-connect to the data that they need.
+DeFi lending, synthetic assets, stable coins, derivatives, quality assurance,
+NFTs and more. Operated by the market’s most trusted and reliable data
+providers, Beacons are a transparent, cost efficient and scalable way for smart
+contracts to connect to the data that they need.
 
 To achieve a completely transparent and secure design, Beacons are operated
 directly by the API provider of the data they serve, without third-party node

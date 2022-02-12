@@ -38,7 +38,7 @@ integrate Beacon data by accessing on-chain contract storage.
 
 Lastly, select dAPIs composed of curated sets of Beacons will power new
 applications demanding specific security guarantees. These guarantees will be
-provided by API3 in the form of insurance, payable in the case of dAPI
+provided by API3 in the form of coverage service, payable in the case of dAPI
 malfunction.
 
 Altogether, Beacons offer developers an improved solution for accessing

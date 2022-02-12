@@ -13,7 +13,7 @@ optionally delegate their voting power to another user.
 
 ::: tip
 
-The DAO pool contract will also be used to pay insurance claims out of the DAO
+The DAO pool contract will also be used to pay coverage claims out of the DAO
 pool. This functionality not been implemented to-date.
 
 :::

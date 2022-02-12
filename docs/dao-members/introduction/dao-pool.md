@@ -9,9 +9,9 @@ title: The DAO Pool
 
 The API3 DAO has a single staking pool called the **DAO pool**. Staking API3
 tokens in the pool will grant representation and staking rewards, but at the
-same time, the staked tokens will be used as collateral to pay out insurance
-claims as needed. To do this, the pool focuses on three token utilities and
-implements an insurance service which by design balances rewards and risks
+same time, the staked tokens will be used as collateral to pay out coverage
+service claims as needed. To do this, the pool focuses on three token utilities
+and implements a coverage service which by design balances rewards and risks
 through responsible governance.
 
 ## Tokens
@@ -28,21 +28,20 @@ have voting rights. They are subject to market value and inflation.
 
 ### Staked Tokens
 
-Staked API3 tokens are used as collateral for the on-chain insurance service
-that will provide quantifiable and trustless security guarantees to dAPI users.
-These mechanics will remove the need for a central authority at the ecosystem
-level.
+Staked API3 tokens are used as collateral for the on-chain coverage service that
+will provide quantifiable and trustless security guarantees to dAPI users. These
+mechanics will remove the need for a central authority at the ecosystem level.
 
 Staking simply means you are placing API3 tokens into the DAO pool. When staking
 tokens to the DAO pool you gain access to weekly staking rewards but also share
-in the risk of dAPI insurance. You are also granted voting rights on active DAO
-proposals and inflationary rewards.
+in the risk of the coverage service. You are also granted voting rights on
+active DAO proposals and inflationary rewards.
 
 To stake your tokens see [StakingTokens](../dashboard/staking.md). You can stake
 as many times as you’d like. Your percentage of all the tokens in the DAO pool
 are directly related to your percentage of the rewards and the risks. If you
-stake 10% of the pool you earn 10% of rewards and will pay 10% of insurance
-claims.
+stake 10% of the pool you earn 10% of rewards and will pay 10% of coverage
+service claims.
 
 ## Token Utilities
 
@@ -58,7 +57,7 @@ _Main utilities of the API3 token._
 
 1. [Staking](dao-pool.md#staking): Grants membership in the API3 DAO and rights
    to [inflationary rewards](dao-pool.md#inflationary-rewards).
-1. [Collateral](dao-pool.md#collateral): Backs insurance services that protect
+1. [Collateral](dao-pool.md#collateral): Backs coverage services that protect
    users from damages caused by dAPI malfunctions.
 1. [Governance](dao-pool.md#governance): Grants direct representation in the
    API3 DAO.
@@ -78,17 +77,21 @@ Reference
 The staking utility incentivizes participation in the DAO and alignment of
 incentives. By staking your API3 tokens into the DAO pool, you receive
 governance voting rights and take part in providing API3 users with quantifiable
-_security_ in the form of insurance. The DAO pool also grants you inflationary
-rewards and exposes you to insurance claim risks.
+_security_ in the form of the coverage service. The DAO pool also grants you
+inflationary rewards and exposes you to the risk of coverage service claims.
 
 > ![dao-pool-staking](../assets/images/dao-pool-staking.png)
+>
+> <p class="diagram-line" style="color:gray;margin-top:25px;">Staked tokens in the DAO pool grant 
+> governance voting rights, inflationary rewards and are used to fund the coverage 
+> service which exposes staked tokens to the risks of coverage service claims.</p>
 
 **Benefits:**
 
-- Generate shares (tokens) in the DAO through revenue sharing from the insurance
+- Generate shares (tokens) in the DAO through revenue sharing from the coverage
   service fees.
 - Generates inflationary rewards by decreasing the circulating supply of API3
-  tokens through revenue burn from the insurance service fees.
+  tokens through revenue burn from the coverage service fees.
 - Improved token inflation protection compared to unstaked tokens.
 - Voting privileges on DAO proposals.
 
@@ -100,8 +103,8 @@ rewards and exposes you to insurance claim risks.
 To stake your tokens use the [Dashboard](../dashboard/staking.md). You can stake
 as many times as you’d like. Your percentage of all the tokens in the DAO pool
 are directly related to your percentage of the rewards and the risks. If you
-stake 10% of the pool you earn 10% of rewards and will pay 10% of insurance
-claims.
+stake 10% of the pool you earn 10% of rewards and will pay 10% of coverage
+service claims.
 
 ### Collateral
 
@@ -117,9 +120,9 @@ decentralized data feeds.
 
 Exposing the governing parties to the risk would align their incentives with
 that of the DAO. The governing parties need to be penalized when a dAPI
-malfunction occurs using an onchain insurance service that provides dAPI users
+malfunction occurs using an onchain coverage service that provides dAPI users
 with quantifiable and trustless security guarantees. The
-[insurance service](dao-pool.md#insurance-service) uses staked tokens of the DAO
+[Coverage Service](dao-pool.md#coverage-service) uses staked tokens of the DAO
 pool as collateral, which means that when a dAPI malfunction is confirmed
 through the dispute resolution protocol, user damages will be covered from the
 pool's staked tokens.
@@ -137,19 +140,19 @@ The only way to gain representation in the DAO is to stake API3 tokens in the
 pool. Staked tokens give their holders the right to take part in the governance
 of the API3 ecosystem through the DAO. To vote token holders must stake their
 API3 tokens in the pool, which also gives them access to weekly staking rewards
-but also share in the risk of dAPI insurance.
+but also share in the risk of the coverage service.
 
 All governing parties will be exposed to all risks and rewards of API3, and will
 govern to optimize them. Inflationary rewards and the staked tokens being used
 as collateral will create a positive feedback loop in terms of governance
 quality. Initial token holders will have to stake and expose themselves to risk
 if they do not want to lose value to inflation. If they misgovern and lose
-collateral through insurance claims, these tokens will get returned to the open
-market, from where they will be acquired by new governing parties. In contrast,
-if initial token holders govern well and cause token scarcity in the market, the
-representation distribution will be protected. In other words, governance tokens
-being used as collateral results in a robust Darwinian structure that improves
-itself and is able to recover from failures.
+collateral through coverage service claims, these tokens will get returned to
+the open market, from where they will be acquired by new governing parties. In
+contrast, if initial token holders govern well and cause token scarcity in the
+market, the representation distribution will be protected. In other words,
+governance tokens being used as collateral results in a robust Darwinian
+structure that improves itself and is able to recover from failures.
 
 ## Monetization
 
@@ -162,10 +165,9 @@ clients. API3 follows the same scheme for dAPIs.
 To gain access to a dAPI, a dApp will pay a recurring subscription fee, which
 may be fixed or customized for the dApp based on a specific use case. These
 prices will be determined by the respective team, and will include a premium if
-the dApp wants to receive the
-[insurance service](dao-pool.md#insurance-service). The payment can be made in
-any cryptocurrency, which will be received by the DAO in API3 tokens through a
-liquidity pool-based decentralized exchange.
+the dApp wants to receive the [Coverage Service](dao-pool.md#coverage-service).
+The payment can be made in any cryptocurrency, which will be received by the DAO
+in API3 tokens through a liquidity pool-based decentralized exchange.
 
 ### API provider compensation
 
@@ -180,15 +182,17 @@ return of the proof that the API provider is compensated in fiat by the grantee.
 API3 aims to set up, maintain, and [monetize](dao-pool.md#monetization) dAPIs at
 scale. Its success in doing so can be estimated by its total revenue, as this
 will increase with the number of dAPIs and the amount of funds secured by them.
-API3 generates revenue through subscription fees and insurance fees. The fees
-can be made in any cryptocurrency, which will be received by the DAO in API3
-tokens through a liquidity pool-based decentralized exchange. To align the
+API3 generates revenue through subscription fees and coverage service fees. The
+fees can be made in any cryptocurrency, which will be received by the DAO in
+API3 tokens through a liquidity pool-based decentralized exchange. To align the
 governance incentives with API3’s success, combined with the inflationary
 rewards, the net revenue to the DAO will result in burning of API3 tokens. This
 mechanic will produce positive staking incentives using inflationary rewards and
 claim risks rather than revenue sharing.
 
 > ![dao-pool-staking-2](../assets/images/dao-pool-staking-2.png)
+>
+> <p class="diagram-line" style="color:gray;margin-top:25px;">Fees from revenue are burned. Inflationary rewards are distributed by the DAO. Coverage service claims are paid to dAPI covered entities from the pool of staked tokens.</p>
 
 ### Earning Rewards
 
@@ -206,14 +210,14 @@ share will not always be one token.
 
 In essence, inflationary rewards force token holders to stake and preserve the
 value of their tokens. However, staking is risky due to the funds being used as
-collateral for the [Insurance Service](dao-pool.md#insuracne-service), and
-forces the staker to participate in governance to ensure that the risk is
-minimized. As a combination of the two, an inflationary governance token used as
-collateral forces all token holders to participate in governance, which is ideal
-because it maximizes the decentralization of governance. Inflationary rewards
-are paid weekly by an implicit and automatic process through an on-chain
-contract. Furthermore, inflationary rewards are vested for a year, which results
-in governing parties sharing the project’s long term interests.
+collateral for the [Coverage Service](dao-pool.md#coverage-service), and forces
+the staker to participate in governance to ensure that the risk is minimized. As
+a combination of the two, an inflationary governance token used as collateral
+forces all token holders to participate in governance, which is ideal because it
+maximizes the decentralization of governance. Inflationary rewards are paid
+weekly by an implicit and automatic process through an on-chain contract.
+Furthermore, inflationary rewards are vested for a year, which results in
+governing parties sharing the project’s long term interests.
 
 <!--
 > ![dao-pool-staking-2](../assets/images/token-weekly-emission.png)
@@ -289,9 +293,9 @@ later, etc.) This 1 year-lock is the secret sauce to good decentralized
 governance, it essentially aligns the incentives of the stakers/governors with
 the ones of the DAO/project/token for a whole year.
 
-## Insurance Service
+## Coverage Service
 
-::: warning Please note Insurance products are not implemented yet.
+::: warning Please note Coverage Service products are not implemented yet.
 
 Before they are, a proposal with a 50% quorum requirement will have to be passed
 for them to go active
@@ -299,42 +303,43 @@ for them to go active
 :::
 
 API3 provides dAPI users with a quantifiable level of _security_ in the form of
-an on-chain insurance service. Staked tokens in the DAO pool are used to cover
+an on-chain coverage service. Staked tokens in the DAO pool are used to cover
 potential financial losses from dAPI malfunctions that the dAPI consumer might
 incur. This accomplishes two goals.
 
-- The insurance acts as a well-defined and trustless safety net in case of a
-  dAPI malfunction.
+- The coverage service acts as a well-defined and trustless safety net in case
+  of a dAPI malfunction.
 - It holds the governing parties responsible for dAPI malfunctions, and thus
   incentivizes them to govern towards more secure dAPIs.
 
-API3 co-developed an on-chain insurance service with Kleros that provides
-quantifiable and trustless _security_ to dAPI users. This insurance service will
+API3 co-developed an on-chain coverage service with Kleros that provides
+quantifiable and trustless _security_ to dAPI users. This coverage service will
 protect the dAPI user against damages caused by certain dAPI malfunctions up to
 a payout limit. Note that even if API3 did not provide this service, the dAPI
-user could have received on-chain insurance services using a third party
-solution. Such a solution would tend towards charging very high insurance
+user could have received on-chain coverage services using a third party
+solution. Such a solution would tend towards charging very high coverage service
 premiums, as they would not have access to the information and expertise to
 accurately assess dAPI risks.
 
-The proposed insurance service is special in the way that it is collateralized
-by the funds staked by the governing parties of the API3 DAO into the DAO pool.
+The proposed coverage service is special in the way that it is collateralized by
+the funds staked by the governing parties of the API3 DAO into the DAO pool.
 Therefore, it not only provides _security_ to the dAPI user, but also creates a
 very strong incentive for dAPIs to be governed in a way that dAPI _security_ is
-maximized, which will further decrease insurance costs.
+maximized, which will further decrease coverage service costs.
 
 ### Claim Risks
 
-The staked tokens in the pool are used as collateral for insurance claims. Any
-payout results in the reduction of the total token count in the pool. The
-reduction is charged against each entity's percentage of tokens in the pool.
+The staked tokens in the pool are used as collateral for coverage service
+claims. Any payout results in the reduction of the total token count in the
+pool. The reduction is charged against each entity's percentage of tokens in the
+pool.
 
 ::: tip Example
 
 Claim Risks User X and Y both stake 500 API3 tokens, so each has 50% ownership
-in a 1000 token DAO pool. There is an insurance claim payout of 3.4 tokens and
-the pool is now 996.6 tokens. X and Y now own 498.3 tokens each based on their
-50% ownership.
+in a 1000 token DAO pool. There is a coverage service claim payout of 3.4 tokens
+and the pool is now 996.6 tokens. X and Y now own 498.3 tokens each based on
+their 50% ownership.
 
 :::
 
@@ -348,4 +353,4 @@ transfers tokens from the DAO pool to the recipient. When this occurs, the total
 number of staked tokens goes down, and pool share value goes down in turn.
 Reference
 <a href="/api3-whitepaper-v1.0.2.pdf#Insurance process" target="_api3-whitepaper">section
-6.3 _"Insurance process"_</a> of the API3 whitepaper.
+6.3 _"Coverage service process"_</a> of the API3 whitepaper.

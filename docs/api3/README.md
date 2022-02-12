@@ -97,12 +97,14 @@ of this initiative will be the API3 token. Staking the token will grant its
 holders full governing rights over the API3 DAO along with all the associated
 rewards.
 
-Staked API3 tokens will be used as collateral for the on-chain insurance service
+Staked API3 tokens will be used as collateral for the on-chain coverage service
 that will provide quantifiable and trustless security guarantees to dAPI users.
 These mechanics will remove the need for a central authority at the ecosystem
 level. As a result, the API3 Project will allow smart contract platforms to
 leverage APIs for the building of meaningful applications in a truly
-decentralized and trust-minimized way. :::
+decentralized and trust-minimized way.
+
+:::
 
 ::: tab Blog Posts
 
