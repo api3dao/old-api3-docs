@@ -13,5 +13,3 @@ Doing so requires the client to be [endorsed](endorsement.md) by the said reques
 
 Note that the client is the contract that makes the request.
 The client may specify the request such that the request is fulfilled by the provider's Airnode calling back another contract.
-
-See the [Airnode client examples](https://github.com/api3dao/airnode-client-examples/tree/pre-alpha).
