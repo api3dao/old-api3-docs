@@ -263,7 +263,7 @@ For example, let's say the API response looks like this
 {
   "pathToString": "some string",
   "pathToFloat": "1234.567",
-  "pathToAddress": "0xe021f6bfbdd53c3fd0c5cfd4139b51d1f3108a74"
+  "pathToAddress": "0xe021...08a74"
 }
 ```
 
@@ -274,7 +274,7 @@ Airnode will extract and convert each of the "split values" separately
 2. Combination of `_type="uint256"`, `_path="pathToFloat"` and `__times="10000"`
    results in `12345670`
 3. Combination of `_type="address"`, `_path="pathToAddress"` and `__times=""`
-   results in `"0xe021f6bfbdd53c3fd0c5cfd4139b51d1f3108a74"`
+   results in `"0xe021...8a74"`
 
 All of these values are then together encoded to single bytes value that can be
 sent on chain. You can use
