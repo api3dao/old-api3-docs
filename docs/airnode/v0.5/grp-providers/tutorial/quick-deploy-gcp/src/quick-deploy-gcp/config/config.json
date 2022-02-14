@@ -27,6 +27,7 @@
     "cloudProvider": {
       "type": "gcp",
       "region": "us-east1",
+      "disableConcurrencyReservations": false,
       "projectId": "${PROJECT_ID}"
     },
     "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",

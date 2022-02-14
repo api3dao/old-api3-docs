@@ -41,7 +41,8 @@ not generated for client deployments (deploying to a Docker container).
     "airnodeAddressShort": "a30ca71",
     "cloudProvider": {
       "type": "aws",
-      "region": "us-east-1"
+      "region": "us-east-1",
+      "disableConcurrencyReservations": false
     },
     "stage": "starter-example",
     "nodeVersion": "0.5.0"
@@ -69,6 +70,7 @@ not generated for client deployments (deploying to a Docker container).
     "cloudProvider": {
       "type": "gcp",
       "region": "us-east4",
+      "disableConcurrencyReservations": false,
       "projectId": "api3-753118"
     },
     "stage": "dev",

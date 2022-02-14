@@ -107,8 +107,16 @@ accomplish this, it spawns new cloud functions (called handlers) when necessary
 and these handlers run in parallel.
 
 The maximum concurrency specifies the maximum number of concurrent handler calls
-per single Airnode invocation. If you set this field to value X, then Airnode
-will guarantee that:
+per single Airnode invocation. Airnode is reserving
+([AWS](https://docs.aws.amazon.com/lambda/latest/operatorguide/reserved-concurrency.html))
+and limiting
+([AWS](https://docs.aws.amazon.com/lambda/latest/operatorguide/reserved-concurrency.html),
+[GCP](https://cloud.google.com/functions/docs/configuring/max-instances)) the
+number of spawned cloud functions based on this field. If you want to disable
+this behavior, take a look at the `disableConcurrencyReservations` field in the
+[cloudProvider](#cloudprovider) section.
+
+If you set this field to value X, then Airnode will guarantee that:
 
 - At most X api calls are made to the API
 - At most X transactions (made by blockchain providers) will be made by the
@@ -216,7 +224,8 @@ The `nodeSettings` field holds node-specific (Airnode) configuration parameters.
 "nodeSettings": {
     "cloudProvider": {
       "type": "aws",
-      "region": "us-east-1"
+      "region": "us-east-1",
+      "disableConcurrencyReservations": false
     },
     "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
     "heartbeat": {
@@ -254,6 +263,10 @@ configuration. There are currently three options available: `aws`, `gcp`
   trivial at this moment (i.e., it does not take one command like deployment,
   but rather three). Therefore, try to pick a region and stick to it for this
   specific deployment.
+- disableConcurrencyReservations: (AWS and GCP only) Disables concurency
+  reservations for spawned cloud functions (all of them, including the HTTP
+  gateway one). For more information refer to the
+  [`maxConcurrency`](#maxconcurrency) section.
 - projectId: (GCP only) Project ID of the GCP project the Airnode will be
   deployed under.
 

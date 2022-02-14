@@ -195,6 +195,7 @@ An object containing general deployment parameters of an Airnode.
   "cloudProvider": {
     "type": "gcp",
     "region": "us-east1",
+    "disableConcurrencyReservations": false,
     "projectId": "${GCP_PROJECT_ID}"
   },
   "stage": "testnet",
@@ -234,6 +235,13 @@ you want to run Airnode as a docker container locally
 deployed at. See the cloud provider's documentation for possible values. When
 using GCP, make sure to choose a
 [**zone** not a location](https://cloud.google.com/compute/docs/regions-zones)
+
+#### `cloudProvider.disableConcurrencyReservations`
+
+(required for AWS and GCP) - Disables concurency reservations for spawned cloud
+functions. For more information refer to the
+[`maxConcurrency`](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#maxconcurrency)
+section.
 
 #### `cloudProvider.projectId`
 
