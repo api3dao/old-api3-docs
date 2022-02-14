@@ -63,6 +63,7 @@ building a config.json file.
     "cloudProvider": {
       "type": "aws", // local, aws or gcp
       "region": "<FILL_*>",
+      "disableConcurrencyReservations": false,
       "projectId": "${GCP_PROJECT_ID}" // Use for type=gcp only
     },
     "airnodeWalletMnemonic": "<FILL_*>",

@@ -30,6 +30,7 @@
     "cloudProvider": {
       "type": "aws",
       "region": "us-east-1",
+      "disableConcurrencyReservations": false,
       "projectId": "${GCP_PROJECT_ID}" // Used for type=gcp only
     },
     "heartbeat": {
