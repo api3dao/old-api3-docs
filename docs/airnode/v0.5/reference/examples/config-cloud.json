@@ -30,8 +30,8 @@
     "cloudProvider": {
       "type": "aws",
       "region": "us-east-1",
-      "disableConcurrencyReservations": false,
-      "projectId": "${GCP_PROJECT_ID}" // Used for type=gcp only
+      "disableConcurrencyReservations": false, //Use for (type = gcp | aws) only
+      "projectId": "${GCP_PROJECT_ID}" // Use for (type = gcp) only
     },
     "heartbeat": {
       "enabled": true,

@@ -9,8 +9,9 @@ title: config.json
 A template for an Airnode's configuration file. Below are notations to help
 explain contents of the template.
 
-- `<FILL_*>`: The value added is independent from other fields and a value is
-  needed. These values are not considered secret unless you want them to be.
+- `<FILL_*>, <FILL_NUMBER>, <FILL_BOOLEAN>`: The value added is independent from
+  other fields and a value is needed unless otherwise indicated. These values
+  are not considered secret unless you want them to be.
 
 - `<FILL_OPERATION_PARAMETER_1_NAME>`: If two fields contain the same
   expression, use the same value in them because they are referencing each
@@ -66,18 +67,18 @@ building a config.json file.
     "cloudProvider": {
       "type": "aws", // local, aws or gcp
       "region": "<FILL_*>",
-      "disableConcurrencyReservations": false,
-      "projectId": "${GCP_PROJECT_ID}" // Use for type=gcp only
+      "disableConcurrencyReservations": "<FILL_BOOLEAN>", //Use for (type = gcp | aws) only
+      "projectId": "${GCP_PROJECT_ID}" // Use for (type = gcp) only
     },
     "airnodeWalletMnemonic": "<FILL_*>",
     "heartbeat": {
-      "enabled": true,
+      "enabled": "<FILL_BOOLEAN>",
       "url": "${HEARTBEAT_API_KEY}", // In secrets.env
       "apiKey": "${HEARTBEAT_API_KEY}", // In secrets.env
       "id": "${HEARTBEAT_ID}" // In secrets.env
     },
     "httpGateway": {
-      "enabled": true,
+      "enabled": "<FILL_BOOLEAN>",
       "apiKey": "${HTTP_GATEWAY_API_KEY}", // In secrets.env
       "maxConcurrency": "<FILL_NUMBER>"
     },

@@ -142,10 +142,9 @@ npm run read-beacon:polygon-mumbai
 
 ::: tip
 
-You can read beacons other than `ETH/USD` by modifying
+You can read Beacons other than `ETH/USD` by modifying
 `scripts/whitelist-reader.js` and `scripts/read-beacon.js`. Refer to the
-[docs](https://docs.api3.org/beacon/v0.1/reference/beacon-ids.html) for a
-complete list.
+[Beacons IDs](../reference/beacon-ids.md) doc for a complete list.
 
 :::
 
