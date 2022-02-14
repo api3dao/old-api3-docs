@@ -280,11 +280,12 @@ of security scheme and security field.
 
 ### Step #1: Define the security schemes for an OIS
 
-You use `ois[n].apiSpecifications.components.securitySchemes` to define the
-security schemes your API will use. Consider the partial `config.json` above
-that declares a security scheme named "requiresXApiKey". This scheme declares
-that the API requires an API key that must exist in the HTTP header named
-"X-api-key".
+You use
+<code style="overflow-wrap:break-word;">ois[n].apiSpecifications.components.securitySchemes</code>
+to define the security schemes your API will use. Consider the partial
+`config.json` above that declares a security scheme named "requiresXApiKey".
+This scheme declares that the API requires an API key that must exist in the
+HTTP header named "X-api-key".
 
 ### Step #2: Turn on the defined security schemes
 

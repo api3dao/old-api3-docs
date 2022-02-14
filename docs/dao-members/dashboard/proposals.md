@@ -148,7 +148,8 @@ To create a new proposal using the DAO dashboard:
 5. Enter the **Target Contract** address.
 
    > This is the address of the contract to call. For example the commonly used
-   > target contract for USDC is `0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48`.
+   > target contract for USDC is
+   > <code style="overflow-wrap: break-word;">0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48</code>.
 
 6. Enter the **Contract Target Signature**.
 
@@ -271,7 +272,8 @@ To host a proposal description on IPFS:
 2. Upload the PDF to [Fleek](https://fleek.co) or your preferred IPFS hosting
    provider. To do so using Fleek, create a free Basic account and use the
    Upload tool on the Storage page. Fleek will provide an IPFS hash of the PDF,
-   for example: `bafybeifl4prxv75fgumtjh4ovklfkp7zzt7dwkl4xmndv37gtcalwpam2u`.
+   for example:
+   <code style="overflow-wrap: break-word;">bafybeifl4prxv75fgumtjh4ovklfkp7zzt7dwkl4xmndv37gtcalwpam2u</code>.
 3. If using Fleek, append the hash to `https://ipfs.fleek.co/ipfs/`. The URL for
    the above hash would then be:
    > <a style="overflow-wrap: break-word;" target="_blank"

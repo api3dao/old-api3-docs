@@ -379,15 +379,16 @@ parameter in the above example). Such hard-coded parameters are called
 `fixedOperationParameters`.
 
 In the OIS template there is a fixed operation parameter under
-`endpoints.*.fixedOperationParameters`, and it refers to the first API operation
-parameter. This means that whenever the Airnode receives a request for this
-endpoint, the respective API call will be made with that API operation parameter
-set to `endpoints.*.fixedOperationParameters.*.value`. The requester does not
-supply a value for `fixedOperationParameters`.
+`endpoints[n].fixedOperationParameters`, and it refers to the first API
+operation parameter. This means that whenever the Airnode receives a request for
+this endpoint, the respective API call will be made with that API operation
+parameter set to
+<code style="overflow-wrap:break-word;">endpoints[n].fixedOperationParameters[n].value</code>.
+The requester does not supply a value for `fixedOperationParameters`.
 
 An Airnode endpoint can have multiple `fixedOperationParameters`. An API
-operation parameter cannot be in both `endpoints.*.fixedOperationParameters` and
-`endpoints.*.parameters`.
+operation parameter cannot be in both `endpoints[n].fixedOperationParameters`
+and `endpoints[n].parameters`.
 
 #### reservedParameters
 

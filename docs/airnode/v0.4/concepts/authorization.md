@@ -74,9 +74,10 @@ the other hand, `RequesterAuthorizerWithManager` allows the manager address
 Some common functions available are:
 
 - `requesterIsWhitelisted`: Called to check if a requester is whitelisted to use
-  the Airnode–endpoint pair
-- `airnodeToEndpointIdToRequesterToWhitelistStatus`: Called to get the detailed
-  whitelist status of a requester for the Airnode–endpoint pair
+  the Airnode–endpoint pair.
+- <code style="  overflow-wrap: break-word;">airnodeToEndpointIdToRequesterToWhitelistStatus</code>:
+  Called to get the detailed whitelist status of a requester for the
+  Airnode–endpoint pair.
 
 ### Custom Authorizers
 

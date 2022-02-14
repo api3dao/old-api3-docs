@@ -31,7 +31,7 @@ Almost all commands require you to provide a blockchain `providerUrl`. Following
 are just two examples of many possibilities. See the
 [Chain Providers](../../concepts/chain-providers.md) doc for more information.
 
-- `https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID>`
+- <code style="overflow-wrap: break-word;">https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID></code>
 - `https://ropsten.infura.io/v3/<KEY>`
 
 The CLI connects to the

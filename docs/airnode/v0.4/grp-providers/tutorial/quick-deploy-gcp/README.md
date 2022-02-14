@@ -240,13 +240,13 @@ request body as a key/value pair.
 
 URL:
 
-`<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c`
+<code style="overflow-wrap:break-word;">&#60;httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c</code>
 
 - `<httpGatewayUrl>`: The base URL to the gateway, found in the `receipts.json`
   file. Update the placeholder in the CURL example below with its value.
-- `0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c`: Passed
-  as a path parameter, the endpointId to call, see `triggers.rrp[0].endpointId`
-  in the `config.json` file.
+- <code style="overflow-wrap:break-word;">0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c</code>:
+  Passed as a path parameter, the endpointId to call, see
+  `triggers.rrp[0].endpointId` in the `config.json` file.
 
 #### Request
 

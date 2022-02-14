@@ -171,7 +171,8 @@ An Airnode can be removed using the remove command two different ways.
   `config.json`.
   - `nodeSetting.cloudProvider.type`
   - `nodeSetting.cloudProvider.region`
-  - `nodeSetting.cloudProvider.projectId` (GCP only)
+  - <code style="overflow-wrap: break-word;">nodeSetting.cloudProvider.projectId</code>
+    (GCP only)
   - `nodeSetting.stage`
 
 ```bash
