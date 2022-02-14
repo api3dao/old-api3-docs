@@ -127,7 +127,7 @@ Deploy `BeaconReaderExample` that is pointed to the pre-deployed
 npm run deploy:polygon-mumbai
 ```
 
-Whitelist the `BeaconReaderExample` you have deployed for the `eth_usd` Beacon
+Whitelist the `BeaconReaderExample` you have deployed for the `ETH/USD` Beacon
 powered by Amberdata:
 
 ```sh
@@ -142,7 +142,7 @@ npm run read-beacon:polygon-mumbai
 
 ::: tip
 
-You can read beacons other than `eth_usd` by modifying
+You can read beacons other than `ETH/USD` by modifying
 `scripts/whitelist-reader.js` and `scripts/read-beacon.js`. Refer to the
 [docs](https://docs.api3.org/beacon/v0.1/reference/beacon-ids.html) for a
 complete list.
@@ -188,9 +188,9 @@ The `@api3/services` API exposes two functions:
    - `apiName` - the
      [name of the API](https://github.com/api3dao/operations/tree/main/data/apis).
      Currently, the only option is `Amberdata`
-   - `beaconName` - one of the filenames (without extension) from
-     [this directory](https://github.com/api3dao/operations/tree/main/data/apis/Amberdata/beacons),
-     e.g. `eth_usd`
+   - `beaconName` - the name of one of the
+     [beacons](https://docs.api3.org/beacon/v0.1/reference/beacon-ids.html),
+     e.g. `ETH/USD`
    - `chain` - the name of the chain, e.g. `ropsten`
 
 Using `@api3/services` is not required to create a Beacon reader application.
