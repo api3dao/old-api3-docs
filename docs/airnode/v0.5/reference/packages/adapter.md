@@ -142,9 +142,9 @@ Airnode, see the documentation for
 
 For example, let's say the API wants to encode the following string
 `simple string` with length 13. Its encoding is
-`0x73696d706c6520737472696e6700000000000000000000000000000000000000`. This is
-the value that should be sent as a response to Airnode request, together with
-the `0x` prefix.
+<code style="overflow-wrap: break-word;">0x73696d706c6520737472696e6700000000000000000000000000000000000000</code>.
+This is the value that should be sent as a response to Airnode request, together
+with the `0x` prefix.
 
 You can use [ethers](https://docs.ethers.io/v5/) to encode these on the API side
 
@@ -157,12 +157,13 @@ console.log(encoded); // 0x73696d706c6520737472696e67000000000000000000000000000
 ### `address`
 
 There is no conversion for `address` - the value is expected to be a string
-representing a valid address. Valid examples are
+representing a valid address. Valid examples are:
 
-- `0x0765baA22F6D4A53847D63B056DC79400b9A592a` -
+- <code style="overflow-wrap: break-word;">0x0765baA22F6D4A53847D63B056DC79400b9A592a</code> -
   [EIP-55 mixed case checksum](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-55.md)
-  of an address
-- `0x0765baa22f6d4a53847d63b056dc79400b9a592a` - all lowercase address
+  of an address.
+- <code style="overflow-wrap: break-word;">0x0765baa22f6d4a53847d63b056dc79400b9a592a</code> -
+  all lowercase address.
 
 ### `bytes`
 
@@ -173,7 +174,7 @@ documentation for [`string`](adapter.md#string).
 
 For example, let's say the API wants to encode the following string
 `this is an example string that is a bit longer`. Its encoding is
-`0x7468697320697320616e206578616d706c6520737472696e672074686174206973206120626974206c6f6e676572`.
+<code style="overflow-wrap: break-word;">0x7468697320697320616e206578616d706c6520737472696e672074686174206973206120626974206c6f6e676572</code>.
 This is the value that should be sent as a response to Airnode request, together
 with the `0x` prefix.
 
@@ -220,7 +221,7 @@ For example, if the API response is the following string
 `this is an example string that is a bit longer` with length 46. It will be
 first trimmed to 31 characters, string `this is an example string that ` and
 afterwards converted to
-`0x7468697320697320616e206578616d706c6520737472696e6720746861742000`.
+<code style="overflow-wrap: break-word;">0x7468697320697320616e206578616d706c6520737472696e6720746861742000</code>.
 
 You can use [ethers](https://docs.ethers.io/v5/) to decode the values off chain
 using the following snippet

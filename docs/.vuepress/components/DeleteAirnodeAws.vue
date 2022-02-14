@@ -120,6 +120,11 @@ export default {
   color:gray;
   border: 2px solid gray;
   border-radius: 5px;
-  margin-left:20px;margin-top:15px;
+  /* Do not change the below settings. These are needed
+     for mobile devices to prevent horizontal scrolling
+     of the viewport, excluding margin-top.
+  */
+  margin-left:0px;margin-top:15px;
+  max-width:320px;
 }
 </style>

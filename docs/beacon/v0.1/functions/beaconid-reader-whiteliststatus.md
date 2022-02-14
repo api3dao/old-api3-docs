@@ -62,7 +62,7 @@ contract mySmartContract {
 - `uint192 indefiniteWhitelistCount` - Number of times `reader` was whitelisted
   indefinitely for `beaconId`. A reader is indefinitely whitelisted by the
   whitelist manager account or by any other account that has the
-  [INDEFINITE_WHITELISTER_ROLE_DESCRIPTION](https://github.com/api3dao/airnode/blob/6d902da259ec3084c8f4764cadc74e270e5c7162/packages/airnode-protocol/contracts/whitelist/WhitelistRoles.sol#L32-L33)
+  [<span style="overflow-wrap: break-word;">INDEFINITE_WHITELISTER_ROLE_DESCRIPTION</span>](https://github.com/api3dao/airnode/blob/6d902da259ec3084c8f4764cadc74e270e5c7162/packages/airnode-protocol/contracts/whitelist/WhitelistRoles.sol#L32-L33)
   role. Each time an authorized account indefinitely whitelists the reader a
   recorded counter is incremented. When the reader's whitelist status is revoked
   then the counter is decremented. This means that as long as the counter

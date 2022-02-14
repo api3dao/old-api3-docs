@@ -343,8 +343,8 @@ In the example above, the Airnode deployment has an OIS with the title
 `myOisTitle`. This OIS has an endpoint with the name `myEndpointName`. When the
 Airnode deployment detects a [request](../../concepts/request.md) that
 references its [`airnodeAddress`](../../concepts/airnode.md#airnodeaddress) and
-`0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5` as the
-[`endpointId`](../../concepts/endpoint.md#endpointid), it will call the
+<code style="overflow-wrap: break-word;">0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5</code>
+as the [`endpointId`](../../concepts/endpoint.md#endpointid), it will call the
 specified endpoint (`myOisTitle`-`myEndpointName`) with the parameters provided
 in the request to fulfill it. See the
 [endpoint id documentation](../../concepts/endpoint.md#endpointid) for the

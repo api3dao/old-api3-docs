@@ -5,6 +5,19 @@
   right: 0 !important;
 }
 */
+
+/* There are several cases where the heading text is a long
+   continuous string. These need to break wrap on mobile.
+
+   The same is true for single line code examples however 
+   altering the call <code> does not always work on a mobile device
+   (simulator is ok) if there is more than one code line. These
+   must be fixed inline. <code style="overflow-wrap: break-word;"></code>
+*/
+h1, h2, h3, h4, h5{
+  overflow-wrap: break-word;
+}
+
 .collapse-box{
   border-left:2px solid #7963B2;
   padding:10px;
