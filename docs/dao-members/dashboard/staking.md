@@ -49,7 +49,6 @@ to the mainnet for production use.
 >
 > <p align="left"><br/>
 > <img src="../assets/dashboard/dashboard.png" width="200" />
-> <br/>Click image to enlarge.
 > </p>
 
 On the left is the annual percentage yield which is the return on investment
@@ -65,7 +64,7 @@ section allows you to stake and unstake your tokens.
 
 ::: tab Watch & Learn
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Cz7Ov5ibBo0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<Video src="https://www.youtube.com/embed/Cz7Ov5ibBo0"/>
 
 :::
 
@@ -111,7 +110,7 @@ displayed as WITHDRAWABLE.
 
 ::: tab Watch & Learn
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PdSE-SiUx3M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<Video src="https://www.youtube.com/embed/PdSE-SiUx3M"/>
 
 :::
 
@@ -147,7 +146,7 @@ calculated by the total amount staked divided by the staking target.
 
 ::: tab Watch & Learn
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/DQMsgQvkg7k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<Video src="https://www.youtube.com/embed/DQMsgQvkg7k"/>
 
 :::
 
@@ -176,7 +175,7 @@ subject to a seven day waiting period.
 
 ::: tab Watch & Learn
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/__zhi8N2erI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<Video src="https://www.youtube.com/embed/__zhi8N2erI"/>
 
 :::
 

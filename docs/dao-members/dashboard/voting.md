@@ -65,7 +65,7 @@ passed since your last delegation.
 
 ::: tab Watch and Learn
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/K_EZFMjXUPA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<Video src="https://www.youtube.com/embed/K_EZFMjXUPA"/>
 
 :::
 

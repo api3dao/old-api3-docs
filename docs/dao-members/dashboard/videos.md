@@ -14,28 +14,28 @@ dashboard videos.
 
 ## Staking Page Overview
 
-> <iframe width="560" height="315" src="https://www.youtube.com/embed/Cz7Ov5ibBo0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+> <Video src="https://www.youtube.com/embed/Cz7Ov5ibBo0"/>
 
 ## Deposit and Withdraw
 
-> <iframe width="560" height="315" src="https://www.youtube.com/embed/PdSE-SiUx3M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+> <Video src="https://www.youtube.com/embed/PdSE-SiUx3M"/>
 
 ## Stake and Earn
 
-> <iframe width="560" height="315" src="https://www.youtube.com/embed/DQMsgQvkg7k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+> <Video src="https://www.youtube.com/embed/DQMsgQvkg7k"/>
 
 ## Unstake and Claim
 
-> <iframe width="560" height="315" src="https://www.youtube.com/embed/__zhi8N2erI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+> <Video src="https://www.youtube.com/embed/__zhi8N2erI"/>
 
 ## Proposals and History
 
-> <iframe width="560" height="315" src="https://www.youtube.com/embed/k0XEkJtWAGk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+> <Video src="https://www.youtube.com/embed/k0XEkJtWAGk"/>
 
 ## Create a Proposal
 
-> <iframe width="560" height="315" src="https://www.youtube.com/embed/XO1iA3wSYMQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+> <Video src="https://www.youtube.com/embed/XO1iA3wSYMQ"/>
 
 ## Vote and Delegate
 
-> <iframe width="560" height="315" src="https://www.youtube.com/embed/K_EZFMjXUPA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+> <Video src="https://www.youtube.com/embed/K_EZFMjXUPA"/>

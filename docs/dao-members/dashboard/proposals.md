@@ -64,7 +64,7 @@ page displays proposals that have been executed or rejected.
 
 ::: tab Watch and Learn
 
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/k0XEkJtWAGk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<Video src="https://www.youtube.com/embed/k0XEkJtWAGk"/>
 
 :::
 
@@ -186,7 +186,7 @@ To create a new proposal using the DAO dashboard:
 
 ::: tab Watch & Learn
 
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/XO1iA3wSYMQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<Video src="https://www.youtube.com/embed/XO1iA3wSYMQ"/>
 
 :::
 
@@ -229,7 +229,6 @@ the proposal. Both primary and secondary type proposals execute immediately once
 
 > <p align="left">
 >  <img src="../figures/dashboard/executable-proposal.png" width="400" />
-> <br/>Click image to enlarge.
 > </p>
 
 ## Using ENS Names
