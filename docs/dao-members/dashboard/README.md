@@ -34,7 +34,6 @@ DAO dashboard showing stake and reward status.
 <p align="left">
 <img src="../assets/dashboard/dashboard.png" width="350" />
 </p>
-Click the image to enlarge.
 </blockquote>
 
 ## Navigation
