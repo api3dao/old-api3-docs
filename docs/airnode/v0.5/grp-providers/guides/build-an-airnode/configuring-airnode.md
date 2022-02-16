@@ -361,8 +361,9 @@ for the gateway.
 
 List the endpoints that you want to serve with the request–response protocol
 (RRP) under `triggers.rrp`. List the endpoints that you want to serve with the
-HTTP gateway under `triggers.http`. In most cases, you would create a trigger
-for each endpoint in your OIS object.
+HTTP gateway under `triggers.http`. List the endpoints which can be used to get
+the signed relayed data in `triggers.httpSignedRelayed`. In most cases, you
+would create a trigger for each endpoint in your OIS object.
 
 Both `rrp` and `http` require an `endpointId` which can be derived from the
 `oisTitle` and `endpointName`.
@@ -395,6 +396,39 @@ protocol. Only endpoints listed here will be served through the RRP protocol
 [<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#http) An
 array of endpoints from OIS that the Airnode will respond to for the HTTP
 gateway. Only endpoints listed here can be tested via the HTTP gateway.
+
+- oisTitle & endpointName: Each trigger has an `oisTitle` and `endpointName`
+  that allow you to refer to one of the endpoints in an OIS object. Remember
+  that an Airnode's config.json file can have more than one OIS object.
+
+- endpointId: Add an `endpointId` to the trigger which is the ID that a
+  requester will use for on-chain requests to reference a specific trigger. Use
+  the admin CLI command
+  [derive-endpoint-id](../../../reference/packages/admin-cli.md#derive-endpoint-id)
+  to derive endpoint IDs using the `oisTitle` and `endpointName`.
+
+#### httpSignedRelayed
+
+<!-- TODO: This is a difficult concept so it should be documented in a separate section. -->
+
+The signed relayed triggers can be used to make an HTTP request to Airnode,
+which will call the API endpoint specified in the triggers section. After the
+API call is made, Airnode will not submit the response on chain - instead, you
+need to provide a "relayer" which can be any address and this relayer can use
+the API response and submit it onchain. The response of the HTTP request is the
+API response data and a signature which can be verified on chain. This signature
+guarantees the integrity and authenticity of the data. You need to pass two
+required properties when making an HTTP request to get the signed relayed data:
+
+- `_id` - The id of the request. (This should be the `requestId` in case of RRP
+  or `subscriptionId` in case of PSP).
+- `_relayer` - The address of the account that will submit the response
+  transaction on chain.
+
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#httpSignedRelayed)
+An array of endpoints from OIS that the Airnode will respond to for the the
+signed relayed data requests. Only endpoints listed here can be called to
+provide the signed relayed data.
 
 - oisTitle & endpointName: Each trigger has an `oisTitle` and `endpointName`
   that allow you to refer to one of the endpoints in an OIS object. Remember
