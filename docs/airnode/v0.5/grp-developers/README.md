@@ -6,8 +6,8 @@ title: Overview
 
 A **Developer** is you, if you wish to consume off-chain data from APIs. You do
 so using Airnodes. An Airnode is a first-party oracle that will push off-chain
-API data to your on-chain contract. In the diagram below, your contract is called
-a requester. It will make a request to the on-chain RRP protocol contract
+API data to your on-chain contract. In the diagram below, your contract is
+called a requester. It will make a request to the on-chain RRP protocol contract
 (AirnodeRrp.sol) that will add the request to the event logs. The off-chain
 Airnode will access the event logs, get the API data and perform a callback to
 the requester.
