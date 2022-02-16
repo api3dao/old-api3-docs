@@ -37,9 +37,7 @@ export default {
     },
   },
   mounted() {
-    console.log('SRC >', this.src);
     this.setPlayerSize();
-
     window.addEventListener('resize', () => {
       this.setPlayerSize();
     });
