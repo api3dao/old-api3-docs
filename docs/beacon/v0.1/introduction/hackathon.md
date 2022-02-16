@@ -54,7 +54,7 @@ You can run `npx @api3/airnode-admin generate-mnemonic` to generate a mnemonic.
 You will also need a blockchain provider URL. You can create a free
 [Infura](https://infura.io/) account for Ropsten, Rinkeby and Goerli, or use one
 of the
-[publicly available provider URLs](https://docs.polygon.technology/docs/develop/network-details/network/#mumbai-testnet)
+[publicly available provider URLs](https://docs.polygon.technology/docs/develop/network-details/network/)
 for Polygon-Mumbai such as `https://rpc-mumbai.matic.today`. Your wallet
 mnemonic and blockchain provider URL will go in your `credentials.json` file in
 the following steps.

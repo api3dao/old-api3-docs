@@ -4,14 +4,17 @@ Common video display component.
 <template>
   <span>
     <iframe
+      style="
+        border: 1px solid lightgrey;
+        box-shadow: 0px 5px 15px lightgrey;
+        border-radius: 0.4em;
+      "
+      :src="src"
       :width="width"
       :height="height"
-      :src="src"
-      title="YouTube video player"
       frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    ></iframe>
+    >
+    </iframe>
   </span>
 </template>
 
@@ -22,8 +25,8 @@ export default {
     src: String,
   },
   data: () => ({
-    width: 560,
-    height: 315,
+    width: 560, // 450
+    height: 315, // 200
   }),
   methods: {
     setPlayerSize() {
