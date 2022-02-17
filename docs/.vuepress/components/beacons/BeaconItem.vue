@@ -33,44 +33,16 @@
 </template>
 
 <script>
-import axios from 'axios';
 export default {
   name: 'BeaconItem',
   props: ['beacon'],
-  data: () => ({
-    env: process.env.NODE_ENV,
-    tryData: null,
-    tryError: null,
-    showTrySpinner: false,
-    url: 'https://api3-docs-backend.herokuapp.com/beacons/',
-  }),
-  mounted() {
-    if (this.env !== 'production') {
-      this.url = 'http://localhost:3000/beacons/';
-    }
-    this.$nextTick(async function () {});
-  },
   methods: {
     getArrowSrc() {
       if (!this.beacon.showDetails) return '/img/arrow-right-16.png';
       else return '/img/arrow-down-16.png';
     },
     showDetails(id) {
-      this.tryError = null;
       this.beacon.showDetails = !this.beacon.showDetails;
-    },
-    async execute() {
-      try {
-        this.showTrySpinner = true;
-        this.tryError = null;
-        this.tryData = null;
-        const response = await axios.get(this.url + this.beacon.beaconId);
-        this.tryData = response.data;
-      } catch (err) {
-        if (!err.response) this.tryError = err;
-        else this.tryError = err.response.data;
-      }
-      this.showTrySpinner = false;
     },
   },
 };
