@@ -61,6 +61,8 @@ export default {
             ' ' +
             item.apiName.toLowerCase() +
             ' ' +
+            item.description.toLowerCase() +
+            ' ' +
             item.chains.toString().toLowerCase().replace(/,/g, ' ');
         }
         this.beacons = response.data.beacons;
