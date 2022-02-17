@@ -85,7 +85,7 @@ Multiple providers can be used per chain. Simply add another object to
       "infura_rinkeby": {
         "url": "${INFURA_RINKEBY_PROVIDER_URL}"
       },
-      "infura_ropsten": {
+      "alchemy_rinkeby": {
         "url": "${ALCHEMY_RINKEBY_PROVIDER_URL}"
       }
     ]
@@ -122,7 +122,7 @@ each has a unique `id` and `type` and a list of `providers` for each.
       "infura_rinkeby": {
         "url": "${INFURA_RINKEBY_PROVIDER_URL}"
       },
-      "infura_ropsten": {
+      "alchemy_rinkeby": {
         "url": "${ALCHEMY_RINKEBY_PROVIDER_URL}"
       }
     ]
