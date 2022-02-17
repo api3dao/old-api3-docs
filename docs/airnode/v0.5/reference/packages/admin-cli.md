@@ -50,6 +50,10 @@ parameter `derivation-path` (`m/44'/60'/0'/0/...`). Make sure that the wallet
 that is associated with the mnemonic is funded on the target chain. The
 application will not exit until the transaction is confirmed.
 
+CLI commands also support the following transaction overrides as optional
+arguments: `gas-limit`, `gas-price` (legacy transactions), `max-fee` and
+`max-priority-fee` (EIP-1559 transactions), `value` and `nonce`.
+
 ## Using npx
 
 View all commands:
@@ -125,6 +129,32 @@ adminSdk.airnodeRrp = airnodeRrp.connect(someOtherWallet);
 The SDK will also provide TS typings out of the box. Please, refer to the
 implementation for more details.
 
+### Using transaction overrides
+
+You can also use transaction overrides to customize gas limits and fee settings.
+The SDK simply passes the overrides parameter to the contract method so you can
+use any overrides supported by the ethers library.
+
+```js
+import { ethers } from 'ethers';
+
+// Legacy transaction overrides
+const overrides = {
+  gasLimit: ethers.BigNumber.from('200000'),
+  gasPrice: ethers.utils.parseUnits('20', 'gwei')
+};
+
+// EIP-1559 transaction overrides
+const overrides = {
+  gasLimit: ethers.BigNumber.from('200000'),
+  maxFeePerGas: ethers.utils.parseUnits('20', 'gwei')
+  maxPriorityFeePerGas: ethers.utils.parseUnits('10', 'gwei')
+};
+
+// The transaction overrides parameter is optional and can be passed in as the last parameter
+const requester = await adminSdk.sponsorRequester(requester, overrides);
+```
+
 ## Sponsors
 
 Commands related to a [sponsor's](../../concepts/sponsor.md) relationships
@@ -169,6 +199,14 @@ command.
   protocol contract.
 - `derivation-path (optional)`: Selects an alternate account to use from the
   mnemonic rather than the default.
+- `gas-limit` (optional): The gas limit to use for the transaction.
+- `gas-price` (optional): The gas price (in gwei) to use for the transaction
+  (only for legacy transactions).
+- `max-fee` (optional): The maximum fee (in gwei) per gas to use for the
+  transaction (only for EIP-1559 transactions).
+- `max-priority-fee` (optional): The maximum priority fee (in gwei) per gas to
+  use for the transaction (only for EIP-1559 transactions).
+- `nonce` (optional): The nonce to use for the transaction.
 
 :::: tabs
 
@@ -212,6 +250,14 @@ from the `mnemonic` you provide here has to belong to the sponsor.
   protocol contract.
 - `derivation-path (optional)`: Selects an alternate account to use from the
   mnemonic rather than the default.
+- `gas-limit` (optional): The gas limit to use for the transaction.
+- `gas-price` (optional): The gas price (in gwei) to use for the transaction
+  (only for legacy transactions).
+- `max-fee` (optional): The maximum fee (in gwei) per gas to use for the
+  transaction (only for EIP-1559 transactions).
+- `max-priority-fee` (optional): The maximum priority fee (in gwei) per gas to
+  use for the transaction (only for EIP-1559 transactions).
+- `nonce` (optional): The nonce to use for the transaction.
 
 :::: tabs
 
@@ -333,6 +379,14 @@ template file.
   protocol contract.
 - `derivation-path (optional)`: Selects an alternate account to use from the
   mnemonic rather than the default.
+- `gas-limit` (optional): The gas limit to use for the transaction.
+- `gas-price` (optional): The gas price (in gwei) to use for the transaction
+  (only for legacy transactions).
+- `max-fee` (optional): The maximum fee (in gwei) per gas to use for the
+  transaction (only for EIP-1559 transactions).
+- `max-priority-fee` (optional): The maximum priority fee (in gwei) per gas to
+  use for the transaction (only for EIP-1559 transactions).
+- `nonce` (optional): The nonce to use for the transaction.
 
 :::: tabs
 
@@ -421,6 +475,14 @@ whether the request was processed or not.
   protocol contract.
 - `derivation-path (optional)` : The destination address of the `mnemonic`
   parameter to add the withdrawn funds to if the default address is not desired.
+- `gas-limit` (optional): The gas limit to use for the transaction.
+- `gas-price` (optional): The gas price (in gwei) to use for the transaction
+  (only for legacy transactions).
+- `max-fee` (optional): The maximum fee (in gwei) per gas to use for the
+  transaction (only for EIP-1559 transactions).
+- `max-priority-fee` (optional): The maximum priority fee (in gwei) per gas to
+  use for the transaction (only for EIP-1559 transactions).
+- `nonce` (optional): The nonce to use for the transaction.
 
 :::: tabs
 
@@ -661,6 +723,14 @@ previously set timestamp.
   address.
 - `derivation-path (optional)`: Selects an alternate account to use from the
   mnemonic rather than the default.
+- `gas-limit` (optional): The gas limit to use for the transaction.
+- `gas-price` (optional): The gas price (in gwei) to use for the transaction
+  (only for legacy transactions).
+- `max-fee` (optional): The maximum fee (in gwei) per gas to use for the
+  transaction (only for EIP-1559 transactions).
+- `max-priority-fee` (optional): The maximum priority fee (in gwei) per gas to
+  use for the transaction (only for EIP-1559 transactions).
+- `nonce` (optional): The nonce to use for the transaction.
 
 :::: tabs
 
@@ -713,6 +783,14 @@ timestamp.
   address.
 - `derivation-path (optional)`: Selects an alternate account to use from the
   mnemonic rather than the default.
+- `gas-limit` (optional): The gas limit to use for the transaction.
+- `gas-price` (optional): The gas price (in gwei) to use for the transaction
+  (only for legacy transactions).
+- `max-fee` (optional): The maximum fee (in gwei) per gas to use for the
+  transaction (only for EIP-1559 transactions).
+- `max-priority-fee` (optional): The maximum priority fee (in gwei) per gas to
+  use for the transaction (only for EIP-1559 transactions).
+- `nonce` (optional): The nonce to use for the transaction.
 
 :::: tabs
 
@@ -768,6 +846,14 @@ even beyond the expiration period.
   mnemonic rather than the default.
 - `indefinite-whitelist-status`: Whether the Airnode-endpoint pair should be
   whitelisted indefinitely or not.
+- `gas-limit` (optional): The gas limit to use for the transaction.
+- `gas-price` (optional): The gas price (in gwei) to use for the transaction
+  (only for legacy transactions).
+- `max-fee` (optional): The maximum fee (in gwei) per gas to use for the
+  transaction (only for EIP-1559 transactions).
+- `max-priority-fee` (optional): The maximum priority fee (in gwei) per gas to
+  use for the transaction (only for EIP-1559 transactions).
+- `nonce` (optional): The nonce to use for the transaction.
 
 :::: tabs
 
