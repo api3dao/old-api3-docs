@@ -10,8 +10,8 @@ title: What is OIS?
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 OIS (or Oracle Integration Specifications) is a JSON object that describes an
-API's specifications (its endpoints) and defines Airnode endpoints linked to the
-API endpoints. It is one of five root level objects in a `config.json` file that
+API specification and defines Airnode endpoints linked to API operations (a.k.a.
+endpoints). It is one of five root level objects in a `config.json` file that
 defines an Airnode.
 
 - chains
@@ -26,31 +26,31 @@ section in the Airnode document set.
 
 In the diagram below, an Airnode exposes its endpoints to the on-chain
 AirnodeRrp.sol contract. Airnode uses the OIS object to map its endpoints to an
-API endpoint. It should be noted that Airnode can have more than one endpoint
-that maps to the same API endpoint.
+API operation. It should be noted that Airnode can have more than one endpoint
+that maps to the same API operation.
 
 > ![ois-image](./assets/images/ois-overview-extended.png)
 >
-> - <p class="diagram-line" style="color:blue;">A) <b>ois.apiSpecifications.paths</b> -  Describes API endpoints.</p>
+> - <p class="diagram-line" style="color:blue;">A) <b>ois.apiSpecifications.paths</b> -  Describes API operations.</p>
 > - <p class="diagram-line" style="color:red;margin-top:10px;">B)<b> ois.endpoints -  </b>Defines Airnode endpoints.</p>
->   <p class="diagram-line" style="color:gray;margin-top:10px;">Relationships exist between an Airnode endpoint and an API endpoint.</p>
+>   <p class="diagram-line" style="color:gray;margin-top:10px;">Relationships exist between an Airnode endpoint and an API operation.</p>
 
 ## API Mapping Examples
 
-The following are three possible Airnode to API endpoint mapping examples.
+The following are three possible Airnode to API operation mapping examples.
 Mapping details are better documented in the next doc [Specification](./ois.md).
 
 ### Simple Airnode Endpoint
 
-An API has a simple endpoint the returns the current value of an on-chain token
+An API has a simple operation the returns the current value of an on-chain token
 `GET /token/{id}` and has `id` as its only parameter. Here the Airnode endpoint
-will only mimic the API endpoint. To do so, the Airnode will declare its
+will only mimic the API operation. To do so, the Airnode will declare its
 endpoint to have one parameter, `id`. Airnode will except an `id` argument from
-an on-chain request and move its value to the API endpoint's path parameter
+an on-chain request and move its value to the API operation's path parameter
 named `id`.
 
 ```json
-// ois.apiSpecifications (API endpoints)
+// ois.apiSpecifications (API operations)
 "paths": {
     "/token/{id}": {    <─────────────┐
         "get": {        <────────────┐│
@@ -64,7 +64,7 @@ named `id`.
     ...                              ││
 }                                    ││
                                      ││
-// ois.endpoints (Airnode Endpoints) ││ Mapping between API and Airnode endpoints.
+// ois.endpoints (Airnode Endpoints) ││ Mapping between API operations and Airnode endpoints.
 "endpoints": [                       ││
     {                                ││
         "name": "tokenValue",        ││
@@ -86,21 +86,21 @@ named `id`.
 
 ### Fixed Operation Parameters Airnode Endpoint
 
-An API may have an endpoint that returns a crypto coin in either a summary or
-detail form. The API endpoint has two parameters, `coinId` in the path and
-`includeDetails` in the query. The Airnode (by choice) will not allow the
+An API may have an operation that returns a crypto coin in either a summary or
+detail form. The API operation has two parameters, `coinId` in the path and
+`includeDetails` in the query. The Airnode (by design) will not allow the
 details of the coin to be returned, only the summary. Therefore the Airnode will
 require a requester to pass a `coinId` but will ignore the `includeDetails`
 parameter if passed. The Airnode will always set the `includeDetails` query
-parameter to false regardless of what a requester sends when calling the API
-endpoint. It does so using a `fixedOperationParameters` when calling the API
-endpoint.
+parameter to false regardless of what a requester sends when it calls the API
+operation. It does so using a `fixedOperationParameters` when calling the API
+operation.
 
-### Two Airnode Endpoints - One API Endpoint
+### Two Airnode Endpoints - One API Operation
 
 An Airnode may wish to create two Airnode endpoints mapped to a single API
-endpoint whereas the requester does not pass any argument. While the API
-endpoint returns any token value based on a path parameter `id`, Airnode will
+operation whereas the requester does not pass any argument. While the API
+operation returns any token value based on a path parameter `id`, Airnode will
 only allow one particular token per Airnode endpoint. This is done using
 `fixedOOperationParameters` rather than normal `parameters`. By applying a
 `value` to `fixedOOperationParameters` for each Airnode endpoint, only the token

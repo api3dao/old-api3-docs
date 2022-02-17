@@ -18,6 +18,20 @@ h1, h2, h3, h4, h5{
   overflow-wrap: break-word;
 }
 
+/* H5 is used in the OIS specs as a numberic heading. It is hard to 
+   read the flow with so many levels. Indenting level H5 helps. It remains
+   to be seen if this impacts other uses of H5 however which at this time
+  (2022-02-17) do not exist.
+*/
+h5{
+  margin-left:35px;
+}
+
+.h5-indent{
+  margin-left:35px;
+}
+
+
 .collapse-box{
   border-left:2px solid #7963B2;
   padding:10px;
