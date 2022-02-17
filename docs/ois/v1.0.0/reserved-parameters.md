@@ -22,11 +22,11 @@ parameters are encoded using the
 There are two types of parameters which are part of the [OIS](/ois/v1.0.0/)
 object:
 
-1. [Endpoint parameters](/ois/v1.0.0/ois.md#_5-5-parameters) - endpoint
-   parameters are mapped to API operation parameters
-2. [Reserved parameters](/ois/v1.0.0/ois.md#_5-4-reservedparameters) - reserved
-   parameters signal to the provider to perform a specific operation while
-   fulfilling the request. Reserved parameter names start with `_`.
+1. [Endpoint parameters](/ois/v1.0.0/ois.md#_5-5-parameters) - Airnode endpoint
+   parameters are mapped to API operation parameters.
+2. [Reserved parameters](/ois/v1.0.0/ois.md#_5-4-reservedparameters) - Reserved
+   parameters perform a specific operation on the response before fulfilling the
+   request. Reserved parameter names start with `_`.
 
 ## `_type`
 

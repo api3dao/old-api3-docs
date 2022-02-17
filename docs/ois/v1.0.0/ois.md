@@ -7,18 +7,18 @@ airnodeVersion: v0.4
 
 # {{$frontmatter.title}}
 
-<TocHeader /> <TOC class="table-of-contents" :include-level="[2,4]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,5]" />
 
 The Oracle Integration Specification (OIS) is based on
 [Open API specification (OAS)](https://swagger.io/specification/), but there are
-some differences, so be sure focus on the following documentation when working
-on your OIS file.
+some differences, be sure to focus on the following documentation when working
+on an OIS file.
 
 ::: warning OAS
 
-It is not recommended to refer to OAS for help while creating your OIS object.
-OIS only borrows formatting practices from OAS. Everything needed to create an
-OIS object is in these docs.
+It is not recommended to refer to OAS for help while creating an OIS object. OIS
+only borrows formatting practices from OAS. Everything needed to create an OIS
+object is in these docs.
 
 :::
 
@@ -26,10 +26,10 @@ See the article,
 [Setting Oracle Integration Standards](https://medium.com/api3/setting-oracle-integration-standards-ac9104c38f9e)
 for an overview of OIS.
 
-- Fields denoted by \* are for documentation purposes and not used by the oracle
-  node.
-- The [OAS](https://swagger.io/specification/) equivalents are given as
-  reference to assist in the populating of OIS fields. The OIS fields should be
+- Fields denoted by (\*) are for documentation purposes and not used by an
+  Airnode.
+- <!--The [OAS](https://swagger.io/specification/) equivalents are given as
+  reference to assist in the populating of OIS fields.--> The OIS fields should be
   reviewed and customized by the integrating party.
 - All URLs are absolute (i.e.,
   [relative URLs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#relative-references-in-urls)
@@ -37,13 +37,13 @@ for an overview of OIS.
 
 ## OIS Object Summary
 
-An OIS has five fields.
+An OIS has five root fields (keys).
 
-- [oisFormat](ois.md#_1-oisformat)
-- [title](ois.md#_2-title)
-- [version](ois.md#_3-version)
-- [apiSpecifications](ois.md#_4-apispecifications)
-- [endpoints](ois.md#_5-endpoints)
+1. [oisFormat](ois.md#_1-oisformat)
+1. [title](ois.md#_2-title)
+1. [version](ois.md#_3-version)
+1. [apiSpecifications](ois.md#_4-apispecifications)
+1. [endpoints](ois.md#_5-endpoints)
 
 `apiSpecifications` describe the API's operations which are mapped to the
 `endpoints` that Airnode exposes on-chain.
@@ -71,20 +71,21 @@ An OIS has five fields.
 (Required) The OIS title. Title field is at most 64 characters, can only include
 alphanumeric characters, hyphens, underscores and whitespaces.
 
-OAS equivalent: `info.title`
+<!--OAS equivalent: `info.title`.-->
 
 ## 3. `version`
 
-(Required) The version for this specific OIS.
+(Required) A user defined version for the OIS object. Not to be confused with
+the `oisFormat` version which defines an OIS formatting version.
 
 ## 4. `apiSpecifications`
 
-(Required) An object specifying the API with the following fields:
+(Required) An object specifying the API with the following root level fields:
 
-- [`servers`](ois.md#_4-1-servers)
-- [`paths`](ois.md#_4-2-paths)
-- [`components`](ois.md#_4-3-components)
-- [`security`](ois.md#_4-4-security)
+- 4.1. [servers](ois.md#_4-1-servers)
+- 4.2. [paths](ois.md#_4-2-paths)
+- 4.3. [components](ois.md#_4-3-components)
+- 4.4. [security](ois.md#_4-4-security)
 
 ```json
 // apiSpecifications
@@ -124,42 +125,40 @@ OAS equivalent: `info.title`
 ### 4.1. `servers`
 
 (Required) An array of objects containing the base URL of the API. Only one
-object (i.e., base URL) is allowed in the array. Applies to all operations.
+object (i.e., base URL) is allowed in the array. Applies to all API operations.
 
-OAS equivalent: `servers.0` (raise warning during conversion if `servers` has
-multiple elements)
+<!--OAS equivalent: `servers[0]` (raise warning during conversion if `servers` has
+multiple elements)-->
 
 ### 4.2. `paths`
 
-(Required) An object where operations can be found under `{path}.{method}` with
-the following elements:
-
-- [`parameters`](#4_1-parameters)
+(Required) An object where an API's operations are defined by `{path}.{method}`
+(i.e. `paths./myPath.get`) each with a `parameters` array.
 
 #### 4.2.1. `parameters`
 
-(Required) A list of operation parameters, each with the following fields:
+(Required) A list of the API operation's parameters, each with the following
+fields:
 
-- [`name`](ois.md#_4-2-1-1-name)
-- [`in`](ois.md#_4-2-1-2-in)
+- `name`
+- `in`
 
 ##### 4.2.1.1. `name`
 
-(Required) The name of the parameter.
+<p style="margin-left:35px;">
+(Required) The name of the parameter.</p>
 
-OAS equivalent: `paths.{path}.{method}.parameters.{#}.name`
+<!--p style="margin-left:35px;">OAS equivalent: <code>paths.{path}.{method}.parameters.{#}.name</code></p-->
 
 ##### 4.2.1.2. `in`
 
-(Required) The location of the parameter.
+<p class="h5-indent">(Required) The location of the parameter. When integrating a POST method, define the body parameters with <code>in: query</code>.
+Airnode will convert all <code>query</code> types into the <code>requestBody</code>. Note that only
+the non-nested application/json content-type is supported.</p>
 
-Allowed values: `query`, `header`, `path`, `cookie`
+<p class="h5-indent">Allowed values: <code>query, header, path, cookie</code>.</p>
 
-OAS equivalent: `paths.{path}.{method}.parameters.{#}.in`
-
-When integrating a POST method, define the body parameters with `in: query`.
-Airnode will convert all `query` types into the `requestBody`. Note that only
-the non-nested application/json content-type is supported.
+<!--p class="h5-indent">OAS equivalent: <code>paths.{path}.{method}.parameters.{#}.in</code></p-->
 
 ### 4.3. `components`
 
@@ -167,10 +166,10 @@ the non-nested application/json content-type is supported.
 (Required) An object where security schemes can be found under
 `securitySchemes.{securitySchemeName}` with the following elements:
 
-- [`type`](ois.md#_4-3-1-type)
-- [`name`](ois.md#_4-3-2-name)
-- [`in`](ois.md#_4-3-3-in)
-- [`scheme`](ois.md#_4-3-4-scheme)
+- `type`
+- `name`
+- `in`
+- `scheme`
 
 #### 4.3.1. `type`
 
@@ -178,23 +177,24 @@ the non-nested application/json content-type is supported.
 
 Allowed values:
 
-- Used by an API to authenticate Airnode.
+- Used by an API operation to authenticate Airnode.
   - `apiKey`
   - `http`
-- Allows an API to acquire information about the requester and/or the chain.
+- Allows an API operation to acquire information about the requester and/or the
+  chain.
   - `relayRequesterAddress`
   - `relaySponsorAddress`
   - `relaySponsorWalletAddress`
   - `relayChainId`
   - `relayChainType`
 
-OAS equivalent: `components.securitySchemes.{securitySchemeName}.type`
+<!--OAS equivalent: `components.securitySchemes.{securitySchemeName}.type`.-->
 
 #### 4.3.2. `name`
 
 (Only if `type` is apiKey) The name of the security scheme variable.
 
-OAS equivalent: `components.securitySchemes.{securitySchemeName}.name`
+<!--OAS equivalent: `components.securitySchemes.{securitySchemeName}.name`.-->
 
 #### 4.3.3. `in`
 
@@ -202,7 +202,7 @@ OAS equivalent: `components.securitySchemes.{securitySchemeName}.name`
 
 Allowed values: `query`, `header`, `cookie`
 
-OAS equivalent: `components.securitySchemes.{securitySchemeName}.in`
+<!--OAS equivalent: `components.securitySchemes.{securitySchemeName}.in`.-->
 
 #### 4.3.4. `scheme`
 
@@ -210,21 +210,29 @@ OAS equivalent: `components.securitySchemes.{securitySchemeName}.in`
 the
 [Authorization header as defined in RFC7235](https://tools.ietf.org/html/rfc7235#section-5.1).
 
-Allowed values: (`basic` and `bearer`)
+Allowed values: (`basic` and `bearer`).
+
+```json
+"mySecurityScheme2": {
+  "type": "http",
+  "scheme": "bearer"
+}
+```
 
 <!--The values used SHOULD be registered in the [IANA Authentication Scheme registry](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml). The OIS object supports-->
 
-OAS equivalent: `components.securitySchemes.{securitySchemeName}.scheme`
+<!--OAS equivalent: `components.securitySchemes.{securitySchemeName}.scheme`.-->
 
 ### 4.4. `security`
 
 (Required) An object containing all security schemes required by an API call.
 Applies to all operations. A security scheme can contain information required by
-the API to authenticate Airnode as well as information about the requester the
-API may also require. Read more about security schemes in the
-[API Security](../../airnode/v0.3/grp-providers/guides/build-an-airnode/api-security.md)
+the API to authenticate Airnode as well as information about the requester
+(relay information) the API may also require. Read more about security schemes
+in the
+[API Security](../../airnode/v0.4/grp-providers/guides/build-an-airnode/api-security.md)
 section of the _Build an Airnode_ guide and the
-[Airnode Authentication](../../airnode/v0.3/concepts/airnode-auth.md) section of
+[Airnode Authentication](../../airnode/v0.4/concepts/airnode-auth.md) section of
 _Concepts and Definitions_.
 
 The `security` object maintains the names of all the security schemes used. Each
@@ -250,11 +258,12 @@ OAS `security` is an object, not an array.
 }
 ```
 
-The `apiCredential` object holds credentials needed by the security scheme if
-any.
+The `apiCredential` object (which is not part of the OIS object) holds
+credentials needed by the security scheme if any.
 
 ```json
-// config.json root object
+// config.json root object.
+// Not part of the OIS object.
 "apiCredentials": [
     {
       "oisTitle": "my-ois-title", // Must match the ois.title field the security scheme is in.
@@ -264,7 +273,7 @@ any.
   ]
 ```
 
-OAS equivalent: `security`, or `security.0` if security is a list.
+<!--OAS equivalent: `security`, or `security.0` if security is a list.-->
 
 ::: warning Please note:
 
@@ -279,17 +288,17 @@ schemes are assign to the entire API.
 
 ## 5. `endpoints`
 
-(Required) A list of objects, each specifying an oracle endpoint with the
+(Required) A list of objects, each specifying an Airnode endpoint with the
 following fields:
 
-- [`name`](ois.md#_5-1-name)
-- [`operation`](ois.md#_5-2-operation)
-- [`fixedOperationParameters`](ois.md#_5-3-fixedoperationparameters)
-- [`reservedParameters`](ois.md#_5-4-reservedparameters)
-- [`parameters`](ois.md#_5-5-parameters)
-- [`summary`\*](ois.md#_5-6-summary)
-- [`description`\*](ois.md#_5-7-description)
-- [`externalDocs`\*](ois.md#_5-8-externaldocs)
+- 5.1. [name](ois.md#_5-1-name)
+- 5.2. [operation](ois.md#_5-2-operation)
+- 5.3. [fixedOperationParameters](ois.md#_5-3-fixedoperationparameters)
+- 5.4. [reservedParameters](ois.md#_5-4-reservedparameters)
+- 5.5. [parameters](ois.md#_5-5-parameters)
+- 5.6. [summary](ois.md#_5-6-summary)
+- 5.7. [description](ois.md#_5-7-description)
+- 5.8. [externalDocs](ois.md#_5-8-externaldocs)
 
 ```json
 // endpoints
@@ -338,70 +347,77 @@ following fields:
 
 ### 5.1. `name`
 
-(Required) The name of the endpoint, must be unique in OIS.
+(Required) The name of the Airnode endpoint, must be unique in OIS.
 
-OAS equivalent: `paths.{path}.{method}.operationId` of the corresponding
-operation
+<!--OAS equivalent: `paths.{path}.{method}.operationId` of the corresponding
+operation.-->
 
 ### 5.2. `operation`
 
-(Required) An object that refers to an operation defined in
+(Required) An object that refers to an API operation defined in
 `apiSpecifications.paths`, has the following elements:
 
-- [`path`](ois.md#_5-2-1-path)
-- [`method`](ois.md#_5-2-2-method)
+- `path`
+- `method`
 
 #### 5.2.1. `path`
 
-(Required) The path of the operation.
+(Required) The path of the API operation.
 
-OAS equivalent: The `{path}` parameter in the `paths.{path}.{method}` for the
-respective operation
+<!--OAS equivalent: The `{path}` parameter in the `paths.{path}.{method}` for the
+respective API operation.-->
 
 #### 5.2.2. `method`
 
-(Required) The method of the operation.
+(Required) The method of the API operation.
 
 Allowed values: `get`, `post`
 
-OAS equivalent: The `{method}` parameter in the `paths.{path}.{method}` for the
-respective operation
+<!--OAS equivalent: The `{method}` parameter in the `paths.{path}.{method}` for the
+respective API operation.-->
 
 ### 5.3. `fixedOperationParameters`
 
 [<InfoBtnBlue/>](/airnode/v0.4/grp-providers/guides/build-an-airnode/api-integration.md#fixedoperationparameters)
-(Required) A list of objects specifying fixed operation parameters. While
-required, the fixedOperationParameters array can be left empty. Each object has
-the following elements:
+(Required) A list of objects specifying the fixed parameters for an API
+operation. While required, the fixedOperationParameters array can be left empty.
+Each object has the following elements:
 
-- [operationParameter](ois.md#_5-3-1-operationparameter)
-- [value](ois.md#_5-3-2-value)
+- `operationParameter`
+- `value`
 
 #### 5.3.1. `operationParameter`
 
-(Required) An object that refers to an operation parameter with the following
-elements.
+(Required) An object that refers to a parameter of an API operation with the
+following elements:
 
-- [name](ois.md#_4-4-1-1-name)
-- [in](ois.md#_4-4-1-2-in): Must be one of three possible values
-  (`query, header and cookie`).
+- `name`
+- `in`
+
+##### 5.3.1.1. `name`
+
+<p class="h5-indent">The name of the API operation's parameter that will have a fixed value.</p>
+
+##### 5.3.1.2. `in`
+
+<p class="h5-indent">Must be one of three possible values (<code>query, header, path, cookie</code>).</p>
 
 #### 5.3.2. `value`
 
-(Required) The value to be used for the respective operation parameter that
-cannot be overridden by the requester.
+(Required) The value to be used for the respective parameter of an API operation
+that cannot be overridden by the requester.
 
 ### 5.4. `reservedParameters`
 
 [<InfoBtnBlue/>](/airnode/v0.4/grp-providers/guides/build-an-airnode/api-integration.md#reservedparameters)
-(Optional) A list of objects that specify reserved endpoint parameters that do
-not map to operation parameters, but are used for special purposes by the oracle
-node. See the [Reserved Parameters](./reserved-parameters.md) doc for an
-in-depth explanation. Each object has the following elements:
+(Optional) A list of objects that specify reserved Airnode endpoint parameters
+that do not map to any API operation parameters, but are used for special
+purposes by the Airnode. See the [Reserved Parameters](./reserved-parameters.md)
+doc for an in-depth explanation. Each object has the following elements:
 
-- [name](ois.md#_5-4-1-name)
-- [fixed](ois.md#_5-4-2-fixed)
-- [default](ois.md#_5-4-3-default)
+- `name`
+- `fixed`
+- `default`
 
 #### 5.4.1. `name`
 
@@ -411,7 +427,7 @@ Allowed values: `_type`, `_path` or `_times`
 
 #### 5.4.2. `fixed`
 
-(Optional) The fixed (i.e., non-overrideable) value for the reserved parameter.
+(Optional) The fixed (i.e., non-overridable) value for the reserved parameter.
 
 #### 5.4.3. `default`
 
@@ -420,74 +436,92 @@ provided.
 
 ### 5.5. `parameters`
 
-(Optional) A list of objects that specify endpoint parameters that map to
-operation parameters. Each object has the following elements:
+[<InfoBtnBlue/>](/airnode/v0.4/grp-providers/guides/build-an-airnode/api-integration.md#parameters)
+(Optional) A list of objects that specify Airnode endpoint parameters that map
+to an particular API operation's parameters. Each object has the following
+elements:
 
-- [operationParameter](ois.md#_5-5-1-operationparameter)
-- [name](ois.md#_5-5-2-name)
-- [default](ois.md#_5-5-3-default)
-- [description \*](ois.md#_5-5-4-description)
-- [require \*](ois.md#_5-5-5-required)
-- [example \*](ois.md#_5-5-6-example)
+- `operationParameter`
+- `name`
+- `default`
+- `description`
+- `require`
+- `example`
 
 #### 5.5.1. `operationParameter`
 
-(Required) An object that refers to an operation parameter, has the following
-elements:
+(Required) An object that refers to a parameter of an API operation, has the
+following elements:
 
-- [`name`](ois.md#_4-4-1-1-name)
-- [`in`](ois.md#_4-4-1-2-in)
+- `name`
+- `in`
+
+##### 5.5.1.1. `name`
+
+<p class="h5-indent">The name of the parameter from an API operation.</p>
+
+##### 5.5.1.2. `in`
+
+<p class="h5-indent">Must be one of four possible values (<code>query, header, path, cookie</code>).</p>
 
 #### 5.5.2. `name`
 
-(Required) The name of the endpoint parameter. Is not allowed to start with `_`.
+(Required) The name of the Airnode endpoint parameter. Is not allowed to start
+with `_`.
 
-OAS equivalent: `paths.{path}.{method}.parameters.{#}.name` of corresponding
-operation parameter
+<!--OAS equivalent: `paths.{path}.{method}.parameters.{#}.name` of a corresponding
+API operation parameter.-->
 
 #### 5.5.3. `default`
 
-(Optional) The default value for the endpoint parameter. Used when no value is
-provided.
+(Optional) The default value for the Airnode endpoint parameter. Used when no
+value is provided.
 
-OAS equivalent: `paths.{path}.{method}.parameters.{#}.default` of corresponding
-operation parameter
+<!--OAS equivalent: `paths.{path}.{method}.parameters.{#}.default` of a
+corresponding API operation parameter.-->
 
-#### 5.5.4. `description`\*
+#### 5.5.4. `description` \*
 
-(Optional) A description of what the endpoint parameter does.
+(Optional) A description of what the Airnode endpoint parameter does.
 
-OAS equivalent: `paths.{path}.{method}.parameters.{#}.description` of the
-corresponding operation parameter
+<!--OAS equivalent: `paths.{path}.{method}.parameters.{#}.description` of the
+corresponding operation parameter.-->
 
-#### 5.5.5. `required`\*
+#### 5.5.5. `required`
 
-(Optional) If the endpoint parameter is required, is a boolean value.
+(Optional) If the Airnode endpoint parameter is required, a boolean value.
 
-OAS equivalent: `paths.{path}.{method}.parameters.{#}.required` of the
-corresponding operation parameter
+<!--OAS equivalent: `paths.{path}.{method}.parameters.{#}.required` of the
+corresponding operation parameter.-->
 
-#### 5.5.6. `example`\*
+#### 5.5.6. `example`
 
 (Optional) The example value to be used in test calls.
 
-OAS equivalent: `paths.{path}.{method}.parameters.{#}.example` of the
-corresponding operation parameter
+<!--OAS equivalent: `paths.{path}.{method}.parameters.{#}.example` of the
+corresponding operation parameter.-->
 
-### 5.6. `summary`\*
+### 5.6. `summary` \*
 
-(Optional) A one sentence summary of what the endpoint does.
+(Optional) A one sentence summary of what the Airnode endpoint does.
 
-OAS equivalent: `paths.{path}.{method}.summary` of corresponding operation
+<!--OAS equivalent: `paths.{path}.{method}.summary` of corresponding operation.-->
 
-### 5.7. `description`\*
+### 5.7. `description` \*
 
-(Optional) A more detailed description of what the endpoint does.
+(Optional) A more detailed description of what the Airnode endpoint does.
 
-OAS equivalent: `paths.{path}.{method}.description` of corresponding operation
+<!--OAS equivalent: `paths.{path}.{method}.description` of corresponding operation.-->
 
-### 5.8. `externalDocs`\*
+### 5.8. `externalDocs` \*
 
-(Optional) URL to external documentation for the endpoint.
+(Optional) URL to external documentation for the Airnode endpoint.
 
-OAS equivalent: `paths.{path}.{method}.externalDocs` of corresponding operation
+<!--OAS equivalent: `paths.{path}.{method}.externalDocs` of corresponding operation.-->
+
+::: tip Please Note
+
+Fields denoted by \* are for documentation purposes and not used by Airnode
+node.
+
+:::
