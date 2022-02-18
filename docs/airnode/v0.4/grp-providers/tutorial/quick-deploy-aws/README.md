@@ -258,9 +258,9 @@ curl -v \
 ```sh
 curl -v ^
 -X POST ^
--H 'Content-Type: application/json' ^
+-H "Content-Type: application/json" ^
 -H "x-api-key: 123-my-key-must-be-30-characters-min" ^
--d "{\"parameters\": {\"coinId\": \"api3\", \"coinVs_currencies\": \"usd\"}}" ^
+-d "{\"parameters\": {\"coinIds\": \"api3\", \"coinVs_currencies\": \"usd\"}}" ^
 "<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c"
 ```
 
