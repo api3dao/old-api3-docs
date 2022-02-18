@@ -52,7 +52,7 @@ application will not exit until the transaction is confirmed.
 
 CLI commands also support the following transaction overrides as optional
 arguments: `gas-limit`, `gas-price` (legacy transactions), `max-fee` and
-`max-priority-fee` (EIP-1559 transactions), `value` and `nonce`.
+`max-priority-fee` (EIP-1559 transactions) and `nonce`.
 
 ## Using npx
 
