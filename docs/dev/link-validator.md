@@ -27,9 +27,9 @@ point back to the docs. A list of READMEs that are scanned are held in
 monorepo to this file. New tags should be added as soon as they are available.
 
 ```json
-"docs:build": "yarn sync:navbar; yarn sync:sidebar; yarn sync:searchbox; vuepress build docs; yarn sync:build:redirects; yarn sync:build:monorepo-readmes;"
+"docs:build": "yarn sync:navbar; yarn sync:sidebar; yarn sync:searchbox; vuepress build docs; yarn sync:build:redirects.js; yarn sync:build:monorepo-readmes;"
 
-"sync:build:redirects": "cp docs/.vuepress/redirects docs/.vuepress/dist/redirects-sync;",
+"sync:build:redirects.js": "cp docs/.vuepress/redirects.js docs/.vuepress/dist/redirects.js-sync;",
 "sync:build:monorepo-readmes": "cp libs/monorepo-readmes docs/.vuepress/dist/monorepo-readmes-sync"
 ```
 

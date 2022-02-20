@@ -173,19 +173,6 @@ async function loadMonorepoReadmes() {
   }
 }
 
-async function loadRedirects() {
-  require('fs')
-    .readFileSync('./docs/.vuepress/dist/redirects-sync', 'utf-8')
-    .split(/\r?\n/)
-    .forEach(function (line) {
-      if (line != 'undefined' && line.length > 3) {
-        // No empty lines or short typos
-        const arr2 = line.split(' ');
-        linksObj[baseURL + arr2[1]] = 'REDIRECT: ' + arr2[0];
-      }
-    });
-}
-
 async function loadLinks() {
   file.walkSync(distDir, tempCB);
   for (let i = 0; i < arr.length; i++) {
@@ -268,10 +255,6 @@ async function start() {
   linksObj = {}; // Clear master list after each run()
   await loadMonorepoReadmes();
   await run('monorepo links');
-
-  linksObj = {};
-  await loadRedirects();
-  await run('redirects');
 
   linksObj = {};
   await loadImages();

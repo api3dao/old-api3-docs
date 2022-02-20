@@ -1,4 +1,4 @@
-/latest /airnode/v0.3
+const redirectsList = `/latest /airnode/v0.3
 /airnode /airnode/v0.3
 /beacon /beacon/v0.1
 /beacons /beacon/v0.1
@@ -103,4 +103,19 @@
 /ois/latest/ois.html /ois/v1.0.0/ois.html
 /ois/latest/example.html /ois/v1.0.0/example.html
 /ois/latest/reserved-parameters.html /ois/v1.0.0/reserved-parameters.html
-/ois/latest/ois-template.html /ois/v1.0.0/ois-template.html
+/ois/latest/ois-template.html /ois/v1.0.0/ois-template.html`;
+
+export const processedRedirects = redirectsList
+  .split('\n')
+  .map((line) => line.split(' '))
+  .sort((first, second) => {
+    if (first[0].length > second[0].length) {
+      return -1;
+    }
+
+    if (first[0].length < second[0].length) {
+      return 1;
+    }
+
+    return 0;
+  });
