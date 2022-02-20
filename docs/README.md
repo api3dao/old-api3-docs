@@ -9,7 +9,6 @@ footer:
 navbar: false
 ---
 
-<hr/>
 <DocumentSetButtons/>
 
 <!-- This is an original button:    actionText: Get Started →     -->

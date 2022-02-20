@@ -7,27 +7,47 @@ it will always default to the startPath in config.json.
 
 <template>
   <div>
-    <h3 style="auto; text-align:center;">Document Sets</h3>
     <header class="hero">
-      <router-link class="nav-link action-button btn" :to="latestVersion"
-        ><span class="btnText">Airnode →</span></router-link
-      >
+      <div class="features">
+        <div class="feature">
+          <router-link class="nav-link action-button btn" :to="latestVersion"
+            ><span class="btnText">Airnode</span></router-link
+          >
+          <br />
+          <h2>Serverless oracle node</h2>
+        </div>
 
-      <router-link class="nav-link action-button btn" :to="latestBeaconVersion"
-        ><span class="btnText">Beacons →</span></router-link
-      >
-
-      <router-link class="nav-link action-button btn" :to="latestOisVersion"
-        ><span class="btnText">OIS →</span></router-link
-      >
-      <br />
-      <router-link class="nav-link action-button btn" to="/dao-members/"
-        ><span class="btnText">DAO Members →</span></router-link
-      >
-
-      <router-link class="nav-link action-button btn" to="/api3/"
-        ><span class="btnText">API3 →</span></router-link
-      >
+        <div class="feature">
+          <router-link
+            class="nav-link action-button btn"
+            :to="latestBeaconVersion"
+            ><span class="btnText">Beacons</span></router-link
+          >
+          <br />
+          <h2>First-party Web3 data feeds</h2>
+        </div>
+        <div class="feature">
+          <router-link class="nav-link action-button btn" :to="latestOisVersion"
+            ><span class="btnText">OIS</span></router-link
+          >
+          <br />
+          <h2>Oracle Integration Specifications</h2>
+        </div>
+        <div class="feature">
+          <router-link class="nav-link action-button btn" to="/dao-members/"
+            ><span class="btnText">DAO Members</span></router-link
+          >
+          <br />
+          <h2>API3 DAO structure and functionality</h2>
+        </div>
+        <div class="feature">
+          <router-link class="nav-link action-button btn" to="/api3/"
+            ><span class="btnText">API3</span></router-link
+          >
+          <br />
+          <h2>About the project</h2>
+        </div>
+      </div>
     </header>
   </div>
 </template>
