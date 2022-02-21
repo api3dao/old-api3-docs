@@ -115,7 +115,7 @@ file.
 docker run --detach \
   --volume "$(pwd)/config:/app/config" \
   --name quick-deploy-container-airnode \
-  api3/airnode-client:0.4.0
+  api3/airnode-client:0.4.1
 ```
 
 :::
@@ -128,7 +128,7 @@ For Windows, use CMD (and not PowerShell).
 docker run --detach ^
   --volume "%cd%/config:/app/config" ^
   --name quick-deploy-container-airnode ^
-  api3/airnode-client:0.4.0
+  api3/airnode-client:0.4.1
 ```
 
 :::
