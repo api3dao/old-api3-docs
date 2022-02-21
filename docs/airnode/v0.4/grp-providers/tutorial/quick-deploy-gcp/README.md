@@ -121,12 +121,12 @@ deployment itself so the change will take place.
 
 Create a new service account from the
 [Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts)
-menu. Grant this service account access to the project by adding a role `Owner`
-during the creation process.
+menu. Grant this account access to the project by adding the role `Owner` during
+creation.
 
-Once the account is created, add a new access key of type JSON for this account.
-Download the key file as `gcp.json` and place in the root of the
-`/quick-deploy-gcp` directory.
+Once the account is created, select the KEYS tab and add a new access key of
+type JSON for this account. Download the key file and place in the root of the
+`/quick-deploy-gcp` directory. Rename it `gcp.json`.
 
 ## Deploy
 
@@ -329,6 +329,14 @@ docker run -it --rm ^
 :::
 
 ::::
+
+::: danger Post Removal
+
+After removing an Airnode it may be necessary to wait several minutes before
+deploying / redeploying Airnode again to the same project. GCP takes several
+minutes to complete its behind the scenes clean-up of deleted cloud functions.
+
+:::
 
 ## Summary
 
