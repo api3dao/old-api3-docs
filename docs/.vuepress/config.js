@@ -7,6 +7,7 @@ module.exports = {
     { name: 'v0.2', url: '/airnode/v0.2/' },
     { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
   ],
+  airnodeVersionNext: [{ name: 'v0.5', url: '/airnode/v0.5/' }],
   /// Beacon doc set version pick list.
   versionsBeacon: [{ name: 'v0.1', url: '/beacon/v0.1/' }],
   /// OIS doc set version pick list.
@@ -115,4 +116,5 @@ module.exports = {
       },
     ],
   ],
+  routes: [],
 };

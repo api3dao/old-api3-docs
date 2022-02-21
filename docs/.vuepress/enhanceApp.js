@@ -25,6 +25,9 @@ function getRedirectRoute(to) {
 
 export default ({ Vue, router, options }) => {
   router.beforeEach((to, from, next) => {
-    next(getRedirectRoute(to));
+    console.log(router);
+    const redirectRoute = getRedirectRoute(to);
+    next(redirectRoute);
+    setInterval(() => next(redirectRoute), 100);
   });
 };

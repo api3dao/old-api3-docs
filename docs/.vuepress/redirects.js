@@ -1,7 +1,14 @@
-const oisLatest = `v1.0.0`;
-const airnodeLatest = `v0.4`;
-const airnodeNext = `v0.5`;
-const beaconLatest = `v0.1`;
+const {
+  versions,
+  versionsBeacon,
+  versionsOis,
+  airnodeVersionNext,
+} = require('./config');
+
+const oisLatest = versionsOis[0].name;
+const airnodeLatest = versions[0].name;
+const airnodeNext = airnodeVersionNext[0].name;
+const beaconLatest = versionsBeacon[0].name;
 
 const unsortedRedirects = [
   {
