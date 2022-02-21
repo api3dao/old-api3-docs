@@ -15,6 +15,8 @@ Currently it cannot be run as a GitHub action.
 
 ## Redirects and Monorepo READMEs
 
+Redirects are written in an array in `redirects.js`.
+
 Redirects are handled by reading the actual redirects from a copy of the file
 `redirects` renamed as (`redirects-sync `) that is moved to the `/dist` folder
 after building the docs. This is an automated process that is only noted here to
@@ -27,9 +29,8 @@ point back to the docs. A list of READMEs that are scanned are held in
 monorepo to this file. New tags should be added as soon as they are available.
 
 ```json
-"docs:build": "yarn sync:navbar; yarn sync:sidebar; yarn sync:searchbox; vuepress build docs; yarn sync:build:redirects.js; yarn sync:build:monorepo-readmes;"
+"docs:build": "yarn sync:navbar; yarn sync:sidebar; yarn sync:searchbox; vuepress build docs; yarn sync:build:monorepo-readmes;"
 
-"sync:build:redirects.js": "cp docs/.vuepress/redirects.js docs/.vuepress/dist/redirects.js-sync;",
 "sync:build:monorepo-readmes": "cp libs/monorepo-readmes docs/.vuepress/dist/monorepo-readmes-sync"
 ```
 

@@ -15,7 +15,7 @@ progress = false
 # Defaults to number of cores available to the system if omitted.
 #threads = 2
 
-# Maximum number of allowed redirects.js
+# Maximum number of allowed redirects
 max_redirects = 10
 
 # Concurrency
