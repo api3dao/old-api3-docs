@@ -62,23 +62,18 @@ const unsortedRedirects = [
     // comment: 'legacy',
   },
   {
-    from: `/airnode/latest/`,
-    to: `/airnode/${airnodeLatest}/`,
+    from: `/airnode/latest`,
+    to: `/airnode/${airnodeLatest}`,
     fuzzy: true,
   },
   {
-    from: `/beacon/latest/`,
-    to: `/beacon/${beaconLatest}/`,
+    from: `/beacon/latest`,
+    to: `/beacon/${beaconLatest}`,
     fuzzy: true,
   },
   {
     from: `/latest/members`,
     to: `/dao-members`,
-  },
-  {
-    from: `/beacon/latest/`,
-    to: `/beacon/${beaconLatest}/`,
-    fuzzy: true,
   },
   {
     from: `/ois/latest/`,
