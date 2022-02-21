@@ -34,8 +34,12 @@
         <td>0.4.0</td>
       </tr>
       <tr>
+        <td>0.4.1</td>
+        <td>0.4.1</td>
+      </tr>
+      <tr>
         <td>latest</td>
-        <td>0.4.0</td>
+        <td>0.4.1</td>
       </tr>
     </table>
     <div style="font-size: small; margin-left: 20px; margin-top: -10px">
