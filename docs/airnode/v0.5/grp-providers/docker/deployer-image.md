@@ -202,8 +202,29 @@ docker run -it --rm ^
 ## Manual Removal
 
 Optionally you can remove an Airnode manually though it is highly recommended
-that you do so using the deployer image's `remove` command.
+that you do so using the deployer image's `remove` command. Airnode has a
+presence in several areas of both AWS and GCP. An Airnode has a
+`airnodeAddressShort` (e.g., `0ab830c`) that is included in the element name of
+AWS and GCP deployed features.
 
-### AWS
+::: danger Remember
+
+Only delete elements of a feature with the `airnodeAddressShort` address in the
+name you are targeting. There can be more than one Airnode.
+
+:::
+
+:::: tabs
+
+::: tab AWS
 
 <DeleteAirnodeAws />
+
+:::
+
+::: tab GCP
+
+<DeleteAirnodeGcp />
+:::
+
+::::
