@@ -9,18 +9,6 @@ https://renatello.com/dynamic-drop-down-list-in-vue-js/
 
 <template>
   <span>
-    <p>
-      Airnode has a presence in several areas of AWS. An Airnode has a
-      <code>airnodeAddressShort</code> (e.g., <code>0ab830c</code>) that is
-      included in the named elements of the following AWS features.
-    </p>
-
-    <p style="color: #a52a2a">
-      <b>Remember:</b> Only delete elements of a feature with an
-      <code>airnodeAddressShort</code> in the name you are targeting. There can
-      be more than one Airnode.
-    </p>
-
     <!-- TODO: Is there an AWS API to pull down a list of regions? -->
 
     <div>Select the region where your Airnode lives.</div>
