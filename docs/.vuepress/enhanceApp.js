@@ -30,6 +30,9 @@ export default ({ Vue, router, options }) => {
 
     if (redirect) {
       router.push(redirect);
+      setTimeout(() => {
+        router.push({ ...redirect, replace: true });
+      }, 200);
     }
     next();
   });

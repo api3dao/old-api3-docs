@@ -27,7 +27,7 @@
     "oust": "^1.2.0",
     "prettier": "^2.5.1",
     "v-click-outside": "^3.1.2",
-    "vuepress": "^1.8.2",
+    "vuepress": "^1.9.7",
     "vuepress-plugin-element-tabs": "^0.2.8",
     "vuepress-plugin-table-of-contents": "^1.1.7"
   }
