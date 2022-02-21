@@ -6,7 +6,7 @@ function getRedirectRoute(to) {
   );
 
   if (exactRedirect) {
-    return { ...to, path: exactRedirect.to };
+    return { ...to, path: exactRedirect.to, replace: true };
   }
 
   const fuzzyRedirect = redirects
@@ -17,6 +17,7 @@ function getRedirectRoute(to) {
     return {
       ...to,
       path: to.path.replace(fuzzyRedirect.from, fuzzyRedirect.to),
+      replace: true,
     };
   }
 
@@ -25,6 +26,11 @@ function getRedirectRoute(to) {
 
 export default ({ Vue, router, options }) => {
   router.beforeEach((to, from, next) => {
-    next(getRedirectRoute(to));
+    const redirect = getRedirectRoute(to);
+
+    if (redirect) {
+      router.push(redirect);
+    }
+    next();
   });
 };
