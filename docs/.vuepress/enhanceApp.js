@@ -30,9 +30,13 @@ export default ({ Vue, router, options }) => {
 
     if (redirect) {
       router.push(redirect);
-      setTimeout(() => {
-        router.push({ ...redirect, replace: true });
-      }, 200);
+
+      // The below is required for Chrome
+      if (to.hash) {
+        setTimeout(() => {
+          router.push(redirect);
+        }, 2000);
+      }
     }
     next();
   });
