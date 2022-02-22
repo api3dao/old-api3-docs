@@ -236,7 +236,13 @@ The `nodeSettings` field holds node-specific (Airnode) configuration parameters.
     },
     "httpGateway": {
       "enabled": true,
-      "apiKey": "${HTTP_GATEWAY_API_KEY}"
+      "apiKey": "${HTTP_GATEWAY_API_KEY}",
+      "maxConcurrency": 20
+    },
+    "httpSignedRelayedGateway": {
+      "enabled": true,
+      "apiKey": "${HTTP_SIGNED_RELAYED_GATEWAY_API_KEY}",
+      "maxConcurrency": 20
     },
     "logFormat": "plain",
     "logLevel": "INFO",
@@ -297,8 +303,23 @@ all fields in the config.json section nodeSettings.heartbeat. See the
 #### httpGateway
 
 [<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#httpgateway)
-The gateway allows the testing of defined endpoints without accessing the
+The gateway allows the requesting of defined endpoints without accessing the
 blockchain. See the [HTTP Gateway](./http-gateway.md) doc for more info.
+
+- enabled: Enable/disable, using true/false, Airnode's access to the HTTP
+  gateway.
+- apiKey: A user defined API key to authenticate against the gateway. The key
+  must have a length of between 30 - 120 characters.
+- maxConcurrency: (optional) A number higher than zero representing the maximum
+  number of serverless functions serving HTTP gateway requests running at the
+  same time. When omitted, there is no maximum concurrency set.
+
+#### httpSignedRelayedGateway
+
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#httpsignedrelayedgateway)
+The gateway allows the requesting of defined endpoints without accessing the
+blockchain. Responses are signed and can be sumbitted to the blockchain. See the
+[HTTP Gateway](./http-gateway.md) doc for more info.
 
 - enabled: Enable/disable, using true/false, Airnode's access to the HTTP
   gateway.

@@ -211,6 +211,11 @@ An object containing general deployment parameters of an Airnode.
     "apiKey": "${HTTP_GATEWAY_API_KEY}",
     "maxConcurrency": 20
   },
+  "httpSignedRelayedGateway": {
+    "enabled": true,
+    "apiKey": "${HTTP_SIGNED_RELAYED_GATEWAY_API_KEY}",
+    "maxConcurrency": 20
+  },
   "logFormat": "json",
   "logLevel": "INFO"
 }
@@ -280,7 +285,7 @@ purposes.
 ### `httpGateway`
 
 [<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpgateway)
-(required) - The Airnode's HTTP gateway can test endpoints without using the
+(required) - The Airnode's HTTP gateway can request endpoints without using the
 blockchain.
 
 #### `httpGateway.enabled`
@@ -293,6 +298,27 @@ gateway.
 (only if enabled) - The API key to authenticate against the gateway.
 
 #### `httpGateway.maxConcurrency`
+
+(only if enabled, optional) - A number higher than zero representing the maximum
+number of serverless functions serving HTTP gateway requests running at the same
+time. When omitted, there is no maximum concurrency set.
+
+### `httpSignedRelayedGateway`
+
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpgateway)
+(required) - The Airnode's HTTP gateway can request endpoints without using the
+blockchain.
+
+#### `httpSignedRelayedGateway.enabled`
+
+(required) - Enable/disable, using true/false, Airnode's access to the HTTP
+gateway.
+
+#### `httpSignedRelayedGateway.apiKey`
+
+(only if enabled) - The API key to authenticate against the gateway.
+
+#### `httpSignedRelayedGateway.maxConcurrency`
 
 (only if enabled, optional) - A number higher than zero representing the maximum
 number of serverless functions serving HTTP gateway requests running at the same
