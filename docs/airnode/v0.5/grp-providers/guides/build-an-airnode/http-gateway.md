@@ -11,7 +11,7 @@ title: HTTP Gateway (optional)
 
 As part of the Airnode deployment you can decide to deploy an HTTP Gateway. The
 gateway allows the testing of defined Airnode endpoints without accessing the
-blockchain. You provide endpoint arguments directly to the Airnode with a tool.
+blockchain. You provide endpoint arguments directly to the Airnode with a tool
 of your choice and get a response from an integrated API operation. This results
 in confirmation your integration is set up properly. The HTTP gateway feature is
 available when deploying to both the AWS and GCP cloud providers.
