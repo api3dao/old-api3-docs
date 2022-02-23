@@ -34,6 +34,9 @@
     "httpGateway": {
       "enabled": false
     },
+    "httpSignedRelayedGateway": {
+      "enabled": false
+    },
     "logFormat": "plain",
     "logLevel": "INFO",
     "nodeVersion": "0.5.0",
@@ -48,6 +51,13 @@
       }
     ],
     "http": [
+      {
+        "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
+        "oisTitle": "CoinGecko Basic Request",
+        "endpointName": "coinMarketData"
+      }
+    ],
+    "httpSignedRelayed": [
       {
         "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
         "oisTitle": "CoinGecko Basic Request",

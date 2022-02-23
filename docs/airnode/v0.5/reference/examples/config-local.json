@@ -33,6 +33,9 @@
     "httpGateway": {
       "enabled": false
     },
+    "httpSignedRelayedGateway": {
+      "enabled": false
+    },
     "heartbeat": {
       "enabled": false
     },

@@ -49,7 +49,7 @@ not generated for client deployments (deploying to a Docker container).
   },
   "api": {
     "heartbeatId": "74dc44a1ee65",
-    "httpGatewayUrl": "https://some.aws.api.gateway.url/v1/test"
+    "httpGatewayUrl": "https://some.aws.api.gateway.url/v1"
   }
 }
 ```

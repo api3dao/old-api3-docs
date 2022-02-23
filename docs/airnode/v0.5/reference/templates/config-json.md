@@ -82,6 +82,11 @@ building a config.json file.
       "apiKey": "${HTTP_GATEWAY_API_KEY}", // In secrets.env
       "maxConcurrency": "<FILL_NUMBER>"
     },
+    "httpSignedRelayedGateway": {
+      "enabled": "<FILL_BOOLEAN>",
+      "apiKey": "${HTTP_SIGNED_RELAYED_GATEWAY_API_KEY}", // In secrets.env
+      "maxConcurrency": "<FILL_NUMBER>"
+    },
     "logFormat": "json",
     "logLevel": "INFO",
     "nodeVersion": "0.5.0",
@@ -96,6 +101,13 @@ building a config.json file.
       }
     ],
     "http": [
+      {
+        "endpointId": "<FILL_*>",
+        "oisTitle": "<FILL_OIS_TITLE>",
+        "endpointName": "<FILL_ENDPOINT_NAME>"
+      }
+    ],
+    "httpSignedRelayed": [
       {
         "endpointId": "<FILL_*>",
         "oisTitle": "<FILL_OIS_TITLE>",
