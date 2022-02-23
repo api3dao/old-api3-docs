@@ -64,7 +64,7 @@ Here are some great roles we need help with. Then again, maybe you can define on
   'what', but also the 'why'.
 - Very good English and good communication skills.
 
-<EmailAddress/>
+<api3-EmailAddress/>
 
 <hr/>
 
@@ -101,7 +101,7 @@ Here are some great roles we need help with. Then again, maybe you can define on
 - Experience in non-technical aspects including idea generation, business
   analysis, financial understanding, and process optimization.
 
-<EmailAddress/>
+<api3-EmailAddress/>
 
 <hr/>
 
@@ -143,7 +143,7 @@ Here are some great roles we need help with. Then again, maybe you can define on
 Seeking eight (8) years of overall experience performing web development
 activities with a Bachelor’s Degree.
 
-<EmailAddress/>
+<api3-EmailAddress/>
 
 <hr/>
 
@@ -167,7 +167,7 @@ activities with a Bachelor’s Degree.
 - Passionate about growing on a daily basis.
 - Disciplined approach to testing and quality assurance.
 
-<EmailAddress/>
+<api3-EmailAddress/>
 
 <hr/>
 
@@ -188,4 +188,4 @@ activities with a Bachelor’s Degree.
 - Ability to grow yourself and other engineers through code reviews, design
   reviews, and screenshare/peer debugging.
 
-<EmailAddress/>
+<api3-EmailAddress/>
