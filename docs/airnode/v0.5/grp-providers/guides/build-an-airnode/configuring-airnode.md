@@ -414,7 +414,7 @@ would create a trigger for each endpoint in your OIS object.
 
 `rrp`, `http` and `httpSignedRelayed` require an `endpointId` which can be
 derived from the `oisTitle` and `endpointName`, use the CLI command
-[derive-endpoint-id](reference/packages/admin-cli.html#derive-endpoint-id).
+[derive-endpoint-id](../../../reference/packages/admin-cli.html#derive-endpoint-id).
 
 #### rrp
 
@@ -451,7 +451,7 @@ gateway. Only endpoints listed here can be tested via the HTTP gateway.
 
 #### httpSignedRelayed
 
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#httpSignedRelayed)
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#httpsignedrelayed)
 An array of endpoints from OIS that the Airnode will respond to for the the
 signed relayed data requests. Only endpoints listed here can be called to
 provide the signed relayed data.
