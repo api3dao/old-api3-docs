@@ -70,7 +70,7 @@ building a config.json file.
       "disableConcurrencyReservations": "<FILL_BOOLEAN>", //Use for (type = gcp | aws) only
       "projectId": "${GCP_PROJECT_ID}" // Use for (type = gcp) only
     },
-    "airnodeWalletMnemonic": "<FILL_*>",
+    "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
     "heartbeat": {
       "enabled": "<FILL_BOOLEAN>",
       "url": "${HEARTBEAT_API_KEY}", // In secrets.env
