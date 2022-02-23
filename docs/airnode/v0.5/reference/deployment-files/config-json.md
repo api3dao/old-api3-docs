@@ -305,7 +305,7 @@ time. When omitted, there is no maximum concurrency set.
 
 ### `httpSignedRelayedGateway`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpgateway)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpsignedrelayedgateway)
 (required) - The Airnode's HTTP gateway can request endpoints without using the
 blockchain.
 
@@ -420,8 +420,7 @@ the RRP protocol.
 ### `http`
 
 [<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#http)
-(required) - An array of endpoints from OIS that the Airnode will respond to for
-the HTTP gateway.
+(required) - An array of endpoints from OIS that the Airnode will respond to.
 
 #### `http[n].endpointId`
 
@@ -433,6 +432,24 @@ the HTTP gateway.
 (required) - The title of an OIS object.
 
 #### `http[n].endpointName`
+
+(required) - The endpoint name of an OIS endpoint.
+
+### `httpSignedRelayed`
+
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpsignedrelayed)
+(required) - An array of endpoints from OIS that the Airnode will respond to.
+
+#### `httpSignedRelayed[n].endpointId`
+
+(required) - A identifier derived for an oisTitle/endpointName pair, see
+[derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id).
+
+#### `httpSignedRelayed[n].oisTitle`
+
+(required) - The title of an OIS object.
+
+#### `httpSignedRelayed[n].endpointName`
 
 (required) - The endpoint name of an OIS endpoint.
 

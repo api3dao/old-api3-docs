@@ -57,23 +57,30 @@
   "triggers": {
     "rrp": [
       {
-        "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
-        "oisTitle": "CoinGecko basic request",
-        "endpointName": "coinMarketData"
+        "endpointId": "0xf10f067e716dd8b9c91b818e3a933b880ecb3929c04a6cd234c171aa27c6eefe",
+        "oisTitle": "CoinGecko Requests",
+        "endpointName": "coinGeckoMarketData"
       }
     ],
     "http": [
       {
-        "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
-        "oisTitle": "CoinGecko basic request",
-        "endpointName": "coinMarketData"
+        "endpointId": "0xf10f067e716dd8b9c91b818e3a933b880ecb3929c04a6cd234c171aa27c6eefe",
+        "oisTitle": "CoinGecko Requests",
+        "endpointName": "coinGeckoMarketData"
+      }
+    ],
+    "httpSignedRelayed": [
+      {
+        "endpointId": "0xf10f067e716dd8b9c91b818e3a933b880ecb3929c04a6cd234c171aa27c6eefe",
+        "oisTitle": "CoinGecko Requests",
+        "endpointName": "coinGeckoMarketData"
       }
     ]
   },
   "ois": [
     {
       "oisFormat": "1.0.0",
-      "title": "CoinGecko basic request",
+      "title": "CoinGecko Requests",
       "version": "1.0.0",
       "apiSpecifications": {
         "servers": [
@@ -118,9 +125,17 @@
           }
         },
         "components": {
-          "securitySchemes": {}
+          "securitySchemes": {
+            "CoinGecko Requests Security Scheme": {
+              "in": "query",
+              "type": "apiKey",
+              "name": "access_key"
+            }
+          }
         },
-        "security": {}
+        "security": {
+          "CoinGecko Requests Security Scheme": []
+        }
       },
       "endpoints": [
         {
@@ -200,5 +215,11 @@
       ]
     }
   ],
-  "apiCredentials": []
+  "apiCredentials": [
+    {
+      "oisTitle": "CoinGecko Requests",
+      "securitySchemeName": "CoinGecko Requests Security Scheme",
+      "securitySchemeValue": "${SS_COINGECKO_REQUESTS_API_KEY}"
+    }
+  ]
 }
