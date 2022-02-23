@@ -28,14 +28,21 @@ module.exports = [
           'grp-providers/guides/build-an-airnode/api-integration',
           'grp-providers/guides/build-an-airnode/api-security',
           'grp-providers/guides/build-an-airnode/configuring-airnode',
-          'grp-providers/guides/build-an-airnode/apply-auth',
           {
-            title: 'Heartbeat (optional)',
+            title: 'Applying Authorization',
+            path: 'grp-providers/guides/build-an-airnode/apply-auth',
+          },
+          {
+            title: 'Heartbeat',
             path: 'grp-providers/guides/build-an-airnode/heartbeat',
           },
           {
-            title: 'HTTP Gateway (optional)',
+            title: 'HTTP Gateway',
             path: 'grp-providers/guides/build-an-airnode/http-gateway',
+          },
+          {
+            title: 'HTTP Signed Relayed Gateway',
+            path: 'grp-providers/guides/build-an-airnode/http-signed-gateway',
           },
           'grp-providers/guides/build-an-airnode/deploying-airnode',
         ],
