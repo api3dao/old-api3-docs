@@ -30,7 +30,7 @@
     "cloudProvider": {
       "type": "aws",
       "region": "us-east-1",
-      "disableConcurrencyReservations": false, //Use for (type = gcp | aws) only
+      "disableConcurrencyReservations": false, // Use for (type = gcp | aws) only
       "projectId": "${GCP_PROJECT_ID}" // Use for (type = gcp) only
     },
     "heartbeat": {
@@ -57,21 +57,21 @@
   "triggers": {
     "rrp": [
       {
-        "endpointId": "0xf10f067e716dd8b9c91b818e3a933b880ecb3929c04a6cd234c171aa27c6eefe",
+        "endpointId": "0xaf1d557a32912da9a5170fcc54d5484b24847b150e5f3142c64111c99a689e77",
         "oisTitle": "CoinGecko Requests",
-        "endpointName": "coinGeckoMarketData"
+        "endpointName": "coinMarketData"
       }
     ],
     "http": [
       {
-        "endpointId": "0xf10f067e716dd8b9c91b818e3a933b880ecb3929c04a6cd234c171aa27c6eefe",
+        "endpointId": "0xaf1d557a32912da9a5170fcc54d5484b24847b150e5f3142c64111c99a689e77",
         "oisTitle": "CoinGecko Requests",
-        "endpointName": "coinGeckoMarketData"
+        "endpointName": "coinMarketData"
       }
     ],
     "httpSignedRelayed": [
       {
-        "endpointId": "0xf10f067e716dd8b9c91b818e3a933b880ecb3929c04a6cd234c171aa27c6eefe",
+        "endpointId": "0xaf1d557a32912da9a5170fcc54d5484b24847b150e5f3142c64111c99a689e77",
         "oisTitle": "CoinGecko Requests",
         "endpointName": "coinGeckoMarketData"
       }
