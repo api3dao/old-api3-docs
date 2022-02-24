@@ -174,12 +174,6 @@ should you choose.
 
 ## Testing with HTTP Gateway
 
-::: warning HTTP Gateway Support
-
-As of this release HTTP Gateway is only supported for AWS Airnode deployments.
-
-:::
-
 If you opted to enable the HTTP Gateway it can be used to test the Airnode while
 bypassing the chain it was deployed to. There are three examples in other docs
 that detail how to do this.
