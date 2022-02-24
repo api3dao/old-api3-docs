@@ -70,4 +70,5 @@ Complete the following sections for an in-depth understanding of Airnode.
 - [Applying Authorization](./apply-auth.md) optional
 - [Heartbeat](./heartbeat.md) optional
 - [HTTP Gateway](./http-gateway.md) optional
+- [HTTP SignedRelayed Gateway](./http-signed-gateway.md) optional
 - [Deploying Airnode](./deploying-airnode.md)
