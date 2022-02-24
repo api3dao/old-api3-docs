@@ -26,7 +26,7 @@ another.
 ## Openings
 
 <!-- prettier-ignore-->
-Here are some great roles we need help with. Then again, maybe you can define one for us. <EmailAddress/>
+Here are some great roles we need help with. Then again, maybe you can define one for us. <api3-JobsEmailAddress/>
 
 1. [Senior Quality Assurance/Quality Control Engineer](./work.md#senior-quality-assurance-quality-control-engineer-job-description)
 2. [Blockchain Technical Project Manager](./work.md#blockchain-technical-project-manager-job-description)
@@ -64,7 +64,7 @@ Here are some great roles we need help with. Then again, maybe you can define on
   'what', but also the 'why'.
 - Very good English and good communication skills.
 
-<api3-EmailAddress/>
+<api3-JobsEmailAddress/>
 
 <hr/>
 
@@ -101,7 +101,7 @@ Here are some great roles we need help with. Then again, maybe you can define on
 - Experience in non-technical aspects including idea generation, business
   analysis, financial understanding, and process optimization.
 
-<api3-EmailAddress/>
+<api3-JobsEmailAddress/>
 
 <hr/>
 
@@ -143,7 +143,7 @@ Here are some great roles we need help with. Then again, maybe you can define on
 Seeking eight (8) years of overall experience performing web development
 activities with a Bachelor’s Degree.
 
-<api3-EmailAddress/>
+<api3-JobsEmailAddress/>
 
 <hr/>
 
@@ -167,7 +167,7 @@ activities with a Bachelor’s Degree.
 - Passionate about growing on a daily basis.
 - Disciplined approach to testing and quality assurance.
 
-<api3-EmailAddress/>
+<api3-JobsEmailAddress/>
 
 <hr/>
 
@@ -188,4 +188,4 @@ activities with a Bachelor’s Degree.
 - Ability to grow yourself and other engineers through code reviews, design
   reviews, and screenshare/peer debugging.
 
-<api3-EmailAddress/>
+<api3-JobsEmailAddress/>

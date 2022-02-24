@@ -18,15 +18,30 @@ import NavLinks from '@theme/components/NavLinks.vue';
 
 export default {
   name: 'Sidebar',
-
   // Added wkande 2021-12-13 usable for various reasons.
   data: () => ({
     env: process.env.NODE_ENV,
   }),
-
   components: { SidebarLinks, NavLinks },
-
   props: ['items'],
+  /** Added wkande 2022-02-24 - This allow for the SPA to recognize any
+    anchor (hash) that may be attached to the URL that loads the SPA. It 
+    will force the viewport to scroll to the heading that matches the 
+    anchor if it exists. The setTimeout is needed to allow the scrollIntoView()
+    function to get the heading completely to the top of the page.
+  */
+  mounted() {
+    this.$nextTick(function () {
+      setTimeout(() => {
+        const hash = document.location.hash;
+        if (hash && hash.length > 1) {
+          const id = hash.substring(1);
+          const element = document.getElementById(id);
+          if (element) element.scrollIntoView(true);
+        }
+      }, 10); // 10 so that repeated refreshes come to the top
+    });
+  },
 };
 </script>
 

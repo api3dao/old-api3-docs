@@ -48,7 +48,7 @@ to the mainnet for production use.
 > Click the image below to see the dashboard.
 >
 > <p align="left"><br/>
-> <img src="../assets/dashboard/dashboard.png" width="200" />
+> <img src="../assets/dashboard/dashboard.png"/>
 > </p>
 
 On the left is the annual percentage yield which is the return on investment
