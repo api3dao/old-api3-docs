@@ -26,7 +26,7 @@ a human clicks the tag.
 
 <script>
 export default {
-  name: 'email-address',
+  name: 'jobs-email-address',
   data: () => ({
     e1: 'jobs',
     e2: 'org',
