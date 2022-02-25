@@ -42,7 +42,7 @@ you to run deployer commands without installing the deployer npm package or
 having to manually build the airnode-deployer package yourself.
 
 ```sh
-npx @api3/airnode-deployer deploy --config myConfig/config.json --secrets myConfig/secrets.env -r myOutput/receipt.json
+npx @api3/airnode-deployer deploy --config pathTo/config.json --secrets pathTo/secrets.env --receipt myOutput/receipt.json
 ```
 
 ### Global Package
@@ -56,7 +56,7 @@ yarn global add @api3/airnode-deployer
 npm install @api3/airnode-deployer -g
 
 # Executing the deployer.
-airnode-deployer deploy --config myConfig/config.json --secrets myConfig/secrets.env -r myOutput/receipt.json
+airnode-deployer deploy --config pathTo/config.json --secrets pathTo/secrets.env --receipt myOutput/receipt.json
 ```
 
 <!--  HOLD THIS UNTIL THE REPO README IS UPDATED
@@ -157,7 +157,7 @@ Options:
   -r, --receipt                          Output path for receipt file          [string] [default: "output/receipt.json"]
 
 # Example
-airnode-deployer deploy -c pathTo/config.json -s pathTo/secrets.env -r myOutput/receipt.json
+airnode-deployer deploy --config pathTo/config.json --secrets pathTo/secrets.env --receipt myOutput/receipt.json
 ```
 
 ### remove
