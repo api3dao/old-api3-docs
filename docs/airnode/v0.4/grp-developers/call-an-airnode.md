@@ -16,17 +16,17 @@ Airnode consists of two parts: the off-chain **Airnode** (a.k.a. "the node")
 deployed as self hosted or cloud provider functions, e.g., AWS) and the on-chain
 **protocol contract** AirnodeRrp.sol. A requester calls the protocol contract,
 which emits a blockchain event with the request parameters. Airnode listens to
-the events emitted by the AirnodeRrp contract. During the next run cycle, 
-Airnode gets the request parameters from the emitted event. The diagram below and 
-the diagram in the [Overview](./) doc for developers illustrate the mechanics 
-of the entire process.
+the events emitted by the AirnodeRrp contract. During the next run cycle,
+Airnode gets the request parameters from the emitted event. The diagram below
+and the diagram in the [Overview](./) doc for developers illustrate the
+mechanics of the entire process.
 
 The AirnodeRrp protocol is designed to be flexible and is meant to serve a
 variety of use cases. See the Airnode
 [requester examples](https://github.com/api3dao/airnode/tree/v0.4/packages/airnode-examples/contracts)
 for potential design patterns.
 
-Ignoring the mechanics of the overall process, the requester calling an Airnode 
+Ignoring the mechanics of the overall process, the requester calling an Airnode
 primarily focuses on two tasks, indicated by points A & B in the diagram below.
 
 - <span style="color:green;font-weight:bold;">1</span>: Make the request
@@ -37,10 +37,10 @@ primarily focuses on two tasks, indicated by points A & B in the diagram below.
 >
 > 1.  <p class="diagram-line" style="color:green;">A requester makes a request to the AirnodeRrp contract which adds the <code>requestId</code> to storage, emits the request to the event logs and returns the <code>requestId</code> to the requester. The request is retrieved by the Airnode during its next run cycle. It then verifies the requester is authorized by checking authorizer contracts assigned to the Airnode.</p>
 > 2.  <p class="diagram-line" style="color:blue;">If the request is authorized, Airnode proceeds to respond. It first gathers the requested data from the API and calls the <code>fulfill()</code> function in AirnodeRrp, which removes the pending <code>requestId</code> from storage and makes a callback to <code>myFulfill()</code>. The gas costs associated 
-with the response are covered by the sponsor of the requester.</p>
+>     with the response are covered by the sponsor of the requester.</p>
 
-The following section of this document discusses the requester implementation, its
-deployment and sponsoring.
+The following section of this document discusses the requester implementation,
+its deployment and sponsoring.
 
 ## Step #1: Inherit RrpRequester.sol
 
@@ -83,9 +83,9 @@ called from the requester's own function `callTheAirnode`. The function
 Airnode to call its underlying API.
 
 Once the request has been made to `airnodeRrp.makeFullRequest`, the
-AirnodeRrp.sol contract returns a `requestId` confirming the request has
-been accepted and is in process of being executed. Your requester would most
-likely wish to track all `requestId`s. Note the line
+AirnodeRrp.sol contract returns a `requestId` confirming the request has been
+accepted and is in process of being executed. Your requester would most likely
+wish to track all `requestId`s. Note the line
 `incomingFulfillments[requestId] = true;` in the code below that stores the
 `requestId`s in a mapping. This is useful when the Airnode responds to the
 requester later at the function (`airnodeCallback`) with the `requestId` and the
@@ -142,11 +142,11 @@ some or all of the required parameters. Learn more about
 [using templates](call-an-airnode.md#using-templates).
 
 Since the `callTheAirnode` function makes a
-[full request](../concepts/request.md#full-request), it must gather the following
-parameters to pass on to `airnodeRrp.makeFullRequest`.
+[full request](../concepts/request.md#full-request), it must gather the
+following parameters to pass on to `airnodeRrp.makeFullRequest`.
 
-- **airnode** and **endpointId**: As a pair, these uniquely identify the endpoint
-  desired at a particular Airnode.
+- **airnode** and **endpointId**: As a pair, these uniquely identify the
+  endpoint desired at a particular Airnode.
 
 - **sponsor**: The [sponsor](requesters-sponsors.md#what-is-a-sponsor) address.
 
@@ -156,7 +156,8 @@ parameters to pass on to `airnodeRrp.makeFullRequest`.
   being called.
 
 - **fulfillAddress** and **fulfillFunctionId**: The public address of your
-  requester contract and its function that is called upon the return of the request.
+  requester contract and its function that is called upon the return of the
+  request.
 
 - **parameters**: Specify the API parameters and any
   [reserved parameters](../reference/specifications/reserved-parameters.md),
@@ -167,8 +168,8 @@ parameters to pass on to `airnodeRrp.makeFullRequest`.
   In most, cases the parameters are encoded off-chain and passed to the
   requester which only forwards them. You can use the
   [@api3/airnode-abi](../reference/specifications/airnode-abi-specifications.md#api3-airnode-abi)
-  package to perform the encoding and decoding. Take a look at the JavaScript snippet
-  below.
+  package to perform the encoding and decoding. Take a look at the JavaScript
+  snippet below.
 
   ```javascript
   // JavaScript snippet
@@ -185,7 +186,7 @@ parameters to pass on to `airnodeRrp.makeFullRequest`.
   // '0x...'
   ```
 
-  However, this is not a hard requirement and you can encode the parameters 
+  However, this is not a hard requirement and you can encode the parameters
   on-chain as well. Take a look at the Solidity snippet below.
 
   ```solidity
@@ -207,10 +208,10 @@ section.
 
 As soon as the Airnode gets a request, it gathers the data, encodes it and
 starts an on-chain transaction responding to the request. The Airnode calls the
-AirnodeRrp.sol contract function `fulfill()`, which in turn calls the
-requester, in this case, at `airnodeCallback`. For the purposes of the callback, 
-recall the request supplied the request contract address and the desired 
-callback function which the AirnodeRrp.sol protocol contract stored with the `requestId`.
+AirnodeRrp.sol contract function `fulfill()`, which in turn calls the requester,
+in this case, at `airnodeCallback`. For the purposes of the callback, recall the
+request supplied the request contract address and the desired callback function
+which the AirnodeRrp.sol protocol contract stored with the `requestId`.
 
 ```solidity
 import "@api3/airnode-protocol/contracts/rrp/requesters/RrpRequester.sol";
@@ -250,8 +251,8 @@ The callback to a requester contains two parameters, as shown in the
 
 - **requestId**: First acquired when making the request and passed here as a
   reference to identify the request for which the response is intended.
-- **data**: In case of a successful response, this is the requested data 
-  which has been encoded and contains a
+- **data**: In case of a successful response, this is the requested data which
+  has been encoded and contains a
   [timestamp](/ois/v1.0.0/reserved-parameters.md#timestamp-encoded-to-uint256-on-chain)
   in addition to other response data. Decode it using the function `decode()`
   from the `abi` object.
