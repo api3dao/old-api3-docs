@@ -157,7 +157,7 @@ Options:
   -r, --receipt                          Output path for receipt file          [string] [default: "output/receipt.json"]
 
 # Example
-deployer deploy --config myConfig/config.json --secrets myConfig/secrets.env -r myOutput/receipt.json
+deployer.ts deploy -c pathTo/config.json -s pathTo/secrets.env -r myOutput/receipt.json
 ```
 
 ### remove
