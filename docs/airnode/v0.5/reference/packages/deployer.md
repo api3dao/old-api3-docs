@@ -56,7 +56,7 @@ yarn global add @api3/airnode-deployer
 npm install @api3/airnode-deployer -g
 
 # Executing the deployer.
-api3-deployer deploy --config myConfig/config.json --secrets myConfig/secrets.env -r myOutput/receipt.json
+airnode-deployer deploy --config myConfig/config.json --secrets myConfig/secrets.env -r myOutput/receipt.json
 ```
 
 <!--  HOLD THIS UNTIL THE REPO README IS UPDATED
