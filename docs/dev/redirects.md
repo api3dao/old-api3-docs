@@ -7,79 +7,76 @@ title: Redirects
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-The VuePress plugin `@vuepress/plugin-html-redirect` is used to establish
-redirects for external sites that wish to target a particular page in the docs
-while using a permanent link in its code.
+Redirects are manage in the `/docs/.vuepress/enhanceApp.js` which establishes
+redirects for use by external sites that wish to target a particular page in the
+docs while using a permanent link in its code. For example: `/latest` will
+always be pointed to the latest version of the Airnode docs. These mappings are
+in the `/docs/.vuepress/redirects.js` file.
 
-For example: `/airnode` will always be pointed to the latest version of the
-Airnode docs. These mappings are in the `/docs/.vuepress/redirects` file.
-
-```bash
-# Points to v0.3 of Airnode
-/latest /airnode/v0.4
-/airnode /airnode/v0.4
+```json
+// Points to the latest version of Airnode.
+// ${airnodeLatest} is pulled from congif.js.
+  {
+    from: `/latest`,
+    to: `/airnode/${airnodeLatest}/`,
+    fuzzy: true
+  },
 ```
 
-## Use Cases
+Redirects can contain anchors (hash) and target a particular heading within the
+page. The anchors are not managed in `enhanceApp.js` as part of the redirect
+flow. Instead they are applied in the `Sidebar.vue` script and are applied after
+the redirect URL has been made by `enhanceApp.js`.
 
-- Correct any inbound URLs (from external inbound links) that may contain an
-  invalid path to a doc until the source of the URL is corrected.
-- Establish convenience routes such as `/v0.3` which will take the user straight
-  to `/airnode/v0.3/`.
+## `enhanceApp.js`
 
-::: warning Watch for this Issue
+The redirect flow in `enahanceApp.js` is based on a simple rule. This file is
+the only code source used to implement redirects.
 
-Note that a redirect is to a directory path and not to a file. There must be a
-README.md file in the directory that VuePress can display. Going to a file will
-cause a problem in production and display a counter. However this will not
-happen in development. Most likely this is a problem with the plugin as at Jul,
-5th 2021.
+- The path must not exist in `router.options.routes`.
+- The path is then treated as a redirect. The redirect can only happen once
+  during SPA startup. Subsequent redirects will automatically cause the SPA to
+  reload and thus fire again.
+- The path is first checked against "exact" patterns in `redirects.js`.
+- Next the path is checked against "fuzzy" patterns.
 
-As of Dec/2021 this problem has disappeared and HTML files are now in the
-redirects file.
+## `redirects.js`
 
-:::
+The file `/docs/.vuepress/redirects.js` holds all the redirect patterns. There
+are two types as follows:
 
-## Hard Coded Redirects
+- exact
+- fuzzy
 
-Certain routes in the `/docs/.vuepress/redirects` file should never be changed
-unless the owner approves. It may be necessary to update the paths as it is
-likely to contain changes to the paths. Change `/next` to the proper release if
-needed.
+### Exact
 
-```{6-8}
-/latest /v0.2
-/latest/members /v0.2/members
-/airnode-starter /pre-alpha/tutorials/airnode-starter.html
-/pre-alpha/airnode-starter /pre-alpha/tutorials/airnode-starter.html
-...
-/r/reserved-parameters /next/reference/specifications/reserved-parameters.html
-// becomes
-/r/reserved-parameters /v.02/reference/specifications/reserved-parameters.html
+The redirect code block in `enahanceApp.js` will first check if the path is an
+exact match for an object in `redirects.js`. If the path exactly matches the
+`from` field, the a redirect will occur using the `to` field.
+
+```json
+{
+  from: `/pre-alpha/airnode-starter`,
+  to: `/airnode/pre-alpha/tutorials/airnode-starter.html`,
+  exact:true
+  // comment: 'legacy',
+},
 ```
 
-Check that the directory path to a file has not changed.
+Exact pattern matches are paths that are created at the request of internal
+members. However they are discouraged except for extreme use cases. Many already
+in `redirects.js` are deprecated and some have bee removed.
 
-For example if:<code>/r/reserved-parameters
-/next/reference/<span style="color:red;">specifications</span>/reserved-parameters.html</code>
-was changed to: <code>/r/reserved-parameters
-/next/reference/<span style="color:red;">specs</span>/reserved-parameters.html</code>
+### Fuzzy
 
-Boost to the latest version.
+The redirect code block in `enahanceApp.js` will check (after all exact matches
+are completed) if the path is a partial match for an object in `redirects.js`.
+If the path starts with the value of the `from` field, the a redirect will occur
+using the `to` field.
 
-For example: <code>/r/reserved-parameters
-/<span style="color:red;">v0.2</span>/reference/specifications/reserved-parameters.html</code>
-was changes to: <code>/r/reserved-parameters
-/<span style="color:red;">v0.3</span>/reference/specs/reserved-parameters.html</code>
+```json
+{ from: `/latest`, to: `/airnode/${airnodeLatest}/`, fuzzy: true },
+{ from: `/airnode`, to: `/airnode/${airnodeLatest}/`,fuzzy: true },
+```
 
-## Latest Redirects
-
-::: danger Empty Lines
-
-There cannot be empty lines in the body of the file, only at the end. This will
-generate a non-fatal error when building the docs.
-
-:::
-
-<LatestRedirects/>
-{{ $site.pages.path }}
+The `${airnodeLatest}` interpolation used above is extracted from `config.js`.

@@ -54,32 +54,35 @@ A versioned sub-route in the version folders for `/airnode, /beacon and /ois`
 becomes their respective version. A corresponding versions array is declared in
 _.vuepress/config.json_ for each.
 
-- Update the `versions` key in `/doc/.vuepress/config.json`. Provide the version
-  name and url.
+- Update the `versions, versionBeacon, versionOis` key in
+  `/doc/.vuepress/config.json`. Provide the version name and url.
   - **name:** The name of the version to display in the pick-list. A url without
     a file will load the root README.md file of the base route by default.
   - **url:** The entry path to the version, its current route in the navbar.
 - Set the `latestVersion, latestBeaconVersion & latestOisVersion` to the start
   path of the latest versions for each.
+- Set `airnodeVersionNext`.
 
 ```json
-   /**
-   * List all base routes that are to become versions here.
-   */
-   versions: [
-     { name: 'v0.3', url: '/airnode/v0.3/' },
-     { name: 'v0.2', url: '/airnode/v0.2/' },
-     { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
-   ],
-   versionsBeacon: [{ name: 'v0.1', url: '/beacon/v0.1/' }],
-   versionsOis: [{ name: 'v1.0.0', url: '/ois/v1.0.0/' }],
-   /**
-   * Indicates the path to the latest versions.
-   * Used by document-sets Vue component.
-   */
-   latestVersion: '/airnode/v0.3/',
-   latestBeaconVersion: '/beacon/v0.1/',
-   latestOisVersion: '/ois/v1.0.0/',
+   /// Airnode doc set version pick list.
+  versions: [
+    { name: 'v0.4', url: '/airnode/v0.4/' },
+    { name: 'v0.3', url: '/airnode/v0.3/' },
+    { name: 'v0.2', url: '/airnode/v0.2/' },
+    { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
+  ],
+  /// Next version of airnode, used by /next route.
+  airnodeVersionNext: [{ name: 'v0.5', url: '/airnode/v0.5/' }],
+  /// Beacon doc set version pick list.
+  versionsBeacon: [{ name: 'v0.1', url: '/beacon/v0.1/' }],
+  /// OIS doc set version pick list.
+  versionsOis: [{ name: 'v1.0.0', url: '/ois/v1.0.0/' }],
+  /// Latest/current Airnode doc set version.
+  latestVersion: '/airnode/v0.4/',
+  /// Latest/current Beacon doc set version.
+  latestBeaconVersion: '/beacon/v0.1/',
+  /// Latest/current OIS doc set version.
+  latestOisVersion: '/ois/v1.0.0/',
 ```
 
 Set the `themeConfig.startPath` to the start path of the latest Airnode version.
@@ -92,7 +95,8 @@ themeConfig:{
 
 ::: warning Development Versions
 
-Do not include versions under development in the config.js file.
+Do not include versions (except for `airnodeVersionNext`) under development in
+the config.js file.
 
 :::
 

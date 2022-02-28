@@ -17,31 +17,21 @@ All plugins are installed as
 
 ## VuePress Plugins
 
-VuePress plugins are used and added by VuePress when a project is created. They
-only need to be updated as new releases come forward. The versions of each
-should always be in sync (the same). These plugins are not explained further in
-this document.
+VuePress plugins are used and some are added by VuePress when a project is
+created. They only need to be updated as new releases come forward. The versions
+of each should always be in sync (the same). These plugins are not explained
+further in this document.
 
 ### @vuepress/plugin-back-to-top
 
 Places an up arrow in the bottom right corner that takes the reader to the top
 of the current page.
 
-### @vuepress/plugin-medium-zoom
+### @vuepress/plugin-last-updated
 
-Causes a click on an image to bring the image full screen. Enlarging the image
-is not guaranteed.
-
-### @vuepress/last-updated
-
-By default, this plugin produces a 13-bit timestamp for each page, you can also
-pass in a transformer to convert it to any format that you want.
-
-### @vuepress/plugin-html-redirect
-
-The `@vuepress/plugin-html-redirect` plugin is used to establish static
-redirects for external sites. See the [Redirects](./redirects.md) doc for
-details
+This plugin is added to the project by the default-theme. By default, this
+plugin produces a 13-bit timestamp for each page, you can also pass in a
+transformer to convert it to any format that you want.
 
 ## Community Plugins
 
