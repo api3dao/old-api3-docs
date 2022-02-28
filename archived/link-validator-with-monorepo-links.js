@@ -132,7 +132,7 @@ async function run(task) {
  */
 async function loadMonorepoReadmes() {
   console.log(
-    'Reading README files from GitHub. Will only check absolute links to docs.api3.org, please wait...'
+    'Reading README files from GitHub. Will only check those with links to docs.api3.org, please wait...'
   );
   const data = readFileSync('./docs/.vuepress/dist/monorepo-readmes-sync', {
     encoding: 'utf8',
@@ -157,11 +157,7 @@ async function loadMonorepoReadmes() {
       const response = await axios.get(url);
       const linksArr = oust(response.data, 'links');
       for (let i = 0; i < linksArr.length; i++) {
-        // Only check "absolute" links back to the docs
-        if (
-          linksArr[i].indexOf('docs.api3.org/') > -1 &&
-          linksArr[i].indexOf('/latest/') === -1 // No virtual links
-        ) {
+        if (linksArr[i].indexOf('docs.api3.org/') > -1) {
           linksObj[linksArr[i]] = 'monorepo readmeUrl: ' + url;
         }
       }
@@ -175,6 +171,19 @@ async function loadMonorepoReadmes() {
       );
     }
   }
+}
+
+async function loadRedirects() {
+  require('fs')
+    .readFileSync('./docs/.vuepress/dist/redirects-sync', 'utf-8')
+    .split(/\r?\n/)
+    .forEach(function (line) {
+      if (line != 'undefined' && line.length > 3) {
+        // No empty lines or short typos
+        const arr2 = line.split(' ');
+        linksObj[baseURL + arr2[1]] = 'REDIRECT: ' + arr2[0];
+      }
+    });
 }
 
 async function loadLinks() {
@@ -259,6 +268,10 @@ async function start() {
   linksObj = {}; // Clear master list after each run()
   await loadMonorepoReadmes();
   await run('monorepo links');
+
+  linksObj = {};
+  await loadRedirects();
+  await run('redirects');
 
   linksObj = {};
   await loadImages();
