@@ -42,7 +42,7 @@ you to run deployer commands without installing the deployer npm package or
 having to manually build the airnode-deployer package yourself.
 
 ```sh
-npx @api3/airnode-deployer deploy --config myConfig/config.json --secrets myConfig/secrets.env -r myOutput/receipt.json
+npx @api3/airnode-deployer deploy --config pathTo/config.json --secrets pathTo/secrets.env --receipt myOutput/receipt.json
 ```
 
 ### Global Package
@@ -56,7 +56,7 @@ yarn global add @api3/airnode-deployer
 npm install @api3/airnode-deployer -g
 
 # Executing the deployer.
-api3-deployer deploy --config myConfig/config.json --secrets myConfig/secrets.env -r myOutput/receipt.json
+airnode-deployer deploy --config pathTo/config.json --secrets pathTo/secrets.env --receipt myOutput/receipt.json
 ```
 
 <!--  HOLD THIS UNTIL THE REPO README IS UPDATED
@@ -157,7 +157,7 @@ Options:
   -r, --receipt                          Output path for receipt file          [string] [default: "output/receipt.json"]
 
 # Example
-deployer deploy --config myConfig/config.json --secrets myConfig/secrets.env -r myOutput/receipt.json
+airnode-deployer deploy --config pathTo/config.json --secrets pathTo/secrets.env --receipt myOutput/receipt.json
 ```
 
 ### remove
@@ -190,6 +190,6 @@ Options:
   -p, --project-id             Project ID (GCP only)                                                            [string]
 
 # Examples
-deployer remove --receipt myOutput/receipt.json
-deployer remove --airnode-address-short abd9eaa --stage dev --cloud-provider aws --region us-east-1
+airnode-deployer remove --receipt myOutput/receipt.json
+airnode-deployer remove --airnode-address-short abd9eaa --stage dev --cloud-provider aws --region us-east-1
 ```
