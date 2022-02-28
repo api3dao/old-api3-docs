@@ -132,7 +132,7 @@ async function run(task) {
  */
 async function loadMonorepoReadmes() {
   console.log(
-    'Reading README files from GitHub. Will only check those with links to docs.api3.org, please wait...'
+    'Reading README files from GitHub. Will only check absolute links to docs.api3.org, please wait...'
   );
   const data = readFileSync('./docs/.vuepress/dist/monorepo-readmes-sync', {
     encoding: 'utf8',
@@ -157,7 +157,11 @@ async function loadMonorepoReadmes() {
       const response = await axios.get(url);
       const linksArr = oust(response.data, 'links');
       for (let i = 0; i < linksArr.length; i++) {
-        if (linksArr[i].indexOf('docs.api3.org/') > -1) {
+        // Only check "absolute" links back to the docs
+        if (
+          linksArr[i].indexOf('docs.api3.org/') > -1 &&
+          linksArr[i].indexOf('/latest/') === -1 // No virtual links
+        ) {
           linksObj[linksArr[i]] = 'monorepo readmeUrl: ' + url;
         }
       }
