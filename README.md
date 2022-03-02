@@ -16,7 +16,7 @@ services to smart contract platforms in a decentralized and trust-minimized way.
 It is governed by a decentralized autonomous organization (DAO), its code is
 open source and its operations are transparent.
 
-## API3 thesis statement
+## API3 Thesis Statement
 
 The vast majority of the external integrations that decentralized applications
 need are to commercial Web APIs that traditional businesses have built to
@@ -35,7 +35,7 @@ for a detailed discussion of the project. Just as these docs, you can discuss it
 and propose updates through
 [issues](https://github.com/api3dao/api3-whitepaper/issues).
 
-## Medium posts
+## Medium Posts
 
 See a grouped list of our Medium posts [here](https://medium.com/api3).
 
@@ -51,15 +51,14 @@ applications you want to build, give you a fair opportunity to monetize your API
 business, or feel like they are working against the ethos of decentralization,
 we invite you to be a part of API3 so that we can solve the API connectivity
 problem together. If you are coming from a technical background, see our
-[guide](https://docs.api3.org/pre-alpha/introduction/contributing.html) to get
-you started on contributing.
+[Documentation](https://docs.api3.org/) and get started contributing.
 
 The API connectivity problem is in essence an ecosystem building problem, more
 so than a technical one. This means that API3 can use the skills of all kinds of
 experts and the decentralized nature of the project will allow you to shape it
 in a way that makes the best use of your skills.
 
-## Communication channels
+## Communication Channels
 
 **Website:** https://api3.org/
 
