@@ -21,6 +21,7 @@
     "styl",
     "Whitelister",
     "vuepress",
+    "airkeeper",
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true

@@ -11,9 +11,8 @@
     "sync:navbar": "cp docs/.vuepress/components/Navbar.vue node_modules/@vuepress/theme-default/components/Navbar.vue",
     "sync:sidebar": "cp docs/.vuepress/components/Sidebar.vue node_modules/@vuepress/theme-default/components/Sidebar.vue",
     "sync:searchbox": "cp docs/.vuepress/components/SearchBox.vue node_modules/@vuepress/plugin-search/Searchbox.vue",
-    "sync:build:monorepo-readmes": "cp libs/monorepo-readmes docs/.vuepress/dist/monorepo-readmes-sync",
     "docs:dev": "yarn sync:404; yarn sync:navbar; yarn sync:sidebar; yarn sync:searchbox; vuepress dev docs",
-    "docs:build": "yarn sync:404; yarn sync:sidebar; yarn sync:searchbox; vuepress build docs; yarn sync:build:monorepo-readmes;",
+    "docs:build": "yarn sync:404; yarn sync:sidebar; yarn sync:searchbox; vuepress build docs;",
     "format": "prettier --write \"./**/*.{js,vue,md,json,yaml}\" --loglevel silent",
     "format:check": "prettier --check \"./**/*.{js,vue,md,json,yaml}\"",
     "prepare": "husky install"

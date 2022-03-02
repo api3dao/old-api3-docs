@@ -8,7 +8,6 @@ var file = require('file');
 var colors = require('colors');
 const oust = require('oust');
 const axios = require('axios');
-//const { versions } = require('process');
 
 /**
  * node ./libs/link-validator.js  http://127.0.0.1:8082  ./docs/.vuepress/dist/airnode/v0.3
@@ -126,57 +125,6 @@ async function run(task) {
   console.log('\n');
 }
 
-/**
- * Validates monorepo README links that point back to the docs.
- * Reads a list of READMEs from the monorepo-readmes file.
- */
-async function loadMonorepoReadmes() {
-  console.log(
-    'Reading README files from GitHub. Will only check absolute links to docs.api3.org, please wait...'
-  );
-  const data = readFileSync('./docs/.vuepress/dist/monorepo-readmes-sync', {
-    encoding: 'utf8',
-    flag: 'r',
-  });
-  let readmeArr = data.split(/\r?\n/);
-  let cnt = 1;
-  for (let i = 0; i < readmeArr.length; i++) {
-    // Empty or short lines in file
-    if (readmeArr[i].length > 6) {
-      await callGitHub(readmeArr[i], cnt);
-      cnt++;
-    }
-  }
-  process.stdout.moveCursor(0, -1); // up one line
-  process.stdout.clearLine(1); // from cursor to end
-
-  async function callGitHub(url, cnt) {
-    try {
-      console.log(cnt + '.', url);
-      axios.defaults.timeout = 10000;
-      const response = await axios.get(url);
-      const linksArr = oust(response.data, 'links');
-      for (let i = 0; i < linksArr.length; i++) {
-        // Only check "absolute" links back to the docs
-        if (
-          linksArr[i].indexOf('docs.api3.org/') > -1 &&
-          linksArr[i].indexOf('/latest/') === -1 // No virtual links
-        ) {
-          linksObj[linksArr[i]] = 'monorepo readmeUrl: ' + url;
-        }
-      }
-      // Pause because calling GitHub rapidly upsets them.
-      await new Promise((resolve) => setTimeout(resolve, 200));
-      process.stdout.moveCursor(0, -1); // up one line
-      process.stdout.clearLine(1); // from cursor to end
-    } catch (error) {
-      process.stdout.write(
-        colors.bold.red('Failed to get README from monorepo:', url, '\n')
-      );
-    }
-  }
-}
-
 async function loadLinks() {
   file.walkSync(distDir, tempCB);
   for (let i = 0; i < arr.length; i++) {
@@ -257,10 +205,6 @@ async function printFailures() {
 
 async function start() {
   linksObj = {}; // Clear master list after each run()
-  await loadMonorepoReadmes();
-  await run('monorepo links');
-
-  linksObj = {};
   await loadImages();
   await run('images');
 

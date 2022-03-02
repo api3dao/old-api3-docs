@@ -16,7 +16,7 @@ changes by contributors.
 
 Link Validator validates links with or without attached anchors. It is the last
 line of defense to prevent invalid links in the docs prior to deployment. See
-[Link Validator](link-validator.md) to run its Node.js script.
+[Link Validation](link-validator.md) to run its Node.js script.
 
 ## Understand deploy.sh
 
@@ -69,8 +69,8 @@ of the /dist folder gets the latest from all contributors.
    git push -f git@github.com:api3dao/api3-docs.git main:gh-pages
    ```
 
-2. Run the [Link Validator](link-validator.md) to verify hyperlinks and any
-   anchors.
+2. Run [link-validator.js](link-validator.md#link-validator-js) to verify
+   hyperlinks and any anchors.
 
 3. Verify the proper [versions](./versioning.md) are up-to-date in config.json.
 

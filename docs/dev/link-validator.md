@@ -1,5 +1,5 @@
 ---
-title: Link Validator
+title: Link Validation
 ---
 
 # {{$frontmatter.title}}
@@ -7,35 +7,12 @@ title: Link Validator
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-This custom nodejs script (`/libs/link-validator.js`) validates links (with or
-without attached anchors), images, static redirects and external links in the
-monorepo packages that point back to docs.api3.org. The link validator is a
-manual and time consuming process that should be performed as often as possible.
-Currently it cannot be run as a GitHub action.
+## `link-validator.js`
 
-## Monorepo READMEs
-
-The link validator validates any "absolute" link in the mono repo package
-READMEs that point back to the docs. A list of READMEs that are scanned are held
-in `/libs/monorepo-readmes`. It is necessary to add the `vX.X` tags from the
-monorepo to this file. New tags should be added as soon as they are available.
-
-Links such as `/airnode/latest` are not validated as they are not absolute and
-are created as redirects in the browser during execution of the `enhanceApp.js`
-code. See the [Redirects](./redirects.md) doc for more information.
-
-A copy of `monorepo-readmes` file is moved to the `/dist` folder during each
-build where the link validator will access it.
-
-```json
-"docs:build": "yarn sync:404; yarn sync:sidebar; yarn sync:searchbox; vuepress build docs; yarn sync:build:monorepo-readmes;"
-
-"sync:build:monorepo-readmes": "cp libs/monorepo-readmes docs/.vuepress/dist/monorepo-readmes-sync"
-```
-
-## Execution
-
-Execution is a three step process.
+This custom nodejs script (`/libs/link-validator.js`) only validates links (with
+or without attached anchors)and images in API3 docs. The link validator is a
+manual process that should be performed as often as possible. Currently it
+cannot be run as a GitHub action.
 
 ### Step 1: Build the Docs
 
@@ -83,4 +60,34 @@ the correct port displayed by http-server.
 # Run from the project root.
 # Start the nodejs script.
 node ./libs/link-validator.js  http://127.0.0.1:8082  ./docs/.vuepress/dist/airnode/v0.5
+```
+
+## `link-validator-repos.js`
+
+This custom nodejs script (`/libs/link-validator-repos.js`) validates links
+(with or without attached anchors) in `api3dao` repos that point back to the
+https://docs.api3.org documentation site. This validator is a manual process
+that should be performed as often as possible. Currently it cannot be run as a
+GitHub action.
+
+This script contains its own rewrite mechanism when it encounters the following
+patterns found in the links.
+
+- `/airnode/latest`
+- `/beacon/latest`
+- `/ois/latest`
+
+### Execution
+
+To run this script you must add a file (`myGitHubToken.json`) with a personal
+GitHub access token.
+
+```json
+{ "token": "ghp_hn3WSv9...4QIJ4Q1li2" }
+```
+
+Run the script from the root of a local api3-docs repo.
+
+```json
+node ./libs/link-validator-repos.js
 ```
