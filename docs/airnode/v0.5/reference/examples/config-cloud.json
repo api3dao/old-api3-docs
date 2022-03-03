@@ -44,9 +44,9 @@
       "apiKey": "${HTTP_GATEWAY_API_KEY}",
       "maxConcurrency": 20
     },
-    "httpSignedRelayedGateway": {
+    "httpSignedDataGateway": {
       "enabled": true,
-      "apiKey": "${HTTP_SIGNED_RELAYED_GATEWAY_API_KEY}",
+      "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_API_KEY}",
       "maxConcurrency": 20
     },
     "logFormat": "plain",
@@ -69,7 +69,7 @@
         "endpointName": "coinMarketData"
       }
     ],
-    "httpSignedRelayed": [
+    "httpSignedData": [
       {
         "endpointId": "0xaf1d557a32912da9a5170fcc54d5484b24847b150e5f3142c64111c99a689e77",
         "oisTitle": "CoinGecko Requests",

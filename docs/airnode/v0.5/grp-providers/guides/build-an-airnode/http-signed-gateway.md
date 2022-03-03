@@ -1,5 +1,5 @@
 ---
-title: HTTP Signed Relayed Gateway (optional)
+title: HTTP Signed Data Gateway (optional)
 ---
 
 <TitleSpan>Build an Airnode</TitleSpan>

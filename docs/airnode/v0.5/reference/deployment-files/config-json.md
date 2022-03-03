@@ -211,9 +211,9 @@ An object containing general deployment parameters of an Airnode.
     "apiKey": "${HTTP_GATEWAY_API_KEY}",
     "maxConcurrency": 20
   },
-  "httpSignedRelayedGateway": {
+  "httpSignedDataGateway": {
     "enabled": true,
-    "apiKey": "${HTTP_SIGNED_RELAYED_GATEWAY_API_KEY}",
+    "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_API_KEY}",
     "maxConcurrency": 20
   },
   "logFormat": "json",
@@ -303,22 +303,22 @@ gateway.
 number of serverless functions serving HTTP gateway requests running at the same
 time. When omitted, there is no maximum concurrency set.
 
-### `httpSignedRelayedGateway`
+### `httpSignedDataGateway`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpsignedrelayedgateway)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpsigneddatagateway)
 (required) - The Airnode's HTTP gateway can request endpoints without using the
 blockchain.
 
-#### `httpSignedRelayedGateway.enabled`
+#### `httpSignedDataGateway.enabled`
 
 (required) - Enable/disable, using true/false, Airnode's access to the HTTP
 gateway.
 
-#### `httpSignedRelayedGateway.apiKey`
+#### `httpSignedDataGateway.apiKey`
 
 (only if enabled) - The API key to authenticate against the gateway.
 
-#### `httpSignedRelayedGateway.maxConcurrency`
+#### `httpSignedDataGateway.maxConcurrency`
 
 (only if enabled, optional) - A number higher than zero representing the maximum
 number of serverless functions serving HTTP gateway requests running at the same
@@ -377,7 +377,7 @@ defined in an OIS.
       "endpointName": "myEndpointName"
     }
   ],
-  "httpSignedRelayed": [
+  "httpSignedData": [
     {
       "endpointId": "0xd7ddc8ee64d6e540682ec844a5dd9737663ec3afe5751102eb4f966744751838",
       "oisTitle": "myOisTitle",
@@ -435,21 +435,21 @@ the RRP protocol.
 
 (required) - The endpoint name of an OIS endpoint.
 
-### `httpSignedRelayed`
+### `httpSignedData`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpsignedrelayed)
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpsigneddata)
 (required) - An array of endpoints from OIS that the Airnode will respond to.
 
-#### `httpSignedRelayed[n].endpointId`
+#### `httpSignedData[n].endpointId`
 
 (required) - A identifier derived for an oisTitle/endpointName pair, see
 [derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id).
 
-#### `httpSignedRelayed[n].oisTitle`
+#### `httpSignedData[n].oisTitle`
 
 (required) - The title of an OIS object.
 
-#### `httpSignedRelayed[n].endpointName`
+#### `httpSignedData[n].endpointName`
 
 (required) - The endpoint name of an OIS endpoint.
 

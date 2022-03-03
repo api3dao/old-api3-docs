@@ -41,7 +41,7 @@ module.exports = [
             path: 'grp-providers/guides/build-an-airnode/http-gateway',
           },
           {
-            title: 'HTTP Signed Relayed Gateway',
+            title: 'HTTP Signed Data Gateway',
             path: 'grp-providers/guides/build-an-airnode/http-signed-gateway',
           },
           'grp-providers/guides/build-an-airnode/deploying-airnode',

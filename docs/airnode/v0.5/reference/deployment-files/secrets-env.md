@@ -15,17 +15,17 @@ There are few pieces of data that are **highly recommend** to be provided via
 variables. The variable names shown can be adjusted to anything desired. Just be
 sure to change the correlating interpolation value in `config.json`.
 
-| Variable name                       | `config.json` field name                       | Description                                                         |
-| ----------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------- |
-| AIRNODE_WALLET_MNEMONIC             | `nodeSettings.airnodeWalletMnemonic`           | The wallet mnemonic that will be used by the Airnode                |
-| CHAIN_PROVIDER_URL                  | `chains[].providers.<name>.url`                | The blockchain provider url                                         |
-| SS_MY_API_KEY                       | `apiCredentials[].securitySchemeValue`         | A security scheme value                                             |
-| HEARTBEAT_URL                       | `nodeSettings.heartbeat.url`                   | The URL to make the heartbeat request to                            |
-| HEARTBEAT_API_KEY                   | `nodeSettings.heartbeat.apiKey`                | The API key to authenticate against the heartbeat URL               |
-| HEARTBEAT_ID                        | `nodeSettings.heartbeat.id`                    | The Airnode heartbeat ID for accounting purposes                    |
-| HTTP_GATEWAY_API_KEY                | `nodeSettings.httpGateway.apiKey`              | The API key to authenticate against the HTTP gateway                |
-| HTTP_SIGNED_RELAYED_GATEWAY_API_KEY | `nodeSettings.httpSignedRelayedGateway.apiKey` | The API key to authenticate against the signed relayed HTTP gateway |
-| GCP_PROJECT_ID                      | `nodeSettings.cloudProvider.projectId`         | (GCP only) The GCP project ID for deployment                        |
+| Variable name                    | `config.json` field name                    | Description                                                      |
+| -------------------------------- | ------------------------------------------- | ---------------------------------------------------------------- |
+| AIRNODE_WALLET_MNEMONIC          | `nodeSettings.airnodeWalletMnemonic`        | The wallet mnemonic that will be used by the Airnode             |
+| CHAIN_PROVIDER_URL               | `chains[].providers.<name>.url`             | The blockchain provider url                                      |
+| SS_MY_API_KEY                    | `apiCredentials[].securitySchemeValue`      | A security scheme value                                          |
+| HEARTBEAT_URL                    | `nodeSettings.heartbeat.url`                | The URL to make the heartbeat request to                         |
+| HEARTBEAT_API_KEY                | `nodeSettings.heartbeat.apiKey`             | The API key to authenticate against the heartbeat URL            |
+| HEARTBEAT_ID                     | `nodeSettings.heartbeat.id`                 | The Airnode heartbeat ID for accounting purposes                 |
+| HTTP_GATEWAY_API_KEY             | `nodeSettings.httpGateway.apiKey`           | The API key to authenticate against the HTTP gateway             |
+| HTTP_SIGNED_DATA_GATEWAY_API_KEY | `nodeSettings.httpSignedDataGateway.apiKey` | The API key to authenticate against the signed data HTTP gateway |
+| GCP_PROJECT_ID                   | `nodeSettings.cloudProvider.projectId`      | (GCP only) The GCP project ID for deployment                     |
 
 Below is an example of `secrets.env`.
 
@@ -42,7 +42,7 @@ HEARTBEAT_ID="916d3ec80fda"
 HEARTBEAT_URL="https://your.heartbeat.service.io/airnode"
 
 HTTP_GATEWAY_API_KEY="441ffc41-3c8b-44b9-a689-63b500fd17da"
-HTTP_SIGNED_RELAYED_GATEWAY_API_KEY="58b0c6d6-b250-4f2e-b9ed-700655d1c8ae"
+HTTP_SIGNED_DATA_GATEWAY_API_KEY="58b0c6d6-b250-4f2e-b9ed-700655d1c8ae"
 
 # GCP only
 GCP_PROJECT_ID="my-gcp-airnode-project-01"

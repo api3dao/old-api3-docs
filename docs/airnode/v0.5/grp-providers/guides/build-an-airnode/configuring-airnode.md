@@ -239,9 +239,9 @@ The `nodeSettings` field holds node-specific (Airnode) configuration parameters.
       "apiKey": "${HTTP_GATEWAY_API_KEY}",
       "maxConcurrency": 20
     },
-    "httpSignedRelayedGateway": {
+    "httpSignedDataGateway": {
       "enabled": true,
-      "apiKey": "${HTTP_SIGNED_RELAYED_GATEWAY_API_KEY}",
+      "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_API_KEY}",
       "maxConcurrency": 20
     },
     "logFormat": "plain",
@@ -314,12 +314,12 @@ blockchain. See the [HTTP Gateway](./http-gateway.md) doc for more info.
   number of serverless functions serving HTTP gateway requests running at the
   same time. When omitted, there is no maximum concurrency set.
 
-#### httpSignedRelayedGateway
+#### httpSignedDataGateway
 
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#httpsignedrelayedgateway)
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#httpsigneddatagateway)
 The gateway allows the requesting of defined endpoints without accessing the
 blockchain. Responses are signed and can be submitted to the blockchain. See the
-[HTTP Signed Relayed Gateway](./http-signed-gateway.md) doc for more info.
+[HTTP Signed Data Gateway](./http-signed-gateway.md) doc for more info.
 
 - enabled: Enable/disable, using true/false, Airnode's access to the HTTP
   gateway.
@@ -383,8 +383,8 @@ for the gateway.
 List the endpoints that you want to serve with the request–response protocol
 (RRP) under `triggers.rrp`. List the endpoints that you want to serve with the
 HTTP gateway under `triggers.http`. List the endpoints which can be used to get
-the signed relayed data in `triggers.httpSignedRelayed`. In most cases, you
-would create a trigger for each endpoint in your OIS object.
+the signed data in `triggers.httpSignedData`. In most cases, you would create a
+trigger for each endpoint in your OIS object.
 
 ```json
 "triggers": {
@@ -402,7 +402,7 @@ would create a trigger for each endpoint in your OIS object.
         "endpointName": "coinGeckoMarketData"
       }
     ],
-    "httpSignedRelayed": [
+    "httpSignedData": [
       {
         "endpointId": "0xf10f067e716dd8b9c91b818e3a933b880ecb3929c04a6cd234c171aa27c6eefe",
         "oisTitle": "CoinGecko Requests",
@@ -412,8 +412,8 @@ would create a trigger for each endpoint in your OIS object.
   },
 ```
 
-`rrp`, `http` and `httpSignedRelayed` require an `endpointId` which can be
-derived from the `oisTitle` and `endpointName`, use the CLI command
+`rrp`, `http` and `httpSignedData` require an `endpointId` which can be derived
+from the `oisTitle` and `endpointName`, use the CLI command
 [derive-endpoint-id](../../../reference/packages/admin-cli.html#derive-endpoint-id).
 
 #### rrp
@@ -449,12 +449,12 @@ gateway. Only endpoints listed here can be tested via the HTTP gateway.
   [derive-endpoint-id](../../../reference/packages/admin-cli.md#derive-endpoint-id)
   to derive endpoint IDs using the `oisTitle` and `endpointName`.
 
-#### httpSignedRelayed
+#### httpSignedData
 
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#httpsignedrelayed)
-An array of endpoints from OIS that the Airnode will respond to for the the
-signed relayed data requests. Only endpoints listed here can be called to
-provide the signed relayed data.
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#httpsigneddata)
+An array of endpoints from OIS that the Airnode will respond to for the signed
+data requests. Only endpoints listed here can be called to provide the signed
+data.
 
 - oisTitle & endpointName: Each trigger has an `oisTitle` and `endpointName`
   that allow you to refer to one of the endpoints in an OIS object. Remember
@@ -631,4 +631,4 @@ The next four steps in this guide are optional.
 - [Applying Authorization](./apply-auth.md) optional
 - [Heartbeat](./heartbeat.md) optional
 - [HTTP Gateway](./http-gateway.md) optional
-- [HTTP Signed Relayed Gateway](./http-signed-gateway.md) optional
+- [HTTP Signed Data Gateway](./http-signed-gateway.md) optional
