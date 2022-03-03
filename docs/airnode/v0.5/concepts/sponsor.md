@@ -167,6 +167,13 @@ automatically. Therefore, the sponsor should be able to receive their funds from
 their `sponsorWallet` in a few minutes notice. The `sponsorWallet` does not get
 deleted, and can be used in the future simply by funding it again.
 
+::: warning Withdrawal Priority
+
+Airnode will drop any pending API calls associated with a `sponsorWallet` once a
+withdrawal is requested.
+
+:::
+
 ## Sponsoring a Requester
 
 A sponsor specifies the public address (`sponsorAddress`) of an account from a

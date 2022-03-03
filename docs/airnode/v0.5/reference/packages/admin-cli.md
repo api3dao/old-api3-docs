@@ -462,6 +462,13 @@ value of this command is only a `withdrawal-request-id` which you can use to
 call [check-withdrawal-request](admin-cli.md#check-withdrawal-request) to see
 whether the request was processed or not.
 
+::: warning Withdrawal Priority
+
+Airnode will drop any pending API calls associated with a `sponsorWallet` once a
+withdrawal is requested.
+
+:::
+
 - `provider-url`: A valid blockchain provider URL.
 - `sponsor-mnemonic`: A wallet owned by the sponsor. Used to pay gas costs from
   the mnemonic's default account unless a `derivation-path` is specified.
