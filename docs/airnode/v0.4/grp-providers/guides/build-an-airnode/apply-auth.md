@@ -1,5 +1,5 @@
 ---
-title: Applying Authorization (optional)
+title: Using Authorizers (optional)
 ---
 
 <TitleSpan>Build an Airnode</TitleSpan>
@@ -10,17 +10,19 @@ title: Applying Authorization (optional)
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 An Airnode can authorize requester contract access to its underlying API using
-two methods.
+[Authorizers](../../../concepts/authorization.md). This method is on-chain and
+requires some blockchain knowledge by an API provider.
 
-- [Authorizers](apply-auth.md#authorizers)
-- [Relay security schemes](apply-auth.md#relay-security-schemes)
+::: tip Alternative: Relayed Meta Data
 
-This guide focuses on the usage of these concepts. See the
-[Authorization section](../../../concepts/authorization.md) for details on these
-two authorization methods. You can use one or the other, or both at the same
-time.
+As an alternative to authorizers, an API provider can use
+[Relayed Meta Data](./api-security.md) to authenticate a request. This approach
+is off-chain and requires no blockchain knowledge by the API provider. Note that
+it is possible to use both authorizers and relayed meta data together.
 
-When you deployed your Airnode a receipt file was generated. In it is the
+:::
+
+When you deployed your Airnode a receipt file was generated which contains the
 Airnode's `airnodeAddress`. Sponsors (via their sponsored requesters) use
 `airnodeAddress` and an `endpointId` to make requests to your Airnode's
 endpoints. However, you probably do not want to serve them publicly.
@@ -101,37 +103,3 @@ To use the RequesterAuthorizerWithAirnode authorizer:
 
 Once implemented, only requester contract addresses you have added to
 RequesterAuthorizerWithAirnode will have access to your Airnode.
-
-## Relay Security Schemes
-
-Define the relay security schemes you want to use for your API. See the
-[Supported Security Schemes](./api-security.md#supported-security-schemes)
-section of the API Security doc for more details about _relay security schemes_.
-
-In the following example Airnode will relay the requester address (named
-`requesterAddress`) to the API operation. The value of `requesterAddress` will
-either be in the body for a POST request or query string for a GET request.
-
-```json
-{
-  "ois": [
-    {
-      "title": "My OIS title",
-      "apiSpecifications": {
-        "components": {
-          "securitySchemes": {
-            "forwardsRequesterAddress": {
-              "in": "query",
-              "type": "relayRequesterAddress",
-              "name": "requesterAddress"
-            }
-          }
-        },
-        "security": {
-          "forwardsRequesterAddress": []
-        }
-      }
-    }
-  ]
-}
-```
