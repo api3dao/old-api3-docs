@@ -7,7 +7,7 @@ title: Authorizers
 # {{$frontmatter.title}}
 
 <TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3,4,5]" />
+<TOC class="table-of-contents" :include-level="[2,5]" />
 
 An Airnode can authorize requester contract access to its underlying API using
 authorizers. As an alternative, an API provider could also use
