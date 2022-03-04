@@ -14,10 +14,13 @@ module.exports = {
   /// OIS doc set version pick list.
   versionsOis: [{ name: 'v1.0.0', url: '/ois/v1.0.0/' }],
   /// Latest/current Airnode doc set version.
+  /// Used by api3dao/airnode CI link checking
   latestVersion: '/airnode/v0.4/',
   /// Latest/current Beacon doc set version.
+  /// Used by api3dao/airnode CI link checking
   latestBeaconVersion: '/beacon/v0.1/',
   /// Latest/current OIS doc set version.
+  /// Used by api3dao/airnode CI link checking
   latestOisVersion: '/ois/v1.0.0/',
   /// Job page revision, incremented when a new job(s) is added
   jobPageRevision: 3,
