@@ -1,5 +1,5 @@
 ---
-title: Authorization
+title: Authorizers
 ---
 
 <TitleSpan>Concepts and Definitions</TitleSpan>
@@ -10,16 +10,14 @@ title: Authorization
 <TOC class="table-of-contents" :include-level="[2,3,4,5]" />
 
 An Airnode can authorize requester contract access to its underlying API using
-two methods.
+authorizers. As an alternative, an API provider could also use
+[Relayed Meta Data](./relay-meta-auth.md) to authenticate requests. Authorizers
+require blockchain knowledge by the API provider, relayed meta data does not.
 
-- Authorizers - using authorizer contracts.
-- Relay security schemes - described in the build an airnode
-  [API Security](../grp-providers/guides/build-an-airnode/api-security.md#supported-security-schemes)
-  doc.
+Other docs related to authorizers and relayed meta data:
 
-<divider/>
-
-## Authorizers
+- [Using Authorizers](../grp-providers/guides/build-an-airnode/apply-auth.md)
+- [API Security](../grp-providers/guides/build-an-airnode/api-security.md)
 
 When an Airnode receives a request, it can use on-chain authorizer contracts to
 verify if a response is warranted. Authorizers allow Airnodes to implement a
