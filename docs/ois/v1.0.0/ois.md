@@ -162,7 +162,7 @@ the non-nested application/json content-type is supported.</p>
 
 ### 4.3. `components`
 
-[<InfoBtnBlue/>](/airnode/v0.4/grp-providers/guides/build-an-airnode/api-security.md#supported-security-schemes)
+[<InfoBtnBlue/>](/airnode/v0.4/grp-providers/guides/build-an-airnode/api-security.md)
 (Required) An object where security schemes can be found under
 `securitySchemes.{securitySchemeName}` with the following elements:
 

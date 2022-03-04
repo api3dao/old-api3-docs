@@ -72,8 +72,7 @@ This interface inherits:
 
 The
 [AuthorizationUtils.sol](https://github.com/api3dao/airnode/blob/v0.4/packages/airnode-protocol/contracts/rrp/AuthorizationUtils.sol)
-contract implements Airnode [authorization](./authorization.md#authorizers)
-checks.
+contract implements Airnode [Authorizer](./authorization.md) checks.
 
 ### WithdrawalUtils.sol
 

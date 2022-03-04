@@ -28,7 +28,10 @@ module.exports = [
           'grp-providers/guides/build-an-airnode/api-integration',
           'grp-providers/guides/build-an-airnode/api-security',
           'grp-providers/guides/build-an-airnode/configuring-airnode',
-          'grp-providers/guides/build-an-airnode/apply-auth',
+          {
+            title: 'Using Authorizers',
+            path: 'grp-providers/guides/build-an-airnode/apply-auth',
+          },
           {
             title: 'Heartbeat (optional)',
             path: 'grp-providers/guides/build-an-airnode/heartbeat',
@@ -112,6 +115,7 @@ module.exports = [
       'concepts/endpoint',
       'concepts/authorization',
       'concepts/airnode-auth',
+      'concepts/relay-meta-auth',
       'concepts/requester',
       'concepts/sponsor',
       'concepts/template',

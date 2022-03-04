@@ -18,7 +18,7 @@ next step is to deploy the Airnode.
 - [API Integration](api-integration.md)
 - [API Security](api-security.md)
 - [Configuring Airnode](configuring-airnode.md)
-- [Applying Authorization](./apply-auth.md) optional
+- [Using Authorizers](./apply-auth.md) optional
 - [Heartbeat](./heartbeat.md) optional
 - [HTTP Gateway](./http-gateway.md) optional
 - [HTTP SignedRelayed Gateway](./http-signed-gateway.md) optional
