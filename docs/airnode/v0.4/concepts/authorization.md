@@ -158,9 +158,8 @@ wide-spread adoption.
 ### Are authorizers required?
 
 Authorizers are not required. An Airnode operator could use
-[relay security schemes](../grp-providers/guides/build-an-airnode/api-security.md#supported-security-schemes)
-to authorize API access (e.g. by [requester](./requester.md) address). And it is
-possible to use both authorizers and relay security schemes together.
+[Relayed Meta Data Security Schemes](../grp-providers/guides/build-an-airnode/api-security.md#relayed-meta-data-security-schemes).
+It is possible to use both authorizers and relay security schemes together.
 
 ### How are authorizers implemented?
 
