@@ -36,7 +36,7 @@
     "httpGateway": {
       "enabled": false
     },
-    "httpSignedRelayedGateway": {
+    "httpSignedDataGateway": {
       "enabled": false
     },
     "logFormat": "plain",

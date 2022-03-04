@@ -37,9 +37,9 @@ Turn on the optional heartbeat functionality by setting all fields in the
         "apiKey": "${HTTP_GATEWAY_API_KEY}",
         "maxConcurrency": 20
       },
-      "httpSignedRelayedGateway": {
+      "httpSignedDataGateway": {
         "enabled": true,
-        "apiKey": "${HTTP_SIGNED_RELAYED_GATEWAY_API_KEY}",
+        "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_API_KEY}",
         "maxConcurrency": 20
       },
       "logFormat": "json",

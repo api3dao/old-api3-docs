@@ -50,7 +50,7 @@ not generated for client deployments (deploying to a Docker container).
   "api": {
     "heartbeatId": "74dc44a1ee65",
     "httpGatewayUrl": "https://some.http.api.gateway.url/v1",
-    "httpSignedRelayedGatewayUrl": "https://some.httpSignedRelayed.api.gateway.url/v1"
+    "httpSignedDataGatewayUrl": "https://some.httpSignedData.api.gateway.url/v1"
   }
 }
 ```

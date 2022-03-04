@@ -43,9 +43,9 @@ Enable the HTTP gateway by setting two fields in the config.json
     "apiKey": "${HTTP_GATEWAY_API_KEY}",
     "maxConcurrency": 20
   },
-  "httpSignedRelayedGateway": {
+  "httpSignedDataGateway": {
     "enabled": true,
-    "apiKey": "${HTTP_SIGNED_RELAYED_GATEWAY_API_KEY}",
+    "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_API_KEY}",
     "maxConcurrency": 20
   },
   ...

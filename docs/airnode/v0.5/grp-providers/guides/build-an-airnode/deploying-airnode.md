@@ -21,7 +21,7 @@ next step is to deploy the Airnode.
 - [Using Authorizers](./apply-auth.md) optional
 - [Heartbeat](./heartbeat.md) optional
 - [HTTP Gateway](./http-gateway.md) optional
-- [HTTP SignedRelayed Gateway](./http-signed-gateway.md) optional
+- [HTTP SignedData Gateway](./http-signed-gateway.md) optional
 
 :::
 
