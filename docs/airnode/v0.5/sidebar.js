@@ -29,7 +29,7 @@ module.exports = [
           'grp-providers/guides/build-an-airnode/api-security',
           'grp-providers/guides/build-an-airnode/configuring-airnode',
           {
-            title: 'Applying Authorization',
+            title: 'Using Authorizers',
             path: 'grp-providers/guides/build-an-airnode/apply-auth',
           },
           {
@@ -119,6 +119,7 @@ module.exports = [
       'concepts/endpoint',
       'concepts/authorization',
       'concepts/airnode-auth',
+      'concepts/relay-meta-auth',
       'concepts/requester',
       'concepts/sponsor',
       'concepts/template',
