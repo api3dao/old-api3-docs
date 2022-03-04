@@ -10,31 +10,33 @@ title: API Security
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 Airnode can pass along security information (schemes) when making calls to API
-operations. These come in two forms, _authentication security schemes_ such as
-`apiKey or http` and _relay security schemes_ which is information extracted
-from the request.
+operations. There are two groups of security schemes.
+
+- [Airnode Authentication](../../../concepts/airnode-auth.md)
+- [Relayed Meta Data Authentication](../../../concepts/relay-meta-auth.md)
 
 <!-- prettier-ignore-->
 > ![api-integration-ois](../../../assets/images/security-schemes.png)
 > <br/>
 > 1.  <p class="diagram-line" style="color:blue;">The Airnode uses <i><b>authentication security schemes</b></i> to authenticate itself to an API operation of which the values are know only to the Airnode.</p>
-> 2.  <p class="diagram-line" style="color:green;">The Airnode can forward <i><b>relay security scheme</b></i> information from a requester's request to the API operation.</p>
+> 2.  <p class="diagram-line" style="color:green;">The Airnode can forward <i><b>relayed meta data security schemes</b></i> from a request to an API operation.</p>
 
-## Supported Security Schemes
+Security schemes are declared by the required `type` property inside the
+security scheme definition. The following security scheme types are supported.
 
-Each security scheme has a certain type specified by the required `type`
-property inside the security scheme definition. The following security scheme
-types are supported.
+- Authentication Security Schemes
 
-- [apiKey](./api-security.md#apikey)
-- [http](./api-security.md#http)
-- [relayRequesterAddress](./api-security.md#relayrequesteraddress)
-- [relayChainId](./api-security.md#relaychainid)
-- [relayChainType](./api-security.md#relaychaintype)
-- [relaySponsorAddress](./api-security.md#relaysponsoraddress)
-- [relaySponsorWalletAddress](./api-security.md#relaysponsorwalletaddress)
+  - [apiKey](./api-security.md#apikey)
+  - [http](./api-security.md#http)
 
-**Authentication Security Schemes**
+- Relayed Meta Data Security Schemes
+  - [relayRequesterAddress](./api-security.md#relayrequesteraddress)
+  - [relayChainId](./api-security.md#relaychainid)
+  - [relayChainType](./api-security.md#relaychaintype)
+  - [relaySponsorAddress](./api-security.md#relaysponsoraddress)
+  - [relaySponsorWalletAddress](./api-security.md#relaysponsorwalletaddress)
+
+## Authentication Security Schemes
 
 An Airnode can use the following security scheme types to authenticate itself.
 This is different then [Authorization](./apply-auth.md) of requesters to access
@@ -42,16 +44,6 @@ the Airnode.
 
 - apiKey
 - http (basic & bearer)
-
-**Relay Security Schemes**
-
-In addition to authenticating itself, Airnode can "relay" security information
-about a request to an API operation. For relay security schemes you do not
-provide any values as they are extracted from the request by Airnode.
-
-- relayRequesterAddress
-- relayChainId
-- relayChainType
 
 ### apiKey
 
@@ -127,6 +119,18 @@ This security scheme will always be sent in the headers. The security scheme
 value should be base64 encoded value "username:password" for `basic` auth and
 the encoded token for `bearer` auth.
 
+## Relayed Meta Data Security Schemes
+
+In addition to authenticating itself, Airnode can "relay" security information
+about a request to an API operation. For the relay security scheme you do not
+provide any values as they are extracted from the request by Airnode.
+
+- relayRequesterAddress
+- relayChainId
+- relayChainType
+- relaySponsorAddress
+- relaySponsorWalletAddress
+
 ### relayRequesterAddress
 
 The `relayRequesterAddress` security scheme type instructs Airnode to forward
@@ -193,7 +197,7 @@ definition.
 
 ### relaySponsorAddress
 
-The `relaySponsorAddress` security schema type instructs Airnode to forward the
+The `relaySponsorAddress` security scheme type instructs Airnode to forward the
 [sponsor address](../../../concepts/sponsor.md#sponsoraddress) to your API. The
 schema definition is similar to the [`apiKey`](./api-security.md#apikey),
 however the `type` must be `relaySponsorAddress`.
@@ -213,7 +217,7 @@ definition.
 
 ### relaySponsorWalletAddress
 
-The `relaySponsorWalletAddress` security schema type instructs Airnode to
+The `relaySponsorWalletAddress` security scheme type instructs Airnode to
 forward the [sponsor wallet address](../../../concepts/sponsor.md#sponsorwallet)
 to your API. The schema definition is similar to the
 [`apiKey`](./api-security.md#apikey), however the `type` must be
@@ -237,8 +241,10 @@ definition.
 OIS security is inspired by OAS security practices. This is implemented using
 the security schemes and security field. All supported security schemes are
 described in detail in the
-[supported security schemes section](./api-security.md#supported-security-schemes).
-Working with security schemes can be described in three steps.
+[Authentication Security Schemes](./api-security.md#authentication-security-schemes)
+and
+[Relayed Meta Data Security Schemes](./api-security.md#relayed-meta-data-security-schemes)
+sections above. Working with security schemes can be described in three steps.
 
 1. [Define the security schemes for an OIS](./api-security.md#step-1-define-the-security-schemes-for-an-ois)
 2. [Turn on the defined security schemes](./api-security.md#step-2-turn-on-the-defined-security-schemes)
