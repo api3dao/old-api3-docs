@@ -18,53 +18,46 @@ operations. There are two groups of security schemes.
 <!-- prettier-ignore-->
 > ![api-integration-ois](../../../assets/images/security-schemes.png)
 > <br/>
-> 1.  <p class="diagram-line" style="color:blue;">The Airnode uses <i><b>authentication security schemes</b></i> to authenticate itself to an API operation of which the values are know only to the Airnode.</p>
-> 2.  <p class="diagram-line" style="color:green;">The Airnode can forward <i><b>relayed meta data security schemes</b></i> from a request to an API operation.</p>
+> 1.  <p class="diagram-line" style="color:blue;">The Airnode uses <i><b>Airnode Authentication Security Schemes</b></i> to authenticate itself to an API operation of which the values are know only to the Airnode.</p>
+> 2.  <p class="diagram-line" style="color:green;">The Airnode uses <i><b>Relayed Meta Data Security Schemes</b></i> to forward known information from the requester's request to an API operation.</p>
 
 Security schemes are declared by the required `type` property inside the
 security scheme definition. The following security scheme types are supported.
 
-- Authentication Security Schemes
+- Airnode Authentication Security Schemes
 
-  - [apiKey](./api-security.md#apikey)
-  - [http](./api-security.md#http)
+  - apiKey
+  - http
 
 - Relayed Meta Data Security Schemes
-  - [relayRequesterAddress](./api-security.md#relayrequesteraddress)
-  - [relayChainId](./api-security.md#relaychainid)
-  - [relayChainType](./api-security.md#relaychaintype)
-  - [relaySponsorAddress](./api-security.md#relaysponsoraddress)
-  - [relaySponsorWalletAddress](./api-security.md#relaysponsorwalletaddress)
+  - relayRequesterAddress
+  - relayChainId
+  - relayChainType
+  - relaySponsorAddress
+  - relaySponsorWalletAddress
 
-## Authentication Security Schemes
+## Airnode Authentication Security Schemes
 
-An Airnode can use the following security scheme types to authenticate itself.
-This is different then [Authorization](./apply-auth.md) of requesters to access
-the Airnode.
+An Airnode can use the following security scheme types to authenticate itself to
+API operations.
 
-- apiKey
-- http (basic & bearer)
+- [apiKey](./api-security.md#apikey)
+- [http](./api-security.md#http)
 
 ### apiKey
 
-The `apiKey` security scheme type allows you to define an API key for your API.
-It is an object which consists of the following fields
+The `apiKey` security scheme type allows you to define an API key the Airnode
+will send to your API operations. It is an object which consists of the
+following fields:
 
 - `type` must be `apiKey`
 - `in` can be one of the `query`, `header` or `cookie`. This value specifies how
-  should the value be sent to your API.
-
-::: warning Using the "query" option
-
-When using the `query` option, the API key will be sent in the request body for
-POST requests and in query string for GET requests.
-
-:::
+  should the value be sent to your API. When using the `query` option, the API
+  key will be sent in the request body for POST requests and in query string for
+  GET requests.
 
 - `name` is the name of the API key that should be sent to your API. For example
   "X-Api-Key".
-
-Scheme definition example:
 
 ```json
 {
@@ -76,7 +69,8 @@ Scheme definition example:
 }
 ```
 
-and `apiCredentials` example:
+The value of the `apiKey` goes in the `apiCredentials` field of `config.json`.
+Normally the value is accessed using interpolation from the `secrets.env` file.
 
 ```json
 {
@@ -89,12 +83,13 @@ and `apiCredentials` example:
 ### http
 
 The `http` security scheme type allows you to define a `basic` or `bearer`
-authentication. It consists of the following fields
+authentication. This security scheme will always be sent in the headers. The
+security scheme value should be base64 encoded value "username:password" for
+`basic` auth and the encoded token for `bearer` auth. It is an object which
+consists of the following fields:
 
 - `type` must be `http`
 - `scheme` is either `basic` or `bearer`
-
-Scheme definition example:
 
 ```json
 {
@@ -105,7 +100,9 @@ Scheme definition example:
 }
 ```
 
-and `apiCredentials` example:
+The value of the `http` as (`basic or bearer`) goes in the `apiCredentials`
+field of `config.json`. Normally the value is accessed using interpolation from
+the `secrets.emv` file.
 
 ```json
 {
@@ -115,30 +112,34 @@ and `apiCredentials` example:
 }
 ```
 
-This security scheme will always be sent in the headers. The security scheme
-value should be base64 encoded value "username:password" for `basic` auth and
-the encoded token for `bearer` auth.
-
 ## Relayed Meta Data Security Schemes
 
 In addition to authenticating itself, Airnode can "relay" security information
-about a request to an API operation. For the relay security scheme you do not
-provide any values as they are extracted from the request by Airnode.
+about a request to an API operation. This is different then
+[Authorization](./apply-auth.md) of requesters to access the Airnode.
 
-- relayRequesterAddress
-- relayChainId
-- relayChainType
-- relaySponsorAddress
-- relaySponsorWalletAddress
+- [relayRequesterAddress](./api-security.md#relayrequesteraddress)
+- [relayChainId](./api-security.md#relaychainid)
+- [relayChainType](./api-security.md#relaychaintype)
+- [relaySponsorAddress](./api-security.md#relaysponsoraddress)
+- [relaySponsorWalletAddress](./api-security.md#relaysponsorwalletaddress)
+
+For relayed meta data security schemes you do not provide any values in
+[apiCredentials](../../../reference/deployment-files/config-json.html#apicredentials)
+as they are extracted from the request by Airnode.
+
+::: tip Additional Processing Logic
+
+Note that Airnode is just relaying metadata to your API operations and does not
+perform any additional logic. You must implement any desired logic in your API
+operations.
+
+:::
 
 ### relayRequesterAddress
 
 The `relayRequesterAddress` security scheme type instructs Airnode to forward
-the [requester](../../../concepts/requester.md) address to your API. The scheme
-definition is similar to the [`apiKey`](./api-security.md#apikey), however the
-`type` must be `relayRequesterAddress`.
-
-Scheme definition example:
+the [requester](../../../concepts/requester.md) address.
 
 ```json
 {
@@ -148,21 +149,10 @@ Scheme definition example:
 }
 ```
 
-since this value will be relayed by Airnode, there is no `apiCredentials`
-definition.
-
-Note that Airnode is just relaying (forwarding) the requester address to your
-API and does not perform any additional logic. If you intend to implement some
-logic based on the requester, you need to do so in the implementation of your
-API.
-
 ### relayChainId
 
-The `relayChainId` security scheme type instructs Airnode to forward the chain
-id to your API. The scheme definition is similar to the
-[`apiKey`](./api-security.md#apikey), however the `type` must be `relayChainId`.
-
-Scheme definition example:
+The `relayChainId` security scheme type instructs Airnode to forward the chain's
+ID.
 
 ```json
 {
@@ -172,17 +162,10 @@ Scheme definition example:
 }
 ```
 
-since this value will be relayed by Airnode, there is no `apiCredentials`
-definition.
-
 ### relayChainType
 
-The `relayChainType` security scheme type instructs Airnode to forward the chain
-type to your API. The scheme definition is similar to the
-[`apiKey`](./api-security.md#apikey), however the `type` must be
-`relayChainType`.
-
-Scheme definition example:
+The `relayChainType` security scheme type instructs Airnode to forward the
+chain's type.
 
 ```json
 {
@@ -192,17 +175,10 @@ Scheme definition example:
 }
 ```
 
-since this value will be relayed by Airnode, there is no `apiCredentials`
-definition.
-
 ### relaySponsorAddress
 
 The `relaySponsorAddress` security scheme type instructs Airnode to forward the
-[sponsor address](../../../concepts/sponsor.md#sponsoraddress) to your API. The
-schema definition is similar to the [`apiKey`](./api-security.md#apikey),
-however the `type` must be `relaySponsorAddress`.
-
-Schema definition example:
+[sponsor address](../../../concepts/sponsor.md#sponsoraddress).
 
 ```json
 {
@@ -212,18 +188,11 @@ Schema definition example:
 }
 ```
 
-since this value will be relayed by Airnode, there is no `apiCredentials`
-definition.
-
 ### relaySponsorWalletAddress
 
 The `relaySponsorWalletAddress` security scheme type instructs Airnode to
-forward the [sponsor wallet address](../../../concepts/sponsor.md#sponsorwallet)
-to your API. The schema definition is similar to the
-[`apiKey`](./api-security.md#apikey), however the `type` must be
-`relaySponsorWalletAddress`.
-
-Schema definition example:
+forward the
+[sponsor wallet address](../../../concepts/sponsor.md#sponsorwallet).
 
 ```json
 {
@@ -233,15 +202,12 @@ Schema definition example:
 }
 ```
 
-since this value will be relayed by Airnode, there is no `apiCredentials`
-definition.
-
 ## Example
 
 OIS security is inspired by OAS security practices. This is implemented using
 the security schemes and security field. All supported security schemes are
 described in detail in the
-[Authentication Security Schemes](./api-security.md#authentication-security-schemes)
+[Airnode Authentication Security Schemes](./api-security.md#airnode-authentication-security-schemes)
 and
 [Relayed Meta Data Security Schemes](./api-security.md#relayed-meta-data-security-schemes)
 sections above. Working with security schemes can be described in three steps.
@@ -324,14 +290,15 @@ in all OIS definitions. Each element of this array contains the following fields
   to interpolate it from `secrets.env`.
 
 If you want to base your API authentication on dynamic data, for example
-[requester](../../../concepts/requester.md) address, you can utilize the "relay"
-security schemes [described above](./api-security.md#relayrequesteraddress)
-which can forward this data to your API.
+[requester](../../../concepts/requester.md) address, you can utilize the relayed
+meta data security schemes
+[described above](./api-security.md#relayrequesteraddress) which can forward
+metadata to all API operations.
 
-::: warning Relay security schemes do not require a scheme value
+::: tip Relayed meta data security schemes values.
 
-The "relay" security schemes do not require the value, because it will be
-provided (relayed) by Airnode depending on the particular request.
+The relayed meta data security schemes do not require a supplied value. Values
+will be provided (relayed) by Airnode depending on the particular request.
 
 :::
 
