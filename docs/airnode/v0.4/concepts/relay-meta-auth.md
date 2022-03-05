@@ -67,7 +67,7 @@ requester.
 ## Security Schemes
 
 Including the `sponsorAddress` used in the
-[Simple Sample](./relay-meta-auth.md#simple-sample) above, there are five
+[Simple Example](./relay-meta-auth.md#simple-example) above, there are five
 _relayed meta data security schemes_ that can be incorporated into any Airnode.
 
 - [relayChainId](../grp-providers/guides/build-an-airnode/api-security.md#relaychainid) -
