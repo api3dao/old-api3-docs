@@ -3,7 +3,7 @@ title: ois.json
 ---
 
 # {{$frontmatter.title}}
-
+<VersionWarning/>
 ```json
 {
   "oisFormat": "1.0.0",

@@ -3,7 +3,7 @@ title: General structure
 ---
 
 # {{$frontmatter.title}}
-
+<VersionWarning/>
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 

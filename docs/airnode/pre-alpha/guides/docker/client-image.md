@@ -3,7 +3,7 @@ title: Client image instructions
 ---
 
 # {{$frontmatter.title}}
-
+<VersionWarning/>
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 1. Build the Docker image (you can skip this step and fetch the pre-built image).
