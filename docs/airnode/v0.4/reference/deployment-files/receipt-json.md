@@ -6,6 +6,8 @@ title: receipt.json
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
+
 A `receipt.json` file is outputted after each deployment and contains
 non-sensitive information about the deployment. The main use of a receipt file
 is to remove an Airnode deployment when no longer needed. Use the

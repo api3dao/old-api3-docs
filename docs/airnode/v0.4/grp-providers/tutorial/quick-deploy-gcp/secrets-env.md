@@ -6,6 +6,8 @@ title: secrets.env
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
+
 The secrets.env file contents shown below is for the [Quick Deploy GCP](./)
 demo.
 
