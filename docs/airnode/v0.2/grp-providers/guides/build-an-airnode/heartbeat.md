@@ -6,6 +6,7 @@ title: Heartbeat
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
 At the end of each of Airnode's runs (every minute), Airnode can make an HTTP
 POST request to a specified URL. This is both to signal that the Airnode is
 alive and working (useful especially right after the deployment) and also to

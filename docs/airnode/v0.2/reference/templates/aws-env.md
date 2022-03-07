@@ -6,6 +6,7 @@ title: aws.env
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
 The `aws.env` contains AWS credentials from an IAM user. These credentials are
 used by the Docker
 [deployer image](../../grp-providers/docker/deployer-image.md) to deploy an

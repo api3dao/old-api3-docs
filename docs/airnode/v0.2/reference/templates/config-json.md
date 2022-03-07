@@ -6,6 +6,7 @@ title: config.json
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
 A template for an Airnode's configuration file. Below are notations to help
 explain contents of the template.
 

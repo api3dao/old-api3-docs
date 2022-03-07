@@ -6,6 +6,7 @@ title: config.json
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
 :::: tabs
 
 ::: tab Local Chain

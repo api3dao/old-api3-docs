@@ -6,6 +6,7 @@ title: aws.env
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
 Do not enclose variable values with double quote (").
 
 ```sh
