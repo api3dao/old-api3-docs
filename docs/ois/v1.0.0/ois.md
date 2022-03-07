@@ -7,6 +7,8 @@ airnodeVersion: v0.4
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
+
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,5]" />
 
 The Oracle Integration Specification (OIS) is based on
