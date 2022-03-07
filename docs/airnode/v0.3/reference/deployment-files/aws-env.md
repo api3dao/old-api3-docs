@@ -6,6 +6,8 @@ title: aws.env
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
+
 When it is time to deploy the Airnode to AWS, the Docker
 [deployer image](../../grp-providers/docker/deployer-image.md) will need the AWS
 credentials to build the node. Do not place double quotes (") around the value

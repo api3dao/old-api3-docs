@@ -32,6 +32,14 @@ component which api3-docs overrides.
 
 [VersionsModal.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/VersionsModal.vue)
 
+## VersionWarning.vue
+
+VersionsModal.vue is a warning dialog that appears at the top of each page in
+older versions of all versioned documents sets. It contains a link to the latest
+version.
+
+[VersionWarning.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/VersionWarning.vue)
+
 ## DocumentSets.vue
 
 DocumentSets.vue is placed on the top of

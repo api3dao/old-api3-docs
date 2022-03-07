@@ -6,8 +6,10 @@ title: Requester
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
+
 <!--TocHeader /-->
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<!--TOC class="table-of-contents" :include-level="[2,3]" /-->
 
 A requester is a contract that makes Airnode requests. While making a request,
 the requester refers to a [sponsor](sponsor.md) by its

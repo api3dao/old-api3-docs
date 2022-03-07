@@ -3,7 +3,7 @@ title: security.json
 ---
 
 # {{$frontmatter.title}}
-
+<VersionWarning/>
 ```json
 {
   "apiCredentials": {

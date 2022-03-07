@@ -6,6 +6,7 @@ title: Overview
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
 Airnode is a fully-serverless oracle node that is designed specifically for API
 providers to operate their own oracles. Its code base is a monorepo managed
 using [Lerna](https://github.com/lerna/lerna).

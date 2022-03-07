@@ -6,6 +6,7 @@ title: Overview
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
 An **API Provider** is you, if you wish to publish data from your API to
 on-chain contracts which are called requesters. You can do so by building an
 Airnode. An Airnode is a first-party oracle that will push off-chain API data to

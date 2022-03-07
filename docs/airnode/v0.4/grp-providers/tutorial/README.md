@@ -1,8 +1,12 @@
 ---
-title: Tutorials
+title: Overview
 ---
 
+<TitleSpan>Tutorials</TitleSpan>
+
 # {{$frontmatter.title}}
+
+<VersionWarning/>
 
 The tutorials section of the docs provides some simple guides regarding the
 setup and use of Airnodes.

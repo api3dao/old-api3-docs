@@ -6,6 +6,8 @@ title: Reserved parameters
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
+
 <!--TocHeader /> <TOC class="table-of-contents" :include-level="[2,4]" /-->
 
 Reserved parameters are part of an Airnode's defined endpoints in an

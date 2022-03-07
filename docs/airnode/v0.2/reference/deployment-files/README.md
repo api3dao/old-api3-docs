@@ -6,6 +6,7 @@ title: Overview
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
 Airnode is deployed with two files:
 
 - [config.json](./config-json.md) is the file that specifies the API–Airnode

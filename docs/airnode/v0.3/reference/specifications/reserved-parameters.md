@@ -6,6 +6,8 @@ title: Reserved parameters
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
+
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,4]" />
 
 A requester can pass request parameters either by referencing a

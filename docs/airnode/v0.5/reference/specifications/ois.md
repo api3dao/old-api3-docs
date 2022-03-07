@@ -6,6 +6,8 @@ title: Oracle Integration Specifications (OIS)
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
+
 <!--TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" /-->
 
 The `ois` JSON object, in the `config.json` file that defines an Airnode, is an

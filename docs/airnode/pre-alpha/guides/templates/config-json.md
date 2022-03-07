@@ -3,7 +3,7 @@ title: config.json
 ---
 
 # {{$frontmatter.title}}
-
+<VersionWarning/>
 ```json
 {
   "ois": [

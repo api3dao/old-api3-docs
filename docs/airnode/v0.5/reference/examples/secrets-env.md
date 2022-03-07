@@ -6,6 +6,8 @@ title: secrets.env
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
+
 :::: tabs
 
 ::: tab Cloud Chain

@@ -6,6 +6,8 @@ title: config.json
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
+
 The config.json file contents shown below is for the
 [Quick Deploy Container](./) demo.
 

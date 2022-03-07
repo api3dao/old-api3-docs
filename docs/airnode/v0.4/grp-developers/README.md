@@ -2,7 +2,11 @@
 title: Overview
 ---
 
+<TitleSpan>Developers</TitleSpan>
+
 # {{$frontmatter.title}}
+
+<VersionWarning/>
 
 A **developer** is you, if you wish to consume off-chain data from APIs. You do
 so using Airnodes. An Airnode is a first-party oracle that pushes off-chain API

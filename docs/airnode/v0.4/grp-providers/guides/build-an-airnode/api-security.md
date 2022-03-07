@@ -6,6 +6,8 @@ title: API Security
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
+
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
@@ -125,7 +127,7 @@ about a request to an API operation. This is different then
 - [relaySponsorWalletAddress](./api-security.md#relaysponsorwalletaddress)
 
 For relayed meta data security schemes you do not provide any values in
-[apiCredentials](../../../reference/deployment-files/config-json.html#apicredentials)
+[apiCredentials](../../../reference/deployment-files/config-json.md#apicredentials)
 as they are extracted from the request by Airnode.
 
 ::: tip Additional Processing Logic

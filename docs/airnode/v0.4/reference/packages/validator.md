@@ -2,10 +2,13 @@
 title: Validator
 ---
 
+<TitleSpan>Packages</TitleSpan>
+
 # {{$frontmatter.title}}
 
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
+<VersionWarning/>
 
 The
 [airnode-validator](https://github.com/api3dao/airnode/tree/v0.4/packages/airnode-validator)
