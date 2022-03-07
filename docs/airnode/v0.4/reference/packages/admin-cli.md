@@ -2,7 +2,7 @@
 title: Admin CLI
 ---
 
-<TitleSpan>Reference</TitleSpan>
+<TitleSpan>Packages</TitleSpan>
 
 # {{$frontmatter.title}}
 

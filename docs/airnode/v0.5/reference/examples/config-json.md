@@ -6,6 +6,8 @@ title: config.json
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
+
 :::: tabs
 
 ::: tab Cloud Chain

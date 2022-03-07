@@ -2,7 +2,7 @@
 title: Deployer
 ---
 
-<TitleSpan>Reference</TitleSpan>
+<TitleSpan>Packages</TitleSpan>
 
 # {{$frontmatter.title}}
 

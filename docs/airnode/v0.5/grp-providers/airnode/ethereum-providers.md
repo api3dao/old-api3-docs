@@ -2,7 +2,11 @@
 title: Ethereum providers
 ---
 
+<TitleSpan>API Providers</TitleSpan>
+
 # {{$frontmatter.title}}
+
+<VersionWarning/>
 
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
