@@ -48,7 +48,7 @@ export default {
         this.docSetVersionURL = versionsBeacon[0].url;
         this.show = true;
       } else if (
-        versionsBeacon.map((x) => x.url).indexOf('/ois/' + arr[2] + '/') > 0
+        versionsOis.map((x) => x.url).indexOf('/ois/' + arr[2] + '/') > 0
       ) {
         this.docSetVersionDisplay = versionsOis[0].name;
         this.docSetVersionURL = versionsOis[0].url;
