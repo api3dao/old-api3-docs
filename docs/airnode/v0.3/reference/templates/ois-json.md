@@ -6,6 +6,8 @@ title: ois.json
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
+
 An
 [OIS (Oracle Integration Specifications)](../../grp-providers/guides/build-an-airnode/api-integration.md#ois-template)
 json object is part of an Airnode's

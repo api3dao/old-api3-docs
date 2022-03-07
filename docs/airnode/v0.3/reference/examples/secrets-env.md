@@ -6,6 +6,8 @@ title: secrets.env
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
+
 ```sh
 AIRNODE_WALLET_MNEMONIC=""
 LOCAL_PROVIDER_URL=""

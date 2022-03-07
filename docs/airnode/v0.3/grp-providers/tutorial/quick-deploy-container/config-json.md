@@ -2,7 +2,7 @@
 title: config.json
 ---
 
-<TitleSpan>Quick Deploy Container</TitleSpan>
+<TitleSpan>Quick Deploy Container</TitleSpan> <VersionWarning/>
 
 # {{$frontmatter.title}}
 

@@ -4,6 +4,8 @@ title: Overview
 
 # {{$frontmatter.title}}
 
+<VersionWarning/>
+
 A **Developer** is you, if you wish to consume off-chain data from APIs. You do
 so using Airnodes. An Airnode is a first-party oracle that will push off-chain
 API data to your on-chain contract. In the diagram below your contract is called
