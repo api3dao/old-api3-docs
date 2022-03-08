@@ -43,10 +43,10 @@ Airnode. It then applies an arbitrary name for the blockchain provider
     "options": {
       "txType": "eip1559",
       "priorityFee": {
-        "value": "3.12",
+        "value": 3.12,
         "unit": "gwei"
       },
-      "baseFeeMultiplier": "2"
+      "baseFeeMultiplier": 2
     },
     "providers": [
       "infura_rinkeby": {
@@ -78,10 +78,10 @@ Multiple providers can be used per chain. Simply add another object to
     "options": {
       "txType": "eip1559",
       "priorityFee": {
-        "value": "3.12",
+        "value": 3.12,
         "unit": "gwei"
       },
-      "baseFeeMultiplier": "2"
+      "baseFeeMultiplier": 2
     },
     "providers": [
       "infura_rinkeby": {
@@ -115,10 +115,10 @@ each has a unique `id` and `type` and a list of `providers` for each.
     "options": {
       "txType": "eip1559",
       "priorityFee": {
-        "value": "3.12",
+        "value": 3.12,
         "unit": "gwei"
       },
-      "baseFeeMultiplier": "2"
+      "baseFeeMultiplier": 2
     },
     "providers": [
       "infura_rinkeby": {
@@ -142,10 +142,10 @@ each has a unique `id` and `type` and a list of `providers` for each.
     "options": {
       "txType": "eip1559",
       "priorityFee": {
-        "value": "3.12",
+        "value": 3.12,
         "unit": "gwei"
       },
-      "baseFeeMultiplier": "2"
+      "baseFeeMultiplier": 2
     },
     "providers": [
       "infura_ropsten": {

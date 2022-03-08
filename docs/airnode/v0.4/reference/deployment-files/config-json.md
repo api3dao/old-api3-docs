@@ -66,10 +66,10 @@ respective parameters.
     "options": {
       "txType": "eip1559",
       "priorityFee": {
-        "value": "3.12",
+        "value": 3.12,
         "unit": "gwei"
       },
-      "baseFeeMultiplier": "2"
+      "baseFeeMultiplier": 2
     },
     "blockHistoryLimit": 300,
     "ignoreBlockedRequestsAfterBlocks": 20
@@ -90,10 +90,10 @@ respective parameters.
     "options": {
       "txType": "eip1559",
       "priorityFee": {
-        "value": "3.12",
+        "value": 3.12,
         "unit": "gwei"
       },
-      "baseFeeMultiplier": "2"
+      "baseFeeMultiplier": 2
     }
   }
 ]
@@ -155,12 +155,12 @@ URLs of each of these chain providers in their respective `url` fields.
 #### `options.priorityFee`
 
 (optional) - An object that configures the EIP-1559 Priority Fee (defaults
-to`{"value": "3.12", "value": "gwei"}`)
+to`{"value": 3.12, "value": "gwei"}`)
 
 #### `options.baseFeeMultiplier`
 
 (optional) - Configures the EIP-1559 Base Fee to Maximum Fee Multiplier
-(defaults to `"2"`)
+(defaults to `2`)
 
 The resulting Maximum Fee will equal
 `(Base Fee * baseFeeMultiplier) + priorityFee`

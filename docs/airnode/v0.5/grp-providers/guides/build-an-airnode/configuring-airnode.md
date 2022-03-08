@@ -82,10 +82,10 @@ Below is a simple chain array with a single chain provider.
     "options": {
       "txType": "eip1559",
       "priorityFee": {
-        "value": "3.12",
+        "value": 3.12,
         "unit": "gwei"
       },
-      "baseFeeMultiplier": "2"
+      "baseFeeMultiplier": 2
     },
     "providers": [
       "infura_rinkeby": {

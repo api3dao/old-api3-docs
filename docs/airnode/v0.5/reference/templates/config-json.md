@@ -56,10 +56,10 @@ building a config.json file.
       "options": {
         "txType": "<FILL_*>",
         "priorityFee": {
-          "value": "<FILL_*>",
+          "value": "<FILL_NUMBER>",
           "unit": "<FILL_*>"
         },
-        "baseFeeMultiplier": "<FILL_*>"
+        "baseFeeMultiplier": "<FILL_NUMBER>"
       },
       "blockHistoryLimit": "<FILL_*>",
       "ignoreBlockedRequestsAfterBlocks": "<FILL_*>"
