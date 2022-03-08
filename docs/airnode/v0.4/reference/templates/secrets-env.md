@@ -13,6 +13,8 @@ will need. All variables defined in a `secrets.env` can be interpolated inside
 `config.json`. For more details, see the full description of the
 [secrets.env](../deployment-files/secrets-env.md) file.
 
+- Variable names cannot contain dashes (-).
+
 ```sh
 AIRNODE_WALLET_MNEMONIC="<FILL_*>"
 CHAIN_PROVIDER_URL="<FILL_*>"

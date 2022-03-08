@@ -14,8 +14,8 @@ used by the Docker
 Airnode to AWS. For more details, see the full description of the
 [aws.env](../deployment-files/aws-env.md) file.
 
-Unlike `secrets.env`, do not place double quotes (") around the value of each
-field.
+- Do not place double quotes (") around the value of each variable.
+- Variable names cannot contain dashes (-).
 
 ```sh
 AWS_ACCESS_KEY_ID=<FILL_*>

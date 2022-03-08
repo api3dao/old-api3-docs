@@ -30,6 +30,8 @@ sure to change the correlating interpolation value in `config.json`.
 
 Below is an example of `secrets.env`.
 
+- Variable names cannot contain dashes (-).
+
 <!-- TODO: Reference a file from Airnode examples instead -->
 
 ```
