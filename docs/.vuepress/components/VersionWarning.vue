@@ -35,12 +35,16 @@ export default {
   methods: {
     parseRoute() {
       const arr = this.$route.path.split('/');
-      if (versions.map((x) => x.url).indexOf('/airnode/' + arr[2] + '/') > 0) {
+      if (
+        arr[1] === 'airnode' &&
+        versions.map((x) => x.url).indexOf('/airnode/' + arr[2] + '/') > 0
+      ) {
         this.docSet = 'Airnode';
         this.docSetVersionDisplay = versions[0].name;
         this.docSetVersionURL = versions[0].url;
         this.show = true;
       } else if (
+        arr[1] === 'beacon' &&
         versionsBeacon.map((x) => x.url).indexOf('/beacon/' + arr[2] + '/') > 0
       ) {
         this.docSet = 'Beacons';
@@ -48,6 +52,7 @@ export default {
         this.docSetVersionURL = versionsBeacon[0].url;
         this.show = true;
       } else if (
+        arr[1] === 'ois' &&
         versionsOis.map((x) => x.url).indexOf('/ois/' + arr[2] + '/') > 0
       ) {
         this.docSetVersionDisplay = versionsOis[0].name;
