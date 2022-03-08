@@ -12,7 +12,7 @@
     "sync:sidebar": "cp docs/.vuepress/components/Sidebar.vue node_modules/@vuepress/theme-default/components/Sidebar.vue",
     "sync:searchbox": "cp docs/.vuepress/components/SearchBox.vue node_modules/@vuepress/plugin-search/Searchbox.vue",
     "docs:dev": "yarn sync:404; yarn sync:navbar; yarn sync:sidebar; yarn sync:searchbox; vuepress dev docs",
-    "docs:build": "yarn sync:404; yarn sync:sidebar; yarn sync:searchbox; vuepress build docs;",
+    "docs:build": "yarn sync:404; yarn sync:navbar; yarn sync:sidebar; yarn sync:searchbox; vuepress build docs;",
     "format": "prettier --write \"./**/*.{js,vue,md,json,yaml}\" --loglevel silent",
     "format:check": "prettier --check \"./**/*.{js,vue,md,json,yaml}\"",
     "prepare": "husky install"
