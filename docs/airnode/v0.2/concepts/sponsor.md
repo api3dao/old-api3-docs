@@ -118,7 +118,7 @@ with them), while requiring others to cover their own fulfillment gas costs.
 
 ### Trusting the `sponsorWallet`
 
-<SponsorWalletWarning/>
+<airnode-SponsorWalletWarning/>
 
 The risk mentioned above becomes negligible when:
 

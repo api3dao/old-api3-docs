@@ -39,7 +39,7 @@ request.
   fees are withdrawn from the sponsor wallet related to the Airnode being called
   by a sponsored requester.
 
-<SponsorWalletWarning/>
+<airnode-SponsorWalletWarning/>
 
 Learn more about [sponsor wallets](../concepts/sponsor.md) in the reference
 section.
