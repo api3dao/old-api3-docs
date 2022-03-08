@@ -16,10 +16,10 @@
       "options": {
         "txType": "eip1559",
         "priorityFee": {
-          "value": "3.12",
+          "value": 3.12,
           "unit": "gwei"
         },
-        "baseFeeMultiplier": "2"
+        "baseFeeMultiplier": 2
       }
     }
   ],
