@@ -8,6 +8,8 @@ title: secrets.env
 
 <VersionWarning/>
 
+- Variable names cannot contain dashes (-).
+
 :::: tabs
 
 ::: tab Cloud Chain

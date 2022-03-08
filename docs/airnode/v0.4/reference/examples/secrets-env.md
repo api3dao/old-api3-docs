@@ -8,6 +8,8 @@ title: secrets.env
 
 <VersionWarning/>
 
+- Variable names cannot contain dashes (-).
+
 ```sh
 AIRNODE_WALLET_MNEMONIC=""
 LOCAL_PROVIDER_URL=""

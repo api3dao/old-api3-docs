@@ -561,6 +561,7 @@ interpolation.
 },
 
 // Sample variable in secrets.env
+// Variable names cannot contain dashes (-).
 HTTP_GATEWAY_API_KEY="FRACZKMH4F32BZ8X5uTd"
 ```
 
@@ -571,33 +572,38 @@ as needed.
 
 ## AWS setup (AWS deployment only)
 
-### Creating `aws.env` (AWS only)
-
 When it is time to deploy the Airnode to AWS, the Docker
 [deployer image](../../docker/deployer-image.md) will need the AWS credentials
 to build the node on AWS Lambda.
 
+### Creating `aws.env` (AWS only)
+
 Follow [this video](https://www.youtube.com/watch?v=KngM5bfpttA) if needed. It
 will show you how to create an IAM user and get security credentials. Put them
-in the `aws.env` file as shown below. Note that double quotes (") are not
-permitted to enclose the values as with the `secrets.env` file.
+in the `aws.env` file as shown below. See an
+[example file](../../../reference/templates/aws-env.md) in the reference
+section.
+
+- Do not place double quotes (") around the value of each variable.
+- Variable names cannot contain dashes (-).
 
 ```bash
 AWS_ACCESS_KEY_ID=XYZ...123
 AWS_SECRET_ACCESS_KEY=ABC7...89
 ```
 
-Here is an [example file](../../../reference/templates/aws-env.md) that is left
-blank.
-
 ## GCP setup (GCP deployment only)
+
+When it is time to deploy the Airnode to GCP, the Docker
+[deployer image](../../docker/deployer-image.md) will need the GCP project ID to
+build the Airnode.
 
 ### Creating a GCP project
 
 First, you need to
 [create a GCP project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
 under which will the Airnode be deployed. Once the project is created, insert
-its [projectId](./configuring-airnode.md#cloudprovider) into your config.json.
+its [projectId](./configuring-airnode.md#cloudprovider) into your `config.json`.
 
 ### Enable required API
 
@@ -614,7 +620,7 @@ menu. Grant this service account access to the project by adding a role `Owner`
 during the creation process.
 
 Once the account is created, add a new access key of type JSON for this account.
-Download the key file as `gcp.json`.
+Download the key file as `gcp.json` into the root of your project.
 
 ## Summary
 
