@@ -33,7 +33,7 @@ Other branches such as `m/1/...`, `m/2/...`, etc. are reserved for other protoco
 
 ## The Airnode-controlled nature of the designated wallets
 
-<DesignatedWalletWarning/>
+<airnode-DesignatedWalletWarning/>
 
 This risk mentioned above becomes negligible when:
 

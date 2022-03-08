@@ -242,7 +242,7 @@ simply run `derive-sponsor-wallet-address` again. Since the wallet already
 exists for the airnodeAddress/sponsorAddress pair it will just return the
 address.
 
-<SponsorWalletWarning/>
+<airnode-SponsorWalletWarning/>
 
 ## Record Keeping
 

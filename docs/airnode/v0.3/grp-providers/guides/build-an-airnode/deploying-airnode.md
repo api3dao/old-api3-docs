@@ -70,7 +70,7 @@ When the deployment has completed a `receipt.json` file will be written to the
 `/output` folder. This file contains important configuration information about
 the Airnode and is needed to remove the Airnode should the need arise.
 
-<DeployerPermissionsWarning/>
+<airnode-DeployerPermissionsWarning/>
 
 ### AWS
 

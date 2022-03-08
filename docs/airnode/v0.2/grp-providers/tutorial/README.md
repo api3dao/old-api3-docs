@@ -119,7 +119,7 @@ the `quick-deploy-demo` folder. A `receipt.json` file will be created upon
 completion. It contains some deployment information and is used to remove the
 Airnode.
 
-<DeployerPermissionsWarning/>
+<airnode-DeployerPermissionsWarning/>
 
 Run the following command to deploy the demo Airnode. Note that the version of
 `api3/airnode-deployer` matches the `nodeVersion` in the config.json file.
