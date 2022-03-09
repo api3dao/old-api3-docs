@@ -22,8 +22,7 @@ next step is to deploy the Airnode.
 - [Configuring Airnode](configuring-airnode.md)
 - [Using Authorizers](./apply-auth.md) optional
 - [Heartbeat](./heartbeat.md) optional
-- [HTTP Gateway](./http-gateway.md) optional
-- [HTTP SignedData Gateway](./http-signed-gateway.md) optional
+- [HTTP Gateways](./http-gateways.md) optional
 
 :::
 
@@ -181,7 +180,7 @@ If you opted to enable the HTTP Gateway it can be used to test the Airnode while
 bypassing the chain it was deployed to. There are three examples in other docs
 that detail how to do this.
 
-- [HTTP Gateway](./http-gateway.md#using-curl)
+- [HTTP Gateways](./http-gateways.md#using-curl)
 - [Quick Deploy AWS](../../tutorial/quick-deploy-aws/#test-the-airnode)
 - [Quick Deploy GCP](../../tutorial/quick-deploy-gcp/#test-the-airnode)
 

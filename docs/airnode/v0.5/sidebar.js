@@ -37,12 +37,8 @@ module.exports = [
             path: 'grp-providers/guides/build-an-airnode/heartbeat',
           },
           {
-            title: 'HTTP Gateway',
-            path: 'grp-providers/guides/build-an-airnode/http-gateway',
-          },
-          {
-            title: 'HTTP Signed Data Gateway',
-            path: 'grp-providers/guides/build-an-airnode/http-signed-gateway',
+            title: 'HTTP Gateways',
+            path: 'grp-providers/guides/build-an-airnode/http-gateways',
           },
           'grp-providers/guides/build-an-airnode/deploying-airnode',
         ],

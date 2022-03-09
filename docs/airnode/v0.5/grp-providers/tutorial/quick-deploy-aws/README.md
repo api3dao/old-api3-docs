@@ -143,7 +143,7 @@ docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
   -v "$(pwd)/config:/app/config" \
   -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.4.0 deploy
+  api3/airnode-deployer:0.5.0 deploy
 ```
 
 :::
@@ -157,7 +157,7 @@ docker run -it --rm ^
   --env-file aws.env ^
   -v "%cd%/config:/app/config" ^
   -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.4.0 deploy
+  api3/airnode-deployer:0.5.0 deploy
 ```
 
 :::
@@ -167,9 +167,9 @@ docker run -it --rm ^
 ## Test the Airnode
 
 After a successful deployment the Airnode can be tested directly using the
-[HTTP Gateway](../../guides/build-an-airnode/http-gateway.md) without accessing
-the blockchain. You provide endpoint parameters to get a response from an
-integrated API.
+[HTTP Gateways](../../guides/build-an-airnode/http-gateways.md) without
+accessing the blockchain. You provide endpoint parameters to get a response from
+an integrated API.
 
 ### HTTP Gateway
 

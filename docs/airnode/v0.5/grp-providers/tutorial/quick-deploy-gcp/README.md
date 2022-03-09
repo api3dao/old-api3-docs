@@ -179,9 +179,9 @@ docker run -it --rm ^
 ## Test the Airnode
 
 After a successful deployment the Airnode can be tested directly using the
-[HTTP Gateway](../../guides/build-an-airnode/http-gateway.md) without accessing
-the blockchain. You provide endpoint parameters to get a response from an
-integrated API.
+[HTTP Gateways](../../guides/build-an-airnode/http-gateways.md) without
+accessing the blockchain. You provide endpoint parameters to get a response from
+an integrated API.
 
 ### HTTP Gateway
 

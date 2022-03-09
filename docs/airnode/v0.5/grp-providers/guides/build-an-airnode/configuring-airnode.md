@@ -306,7 +306,7 @@ all fields in the config.json section nodeSettings.heartbeat. See the
 
 [<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#httpgateway)
 The gateway allows the requesting of defined endpoints without accessing the
-blockchain. See the [HTTP Gateway](./http-gateway.md) doc for more info.
+blockchain. See the [HTTP Gateways](./http-gateways.md) doc for more info.
 
 - enabled: Enable/disable, using true/false, Airnode's access to the HTTP
   gateway.
@@ -638,5 +638,4 @@ The next four steps in this guide are optional.
 
 - [Applying Authorization](./apply-auth.md) optional
 - [Heartbeat](./heartbeat.md) optional
-- [HTTP Gateway](./http-gateway.md) optional
-- [HTTP Signed Data Gateway](./http-signed-gateway.md) optional
+- [HTTP Gateways](./http-gateways.md) optional
