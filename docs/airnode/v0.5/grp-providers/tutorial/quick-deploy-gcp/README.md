@@ -140,10 +140,9 @@ Airnode.
 <!-- Use of .html below is intended. -->
 <airnode-WarningSimultaneousDeployments removeLink="../../docker/deployer-image.html#manual-removal"/>
 
-<airnode-DeployerPermissionsWarning/>
-
 Run the following command to deploy the demo Airnode. Note that the version of
 `api3/airnode-deployer` matches the `nodeVersion` in the config.json file.
+<airnode-DeployerPermissionsWarning/>
 
 :::: tabs
 

@@ -75,7 +75,7 @@ the Airnode and is needed to remove the Airnode should the need arise.
 <!-- Use of .html below is intended. -->
 <airnode-WarningSimultaneousDeployments removeLink="../../docker/deployer-image.html#manual-removal"/>
 
-<airnode-DeployerPermissionsWarning/>
+<p><airnode-DeployerPermissionsWarning/></p>
 
 ### AWS
 
