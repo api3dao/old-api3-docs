@@ -19,9 +19,8 @@ Gateways.
 
 ## Gateway Differences
 
-Both gateways are setup identically and the execution of each is the same. But
-there are differences in their purpose and response. HTTP gateways are allowed
-only when deploying to AWS and GCP.
+Both gateways are setup identically. The differences are in their purpose and
+response. Gateways are allowed only when deploying to AWS and GCP.
 
 > ![gateway](../../../assets/images/gateway.png)
 
@@ -34,7 +33,7 @@ properly without accessing the blockchain.
 ### HTTP Signed Data Gateway
 
 The HTTP signed data gateway is used for production purposes. While it is
-executed exactly as the testing HTTP gateway, its response is signed and does
+executed in a similar way as the HTTP gateway, its response is signed and does
 not contain a `rawValue` field. This gateway is executed by an off-chain code
 source that may in turn push data to a blockchain.
 
@@ -75,7 +74,7 @@ Enable either gateway in the `config.json` file fields
 Add the desired endpoints the gateways can respond to in the `triggers.http[n]`
 and/or `triggers.httpSignedData[n]` arrays. The corresponding arrays do not need
 to match. You may want to test all endpoints but only serve certain endpoints
-using the HTTP signed data gateway.
+using the HTTP signed data gateway or via RRP.
 
 ```json
 // in config.json
@@ -125,22 +124,25 @@ required as part of the CURL call.
 - Add the `x-api-key` header, set to the apiKey. The `x-api-key` can found in
   config.json under `nodeSettings.httpGateway.apiKey` or
   `nodeSettings.httpSignedDataGateway.apiKey`.
-- Place the endpoint parameters in the request body.
+- Place the parameters/encodedParameters in the request body.
 
-As an alternative to CURL try an app such as [Insomnia](https://insomnia.rest/)
-or [Postman](https://www.postman.com/product/rest-client/). Windows users can
-also use
-[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install)
-(WSL2) to run CURL for Linux.
+<style type="text/css" rel="stylesheet">
+.tSmall { font-size:x-small; margin-left:13px;}
+</style>
 
-| parameter         | in     | CURL options                                             |
-| ----------------- | ------ | -------------------------------------------------------- |
-| Content-Type      | header | `-H 'Content-Type: application/json'`                    |
-| x-api-key         | header | `-H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e'`   |
-| endpointId        | path   | `0xf466b8feec...99e9f9f90453c`                           |
-| &lt;user-defined> | body   | `-d '{"parameters": {"param1": "string", "param2": 5}}'` |
+| CURL Parameters                                                        | In     | CURL Options                                              |
+| ---------------------------------------------------------------------- | ------ | --------------------------------------------------------- |
+| Content-Type                                                           | header | `-H 'Content-Type: application/json'`                     |
+| x-api-key                                                              | header | `-H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e'`    |
+| endpointId                                                             | path   | `<gatewayUrl>/0xf466b8feec...99e9f9f90453c`               |
+| \* parameters<div class="tSmall">HTTP Gateway</div>                    | body   | `-d '{"parameters": {"param1": "myValue", "param2": 5}}'` |
+| \* encodedParameters<div class="tSmall">HTTP Signed Data Gateway</div> | body   | `-d '{"encodedParameters": "0x3173737300....000"}'`       |
 
-Replace `<gatewayUrl>` in the example below with a URL from the `receipt.json`
+\* Parameters for the gateways are named differently. The HTTP signed data
+gateway requires that the `encodedParameters` be encoded using
+[Airnode ABI](../../../reference/specifications/airnode-abi-specifications.md).
+
+Replace `<gatewayUrl>` in the examples below with a URL from the `receipt.json`
 file using the `httpGatewayUrl` or `httpSignedDataGatewayUrl` field. The
 [receipt.json](../../../reference/deployment-files/receipt-json.md) file is
 created when you deploy an Airnode.
@@ -149,28 +151,28 @@ created when you deploy an Airnode.
 
 :::: tabs
 
-::: tab Linux/Mac/WSL2
+::: tab HTTP Gateway
 
 ```sh
 curl \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e' \
--d '{"parameters": {"param1": "string", "param2": 5}}' \
+-d '{"parameters": {"param1": "myValue", "param2": 5}}' \
 '<gatewayUrl>/0xf466b8feec...99e9f9f90453c'
 ```
 
 :::
 
-::: tab Windows
+::: tab HTTP Signed Data Gateway
 
 ```sh
-curl ^
--X POST ^
--H "Content-Type: application/json" ^
--H "x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e" ^
--d "{\"parameters\": {\"param1\": \"string\", \"param2\": 5}}" ^
-"<gatewayUrl>/0xf466b8feec...99e9f9f90453c"
+curl \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e' \
+-d '{"encodedParameters": "0x3173737300....000"}' \
+'<gatewayUrl>/0xf466b8feec...99e9f9f90453c'
 ```
 
 :::
