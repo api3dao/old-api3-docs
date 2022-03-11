@@ -56,35 +56,29 @@ Turn on the optional heartbeat functionality by setting all fields in the
 Every time an HTTP POST request is made against the heartbeat endpoint declared
 with `nodeSettings.heartbeat.url`, the following parameters are passed:
 
-| name             | in   | type   |
-| ---------------- | ---- | ------ |
-| api_key          | body | string |
-| deployment_id    | body | string |
-| http_gateway_url | body | string |
-| payload          | body | json   |
+| name                      | in     | type   |
+| ------------------------- | ------ | ------ |
+| airnode-heartbeat-api-key | header | string |
+| deployment_id             | body   | string |
+| http_gateway_url          | body   | string |
 
 Below is an example of what is included in the request to `heartbeat.url`.
 
 ```json
 {
-  "api_key":"d714a900-3b9e-4e4d-8eae-756ef06a8836",
-  "deployment_id":"916d3ec80fda",
-  "http_gateway_url":"https://some.aws.api.gateway.url/v1/test",
-  "payload":{...}
+  "deployment_id": "916d3ec80fda",
+  "http_gateway_url": "https://some.aws.api.gateway.url/v1/test"
 }
 ```
 
 <table>
   <tr>
-    <td>api_key:</td><td>API key for heartbeat calls configured in nodeSettings.heartbeat.apiKey. Used for authentication against the heartbeat service running on URL from nodeSettings.heartbeat.url.</td>
+    <td>airnode-heartbeat-api-key:</td><td>API key for heartbeat calls configured in nodeSettings.heartbeat.apiKey. Used for authentication against the heartbeat service running on URL from nodeSettings.heartbeat.url.</td>
   </tr>
   <tr>
     <td>deployment_id:</td><td>The Airnode heartbeat ID for accounting purposes.</td>
   </tr>
   <tr>
     <td>http_gateway_url:</td><td>If HTTP gateway is enabled this is the URL of the gateway you can make test HTTP calls against.</td>
-  </tr>
-  <tr>
-    <td>payload:</td><td>Metrics from Airnode's run.</td>
   </tr>
 </table>
