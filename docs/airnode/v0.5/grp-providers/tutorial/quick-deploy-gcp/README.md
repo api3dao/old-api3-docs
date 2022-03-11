@@ -108,6 +108,10 @@ Add values for each of the these fields.
   [Create a GCP project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
   under which will the Airnode be deployed and copy the project ID.
 
+- `HTTP_GATEWAY_API_KEY`: Make up an apiKey to authenticate calls to the HTTP
+  Gateway. Used to test your Airnode with CURL later. The expected length is
+  30 - 128 characters.
+
 ### GCP Project Setup & Credentials
 
 First, you need to
@@ -154,7 +158,7 @@ docker run -it --rm \
   -v "$(pwd)/gcp.json:/app/gcp.json" \
   -v "$(pwd)/config:/app/config" \
   -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.4.0 deploy
+  api3/airnode-deployer:0.5.0 deploy
 ```
 
 :::
@@ -168,7 +172,7 @@ docker run -it --rm ^
   -v "%cd%/gcp.json:/app/gcp.json" ^
   -v "%cd%/config:/app/config" ^
   -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.4.0 deploy
+  api3/airnode-deployer:0.5.0 deploy
 ```
 
 :::
@@ -203,18 +207,19 @@ tested.
 "triggers": {
   "rrp": [
     {
-      "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
+      "endpointId": "0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6",
       "oisTitle": "CoinGecko Basic Request",
       "endpointName": "coinMarketData",
     }
   ],
   "http": [
     {
-      "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
+      "endpointId": "0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6",
       "oisTitle": "CoinGecko Basic Request",
       "endpointName": "coinMarketData",
     }
-  ]
+  ],
+  ...
 }
 ```
 
@@ -262,7 +267,7 @@ curl -v \
 -H 'Content-Type: application/json' \
 -H 'x-api-key: 123-my-key-must-be-30-characters-min' \
 -d '{"parameters": {"coinIds": "api3", "coinVs_currencies": "usd"}}' \
-'<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c'
+'<httpGatewayUrl>/0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6'
 ```
 
 :::
@@ -275,7 +280,7 @@ curl -v ^
 -H 'Content-Type: application/json' ^
 -H "x-api-key: 123-my-key-must-be-30-characters-min" ^
 -d '{"parameters": {"coinIds": "api3", "coinVs_currencies": "usd"}}' ^
-"<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c"
+"<httpGatewayUrl>/0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6"
 ```
 
 :::
@@ -312,7 +317,7 @@ needed to remove an Airnode.
 docker run -it --rm \
   -v "$(pwd)/gcp.json:/app/gcp.json" \
   -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.4.0 remove -r output/receipt.json
+  api3/airnode-deployer:0.5.0 remove -r output/receipt.json
 ```
 
 :::
@@ -325,7 +330,7 @@ For Windows, use CMD (and not PowerShell).
 docker run -it --rm ^
   -v "%cd%/gcp.json:/app/gcp.json" ^
   -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.4.0 remove -r output/receipt.json
+  api3/airnode-deployer:0.5.0 remove -r output/receipt.json
 ```
 
 :::
@@ -336,7 +341,7 @@ docker run -it --rm ^
 
 After removing an Airnode it may be necessary to wait several minutes before
 deploying / redeploying Airnode again to the same project. GCP takes several
-minutes to complete its behind the scenes clean-up of deleted cloud functions.
+minutes to complete its behind the scenes clean-up of configured resources.
 
 :::
 

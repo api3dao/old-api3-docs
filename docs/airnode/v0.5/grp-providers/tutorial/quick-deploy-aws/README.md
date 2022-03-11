@@ -191,18 +191,19 @@ tested.
 "triggers": {
   "rrp": [
     {
-      "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
+      "endpointId": "0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6",
       "oisTitle": "CoinGecko Basic Request",
       "endpointName": "coinMarketData",
     }
   ],
   "http": [
     {
-      "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
+      "endpointId": "0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6",
       "oisTitle": "CoinGecko Basic Request",
       "endpointName": "coinMarketData",
     }
-  ]
+  ],
+  ...
 }
 ```
 
@@ -250,7 +251,7 @@ curl -v \
 -H 'Content-Type: application/json' \
 -H 'x-api-key: 123-my-key-must-be-30-characters-min' \
 -d '{"parameters": {"coinIds": "api3", "coinVs_currencies": "usd"}}' \
-'<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c'
+'<httpGatewayUrl>/0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6'
 ```
 
 :::
@@ -263,7 +264,7 @@ curl -v ^
 -H "Content-Type: application/json" ^
 -H "x-api-key: 123-my-key-must-be-30-characters-min" ^
 -d "{\"parameters\": {\"coinIds\": \"api3\", \"coinVs_currencies\": \"usd\"}}" ^
-"<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c"
+"<httpGatewayUrl>/0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6"
 ```
 
 :::
@@ -303,7 +304,7 @@ needed to remove an Airnode.
 docker run -it --rm \
   --env-file aws.env \
   -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.4.0 remove -r output/receipt.json
+  api3/airnode-deployer:0.5.0 remove -r output/receipt.json
 ```
 
 :::
@@ -316,7 +317,7 @@ For Windows, use CMD (and not PowerShell).
 docker run -it --rm ^
   --env-file aws.env ^
   -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.4.0 remove -r output/receipt.json
+  api3/airnode-deployer:0.5.0 remove -r output/receipt.json
 ```
 
 :::

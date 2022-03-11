@@ -45,25 +45,13 @@
   "triggers": {
     "rrp": [
       {
-        "endpointId": "0x996147dc609259d1325cbbc148de0d5d53d67daa297ea04e30a258c297b1ac59",
+        "endpointId": "0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6",
         "oisTitle": "CoinGecko Basic Request",
         "endpointName": "coinMarketData"
       }
     ],
-    "http": [
-      {
-        "endpointId": "0x996147dc609259d1325cbbc148de0d5d53d67daa297ea04e30a258c297b1ac59",
-        "oisTitle": "CoinGecko Basic Request",
-        "endpointName": "coinMarketData"
-      }
-    ],
-    "httpSignedData": [
-      {
-        "endpointId": "0x996147dc609259d1325cbbc148de0d5d53d67daa297ea04e30a258c297b1ac59",
-        "oisTitle": "CoinGecko Basic Request",
-        "endpointName": "coinMarketData"
-      }
-    ]
+    "http": [],
+    "httpSignedData": []
   },
   "ois": [
     {
