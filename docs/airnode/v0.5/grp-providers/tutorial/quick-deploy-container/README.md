@@ -117,7 +117,7 @@ file.
 docker run --detach \
   --volume "$(pwd)/config:/app/config" \
   --name quick-deploy-container-airnode \
-  api3/airnode-client:0.4.0
+  api3/airnode-client:0.5.0
 ```
 
 :::
@@ -130,7 +130,7 @@ For Windows, use CMD (and not PowerShell).
 docker run --detach ^
   --volume "%cd%/config:/app/config" ^
   --name quick-deploy-container-airnode ^
-  api3/airnode-client:0.4.0
+  api3/airnode-client:0.5.0
 ```
 
 :::
@@ -193,7 +193,7 @@ is necessary in order to correctly handle floating point numbers.
 ```sh
 # For Windows CMD replace line termination marker \ with ^
 docker exec -it quick-deploy-container-airnode node src/cli/test-api.js \
-  -e 0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c \
+  -e 0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6 \
   -p '{"coinIds":"api3", "coinVs_currencies":"usd"}'
 ```
 
@@ -203,7 +203,7 @@ container in the Docker desktop application.
 ```sh
 # For Windows CMD replace line termination marker \ with ^
 node src/cli/test-api.js \
-  -e 0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c \
+  -e 0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6 \
   -p '{"coinIds":"api3", "coinVs_currencies":"usd"}'
 ```
 
