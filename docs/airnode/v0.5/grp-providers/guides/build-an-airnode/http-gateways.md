@@ -206,6 +206,20 @@ The response format is a simple JSON object with the following fields:
 
 ::: tab HTTP Signed Data Gateway
 
+```json
+{
+  "data": "{\"timestamp\":\"1645786263\",\"value\":\"0x0000000...000000008fd651ac0\"}",
+  "signature": "0xbc017f87fe397...de751c"
+}
+```
+
+The response format is a simple JSON object with the following fields:
+
+- `data.timestamp` - The timestamp applied to the response.
+- `data.value` - The encoded bytes value that is sent as payload in the
+  response. Suitable for use on-chain.
+- `signature` - The response has been signed by Airnode.
+
 :::
 
 ::::
