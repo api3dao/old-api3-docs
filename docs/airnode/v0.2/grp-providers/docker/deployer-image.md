@@ -48,7 +48,7 @@ if it already exists. Three files are needed to run the deploy command.
 A `receipt.json` file will be created upon completion. It contains some
 deployment information and is used to remove the Airnode.
 
-<airnode-DeployerPermissionsWarning/>
+<p><airnode-DeployerPermissionsWarning/></p>
 
 :::: tabs
 

@@ -70,7 +70,7 @@ deployment information and is used to remove the Airnode.
 <!-- Use of .html below is intended. -->
 <airnode-WarningSimultaneousDeployments removeLink="./deployer-image.html#manual-removal"/>
 
-<airnode-DeployerPermissionsWarning/>
+<p><airnode-DeployerPermissionsWarning/></p>
 
 ### AWS
 

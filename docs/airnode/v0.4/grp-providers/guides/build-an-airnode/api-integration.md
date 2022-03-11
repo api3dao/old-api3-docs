@@ -27,7 +27,7 @@ the config.json file, that is designed to follow three basic steps.
 > <p class="diagram-line">The OIS object in config.json contains mapping information of API operations to Airnode endpoint definitions.</p>
 
 OIS is a mapping of API operations, such as `GET /coins/{id}`, to Airnode
-endpoints. When a requester contract calls a AirnodeRrp.col contract request
+endpoints. When a requester contract calls a AirnodeRrp.sol contract request
 function, such as `makeFullRequest(..., callData)`, the callData is communicated
 to the off-chain Airnode which uses OIS mappings to translate the callData into
 a valid HTTP request for the appropriate API operation.

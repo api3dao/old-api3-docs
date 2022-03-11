@@ -23,7 +23,7 @@ fulfill each request made by the requester contracts.
 - `deployment`: where the Airnode was deployed to
 - `api`: contains the details of the Airnode API (e.g.
   [heartbeat](../../grp-providers/guides/build-an-airnode/heartbeat.md) or
-  [testing gateway](../../grp-providers/guides/build-an-airnode/http-gateway.md))
+  [testing gateways](../../grp-providers/guides/build-an-airnode/http-gateways.md))
 
 A `receipt.json` file is created for both a AWS or GCP deployment. A receipt is
 not generated for client deployments (deploying to a Docker container).
