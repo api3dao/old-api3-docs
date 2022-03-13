@@ -42,7 +42,7 @@ database of an Airnode deployment. It contains five fields as show below.
 Lists the blockchains the Airnode deployment will serve on and specifies
 respective parameters.
 
-<!-- "minConfirmations": 0, -->
+<!--  -->
 
 ```json
 // chains
@@ -72,6 +72,7 @@ respective parameters.
       "baseFeeMultiplier": 2
     },
     "blockHistoryLimit": 300,
+    "minConfirmations": 0,
     "ignoreBlockedRequestsAfterBlocks": 20
   },
   {
@@ -171,10 +172,12 @@ The resulting Maximum Fee will equal
 (optional) - The number of blocks in the past that the Airnode deployment should
 search for requests. Defaults to `300` (roughly 1 hour for Ethereum).
 
-<!-- ### `minConfirmations`
+### `minConfirmations`
 
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#minconfirmations)
 (optional) - The number of confirmations required for a request to be considered
-valid. Defaults to `0`.-->
+valid. Minimum confirmations refers to the number of blocks that have elapsed
+since the current confirmed block. Defaults to `0`.
 
 ### `ignoreBlockedRequestsAfterBlocks`
 
