@@ -187,7 +187,7 @@ integrated API.
 Looking at the [config.json](./config-json.md) code snippet below shows the HTTP
 gateway was activated for the Airnode. Furthermore the endpoint for
 `/simple/price` (with an `endpointId` of `0xf...53c`) has been added to
-`triggers[n].http[n]`. Only those endpoints added to the `http` array can be
+`triggers.http[n]`. Only those endpoints added to the `http` array can be
 tested.
 
 ```json

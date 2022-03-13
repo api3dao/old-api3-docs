@@ -45,7 +45,7 @@ Enable the HTTP gateway by setting two fields in the config.json
 },
 ```
 
-You must also add each endpoint to test in the `triggers[n].http[n]` array. The
+You must also add each endpoint to test in the `triggers.http[n]` array. The
 `rrp` field serves its endpoints on-chain. The `http` field serves its endpoints
 via the HTTP gateway. It may be desirable to serve some or all endpoints
 on-chain and only some via the gateway, or vise versa.
