@@ -56,6 +56,12 @@
           "dt": "2021-12-17",
           "title": "Beacons: Building blocks for Web3 data connectivity",
           "url": "https://medium.com/api3/beacons-building-blocks-for-web3-data-connectivity-df6ad3eb5763"
+        },
+        {
+          "date": "Mar 3, 2022",
+          "dt": "2022-03-03",
+          "title": "What are Beacons? Why does Web3 care?",
+          "url": "https://medium.com/api3/what-are-beacons-why-does-web3-care-67f4b0ec0c7"
         }
       ]
     },
@@ -270,11 +276,18 @@
         {
           "date": "Jan 31, 2022",
           "dt": "2022-01-31",
-          "title": "API3 Core Technical Team Report, January 2021",
+          "title": "API3 Core Technical Team Report, January 2022",
           "url": "https://bbenligiray.medium.com/api3-core-technical-team-report-january-2022-85e55e1aa4af"
+        },
+        {
+          "date": "Feb 28, 2022",
+          "dt": "2022-02-28",
+          "title": "API3 Core Technical Team Report, February 2022",
+          "url": "https://medium.com/api3/api3-core-technical-team-report-february-2022-a24de05a532e"
         }
       ]
     },
+
     {
       "tag": "Integration Team",
       "posts": [
@@ -286,6 +299,19 @@
         }
       ]
     },
+
+    {
+      "tag": "Marketing Team",
+      "posts": [
+        {
+          "date": "Dec 22, 2021",
+          "dt": "2021-12-22",
+          "title": "API3 Marketing, Nov-Dec 2021",
+          "url": "https://medium.com/api3/api3-marketing-nov-dec-2021-1bf386f99dd3"
+        }
+      ]
+    },
+
     {
       "tag": "Operations Team",
       "posts": [
@@ -300,9 +326,16 @@
           "dt": "2022-02-03",
           "title": "API3 Operations Update: January 2022",
           "url": "https://medium.com/api3/api3-operations-update-january-2022-bf20c44e3036"
+        },
+        {
+          "date": "Mar 02, 2022",
+          "dt": "2022-03-02",
+          "title": "API3 Operations Update: February 2022",
+          "url": "https://medium.com/api3/api3-operations-update-february-2022-7326377d422e"
         }
       ]
     },
+
     {
       "tag": "Enterprise Development Team",
       "posts": [
@@ -326,6 +359,7 @@
         }
       ]
     },
+
     {
       "tag": "Standalone Posts",
       "posts": [
