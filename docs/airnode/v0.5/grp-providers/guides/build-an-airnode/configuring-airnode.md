@@ -277,6 +277,9 @@ configuration. There are currently three options available: `aws`, `gcp`
 - projectId: (GCP only) Project ID of the GCP project the Airnode will be
   deployed under.
 
+Learn more about AWS or GCP resources that Airnode uses in the
+[Cloud Resources](../../../reference/cloud-resources.md) doc.
+
 #### airnodeWalletMnemonic
 
 [<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#airnodewalletmnemonic)

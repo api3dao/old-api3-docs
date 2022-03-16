@@ -220,13 +220,16 @@ name you are targeting. There can be more than one Airnode.
 
 ::: tab AWS
 
-<DeleteAirnodeAws />
+<airnode-DeleteAirnodeAws />
 
 :::
 
 ::: tab GCP
 
-<DeleteAirnodeGcp />
+<airnode-DeleteAirnodeGcp />
 :::
 
 ::::
+
+Learn more about AWS or GCP resources that Airnode uses in the
+[Cloud Resources](../../reference/cloud-resources.md) doc.

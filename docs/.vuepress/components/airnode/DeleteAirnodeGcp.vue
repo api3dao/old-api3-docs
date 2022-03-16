@@ -26,8 +26,8 @@ a manual removal of an Airnode from GCP.
     <!-- prettier-ignore -->
     <ul>
       <li><a :href="'https://console.cloud.google.com/api-gateway/api?orgonly=true&project='+projectId+'&supportedpurview=organizationId'" 
-      target="_gcp-console">API Gateway</a>
-        :  Delete the API Gateway.
+      target="_gcp-console">API Gateways</a>
+        :  Delete the API Gateways.
         <ol>
           <li>Click on the gateway.</li>
           <li>Click on the GATEWAYS tab.</li>
@@ -36,6 +36,7 @@ a manual removal of an Airnode from GCP.
           <li>Delete the config file.</li>
           <li>Click the back arrow to return to the gateway summary page.</li>
           <li>Delete the gateway summary line (a static red delete circle is the only feedback). Please wait as this can take a several minutes.</li>
+          <li>Repeat for other Airnode gateways if present.</li>
         </ol>
       </li>
 
@@ -60,7 +61,7 @@ a manual removal of an Airnode from GCP.
       After removing an Airnode it may be necessary to wait several minutes
       before deploying / redeploying Airnode again to the same project. GCP
       takes several minutes to complete its behind the scenes clean-up of
-      deleted cloud functions.
+      deleted cloud resources.
     </p>
   </span>
 </template>

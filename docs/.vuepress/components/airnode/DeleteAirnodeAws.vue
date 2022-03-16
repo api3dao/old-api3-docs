@@ -66,15 +66,16 @@ https://renatello.com/dynamic-drop-down-list-in-vue-js/
         : There are up to six roles to delete.
       </li>
 
-      <li><a :href="'https://' +region + '.console.aws.amazon.com/apigateway/main/apis?region=' + region" target="_aws-console">API Gateway<ExternalLinkImage/></a>
-        : <ul>
+      <li><a :href="'https://' +region + '.console.aws.amazon.com/apigateway/main/apis?region=' + region" target="_aws-console">API Gateways<ExternalLinkImage/></a>:  Delete the API Gateways.
+          <ol>
             <li>Click on the desired API Gateway.</li>
             <li>Next click on API Keys in the left hand sidebar.</li>
             <li>Then click on the Airnode specific API Key.</li>
             <li>Select the <i>Delete API Key</i> button to remove the key.</li>
             <li>Click <a :href="'https://' +region + '.console.aws.amazon.com/apigateway/main/apis?region=' + region" target="_aws-console">here<ExternalLinkImage/></a> to return to the API Gateway.</li>
             <li>Delete the API Gateway.</li>
-          </ul>
+            <li>Repeat for other Airnode gateways if present.</li>
+          </ol>
       </li>
 
       <li><a :href="'https://s3.console.aws.amazon.com/s3/home?region=' + region" target="_aws-console">S3<ExternalLinkImage/></a>

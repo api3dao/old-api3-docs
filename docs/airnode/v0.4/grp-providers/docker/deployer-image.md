@@ -220,13 +220,13 @@ name you are targeting. There can be more than one Airnode.
 
 ::: tab AWS
 
-<DeleteAirnodeAws />
+<airnode-DeleteAirnodeAws />
 
 :::
 
 ::: tab GCP
 
-<DeleteAirnodeGcp />
+<airnode-DeleteAirnodeGcp />
 :::
 
 ::::
