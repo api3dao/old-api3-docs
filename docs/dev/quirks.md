@@ -18,6 +18,17 @@ This message may appear (may times) when running `yarn docs:dev or docs:build`.
 While the message does not seem to be an issue it is annoying. Adding
 `NODE_OPTIONS="--max-old-space-size=4096"` seems to help sometimes.
 
+## HierarchyRequestError
+
+`HierarchyRequestError: The operation would yield an incorrect node tree.`
+
+This browser error will not show up when using the VuePress dev server, only in
+builds.
+
+Do not place HTML comment lines `<!-- -->` inside a paragraph element when using
+Vue components. There are cases where it will work such as before or after any
+text within the element. Generally it is a practice that can cause issues..
+
 ## @vuepress/plugin-html-redirect
 
 Note that a redirect is to a directory path and not to a file. There must be a

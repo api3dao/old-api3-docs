@@ -88,7 +88,7 @@ https://renatello.com/dynamic-drop-down-list-in-vue-js/
 
 <script>
 export default {
-  name: 'delete-airnode',
+  name: 'DeleteAirnodeAws',
   props: ['dynamoDB'],
   data: () => ({
     region: 'us-east-1',

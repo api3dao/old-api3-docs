@@ -21,3 +21,9 @@ be wrapped inside a paragraph element.
     variables.
   </span>
 </template>
+
+<script>
+export default {
+  name: 'DeployerPermissionsWarning',
+};
+</script>

@@ -68,7 +68,7 @@ a manual removal of an Airnode from GCP.
 
 <script>
 export default {
-  name: 'delete-airnode',
+  name: 'DeleteAirnodeGcp',
   data: () => ({
     projectId: null,
     inputField: null,

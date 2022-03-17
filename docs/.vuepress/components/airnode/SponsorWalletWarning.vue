@@ -3,6 +3,8 @@ This is a POST pre-alpha component. Notice the use of
 "sponsor" and not "requester" related to the designated wallet.
 
 Use only in version >= v0.2
+
+WARNING: Do not place HTML comment lines inside paragraph elements.
 -->
 
 <template>

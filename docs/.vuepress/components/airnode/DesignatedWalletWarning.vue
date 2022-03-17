@@ -1,6 +1,8 @@
 <!--
 This is ONLY a pre-alpha component. Notice the use of 
 "requester" and not "sponsor" related to the designated wallet.
+
+WARNING: Do not place HTML comment lines inside paragraph elements.
 -->
 
 <template>
