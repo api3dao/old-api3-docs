@@ -2,6 +2,8 @@
 Shows itself when a versioned doc set is not displaying its latest version.
 Each page in a doc set adds this component under its title and before 
 the TOC if used.
+
+WARNING: Do not place HTML comment lines inside paragraph elements.
 -->
 
 <template>
