@@ -11,8 +11,8 @@ it will always default to the startPath in config.json.
       <img src="/img/01-Airnode-State=Active@2x.png" />
       <router-link class="nav-link" :to="latestVersion">Airnode</router-link>
       <p>
-        First-party serverless oracle node solution that solves the Web3 API
-        connectivity problem
+        First-party serverless oracle node that solves the Web3 API connectivity
+        problem
       </p>
     </li>
     <li>
