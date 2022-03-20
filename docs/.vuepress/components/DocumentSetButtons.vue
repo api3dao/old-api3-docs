@@ -6,49 +6,43 @@ it will always default to the startPath in config.json.
 -->
 
 <template>
-  <div>
-    <header class="hero">
-      <div class="features">
-        <div class="feature">
-          <router-link class="nav-link action-button btn" :to="latestVersion"
-            ><span class="btnText">Airnode</span></router-link
-          >
-          <br />
-          <h2>Serverless oracle node</h2>
-        </div>
-
-        <div class="feature">
-          <router-link
-            class="nav-link action-button btn"
-            :to="latestBeaconVersion"
-            ><span class="btnText">Beacons</span></router-link
-          >
-          <br />
-          <h2>First-party Web3 data feeds</h2>
-        </div>
-        <div class="feature">
-          <router-link class="nav-link action-button btn" :to="latestOisVersion"
-            ><span class="btnText">OIS</span></router-link
-          >
-          <br />
-          <h2>Oracle Integration Specifications</h2>
-        </div>
-        <div class="feature">
-          <router-link class="nav-link action-button btn" to="/dao-members/"
-            ><span class="btnText">DAO Members</span></router-link
-          >
-          <br />
-          <h2>API3 DAO structure and functionality</h2>
-        </div>
-        <div class="feature">
-          <router-link class="nav-link action-button btn" to="/api3/"
-            ><span class="btnText">API3</span></router-link
-          >
-          <br />
-          <h2>About the project</h2>
-        </div>
-      </div>
-    </header>
+  <div class="landing-container">
+    <li>
+      <img src="/img/01-Airnode-State=Active@2x.png" />
+      <router-link class="nav-link" :to="latestVersion">Airnode</router-link>
+      <p>
+        First-party serverless oracle node solution that solves the Web3 API
+        connectivity problem
+      </p>
+    </li>
+    <li>
+      <img src="/img/Beacons-active.png" />
+      <router-link class="nav-link" :to="latestBeaconVersion"
+        >Beacons</router-link
+      >
+      <p>
+        First-party Web3 data feeds powering transparent, reliable, and
+        cost-efficient dAPIs, dApps, and more
+      </p>
+    </li>
+    <li>
+      <img src="/img/ois-active.png" />
+      <router-link class="nav-link" :to="latestOisVersion">OIS</router-link>
+      <p>
+        Oracle Integration Specifications - linking Airnode endpoints to API
+        operations
+      </p>
+    </li>
+    <li>
+      <img src="/img/02-DAO-State=Active@2x-1.png" />
+      <router-link class="nav-link" to="/dao-members/">DAO Members</router-link>
+      <p>API3 DAO structure, functionality, and resources</p>
+    </li>
+    <li>
+      <img src="/img/03-API3-State=Active@2x-2.png" />
+      <router-link class="nav-link" to="/api3/">API3 Overview</router-link>
+      <p>Resources for learning more about the project and its mission</p>
+    </li>
   </div>
 </template>
 
@@ -70,8 +64,26 @@ export default {
 </script>
 
 <style scoped>
-/* "hero, nav-link, action-button, and action" are from the VuePress classes. */
-.btn {
-  margin-top: 5px;
+/* "nav-link" are from the VuePress classes. */
+.landing-container {
+  display: flex;
+  list-style: none;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.landing-container img {
+  display: block;
+  margin: 0.5rem 0px;
+  width: 64px;
+}
+.landing-container li {
+  max-width: 160px;
+  padding: 15px;
+}
+.landing-container a {
+  font-size: 1.2rem;
+}
+.landing-container a:hover {
+  text-decoration: underline;
 }
 </style>
