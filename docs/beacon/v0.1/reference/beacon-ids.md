@@ -16,7 +16,7 @@ A `beaconId` and its `templateId` are identical across chains. Only the
 
 ## Beacons
 
-<beacons-BeaconList/>
+<beacons-browser-BeaconList tag="v0.1"/>
 
 ## Monitor
 
