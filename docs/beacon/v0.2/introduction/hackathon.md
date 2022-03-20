@@ -22,7 +22,7 @@ Beacons that API3 has set up using the first-party oracle operated by Amberdata.
 [Amberdata](https://amberdata.io) is among the leading cryptocurreny market data
 providers and has made some of their API endpoints available as Beacons for you
 to build DeFi applications with. You can see the complete list
-[here](../reference/beacon-ids.md). These Beacons represent VWAP (Volume
+[here](../reference/beacon-browser.md). These Beacons represent VWAP (Volume
 Weighted Average Price) pair values and are an aggregated form of trade data.
 VWAP is the average price of an asset over a time interval, based on both volume
 and price. Please see the Amberdata documentation links below for a better
@@ -146,7 +146,7 @@ npm run read-beacon:polygon-mumbai
 
 You can read Beacons other than `ETH/USD` by modifying
 `scripts/whitelist-reader.js` and `scripts/read-beacon.js`. Refer to the
-[Beacons IDs](../reference/beacon-ids.md) doc for a complete list.
+[Beacons IDs](../reference/beacon-browser.md) doc for a complete list.
 
 :::
 
@@ -197,7 +197,7 @@ The `@api3/services` API exposes two functions:
 Using `@api3/services` is not required to create a Beacon reader application.
 You can whitelist a Beacon reader smart contract manually by following the
 instructions below. You can get the `beaconId` from
-[Beacon IDs Section](../reference/beacon-ids.md) and an address of the
+[Beacon IDs Section](../reference/beacon-browser.md) and an address of the
 `RrpBeaconServer` from the
 [Contract Addresses Section](../reference/contract-addresses.md).
 
@@ -236,8 +236,8 @@ contracts by making a transaction over a block explorer.
    using the testnet you have selected in Etherscan/Polygonscan.
 
 4. Select the `whitelistReader` function (#5) and enter the
-   [beaconId](../reference/beacon-ids.md) and the address of your smart contract
-   (i.e., Beacon reader).
+   [beaconId](../reference/beacon-browser.md) and the address of your smart
+   contract (i.e., Beacon reader).
 
 5. Click the _Write_ button and execute the transaction from your wallet.
 
