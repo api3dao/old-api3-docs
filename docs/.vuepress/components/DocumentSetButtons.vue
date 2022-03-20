@@ -77,8 +77,9 @@ export default {
   width: 64px;
 }
 .landing-container li {
-  max-width: 160px;
-  padding: 15px;
+  flex-basis: 160px;
+  flex-grow: 1;
+  padding: 1rem;
 }
 .landing-container a {
   font-size: 1.2rem;
