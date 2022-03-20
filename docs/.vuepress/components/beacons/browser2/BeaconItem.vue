@@ -5,13 +5,7 @@
       <a :href="beacon.url">{{ beacon.apiName }}</a>
     </div>
     <!--{{ cnt + 1 }}-->
-    <div
-      style="
-        border-left: 1px solid lightgrey;
-        border-top-left-radius: 0.5em;
-        border-bottom-left-radius: 0.5em;
-      "
-    >
+    <div>
       <div
         class="beacon-name"
         style="cursor: pointer; user-select: none"
