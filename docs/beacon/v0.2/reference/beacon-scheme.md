@@ -13,12 +13,12 @@ title: Beacon ID Scheme
 
 <!-- See BEC-102 on the Beacon Board. -->
 
-When accessing a Beacon's value with the
-[readBeacon()](../functions/read-beacon.md) function only the `beaconId` is
-needed by the caller to access its value. The use of a `templateId` is only
-required when there is a need to update a Beacon value. Usually this is called
-by the Beacon itself and is **not** a normal operational procedure a Beacon
-consumer needs to concern themselves with.
+A `beaconId` and its `templateId` are identical across chains. When accessing a
+Beacon's value with the [readBeacon()](../functions/read-beacon.md) function
+only the `beaconId` is needed by the caller to access its value. The use of a
+`templateId` is only required when there is a need to update a Beacon value.
+Usually this is called by the Beacon itself and is **not** a normal operational
+procedure a Beacon consumer needs to concern themselves with.
 
 A Beacon will update itself when an allowed deviation of its current value is
 met. Behind every Beacon there is a single template. Additionally, behind every

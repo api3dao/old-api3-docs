@@ -29,7 +29,8 @@ module.exports = [
     children: [
       'reference/beacon-scheme.md',
       'reference/contract-addresses.md',
-      'reference/beacon-ids.md',
+      'reference/beacon-browser.md',
+      'reference/monitor.md',
     ],
   },
 ];

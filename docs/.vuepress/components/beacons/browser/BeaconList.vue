@@ -22,12 +22,12 @@
       The Beacon list failed to load: ({{ error }})
     </p>
     <!-- Beacon List -->
-    <beacons-BeaconItem
+    <beacons-browser-BeaconItem
       v-for="(item, i) in beacons"
       v-bind:key="'B' + i"
       v-bind:beacon="item"
       v-show="item.show"
-    ></beacons-BeaconItem>
+    ></beacons-browser-BeaconItem>
   </div>
 </template>
 
