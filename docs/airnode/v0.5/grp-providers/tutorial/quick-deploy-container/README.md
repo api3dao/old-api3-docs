@@ -162,7 +162,7 @@ docker logs --follow quick-deploy-container-airnode
 ## Test the Airnode
 
 After a successful deployment the Airnode can be tested using the
-[test-api.js](https://github.com/api3dao/airnode/tree/v0.4/packages/airnode-node#testing-api)
+[test-api.js](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-node#testing-api)
 script which allows you to execute an Airnode endpoint without accessing the
 blockchain.
 

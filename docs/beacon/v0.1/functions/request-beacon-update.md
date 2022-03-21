@@ -22,7 +22,7 @@ is because the caller will be paying the gas costs.
 
 There are two requirements for `requestBeaconUpdate()` to be called:
 
-1. The [sponsor](../../../airnode/v0.4/concepts/sponsor.md) must call
+1. The [sponsor](../../../airnode/v0.5/concepts/sponsor.md) must call
    [setSponsorshipStatus()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol#L36-L58)
    of the AirnodeRrp contract to sponsor the RrpBeaconServer contract.
 
