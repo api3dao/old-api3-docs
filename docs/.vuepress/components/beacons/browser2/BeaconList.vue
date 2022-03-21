@@ -1,27 +1,30 @@
 <!--
   This component displays a list of all Beacons sorted by name.
-  It loads from the operations repo real-time and merges its JSON
-  file with a local JSON file to get additional attributes.
+  It loads from the operations repo real-time.
 -->
 
 <template>
   <div v-if="loaded === true">
     <!-- Filter  -->
+
     <input
       id="searchText"
       spellcheck="false"
-      class="beacon-filter-input"
-      v-on:keyup="find($event)"
+      class="b2-beacon-filter-input"
+      v-on:keyup="void find($event)"
       placeholder="Filter (must contain all)"
     />
+    <div style="margin-top: 4px; font-size: small">
+      Showing {{ beacons.length }} Beacons.
+    </div>
     <hr />
     <div style="padding-left: 55px">
       <img src="/img/spinner.gif" v-show="showSpinner" />
     </div>
-    <p v-show="error !== null" class="error">
+    <p v-show="error !== null" class="b2-error">
       The Beacon list failed to load: ({{ error }})
     </p>
-    <!-- Beacon List v-show="item.show" -->
+
     <beacons-browser2-BeaconItem
       v-for="(item, i) in beacons"
       v-bind:key="'B' + i"
@@ -74,12 +77,11 @@ export default {
         this.beaconsFetched = response.data.beacons;
         this.beaconsFetched.sort(this.sortByName);
         // TEMP
-        /*this.beaconsFetched = this.beaconsFetched.concat(this.beaconsFetched);
+        /*
         this.beaconsFetched = this.beaconsFetched.concat(this.beaconsFetched);
         this.beaconsFetched = this.beaconsFetched.concat(this.beaconsFetched);
         this.beaconsFetched = this.beaconsFetched.concat(this.beaconsFetched);
-        this.beaconsFetched = this.beaconsFetched.concat(this.beaconsFetched);
-        this.beaconsFetched = this.beaconsFetched.concat(this.beaconsFetched);*/
+        */
         this.beacons = this.beaconsFetched;
       } catch (err) {
         console.error(err.toString());
@@ -89,15 +91,14 @@ export default {
       this.loaded = true;
     });
   },
-  /*computed: {
-    beacons: function () {
-      return this.beaconsFetched.filter(function (item) {
-        console.log('computed >', item.show);
-        return item.show % item.show === true;
-      });
-    },
-  },*/
   methods: {
+    // Call by BeaconItem.vue
+    collapseBeaconDetails(beaconId) {
+      for (let x in this.beacons) {
+        if (this.beacons[x].beaconId !== beaconId)
+          this.beacons[x].showDetails = false;
+      }
+    },
     sortByName(a, b) {
       if (b.templateName.toLowerCase() > a.templateName.toLowerCase()) {
         return -1;
@@ -110,7 +111,6 @@ export default {
     find(event) {
       let text = this.$el.querySelector('#searchText').value.toLowerCase();
       const arr = text.split(' ');
-      //console.log(1, arr);
 
       this.beaconsFetched.forEach((item) => {
         let results = [];
@@ -125,24 +125,18 @@ export default {
           if (results.includes(false)) item.show = false;
           else item.show = true;
         });
-        this.beacons = this.beaconsFetched.filter((item) => item.show === true);
       });
-
-      //console.log(3, this.beacons);
-      //console.log('----------------------');
+      this.beacons = this.beaconsFetched.filter((item) => item.show === true);
     },
   },
 };
 </script>
 
 <style>
-h4 {
-  margin-bottom: -10px;
-}
-.error {
+.b2-error {
   color: red;
 }
-.beacon-filter-input {
+.b2-beacon-filter-input {
   margin-top: 10px;
   font-size: large;
 

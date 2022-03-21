@@ -10,7 +10,7 @@
     <input
       id="searchText"
       spellcheck="false"
-      class="beacon-filter-input"
+      class="b1-beacon-filter-input"
       v-on:keyup="find($event)"
       placeholder="Filter (must contain all)"
     />
@@ -18,7 +18,7 @@
     <div style="padding-left: 55px">
       <img src="/img/spinner.gif" v-show="showSpinner" />
     </div>
-    <p v-show="error !== null" class="error">
+    <p v-show="error !== null" class="b1-error">
       The Beacon list failed to load: ({{ error }})
     </p>
     <!-- Beacon List -->
@@ -109,13 +109,10 @@ export default {
 </script>
 
 <style>
-h4 {
-  margin-bottom: -10px;
-}
-.error {
+.b1-error {
   color: red;
 }
-.beacon-filter-input {
+.b1-beacon-filter-input {
   margin-top: 10px;
   font-size: large;
 
