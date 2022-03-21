@@ -17,6 +17,7 @@ module.exports = [
       '/dev/redirects.md',
       '/dev/prettier',
       '/dev/deployment',
+      '/dev/release-notes.md',
       '/dev/quirks',
     ],
   },
