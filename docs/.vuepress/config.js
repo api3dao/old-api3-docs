@@ -2,20 +2,21 @@ module.exports = {
   env: process.env.NODE_ENV,
   /// Airnode doc set version pick list.
   versions: [
+    { name: 'v0.5', url: '/airnode/v0.5/' },
     { name: 'v0.4', url: '/airnode/v0.4/' },
     { name: 'v0.3', url: '/airnode/v0.3/' },
     { name: 'v0.2', url: '/airnode/v0.2/' },
     { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
   ],
   /// Next version of airnode, used by /next route.
-  airnodeVersionNext: [{ name: 'v0.5', url: '/airnode/v0.5/' }],
+  airnodeVersionNext: [{ name: 'v0.6', url: '/airnode/v0.6/' }],
   /// Beacon doc set version pick list.
   versionsBeacon: [{ name: 'v0.1', url: '/beacon/v0.1/' }],
   /// OIS doc set version pick list.
   versionsOis: [{ name: 'v1.0.0', url: '/ois/v1.0.0/' }],
   /// Latest/current Airnode doc set version.
   /// Used by api3dao/airnode CI link checking
-  latestVersion: '/airnode/v0.4/',
+  latestVersion: '/airnode/v0.5/',
   /// Latest/current Beacon doc set version.
   /// Used by api3dao/airnode CI link checking
   latestBeaconVersion: '/beacon/v0.1/',
@@ -43,7 +44,7 @@ module.exports = {
     extractHeaders: ['h2', 'h3', 'h4', 'h5'],
   },
   themeConfig: {
-    startPath: '/airnode/v0.4/',
+    startPath: '/airnode/v0.5/',
     sidebarDepth: 0,
     displayAllHeaders: false,
     logo: '/img/logo.png',
