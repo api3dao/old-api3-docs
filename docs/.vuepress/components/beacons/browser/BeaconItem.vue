@@ -1,11 +1,15 @@
 <template>
-  <div v-show="beacon.show === true" class="beacon-box" :key="beacon.beaconId">
-    <div class="provider">
+  <div
+    v-show="beacon.show === true"
+    class="b1-beacon-box"
+    :key="beacon.beaconId"
+  >
+    <div class="b1-provider">
       {{ beacon.apiName }}
     </div>
 
     <div
-      class="beacon-name"
+      class="b1-beacon-name"
       style="cursor: pointer; user-select: none"
       @click="showDetails()"
     >
@@ -16,16 +20,16 @@
       />
     </div>
 
-    <div class="beacon-description beacon-sub-line">
+    <div class="b1-beacon-description b1-beacon-sub-line">
       {{ beacon.description }}
     </div>
-    <div class="beacon-id beacon-sub-line">
+    <div class="b1-beacon-id b1-beacon-sub-line">
       Beacon ID: {{ beacon.beaconId }}
     </div>
 
-    <div v-show="beacon.showDetails === true" class="beacon-display-box">
+    <div v-show="beacon.showDetails === true" class="b1-beacon-display-box">
       <hr />
-      <div class="beacon-id">Template ID: {{ beacon.templateId }}</div>
+      <div class="b1-beacon-id">Template ID: {{ beacon.templateId }}</div>
       <!-- prettier-ignore -->
       <pre><code>"decodedParameters": {{beacon.decodedParameters}}</code></pre>
     </div>
@@ -49,14 +53,14 @@ export default {
 </script>
 
 <style>
-.provider {
+.b1-provider {
   float: right;
   padding-right: 15px;
   color: gray;
   font-size: x-small;
   font-weight: bold;
 }
-.beacon-box {
+.b1-beacon-box {
   padding-top: 5px;
   padding-left: 20px;
   padding-bottom: 10px;
@@ -65,26 +69,26 @@ export default {
   margin-bottom: 5px;
   max-width: 620px;
 }
-.beacon-sub-line {
+.b1-beacon-sub-line {
   padding-left: 10px;
   border-left: solid lightgrey 3px;
 }
-.beacon-display-box {
+.b1-beacon-display-box {
   margin-right: 10px;
   display: block;
   padding-left: 11px;
   border-left: solid lightgrey 3px;
 }
-.beacon-name {
+.b1-beacon-name {
   font-weight: bold;
   margin-left: -5px;
   margin-bottom: 5px;
 }
-.beacon-description {
+.b1-beacon-description {
   font-size: medium;
   color: gray;
 }
-.beacon-id {
+.b1-beacon-id {
   font-size: small;
   max-width: 600px;
   overflow-wrap: break-word;

@@ -126,6 +126,9 @@ Add values for each of the these fields.
 
 3. Enable the
    [API Gateway](https://console.cloud.google.com/marketplace/product/google/apigateway.googleapis.com?returnUrl=%2Fapi-gateway%2Fapi&project=zzz).
+   Select the proper project on the GCP Gateway page, then select the Enable
+   button. If the Manage button is present for the project, the GCP Gateway is
+   already enabled.
 
 4. Create a new service account from the
    [Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts)
