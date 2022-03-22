@@ -14,7 +14,7 @@ it will always default to the startPath in config.json.
       >
       <p>
         First-party serverless oracle node that solves the Web3 API connectivity
-        problem
+        problem.
       </p>
     </li>
     <li>
@@ -24,7 +24,7 @@ it will always default to the startPath in config.json.
       >
       <p>
         First-party Web3 data feeds powering transparent, reliable, and
-        cost-efficient dAPIs, dApps, and more
+        cost-efficient dAPIs, dApps, and more.
       </p>
     </li>
     <li>
@@ -34,7 +34,7 @@ it will always default to the startPath in config.json.
       >
       <p>
         Oracle Integration Specifications - linking Airnode endpoints to API
-        operations
+        operations.
       </p>
     </li>
     <li>
@@ -42,14 +42,14 @@ it will always default to the startPath in config.json.
         <img src="/img/02-DAO-State=Active@2x-1.png" />
         DAO Members</router-link
       >
-      <p>API3 DAO structure, functionality, and resources</p>
+      <p>API3 DAO structure, functionality, and resources.</p>
     </li>
     <li>
       <router-link to="/api3/">
         <img src="/img/03-API3-State=Active@2x-2.png" />
         API3 Overview</router-link
       >
-      <p>Resources for learning more about the project and its mission</p>
+      <p>Resources for learning more about the project and its mission.</p>
     </li>
   </div>
 </template>
@@ -80,8 +80,9 @@ export default {
 }
 .landing-container img {
   display: block;
+  opacity: 0.7;
   margin: 0.5rem auto;
-  width: 64px;
+  height: 56px;
 }
 .landing-container li {
   flex-basis: 160px;
