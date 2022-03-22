@@ -134,7 +134,9 @@ as they are extracted from the request by Airnode.
 
 Note that Airnode is just relaying metadata to your API operations and does not
 perform any additional logic. You must implement any desired logic in your API
-operations.
+operations. See
+[Relayed Meta Data Authentication](../../../concepts/relay-meta-auth.md) for
+overview of its usage.
 
 :::
 
@@ -212,7 +214,9 @@ described in detail in the
 [Airnode Authentication Security Schemes](./api-security.md#airnode-authentication-security-schemes)
 and
 [Relayed Meta Data Security Schemes](./api-security.md#relayed-meta-data-security-schemes)
-sections above. Working with security schemes can be described in three steps.
+sections above. The following example is related to _Airnode Authentication
+Security Schemes_. Working with security schemes can be described in three
+steps.
 
 1. [Define the security schemes for an OIS](./api-security.md#step-1-define-the-security-schemes-for-an-ois)
 2. [Turn on the defined security schemes](./api-security.md#step-2-turn-on-the-defined-security-schemes)
