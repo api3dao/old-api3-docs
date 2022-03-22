@@ -82,6 +82,7 @@ exclude = [
   "@0.5",
   "etherscan.io",
   "faucet.goerli.mudit.blog",
+  "rinkebyfaucet.com",
 ]
 
 # Exclude URLs contained in a file from checking
