@@ -26,7 +26,7 @@ function getRedirectRoute(to) {
 }
 
 let spaLoaded = false;
-export default ({ Vue, router, options }) => {
+export default ({ Vue, router, options, siteData }) => {
   router.beforeEach((to, from, next) => {
     // Checking the startup route for the SPA to see if it
     // exists in the SPA router objects.
