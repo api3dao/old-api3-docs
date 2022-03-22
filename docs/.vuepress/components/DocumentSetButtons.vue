@@ -6,29 +6,51 @@ it will always default to the startPath in config.json.
 -->
 
 <template>
-  <div>
-    <h3 style="auto; text-align:center;">Document Sets</h3>
-    <header class="hero">
-      <router-link class="nav-link action-button btn" :to="latestVersion"
-        ><span class="btnText">Airnode →</span></router-link
+  <div class="landing-container">
+    <li>
+      <router-link :to="latestVersion">
+        <img src="/img/01-Airnode-State=Active@2x.png" />
+        Airnode</router-link
       >
-
-      <router-link class="nav-link action-button btn" :to="latestBeaconVersion"
-        ><span class="btnText">Beacons →</span></router-link
+      <p>
+        First-party serverless oracle node that solves the Web3 API connectivity
+        problem.
+      </p>
+    </li>
+    <li>
+      <router-link :to="latestBeaconVersion">
+        <img src="/img/Beacons-active.png" />
+        Beacons</router-link
       >
-
-      <router-link class="nav-link action-button btn" :to="latestOisVersion"
-        ><span class="btnText">OIS →</span></router-link
+      <p>
+        First-party Web3 data feeds powering transparent, reliable, and
+        cost-efficient dAPIs, dApps, and more.
+      </p>
+    </li>
+    <li>
+      <router-link :to="latestOisVersion">
+        <img src="/img/ois-active.png" />
+        OIS</router-link
       >
-      <br />
-      <router-link class="nav-link action-button btn" to="/dao-members/"
-        ><span class="btnText">DAO Members →</span></router-link
+      <p>
+        Oracle Integration Specifications - linking Airnode endpoints to API
+        operations.
+      </p>
+    </li>
+    <li>
+      <router-link to="/dao-members/">
+        <img src="/img/02-DAO-State=Active@2x-1.png" />
+        DAO Members</router-link
       >
-
-      <router-link class="nav-link action-button btn" to="/api3/"
-        ><span class="btnText">API3 →</span></router-link
+      <p>API3 DAO structure, functionality, and resources.</p>
+    </li>
+    <li>
+      <router-link to="/api3/">
+        <img src="/img/03-API3-State=Active@2x-2.png" />
+        API3 Overview</router-link
       >
-    </header>
+      <p>Resources for learning more about the project and its mission.</p>
+    </li>
   </div>
 </template>
 
@@ -50,8 +72,28 @@ export default {
 </script>
 
 <style scoped>
-/* "hero, nav-link, action-button, and action" are from the VuePress classes. */
-.btn {
-  margin-top: 5px;
+.landing-container {
+  display: flex;
+  list-style: none;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.landing-container img {
+  display: block;
+  opacity: 0.7;
+  margin: 0.5rem auto;
+  height: 56px;
+}
+.landing-container li {
+  flex-basis: 160px;
+  flex-grow: 1;
+  padding: 1rem;
+  text-align: center;
+}
+.landing-container a {
+  font-size: 1.2rem;
+}
+.landing-container a:hover {
+  text-decoration: underline;
 }
 </style>

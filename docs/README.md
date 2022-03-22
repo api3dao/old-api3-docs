@@ -9,7 +9,6 @@ footer:
 navbar: false
 ---
 
-<hr/>
 <DocumentSetButtons/>
 
 <!-- This is an original button:    actionText: Get Started →     -->
@@ -36,4 +35,4 @@ navbar: false
 
 API3 documentation is kept as a regular repository of Markdown files for everyone to contribute. Feel free to create [issues](https://github.com/api3dao/api3-docs/issues) for discussions, proposed additions and changes.
 
-<div style="text-align:center;"><a href="https://github.com/api3dao/api3-docs/blob/main/LICENSE" target="_license">MIT Licensed</a> <ExternalLinkImage/></div>
+<div style="text-align:center; margin-bottom: 20px;"><a href="https://github.com/api3dao/api3-docs/blob/main/LICENSE" target="_license">MIT Licensed</a> <ExternalLinkImage/></div>
