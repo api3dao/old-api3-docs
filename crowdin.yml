@@ -1,0 +1,5 @@
+files:
+  - source: /docs/ois/
+    ignore:
+      - /docs/.vue*
+    translation: /docs/ois/%two_letters_code%/%original_file_name%
