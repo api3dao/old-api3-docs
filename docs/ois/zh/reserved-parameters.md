@@ -57,37 +57,37 @@ ethers.utils.defaultAbiCoder.encode([solidityType], [value]);
 
 #### string32 (在链上编码为 `bytes32`)
 
-The `string32` is an artificial type that is not supported by solidity. It is instead encoded to `bytes32` and provides a cheaper alternative to the regular `string` type for values with less than 32 characters.
+`string32`是一种不被solidity支持的人工类型。 它被编码为`bytes32`，为少于32个字符的值提供了一个比普通`string`类型更便宜的选择。
 
-:::warning Limitations
+::warning 局限性
 
-While using `string32` is more efficient, decoding the original string from `bytes32` on chain is both difficult and expensive.
+虽然使用`string32`更有效率，但在链上从`bytes32`解码原始字符串既困难又昂贵。
 
-Also bear in mind that this type is able to encode only strings shorter than 32 characters. If the value is longer, it will be trimmed and only first 31 characters will be encoded.
+还要记住，这种类型只能对短于32个字符的字符串进行编码。 如果值更长，它将被修剪，只有前31个字符会被编码。
 
 :::
 
-#### timestamp (encoded to `uint256` on chain)
+#### timestamp (在链上编码为 `uint256`)
 
-The `timestamp` is an artificial type that is not supported by solidity. It is instead encoded to `uint256` and specifies the UNIX timestamp value at the time when the transaction was encoded. You can use this value on chain to check the "freshness" of the Airnode response. This might be useful in certain scenarios, because Airnode cannot guarantee when a particular transaction will be mined on chain.
+`timestamp`是一个人造的类型，不被solidity支持。 它被编码为`uint256`，并指定了事务被编码时的UNIX时间戳值。 你可以在链上使用这个值来检查Airnode响应的 "新鲜度"。 这在某些情况下可能是有用的，因为Airnode不能保证一个特定的交易何时会在链上被开采。
 
-When using the `timestamp` type, the corresponding `_path` and `_times` variables must be empty strings or not provided.
+当使用`timestamp`类型时，相应的`_path`和`_times`变量必须是空字符串或不提供。
 
-#### Arrays
+#### 数组
 
-Apart from the primitives defined above as well as all "artificial" types we created, you are free to use arrays with any of the above. Multidimensional arrays are supported as well. Solidity allows you to define fixed size arrays, which are more gas efficient to encode and you can use those as well.
+除了上面定义的基元以及我们创建的所有 "人工 "类型之外，你可以自由地将数组与上述任何类型一起使用。 多维数组也被支持。 Solidity 允许你定义固定大小的数组，这对编码来说更省gas，你也可以使用这些数组。
 
-For example
+举例
 
-- `int256[]` - regular integer array
-- `uint256[8]` - unsigned integer array with 8 elements
-- `int256[][]` - 2 dimensional integer array
-- `string32[]` - is an array of `string32` values, which will be encoded to `bytes32[]` on chain
-- `string[2][][3]` - 3 dimensional string array, where first dimension contains 3 elements, second unboundedly many and last dimension only 2. Notice, that this [definition is read backwards](https://ethereum.stackexchange.com/questions/64331/why-is-multidimensional-array-declaration-order-reversed) compared to C-style languages
+- `int256[]` - 正整数数组
+- `uint256[8]` - 有8个元素的无符号整数数组
+- `int256[] []` - 2维整数数组
+- `string32[]` - 是一个`string32`值的数组，在链上将被编码为`byte32[] `
+- `string[2][][3]` - 3维字符串数组，其中第一维包含3个元素，第二维不受限制地包含许多元素，最后一维只有2个元素。 注意，与C语言相比，这个[定义是逆向读取](https://ethereum.stackexchange.com/questions/64331/why-is-multidimensional-array-declaration-order-reversed)的
 
 ## `_path`
 
-Assuming that the API response will be a JSON object, defines the field to be used to fulfill the request using dot notation. For example, if the API returns
+假设API响应将是一个JSON对象，使用点符号来定义用于满足请求的字段。 例如，如果API返回
 
 ```
 {
@@ -104,7 +104,7 @@ Assuming that the API response will be a JSON object, defines the field to be us
 }
 ```
 
-and `_path` is `field1.fieldA.1`, the response will be `valueA2`.
+那么`_path` 是 `field1.fieldA.1`，响应将是 `value A2`。
 
 If the response is a literal value (i.e., not a JSON object) and `_path` is not provided or is an empty string (needed for [encoding multiple values](./reserved-parameters.md#encoding-multiple-values)), Airnode will use the API response itself to fulfill the request.
 
