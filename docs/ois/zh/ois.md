@@ -15,7 +15,7 @@ airnodeVersion: v0.5
 
 ::: warning OAS
 
-我们不建议在创建OIS对象时参考OAS的帮助。 OIS只是借用了OAS的格式化做法。 创建OIS对象所需的一切都在这些文档中。
+我们不建议在创建OIS对象时参考OAS的帮助。 OIS只是借用了OAS的格式实践。 创建OIS对象所需的一切都在这些文档中。
 
 :::
 
@@ -23,7 +23,7 @@ airnodeVersion: v0.5
 
 - 由 (\*) 表示的字段用于文档目的，不被Airnode使用。
 - <!--The [OAS](https://swagger.io/specification/) equivalents are given as
-  reference to assist in the populating of OIS fields.--> OIS字段应该由整合方复查和定制。
+  reference to assist in the populating of OIS fields.--> OIS字段应该由集成方审核和定制。
 - 所有的URLs都是绝对路径（就是说[相对路径](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#relative-references-in-urls)是不支持的）。
 
 ## OIS 对象摘要
@@ -36,7 +36,7 @@ OIS有五个根域(key)。
 1. [apiSpecifications](ois.md#_4-apispecifications)
 1. [endpoints](ois.md#_5-endpoints)
 
-`apiSpecifications`描述了API的操作，它被映射到 `终端节点`，Airnode在链上公开了这些节点。
+`apiSpecifications`描述了API的操作，它被映射到 `endpoints`，Airnode在链上公开了这些节点。
 
 ```json
 {
@@ -187,7 +187,7 @@ Airnode 会将所有 <code>query</code> 类型转换为 <code>requestBody</code>
 
 #### 4.3.4. `scheme`
 
-(仅当 `类型` 是 http时) HTTP 授权方案名称，被用于授权header，其定义在[RFC7235 ](https://tools.ietf.org/html/rfc7235#section-5.1) 中。
+(仅当 `type` 是 http时) HTTP 授权方案名称，被用于授权header，其定义在[RFC7235 ](https://tools. ietf.org/html/rfc7235#section-5.1) 中。
 
 允许的值：(`basic` 和 `bearer`)。
 
@@ -347,19 +347,19 @@ respective API operation.-->
 
 ##### 5.3.1.1. `name`
 
-<p class="h5-indent">The name of the API operation's parameter that will have a fixed value.</p>
+<p class="h5-indent">API操作参数的名称，该参数将具有固定值。</p>
 
 ##### 5.3.1.2. `in`
 
-<p class="h5-indent">Must be one of three possible values (<code>query, header, path, cookie</code>).</p>
+<p class="h5-indent">必须是三个可能的值之一（<code>query, header, path, cookie</code>）。</p>
 
 #### 5.3.2. `value`
 
-(Required) The value to be used for the respective parameter of an API operation that cannot be overridden by the requester.
+(必填) 不能被请求者覆盖的 API 操作的参数的值。
 
 ### 5.4. `reservedParameters`
 
-[<InfoBtnBlue/>](/airnode/v0.5/grp-providers/guides/build-an-airnode/api-integration.md#reservedparameters) (Optional) A list of objects that specify reserved Airnode endpoint parameters that do not map to any API operation parameters, but are used for special purposes by the Airnode. See the [Reserved Parameters](./reserved-parameters.md) doc for an in-depth explanation. Each object has the following elements:
+[<InfoBtnBlue/>](/airnode/v0.5/grp-providers/guides/build-an-airnode/api-integration.md#reservedparameters) (可选) 指定保留的Airnode节点参数的对象列表，这些参数没有映射到任何API操作参数，但被Airnode用于特殊目的。 请参阅 [保留参数](./reserved-parameters.md)文档以获得深入解释。 每个对象都有以下元素：
 
 - `name`
 - `fixed`
@@ -367,21 +367,21 @@ respective API operation.-->
 
 #### 5.4.1. `name`
 
-(Required) The name of the reserved parameter. Always starts with `_`.
+(必填) 保留参数的名称。 始终以 `_` 开始。
 
-Allowed values: `_type`, `_path` or `_times`
+允许的值： `_type`, `_path` 或 `_times`
 
 #### 5.4.2. `fixed`
 
-(Optional) The fixed (i.e., non-overridable) value for the reserved parameter.
+(可选) 保留参数的固定值(即不可覆盖)。
 
 #### 5.4.3. `default`
 
-(Optional) The default value for the reserved parameter. Used when no value is provided.
+(可选) 保留参数的默认值。 当没有提供值时使用。
 
 ### 5.5. `parameters`
 
-[<InfoBtnBlue/>](/airnode/v0.5/grp-providers/guides/build-an-airnode/api-integration.md#parameters) (Optional) A list of objects that specify Airnode endpoint parameters that map to an particular API operation's parameters. Each object has the following elements:
+[<InfoBtnBlue/>](/airnode/v0.5/grp-providers/guides/build-an-airnode/api-integration.md#parameters) (可选）指定Airnode终端节点参数的对象列表，这些参数映射到特定的API操作的参数。 每个对象都有以下元素：
 
 - `operationParameter`
 - `name`
@@ -392,74 +392,74 @@ Allowed values: `_type`, `_path` or `_times`
 
 #### 5.5.1. `operationParameter`
 
-(Required) An object that refers to a parameter of an API operation, has the following elements:
+(必填) 指的是一个API操作的参数的对象，有以下元素：
 
 - `name`
 - `in`
 
 ##### 5.5.1.1. `name`
 
-<p class="h5-indent">The name of the parameter from an API operation.</p>
+<p class="h5-indent">从 API 操作中的参数名称。</p>
 
 ##### 5.5.1.2. `in`
 
-<p class="h5-indent">Must be one of four possible values (<code>query, header, path, cookie</code>).</p>
+<p class="h5-indent">必须是四个可能的值之一(<code>query, header, path, cookie</code>)。</p>
 
 #### 5.5.2. `name`
 
-(Required) The name of the Airnode endpoint parameter. Is not allowed to start with `_`.
+(必填) Airnode 节点参数的名称。 不允许以 `_` 开始。
 
 <!--OAS equivalent: `paths.{path}.{method}.parameters.{#}.name` of a corresponding
 API operation parameter.-->
 
 #### 5.5.3. `default`
 
-(Optional) The default value for the Airnode endpoint parameter. Used when no value is provided.
+(可选) Airnode 节点参数的默认值。 当没有提供值时使用。
 
 <!--OAS equivalent: `paths.{path}.{method}.parameters.{#}.default` of a
 corresponding API operation parameter.-->
 
 #### 5.5.4. `description` \*
 
-(Optional) A description of what the Airnode endpoint parameter does.
+(可选) Airnode 节点参数的描述。
 
 <!--OAS equivalent: `paths.{path}.{method}.parameters.{#}.description` of the
 corresponding operation parameter.-->
 
 #### 5.5.5. `required`
 
-(Optional) If the Airnode endpoint parameter is required, a boolean value.
+(可选) 是否需要Airnode 节点参数，布尔值。
 
 <!--OAS equivalent: `paths.{path}.{method}.parameters.{#}.required` of the
 corresponding operation parameter.-->
 
 #### 5.5.6. `example`
 
-(Optional) The example value to be used in test calls.
+(可选) 用于测试调用的示例值。
 
 <!--OAS equivalent: `paths.{path}.{method}.parameters.{#}.example` of the
 corresponding operation parameter.-->
 
 ### 5.6. `summary` \*
 
-(Optional) A one sentence summary of what the Airnode endpoint does.
+(可选) Airnode 终端节点意图的一句话摘要。
 
 <!--OAS equivalent: `paths.{path}.{method}.summary` of corresponding operation.-->
 
 ### 5.7. `description` \*
 
-(Optional) A more detailed description of what the Airnode endpoint does.
+(可选) Airnode 终端节点的更详细描述。
 
 <!--OAS equivalent: `paths.{path}.{method}.description` of corresponding operation.-->
 
 ### 5.8. `externalDocs` \*
 
-(Optional) URL to external documentation for the Airnode endpoint.
+（可选）Airnode 终端节点外部文档的 URL。
 
 <!--OAS equivalent: `paths.{path}.{method}.externalDocs` of corresponding operation.-->
 
-::: tip Please Note
+::: tip 请注意
 
-Fields denoted by \* are for documentation purposes and not used by Airnode node.
+由 (\*) 表示的字段用于文档目的，不被Airnode使用。
 
 :::
