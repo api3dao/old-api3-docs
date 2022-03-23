@@ -104,13 +104,13 @@ ethers.utils.defaultAbiCoder.encode([solidityType], [value]);
 }
 ```
 
-那么`_path` 是 `field1.fieldA.1`，响应将是 `value A2`。
+那么`_path` 为 `field1.fieldA.1`，其响应将是 `valueA2`。
 
-If the response is a literal value (i.e., not a JSON object) and `_path` is not provided or is an empty string (needed for [encoding multiple values](./reserved-parameters.md#encoding-multiple-values)), Airnode will use the API response itself to fulfill the request.
+如果响应是一个迭代值（即不是JSON对象），并且`_path`没有提供或为空字符串（需要对[多个值进行编码](./reserved-parameters.md#encoding-multiple-values)），Airnode将使用API响应本身来完成请求。
 
-:::warning Beware the separator
+::warning 小心分隔符
 
-Make sure the keys in the path of the API response do not contain `.`, because it will be incorrectly considered as a separator.
+确保API响应的路径中的键不包含`.`，因为它将被错误地认为是一个分隔符。
 
 ```
 {
@@ -118,13 +118,13 @@ Make sure the keys in the path of the API response do not contain `.`, because i
 }
 ```
 
-The `_path` defined as `"strange.key"` will not work. As workaround you can [escape the separator](./reserved-parameters.md#escaping-separators).
+定义为 `"sange.key"` 的`_path`将无法工作。 作为变通方法，你可以[转义分隔符](./reserved-parameters.md#escaping-separators)。
 
 :::
 
-### Escaping Separators
+### 转义分隔符
 
-In rare cases, when the `_path` to the API response would contain `,` or `.` (comma or a dot) things get a bit complicated. Those symbols have a very specific meaning when parsing the reserved parameters and they need to be escaped if they are to be considered as literals. For example, if the API provider response looks like the following
+在少数情况下，当API响应的`_path`包含`,`或`.`（逗号或点）时，事情会变得有点复杂。 这些符号在解析保留参数时有非常特殊的意义，如果它们被视为字面意义，就需要转义。 例如，如果API提供者的响应看起来像下面这样
 
 ```
 {
@@ -132,11 +132,11 @@ In rare cases, when the `_path` to the API response would contain `,` or `.` (co
 }
 ```
 
-Then you need to escape those symbols, in this case `_path="very//,strange\\.key"`.
+那么你需要转义这些符号，在这种情况下`_path="very//,strange\\.key"`。
 
 ## `_times`
 
-If `_type` is `int256` or `uint256` and a valid `_times` parameter is provided Airnode multiplies the value returned by the API with the `_times` parameter before fulfilling the request. For example, if the API returns:
+如果`_type`是`int256`或`uint256`，并且提供了一个有效的`_times`参数，Annode在完成请求前将API返回的值与`_times`参数相乘。 例如，如果API返回：
 
 ```
 {
@@ -145,7 +145,7 @@ If `_type` is `int256` or `uint256` and a valid `_times` parameter is provided A
 }
 ```
 
-and the reserved parameters are
+而保留的参数是
 
 ```
 _type: int256
@@ -153,15 +153,15 @@ _path: data
 _times: "100"
 ```
 
-the request will be fulfilled with the value `123`. Note that the number gets multiplied by `100`, and then gets floored. This is because the result of the multiplication is [cast](/airnode/v0.5/reference/packages/adapter.md) to `int256` afterwards.
+该请求将以`123`的值实现。 请注意，这个数字会乘`100`，然后被向下取整。 这是因为乘法的结果在之后被[转换](/airnode/v0.5/reference/packages/adapter.md)为`int256`。
 
-Make sure to pass the `_times` parameter as string. Airnode will convert this string to number internally. You can also pass and empty string `""` to `_times` parameter - this has the same effect as if the `_times` parameter was not provided. However, this is important when [encoding multiple values](./reserved-parameters.md#encoding-multiple-values).
+请确保将`_times`参数作为字符串传递。 Airnode将在内部把这个字符串转换为数字。 你也可以将空字符串`""`传递给`_times`参数--这与不提供`_times`参数的效果相同。 然而，在对[多个数值进行编码](./reserved-parameters.md#encoding-multiple-values)时，这一点很重要。
 
-The `_times` parameter also works in conjunction with arrays and multidimensional arrays. All elements of the API response array will be multiplied before they are encoded.
+`_times`参数还可以与数组和多维数组一起使用。 API响应数组的所有元素在被编码之前都将被乘上一个数。
 
-## Encoding Multiple Values
+## 多值编码
 
-Solidity has support for decoding and "destructuring" multiple values. For example
+Solidity支持解码和 "解构" 多个值。 例如
 
 ```solidity
 function decodeMultipleParameters(bytes calldata data)
@@ -173,7 +173,7 @@ function decodeMultipleParameters(bytes calldata data)
 }
 ```
 
-The example above demonstrates the decoding on chain of three values of types `string`, `uint256` and `address` respectively. You can instruct Airnode to encode these values using the reserved parameters by separating the values using `,` (comma). For example using the following combination of reserved parameters
+上面的例子演示了分别对`string`、`uint256`和`address`的三个值进行链上解码。 你可以指示Airnode使用保留参数对这些值进行编码，用`,`（逗号）来分隔这些值。 例如，使用以下保留参数的组合
 
 ```js
 {
@@ -183,9 +183,9 @@ The example above demonstrates the decoding on chain of three values of types `s
 }
 ```
 
-Airnode will split the reserved parameters by `,` into "split values" and ensure they all contain the same number of them. It will extract and convert each of the "split values". Notice, that an `""` (empty string) is used to specify that a certain reserved parameter should not be used for a certain "split value".
+Airnode将把保留的参数按`,`分割成 "分割值"，并确保它们都包含相同数量的参数。 它将提取并转换每个 "分割值"。 注意，一个`""`（空字符串）用于指定某个保留参数不应该用于某个 "分割值"。
 
-For example, let's say the API response looks like this
+例如，让我们假设API响应看起来像这样
 
 ```json
 {
@@ -195,10 +195,10 @@ For example, let's say the API response looks like this
 }
 ```
 
-Airnode will extract and convert each of the "split values" separately
+Airnode将分别提取和转换每个 "分割值"
 
-1. Combination of `_type="string"`, `_path="pathToString"` and `__times=""` results in `"some string"`
-2. Combination of `_type="uint256"`, `_path="pathToFloat"` and `__times="10000"` results in `12345670`
-3. Combination of `_type="address"`, `_path="pathToAddress"` and `__times=""` results in `"0xe021...8a74"`
+1. `_type="string"`,`_path="pathToString`"和`__times=""` 的组合结果是一些 `"string"`
+2. `_type="uint256"`, `_path="pathToFloat"` 和`__times="10000"` 的组合结果为`12345670`
+3. 结合`_type="address"`, `_path="pathToAddress"`和`__times="" `结果是 `"0xe021...8a74"`
 
-All of these values are then together encoded to single bytes value that can be sent on chain. You can use [testing gateway](/airnode/v0.5/grp-providers/guides/build-an-airnode/deploying-airnode.md#testing-with-http-gateway) to inspect the raw API response, casting results and the final encoded value.
+所有这些值然后一起被编码为单字节值，可以在链上发送。 你可以使用[测试网关](/airnode/v0.5/grp-providers/guides/build-an-airnode/deploying-airnode.md#testing-with-http-gateway)来检查原始API响应，投票结果和最终的编码值。
