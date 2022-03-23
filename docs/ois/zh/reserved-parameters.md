@@ -1,5 +1,5 @@
 ---
-title: Reserved parameters
+title: 保留参数
 ---
 
 <TitleSpan>OIS</TitleSpan>
@@ -10,42 +10,42 @@ title: Reserved parameters
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,4]" />
 
-Reserved parameters are part of an OIS object as part of the `endpoints` field (Airnode endpoints) and warrant a more in-depth explanation. They are part of an Airnode's defined endpoints in an OIS object but do not map to operation parameters (API parameters). They are used by Airnode for special purposes.
+保留参数是OIS对象的一部分，是`endpoints`字段（Airnode 终端节点）的一部分，值得深入解释。 它们是OIS对象中Airnode定义的节点的一部分，但不映射到操作参数（API参数）。 它们被Airnode用于特殊目的。
 
-A requester can pass request parameters either by referencing a [template](/airnode/v0.5/concepts/template.md) that contains them, or as an argument of the request-making methods of [AirnodeRrp.sol](/airnode/v0.5/concepts/#airnoderrp-sol). In either case, these parameters are encoded using the [AirnodeRrp ABI](/airnode/v0.5/reference/specifications/airnode-abi-specifications.md). There are two types of parameters which are part of the [OIS](/ois/v1.0.0/) object:
+请求者可以通过引用包含参数的[模板](/airnode/v0.5/concepts/template.md)来传递请求参数，或者作为[AirnodeRrp.sol](/airnode/v0.5/concepts/#airnoderrp-sol)的请求制作方法的一个参数。 在这两种情况下，这些参数都会使用[AirnodeRrp ABI](/airnode/v0.5/reference/specifications/airnode-abi-specifications.md)进行编码。 作为[OIS](/ois/v1.0.0/)对象的一部分，有两种类型的参数:
 
-1. [Endpoint parameters](/ois/v1.0.0/ois.md#_5-5-parameters) - Airnode endpoint parameters are mapped to API operation parameters.
-2. [Reserved parameters](/ois/v1.0.0/ois.md#_5-4-reservedparameters) - Reserved parameters perform a specific operation on the response before fulfilling the request. Reserved parameter names start with `_`.
+1. [节点参数](/ois/v1.0.0/ois.md#_5-5-parameters) - Airnode节点参数被映射到API操作参数。
+2. [保留参数](/ois/v1.0.0/ois.md#_5-4-reservedparameters) - 保留参数在完成请求之前对响应进行特定的操作。 保留的参数名称以`_`开头。
 
 ## `_type`
 
-Signifies what Solidity type the API response will be encoded to before fulfillment.
+标志着 API 响应在执行前将被编码为何种 Solidity 类型。
 
-Support is provided for most common [solidity types](https://docs.soliditylang.org/en/latest/abi-spec.html#types), but the following are not supported.
+对大多数常见的 [Solidity 类型](https://docs.soliditylang.org/en/latest/abi-spec.html#types)提供支持，但不支持以下类型。
 
-- Custom bits integer types - e.g. `uint32` or `uint8`
-- Fixed point decimal numbers - e.g. `fixed128x18` or `ufixed128x18`
-- Custom fixed size bytes - e.g. `bytes4`
-- Tuples - e.g. `(int256, string)`
+- 自定义位的整数类型--如`uint32`或`uint8`
+- 固定点十进制数字--如`fixed128x18`或`ufixed128x18`
+- 自定义固定大小的字节--例如`byte4`
+- 元组--例如`(int256, string)`
 
-On top of supported solidity types, there is support for a few "artificial" types created for special purposes that would otherwise be hard or impossible to represent.
+在支持的实体类型的基础上，还支持一些为特殊目的而创建的 "人工" 类型，否则就很难或无法表示。
 
 - [`string32`](reserved-parameters.md#string32-encoded-to-bytes32-on-chain)
 - [`timestamp`](reserved-parameters.md#timestamp-encoded-to-uint256-on-chain)
 
-You can also encode multiple values for one single API call - but this impacts all of the reserved parameters and is explained in the [Encoding Multiple Values](./reserved-parameters.md#encoding-multiple-values) section below.
+你也可以为一个单一的API调用编码多个值--但这影响到所有的保留参数，并在下面的[编码多个值](./reserved-parameters.md#encoding-multiple-values)部分进行解释。
 
-### Conversion and encoding behavior
+### 转换和编码行为
 
-Before the API response value is encoded for on chain use, it is parsed and converted. The conversion behaviors for any given type is explained in depth in the [adapter package docs](/airnode/v0.5/reference/packages/adapter.md#conversion).
+在API响应值被编码以便在链上使用之前，它被解析和转换。 任何给定类型的转换行为在[适配器包文档](/airnode/v0.5/reference/packages/adapter.md#conversion)中都有深入解释。
 
-The converted value is then encoded internally by [ethers ABI Coder](https://docs.ethers.io/v5/api/utils/abi/coder/#AbiCoder) using the following
+然后，转换后的值由[ethers ABI Coder](https://docs.ethers.io/v5/api/utils/abi/coder/#AbiCoder)使用以下方式进行内部编码
 
 ```js
 ethers.utils.defaultAbiCoder.encode([solidityType], [value]);
 ```
 
-#### Supported Primitive Values
+#### 支持的原始值
 
 - `int256`
 - `uint256`
@@ -55,7 +55,7 @@ ethers.utils.defaultAbiCoder.encode([solidityType], [value]);
 - `bytes`
 - `string`
 
-#### string32 (encoded to `bytes32` on chain)
+#### string32 (在链上编码为 `bytes32`)
 
 The `string32` is an artificial type that is not supported by solidity. It is instead encoded to `bytes32` and provides a cheaper alternative to the regular `string` type for values with less than 32 characters.
 
