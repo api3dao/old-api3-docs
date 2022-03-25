@@ -208,8 +208,11 @@ The response format is a simple JSON object with the following fields:
 
 ```json
 {
-  "data": "{\"timestamp\":\"1645786263\",\"value\":\"0x0000000...000000008fd651ac0\"}",
-  "signature": "0xbc017f87fe397...de751c"
+  "data": {
+    "timestamp": "1648226003",
+    "value": "0x0000000000000000000000000000000000000000000000000000000a571a14c0"
+  },
+  "signature": "0xa74e4312e2e6fa2de2997ef43e417e3b82d0019ac2a84012300f706f8b213e0d6e1ae9301052ec25b71addae1b1bceb4617779abfc6acd5a951e20a0aaabe6f61b"
 }
 ```
 
