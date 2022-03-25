@@ -35,7 +35,7 @@ export default {
 /* The Overlay (background) */
 .overlay {
   /* Height & width depends on how you want to reveal the overlay (see JS below) */
-  height: 100%;
+  height: 0%;
   width: 100%;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
