@@ -52,9 +52,28 @@ parameter `derivation-path` (`m/44'/60'/0'/0/...`). Make sure that the wallet
 that is associated with the mnemonic is funded on the target chain. The
 application will not exit until the transaction is confirmed.
 
+### Using transaction overrides
+
 CLI commands also support the following transaction overrides as optional
 arguments: `gas-limit`, `gas-price` (legacy transactions), `max-fee` and
 `max-priority-fee` (EIP-1559 transactions) and `nonce`.
+
+### Default transaction overrides
+
+If no overrides are provided, transactions will default to the following values:
+
+**EIP-1559 transactions**
+
+```sh
+maxPriorityFeePerGas: 3.12 gwei
+maxFeePerGas: baseFeePerGas of the last block * 2 + maxPriorityFeePerGas
+```
+
+**Legacy transactions**
+
+```sh
+gasPrice: gasPrice returned by the ethers getGasPrice method
+```
 
 ## Using npx
 
