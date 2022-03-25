@@ -31,12 +31,14 @@
       v-bind:beacon="item"
       v-bind:cnt="i"
     ></beacons-browser2-BeaconItem>
+
+    <beacons-browser2-BeaconModal />
   </div>
 </template>
 
 <script>
 import axios from 'axios';
-import all from '../../../api-providers.json';
+import providers from '../../../api-providers.json';
 
 export default {
   name: 'BeaconList',
@@ -46,7 +48,7 @@ export default {
     error: null,
     beacons: [],
     beaconsFetched: [],
-    providers: all,
+    //providers: all,
   }),
   mounted() {
     this.$nextTick(async function () {
@@ -55,14 +57,20 @@ export default {
         this.showSpinner = true;
         this.error = null;
         const response = await axios.get(
-          'https://raw.githubusercontent.com/api3dao/operations/main/data/documentation_metadata.json'
+          'https://raw.githubusercontent.com/api3dao/operations/v0.1/data/documentation_metadata.json'
         );
 
         // item.show needs to be set before copying the response data to the beaconsFetched array
         for (let i = 0; i < response.data.beacons.length; i++) {
           let item = response.data.beacons[i];
+          // Get the grafanaURL
+          if (providers.beacons[item.beaconId]) {
+            item.grafanaURL = providers.beacons[item.beaconId].grafanaURL;
+          }
+
           item.show = true;
-          item.url = this.providers[item.apiName].url;
+
+          item.url = providers[item.apiName].url;
           item.showDetails = false;
           item.content =
             item.templateName.toLowerCase() +
@@ -124,15 +132,18 @@ export default {
           }
           if (results.includes(false)) item.show = false;
           else item.show = true;
+          item.showDetails = false; // Close any expanded details (tabs/panes)
         });
       });
       this.beacons = this.beaconsFetched.filter((item) => item.show === true);
+      console.log(this.beacons);
     },
   },
 };
 </script>
 
 <style>
+/* ---> START BeaconList.vue --- */
 .b2-error {
   color: red;
 }
@@ -146,4 +157,89 @@ export default {
   border-radius: 2px;
   padding: 3px;
 }
+/* --- END BeaconList.vue --- */
+
+/* --- START BeaconItem.vue --- */
+.b2-beacon-box {
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-bottom: 10px;
+  border: solid lightgrey 1px;
+  border-radius: 0.5em;
+  margin-bottom: 5px;
+  max-width: 620px;
+}
+.b2-beacon-provider {
+  float: right;
+  padding-right: 15px;
+  color: gray;
+  font-size: x-small;
+  font-weight: bold;
+}
+.b2-beacon-name {
+  font-weight: bold;
+  margin-left: 4px;
+  margin-bottom: 5px;
+}
+.b2-beacon-description {
+  font-size: medium;
+  color: gray;
+  padding-left: 10px;
+}
+.b2-ids {
+  font-size: small;
+  max-width: 600px;
+  overflow-wrap: break-word;
+  padding-left: 10px;
+}
+/* --- END BeaconItem.vue --- */
+
+/* --- START BeaconDetails.vue --- */
+.b2-beacon-tab-box {
+  margin-right: 10px;
+  display: block;
+  padding-left: 11px;
+}
+
+/* Style the tab (button)*/
+.b2-tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the tab (buttons) that are used to open the pane */
+.b2-tab button {
+  font-size: small;
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: 0.5s;
+}
+
+/* Change background color of tab (buttons)) on hover */
+.b2-tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tab (button) class */
+.b2-tab button.active {
+  background-color: white;
+  color: green;
+  border: 2px #ccc solid;
+  font-weight: bold;
+}
+
+/* Style the pane content */
+.b2-tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  height: 365px;
+}
+/* --- END BeaconDetails.vue --- */
 </style>

@@ -24,7 +24,7 @@
     <div class="b2-beacon-description">
       {{ beacon.description }}
     </div>
-    <div class="b2-beacon-id">Beacon ID: {{ beacon.beaconId }}</div>
+    <div class="b2-ids">Beacon ID: {{ beacon.beaconId }}</div>
 
     <beacons-browser2-BeaconDetails
       v-show="beacon.showDetails === true"
@@ -38,6 +38,7 @@ export default {
   name: 'BeaconItem',
   props: ['beacon', 'cnt'],
   methods: {
+    openOverlay() {},
     getArrowSrc() {
       if (!this.beacon.showDetails) return '/img/arrow-right-16.png';
       else return '/img/arrow-down-16.png';
@@ -45,42 +46,8 @@ export default {
     showDetails() {
       this.$parent.collapseBeaconDetails(this.beacon.beaconId);
       this.beacon.showDetails = !this.beacon.showDetails;
+      //document.getElementById('myNav').style.height = '100%';
     },
   },
 };
 </script>
-
-<style>
-.b2-beacon-box {
-  padding-top: 5px;
-  padding-left: 5px;
-  padding-bottom: 10px;
-  border: solid lightgrey 1px;
-  border-radius: 0.5em;
-  margin-bottom: 5px;
-  max-width: 620px;
-}
-.b2-beacon-provider {
-  float: right;
-  padding-right: 15px;
-  color: gray;
-  font-size: x-small;
-  font-weight: bold;
-}
-.b2-beacon-name {
-  font-weight: bold;
-  margin-left: 4px;
-  margin-bottom: 5px;
-}
-.b2-beacon-description {
-  font-size: medium;
-  color: gray;
-  padding-left: 10px;
-}
-.b2-beacon-id {
-  font-size: small;
-  max-width: 600px;
-  overflow-wrap: break-word;
-  padding-left: 10px;
-}
-</style>

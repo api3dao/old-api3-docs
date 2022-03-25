@@ -25,17 +25,41 @@ export default {
     src: String,
   },
   data: () => ({
-    width: 560, // 450
-    height: 315, // 200
+    width: 500, // 450, 560, 500
+    height: 300, // 200, 315, 300
   }),
   methods: {
     setPlayerSize() {
-      if (window.innerWidth < 930) {
-        this.width = null;
-        this.height = null;
+      console.log(window.innerWidth);
+      if (window.innerWidth < 300) {
+        this.width = 180;
+        this.height = 130;
+      } else if (window.innerWidth < 361) {
+        // Galaxy 8
+        this.width = 260;
+        this.height = 200;
+      } else if (window.innerWidth < 376) {
+        // iPhone SE
+        this.width = 270;
+        this.height = 207;
+      } else if (window.innerWidth < 455) {
+        this.width = 285;
+        this.height = 215;
+      } else if (window.innerWidth < 780) {
+        this.width = 330;
+        this.height = 235;
+      } else if (window.innerWidth < 814) {
+        this.width = 380;
+        this.height = 260;
+      } else if (window.innerWidth < 930) {
+        this.width = 400;
+        this.height = 275;
+      } else if (window.innerWidth < 1060) {
+        this.width = 480;
+        this.height = 315;
       } else {
         this.width = 560;
-        this.height = 315;
+        this.height = 300;
       }
     },
   },
