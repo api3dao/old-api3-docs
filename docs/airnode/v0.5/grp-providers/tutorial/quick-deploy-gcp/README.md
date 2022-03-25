@@ -114,10 +114,10 @@ Add values for each of the these fields.
 
 ### GCP Project Setup & Credentials
 
-1. First, you need to
+1. First
    [create a GCP project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
-   under which will the Airnode be deployed. Once the project is created, add
-   the project ID to the [secrets.env](./secrets-env.md) file.
+   where the Airnode will be deployed. Once the project is created, add the
+   project ID to the [secrets.env](./secrets-env.md) file.
 
 2. In order for Airnode to deploy successfully, you need to enable the
    [App Engine Admin API](https://console.cloud.google.com/apis/library/appengine.googleapis.com)
