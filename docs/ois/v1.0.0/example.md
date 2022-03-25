@@ -1,5 +1,5 @@
 ---
-title: Example OIS Object
+title: OIS对象示例
 ---
 
 <TitleSpan>OIS</TitleSpan>
