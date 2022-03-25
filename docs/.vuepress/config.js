@@ -13,7 +13,7 @@ module.exports = {
   /// Beacon doc set version pick list.
   versionsBeacon: [{ name: 'v0.1', url: '/beacon/v0.1/' }],
   /// OIS doc set version pick list.
-  versionsOis: [{ name: 'v1.0.0', url: '/ois/v1.0.0/' }],
+  versionsOis: [{ name: 'zh', url: '/ois/zh/' }],
   /// Latest/current Airnode doc set version.
   /// Used by api3dao/airnode CI link checking
   latestVersion: '/airnode/v0.5/',
@@ -22,7 +22,7 @@ module.exports = {
   latestBeaconVersion: '/beacon/v0.1/',
   /// Latest/current OIS doc set version.
   /// Used by api3dao/airnode CI link checking
-  latestOisVersion: '/ois/v1.0.0/',
+  latestOisVersion: '/ois/zh/',
   /// Job page revision, incremented when a new job(s) is added
   jobPageRevision: 3,
   head: [
@@ -61,7 +61,7 @@ module.exports = {
       '/airnode/pre-alpha/': require(`../airnode/pre-alpha/sidebar.js`),
       '/beacon/v0.2/': require(`../beacon/v0.2/sidebar.js`),
       '/beacon/v0.1/': require(`../beacon/v0.1/sidebar.js`),
-      '/ois/v1.0.0/': require(`../ois/v1.0.0/sidebar.js`),
+      '/ois/zh/': require(`../ois/zh/sidebar.js`),
       '/chainapi/': require(`../chainapi/sidebar.js`),
       '/dao-members/': require(`../dao-members/sidebar.js`),
       '/api3/': require(`../api3/sidebar.js`),
