@@ -100,7 +100,6 @@ export default {
       templateTab.className = '';
       paramsTab.className = '';
       graphTab.className = '';
-      console.log(evt);
       evt.currentTarget.className += 'active';
 
       // GRAPH (if available)
