@@ -23,6 +23,8 @@ export default {
   name: 'Video',
   props: {
     src: String,
+    widthOverride: undefined, // If a width is passed do not resize chart, see mounted
+    heightOverride: undefined,
   },
   data: () => ({
     width: 500, // 450, 560, 500
@@ -30,7 +32,6 @@ export default {
   }),
   methods: {
     setPlayerSize() {
-      console.log(window.innerWidth);
       if (window.innerWidth < 300) {
         this.width = 180;
         this.height = 130;
@@ -42,6 +43,14 @@ export default {
         // iPhone SE
         this.width = 270;
         this.height = 207;
+      } else if (window.innerWidth < 391) {
+        // iPhone 12
+        this.width = 345;
+        this.height = 257;
+      } else if (window.innerWidth < 413) {
+        // Galaxy S20
+        this.width = 370;
+        this.height = 257;
       } else if (window.innerWidth < 455) {
         this.width = 285;
         this.height = 215;
@@ -64,10 +73,16 @@ export default {
     },
   },
   mounted() {
-    this.setPlayerSize();
-    window.addEventListener('resize', () => {
+    // If a width is passed do not resize chart
+    if (!this.widthOverride) {
       this.setPlayerSize();
-    });
+      window.addEventListener('resize', () => {
+        this.setPlayerSize();
+      });
+    } else {
+      this.width = this.widthOverride;
+      this.height = this.heightOverride;
+    }
   },
 };
 </script>

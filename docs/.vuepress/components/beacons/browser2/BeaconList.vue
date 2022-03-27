@@ -15,7 +15,7 @@
       placeholder="Filter (must contain all)"
     />
     <div style="margin-top: 4px; font-size: small">
-      Showing {{ beacons.length }} Beacons.
+      Beacons: ({{ beacons.length }})
     </div>
     <hr />
     <div style="padding-left: 55px">
@@ -32,7 +32,7 @@
       v-bind:cnt="i"
     ></beacons-browser2-BeaconItem>
 
-    <beacons-browser2-BeaconModal />
+    <beacons-browser2-BeaconOverlay ref="overlayChild" />
   </div>
 </template>
 
@@ -48,7 +48,6 @@ export default {
     error: null,
     beacons: [],
     beaconsFetched: [],
-    //providers: all,
   }),
   mounted() {
     this.$nextTick(async function () {
@@ -63,10 +62,15 @@ export default {
         // item.show needs to be set before copying the response data to the beaconsFetched array
         for (let i = 0; i < response.data.beacons.length; i++) {
           let item = response.data.beacons[i];
-          // Get the grafanaURL
-          if (providers.beacons[item.beaconId]) {
-            item.grafanaURL = providers.beacons[item.beaconId].grafanaURL;
-          }
+          // Get the grafana URLs
+          //if (providers.beacons[item.beaconId]) {
+          item.grafanaURL =
+            providers.beacons[item.beaconId].grafanaURL || undefined;
+          //}
+          //if (providers.beacons[item.beaconId]) {
+          item.grafanaDeviationURL =
+            providers.beacons[item.beaconId].grafanaDeviationURL || undefined;
+          //}
 
           item.show = true;
 
@@ -87,8 +91,6 @@ export default {
         // TEMP
         /*
         this.beaconsFetched = this.beaconsFetched.concat(this.beaconsFetched);
-        this.beaconsFetched = this.beaconsFetched.concat(this.beaconsFetched);
-        this.beaconsFetched = this.beaconsFetched.concat(this.beaconsFetched);
         */
         this.beacons = this.beaconsFetched;
       } catch (err) {
@@ -100,12 +102,12 @@ export default {
     });
   },
   methods: {
-    // Call by BeaconItem.vue
-    collapseBeaconDetails(beaconId) {
-      for (let x in this.beacons) {
-        if (this.beacons[x].beaconId !== beaconId)
-          this.beacons[x].showDetails = false;
-      }
+    // This function called by BeaconItem.vue to open and set the beacon in hte overly
+    openOverlay(beacon, cnt) {
+      // Call (child) BeaconOverlay.vue and pass along the beacon
+      this.$refs.overlayChild.setBeacon(beacon, cnt);
+      // Open overlay
+      document.getElementById('b2-overlay').style.width = '350px';
     },
     sortByName(a, b) {
       if (b.templateName.toLowerCase() > a.templateName.toLowerCase()) {
@@ -136,7 +138,6 @@ export default {
         });
       });
       this.beacons = this.beaconsFetched.filter((item) => item.show === true);
-      console.log(this.beacons);
     },
   },
 };
@@ -177,6 +178,7 @@ export default {
   font-weight: bold;
 }
 .b2-beacon-name {
+  color: #50c878;
   font-weight: bold;
   margin-left: 4px;
   margin-bottom: 5px;

@@ -26,8 +26,6 @@ individually or combined to build decentralized data feeds or
   address is whitelisted to read the beacon.
 - [beaconIdToReaderToWhitelistStatus()](./beaconid-reader-whiteliststatus.md) -
   Details about the whitelist status of a reader address.
-- [requestBeaconUpdate()](./request-beacon-update.md) - Triggers an update to a
-  Beacon's value.
 
 ## Creating a starter project
 

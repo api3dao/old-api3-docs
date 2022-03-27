@@ -3,7 +3,8 @@
   "beacons": {
     "0x7c3e9a38a16439e9b3e77bfe742f6c10004c26beabfab70fd78e3cf062ed6256": {
       "name": "AAVE/USD",
-      "grafanaURL": "https://monitor.api3.org/d-solo/ZCXhmzx7k/amberdata-beacons-on-ropsten-ethdenver?orgId=1&refresh=1m&from=1648004201921&to=1648047401921&theme=light&panelId=72"
+      "grafanaURL": "https://monitor.api3.org/d-solo/ZCXhmzx7k/amberdata-beacons-on-ropsten-ethdenver?orgId=1&refresh=1m&from=1648004201921&to=1648047401921&theme=light&panelId=72",
+      "grafanaDeviationURL": "https://monitor.api3.org/d-solo/ZCXhmzx7k/amberdata-beacons-on-ropsten-ethdenver?orgId=1&refresh=1m&from=1648251364335&to=1648294564335&theme=light&panelId=73"
     },
     "0xb3fe6276a6b7258dbfe07dda5a3959538d56967531417b8a67f58f4918977584": {
       "name": "ATOM/USD",

@@ -27,14 +27,15 @@ endpoint. The template contains the parameters used by Airnode when calling the
 API endpoint. Additional Beacon parameters may be required to merge with the
 template for the Airnode to call an API endpoint. This entire process is
 completed using the function
-[requestBeaconUpdate()](../functions/request-beacon-update.md).
+[requestBeaconUpdate()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L202).
 
 ::: tip
 
 Useless you intent to ask the Beacon to update itself, outside of its normal
 update process, the use of a Beacon's template will be of no concern. However to
 update a Beacon manually a requester will need the templateId of the Beacon when
-calling the [requestBeaconUpdate()](../functions/request-beacon-update.md)
+calling the
+[requestBeaconUpdate()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L202)
 function.
 
 :::
@@ -48,7 +49,7 @@ function in the monorepo.
 
 Create a `beaconId` by hashing the `templateId` and the Beacon parameters. See
 the
-[requestBeaconUpdate()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L213)
+[requestBeaconUpdate()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L212)
 function in the monorepo.
 
 The `templateId` cannot be derived from the `beaconId`.
