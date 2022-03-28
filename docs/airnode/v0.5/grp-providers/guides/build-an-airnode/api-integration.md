@@ -434,4 +434,4 @@ directly, and let the requester provide all API operation parameters through the
 Airnode endpoint parameters.
 
 Now that you have an OIS object, the next step is
-[Configuring Airnode](configuring-airnode.md).
+[API Security](api-security.md).

@@ -36,7 +36,7 @@ between requesters and Airnodes.
 ### Sponsor's Requester/Airnode Relationships
 
 As a sponsor you will use the public address from an account within a mnemonic
-you own to "**sponsor a requester**" and then use the public address (now know
+you own to "**sponsor a requester**" and then use the public address (known
 as a [sponsorAddress](../concepts/sponsor.md#sponsoraddress)) to "**derive a
 [sponsorWallet](../concepts/sponsor.md#sponsorwallet)**" for an Airnode. This
 action creates a relationship between a sponsor's requester and a particular

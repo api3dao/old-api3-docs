@@ -20,7 +20,7 @@ operations. There are two groups of security schemes.
 <!-- prettier-ignore-->
 > ![api-integration-ois](../../../assets/images/security-schemes.png)
 > <br/>
-> 1.  <p class="diagram-line" style="color:blue;">The Airnode uses <i><b>Airnode Authentication Security Schemes</b></i> to authenticate itself to an API operation of which the values are know only to the Airnode.</p>
+> 1.  <p class="diagram-line" style="color:blue;">The Airnode uses <i><b>Airnode Authentication Security Schemes</b></i> to authenticate itself to an API operation of which the values are known only by the Airnode.</p>
 > 2.  <p class="diagram-line" style="color:green;">The Airnode uses <i><b>Relayed Meta Data Security Schemes</b></i> to forward known information from the requester's request to an API operation.</p>
 
 Security schemes are declared by the required `type` property inside the
