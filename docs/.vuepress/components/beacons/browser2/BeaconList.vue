@@ -63,14 +63,15 @@ export default {
         for (let i = 0; i < response.data.beacons.length; i++) {
           let item = response.data.beacons[i];
           // Get the grafana URLs
-          //if (providers.beacons[item.beaconId]) {
           item.grafanaURL =
-            providers.beacons[item.beaconId].grafanaURL || undefined;
-          //}
-          //if (providers.beacons[item.beaconId]) {
+            'https://monitor.api3.org/d-solo/SDapXdy7z/documentation-dashboard?orgId=1&var-chainId=4&var-beaconId=' +
+            item.beaconId +
+            '&theme=light&panelId=2';
+          //providers.beacons[item.beaconId].grafanaURL || undefined;
           item.grafanaDeviationURL =
-            providers.beacons[item.beaconId].grafanaDeviationURL || undefined;
-          //}
+            'https://monitor.api3.org/d-solo/SDapXdy7z/documentation-dashboard?var-chainId=4&orgId=1&theme=light&panelId=3&var-beaconId=' +
+            item.beaconId;
+          //providers.beacons[item.beaconId].grafanaDeviationURL || undefined;
 
           item.show = true;
 
@@ -106,7 +107,8 @@ export default {
     openOverlay(beacon, cnt) {
       // Call (child) BeaconOverlay.vue and pass along the beacon
       this.$refs.overlayChild.setBeacon(beacon, cnt);
-      // Open overlay
+      // Show overlay
+      document.getElementById('b2-overlay').style.width = '0px';
       document.getElementById('b2-overlay').style.width = '350px';
     },
     sortByName(a, b) {
@@ -178,70 +180,23 @@ export default {
   font-weight: bold;
 }
 .b2-beacon-name {
-  color: #50c878;
+  /*color: green;*/ /*; #50c878; #7ce3cb;*/
   font-weight: bold;
+  font-size: large;
   margin-left: 4px;
   margin-bottom: 5px;
 }
 .b2-beacon-description {
-  font-size: medium;
+  font-size: small;
   color: gray;
   padding-left: 10px;
 }
 .b2-ids {
+  margin-top: 3px;
   font-size: small;
   max-width: 600px;
   overflow-wrap: break-word;
   padding-left: 10px;
 }
 /* --- END BeaconItem.vue --- */
-
-/* --- START BeaconDetails.vue --- */
-.b2-beacon-tab-box {
-  margin-right: 10px;
-  display: block;
-  padding-left: 11px;
-}
-
-/* Style the tab (button)*/
-.b2-tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-}
-
-/* Style the tab (buttons) that are used to open the pane */
-.b2-tab button {
-  font-size: small;
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 4px 8px;
-  transition: 0.5s;
-}
-
-/* Change background color of tab (buttons)) on hover */
-.b2-tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current tab (button) class */
-.b2-tab button.active {
-  background-color: white;
-  color: green;
-  border: 2px #ccc solid;
-  font-weight: bold;
-}
-
-/* Style the pane content */
-.b2-tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-  height: 365px;
-}
-/* --- END BeaconDetails.vue --- */
 </style>
