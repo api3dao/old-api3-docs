@@ -50,11 +50,6 @@ export default {
     iso: null,
     err: null,
   }),
-  /*mounted() {
-    this.$nextTick(async function () {
-      this.setBeaconValue(this.beaconId);
-    });
-  },*/
   methods: {
     async setBeaconValue(beacon) {
       if (beacon != undefined) this.beacon = beacon;
@@ -69,9 +64,6 @@ export default {
         const res = await axios.get(
           'https://api-ethers.herokuapp.com/beacons/' + this.beacon.beaconId
         );
-        /*const res = await axios.get(
-          'http://localhost:3000/beacons/' + this.beacon.beaconId
-        );*/
 
         if (res.data.reason || res.data.code) {
           this.err = res.data.reason + ' - ' + res.data.code;
@@ -84,7 +76,9 @@ export default {
           );
 
           if (_timesArr.length !== 0) {
-            this.value = arr[0] / 1000000; // Template has an error_timesArr[0].value; There is a comma in hte value
+            // The _timesArr[0].value field contains a pair
+            let pairArr = _timesArr[0].value.split(',');
+            this.value = arr[0] / pairArr[0];
           } else {
             this.value = arr[0];
           }

@@ -1,6 +1,4 @@
 <template>
-  <!-- v-show="beacon.show === true" -->
-
   <div class="b2-beacon-box" :key="beacon.beaconId">
     <div class="b2-beacon-provider">
       <a :href="beacon.url">{{ beacon.apiName }}</a> <ExternalLinkImage />
@@ -11,16 +9,17 @@
       style="cursor: pointer; user-select: none"
       @click="showDetails()"
     >
-      <span style="opacity: 0.6"
-        ><Badge type="junk" :text="(cnt + 1).toString()" vertical="middle"
-      /></span>
-
-      {{ beacon.templateName }}
+      <a href="#">
+        <span style="opacity: 0.8"
+          ><Badge type="junk" :text="(cnt + 1).toString()" vertical="middle"
+        /></span>
+        {{ beacon.templateName }}</a
+      >
     </div>
     <div class="b2-beacon-description">
       {{ beacon.description }}
     </div>
-    <div class="b2-ids">Beacon ID: {{ beacon.beaconId }}</div>
+    <div class="b2-ids">ID: {{ beacon.beaconId }}</div>
   </div>
 </template>
 
@@ -35,3 +34,5 @@ export default {
   },
 };
 </script>
+
+<!-- styles for list items are in BeaconList.vue. -->
