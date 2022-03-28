@@ -6,13 +6,13 @@ W3 Off-Canvas menu
 <template>
   <!-- The overlay -->
   <div id="b2-overlay" class="b2-overlay" v-show="!hideContent">
-    <a href="javascript:void(0)" class="closebtn" v-on:click="closeOverlay()"
+    <a href="javascript:void(0)" class="close-btn" v-on:click="closeOverlay()"
       >&times;</a
     >
 
     <a
       href="javascript:void(0)"
-      class="backbtn"
+      class="back-btn"
       v-on:click="showPaneMain()"
       v-show="showTemplate"
       >←</a
@@ -25,7 +25,7 @@ W3 Off-Canvas menu
       v-show="showMain"
     >
       <div class="b2-overlay-content">
-        <div style="margin: auto; text-align: center">
+        <div style="text-align: center; margin-left: -30px">
           <span
             style="
               opacity: 0.6;
@@ -36,7 +36,9 @@ W3 Off-Canvas menu
             "
             >{{ cnt + 1 }}</span
           >
-          <strong>{{ beacon.templateName }}</strong>
+          <span class="b2-overlay-title">
+            {{ beacon.templateName }}
+          </span>
         </div>
         <hr />
         <div>
@@ -100,7 +102,6 @@ W3 Off-Canvas menu
             widthOverride="99%"
             heightOverride="240px"
           />
-
           <div v-else style="padding: 59px">
             Deviation graph data not available.
           </div>
@@ -119,7 +120,10 @@ W3 Off-Canvas menu
       class="b2-overlay-pane-template"
     >
       <div class="b2-overlay-content">
-        <div style="margin: auto; text-align: center">
+        <div style="margin: auto; text-align: center; margin-top: -20px">
+          <div>
+            {{ beacon.templateName }}
+          </div>
           <strong>Decoded Parameters</strong>
         </div>
         <hr />
@@ -148,12 +152,12 @@ export default {
       document.getElementById('b2-overlay').style.width = '0px';
     },
     setBeacon(beacon, cnt) {
-      if (this.beacon !== beacon) {
-        this.beacon = beacon;
-        this.cnt = cnt;
-        this.hideContent = false;
-        this.$refs.overlayValueChild.setBeaconValue(beacon);
-      }
+      this.showTemplate = false;
+      this.showMain = true;
+      this.beacon = beacon;
+      this.cnt = cnt;
+      this.hideContent = false;
+      this.$refs.overlayValueChild.setBeaconValue(beacon);
     },
     showPaneMain() {
       this.showTemplate = false;
@@ -195,7 +199,7 @@ export default {
   border-radius: 0.4em;
   padding: 3px;
 }
-.b2-overlay .backbtn {
+.b2-overlay .back-btn {
   position: fixed;
   top: 75px;
   right: 315px;
@@ -203,11 +207,11 @@ export default {
   text-decoration: none;
 }
 
-.b2-overlay .closebtn {
+.b2-overlay .close-btn {
   /* color: #50c878; to light */
   position: fixed;
   top: 64px;
-  right: 12px;
+  right: 15px;
   font-size: 48px;
   text-decoration: none;
 }
@@ -217,6 +221,16 @@ export default {
 }
 .b2-overlay-pane-template {
   padding-top: 0px;
+}
+
+.b2-overlay-title {
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  font-weight: bold;
+  /* Truncate the name, to fit between buttons. */
 }
 
 /* When the height of the screen is less than 450 pixels, change the font-size of the links
