@@ -8,7 +8,8 @@
     },
     "0xb3fe6276a6b7258dbfe07dda5a3959538d56967531417b8a67f58f4918977584": {
       "name": "ATOM/USD",
-      "grafanaURL": ""
+      "grafanaURL": "",
+      "grafanaDeviationURL": null
     },
     "0xf1976a1d0ce6b6e3a534779baa4ae0a5b3c7a030bc4bd02f35b737b114a7d086": {
       "name": "AVAX/USD",
