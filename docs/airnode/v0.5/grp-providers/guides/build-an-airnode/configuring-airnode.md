@@ -323,7 +323,7 @@ blockchain. See the [HTTP Gateways](./http-gateways.md) doc for more info.
 [<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#httpsigneddatagateway)
 The gateway allows the requesting of defined endpoints without accessing the
 blockchain. Responses are signed and can be submitted to the blockchain. See the
-[HTTP Signed Data Gateway](./http-signed-gateway.md) doc for more info.
+[HTTP Gateways](./http-gateways.md) doc for more info.
 
 - enabled: Enable/disable, using true/false, Airnode's access to the HTTP
   gateway.
