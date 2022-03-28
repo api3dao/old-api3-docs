@@ -26,7 +26,7 @@ might use.
 As an example the `chains` field declares its use of blockchain 4, _Rinkeby_.
 The `type` is set to _evm_ which is the only type currently supported by
 Airnode. It then applies an arbitrary name for the blockchain provider
-"infura_rinkeby" in the `provider` array.
+"infura_rinkeby" in the `providers` array.
 
 ```json
 "chains": [
