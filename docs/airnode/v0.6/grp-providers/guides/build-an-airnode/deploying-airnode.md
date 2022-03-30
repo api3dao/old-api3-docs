@@ -166,7 +166,7 @@ should you choose.
       "region": "us-east-1"
     },
     "stage": "dev",
-    "nodeVersion": "0.5.0"
+    "nodeVersion": "0.6.0"
   },
   "api": {
     "httpGatewayUrl": "https://6vmx3xp8tj.execute-api.us-east-1.amazonaws.com/v1"

@@ -47,7 +47,7 @@ not generated for client deployments (deploying to a Docker container).
       "disableConcurrencyReservations": false
     },
     "stage": "starter-example",
-    "nodeVersion": "0.5.0"
+    "nodeVersion": "0.6.0"
   },
   "api": {
     "heartbeatId": "74dc44a1ee65",
@@ -77,7 +77,7 @@ not generated for client deployments (deploying to a Docker container).
       "projectId": "api3-753118"
     },
     "stage": "dev",
-    "nodeVersion": "0.5.0"
+    "nodeVersion": "0.6.0"
   },
   "api": {}
 }
