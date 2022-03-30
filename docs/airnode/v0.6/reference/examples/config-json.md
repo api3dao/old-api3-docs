@@ -16,7 +16,7 @@ You can also view this example
 [config.json](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-deployer/config/config.example.json)
 in the Airnode repo.
 
-<<< @/docs/airnode/v0.5/reference/examples/config-cloud.json
+<<< @/docs/airnode/v0.6/reference/examples/config-cloud.json
 
 :::
 
@@ -26,7 +26,7 @@ You can also view this example
 [config.json](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-node/config/config.example.json)
 in the Airnode repo.
 
-<<< @/docs/airnode/v0.5/reference/examples/config-local.json
+<<< @/docs/airnode/v0.6/reference/examples/config-local.json
 
 :::
 
