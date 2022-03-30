@@ -7,8 +7,6 @@ title: Setup
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-> Looking for [Airnode Development](../dev-airnode/)?
-
 Prerequisites for a VuePress project are the same as Vue. Currently the project
 is using yarn version `1.22.x`. If you are using yarn `3.x.x` then add the yarn
 cache and support files to `.gitignore` before pushing to the remote repo.
