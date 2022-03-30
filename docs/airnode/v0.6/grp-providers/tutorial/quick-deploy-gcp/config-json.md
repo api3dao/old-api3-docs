@@ -12,4 +12,4 @@ The config.json file contents shown below is for the [Quick Deploy GCP](./)
 demo.
 
 <!-- prettier-ignore -->
-<<< @/docs/airnode/v0.5/grp-providers/tutorial/quick-deploy-gcp/src/quick-deploy-gcp/config/config.json
+<<< @/docs/airnode/v0.6/grp-providers/tutorial/quick-deploy-gcp/src/quick-deploy-gcp/config/config.json

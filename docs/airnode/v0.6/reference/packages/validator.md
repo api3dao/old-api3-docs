@@ -73,7 +73,7 @@ console.log(
 );
 // Using a versioned template.
 console.log(
-  validator.validateWithTemplate('exampleSpecs/config.specs.json', 'config@0.5')
+  validator.validateWithTemplate('exampleSpecs/config.specs.json', 'config@0.6')
 );
 
 # Outputs json
@@ -136,8 +136,8 @@ must be in separate files to be validated.
 # Validates a completed config.json file using the latest template version.
 npx @api3/airnode-validator --template="config" --specs="myProject/config/config.json"
 
-# Uses the 0.5 template version.
-npx @api3/airnode-validator --template="config@0.5" --specs="myProject/config/config.json"
+# Uses the 0.6 template version.
+npx @api3/airnode-validator --template="config@0.6" --specs="myProject/config/config.json"
 ```
 
 You will most likely keep secrets in a file separate from the `config.json`

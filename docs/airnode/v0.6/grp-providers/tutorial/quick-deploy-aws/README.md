@@ -64,7 +64,7 @@ quick-deploy-aws
 
 ::: tab Download
 
-Download the <a href="/zip-files/quick-deploy-aws-v0.5.zip" download>
+Download the <a href="/zip-files/quick-deploy-aws-v0.6.zip" download>
 quick-deploy-aws</a> project folder.
 
 :::
