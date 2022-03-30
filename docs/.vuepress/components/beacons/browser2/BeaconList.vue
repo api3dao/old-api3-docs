@@ -108,7 +108,6 @@ export default {
       // Call (child) BeaconOverlay.vue and pass along the beacon
       this.$refs.overlayChild.setBeacon(beacon, cnt);
       // Show overlay
-      document.getElementById('b2-overlay').style.width = '0px';
       document.getElementById('b2-overlay').style.width = '350px';
     },
     sortByName(a, b) {
@@ -121,6 +120,7 @@ export default {
       return 0;
     },
     find(event) {
+      this.$refs.overlayChild.closeOverlay();
       let text = this.$el.querySelector('#searchText').value.toLowerCase();
       const arr = text.split(' ');
 
