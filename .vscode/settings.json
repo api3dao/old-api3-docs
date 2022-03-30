@@ -24,6 +24,8 @@
     "airkeeper",
     "webform",
     "preconfigured",
+    "grafana",
+    "dttm",
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true

@@ -144,7 +144,7 @@ enough to meet the limit so request C2 is dropped as well.
 Note, that this limit only applies to the requests initiated on chain. For
 example, requests initiated using HTTP gateway are not included in this limit.
 
-Also note, that this limit is configured per chain and the limits of different
+Also note that, this limit is configured per chain and the limits of different
 chains are unrelated to each other.
 
 :::
@@ -323,7 +323,7 @@ blockchain. See the [HTTP Gateways](./http-gateways.md) doc for more info.
 [<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#httpsigneddatagateway)
 The gateway allows the requesting of defined endpoints without accessing the
 blockchain. Responses are signed and can be submitted to the blockchain. See the
-[HTTP Signed Data Gateway](./http-signed-gateway.md) doc for more info.
+[HTTP Gateways](./http-gateways.md) doc for more info.
 
 - enabled: Enable/disable, using true/false, Airnode's access to the HTTP
   gateway.
@@ -636,8 +636,8 @@ do not push your credentials to a repository or otherwise expose them as these
 credentials can be used to gain access to your Airnode's private key, AWS
 account or GCP account.
 
-The next four steps in this guide are optional.
+The next three steps in this guide are optional.
 
-- [Applying Authorization](./apply-auth.md) optional
+- [Using Authorizers](./apply-auth.md) optional
 - [Heartbeat](./heartbeat.md) optional
 - [HTTP Gateways](./http-gateways.md) optional

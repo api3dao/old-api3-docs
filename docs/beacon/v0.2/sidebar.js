@@ -18,7 +18,6 @@ module.exports = [
       'functions/read-beacon',
       'functions/reader-can-read-beacon',
       'functions/beaconid-reader-whiteliststatus',
-      'functions/request-beacon-update',
     ],
   },
 

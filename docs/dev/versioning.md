@@ -8,7 +8,7 @@ title: Versioning
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 The docs are group into documents sets. Some of these sets are versioned such as
-Airnode (`airnode/v0.4/`);
+Airnode (`airnode/v0.6/`);
 
 - Airnode (versioned)
 - API3
@@ -24,7 +24,7 @@ version.
 
 ## Base Routes
 
-All sub-folders in _/docs_ are base routes except for `/.vuepress`. Each
+All sub-folders in `/docs` are base routes except for `/.vuepress`. Each
 represents a logical group called a _document set_. The
 `/airnode, /beacon & /ois` folders contain versions of their respective document
 set.
@@ -34,15 +34,13 @@ docs/
  ├── airnode/
     ├── pre-alpha/
     ├── v0.2/
-    ├── v0.3/
-    ├── v0.4/
-    └── v0.5/
+    ├── ...
+    └── v0.6/
  ├── api3/
  ├── beacon
     └── v0.1/
  ├── common/
  ├── dev/
- ├── dev-airnode/
  └── dao-members
  ├── ois
     └── v1.0.0/
@@ -50,9 +48,9 @@ docs/
 
 ## config.js
 
-A versioned sub-route in the version folders for `/airnode, /beacon and /ois`
-becomes their respective version. A corresponding versions array is declared in
-_.vuepress/config.json_ for each.
+Sub folders for `/airnode, /beacon and /ois` can become their respective
+versions. A corresponding versions array is declared in _.vuepress/config.json_
+for each document set.
 
 - Update the `versions, versionBeacon, versionOis` key in
   `/doc/.vuepress/config.json`. Provide the version name and url.
@@ -66,9 +64,8 @@ _.vuepress/config.json_ for each.
 ```json
    /// Airnode doc set version pick list.
   versions: [
-    { name: 'v0.4', url: '/airnode/v0.4/' },
-    { name: 'v0.3', url: '/airnode/v0.3/' },
-    { name: 'v0.2', url: '/airnode/v0.2/' },
+    { name: 'v0.6', url: '/airnode/v0.6/' },
+    ...
     { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
   ],
   /// Next version of airnode, used by /next route.
