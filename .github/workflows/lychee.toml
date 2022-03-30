@@ -74,6 +74,7 @@ exclude = [
   "config@0.3",
   "config@0.4",
   "config@0.5",
+  "config@0.6",
   "OIS@0.3",
   "ois@1.0",
   ".*/NOT-A-REAL-FILE.html",
