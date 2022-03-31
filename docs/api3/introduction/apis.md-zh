@@ -10,7 +10,7 @@ _查看我们的文章 [APIs：数字胶水](https://medium.com/api3/apis-the-di
 
 应用程序编程接口（API）是一种定义明确和文档化的协议，用于与特定应用相互通信。然而，在去中心化应用程序中，这种定义的毫无用处的，甚至有些误导性。相反的，我们应该认识到可以用API来作为将企业的数据和服务变现的渠道。
 
-以 [CoinMarketCAp API](https://coinmarketcap.com/api/) 为例子。 它允许网络开发人员通过调用API，以编程方式在他们的应用程序中使用在https://coinmarketcap.com/ 上看到的所有数据以及更多的数据。 作为回报，开发人员则要支付一笔 [订阅费](https://coinmarketcap.com/api/pricing/)给CoinMarketCap。 实际上，任何一种值得使用的数据或服务都是由付费API提供的。
+以 [CoinMarketCap API](https://coinmarketcap.com/api/) 为例子。 它允许网络开发人员通过调用API，以编程方式在他们的应用程序中使用在https://coinmarketcap.com/ 上看到的所有数据以及更多的数据。 作为回报，开发人员则要支付一笔 [订阅费](https://coinmarketcap.com/api/pricing/)给CoinMarketCap。 实际上，任何一种值得使用的数据或服务都是由付费API提供的。
 
 <p align="center">
   <img src="../assets/images/coinmarketcap.png" />
