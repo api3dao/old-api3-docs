@@ -10,7 +10,7 @@ title: OIS是什么？
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-OIS（或称预言机集成规范-Oracle Integration Specifications）是一个JSON对象，它描述了一个API规范，并定义了与API操作相联系的 Airnode 终端节点( Endpoints）。 它是定义Airnode的 `config.json` 文件中的五个根级别对象之一。
+OIS（或称预言机集成规范-Oracle Integration Specifications）是一个JSON对象，它描述了一个API规范，并定义了与API操作相联系的 Airnode 终端节点(a.k.a. endpoints). 它是定义Airnode的 `config.json` 文件中的五个根级别对象之一。
 
 - chains
 - nodeSettings
