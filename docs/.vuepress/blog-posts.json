@@ -62,6 +62,18 @@
           "dt": "2022-03-03",
           "title": "What are Beacons? Why does Web3 care?",
           "url": "https://medium.com/api3/what-are-beacons-why-does-web3-care-67f4b0ec0c7"
+        },
+        {
+          "date": "Mar 30, 2022",
+          "dt": "2022-03-30",
+          "title": "Announcing the ETHDenver 2022 API3 Bounty Winners",
+          "url": "https://medium.com/api3/announcing-the-ethdenver-2022-api3-bounty-winners-56ee12420bf6"
+        },
+        {
+          "date": "Mar 31, 2022",
+          "dt": "2022-03-31",
+          "title": "dAPIs: APIs for dApps",
+          "url": "https://medium.com/api3/dapis-apis-for-dapps-53b83f8d2493"
         }
       ]
     },
@@ -284,6 +296,12 @@
           "dt": "2022-02-28",
           "title": "API3 Core Technical Team Report, February 2022",
           "url": "https://medium.com/api3/api3-core-technical-team-report-february-2022-a24de05a532e"
+        },
+        {
+          "date": "Mar 31, 2022",
+          "dt": "2022-03-31",
+          "title": "API3 Core Technical Team Report, March 2022",
+          "url": "https://bbenligiray.medium.com/api3-core-technical-team-report-march-2022-951fb63e6338"
         }
       ]
     },
