@@ -1,0 +1,117 @@
+{
+  "chains": [
+    {
+      "authorizers": [],
+      "contracts": {
+        "AirnodeRrp": "0xC11593B87f258672b8eB02d9A723a429b15E9E03"
+      },
+      "id": "4",
+      "providers": {
+        "myChainProvider": {
+          "url": "${CHAIN_PROVIDER_URL}"
+        }
+      },
+      "type": "evm"
+    }
+  ],
+  "nodeSettings": {
+    "cloudProvider": {
+      "type": "gcp",
+      "region": "us-east1",
+      "projectId": "${PROJECT_ID}"
+    },
+    "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
+    "heartbeat": {
+      "enabled": false
+    },
+    "logFormat": "plain",
+    "logLevel": "INFO",
+    "nodeVersion": "0.3.1",
+    "stage": "dev"
+  },
+  "triggers": {
+    "rrp": [
+      {
+        "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
+        "oisTitle": "CoinGecko Basic Request",
+        "endpointName": "coinMarketData"
+      }
+    ]
+  },
+  "ois": [
+    {
+      "oisFormat": "1.0.0",
+      "title": "CoinGecko Basic Request",
+      "version": "1.0.0",
+      "apiSpecifications": {
+        "servers": [
+          {
+            "url": "https://api.coingecko.com/api/v3"
+          }
+        ],
+        "paths": {
+          "/simple/price": {
+            "get": {
+              "parameters": [
+                {
+                  "in": "query",
+                  "name": "ids"
+                },
+                {
+                  "in": "query",
+                  "name": "vs_currencies"
+                }
+              ]
+            }
+          }
+        },
+        "components": {
+          "securitySchemes": {}
+        },
+        "security": {}
+      },
+      "endpoints": [
+        {
+          "name": "coinMarketData",
+          "operation": {
+            "method": "get",
+            "path": "/simple/price"
+          },
+          "testable": true,
+          "fixedOperationParameters": [],
+          "reservedParameters": [
+            {
+              "name": "_type",
+              "fixed": "int256"
+            },
+            {
+              "name": "_path",
+              "fixed": "api3.usd"
+            },
+            {
+              "name": "_times",
+              "fixed": "1000000"
+            }
+          ],
+          "parameters": [
+            {
+              "name": "coinIds",
+              "operationParameter": {
+                "in": "query",
+                "name": "ids"
+              }
+            },
+            {
+              "name": "coinVs_currencies",
+              "operationParameter": {
+                "in": "query",
+                "name": "vs_currencies"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "apiCredentials": []
+}
