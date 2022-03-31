@@ -1,5 +1,6 @@
 files:
-  - source: /docs/ois/
+  - source: /docs/
     ignore:
-      - /docs/.vue*
-    translation: /docs/ois/%two_letters_code%/%original_file_name%
+      - '*vue*'
+      - '*.js'
+    translation: /%two_letters_code%/%original_path%/%original_file_name%

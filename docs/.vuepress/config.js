@@ -54,6 +54,7 @@ module.exports = {
       { text: 'GitHub', link: 'https://github.com/api3dao/api3-docs' },
     ],
     sidebar: {
+      '/airnode/v0.6/': require(`../airnode/v0.6/sidebar.js`),
       '/airnode/v0.5/': require(`../airnode/v0.5/sidebar.js`),
       '/airnode/v0.4/': require(`../airnode/v0.4/sidebar.js`),
       '/airnode/v0.3/': require(`../airnode/v0.3/sidebar.js`),
@@ -66,7 +67,6 @@ module.exports = {
       '/dao-members/': require(`../dao-members/sidebar.js`),
       '/api3/': require(`../api3/sidebar.js`),
       '/dev/': require(`../dev/sidebar.js`),
-      '/dev-airnode/': require(`../dev-airnode/sidebar.js`),
     },
     /*
       2021-02-17: wkande:
