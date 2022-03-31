@@ -124,9 +124,9 @@ Add values for each of the these fields.
    specifically for the project. After enabling it, wait a few minutes before
    deploying the Airnode for this change to take effect.
 
-3. Make sure you have billing enabled for your project. 
-   To do so, you will need to pair the project with your 
-   bank card, although no charges will be incurred.
+3. Make sure you have billing enabled for your project. To do so, you will need
+   to pair the project with your bank card, although no charges will be
+   incurred.
 
 <!-- 3. Enable the
    [API Gateway](https://console.cloud.google.com/marketplace/product/google/apigateway.googleapis.com?returnUrl=%2Fapi-gateway%2Fapi&project=zzz).
