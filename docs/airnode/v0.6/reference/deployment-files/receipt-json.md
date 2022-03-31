@@ -19,8 +19,8 @@ It also provides the Airnode xpub for the hardened derivation path
 their designated sponsor wallet. This wallet will then be used by the Airnode to
 fulfill each request made by the requester contracts.
 
-- `airnodeWallet`: describes the Airnode that was deployed
-- `deployment`: where the Airnode was deployed to
+- `airnodeWallet`: address and xpub information
+- `deployment`: Airnode configuration and timestamp of deployment
 - `api`: contains the details of the Airnode API (e.g.
   [heartbeat](../../grp-providers/guides/build-an-airnode/heartbeat.md) or
   [testing gateways](../../grp-providers/guides/build-an-airnode/http-gateways.md))
@@ -47,7 +47,8 @@ not generated for client deployments (deploying to a Docker container).
       "disableConcurrencyReservations": false
     },
     "stage": "starter-example",
-    "nodeVersion": "0.6.0"
+    "nodeVersion": "0.6.0",
+    "timestamp": "2022-03-26T02:37:55.506Z"
   },
   "api": {
     "heartbeatId": "74dc44a1ee65",
@@ -77,7 +78,8 @@ not generated for client deployments (deploying to a Docker container).
       "projectId": "api3-753118"
     },
     "stage": "dev",
-    "nodeVersion": "0.6.0"
+    "nodeVersion": "0.6.0",
+    "timestamp": "2022-03-26T02:37:55.506Z"
   },
   "api": {}
 }
