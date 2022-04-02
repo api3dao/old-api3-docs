@@ -6,42 +6,42 @@ title: 处理提案
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Staking tokens in the DAO pool gives you governance rights to create and vote on proposals.
+在 DAO 池中质押代币将赋予您创建和投票 提案的治理权限。
 
-To create a proposal, you must not have created a proposal in the last seven days and you must hold at least 0.1% of the total staked tokens in the pool. This required percentage, as well as other DAO parameters, can be adjusted by the DAO as described in [Dashboard Attributes](../contract-architecture/dashboard-attributes.md). To view the percentage of staked tokens in the pool for an address, visit the [DAO Tracker wallets page](https://enormous.cloud/dao/api3/tracker/wallets).
+要创建一个提案，您必须在7 天内没有创建过一个提案，您必须至少持有池中总质押代币0.1% 的质押代币数量。 这个需要的百分比，以及其他 DAO 参数可以由 [控制面板属性](../contract-architecture/dashboard-attributes.md) 中所述的 DAO 来调整。 要查看 地址质押代币在池中的百分比，请访问 [DAO 追踪器 钱包地址页面](https://enormous.cloud/dao/api3/tracker/wallets)。
 
-You can vote on all proposals regardless of the percentage of staked tokens in the pool you own. See [How to Vote](voting.md) for instructions. Alternatively, you can delegate your voting power to someone else. See the [delegation pitch section](https://forum.api3.org/c/delegation-pitch/7) of the API3 forum for posts by community members offering to act as delegates or to post your own delegate pitch.
+您可以对所有提案投票，而不论您所质押代币占 池中代币的百分比是多少。 请参阅 [如何投票](voting.md) 中的说明。 或者， 你可以将你的投票权授予其他人。 查看 API3 论坛的 [delegation pitch 版块](https://forum.api3.org/c/delegation-pitch/7) 查阅社区成员的帖子或 发表您自己的观点。
 
-## Getting Started
+## 开始
 
-1. Access the [DAO Dashboard](https://api3.eth.link/)
-2. Click the **Connect Wallet** button in the upper right hand corner and connect to your wallet using the Ethereum Mainnet.
+1. 访问 [DAO 控制面板](https://api3.eth.link/)
+2. 点击右上角的 **连接钱包** 按钮，并 使用 Ethereum 主网连接到您的钱包地址。
 
 <!-------------------------->
 
-## Proposals and History
+## 提案及历史记录
 
-The **Governance** page displays a list of active proposals and the **History** page displays proposals that have been executed or rejected.
+**Governance** 页面显示活跃提案列表，而 **历史记录** 页面显示已执行或被否决的提案。
 
 :::: tabs
 
-::: tab Read & Learn
+::: tab 阅读 & 学习
 
-1. Navigate to the **Governance** page.
+1. 浏览 **Governance** 页面。
 
-   > Here you can browse and create proposals, view the treasury, and delegate your votes. **Active proposals** lists all proposals open for voting.
+   > 您可以在这里浏览和创建提案，查看国库，和授权 您的投票。 **Active proposals**栏列出了所有开放投票的提案。
 
-   > There are two types of proposals, primary and secondary. Primary proposals require an absolute majority vote, while secondary proposals require a 15% vote to pass. For each proposal in the list you can see the title, proposal type, vote deadline, and vote status.
+   > 有两类提案，主要和次要提案。 主要提案 需要绝对多数票，而次要提案需要15% 票就能通过。 对于列表中的每个提案，你可以看到标题、提议 类型、投票截止日期和投票状态。
 
-   > To view additional details click on the desired proposal. The detail view shows your vote delegation status and a **Summary** section with the details of the proposal.
+   > 要查看更多详情，请单击相应提案。 详细视图 显示您的投票授权状态， **Summary** 部分则展示提案的 细节。
 
-2. To view previous governance proposals, navigate to the **History** page.
+2. 要查看先前的治理提案，请浏览 **History** 页面。
 
-   > Proposals in the history list have either been executed or rejected.
+   > 历史记录中的提案已被执行或被否决。
 
 :::
 
-::: tab Watch and Learn
+::: tab 观看和学习
 
 <Video src="https://www.youtube.com/embed/k0XEkJtWAGk">
 
@@ -51,27 +51,27 @@ The **Governance** page displays a list of active proposals and the **History** 
 
 <!-------------------------->
 
-## Proposal Creation
+## 创建提案
 
-Proposals are an important part of DAO governance and can be used to fund DAO projects or ratify DAO level decisions like updating the stake target.
+提案是DAO治理的一个重要部分，可用来资助DAO 项目或批准DAO级别的决定，如更新质押目标的决定。
 
-Creating a proposal is a process:
+创建提案的步骤是：
 
-1. (Recommended) Promote your idea and gather feedback on the API3 forum using a [sentiment check post](https://forum.api3.org/t/sentiment-check-template/56). Generally, ideas receiving community engagement on the forum are more likely to pass once crafted as official proposals.
-2. Create an [official proposal post](https://forum.api3.org/t/api3-dao-example-proposal-template/52) on the API3 forum. This should contain a link to the [proposal description on IPFS](#using-ipfs-for-proposals).
-3. After receiving feedback from the above steps, create a formal proposal using the DAO dashboard as described below.
-4. Provide a link to this proposal in the official proposal forum thread to direct community members on where to vote.
+1. (推荐）在API3论坛发表观点检查帖子（[sentiment check post](https://forum.api3.org/t/sentiment-check-template/56)）宣传你的观点并收集反馈意见。 一般来说，在论坛上得到社区参与的观点更有可能在成为正式提案后通过。
+2. 在 API3 论坛上创建正式提案帖子（[official proposal post](https://forum.api3.org/t/api3-dao-example-proposal-template/52)）。 这应该产生一个[IPFS提案描述](#using-ipfs-for-proposals)的链接。
+3. 在收到上述步骤的反馈后，使用下面描述的 DAO控制面板创建一个正式提案。
+4. 在正式提案论坛中提供一个与此提案相关的链接， 让社区成员能直接通过链接投票。
 
   <!--**Proposal Types**
 
   In general, a proposal type of _Primary_ has a larger treasury and more permissions but has more stringent voting settings than a _Secondary_ type. For a technical breakdown of the different permissions granted to the DAO's proposal types (and corresponding Agents) see this [README](https://github.com/api3dao/api3-dao/blob/develop/packages/dao/README.md#permissions).
   -->
 
-#### Important Tips
+#### 重要提示
 
-::: tip Public Address and ENS Names
+::: tip 公开地址和ENS名称
 
-For public addresses use the checksum version of the address where some alphabetical characters are capitalized. Copy your address to etherscan to get its checksum value. ENS names are allowed. See the [Using ENS Names](proposals.md#using-ens-names) section below.
+对于公开地址，使用一些 字母大写的地址校验和版本。 Copy your address to etherscan to get its checksum value. ENS names are allowed. See the [Using ENS Names](proposals.md#using-ens-names) section below.
 
 :::
 
