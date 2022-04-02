@@ -14,7 +14,7 @@ API3的投票app实现了一个简单的基于法定人数的投票机制：
 
 提案包含一个执行脚本，如果提案通过了，可以执行提案。
 
-API3 DAO在投票app上安装了两个版本，主版本和子版本，以及它们所控制的两个Aragon 代理(Aragon Agents)。 主版本控制大一点的国库，可以更新所有 DAO 设置。 子版本则控制一个小得多的国库，只可以更新一些DAO设置。
+API3 DAO在投票app上安装了两个版本，主版本和子版本，以及它们所控制的两个Aragon 代理(Aragon Agents)。 主要版本控制大一点的国库，可以更新所有 DAO 设置。 次要版本则控制一个小得多的国库，只可以更新一些DAO设置。
 
 查看 [Api3Template.sol](https://github.com/api3dao/api3-dao/tree/main/packages/dao/contracts) 合约代码和它所继承的Aragon合约。
 
