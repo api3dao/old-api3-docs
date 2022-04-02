@@ -58,7 +58,7 @@ title: 处理提案
 创建提案的步骤是：
 
 1. (推荐）在API3论坛发表观点检查帖子（[sentiment check post](https://forum.api3.org/t/sentiment-check-template/56)）宣传你的观点并收集反馈意见。 一般来说，在论坛上得到社区参与的观点更有可能在成为正式提案后通过。
-2. 在 API3 论坛上创建正式提案帖子（[official proposal post](https://forum.api3.org/t/api3-dao-example-proposal-template/52)）。 这应该产生一个[IPFS提案描述](#using-ipfs-for-proposals)的链接。
+2. 在 API3 论坛上创建正式提案帖子（[official proposal post](https://forum.api3.org/t/api3-dao-example-proposal-template/52)）。 这里面应该包含一个[托管在IPFS的提案描述](#using-ipfs-for-proposals)的链接。
 3. 在收到上述步骤的反馈后，使用下面描述的 DAO控制面板创建一个正式提案。
 4. 在正式提案论坛中提供一个与此提案相关的链接， 让社区成员能直接通过链接投票。
 
@@ -71,48 +71,48 @@ title: 处理提案
 
 ::: tip 公开地址和ENS名称
 
-对于公开地址，使用一些 字母大写的地址校验和版本。 Copy your address to etherscan to get its checksum value. ENS names are allowed. See the [Using ENS Names](proposals.md#using-ens-names) section below.
+对于公开地址，使用一些 字母大写的地址校验和版本。 将您的地址复制到etherscan获取 其校验和值。 ENS名称是允许的。 查看 [使用ENS名称](proposals.md#using-ens-names) 部分.
 
 :::
 
-::: tip USDC Precision
+::: tip USDC精度
 
-USDC uses 6 decimal places of precision as opposed to 18 that many other ERC20 tokens use. Add 6 zeros after the amount you are asking for.
+USDC 使用小数点后6位精度，而其他许多ERC20 代币使用的精度为小数点后18位。 在相应金额之后添加6个零。
 
 :::
 
-To create a new proposal using the DAO dashboard:
+使用 DAO 控制面板创建一个新提案：
 
 :::: tabs
 
-::: tab Read & Learn
+::: tab 阅读 & 学习
 
-1. Click the **New Proposal** button on the Governance page.
+1. 点击Governance页面上的**New Proposal** 按钮。
 
-2. Select the **Proposal Type** on the proposal form.
+2. 在提案表单上选择 **Proposal Type** （提案类型）。
 
-   > Proposals can be submitted to either the _Primary_ or _Secondary_ voting types. These two types have access to separate treasuries, have different voting settings, and have different permissions to change contract settings. For a technical breakdown of the different permissions granted to the DAO's proposal types (and corresponding Agents) see this [README](https://github.com/api3dao/api3-dao/blob/develop/packages/dao/README.md#permissions).
+   > 提案可以分为 _主要Primary_ 或 _次要Secondary_ 表决 类型。 这两种类型可以访问单独的国库，拥有不同的 投票设置，并且有不同的权限更改合约 设置。 对于授予DAO的提案类型(和对应的代理) 的不同权限的技术分类，请查看 [README](https://github.com/api3dao/api3-dao/blob/develop/packages/dao/README.md#permissions)部分。
 
-3. Enter a descriptive **Title**.
+3. 输入描述性的 **标题**.。
 
-   > The title will appear on the Governance page and is used to identify the proposal. A good descriptive title will help others navigate the proposal list.
+   > 标题将出现在 Governance页面上，用于标识 提案。 一个很好的描述性标题将有助于他人浏览提案 列表。
 
-4. Enter a **Description** that details the proposal.
+4. 详细**描述**提案细节
 
-   > A description can be typed text but consider using a PDF hosted on IPFS. See the [Using IPFS for Proposals](proposals.md#using-ipfs-for-proposals) section below. Also consider adding a link back the forum where you posted your proposal for discussion.
+   > 描述可以输入文字，也可以考虑使用托管 在IPFS 上的 PDF 文件。 查看 [使用IPFS 提案](proposals.md#using-ipfs-for-proposals) 部分。 还可以考虑在论坛上添加一个链接，链接到您在论坛供社区讨论的帖子。
 
-5. Enter the **Target Contract** address.
+5. 输入 **目标合约**地址。
 
-   > This is the address of the contract to call. For example the commonly used target contract for USDC is
-   <code style="overflow-wrap: break-word;">0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48</code>.
+   > 这是合约要调用的地址。 例如，通常使用 的 USDC 合约地址是
+   <code style="overflow-wrap: break-word;">0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48</code>。
 
-6. Enter the **Contract Target Signature**.
+6. 输入 **合约签名**。
 
-   > Defines the signature of the function to call within the target contract. For the target contract USDC mentioned above use `transfer(address,uint256)`. <span style="color:orange">Do not use any > spaces in the signature: leading, trailing or otherwise.</span>
+   > 定义合约调用函数的签名。 对于上面提到的 USDC合约地址，使用 `transfer(address,uint256)`函数。 <span style="color:orange">不要在签名中使用任何 空格、主导、拖尾或其他。</span>
 
-7. Enter an **ETH Value**.
+7. 输入 **ETH 值**。
 
-   > You can use zero if the target function is not `payable`.
+   > 如果目标函数不是 `可支付` ，您可以使用0。
 
 8. Enter **Parameters** which are the arguments that will be used to satisfy the signature of the target contract function.
 
@@ -130,7 +130,7 @@ To create a new proposal using the DAO dashboard:
 
 :::
 
-::: tab Watch & Learn
+::: tab 观看 & 学习
 
 <Video src="https://www.youtube.com/embed/XO1iA3wSYMQ">
 
@@ -138,7 +138,7 @@ To create a new proposal using the DAO dashboard:
 
 ::::
 
-## Proposal Execution
+## 执行提案
 
 <!-- The following is the older version of execution rules. This was not
 very accurate, see PR: AN384 proposals #516.
@@ -172,15 +172,15 @@ Primary type proposals require 50% of all voting power to have voted "yes" on th
 > <p align="left">
 >  <img src="../figures/dashboard/executable-proposal.png" width="400" />
 > </p>
-## Using ENS Names
+## 使用ENS名称
 
 You are encouraged to use the [ENS app](https://app.ens.domains/) to register a name and associate it with an Ethereum account. Then, while entering your proposal parameters, you can use this ENS name instead of the account address. Before making the transaction that will create the proposal, the DAO dashboard will look up the address that the ENS name is pointing to and use the raw address in the proposal. Therefore, changing the address that the ENS name is pointing to after this look up operation **WILL NOT** have an affect on the proposal.
 
 For voters to see your ENS name instead of the raw address on the proposal details page, you will have to use the [ENS app](https://app.ens.domains/) to set a reverse record pointing to your ENS name (i.e., you need to have your raw address point to the ENS name). If your proposal will make a `transfer(address,uint256)` call to an ERC20 token contract where `address` is the address of a _multisig_ wallet, you can [set a reverse record with the multisig](https://medium.com/the-ethereum-name-service/you-can-now-manage-ens-names-with-gnosis-safe-9ddcb7e6c4ac) to your ENS name. See Parameters in [this proposal](https://api3.eth.link/#/history/secondary-6) for an example.
 
-## Using IPFS for Proposals
+## 使用IPFS处理提案
 
-Consider this use case: You posted on the [API3 forum](https://forum.api3.org/) about a potential proposal. You received positive feedback and decide to formally create a proposal using the DAO dashboard. In the proposal's description field you provide a link back to the forum so people can again see the proposal details. How does the voter know that it's the exact same proposal they had read earlier in the forum? IPFS addressing content by its hash is convenient here, because any change you'll make to your proposal will change its hash.
+考虑这个用例：您在 [API3 论坛](https://forum.api3.org/) 上发布一个可能的提案。 你收到积极的反馈，然后决定使用DAO控制面板正式创建提案。 In the proposal's description field you provide a link back to the forum so people can again see the proposal details. How does the voter know that it's the exact same proposal they had read earlier in the forum? IPFS addressing content by its hash is convenient here, because any change you'll make to your proposal will change its hash.
 
 ![image](../assets/images/ipfs-proposals.png)
 
@@ -199,6 +199,6 @@ To host a proposal description on IPFS:
 
 Remember that the URL the voter sees in the DAO dashboard proposal description field is final and should match the URL on the forum.
 
-**Updating a PDF**
+**更新PDF**
 
 You can update your PDF if needed before creating a formal proposal using the DAO dashboard. First, upload the new version to your IPFS provider; since the content has changed, it will get a new hash. Next, update the link in your forum posting. Lastly, create the proposal using the DAO dashboard. Since the proposal contains the IPFS hashed link in the description field, the PDF should be considered final and changing the hashed link in the forum at this point would caution the voter.
