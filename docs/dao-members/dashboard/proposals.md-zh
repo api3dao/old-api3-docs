@@ -187,18 +187,18 @@ page, as shown below:
 在 IPFS 上托管一个提案描述：
 
 1. 创建 PDF 版本的提案。
-2. 将 PDF 上传到 [Fleek](https://fleek.co) 或您首选的 IPFS 主机 提供商。 要使用Fleek，创建一个免费的基本帐户，并在存储（Storage）页面上使用 上传（Upload ）工具。 Fleek will provide an IPFS hash of the PDF, for example:
+2. 将 PDF 上传到 [Fleek](https://fleek.co) 或您首选的 IPFS 主机 提供商。 要使用Fleek，创建一个免费的基本帐户，并在存储（Storage）页面上使用 上传（Upload ）工具。 Fleek将提供PDF文件的 IPFS哈希值, 例如:
    <code style="overflow-wrap: break-word;">bafybeifl4prxv75fgumtjh4ovklfkp7zzt7dwkl4xmndv37gtcalwpam2u</code>.
-3. If using Fleek, append the hash to `https://ipfs.fleek.co/ipfs/`. The URL for the above hash would then be:
+3. 如果使用 Fleek，则将哈希值添加到 `https://ipfs.fleek.co/ipfs/`。 然后上述哈希值的 URL：
 
    > <a style="overflow-wrap: break-word;" target="_blank"
-   >  href="https://ipfs.fleek.co/ipfs/bafybeifl4prxv75fgumtjh4ovklfkp7zzt7dwkl4xmndv37gtcalwpam2u">
-   > https://ipfs.fleek.co/ipfs/bafybeifl4prxv75fgumtjh4ovklfkp7zzt7dwkl4xmndv37gtcalwpam2u
-   > </a>
-4. Add the URL to your forum posting and later to the description field of your DAO dashboard proposal.
+   >  href="https://ipfs.fleek.co/ipfs/bafybeifl4prxv75fgumtjh4ovklfkp7zzzt7dwkl4xmndv37gtcalwpam2u">
+   > https://ipfs.flek.co/ipfs/bafybeifl4prxv75fgumtjh4ovklfkp7zpt7dwkl4xmndv37gtcalwpam2u
+> </a>
+4. 将URL添加到您的论坛帖子中，然后添加到您的 DAO 控制面板的提案描述栏。
 
-Remember that the URL the voter sees in the DAO dashboard proposal description field is final and should match the URL on the forum.
+请记住，投票人在 DAO 控制面板提案描述 中看到的 URL 是最终版的，应该与论坛上的 URL 匹配。
 
 **更新PDF**
 
-You can update your PDF if needed before creating a formal proposal using the DAO dashboard. First, upload the new version to your IPFS provider; since the content has changed, it will get a new hash. Next, update the link in your forum posting. Lastly, create the proposal using the DAO dashboard. Since the proposal contains the IPFS hashed link in the description field, the PDF should be considered final and changing the hashed link in the forum at this point would caution the voter.
+在使用 DAO 控制面板创建正式提案之前，您可以更新您的 PDF 文件。 首先，将新版本上传到您的 IPFS 提供商；既然 内容已经改变，它将得到一个新的哈希值。 接下来，在你的论坛 帖子中更新链接。 最后，使用 DAO 控制面板创建一个新提案： 由于该提案描述栏中包含了IPFS的哈希值链接，该PDF应该被认为是最终的，此时在论坛中改变哈希值链接会给投票人提醒作用。
