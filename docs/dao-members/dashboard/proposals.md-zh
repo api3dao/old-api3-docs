@@ -112,9 +112,9 @@ USDC 使用小数点后6位精度，而其他许多ERC20 代币使用的精度�
 
 7. 输入 **ETH 值**。
 
-   > 如果目标函数不是 `可支付` ，您可以使用0。
+   > 如果目标函数不是 `可支付的` ，您可以使用0。
 
-8. Enter **Parameters** which are the arguments that will be used to satisfy the signature of the target contract function.
+8. 输入 **Parameters**  用于满足目标合约函数的 签名。
 
    > The arguments must be provided in JSON array format where the values are stringified. 
    > 
