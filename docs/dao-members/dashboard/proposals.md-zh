@@ -176,7 +176,7 @@ page, as shown below:
 
 鼓励使用 [ENS 应用程序](https://app.ens.domains/) 注册一个 名称并将其关联到您的 Ethereum 账户。 然后，在输入您的 提案参数时，您可以使用此 ENS 名称而不是钱包地址。 在进行交互创建提案之前。 DAO 控制面板 将查找ENS 名称指向的地址，并在提案使用原始的 地址。 因此，在这个查找操作之后，改变 ENS 名称所指向的地址 **不会**对该提案产生影响。
 
-为了让投票人在提案详情页上看到你的ENS名称而不是原始地址，你必须使用 [ENS应用程序](https://app.ens.domains/)设置一个指向你的ENS名称的反向记录（也就是说，你需要让你的原始地址指向ENS名称）。 If your proposal will make a `transfer(address,uint256)` call to an ERC20 token contract where `address` is the address of a _multisig_ wallet, you can [set a reverse record with the multisig](https://medium.com/the-ethereum-name-service/you-can-now-manage-ens-names-with-gnosis-safe-9ddcb7e6c4ac) to your ENS name. See Parameters in [this proposal](https://api3.eth.link/#/history/secondary-6) for an example.
+为了让投票人在提案详情页上看到你的ENS名称而不是原始地址，你必须使用 [ENS应用程序](https://app.ens.domains/)设置一个指向你的ENS名称的反向记录（也就是说，你需要让你的原始地址指向ENS名称）。 如果您的提案通过 `transfer(address,uint256)`   调用ERC20 代币合约，其中 `address` 为 一个 _mulsig_ （多重签名）钱包地址, 您可以 [通过多重签名设置反向记录](https://medium.com/the-ethereum-name-service/you-can-now-manage-ens-names-with-gnosis-safe-9ddcb7e6c4ac) 。 请查阅[this proposal](https://api3.eth.link/#/history/secondary-6) 中的示例。
 
 ## 使用IPFS处理提案
 
