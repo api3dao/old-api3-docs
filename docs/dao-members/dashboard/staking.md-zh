@@ -1,18 +1,18 @@
 ---
-title: Staking Tokens
+title: 质押代币
 ---
 
 # {{$frontmatter.title}}
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2]" />
 
-Staking API3 tokens in the [DAO pool](../introduction/dao-pool.md) makes you eligible for rewards and governance rights.
+在[DAO池](.../introduction/dao-pool.md)中押注API3代币使你 有资格获得奖励和治理权。
 
-## Getting Started
+## 开始
 
-1. Access the [DAO Dashboard](https://api3.eth.link/)
-2. Select **Staking** page from the navigation bar in the upper left hand corner.
-3. Proceed to [Staking Overview](staking.md#staking-overview) section below and connect to your wallet.
+1. 访问 [DAO 控制面板](https://api3.eth.link/)
+2. 从左上角的导航栏中点击选择 **Staking** 。
+3. 继续到 [Staking Overview](staking.md#staking-overview) 页面并 连接到您的钱包。
 
 ::: tip Videos
 
