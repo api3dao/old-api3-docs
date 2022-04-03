@@ -107,11 +107,11 @@ title: 质押代币
    > 可质押的代币数量取决于存入代币的数量， 也是以可提取状态（ WITHDRAWABLE）显示在**Balance** 框中。
 2. 输入要质押的代币数量(或选择 **Max** )，然后点击 **_Stake_** 按钮。
 
-DAO使用一个自适应的奖励机制来激励质押。 奖励是 每七天更新一次，与您的 所质押的代币数量成正比。 当池中资金不足时，奖励会增加以激励质押；当池中资金充足时，奖励会减少以减少新的质押。 To see the current funding status, you can see the percentage of target met which is calculated by the total amount staked divided by the staking target.
+DAO使用一个自适应的奖励机制来激励质押。 奖励是 每七天更新一次，与您的 所质押的代币数量成正比。 当池中资金不足时，奖励会增加以激励质押；当池中资金充足时，奖励会减少以减少新的质押。 您可以根据已达到目标质押量的百分比查看 当前资金状况，这个 百分比是根据质押的代币数量除以质押目标量计算得来的。
 
 :::
 
-::: tab Watch & Learn
+::: tab 观看 & 学习
 
 <Video src="https://www.youtube.com/embed/DQMsgQvkg7k">
 
@@ -119,21 +119,21 @@ DAO使用一个自适应的奖励机制来激励质押。 奖励是 每七天更
 
 ::::
 
-## Unstake and Claim
+## 解除质押和索取
 
-Unstake tokens and claims rewards. To incentivize governance responsibilities and protect the DAO's long term interest rewards are locked for one year. You can unstake your tokens at any time but you can only claim rewards after the one year locking period ends. Note that unstaking will revoke your most recent weekly reward payment. To protect the DAO from proposal spam, unstaking is subject to a seven day waiting period.
+解除代币质押和索取奖励。 为了激励履行治理责任 并保护DAO的长期利益，奖励将被锁定一年。  你可以在任何时候解除你的代币质押，但你只能在一年的锁定期结束后才能索取奖励。 请注意，解除质押将取消您最近的 周奖励付款。 为了保护DAO不受垃圾提案的影响，解除质押需要有七天的等待期。
 
 :::: tabs
 
-::: tab Read & Learn
+::: tab 阅读 & 学习
 
-1. Click the **_Initiate Unstake_** link.
-2. Enter the number of tokens to unstake (or select the **Max** link) and click the **_Initiate Unstaking_** button.
-3. Confirm the transaction by clicking the **Initiate Unstaking** button in the popup.
+1. 点击**_Initiate Unstake_**  按钮
+2. 输入要解除质押的代币数量(或选择 **Max** )，然后点击 **_Initiate Unstake_** 按钮。
+3. 点击 弹出窗口中的 **Initiate Unstake** 按钮来确认交易。
 
 :::
 
-::: tab Watch & Learn
+::: tab 观看 & 学习
 
 <Video src="https://www.youtube.com/embed/__zhi8N2erI">
 
@@ -141,8 +141,8 @@ Unstake tokens and claims rewards. To incentivize governance responsibilities an
 
 ::::
 
-::: warning Seven day wait period
+::: warning 七天等待期
 
-To protect the DAO from proposal spam, unstaking is subject to a seven day waiting period.
+为了保护DAO不受垃圾提案的影响，解除质押需要有七天的等待期。
 
 :::
