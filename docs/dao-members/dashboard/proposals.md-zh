@@ -184,10 +184,10 @@ page, as shown below:
 
 ![image](../assets/images/ipfs-proposals.png)
 
-To host a proposal description on IPFS:
+在 IPFS 上托管一个提案描述：
 
-1. Create a PDF version of the proposal.
-2. Upload the PDF to [Fleek](https://fleek.co) or your preferred IPFS hosting provider. To do so using Fleek, create a free Basic account and use the Upload tool on the Storage page. Fleek will provide an IPFS hash of the PDF, for example:
+1. 创建 PDF 版本的提案。
+2. 将 PDF 上传到 [Fleek](https://fleek.co) 或您首选的 IPFS 主机 提供商。 要使用Fleek，创建一个免费的基本帐户，并在存储（Storage）页面上使用 上传（Upload ）工具。 Fleek will provide an IPFS hash of the PDF, for example:
    <code style="overflow-wrap: break-word;">bafybeifl4prxv75fgumtjh4ovklfkp7zzt7dwkl4xmndv37gtcalwpam2u</code>.
 3. If using Fleek, append the hash to `https://ipfs.fleek.co/ipfs/`. The URL for the above hash would then be:
 
