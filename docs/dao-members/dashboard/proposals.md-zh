@@ -180,7 +180,7 @@ page, as shown below:
 
 ## 使用IPFS处理提案
 
-考虑这个用例：您在 [API3 论坛](https://forum.api3.org/) 上发布一个可能的提案。 你收到积极的反馈，然后决定使用DAO控制面板正式创建提案。 In the proposal's description field you provide a link back to the forum so people can again see the proposal details. How does the voter know that it's the exact same proposal they had read earlier in the forum? IPFS addressing content by its hash is convenient here, because any change you'll make to your proposal will change its hash.
+考虑这个用例：您在 [API3 论坛](https://forum.api3.org/) 上发布一个可能的提案。 你收到积极的反馈，然后决定使用DAO控制面板正式创建提案。 在提案 描述的文字中，您需要提供一个回到论坛的链接，这样人们可以再次看到 这个提案细节。 How does the voter know that it's the exact same proposal they had read earlier in the forum? IPFS addressing content by its hash is convenient here, because any change you'll make to your proposal will change its hash.
 
 ![image](../assets/images/ipfs-proposals.png)
 
