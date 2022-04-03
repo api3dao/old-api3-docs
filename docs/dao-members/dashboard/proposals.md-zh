@@ -77,7 +77,7 @@ title: 处理提案
 
 ::: tip USDC精度
 
-USDC 使用小数点后6位精度，而其他许多ERC20 代币使用的精度为小数点后18位。 在相应金额之后添加6个零。
+USDC 使用小数点后6位精度，而其他许多ERC20 代币使用的精度为小数点后18位。 在相应金额之后乘以1000000。
 
 :::
 
@@ -87,7 +87,7 @@ USDC 使用小数点后6位精度，而其他许多ERC20 代币使用的精度�
 
 ::: tab 阅读 & 学习
 
-1. 点击Governance页面上的**New Proposal** 按钮。
+1. 点击Governance页面上的**New Proposal** （新建提案）按钮。
 
 2. 在提案表单上选择 **Proposal Type** （提案类型）。
 
@@ -114,15 +114,15 @@ USDC 使用小数点后6位精度，而其他许多ERC20 代币使用的精度�
 
    > 如果目标函数不是 `可支付的` ，您可以使用0。
 
-8. 输入 **Parameters**  用于满足目标合约函数的 签名。
+8. 输入参数 **Parameters**  用于满足目标合约函数的 签名。
 
-   > The arguments must be provided in JSON array format where the values are stringified. 
+   > 参数必须以 JSON 数组格式提供，值为 stringied。 
    > 
    > ```json
-   >    ["0xF4EB52Cf9D31a...d1663d78ddDEE9", "499999000000"]
+   >    ["0xF4EB52Cf9D31a...d1663d78dDE9", "4999990000"]
    > ```
 
-   In the example above, the respective Agent (primary or secondary) would be calling the USDC contract (`0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48`) to transfer 499,999 USDC to `0xF4EB52Cf9D31a...d1663d78ddDEE9`. Note that since `transfer(address,uint256)` transfers funds from the sender to the specified address, the USDC is asked to be supplied from the Agent's balance.
+   在上面的例子中， 代理(主要或次要)将 调用USDC 合约(`0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48`)发送499, 99 USDC 到 地址`0xF4EB52Cf9D31a...d1663d78dDEE9`。 Note that since `transfer(address,uint256)` transfers funds from the sender to the specified address, the USDC is asked to be supplied from the Agent's balance.
 
 9. When you are ready, click the **Create** button at the bottom of the page.
 
