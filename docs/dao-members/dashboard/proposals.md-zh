@@ -108,7 +108,7 @@ USDC 使用小数点后6位精度，而其他许多ERC20 代币使用的精度�
 
 6. 输入 **合约签名**。
 
-   > 定义合约调用函数的签名。 对于上面提到的 USDC合约地址，使用 `transfer(address,uint256)`函数。 <span style="color:orange">不要在签名中使用任何 空格、主导、拖尾或其他。</span>
+   > 定义合约调用函数的签名。 对于上面提到的 USDC合约地址，使用 `transfer(address,uint256)`函数。 <span style="color:orange">不要在签名中使用任何 空格、上标、下标或其他。</span>
 
 7. 输入 **ETH 值**。
 
@@ -122,11 +122,11 @@ USDC 使用小数点后6位精度，而其他许多ERC20 代币使用的精度�
    >    ["0xF4EB52Cf9D31a...d1663d78dDE9", "4999990000"]
    > ```
 
-   在上面的例子中， 代理(主要或次要)将 调用USDC 合约(`0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48`)发送499, 99 USDC 到 地址`0xF4EB52Cf9D31a...d1663d78dDEE9`。 Note that since `transfer(address,uint256)` transfers funds from the sender to the specified address, the USDC is asked to be supplied from the Agent's balance.
+   在上面的例子中， 代理(主要或次要)将 调用USDC 合约(`0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48`)发送499, 99 USDC 到 地址`0xF4EB52Cf9D31a...d1663d78dDEE9`。 请注意， `transfer(address,uint256)` 将代币从发送者转到指定的 地址，其中要求USDC由代理的账户提供。
 
-9. When you are ready, click the **Create** button at the bottom of the page.
+9. 准备就绪后，点击页面底部的**Create** 按钮进行创建。
 
-   > The proposal is then added to the proposal list and can be voted on.
+   > 然后将该提案列入提案清单就可付诸投票表决。
 
 :::
 
@@ -161,10 +161,10 @@ transaction executing it using the Execute button that appears on its details
 page, as shown below:
 -->
 
-A proposal is ready for execution if:
+提案可以执行的条件是：
 
-1. The proposal hasn't already been executed, and
-2. the proposal's voting period has ended, and
+1. 该提案尚未被执行，并且
+2. 该提案的投票期已经结束，并且
 3. the total "yes" vote exceeds the "no" vote, and
 4. (for Secondary type proposals) at least 15% of all voting power has voted "yes" on the proposal.
 
