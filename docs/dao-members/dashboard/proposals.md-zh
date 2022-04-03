@@ -165,18 +165,18 @@ page, as shown below:
 
 1. 该提案尚未被执行，并且
 2. 该提案的投票期已经结束，并且
-3. the total "yes" vote exceeds the "no" vote, and
-4. (for Secondary type proposals) at least 15% of all voting power has voted "yes" on the proposal.
+3. "yes"的总票数超过"no"的票数；和
+4. (对于次要提案)至少15%的投票权对提案投了 "yes"。
 
-Primary type proposals require 50% of all voting power to have voted "yes" on the proposal. Both primary and secondary type proposals execute immediately once 50% of all voting power has voted "yes" on them.
+主要类型的提案通过需要50%以上的投票权投“yes”。 一旦 50%的投票权投了"赞成"，主要和次要类型提案就都会立即执行。
 > <p align="left">
 >  <img src="../figures/dashboard/executable-proposal.png" width="400" />
 > </p>
 ## 使用ENS名称
 
-You are encouraged to use the [ENS app](https://app.ens.domains/) to register a name and associate it with an Ethereum account. Then, while entering your proposal parameters, you can use this ENS name instead of the account address. Before making the transaction that will create the proposal, the DAO dashboard will look up the address that the ENS name is pointing to and use the raw address in the proposal. Therefore, changing the address that the ENS name is pointing to after this look up operation **WILL NOT** have an affect on the proposal.
+鼓励使用 [ENS 应用程序](https://app.ens.domains/) 注册一个 名称并将其关联到您的 Ethereum 账户。 然后，在输入您的 提案参数时，您可以使用此 ENS 名称而不是钱包地址。 在进行交互创建提案之前。 DAO 控制面板 将查找ENS 名称指向的地址，并在提案使用原始的 地址。 因此，在这个查找操作之后，改变 ENS 名称所指向的地址 **不会**对该提案产生影响。
 
-For voters to see your ENS name instead of the raw address on the proposal details page, you will have to use the [ENS app](https://app.ens.domains/) to set a reverse record pointing to your ENS name (i.e., you need to have your raw address point to the ENS name). If your proposal will make a `transfer(address,uint256)` call to an ERC20 token contract where `address` is the address of a _multisig_ wallet, you can [set a reverse record with the multisig](https://medium.com/the-ethereum-name-service/you-can-now-manage-ens-names-with-gnosis-safe-9ddcb7e6c4ac) to your ENS name. See Parameters in [this proposal](https://api3.eth.link/#/history/secondary-6) for an example.
+为了让投票人在提案详情页上看到你的ENS名称而不是原始地址，你必须使用 [ENS应用程序](https://app.ens.domains/)设置一个指向你的ENS名称的反向记录（也就是说，你需要让你的原始地址指向ENS名称）。 If your proposal will make a `transfer(address,uint256)` call to an ERC20 token contract where `address` is the address of a _multisig_ wallet, you can [set a reverse record with the multisig](https://medium.com/the-ethereum-name-service/you-can-now-manage-ens-names-with-gnosis-safe-9ddcb7e6c4ac) to your ENS name. See Parameters in [this proposal](https://api3.eth.link/#/history/secondary-6) for an example.
 
 ## 使用IPFS处理提案
 
