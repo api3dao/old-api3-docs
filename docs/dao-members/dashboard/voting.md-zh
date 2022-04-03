@@ -1,5 +1,5 @@
 ---
-title: How to Vote
+title: 如何投票
 ---
 
 # {{$frontmatter.title}}
@@ -8,14 +8,14 @@ title: How to Vote
 
 Staking grants DAO members the ability to vote on proposals. Your voting power is calculated by the number of tokens you have staked divided by the total number of tokens staked at the time the proposal was made. This page will show how to use your voting power to vote on a proposal as well as delegating your voting power.
 
-## Getting Started
+## 开始
 
 1. Access the [DAO Dashboard](https://api3.eth.link/)
 2. Click the **Connect Wallet** button in the upper right hand corner and connect to your wallet using the mainnet.
 
 <!-------------------------->
 
-## Vote and Delegate
+## 投票和授权
 
 The **Governance** page displays a list of active proposals to vote on and a link to delegate your voting power.
 
@@ -39,7 +39,7 @@ The **Governance** page displays a list of active proposals to vote on and a lin
 
 ---
 
-#### Delegating
+#### 授权
 
 1. Navigate to the **Governance** page.
 2. Click the **Delegate** link.
@@ -50,7 +50,7 @@ When you delegate your vote to another user only that person can vote for you. H
 
 :::
 
-::: tab Watch and Learn
+::: tab 观看和学习
 
 <Video src="https://www.youtube.com/embed/K_EZFMjXUPA">
 
