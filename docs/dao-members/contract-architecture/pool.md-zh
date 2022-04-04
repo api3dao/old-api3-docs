@@ -51,9 +51,9 @@ DAO池合约也将被用来从DAO池中支付保险索赔。 这个功能到目�
 
 | 签名                                                       | 描述                                                       |
 | -------------------------------------------------------- | -------------------------------------------------------- |
-| `userVotingPowerAt(address userAddress, uint256 _block)` | 返回用户当前的投票权(如果他们已经被授予投票权，0)。                              |
-| `delegateVotingPower(address delegate)`                  | 将一个成员的投票权授权转让给另一个地址，这是由他们在质押池中的份额决定的。 在转让到新地址之前，无需取消投票权。 |
-| `undelegateVotingPower()`                                | 取消成员的投票权。                                                |
+| `userVotingPowerAt(address userAddress, uint256 _block)` | 返回用户当前的投票能量(如果他们已经被委托投票权，0)。                             |
+| `delegateVotingPower(address delegate)`                  | 将一个成员的投票权委托转让给另一个地址，这是由他们在质押池中的份额决定的。 在转让到新地址之前，无需取消投票权。 |
+| `undelegateVotingPower()`                                | 取消委托成员的投票权。                                              |
 
 ### 其他
 
