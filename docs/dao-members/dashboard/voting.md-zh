@@ -6,12 +6,12 @@ title: 如何投票
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Staking grants DAO members the ability to vote on proposals. Your voting power is calculated by the number of tokens you have staked divided by the total number of tokens staked at the time the proposal was made. This page will show how to use your voting power to vote on a proposal as well as delegating your voting power.
+质押授予DAO成员提案投票权。 您的投票能量 是根据您所质押的代币数除以所质押的代币总数 来计算的。 这个页面将显示 如何使用您的投票能量来对一个提案进行投票，以及如何授权您的 投票能量。
 
 ## 开始
 
 1. 访问 [DAO 控制面板](https://api3.eth.link/)
-2. Click the **Connect Wallet** button in the upper right hand corner and connect to your wallet using the mainnet.
+2. 点击右上角的 **Connect Wallet** 按钮，并 使用主网连接到您的钱包。
 
 <!-------------------------->
 
