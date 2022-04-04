@@ -10,7 +10,7 @@ title: What is a Beacon?
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Beacons are first-party Web3 data feeds run by the API data providers themselves, without third-party oracle nodes as middlemen. Beacons allow smart contract developers to connect their Web3 applications to continuously updated streams of off-chain data, such as the latest cryptocurrency, stock and commodities prices. They can power various decentralized applications, such as DeFi lending, synthetic assets, stable coins, derivatives, quality assurance, NFTs and more. Operated by the market’s most trusted and reliable data providers, Beacons are a transparent, cost efficient and scalable way for smart contracts to connect to the data that they need.
+信标是由API数据供应商自己管理的第一组Web3数据源，而第三方预言机节点则是中间商。 Beacons allow smart contract developers to connect their Web3 applications to continuously updated streams of off-chain data, such as the latest cryptocurrency, stock and commodities prices. They can power various decentralized applications, such as DeFi lending, synthetic assets, stable coins, derivatives, quality assurance, NFTs and more. Operated by the market’s most trusted and reliable data providers, Beacons are a transparent, cost efficient and scalable way for smart contracts to connect to the data that they need.
 
 To achieve a completely transparent and secure design, Beacons are operated directly by the API provider of the data they serve, without third-party node operators used as data relayers. This means that when calling a Beacon for the latest price of an asset, your smart contract receives a value directly from the Web3-enabled API of the source data provider - not a third-party or a network of third party middlemen.
 
