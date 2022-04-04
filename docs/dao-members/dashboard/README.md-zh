@@ -12,7 +12,7 @@ DAO控制面板侧重于您与 DAO 的交互：
 
 - [Staking Tokens](staking.md) （质押代币）- 将 API3 代币质押到DAO 池以获得 治理权(提案和投票)，并获得奖励。
 - [Working with Proposals](proposals.md) （处理提案）- 查看和创建提案。
-- [How to Vote](voting.md)（如何投票） - 直接或通过授权对提案进行投票。
+- [How to Vote](voting.md)（如何投票） - 直接或通过委托对提案进行投票。
 
 ## 访问控制面板
 
