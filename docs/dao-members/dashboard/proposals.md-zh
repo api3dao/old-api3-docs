@@ -10,7 +10,7 @@ title: 处理提案
 
 要创建一个提案，您必须在7 天内没有创建过一个提案，您必须至少持有池中总质押代币0.1% 的质押代币数量。 这个需要的百分比，以及其他 DAO 参数可以由 [控制面板属性](../contract-architecture/dashboard-attributes.md) 中所述的 DAO 来调整。 要查看 地址质押代币在池中的百分比，请访问 [DAO 追踪器 钱包地址页面](https://enormous.cloud/dao/api3/tracker/wallets)。
 
-您可以对所有提案投票，而不论您所质押代币占 池中代币的百分比是多少。 请参阅 [如何投票](voting.md) 中的说明。 或者， 你可以将你的投票权授予其他人。 查看 API3 论坛的 [delegation pitch 版块](https://forum.api3.org/c/delegation-pitch/7) 查阅社区成员的帖子或 发表您自己的观点。
+您可以对所有提案投票，而不论您所质押代币占 池中代币的百分比是多少。 请参阅 [如何投票](voting.md) 中的说明。 或者， 你可以将你的投票权委托其他人。 查看 API3 论坛的 [delegation pitch 版块](https://forum.api3.org/c/delegation-pitch/7) 查阅社区成员的帖子或 发表您自己的观点。
 
 ## 开始
 
