@@ -24,7 +24,7 @@ DAO组织结构由分级小组和子DAO 组成，两者都参与治理、改进D
 
 设计的工作流程是组建线下团队，并以执行 一次性项目或持续性业务名义申请基金，这些项目或业务将使DAO受益。 该团队 拨款申请以多签形式提交，并将团队成员指定为资金用户。 如果拨款提案通过了，DAO就会将资金拨给多签用户。
 
-这种以基于团队的治理计划在gas成本方面是可接受的，因为 在DAO一级很少有提案进行投票。 It is also more scalable in practical terms, as it does not require the constant attention of all governing parties to a wide variety of minute details. Furthermore, it allows critical operations such as dAPI management to be executed swiftly and based on expert opinion. As API3 operations expand, this governance hierarchy may demand additional layers in the form of subDAOs.
+这种以基于团队的治理计划在gas成本方面是可接受的，因为 在DAO一级很少有提案进行投票。 从实际情况来看，它也更具有可操作性，因为它不需要所有管理方持续关注各种各样的微小细节。 Furthermore, it allows critical operations such as dAPI management to be executed swiftly and based on expert opinion. As API3 operations expand, this governance hierarchy may demand additional layers in the form of subDAOs.
 
 To learn more about hierarchical team structures
 <a href="/api3-whitepaper-v1.0.2.pdf#API3%20DAO" target="_api3-whitepaper"> see
