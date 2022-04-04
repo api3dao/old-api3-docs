@@ -16,15 +16,15 @@ DAO对重要事项进行投票，如质押激励、抵押担保以及向支持DA
 
 ## DAO 结构
 
-The DAO organizational structure is comprised of hierarchical teams and subDAOs both of which manage, streamline, and secure the success of the DAO.
+DAO组织结构由分级小组和子DAO 组成，两者都参与治理、改进DAO和确保DAO的成功。
 
-### 层次结构
+### 分级小组
 
-More granular tasks are conducted through hierarchical team structures for scalable governance.
+更多的细化任务是通过分级小组结构进行规模化治理。
 
-The expected workflow is to form off-chain teams and apply for grants to execute one-time projects or continuous operations that will benefit the DAO. The team makes the grant application with a multisig that has the team members assigned as users, and the DAO grants the funds to the multisig if the grant proposal is accepted.
+设计的工作流程是组建线下团队，并以执行 一次性项目或持续性业务名义申请基金，这些项目或业务将使DAO受益。 该团队 拨款申请以多签形式提交，并将团队成员指定为资金用户。 如果拨款提案通过了，DAO就会将资金拨给多签用户。
 
-This team-based governance scheme is scalable in terms of gas costs, as it requires fewer proposals to be voted on at the DAO level. It is also more scalable in practical terms, as it does not require the constant attention of all governing parties to a wide variety of minute details. Furthermore, it allows critical operations such as dAPI management to be executed swiftly and based on expert opinion. As API3 operations expand, this governance hierarchy may demand additional layers in the form of subDAOs.
+这种以基于团队的治理计划在gas成本方面是可接受的，因为 在DAO一级很少有提案进行投票。 It is also more scalable in practical terms, as it does not require the constant attention of all governing parties to a wide variety of minute details. Furthermore, it allows critical operations such as dAPI management to be executed swiftly and based on expert opinion. As API3 operations expand, this governance hierarchy may demand additional layers in the form of subDAOs.
 
 To learn more about hierarchical team structures
 <a href="/api3-whitepaper-v1.0.2.pdf#API3%20DAO" target="_api3-whitepaper"> see
