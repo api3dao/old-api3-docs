@@ -32,7 +32,7 @@ Section 5.3 of the API3 Whitepaper</a>.
 
 ### 子DAO
 
-The DAO governs by selectively allocating funds and delegating authority. When a task reaches a scale that can no longer be fulfilled by a team, it is assigned to a subDAO.
+DAO通过有选择地分配资金和授权来管理。 When a task reaches a scale that can no longer be fulfilled by a team, it is assigned to a subDAO.
 
 > ![dao-subdao-teams](../assets/images/dao-subdao-teams.png)
 
