@@ -1,0 +1,20 @@
+{
+  "1": { "name": "mainnet", "type": "mainnet" },
+  "3": { "name": "ropsten", "type": "testnet" },
+  "4": { "name": "rinkeby", "type": "testnet" },
+  "5": { "name": "goerli", "type": "testnet" },
+  "10": { "name": "optimism", "type": "mainnet" },
+  "42": { "name": "kovan", "type": "mainnet" },
+  "56": { "name": "bsc", "type": "mainnet" },
+  "69": { "name": "optimism-testnet", "type": "testnet" },
+  "97": { "name": "bsc-testnet", "type": "testnet" },
+  "100": { "name": "gnosis", "type": "mainnet" },
+  "137": { "name": "polygon", "type": "mainnet" },
+  "250": { "name": "fantom", "type": "mainnet" },
+  "4002": { "name": "fantom-testnet", "type": "testnet" },
+  "42161": { "name": "arbitrum", "type": "mainnet" },
+  "43113": { "name": "avalanche-testnet", "type": "testnet" },
+  "43114": { "name": "avalanche", "type": "mainnet" },
+  "80001": { "name": "polygon-testnet", "type": "testnet" },
+  "421611": { "name": "arbitrum-testnet", "type": "testnet" }
+}

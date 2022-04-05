@@ -11,6 +11,8 @@ title: Contract Addresses
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
+<Overlay/>
+
 Following is a list of the contract addresses for use with Airnode version
 `v0.3.1`.
 
