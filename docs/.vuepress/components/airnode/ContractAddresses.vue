@@ -42,11 +42,44 @@
             {{ item.chainId }}
           </td>
           <td
+            NOWRAP
             v-bind:class="{
               contract_addresses_mainnet: item.chain.name === 'mainnet',
             }"
           >
-            <span class="contract-addresses-address">{{ item.address }}</span>
+            <!--a
+              target="_etherscan"
+              :href="'https://etherscan.io/address/' + item.address"
+              :id="contract.contractName + index"
+              class="contract-addresses-address"
+              >{{ item.address }}</a
+            ><ExternalLinkImage /-->
+
+            <span
+              :id="item.chain.type + '-' + contract.contractName + '-' + index"
+              class="contract-addresses-address"
+              >{{ item.address }}</span
+            >
+
+            <span style="display: inline-block; width: 20px">
+              <img
+                :id="
+                  'copy-icon-' +
+                  item.chain.type +
+                  '-' +
+                  contract.contractName +
+                  '-' +
+                  index
+                "
+                v-on:click="
+                  copyAddress(
+                    item.chain.type + '-' + contract.contractName + '-' + index
+                  )
+                "
+                src="/img/copy.png"
+                class="contract-addresses-copy-icon"
+              />
+            </span>
           </td>
         </tr>
       </table>
@@ -66,6 +99,22 @@ export default {
     error: null,
     contracts: [],
   }),
+  methods: {
+    copyAddress(id) {
+      var copyText = document.getElementById(id).textContent;
+      var copyIcon = document.getElementById('copy-icon-' + id);
+      copyIcon.style.opacity = '100%';
+      copyIcon.style.width = '20px';
+      window.setTimeout(this.setCopiedTimeout, 700, copyIcon);
+
+      if (navigator && navigator.clipboard && navigator.clipboard.writeText)
+        navigator.clipboard.writeText(copyText);
+    },
+    setCopiedTimeout(element) {
+      element.style.opacity = '60%';
+      element.style.width = '12px';
+    },
+  },
   mounted() {
     this.$nextTick(async function () {
       try {
@@ -126,5 +175,12 @@ export default {
 }
 .contract_addresses_mainnet{
     background:#e5ecf9;
+}
+.contract-addresses-copy-icon{
+    margin-left:5px;
+    opacity:60%;
+    cursor:pointer;
+    width:12px;
+    height:11px;
 }
 </style>
