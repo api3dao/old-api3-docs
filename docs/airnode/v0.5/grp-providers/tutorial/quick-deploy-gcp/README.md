@@ -126,7 +126,7 @@ Add values for each of the these fields.
 
 3. Make sure you have billing enabled for your project. To do so, you will need
    to pair the project with your bank card, although no charges will be
-   incurred.
+   incurred since the resource usage fits well within the free tier limit.
 
 <!-- 3. Enable the
    [API Gateway](https://console.cloud.google.com/marketplace/product/google/apigateway.googleapis.com?returnUrl=%2Fapi-gateway%2Fapi&project=zzz).
