@@ -36,7 +36,7 @@ _API3 代币的主要工具。_
 1. [担保](dao-pool.md#collateral): 用于保护 用户免受dAPI 故障损失的保险服务。
 1. [治理](dao-pool.md#governance): 在 API3 DAO中给予直接代表权。
 
-请注意，必须配合使用这三个工具。 All governing entities must receive staking rewards for them to govern in a way that maximizes revenue. All governing entities must have their funds used as collateral for them to govern in a way that minimizes **_security_** risks. "_Security_" refers to a "guarantee or reliability of dAPI service"
+请注意，必须配合使用这三个工具。 所有治理 人通过治理必须获得质押奖励，才能最大限度地增加 收益。 All governing entities must have their funds used as collateral for them to govern in a way that minimizes **_security_** risks. "_Security_" refers to a "guarantee or reliability of dAPI service"
 
 Reference
 <a href="/api3-whitepaper-v1.0.2.pdf#API3%20tokenomics" target="_api3-whitepaper">section
