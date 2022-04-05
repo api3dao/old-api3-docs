@@ -10,33 +10,33 @@ API3 DAO 有一个单独的质押池，称为 **DAO 池**。 在池中质押 API
 
 ## 代币
 
-API3 is the native token of the API3 project. The API3 ecosystem is a single token environment. Check out the Medium post [API3 Tokenomics Update](https://medium.com/api3/api3-tokenomics-update-f032d6e49b30) for an in-depth overview on API3 tokenomics.
+API3 是 API3 项目的原生代币。 API3 生态系统是单币模式。 查看Medium帖子 [API3 Tokenomics Update](https://medium.com/api3/api3-tokenomics-update-f032d6e49b30) 以获取关于API3 代币经济的深入描述。
 
-### Unstaked Tokens
+### 未质押代币
 
-Unstaked tokens are simply owned by an entity and do not generate revenue or have voting rights. They are subject to market value and inflation.
+未质押的代币只是个人拥有所有权，不产生收入或 拥有投票权。 它们由市场定价并会有通货膨胀。
 
-### Staked Tokens
+### 质押代币
 
-Staked API3 tokens are used as collateral for the on-chain coverage service that will provide quantifiable and trustless security guarantees to dAPI users. These mechanics will remove the need for a central authority at the ecosystem level.
+质押的API3代币将用作链上保险服务的抵押品，该链上保险服务将为dAPI用户提供可量化、信任最小化的安全保证。 这些机制将消除在生态系统层面的中心化权威机构的需求。
 
-Staking simply means you are placing API3 tokens into the DAO pool. When staking tokens to the DAO pool you gain access to weekly staking rewards but also share in the risk of the coverage service. You are also granted voting rights on active DAO proposals and inflationary rewards.
+质押就是指您将 API3代币存入DAO 池。 当向DAO池质押代币时，你可以获得每周的质押奖励，但也需要承担保险服务的风险。 你也被授予对活跃的DAO提案的投票权和通胀奖励。
 
-To stake your tokens see [StakingTokens](../dashboard/staking.md). You can stake as many times as you’d like. Your percentage of all the tokens in the DAO pool are directly related to your percentage of the rewards and the risks. If you stake 10% of the pool you earn 10% of rewards and will pay 10% of coverage service claims.
+若要质押代币，请参阅 [StakingTokens](../dashboard/staking.md)。 您可以质押任意次数。 您在 DAO 池中的质押代币的百分比 直接与您的奖励和风险中的百分比相关。 如果您 持有10%的质押代币，您将获得10%的总奖励，同时也将支付10%的保险 服务索偿。
 
-## Token Utilities
+## 代币工具
 
-Decentralized governance requires well-balanced incentive mechanisms that accurately model both positive and negative outcomes. In other words, the governing entities should be rewarded for good results and penalized for bad ones. The API3 token is designed to facilitate this through three main utilities:
+去中心化治理需要均衡的激励机制，恰当地反应积极和消极的结果。 换句话说， 治理应该因为良好的结果而得到奖励，因为不好的 结果而受到惩罚。 API3 代币旨在通过以下三个主要工具来实现这一点：
 
-_Main utilities of the API3 token._
+_API3 代币的主要工具。_
 
 > ![dao-pool-pool-utils](../assets/images/dao-pool-token-utils.png)
 
-1. [Staking](dao-pool.md#staking): Grants membership in the API3 DAO and rights to [inflationary rewards](dao-pool.md#inflationary-rewards).
-1. [Collateral](dao-pool.md#collateral): Backs coverage services that protect users from damages caused by dAPI malfunctions.
-1. [Governance](dao-pool.md#governance): Grants direct representation in the API3 DAO.
+1. [质押](dao-pool.md#staking): 授予API3 DAO的成员资格和[通胀奖励](dao-pool.md#inflationary-rewards).
+1. [担保](dao-pool.md#collateral): 用于保护 用户免受dAPI 故障损失的保险服务。
+1. [治理](dao-pool.md#governance): 在 API3 DAO中给予直接代表权。
 
-Note that it is critical for these three utilities to coincide. All governing entities must receive staking rewards for them to govern in a way that maximizes revenue. All governing entities must have their funds used as collateral for them to govern in a way that minimizes **_security_** risks. "_Security_" refers to a "guarantee or reliability of dAPI service"
+请注意，必须配合使用这三个工具。 All governing entities must receive staking rewards for them to govern in a way that maximizes revenue. All governing entities must have their funds used as collateral for them to govern in a way that minimizes **_security_** risks. "_Security_" refers to a "guarantee or reliability of dAPI service"
 
 Reference
 <a href="/api3-whitepaper-v1.0.2.pdf#API3%20tokenomics" target="_api3-whitepaper">section
