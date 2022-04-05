@@ -45,8 +45,8 @@ DAO有效治理的两项原则：
 
 ### 权限最小化
 
-为了限制恶意或不称职的团队可能造成的损害，每个团队的权力必须被限制在最低限度，这也被称为 "权限最小化"。 例如，一个dAPI管理团队不应该能够完全重构一个正在使用的dAPI，而只应该在有足够长的冷却期的情况下切换不同预言机，以阻止权力的滥用。 Similarly, milestones and deliverables should be utilized to grant teams only the funds needed to carry out their specific responsibilities.
+为了限制恶意或不称职的团队可能造成的损害，每个团队的权力必须被限制在最低限度，这也被称为 "权限最小化"。 例如，一个dAPI管理团队不应该能够完全重构一个正在使用的dAPI，而只应该在有足够长的冷却期的情况下切换不同预言机，以阻止权力的滥用。 同样，应该利用任务节点和可交付成果，只授予团队履行其特定职责所需的资金。
 
 ### 透明
 
-Each team is expected to produce sufficiently detailed progress reports that enable the DAO to evaluate team performance with respect to proposed goals. These public reports have the additional benefit of increased accountability as dAPI users and the general public can audit API3 operations.
+每个团队都要提交足够详细的进度报告， 使得DAO能够评估团队在达成提案目标产生的业绩。 这些公开报告还有增加问责制的好处，因为 dAPI 用户和一般公众都可以审计API3 运作。
