@@ -68,29 +68,29 @@ _API3 代币的主要工具。_
 
 担保工具使参与者分担DAO的运作风险， 促使他们将DAO运作降低到最低限度。
 
-如果质押代币只产生收益，唯一的治理激励就是 最大限度地增加收入。 要做到这一点，就必须积极增加dAPI 用户的数量以及使用 dAPI 的保额。 这样做 会给一个 dAPI 带来过大的压力，让它更可能因为 一次攻击而发生故障。 因此，这不是 去中心化数据传送的可持续治理战略。
+如果质押代币只产生收益，唯一的治理激励就是 最大限度地增加收入。 要做到这一点，就必须积极增加dAPI 用户的数量以及使用 dAPI 的保额。 这样做 会给一个 dAPI 带来过大的压力，让它更可能因为 一次攻击而发生故障。 因此，这在 去中心化数据传送中是不可持续的治理战略。
 
-Exposing the governing parties to the risk would align their incentives with that of the DAO. The governing parties need to be penalized when a dAPI malfunction occurs using an onchain coverage service that provides dAPI users with quantifiable and trustless security guarantees. The [Coverage Service](dao-pool.md#coverage-service) uses staked tokens of the DAO pool as collateral, which means that when a dAPI malfunction is confirmed through the dispute resolution protocol, user damages will be covered from the pool's staked tokens.
+将治理方暴露在风险中会使他们的利益与DAO的利益一致。 当使用 dAPI 发生故障时，治理方需要通过链上保险服务受到惩罚，它提供了 dAPI 用户 的可量化和可信赖的安全保证。 [保险服务](dao-pool.md#coverage-service) 使用 DAO 的 质押代币 作为担保， 这意味着当通过争端解决协议确认了 dAPI 故障时， 用户损失将从 池的质押代币中得到补偿。
 
-Reference
-<a href="/api3-whitepaper-v1.0.2.pdf#Collateral" target="_api3-whitepaper">section
-5.4.2 _"Collateral"_</a> of the API3 whitepaper.
+参考API3白皮书
+<a href="/api3-whitepaper-v1.0.2.pdf#Collateral" target="_api3-whitepaper">
+5.4.2章节 _"担保"_</a> 。
 
-### Governance
+### 治理
 
-The governance utility gives the participants the ability to enact and manage staking and collateral.
+治理工具使参与者有能力执行和管理 质押和担保操作。
 
-The only way to gain representation in the DAO is to stake API3 tokens in the pool. Staked tokens give their holders the right to take part in the governance of the API3 ecosystem through the DAO. To vote token holders must stake their API3 tokens in the pool, which also gives them access to weekly staking rewards but also share in the risk of the coverage service.
+在API3 DAO上获得代表权的唯一方法是将API3代币质押到池中。 质押代币给持有者通过DAO参与API3生态治理的权限。 代币持有者必须将他们的API3代币质押进入池中才能投票，这让他们可以获得每周的质押奖励，但也需要承担保险服务的风险。
 
-All governing parties will be exposed to all risks and rewards of API3, and will govern to optimize them. Inflationary rewards and the staked tokens being used as collateral will create a positive feedback loop in terms of governance quality. Initial token holders will have to stake and expose themselves to risk if they do not want to lose value to inflation. If they misgovern and lose collateral through coverage service claims, these tokens will get returned to the open market, from where they will be acquired by new governing parties. In contrast, if initial token holders govern well and cause token scarcity in the market, the representation distribution will be protected. In other words, governance tokens being used as collateral results in a robust Darwinian structure that improves itself and is able to recover from failures.
+所有治理方都将承担API3的所有风险和收益，并将 通过治理优化。 通胀奖励和被质押的代币作为担保 将在治理 质量方面产生积极的反馈循环。 初始代币持有者如果不想因通货膨胀而失去价值，就必须质押并承担风险 。 如果他们治理不善，则会因保险服务索赔而损失 担保代币， 这些代币将被返回到公开市场，并在那里被新的治理方购买。 相反，如果代币持有者治理得当，并带来代币市场稀缺性，则奖励分配将受到保护。 换言之， 治理代币被用作担保品，形成了健壮的Darwinian 结构，这种结构能够改善自己，并从故障中恢复过来。
 
-## Monetization
+## 变现
 
-In general the industry standard for API provider subscription fees are commonly paid monthly or annually, as this scheme suits both API providers and their clients. API3 follows the same scheme for dAPIs.
+一般来说，API提供商订阅费的行业标准通常是 每月或每年支付。 因为这个方案既适合API提供商又适合他们的 客户。 API3 遵循同样的 dAPI 方案。
 
-### dAPI monetization
+### dAPI 变现
 
-To gain access to a dAPI, a dApp will pay a recurring subscription fee, which may be fixed or customized for the dApp based on a specific use case. These prices will be determined by the respective team, and will include a premium if the dApp wants to receive the [Coverage Service](dao-pool.md#coverage-service). The payment can be made in any cryptocurrency, which will be received by the DAO in API3 tokens through a liquidity pool-based decentralized exchange.
+若要访问 dAPI，dApp 将支付定期订阅费， 费用 可以根据特定的使用情况为dApp 固定或定制。 这些价格将由代表团队决定，dApp如果希望获得 [保险服务](dao-pool.md#coverage-service)还将包含保险费。 The payment can be made in any cryptocurrency, which will be received by the DAO in API3 tokens through a liquidity pool-based decentralized exchange.
 
 ### API provider compensation
 
