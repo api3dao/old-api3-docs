@@ -61,7 +61,12 @@
               >{{ item.address }}</span
             >
 
-            <span style="display: inline-block; width: 20px">
+            <!-- COPY ICON 
+              The style applied (style="opacity: 60%; width: 12px") is very
+              important. If included in the class it will work on the dev 
+              server but not on a production build.
+            -->
+            <span style="display: inline-block; width: 18px">
               <img
                 :id="
                   'copy-icon-' +
@@ -78,6 +83,7 @@
                 "
                 src="/img/copy.png"
                 class="contract-addresses-copy-icon"
+                style="opacity: 60%; width: 12px"
               />
             </span>
           </td>
@@ -177,10 +183,8 @@ export default {
     background:#e5ecf9;
 }
 .contract-addresses-copy-icon{
-    margin-left:5px;
-    opacity:60%;
+    margin-left:5px
     cursor:pointer;
-    width:12px;
     height:11px;
 }
 </style>
