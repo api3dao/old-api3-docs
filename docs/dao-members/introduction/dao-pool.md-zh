@@ -68,7 +68,7 @@ _API3 代币的主要工具。_
 
 担保工具使参与者分担DAO的运作风险， 促使他们将DAO运作降低到最低限度。
 
-如果质押代币只产生收益，唯一的治理激励就是 最大限度地增加收入。 要做到这一点，就必须积极增加dAPI 用户的数量以及使用 dAPI 的保额。 Doing so puts excessive pressure on a dAPI which is more likely to malfunction due to an attack. Therefore, this is not a sustainable governance strategy for decentralized data feeds.
+如果质押代币只产生收益，唯一的治理激励就是 最大限度地增加收入。 要做到这一点，就必须积极增加dAPI 用户的数量以及使用 dAPI 的保额。 这样做 会给一个 dAPI 带来过大的压力，让它更可能因为 一次攻击而发生故障。 因此，这不是 去中心化数据传送的可持续治理战略。
 
 Exposing the governing parties to the risk would align their incentives with that of the DAO. The governing parties need to be penalized when a dAPI malfunction occurs using an onchain coverage service that provides dAPI users with quantifiable and trustless security guarantees. The [Coverage Service](dao-pool.md#coverage-service) uses staked tokens of the DAO pool as collateral, which means that when a dAPI malfunction is confirmed through the dispute resolution protocol, user damages will be covered from the pool's staked tokens.
 
