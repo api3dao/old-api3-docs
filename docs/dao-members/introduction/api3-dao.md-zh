@@ -16,23 +16,23 @@ DAO对重要事项进行投票，如质押激励、抵押担保以及向支持DA
 
 ## DAO 结构
 
-DAO组织结构由分级小组和子DAO 组成，两者都参与治理、改进DAO和确保DAO的成功。
+DAO组织结构由分层小组和子DAO 组成，两者都参与治理、改进DAO和确保DAO的成功。
 
 ### 分级小组
 
-更多的细化任务是通过分级小组结构进行规模化治理。
+更多的细化任务是通过分层小组结构进行规模化治理。
 
 设计的工作流程是组建线下团队，并以执行 一次性项目或持续性业务名义申请基金，这些项目或业务将使DAO受益。 该团队 拨款申请以多签形式提交，并将团队成员指定为资金用户。 如果拨款提案通过了，DAO就会将资金拨给多签用户。
 
-这种以基于团队的治理计划在gas成本方面是可接受的，因为 在DAO一级很少有提案进行投票。 从实际情况来看，它也更具有可操作性，因为它不需要所有管理方持续关注各种各样的微小细节。 Furthermore, it allows critical operations such as dAPI management to be executed swiftly and based on expert opinion. As API3 operations expand, this governance hierarchy may demand additional layers in the form of subDAOs.
+这种以基于团队的治理计划在gas成本方面是可接受的，因为 在DAO一级很少有提案进行投票。 从实际情况来看，它也更具有可操作性，因为它不需要所有管理方持续关注各种各样的微小细节。 此外，它允许关键的操作，如dAPI管理，并基于专家的意见迅速执行。 随着API3业务的扩展，这种治理层次可能需要以子DAO的形式增加层次。
 
-To learn more about hierarchical team structures
-<a href="/api3-whitepaper-v1.0.2.pdf#API3%20DAO" target="_api3-whitepaper"> see
-Section 5.3 of the API3 Whitepaper</a>.
+了解更多关于分层结构的信息，
+<a href="/api3-whitepaper-v1.0.2.pdf#API3%20DAO" target="_api3-whitepaper">见
+API3 白皮书第5.3节</a>。
 
 ### 子DAO
 
-DAO通过有选择地分配资金和授权来管理。 When a task reaches a scale that can no longer be fulfilled by a team, it is assigned to a subDAO.
+DAO通过有选择地分配资金和授权来管理。 当一个 任务超出团队能力范围时，它被分配给一 个子DAO。
 
 > ![dao-subdao-teams](../assets/images/dao-subdao-teams.png)
 
