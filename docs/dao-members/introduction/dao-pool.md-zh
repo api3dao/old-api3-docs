@@ -42,16 +42,16 @@ _API3 代币的主要工具。_
 <a href="/api3-whitepaper-v1.0.2.pdf#API3%20tokenomics" target="_api3-whitepaper">
 5.4章节 _"API3 代币经济学"_</a>。
 
-### Staking
+### 质押
 
-The staking utility incentivizes participation in the DAO and alignment of incentives. By staking your API3 tokens into the DAO pool, you receive governance voting rights and take part in providing API3 users with quantifiable _security_ in the form of the coverage service. The DAO pool also grants you inflationary rewards and exposes you to the risk of coverage service claims.
+质押工具实现参与DAO的激励和调整 奖励措施。 将您的 API3 代币质押进入DAO 池， 您会获得 治理投票权，并参与为 API3 用户提供可量化 _安全性_ 的保险服务。 DAO池也给您 通胀奖励，并使您面临投保服务索偿的风险。
 
 > ![dao-pool-staking](../assets/images/dao-pool-staking.png)
 > 
-> <p class="diagram-line" style="color:gray;margin-top:25px;">Staked tokens in the DAO pool grant 
-> governance voting rights, inflationary rewards and are used to fund the coverage 
-> service which exposes staked tokens to the risks of coverage service claims.</p>
-**Benefits:**
+> <p class="diagram-line" style="color:gray;margin-top:25px;">在 DAO 池中质押授予 
+> 治理投票权 通胀奖励，用于为保险 
+> 服务提供资金，这种服务使质押代币面临投保服务索偿风险。</p>
+**收益：**
 
 - Generate shares (tokens) in the DAO through revenue sharing from the coverage service fees.
 - Generates inflationary rewards by decreasing the circulating supply of API3 tokens through revenue burn from the coverage service fees.
