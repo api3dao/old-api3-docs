@@ -53,22 +53,22 @@ _API3 代币的主要工具。_
 > 服务提供资金，这种服务使质押代币面临投保服务索偿风险。</p>
 **收益：**
 
-- Generate shares (tokens) in the DAO through revenue sharing from the coverage service fees.
-- Generates inflationary rewards by decreasing the circulating supply of API3 tokens through revenue burn from the coverage service fees.
-- Improved token inflation protection compared to unstaked tokens.
-- Voting privileges on DAO proposals.
+- 通过保险 服务费的收入分配，从DAO中获得配额(代币)。
+- 通过燃烧保险费减少API3 代币的流通供应量，获得通胀奖励。
+- 与未质押代币相比，代币通货膨胀保护得到改进。
+- DAO提案的投票权。
 
-**Risks:**
+**风险：**
 
-- Staked tokens in the DAO pool are used to cover potential financial losses from dAPI malfunctions that the dAPI consumer might incur.
+- DAO 池中的相关代币用于偿付dAPI 用户可能由于 dAPI 故障造成的潜在资金损失。
 
-To stake your tokens use the [Dashboard](../dashboard/staking.md). You can stake as many times as you’d like. Your percentage of all the tokens in the DAO pool are directly related to your percentage of the rewards and the risks. If you stake 10% of the pool you earn 10% of rewards and will pay 10% of coverage service claims.
+若要质押代币，请参阅 [Dashboard](../dashboard/staking.md)。 您可以质押任意次数。 您在 DAO 池中的质押代币的百分比 直接与您的奖励和风险中的百分比相关。 如果您 持有10%的质押代币，您将获得10%的总奖励，同时也将支付10%的保险 服务索偿。
 
-### Collateral
+### 担保
 
-The collateral utility has the participants share the DAO's operational risk and incentivizes them to minimize it.
+担保工具使参与者分担DAO的运作风险， 促使他们将DAO运作降低到最低限度。
 
-If staking tokens only yielded rewards, the sole governance incentive would be to maximize the revenue. This would be done by increasing the number of dAPI users aggressively, and the amount that is secured by the dAPIs with it. Doing so puts excessive pressure on a dAPI which is more likely to malfunction due to an attack. Therefore, this is not a sustainable governance strategy for decentralized data feeds.
+如果质押代币只产生收益，唯一的治理激励就是 最大限度地增加收入。 要做到这一点，就必须积极增加dAPI 用户的数量以及使用 dAPI 的保额。 Doing so puts excessive pressure on a dAPI which is more likely to malfunction due to an attack. Therefore, this is not a sustainable governance strategy for decentralized data feeds.
 
 Exposing the governing parties to the risk would align their incentives with that of the DAO. The governing parties need to be penalized when a dAPI malfunction occurs using an onchain coverage service that provides dAPI users with quantifiable and trustless security guarantees. The [Coverage Service](dao-pool.md#coverage-service) uses staked tokens of the DAO pool as collateral, which means that when a dAPI malfunction is confirmed through the dispute resolution protocol, user damages will be covered from the pool's staked tokens.
 
