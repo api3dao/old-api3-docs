@@ -29,6 +29,7 @@ module.exports = [
       'reference/beacon-scheme.md',
       'reference/contract-addresses.md',
       'reference/beacon-browser.md',
+      'reference/chain-browser.md',
       'reference/monitor.md',
     ],
   },
