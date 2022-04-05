@@ -90,26 +90,26 @@ _API3 代币的主要工具。_
 
 ### dAPI 变现
 
-若要访问 dAPI，dApp 将支付定期订阅费， 费用 可以根据特定的使用情况为dApp 固定或定制。 这些价格将由代表团队决定，dApp如果希望获得 [保险服务](dao-pool.md#coverage-service)还将包含保险费。 The payment can be made in any cryptocurrency, which will be received by the DAO in API3 tokens through a liquidity pool-based decentralized exchange.
+若要访问 dAPI，dApp 将支付定期订阅费， 费用 可以根据特定的使用情况为dApp 固定或定制。 这些价格将由代表团队决定，dApp如果希望获得 [保险服务](dao-pool.md#coverage-service)还将包含保险费。 这笔付款可以用任何加密货币支付，它将通过一个基于流动池的去中心化交易所以 API3 代币形式被DAO 接收。
 
-### API provider compensation
+### API提供商补偿
 
-API providers will be compensated periodically at fixed rates, which will fit their existing pricing models. This will be done using stable coins wherever possible, some API providers categorically reject handling cryptocurrency as payment. In such cases, the DAO will provide a grant that will be paid out in return of the proof that the API provider is compensated in fiat by the grantee.
+API提供商将定期获得固定补偿，这也将适合他们现有的定价策略。 尽可能使用 稳定币来进行补偿，一些API 提供商明确拒绝处理 加密货币付款。 在这种情况下， DAO将提供一笔支付资金，为API提供商提供法币形式补偿。
 
-## Rewards
+## 奖励
 
 API3 aims to set up, maintain, and [monetize](dao-pool.md#monetization) dAPIs at scale. Its success in doing so can be estimated by its total revenue, as this will increase with the number of dAPIs and the amount of funds secured by them. API3 generates revenue through subscription fees and coverage service fees. The fees can be made in any cryptocurrency, which will be received by the DAO in API3 tokens through a liquidity pool-based decentralized exchange. To align the governance incentives with API3’s success, combined with the inflationary rewards, the net revenue to the DAO will result in burning of API3 tokens. This mechanic will produce positive staking incentives using inflationary rewards and claim risks rather than revenue sharing.
 
 > ![dao-pool-staking-2](../assets/images/dao-pool-staking-2.png)
 > 
 > <p class="diagram-line" style="color:gray;margin-top:25px;">Fees from revenue are burned. Inflationary rewards are distributed by the DAO. Coverage service claims are paid to dAPI covered entities from the pool of staked tokens.</p>
-### Earning Rewards
+### 赚取奖励
 
 Earning rewards is simple: everyone who owns shares of the DAO pool (everyone who has staked API3 tokens into the DAO pool contract) will earn rewards as they are added to the DAO pool. When you schedule tokens to be unstaked, you stop earning rewards for those tokens.
 
 Remember that when you stake, you receive non-transferable pool shares equal to the current total number of issued shares divided by the total number of tokens staked. Since the reward adds additional tokens to the pool, the "price" for one share will not always be one token.
 
-### Inflationary Rewards
+### 通胀奖励
 
 In essence, inflationary rewards force token holders to stake and preserve the value of their tokens. However, staking is risky due to the funds being used as collateral for the [Coverage Service](dao-pool.md#coverage-service), and forces the staker to participate in governance to ensure that the risk is minimized. As a combination of the two, an inflationary governance token used as collateral forces all token holders to participate in governance, which is ideal because it maximizes the decentralization of governance. Inflationary rewards are paid weekly by an implicit and automatic process through an on-chain contract. Furthermore, inflationary rewards are vested for a year, which results in governing parties sharing the project’s long term interests.
 
@@ -121,7 +121,7 @@ As a result the change in the total supply of API3 tokens is illustrated below.
 > ![dao-pool-staking-2](../assets/images/token-total-supply.png)
 > -->
 
-### Reward Calculation And Distribution
+### 奖励计算和分配
 
 The staking reward will float to have the total staked amount reach equilibrium at the target. In other words, the staking reward will increase while the staked amount is below the target, and vice versa. It will not have a pre-determined schedule.
 
@@ -135,23 +135,23 @@ Rewards are added as staked API3 tokens into the DAO pool each time the `mintRew
 
 In addition, each time `mintReward` is called, the annual percentage (the reward rate) is updated up or down by the APR update step size (1%), according to whether the total number of staked tokens is above or below its target. The initial target is 50%, so if the total number of staked tokens is less than 50% of the total token supply when `mintReward` is called, APR will be raised by 1% for the next reward payout (and vice versa). Thus, APR will constantly be adjusted, but it will always stay between a designated maximum and minimum.
 
-:::tip Example
+:::tip 示例
 
 Rewards Distribution User X stakes 600 tokens and user Y stakes 400, so there is a 60% (X) 40% (Y) split ownership in the 1000 token DAO pool. For a particular week the reward payout is 1% (10 total tokens) and the pool is now 1010 tokens. X at 60% now has 606 tokens and Y has 404. Remember that the 10 reward tokens will not vest for a period of one year.
 
 :::
 
-### Reward Withdrawal
+### 奖励提取
 
-Rewards withdrawals are baked into default withdrawals, except that rewards are locked for 1 year after minting. As a staker, your pool shares will always reflect a proportional right to the pool of staked tokens, including any rewards that have been minted. When you unstake and withdraw your tokens, you will receive:
+奖励默认是可以提取的，除非奖励在 赚取后被锁定一年。 作为一个质押者，您在质押池的份额将始终 与权利成正比，包括赚取的奖励 。 当您解除质押并提取代币时，您将会收到 ：
 
-- your tokens,
-- plus any share of the rewards you earned,
-- minus rewards that were added to the pool within the last year, which will remain staked.
+- 您的代币，
+- 加上您赚取的奖励份额，
+- 减去一年内添加到池子中的奖励，这些奖励代币将继续质押 。
 
-_To summarize reward withdrawal:_ you will not be able to withdraw your rewards for a year. Since rewards get paid out every week, you can think of this as a rolling unlock (the rewards you receive this week will get unlocked 1 year later, the rewards you will receive next week will get unlocked 1 year 1 week later, etc.) This 1 year-lock is the secret sauce to good decentralized governance, it essentially aligns the incentives of the stakers/governors with the ones of the DAO/project/token for a whole year.
+_总结奖励提取：_ 您将无法提取您一年时间内获得的奖励。 既然每周都能获得奖励，所以您可以认为这是一个 滚动解锁(您本周收到的奖励将在一年后解锁， 您下周将得到的奖励将在 1 年1 周 之后解锁，等等） This 1 year-lock is the secret sauce to good decentralized governance, it essentially aligns the incentives of the stakers/governors with the ones of the DAO/project/token for a whole year.
 
-## Coverage Service
+## 保险服务
 
 ::: warning Please note Coverage Service products are not implemented yet.
 
