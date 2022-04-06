@@ -1,8 +1,8 @@
 ---
-title: Requesters and Sponsors
+title: 请求者和赞助者
 ---
 
-<TitleSpan>Developers</TitleSpan>
+<TitleSpan>开发者</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,54 +10,54 @@ title: Requesters and Sponsors
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-As a developer it helps to understand what a **requester** is and what a **sponsor** does. They are both important parts of the Airnode ecosystem. This doc will further define them and walk you through the process of sponsoring a requester and deriving a sponsor wallet using the admin CLI commands.
+作为一个开发者，了解什么是请求者，什么是赞助者是有帮助的。 它们都是Airnode 生态系统的重要组成部分。 本文档将进一步定义它们，并指导您使用管理员CLI命令，完成赞助请求者和获得赞助钱包的过程。
 
-## What is a Requester?
+## 什么是请求者？
 
-The term [requester](../concepts/requester.md) is important to remember. When requester is mentioned, the reference is to your smart contract that calls an Airnode.
+记住[请求者](../concepts/requester.md) 这个术语是很重要的。 当提到请求者时，指的是调用 Airnode 的智能合约。
 
 > ![image](../assets/images/requesters-sponsors-1.png)
 
-As an example see the `myContract.sol` contract in the diagram within the [Overview](./) doc, it is a requester.
+作为例子，可以在 [概述](./) 文档中的图表中查看的 `myContract.sol` 合约，它就是请求者。
 
-## What is a Sponsor?
+## 什么是赞助者？
 
-Equally important is the term [sponsor](../concepts/sponsor.md). A sponsor is an entity such as yourself, an organization, etc. Sponsors create relationships between requesters and Airnodes.
+同样重要的是 [赞助者](../concepts/sponsor.md) 这一术语。 赞助者可以是个实体，如您自己、一个组织等。 赞助者在请求者和 Airnodes 之间创建关系。
 
-### Sponsor's Requester/Airnode Relationships
+### 赞助商的请求者/Airnode关系
 
-As a sponsor you will use the public address from an account within a mnemonic you own to "**sponsor a requester**" and then use the public address (known as a [sponsorAddress](../concepts/sponsor.md#sponsoraddress)) to "**derive a [sponsorWallet](../concepts/sponsor.md#sponsorwallet)**" for an Airnode. This action creates a relationship between a sponsor's requester and a particular Airnode. You do this because a sponsor is the entity that pays for the fulfillment of a request, the gas costs the Airnode will incur. These costs will be withdrawn from the `sponsorWallet` of the Airnode when the requester calls it.
+作为一个赞助商，你将使用你拥有的助记符内的账户的公共地址来 "**赞助一个请求者**" 然后使用公共地址(称为 [赞助商地址](../concepts/sponsor.md#sponsoraddress)) 来为一个Airnode "**衍生一个 [赞助商钱包](../concepts/sponsor.md#sponsorwallet)**" 。 这个行为在赞助商的请求者和一个特定的Airnode之间建立了一种关系。 你这样做是因为赞助者是为满足请求而付费的实体，即Airnode将产生的gas费用。 当请求者调用时，这些费用将从Airnode的 `sponsorWallet` of中提取。
 
-::: tip sponsorAddress
+::: tip 赞助商地址
 
-A [sponsorAddress](../concepts/sponsor.md#sponsoraddress) is a public address of an account from a mnemonic, usually the default account. Rather than the default account another account from the mnemonic can be used. The `sponsorAddress` is used to uniquely identify a sponsor.
+一个 [赞助商地址](../concepts/sponsor.md#sponsoraddress) 是一个帐户的公开地址，通常是默认帐户。 可以使用助记符中的另一个账户，而不是默认账户。 `sponsorAddress`是用来唯一地识别一个赞助商的。
 
 :::
 
-1. In the diagram below a sponsor uses a `sponsorAddress` to sponsor a requester with the Admin CLI. The CLI will use the default address of the mnemonic passed as the `sponsorAddress` for the sponsorship unless another account is specified.
+1. 在下面的图表中，赞助者使用 `sponsorAddress` 赞助一个请求者，并使用管理者CLI。 除非指定其他账户，否则CLI将使用作为 `sponsorAddress`传递的助记词的默认地址进行赞助。
 
-2. Next the sponsor will derive a `sponsorWallet` for an Airnode using the `sponsorAddress`.
-3. The requester can now make requests of the Airnode.
+2. 下一步，赞助者将使用 `sponsorAddress` 为Airnode生成 `sponsorWallet`。
+3. 请求者现在可以对 Airnode提出请求。
 
 > ![image](../assets/images/sponsor-overview.png)
 
 ---
 
-In the above diagram it is possible to use the same sponsorAddress `(0xF4...dDyu9)` to derive other sponsor wallets for other Airnodes. And it is possible to sponsor more than one requester with the same `sponsorAddress`. However it is important to remember that all requesters can now access all the Airnodes regardless if they need to. There is no harm in this scenario.
+在上图中，有可能使用相同的赞助商地址`(0xF4...dDyu9)`来为其他Airnode衍生出其他赞助商钱包。 而且，有可能以相同的`sponsorAddress`赞助一个以上的请求者。 而且，重要的是要记住，所有请求者现在都可以访问所有的Airnode，无论他们是否需要。 在这种情况下，没有任何伤害。
 
-### Advanced Scenarios
+### 高级方案
 
-- **Two requesters, one Airnode, one sponsorWallet**:
+- **两个请求者，一个Airnode，一个赞助钱包**:
 
-  Two requesters sponsored with the same `sponsorAddress` (e.g., `0xF4...dDyu9`) would access the same Airnode using a single sponsorWallet derived by the `sponsorAddress`.
+  两个以相同的`sponsorAddress` (例如`0xF4...dDyu9`)赞助的请求者，将使用由`sponsorAddress`衍生的单一赞助商钱包访问同一个Airnode。
 
-- **Two requesters, one Airnode, two sponsorWallets**:
+- **两个请求者，一个Airnode，一个赞助钱包**:
 
-  Sponsor two different requesters each with a different `sponsorAddress` (e.g., `0xF4...dDyu9` and `0xG9...fFzc5`). Using the separate sponsorAddresses you can derive two separate sponsorWallets for the same Airnode. Now each requester will deplete funds from a separate Airnode sponsorWallet when using the Airnode.
+  赞助两个不同的请求者，每个请求者都有一个不同的 `sponsorAddress` (例如， `0xF4...dDyu9` 和 `0xG9...fFzc5`)。 使用独立的赞助商地址，你可以为同一个Airnode衍生出两个独立的赞助商钱包。 现在，每个请求者在使用Airnode时，将先从一个单独的Airnode赞助商钱包中耗尽资金。
 
-- **One requester, two Airnodes, two sponsorWallets**:
+- **两个请求者，一个Airnode，一个赞助钱包**:
 
-  A requester can make requests from two different Airnodes. Sponsor the requester with a `sponsorAddress`. Derive two sponsorWallets, one for each of two the Airnodes, using the `sponsorAddress`. Despite the fact that the sponsorWallet for each Airnode was derived with the same `sponsorAddress` the sponsorWallets are different since they are derived using the airnode's xpub plus the `sponsorAddress`. The sponsor must fund both wallets separately using the unique `sponsorWalletAddress` of the two sponsorWallets.
+  请求者可以从两个不同的 Airnode 提出请求。 用 `sponsorAddress`赞助请求者。 使用`sponsorAddress`，为两个Airnode各衍生出一个赞助者钱包。 Despite the fact that the sponsorWallet for each Airnode was derived with the same `sponsorAddress` the sponsorWallets are different since they are derived using the airnode's xpub plus the `sponsorAddress`. The sponsor must fund both wallets separately using the unique `sponsorWalletAddress` of the two sponsorWallets.
 
 ### Things to Remember
 
