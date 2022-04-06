@@ -23,7 +23,7 @@ or a Docker Container.
 
 ::: tab AWS
 
-![image](../assets/images/api-provider-overview-aws.png)
+<img src="../assets/images/api-provider-overview-aws.png" width="450px;">
 
 1. <p class="diagram-line" style="color:black;"><b>config.json</b>: Contains the Airnode's configuration. The OIS object is important as it maps an API to Airnode endpoints.</p>
 2. <p class="diagram-line" style="color:green;margin-top:10px;"><b>secrets.env</b>: Values that should not be exposed in config.json.</p>
@@ -34,7 +34,7 @@ or a Docker Container.
 
 ::: tab GCP
 
-![image](../assets/images/api-provider-overview-gcp.png)
+<img src="../assets/images/api-provider-overview-gcp.png" width="450px;">
 
 1. <p class="diagram-line" style="color:black;"><b>config.json</b>: Contains the Airnode's configuration. The OIS object is important as it maps an API to Airnode endpoints.</p>
 2. <p class="diagram-line" style="color:green;margin-top:10px;"><b>secrets.env</b>: Values that should not be exposed in config.json.</p>
@@ -44,7 +44,7 @@ or a Docker Container.
 
 ::: tab Container
 
-![image](../assets/images/api-provider-overview-container.png)
+<img src="../assets/images/api-provider-overview-container.png" width="450px;">
 
 1. <p class="diagram-line" style="color:black;"><b>config.json</b>: Contains the Airnode's configuration. The OIS object is important as it maps an API to Airnode endpoints.</p>
 2. <p class="diagram-line" style="color:green;margin-top:10px;"><b>secrets.env</b>: Values that should not be exposed in config.json.</p>
