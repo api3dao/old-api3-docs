@@ -155,20 +155,20 @@ _总结奖励提取：_ 您将无法提取您一年时间内获得的奖励。 �
 
 ::: warning 请注意保险服务还未上线.
 
-Before they are, a proposal with a 50% quorum requirement will have to be passed for them to go active
+在保险服务上线之前，必须通过一项要求达到50%法定人数的提案 才能激活
 
 :::
 
-API3 provides dAPI users with a quantifiable level of _security_ in the form of an on-chain coverage service. Staked tokens in the DAO pool are used to cover potential financial losses from dAPI malfunctions that the dAPI consumer might incur. This accomplishes two goals.
+API3 为 dAPI 用户提供了一个可量化的 _安全_ 的在线保险服务。 DAO 池中的质押代币用于偿付dAPI 用户可能由于 dAPI 故障造成的潜在资金损失。 这实现两个目标：
 
-- The coverage service acts as a well-defined and trustless safety net in case of a dAPI malfunction.
-- It holds the governing parties responsible for dAPI malfunctions, and thus incentivizes them to govern towards more secure dAPIs.
+- 在dAPI发生故障的情形下，保险服务提供一个明确的、去信任的安全网络。
+- 让治理方对dAPI 故障负责，因此 促使他们通过治理推动dAPI越来越安全。
 
-API3 co-developed an on-chain coverage service with Kleros that provides quantifiable and trustless _security_ to dAPI users. This coverage service will protect the dAPI user against damages caused by certain dAPI malfunctions up to a payout limit. Note that even if API3 did not provide this service, the dAPI user could have received on-chain coverage services using a third party solution. Such a solution would tend towards charging very high coverage service premiums, as they would not have access to the information and expertise to accurately assess dAPI risks.
+API3 与 Kleros 共同开发了一个链上保险服务，为 dAPI 用户提供 可量化、去信任的 _安全_保障。 这保险服务将 保护dAPI 用户免受某些dAPI 故障造成损失，赔付以用户支出为限。 注意，即使API3没有提供这种服务， dAPI 用户可以使用第三方 解决方案获得链上保险服务。 第三方解决方案很可能会收取非常高的保费， 因为他们无法获得足够信息和专业知识来 准确评估dAPI风险。
 
-The proposed coverage service is special in the way that it is collateralized by the funds staked by the governing parties of the API3 DAO into the DAO pool. Therefore, it not only provides _security_ to the dAPI user, but also creates a very strong incentive for dAPIs to be governed in a way that dAPI _security_ is maximized, which will further decrease coverage service costs.
+准备推出的保险服务的特殊之处在于，它是由API3 DAO的治理方押入DAO池的资金来担保的。 因此，它不仅为dAPI用户提供了 _安全保障_ ，而且还为dAPI的治理创造了一个非常强大的激励机制，使dAPI的 _安全性_ 得到最大化，这将进一步降低保险服务成本。
 
-### Claim Risks
+### 索取风险
 
 The staked tokens in the pool are used as collateral for coverage service claims. Any payout results in the reduction of the total token count in the pool. The reduction is charged against each entity's percentage of tokens in the pool.
 
