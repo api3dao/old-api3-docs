@@ -168,18 +168,18 @@ API3 与 Kleros 共同开发了一个链上保险服务，为 dAPI 用户提供 
 
 准备推出的保险服务的特殊之处在于，它是由API3 DAO的治理方押入DAO池的资金来担保的。 因此，它不仅为dAPI用户提供了 _安全保障_ ，而且还为dAPI的治理创造了一个非常强大的激励机制，使dAPI的 _安全性_ 得到最大化，这将进一步降低保险服务成本。
 
-### 索取风险
+### 索偿风险
 
-The staked tokens in the pool are used as collateral for coverage service claims. Any payout results in the reduction of the total token count in the pool. The reduction is charged against each entity's percentage of tokens in the pool.
+池中的质押代币被用作保险服务 的担保。 任何赔付支出都会减少 池中的总代币数量。 减少的代币将从每个质押者在代币池中的份额按百分比中支出。
 
-::: tip Example
+::: tip 示例
 
-Claim Risks User X and Y both stake 500 API3 tokens, so each has 50% ownership in a 1000 token DAO pool. There is a coverage service claim payout of 3.4 tokens and the pool is now 996.6 tokens. X and Y now own 498.3 tokens each based on their 50% ownership.
+索偿用户X和用户Y的风险均质押了500 个API3代币，所以每个用户在1000个代币的池中各拥有50%的所有权 。 某个保险服务赔付支出为3.4个代币 ，池还剩996.6个代币。 用户X 和用户 Y 根据各自50%的所有权，现在每人拥有498.3个代币。
 
 :::
 
-### ClaimsManager
+### 索偿管理器
 
-To insure against potential system failures, the DAO pool can empower special `ClaimsManager` contracts to withdraw staked tokens directly. Approved `ClaimsManager` contracts do this by calling `payOutClaim(address recipient, uint256 amount)` in the DAO pool contract, which transfers tokens from the DAO pool to the recipient. When this occurs, the total number of staked tokens goes down, and pool share value goes down in turn. Reference
-<a href="/api3-whitepaper-v1.0.2.pdf#Insurance process" target="_api3-whitepaper">section
-6.3 _"Coverage service process"_</a> of the API3 whitepaper.
+为了防止潜在的系统故障，DAO池可以部署特殊的 `ClaimsManager` 合约，直接提取质押的代币。 通过调用在 DAO 池合约中 `payOutClaim(address recipient, uint256 amount)` 命令，批准 `ClaimsManager` 合约 从 DAO 池向指定地址转账代币。 当这种情况发生时，质押代币 的数量下降了，同时相应的池份额值下降。 参考API3白皮书
+<a href="/api3-whitepaper-v1.0.2.pdf#Insurance process" target="_api3-whitepaper">
+6.3章节 _"保险服务流程"_</a> 。
