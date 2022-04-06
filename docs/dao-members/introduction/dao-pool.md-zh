@@ -98,20 +98,20 @@ API提供商将定期获得固定补偿，这也将适合他们现有的定价�
 
 ## 奖励
 
-API3 旨在规模化建立、维护 dAPI，并让其 [变现](dao-pool.md#monetization)。 它在这方面的成功可以通过其总收入来估计，因为这将随着dAPI的数量和它们所保护的资金数额而增加。 API3通过订阅费和保险服务费产生收入。 这些费用可以用任何加密货币支付，DAO将通过基于流动性池的去中心化交易所收到API3代币。 为了使治理激励与API3的成功保持一致，再加上通胀奖励，DAO的净收入的产生表现为API3代币的燃烧。 This mechanic will produce positive staking incentives using inflationary rewards and claim risks rather than revenue sharing.
+API3 旨在规模化建立、维护 dAPI，并让其 [变现](dao-pool.md#monetization)。 它在这方面的成功可以通过其总收入来估计，因为这将随着dAPI的数量和它们所保护的资金数额而增加。 API3通过订阅费和保险服务费产生收入。 这些费用可以用任何加密货币支付，DAO将通过基于流动性池的去中心化交易所收到API3代币。 为了使治理激励与API3的成功保持一致，再加上通胀奖励，DAO的净收入的产生表现为API3代币的燃烧。 相比收入分配，这种机制通过通胀奖励和索赔风险将产生更加积极的质押激励。
 
 > ![dao-pool-staking-2](../assets/images/dao-pool-staking-2.png)
 > 
-> <p class="diagram-line" style="color:gray;margin-top:25px;">Fees from revenue are burned. Inflationary rewards are distributed by the DAO. Coverage service claims are paid to dAPI covered entities from the pool of staked tokens.</p>
+> <p class="diagram-line" style="color:gray;margin-top:25px;">收入费用被燃烧销毁。 通胀奖励通过DAO分配。 保险服务索赔是通过池子中的质押代币付给dAPI服务的用户。</p>
 ### 赚取奖励
 
-Earning rewards is simple: everyone who owns shares of the DAO pool (everyone who has staked API3 tokens into the DAO pool contract) will earn rewards as they are added to the DAO pool. When you schedule tokens to be unstaked, you stop earning rewards for those tokens.
+赚取奖励很简单：拥有DAO池份额的每个人(所有 已经将 API3 代币质押到DAO池合约的人) 都会获得奖励，奖励也会 被添加到DAO池。 当您解除质押代币时，您将不会再 通过 这些代币赚取奖励。
 
-Remember that when you stake, you receive non-transferable pool shares equal to the current total number of issued shares divided by the total number of tokens staked. Since the reward adds additional tokens to the pool, the "price" for one share will not always be one token.
+请记住，当您质押时，您会收到不可转让的池子份额，池子份额即当前已质押代币的数量除以池子中质押代币总数。 因为奖励为池中添加了额外的代币，所以一个份额的“价值”并不一定是指一个代币。
 
 ### 通胀奖励
 
-In essence, inflationary rewards force token holders to stake and preserve the value of their tokens. However, staking is risky due to the funds being used as collateral for the [Coverage Service](dao-pool.md#coverage-service), and forces the staker to participate in governance to ensure that the risk is minimized. As a combination of the two, an inflationary governance token used as collateral forces all token holders to participate in governance, which is ideal because it maximizes the decentralization of governance. Inflationary rewards are paid weekly by an implicit and automatic process through an on-chain contract. Furthermore, inflationary rewards are vested for a year, which results in governing parties sharing the project’s long term interests.
+从本质上讲，通胀奖励促使代币持有人质押其代币并使代币保值。 然而，由于质押代币被用作 [保险服务](dao-pool.md#coverage-service)的 担保，存在一定风险。同时，促使 质押者参与治理，以确保将风险降到最低程度。 因为 两者的结合，一个用作担保的通胀治理代币 促使所有代币持有人参与治理。 它之所以很理想，是因为它 最大限度地实现去中心化治理。 Inflationary rewards are paid weekly by an implicit and automatic process through an on-chain contract. Furthermore, inflationary rewards are vested for a year, which results in governing parties sharing the project’s long term interests.
 
 <!--
 > ![dao-pool-staking-2](../assets/images/token-weekly-emission.png)
