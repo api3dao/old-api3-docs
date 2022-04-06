@@ -8,7 +8,7 @@ title: API3 DAO
 
 API3由去中心化匿名组织（DAO）治理。 DAO是一个 的协作创建、管理和货币化的大型dAPI。 为了以完全去中心化的方式实现 这个目标，参与者的激励措施包括治理调节 、安全保证和 [实现](dao-pool.md#token-utilities) API3 代币价值。
 
-API3项目有一套完全开放、去中心化和直接的治理 模式。 任何API3 代币持有者都可以在DAO池质押并获得投票权，以此直接参与项目的治理 。 此外，标记员可以获得 [通胀奖励](dao-pool.md#inflationary-rewards) 以及DAO今后可能决定的任何附加奖励。 质押的 API3 代币将 返回一个在链上 [Coverage Service](dao-pool.md#coverage-service) 作为抵押品， 为 dAPI 用户提供可量化和可靠的安全担保。
+API3项目有一套完全开放、去中心化和直接的治理 模式。 任何API3 代币持有者都可以在DAO池质押并获得投票权，以此直接参与项目的治理 。 此外，标记员可以获得 [通胀奖励](dao-pool.md#inflationary-rewards) 以及DAO今后可能决定的任何附加奖励。 质押的 API3 代币将 返回一个在链上 [保险服务](dao-pool.md#coverage-service) 作为担保， 为 dAPI 用户提供可量化和可靠的安全担保。
 
 DAO对重要事项进行投票，如质押激励、抵押担保以及向支持DAO的团队提供DAO国库奖励的提案。
 
