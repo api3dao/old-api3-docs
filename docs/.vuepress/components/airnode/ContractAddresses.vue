@@ -26,27 +26,17 @@
           v-for="(item, index) in contract.addresses"
           v-bind:key="index"
           v-show="type === item.chain.type"
+          v-bind:class="{
+            contract_tr_highlight: item.chain.important,
+          }"
         >
-          <td
-            v-bind:class="{
-              contract_addresses_mainnet: item.chain.name === 'mainnet',
-            }"
-          >
+          <td>
             {{ item.chain.name }}
           </td>
-          <td
-            v-bind:class="{
-              contract_addresses_mainnet: item.chain.name === 'mainnet',
-            }"
-          >
+          <td>
             {{ item.chainId }}
           </td>
-          <td
-            NOWRAP
-            v-bind:class="{
-              contract_addresses_mainnet: item.chain.name === 'mainnet',
-            }"
-          >
+          <td NOWRAP>
             <!--a
               target="_etherscan"
               :href="'https://etherscan.io/address/' + item.address"
@@ -128,7 +118,16 @@ export default {
           'https://raw.githubusercontent.com/api3dao/airnode/master/packages/airnode-protocol/deployments/references.json'
         );
 
+        // These are holders of specific chains that go on top of each contract's
+        // array, under them chains are sort A-Z.
+        // In testnets, start with ropsten, rinkeby, goerli, kovan,
+        // then continue with the others in A-Z order.
         let mainnetObj = [];
+        let ropstenObj = [];
+        let rinkebyObj = [];
+        let goerliObj = [];
+        let kovanObj = [];
+
         // Create a list of contracts with addresses
         for (const key in response.data) {
           // ADDRESSES
@@ -140,13 +139,21 @@ export default {
               chain: chains[key2] || { name: 'Unknown' },
             };
             if (add.chainId === '1') mainnetObj = add;
+            else if (add.chainId === '3') ropstenObj = add;
+            else if (add.chainId === '4') rinkebyObj = add;
+            else if (add.chainId === '5') goerliObj = add;
+            else if (add.chainId === '42') kovanObj = add;
             else addresses.push(add);
           }
           addresses = addresses.filter((item) => item.chain.type === this.type);
           // Sort addresses by  chain name
           addresses.sort((a, b) => (a.chain.name > b.chain.name ? 1 : -1));
 
-          // Move mainnet to top
+          // Move mainnet to top, then testnets
+          addresses.unshift(kovanObj);
+          addresses.unshift(goerliObj);
+          addresses.unshift(rinkebyObj);
+          addresses.unshift(ropstenObj);
           addresses.unshift(mainnetObj);
 
           // Build contract with addresses
@@ -157,6 +164,29 @@ export default {
         console.error(err.toString());
         this.error = err.toString();
       }
+
+      // Need to reorder the response.data by contract
+      // AirnodeRrp, RequesterAuthorizerWithAirnode, AccessControlRegistry first
+      // then any "other" contracts that might be present
+
+      // AccessControlRegistry
+      let index = this.contracts.findIndex(
+        (x) => x.contractName === 'AccessControlRegistry'
+      );
+      let contract = this.contracts.splice(index, 1);
+      this.contracts.unshift(contract[0]);
+      // RequesterAuthorizerWithAirnode
+      index = this.contracts.findIndex(
+        (x) => x.contractName === 'RequesterAuthorizerWithAirnode'
+      );
+      contract = this.contracts.splice(index, 1);
+      this.contracts.unshift(contract[0]);
+      // AirnodeRrp
+      index = this.contracts.findIndex((x) => x.contractName === 'AirnodeRrp');
+      contract = this.contracts.splice(index, 1);
+      this.contracts.unshift(contract[0]);
+
+      // Page state
       this.showSpinner = false;
       this.loaded = true;
     });
@@ -179,12 +209,13 @@ export default {
 .contract-addresses-table tr:nth-child(even) td {
   background: white;
 }
-.contract_addresses_mainnet{
-    background:#e5ecf9;
-}
 .contract-addresses-copy-icon{
     margin-left:5px
     cursor:pointer;
     height:11px;
+}
+.contract_tr_highlight td {
+  background-color: #e5ecf9;
+  /*-webkit-transition: all 1s linear;*/
 }
 </style>
