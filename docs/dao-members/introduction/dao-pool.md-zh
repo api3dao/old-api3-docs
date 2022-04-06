@@ -111,7 +111,7 @@ API3 旨在规模化建立、维护 dAPI，并让其 [变现](dao-pool.md#moneti
 
 ### 通胀奖励
 
-从本质上讲，通胀奖励促使代币持有人质押其代币并使代币保值。 然而，由于质押代币被用作 [保险服务](dao-pool.md#coverage-service)的 担保，存在一定风险。同时，促使 质押者参与治理，以确保将风险降到最低程度。 因为 两者的结合，一个用作担保的通胀治理代币 促使所有代币持有人参与治理。 它之所以很理想，是因为它 最大限度地实现去中心化治理。 Inflationary rewards are paid weekly by an implicit and automatic process through an on-chain contract. Furthermore, inflationary rewards are vested for a year, which results in governing parties sharing the project’s long term interests.
+从本质上讲，通胀奖励促使代币持有人质押其代币并使代币保值。 然而，由于质押代币被用作 [保险服务](dao-pool.md#coverage-service)的 担保，存在一定风险。同时，促使 质押者参与治理，以确保将风险降到最低程度。 因为 两者的结合，一个用作担保的通胀治理代币 促使所有代币持有人参与治理。 它之所以很理想，是因为它 最大限度地实现去中心化治理。 每周会在链上通过合约默认和自动支付通胀奖励。 此外，通货膨胀奖励周期一年，让 治理方可以跟随项目成长长期获益。
 
 <!--
 > ![dao-pool-staking-2](../assets/images/token-weekly-emission.png)
