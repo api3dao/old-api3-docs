@@ -6,8 +6,8 @@ title: More Stuff
 
 # {{$frontmatter.title}}
 
-<!-- Uncomment the TOC when needed. -->
-<!--TocHeader /><TOC class="table-of-contents" :include-level="[2,3]" >
+
+<!-- Uncomment the TOC when needed. --> <!--TocHeader /><TOC class="table-of-contents" :include-level="[2,3]" >
 
 This page is titled **More Stuff** but its name in the sidebar is titled **More Stuff about ChainAPI**. This is not all that practical but it can be done. See line 16 below from hte `sidebar.js` file.
 
