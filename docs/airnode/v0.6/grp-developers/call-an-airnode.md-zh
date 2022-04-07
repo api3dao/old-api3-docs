@@ -1,8 +1,8 @@
 ---
-title: Calling an Airnode
+title: 调用Airnode
 ---
 
-<TitleSpan>Developers</TitleSpan>
+<TitleSpan>开发者</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,7 +10,7 @@ title: Calling an Airnode
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-A requester is a contract that can trigger an Airnode request. To do so, the requester needs to be sponsored and make the request using a matching sponsor wallet. See [Requesters and Sponsors](requesters-sponsors.md) on how to sponsor a requester and derive the sponsor wallet.
+请求者是一个可以触发Airnode 请求的合约。 To do so, the requester needs to be sponsored and make the request using a matching sponsor wallet. See [Requesters and Sponsors](requesters-sponsors.md) on how to sponsor a requester and derive the sponsor wallet.
 
 Airnode consists of two parts: the off-chain **Airnode** (a.k.a. "the node") deployed as self hosted or cloud provider functions, e.g., AWS) and the on-chain **protocol contract** AirnodeRrp.sol. A requester calls the protocol contract, which emits a blockchain event with the request parameters. Airnode listens to the events emitted by the AirnodeRrp contract. During the next run cycle, Airnode gets the request parameters from the emitted event. The diagram below and the diagram in the [Overview](./) doc for developers illustrate the mechanics of the entire process.
 
