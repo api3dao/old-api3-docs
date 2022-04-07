@@ -16,7 +16,7 @@ title: 请求者和赞助者
 
 记住[请求者](../concepts/requester.md) 这个术语是很重要的。 当提到请求者时，指的是调用 Airnode 的智能合约。
 
-> ![image](../assets/images/requesters-sponsors-1.png)
+> ![图片](../assets/images/requesters-sponsors-1.png)
 
 作为例子，可以在 [概述](./) 文档中的图表中查看的 `myContract.sol` 合约，它就是请求者。
 
@@ -39,7 +39,7 @@ title: 请求者和赞助者
 2. 下一步，赞助者将使用 `sponsorAddress` 为Airnode生成 `sponsorWallet`。
 3. 请求者现在可以对 Airnode提出请求。
 
-> ![image](../assets/images/sponsor-overview.png)
+> ![图片](../assets/images/sponsor-overview.png)
 
 ---
 
@@ -169,10 +169,10 @@ Sponsor wallet address: 0x14D5a34E5a370b9951Fef4f8fbab2b1016D557d9
 
 在赞助请求者和衍生出赞助者钱包期间以及之后，有几件事情需要跟踪。
 
-| 条目                     | 说明                                                                                                                                                                                                                                                                   |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 赞助者的助记符                | The mnemonic from which the `sponsorAddress` was extracted.                                                                                                                                                                                                          |
-| sponsor address        | The public address of an account derived from a sponsor's mnemonic when sponsoring a requester. Record which `sponsorAddress` was used to create a sponsorWallet for each Airnode.                                                                                   |
-| sponsor wallet address | Record the `sponsorWalletAddress` of the sponsorWallet derived for an Airnode. For each Airnode you have derived a sponsorWallet, the Airnode keeps the private key and returns the public address (`sponsorWalletAddress`) which is used to fund the sponsorWallet. |
+| 条目      | 说明                                                                                                                              |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| 赞助者的助记符 | 从 `sponsorAddress` 中提取出的助记符。                                                                                                    |
+| 赞助者地址   | 赞助请求者时，从赞助者的助记符中得出的账户公共地址。 记录为每个Airnode创建赞助者钱包的 `sponsorAddress`。                                                               |
+| 赞助钱包地址  | 记录为Airnode派生的赞助者钱包的地址 `sponsorWalletAddress` 。 对于派生出的每个Airnode的赞助者钱包，Airnode会保留私钥并返回公共地址(`sponsorWalletAddress`) ，该地址用于资助赞助者钱包。 |
 
-You can acquire the public address (`sponsorWalletAddress`) of a sponsorWallet later, if you loose it, by running the command `derive-sponsor-wallet-address` again. Since the sponsorWallet was already created for the `sponsorAddress/airnodeAddress` pair, the command will only return the public address for the wallet. However you must use the same `sponsorAddress` used when the wallet was first created or a new sponsorWallet will be created.
+您可以稍后获得赞助钱包 的公共地址(`sponsorWalletAddress`)。 如果你丢失了它，请通过运行命令 `derive-sponsor-wallet-address`再次运行。 由于赞助者钱包已经为 `sponsorAddress/airnodeAddress` 配对创建，命令将只返回公开的钱包地址。 然而，您必须使用第一次创建钱包时使用的 `sponsorAddress` ，否则将创建一个新的赞助者钱包。
