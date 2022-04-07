@@ -119,15 +119,15 @@ Requester 0x2c...gDER7 sponsored using sponsorAddress 0xF4...dDyu9
 
 ## 如何衍生赞助者钱包
 
-若要使用特定的 Airnode ，您必须 _获取赞助者钱包_。 Once the sponsorWallet is created it must be funded using the public address (`sponsorWalletAddress`) returned by the command `derive-sponsor-wallet-address`. Each Airnode keeps a separate list of individual sponsorWallets that can access the Airnode. Learn more about a [sponsorWallet](../concepts/sponsor.md#sponsorwallet).
+若要使用特定的 Airnode ，您必须 _获取赞助者钱包_。 一旦 赞助者钱包被创建，它必须使用`derive-sponsor-wallet-address`命令返回的公共地址(`sponsorWalletAddress`) 进行资助。 Each Airnode keeps a separate list of individual sponsorWallets that can access the Airnode. Learn more about a [sponsorWallet](../concepts/sponsor.md#sponsorwallet).
 
-To derive a sponsorWallet for an Airnode execute the [derive-sponsor-wallet-address](../reference/packages/admin-cli.md#derive-sponsor-wallet-address) command using the parameters detailed in the list below. There are no transaction gas costs to do so.
+要为一个Airnode导出一个赞助商钱包，请使用下面列表中的参数执行[derive-sponsor-wallet-address](../reference/packages/admin-cli.md#derive-sponsor-wallet-address)命令。 这样做没有任何交易的gas成本。
 
-- `airnode-xpub`: The extended public address of the Airnode for path m/44'/60'/0'.
-- `airnode-address`: The public address of the desired Airnode.
-- `sponsor-address`: The sponsorAddress (an address of an Ethereum account) owned by a sponsor. Usually the sponsorAddress is the one returned when sponsoring a requester.
+- `airnode-xpub`：路径m/44'/60'/0'的Airnode的扩展公共地址。
+- `airnode-address`: 所需Airnode的公共地址
+- `sponsor-address`：赞助者的地址(Ethereum账户的地址)，由赞助者拥有。 通常情况下， 赞助者地址是赞助请求者时返回的地址。
 
-The command `derive-sponsor-wallet-address` will return the public address (`sponsorWalletAddress`) of the sponsorWallet to be funded by the sponsor.
+命令`derive-sponsor-wallet-address` ，是用来返回由赞助者资助的赞助真钱包的公共地址(`sponsorWalletAddress`)。
 
 :::: tabs
 
@@ -159,19 +159,19 @@ Sponsor wallet address: 0x14D5a34E5a370b9951Fef4f8fbab2b1016D557d9
 
 ::::
 
-Sponsors need to keep their sponsorWallets topped off if they want Airnodes to fulfill requests made by their requesters. However this does not cover the cost of API data that the Airnode serves, see [API Provider Fees](fees.md#api-provider-fees).
+如果赞助者希望Airnode满足其请求者的请求，就需要保持他们的赞助者钱包满额。 然而，这并不能支付Airnote所服务的 API 数据的 费用，参见 [API 供应商费用](fees.md#api-provider-fees)。
 
-If you forget the public address (`sponsorWalletAddress`) of the sponsorWallet simply run `derive-sponsor-wallet-address` again. Since the wallet already exists for the airnodeAddress/sponsorAddress pair it will just return the address.
+如果你忘记了赞助商钱包的公共地址(`sponsorWalletAddress`)，只需再次运行 `derive-sponsor-wallet-address` 命令。 Since the wallet already exists for the airnodeAddress/sponsorAddress pair it will just return the address.
 
 <airnode-SponsorWalletWarning/>
 
-## Record Keeping
+## 保存记录
 
-During and after sponsoring requesters and deriving a sponsorWallet there are a few things to keep track of.
+在赞助请求者和衍生出赞助者钱包期间以及之后，有几件事情需要跟踪。
 
-| Item                   | Description                                                                                                                                                                                                                                                          |
+| 条目                     | 说明                                                                                                                                                                                                                                                                   |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sponsor's mnemonic     | The mnemonic from which the `sponsorAddress` was extracted.                                                                                                                                                                                                          |
+| 赞助者的助记符                | The mnemonic from which the `sponsorAddress` was extracted.                                                                                                                                                                                                          |
 | sponsor address        | The public address of an account derived from a sponsor's mnemonic when sponsoring a requester. Record which `sponsorAddress` was used to create a sponsorWallet for each Airnode.                                                                                   |
 | sponsor wallet address | Record the `sponsorWalletAddress` of the sponsorWallet derived for an Airnode. For each Airnode you have derived a sponsorWallet, the Airnode keeps the private key and returns the public address (`sponsorWalletAddress`) which is used to fund the sponsorWallet. |
 
