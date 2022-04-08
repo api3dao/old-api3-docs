@@ -10,28 +10,27 @@ title: 调用Airnode
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-请求者是一个可以触发Airnode 请求的合约。 To do so, the requester needs to be sponsored and make the request using a matching sponsor wallet. See [Requesters and Sponsors](requesters-sponsors.md) on how to sponsor a requester and derive the sponsor wallet.
+请求者是一个可以触发Airnode 请求的合约。 要做到这一点，请求者需要被赞助，并使用匹配的赞助者 钱包提出请求。 查看 [Requesters and Sponsors](requesters-sponsors.md)章节，了解如何赞助请求者，并获取赞助者钱包。
 
-Airnode consists of two parts: the off-chain **Airnode** (a.k.a. "the node") deployed as self hosted or cloud provider functions, e.g., AWS) and the on-chain **protocol contract** AirnodeRrp.sol. A requester calls the protocol contract, which emits a blockchain event with the request parameters. Airnode listens to the events emitted by the AirnodeRrp contract. During the next run cycle, Airnode gets the request parameters from the emitted event. The diagram below and the diagram in the [Overview](./) doc for developers illustrate the mechanics of the entire process.
+Airnode 由两个部分组成：链下 **Airnode**(例如 "节点")已部署为自托管或云端提供功能，例如AWS)，以及链上的 **协议合约** AirnodeRrp.sol。 请求者调用协议合约，发出带有请求参数的区块链事件。 Airnode 监听AirnodeRrp 合约释放的事件。 在下一个运行周期，Airnode从发出的事件中获得请求参数。 下图和为开发者准备的[Overview](./) 文档中的图表说明了整个过程的机制。
 
-The AirnodeRrp protocol is designed to be flexible and is meant to serve a variety of use cases. See the Airnode [requester examples](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-examples/contracts) for potential design patterns.
+AirnodeRrp协议的设计是灵活的，意在为各种不同的使用案例服务。 关于潜在的设计模式，参见Airnode[requester examples](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-examples/contracts)的例子。
 
-Ignoring the mechanics of the overall process, the requester calling an Airnode primarily focuses on two tasks, indicated by points A & B in the diagram below.
+忽略整个过程的机制，请求者调用 Airnode 主要集中于两个任务， 以下图表中点A & B所示。
 
-- <span style="color:green;font-weight:bold;">1</span>: Make the request
-- <span style="color:blue;font-weight:bold;">2</span>: Accept and decode the response
+- <span style="color:green;font-weight:bold;">1</span>: 发出请求
+- <span style="color:blue;font-weight:bold;">2</span>: 接受并解码 回应
 
 > ![request-flow](../assets/images/call-an-airnode.png)
 > 
-> 1. <p class="diagram-line" style="color:green;">A requester makes a request to the AirnodeRrp contract which adds the <code>requestId</code> to storage, emits the request to the event logs and returns the <code>requestId</code> to the requester. The request is retrieved by the Airnode during its next run cycle. It then verifies the requester is authorized by checking authorizer contracts assigned to the Airnode.</p>
-> 2. <p class="diagram-line" style="color:blue;">If the request is authorized, Airnode proceeds to respond. It first gathers the requested data from the API and calls the <code>fulfill()</code> function in AirnodeRrp, which removes the pending <code>requestId</code> from storage and makes a callback to <code>myFulfill()</code>. The gas costs associated 
->     with the response are covered by the sponsor of the requester.</p>
+> 1. <p class="diagram-line" style="color:green;">请求者向AirnodeRrp合同提出请求，将 <code>requestId</code> 添加到存储，将请求发送到事件日志，并将 <code>requestId</code> 退回请求者。 在下一个运行周期，Airnode 将检索这个请求。 然后，它通过检查分配给Airnode的授权者合约，验证请求者是否得到授权。</p>
+> 2. <p class="diagram-line" style="color:blue;">如果请求获得授权，Airnode 开始响应。 它首先从API收集请求的数据，并调用AirnodeRrp中的<code>fulfill()</code>函数，该函数从存储中删除待定的 <code>requestId</code> ，并对<code>myFulfill()</code>进行回调。 与相应有关的gas费用>由请求者的赞助者承担。</p>
 
-The following section of this document discusses the requester implementation, its deployment and sponsoring.
+本文档以下部分讨论了请求者的实施、部署和赞助。
 
-## Step #1: Inherit RrpRequester.sol
+## 步骤 #1: 继承RrpRequestter.sol
 
-A requester inherits from the [RrpRequester.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/requesters/RrpRequester.sol) contract. This will expose the AirnodeRrp.sol protocol contract to the requester allowing it to make Airnode requests.
+A requester inherits from the [RrpRequester.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/requesters/RrpRequester.sol) contract. 这将向请求者公开AnnodeRrp.sol协议合约，允许其提出Annode请求。
 
 ```solidity
 import "@api3/airnode-protocol/contracts/rrp/requesters/RrpRequester.sol";
@@ -46,7 +45,7 @@ contract MyRequester is RrpRequester {
 }
 ```
 
-Note the constructor parameter `airnodeRrpAddress`, which is the public address of the AirnodeRrp.sol protocol contract on the blockchain you wish to use. It is used by RrpRequester.sol to point itself to AirnodeRrp.sol.
+注意构造函数参数`airnodeRrpAddress`，它是你想使用的区块链上AirnodeRrp.sol协议合约的公共地址。 It is used by RrpRequester.sol to point itself to AirnodeRrp.sol.
 
 See the list of all [Airnode contract addresses](../reference/airnode-addresses.md) in the reference section.
 
