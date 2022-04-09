@@ -188,6 +188,6 @@ contract MyRequester is RrpRequester {
 - **requestId**: 在提出请求时首次获得，在此作为参考传递，以确定响应所针对的请求。
 - **data**: 在响应成功的情况下，这就是请求的数据并且已经被编码，除了其他响应数据外，还包含一个[时间戳](/ois/v1.0.0/reserved-parameters.md#timestamp-encoded-to-uint256-on-chain)。 要使用 `abi` 对象的函数`decode()`对其进行解码。
 
-## Step #4: Deploy and Sponsor the Requester
+## 步骤 #4：部署并赞助请求者
 
-Deploy the requester to the desired blockchain and then sponsor the requester. See [Requesters and Sponsors](requesters-sponsors.md#how-to-sponsor-a-requester) to learn more about sponsoring a requester.
+将请求者部署到有需要的区块链上，然后赞助请求者。 查看 [请求者和赞助者](requesters-sponsors.md#how-to-sponsor-a-requester)，了解更多关于赞助请求者的信息。
