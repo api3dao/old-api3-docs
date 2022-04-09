@@ -88,7 +88,7 @@ struct Template {
 
 ::: tip mnemonic
 
-This wallet pays the transaction gas costs to write the template record. This is not the wallet(s) that will pay gas costs to actually execute any Airnode, for that the Airnode themselves will create sponsor wallets on behalf of your sponsor record.
+这个钱包通过支付交易gas费用，写入模板记录。 这不是支付实际执行任何Airnode的gas费用的钱包，因为Airnode本身将代表你的赞助者，记录创建赞助者钱包。
 
 :::
 
@@ -101,6 +101,6 @@ npx @api3/airnode-admin create-template \
 
 <divider/>
 
-## More on Templates
+## 关于模板的更多信息
 
-You can create as many templates as needed. Call the `getTemplates`command in the @api3/airnode-admin package to get a list of the templates by their`templateIds`.
+您可以根据需要创建更多模板。 调用 `getTemplates`命令在 @api3/airnode-admin软件包获取模板列表的 `templateIds`。
