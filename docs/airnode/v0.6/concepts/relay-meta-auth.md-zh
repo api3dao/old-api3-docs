@@ -1,8 +1,8 @@
 ---
-title: Relayed Meta Data Authentication
+title: 中继元数据身份验证
 ---
 
-<TitleSpan>Concepts and Definitions</TitleSpan>
+<TitleSpan>概念和定义</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,18 +10,18 @@ title: Relayed Meta Data Authentication
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-There are two methods by which the API provider can manage access to their API by on-chain smart contracts known as requesters.
+有两种方法可以通过 API 供应商管理他们的 API 的 访问，这两种方法可以被称为请求者的链上智能合约管理。
 
-- [Authorizers](../grp-providers/guides/build-an-airnode/apply-auth.md) (on-chain)
-- [Relayed Meta Data Security Schemes](../grp-providers/guides/build-an-airnode/api-security.md) (off-chain)
+- [授权者](../grp-providers/guides/build-an-airnode/apply-auth.md)(链上)
+- [中继元数据安全方案](../grp-providers/guides/build-an-airnode/api-security.md)(链下)
 
-Relayed meta data is known information about the requester (smart contract) passed along to the API endpoint by Airnode.
+中继元数据是已知的请求者(智能合约) 通过 Airnode传递到 API 端点的信息。
 
-Using the relayed meta data security schemes does not require blockchain-specific knowledge or blockchain interaction by an API provider and there are no blockchain transaction (gas) fees. Just apply the desired security scheme fields in the Airnode `config.json` file during deployment of an Airnode, see [Building an Airnode](../grp-providers/guides/build-an-airnode/). Then have your API operations check for any security scheme values you configured (typically the `sponsorAddress`) against your customer database.
+使用中继元数据安全方案，不需要区块链特定知识或API供应商的区块链交互，也没有区块链交易（gas）费用。 只需在部署Airnode的过程中，在Airnode `config.json` 文件中应用所需的安全方案字段，见[构建Airnode](../grp-providers/guides/build-an-airnode/)。 然后让你的API操作根据客户数据库，检查配置的任何安全方案值（通常是 `sponsorAddress`）。
 
-## Simple Example
+## 简单示例
 
-The illustration below is one way to make use of relayed meta data for security purposes. Here a sponsor (a.k.a. developer or customer) submits their `sponsorAddress` to be stored by an API provider. The `sponsorAddress` can be used to authenticate requests by a sponsor's smart contracts.</p>
+下面的图示是将传输的元数据用于安全 目的的一种方式。 这里是一个赞助者 (例如 开发者或客户）提交了他们的 `sponsorAddress` ，由一个 API 供应商存储。 `sponsorAddress`可以用来验证赞助者的智能合约的请求。</p>
 
 ![concept-authorizer](../assets/images/relay-meta-flow.png)
 
