@@ -1,8 +1,8 @@
 ---
-title: Request
+title: 请求
 ---
 
-<TitleSpan>Concepts and Definitions</TitleSpan>
+<TitleSpan>概念和定义</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,21 +10,21 @@ title: Request
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,3,4]" />
 
-A request is made, by a [requester](requester.md), to either the `makeFullRequest()` or `makeTemplateRequest()` functions of the [AirnodeRrp.sol](README.md#airnoderrp-sol) protocol contract which adds the request to its storage. The targeted off-chain [Airnode](airnode.md) gathers the request from AirnodeRrp.sol's storage and responds using the `fulFill()` function of AirnodeRrp.sol.
+由 [请求者](requester.md)提出了请求， 传递到[AirnodeRrp. ol](README.md#airnoderrp-sol) 协议合约的`makeFullRequest()` 或 `makeTemplateRequest()` 函数 ，将请求添加到它的存储。 目标链外 [Airnode](airnode.md) 从AirnodeRrp.sol的存储中收集请求，并使用AirnodeRrp.sol的`fulFill()`函数进行响应。
 
 > ![concepts-request](../assets/images/concepts-request.png)
 > 
-> 1. <p class="diagram-line">The requester calls makeFullRequest() on the AirnodeRrp protocol contract.</p>
-> 2. <p class="diagram-line">makeFullRequest() assigns a requestId to the request for tracking purposes, adds the requestId to storage, emits the request to the event logs and returns the requestId to the requester.</p>
-> 3. <p class="diagram-line" style="color:gray;">Airnode, during its run cycle, picks the request from the event logs.</p>
-> 4. <p class="diagram-line" style="color:blue;">Airnode gets data from the API and encodes it. The encoded response must have length at most 1024 bytes. (This is negligible in practice, since large responses are costly to store)</p>
-> 5. <p class="diagram-line" style="color:green;">Airnode sends the response to fulFill() in AirnodeRrp which in turn removes the pending requestId from storage and forwards the response to myFulFill(). The requestId is included as part of the response.</p>
+> 1. <p class="diagram-line">请求者在 AirnodeRrp 协议合约上调用 makeFullRequest() 函数 。</p>
+> 2. <p class="diagram-line">makeFullRequest() 为请求分配了一个requestId用于跟踪，将requestId添加到存储，将请求发送到事件日志，并将requestId返回给请求者。</p>
+> 3. <p class="diagram-line" style="color:gray;">Airnode在其运行周期中，从事件日志中挑选请求。</p>
+> 4. <p class="diagram-line" style="color:blue;">Airnode从API获得数据并进行编码。 编码响应的长度不能超过 1024 字节。 (这在实践中可以忽略不计，因为大型响应的存储成本很高）。</p>
+> 5. <p class="diagram-line" style="color:green;">Airnode将响应发送给AirnodeRrp中的fulFill()，后者反过来从存储中移除待定的requestId并将响应转发给myFulFill()。 RequestId被作为响应的一部分。</p>
 
-Learn more on how to [Call an Airnode](../grp-developers/call-an-airnode.md).
+了解更多关于如何 [调用 Airnode](../grp-developers/call-an-airnode. md)。
 
 ## `requestId`
 
-The `requestId` uniquely identifies a request. When a requester makes a request using AirnodeRrp.sol, a `requestId` is generated before the request is added to the event logs and the requestId is returned to the requester. This `requestId` is a hash of certain data members depending on which type of request is made, `makeFullRequest()` or `makeTemplateRequest()`. They only differ in that one uses `endpointId` plus `airnode` address and the other `templateId` (since template already contains the `airnode` address).
+`requestId` 唯一标识了一个请求。 When a requester makes a request using AirnodeRrp.sol, a `requestId` is generated before the request is added to the event logs and the requestId is returned to the requester. This `requestId` is a hash of certain data members depending on which type of request is made, `makeFullRequest()` or `makeTemplateRequest()`. They only differ in that one uses `endpointId` plus `airnode` address and the other `templateId` (since template already contains the `airnode` address).
 
 | makeFullRequest()                                              | makeTemplateRequest()                                          |
 |:-------------------------------------------------------------- |:-------------------------------------------------------------- |
