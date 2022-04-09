@@ -119,7 +119,7 @@ Requester 0x2c...gDER7 sponsored using sponsorAddress 0xF4...dDyu9
 
 ## 如何衍生赞助者钱包
 
-若要使用特定的 Airnode ，您必须 _获取赞助者钱包_。 一旦 赞助者钱包被创建，它必须使用`derive-sponsor-wallet-address`命令返回的公共地址(`sponsorWalletAddress`) 进行资助。 Each Airnode keeps a separate list of individual sponsorWallets that can access the Airnode. Learn more about a [sponsorWallet](../concepts/sponsor.md#sponsorwallet).
+若要使用特定的 Airnode ，您必须 _获取赞助者钱包_。 一旦 赞助者钱包被创建，它必须使用`derive-sponsor-wallet-address`命令返回的公共地址(`sponsorWalletAddress`) 进行资助。 每个Airnode 都有一个单独的 个赞助者钱包列表，这些钱包可以访问 Airnode。 了解更多关于[赞助钱包](../concepts/sponsor.md#sponsorwallet) 的信息。
 
 要为一个Airnode导出一个赞助商钱包，请使用下面列表中的参数执行[derive-sponsor-wallet-address](../reference/packages/admin-cli.md#derive-sponsor-wallet-address)命令。 这样做没有任何交易的gas成本。
 
