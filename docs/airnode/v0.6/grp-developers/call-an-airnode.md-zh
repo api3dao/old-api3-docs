@@ -21,7 +21,7 @@ AirnodeRrp协议的设计是灵活的，意在为各种不同的使用案例服�
 - <span style="color:green;font-weight:bold;">1</span>: 发出请求
 - <span style="color:blue;font-weight:bold;">2</span>: 接受并解码 回应
 
-> ![request-flow](../assets/images/call-an-airnode.png)
+> ![请求流程](../assets/images/call-an-airnode.png)
 > 
 > 1. <p class="diagram-line" style="color:green;">请求者向AirnodeRrp合同提出请求，将 <code>requestId</code> 添加到存储，将请求发送到事件日志，并将 <code>requestId</code> 退回请求者。 在下一个运行周期，Airnode 将检索这个请求。 然后，它通过检查分配给Airnode的授权者合约，验证请求者是否得到授权。</p>
 > 2. <p class="diagram-line" style="color:blue;">如果请求获得授权，Airnode 开始响应。 它首先从API收集请求的数据，并调用AirnodeRrp中的<code>fulfill()</code>函数，该函数从存储中删除待定的 <code>requestId</code> ，并对<code>myFulfill()</code>进行回调。 与相应有关的gas费用>由请求者的赞助者承担。</p>
@@ -30,7 +30,7 @@ AirnodeRrp协议的设计是灵活的，意在为各种不同的使用案例服�
 
 ## 步骤 #1: 继承RrpRequestter.sol
 
-A requester inherits from the [RrpRequester.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/requesters/RrpRequester.sol) contract. 这将向请求者公开AnnodeRrp.sol协议合约，允许其提出Annode请求。
+请求者从[RrpRequester.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/requesters/RrpRequester.sol)合约继承过来。 这将向请求者公开AnnodeRrp.sol协议合约，允许其提出Annode请求。
 
 ```solidity
 import "@api3/airnode-protocol/contracts/rrp/requesters/RrpRequester.sol";
@@ -148,7 +148,7 @@ contract MyRequester is RrpRequester {
 
 ## 步骤 #3：捕捉响应
 
-一旦Airnode收到请求，它就会收集数据，对其进行编码，并启动一个响应请求的链上交易。 The Airnode calls the AirnodeRrp.sol contract function `fulfill()`, which in turn calls the requester, in this case, at `airnodeCallback`. For the purposes of the callback, recall the request supplied the request contract address and the desired callback function which the AirnodeRrp.sol protocol contract stored with the `requestId`.
+一旦Airnode收到请求，它就会收集数据，对其进行编码，并启动一个响应请求的链上交易。 Airnode 调用AirnodeRrp合约函数 `fulfill()`， 后者又调用请求者，在本例中为 `airnodeCallback`。 为了回调的目的，回顾请求提供的请求合同地址和所需的回调函数，AirnodeRrp.sol协议合同与`requestId`一起存储。
 
 ```solidity
 import "@api3/airnode-protocol/contracts/rrp/requesters/RrpRequester.sol";
@@ -181,12 +181,12 @@ contract MyRequester is RrpRequester {
 }
 ```
 
-### Response Parameters
+### 响应参数:
 
-The callback to a requester contains two parameters, as shown in the `airnodeCallback` function in the code sample above.
+对请求者的回调包含两个参数，如上面代码样本中的`airnodeCallback`函数所示。
 
-- **requestId**: First acquired when making the request and passed here as a reference to identify the request for which the response is intended.
-- **data**: In case of a successful response, this is the requested data which has been encoded and contains a [timestamp](/ois/v1.0.0/reserved-parameters.md#timestamp-encoded-to-uint256-on-chain) in addition to other response data. Decode it using the function `decode()` from the `abi` object.
+- **requestId**: 在提出请求时首次获得，在此作为参考传递，以确定响应所针对的请求。
+- **data**: 在响应成功的情况下，这就是请求的数据并且已经被编码，除了其他响应数据外，还包含一个[时间戳](/ois/v1.0.0/reserved-parameters.md#timestamp-encoded-to-uint256-on-chain)。 要使用 `abi` 对象的函数`decode()`对其进行解码。
 
 ## Step #4: Deploy and Sponsor the Requester
 
