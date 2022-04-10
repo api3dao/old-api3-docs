@@ -1,8 +1,8 @@
 ---
-title: Authorizers
+title: 授权者
 ---
 
-<TitleSpan>Concepts and Definitions</TitleSpan>
+<TitleSpan>概念和定义</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,39 +10,39 @@ title: Authorizers
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,5]" />
 
-An Airnode can authorize requester contract access to its underlying API using authorizers. As an alternative, an API provider could also use [Relayed Meta Data](./relay-meta-auth.md) to authenticate requests. Authorizers require blockchain knowledge by the API provider, relayed meta data does not.
+Airnode可以使用授权者，授权请求者对其底层API的合约访问。 作为一种选项，API供应商也可以使用[中继元数据](./relay-meta-auth.md) 来验证请求。 授权者需要API供应商具备区块链相关知识，中继元数据则不需要。
 
-Other docs related to authorizers and relayed meta data:
+与授权者和中继元数据相关的其他文档：
 
-- [Using Authorizers](../grp-providers/guides/build-an-airnode/apply-auth.md)
-- [API Security](../grp-providers/guides/build-an-airnode/api-security.md)
+- [使用授权者](../grp-providers/guides/build-an-airnode/apply-auth.md)
+- [API 安全性](../grp-providers/guides/build-an-airnode/api-security.md)
 
-When an Airnode receives a request, it can use on-chain authorizer contracts to verify if a response is warranted. Authorizers allow Airnodes to implement a wide variety of policies. Below are some examples:
+当Airnode收到一个请求时，它可以使用链上的授权者合约来验证是否有必要作出回应。 授权者允许Airnode采取各种各样的措施。 以下是一些示例：
 
-- Respond to requests from sponsors that have paid their monthly subscription fee in DAI.
-- Respond to individual requests for which a per-call fee has been paid in API3 tokens.
-- Respond to requests made by requesters that were whitelisted by the API3 DAO.
-- Respond to requests made by sponsors who have been whitelisted by the Airnode owner's backend (for example, based on PayPal payments).
+- 响应已经用DAI支付每月订阅费的赞助者的请求。
+- 响应已用API3代币支付每次调用费用的个别请求。
+- 响应被API3 DAO列入白名单的请求者提出的请求。
+- 响应由Airnode所有者的后台（例如基于PayPal付款）列入白名单的赞助者提出的请求。
 
-A common use case for an authorizer is the [RequesterAuthorizerWithAirnode](#requesterauthorizerwithairnode) authorizer contract developed for Airnode operators to use right out-of-the-box. It allows the whitelisting of requester contracts (with or without expiration timestamps) on a per endpoint basis. This is the most common use case and may in fact satisfy the needs of many Airnodes.
+授权者的一个常见用例是为Airnode运营商开发的[RequesterAuthorizerWithAirnode](#requesterauthorizerwithairnode)授权者合约，这是可直接使用的。 它允许在每个端点的基础上，对请求者合约（有或没有过期时间戳）设置白名单。 这是最常用的情况，实际上已经可以满足许多Airnodes的需要。
 
-The diagram below illustrates how Airnode utilizes authorizers.
+下图说明Airnode 如何使用授权者。
 
 > ![concept-authorizer](../assets/images/concepts-authorizers.png)
 > 
-> 1. <p class="diagram-line">When Airnode starts it reads its list of authorizer contracts declared in config.json.</p>
-> 2. <p class="diagram-line">Airnode gathers requests from the event logs, during its run cycle.</p>
-> 3. <p class="diagram-line">Airnode sends each request, along with the list of authorizer contracts, to <code>checkAuthorizationStatus()</code>.</p>
-> 4. <p class="diagram-line"><code>checkAuthorizationStatus()</code> executes the <code>isAuthorized()</code> function in each authorizer contract. If any one authorizer contract returns true, then true is returned to the Airnode which in turn proceeds to fulfill the request.</p>
+> 1. <p class="diagram-line">当Airnode启动时，它会读取其在config.json中声明的授权者合约列表。</p>
+> 2. <p class="diagram-line">Airnode在其运行周期内从事件日志中收集请求。</p>
+> 3. <p class="diagram-line">Airnode 将每个请求与授权者合约列表一起，发送到 <code>checkAuthorizationStatus()</code>。</p>
+> 4. <p class="diagram-line"><code>checkauthorizationStatus()</code> 执行每个授权者合约中的<code>isAuthorized()</code>函数。 如果任何一个授权者合同返回 "true"，那么 "true "就会返回给Airnode，Airnode进而着手继续执行请求。</p>
 
-### Airnode Authorization Policies
+### Airnode 授权策略
 
-Airnode provides two authorizer contracts, one of which (RequesterAuthorizerWithAirnode) can be used by any API provider. The other (RequesterAuthorizerWithManager) is meant to be used by the API3 DAO. They are detailed within this doc in sections below.
+Airnode提供了两个授权者合同，其中一个（RequesterAuthorizerWithAirnode）可以被任何API供应商使用。 另一个（RequesterAuthorizerWithManager）则是由API3 DAO使用的。 本文档中的以下章节将会对它进行详细介绍。
 
 - [`RequesterAuthorizerWithAirnode`](#requesterauthorizerwithairnode)
 - [`RequesterAuthorizerWithManager`](#requesterauthorizerwithmanager)
 
-Both these authorizer contracts inherit and extend the `RequesterAuthorizer` abstract contract which also extends the `Whitelist` contract. This means that both authorizer contracts will need to whitelist requester contracts prior to make them available to an Airnode (For `RequesterAuthorizerWithAirnode` this can be done using the [admin-cli](../reference/packages/admin-cli.md#requesterauthorizerwithairnode)).
+这两个授权者合约都继承和扩展了`RequesterAuthorizer`抽象合约，该合约也扩展了 `Whitelist`合约。 这意味着这两个授权者合约在向Airnode提供请求者合约之前，都需要对其设置白名单（对于`RequesterAuthorizerWithAirnode` ，可以使用[admin-cli](../reference/packages/admin-cli.md#requesterauthorizerwithairnode)完成）。
 
 The main difference between them is that `RequesterAuthorizerWithAirnode` allows the Airnode address to grant whitelisting roles for that specific Airnode. On the other hand, `RequesterAuthorizerWithManager` allows the manager address (read: the API3 DAO) to grant whitelisting roles for all Airnodes that use it.
 
