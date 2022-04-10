@@ -48,7 +48,7 @@ respective parameters.
   {
     "authorizers": ["0xeabb...C123", "0xCE5e...1abc"],
     "contracts": {
-      "AirnodeRRP": "0x12B4...0C1a"
+      "AirnodeRrp": "0x12B4...0C1a"
     },
     "id": "1",
     "providers": {
@@ -66,7 +66,7 @@ respective parameters.
   {
     "authorizers": [],
     "contracts": {
-      "AirnodeRRP": "0xf1d4...0bd1"
+      "AirnodeRrp": "0xf1d4...0bd1"
     },
     "id": "3",
     "providers": {
@@ -90,7 +90,7 @@ allow-all.
 ### `contracts`
 
 (required) - An object that keeps the addresses of the protocol contracts
-deployed on the respective chain. It must include the `AirnodeRRP` contract
+deployed on the respective chain. It must include the `AirnodeRrp` contract
 address.
 
 ### `id`
