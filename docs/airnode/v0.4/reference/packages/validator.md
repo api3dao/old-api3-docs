@@ -276,7 +276,7 @@ The validator provides the following output.
       "message": string
     }
   ],
-  "output": objectß
+  "output": object
 }
 ```
 

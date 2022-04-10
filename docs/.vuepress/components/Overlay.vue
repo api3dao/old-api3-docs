@@ -1,6 +1,7 @@
 <!--
-
-W3 Off-Canvas menu
+Loads a child component dynamically as provide in the property
+childComponent. Caller passes childComponent and data to pass
+along to the childComponent.
 -->
 
 <template>
@@ -9,57 +10,47 @@ W3 Off-Canvas menu
     <a href="javascript:void(0)" class="close-btn" v-on:click="closeOverlay()"
       >&times;</a
     >
-
+    <!-- Dynamically loaded child component-->
     <div ref="childComponent"></div>
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
-import Dialog from './airnode/SponsorWalletWarning';
-import ChainItem from './chains/ChainItem';
 
 export default {
   name: 'Overlay',
-  components: { Dialog, ChainItem },
+  props: {
+    childComponent: {}, // The Vue component to display
+    data: {}, // A single object with all the property data the child component requires
+  },
   data: () => ({
-    width: '414px',
+    width: '414px', // Set to the max width of popular mobile devices
     showOverlay: false,
   }),
   mounted() {
-    //var main_page = document.getElementsByClassName(
-    //var overlay = document.getElementById('api3-overlay');
     this.$nextTick(async function () {
-      console.log('++++++++++++++++++++');
-
-      var ComponentClass = Vue.extend(ChainItem);
+      var ComponentClass = Vue.extend(this.childComponent);
       var instance = new ComponentClass({
-        propsData: { type: 'primary' },
+        propsData: { data: this.data },
       });
-
       instance.$mount(); // pass nothing
-      console.log(2, this.$refs.childComponent.appendChild);
       this.$refs.childComponent.appendChild(instance.$el);
 
       // Mobile starts at 414px
       if (screen.width < 415) {
-        this.width = '97%'; // Mobile can be full screen
+        this.width = '96.7%'; // Mobile can be full screen
       }
     });
   },
   methods: {
     openOverlay() {
-      this.showOverlay = true;
       document.getElementById('api3-overlay').style.width = this.width;
+      this.showOverlay = true;
     },
     closeOverlay() {
       this.showOverlay = false;
     },
-    /*resize(width) {
-      console.log('resize', width);
-      //this.overlay.style.width = width;
-      document.getElementById('api3-overlay').style.width = width;
-    },*/
   },
 };
 </script>
@@ -75,29 +66,8 @@ export default {
   top: 0;
   right: 0;
   background-color: white;
-  transition: 0.5s;
-
   border-left: 2px solid lightgrey;
   overflow: auto;
-}
-.b2-overlay-content {
-  margin-top: 40px;
-  overflow-wrap: break-word;
-}
-
-.b2-overlay-content-box {
-  width: 97%;
-  box-shadow: 2px 2px 5px lightgrey;
-  border: 1px solid lightgrey;
-  border-radius: 0.4em;
-  padding: 3px;
-}
-.b2-overlay .back-btn {
-  position: fixed;
-  top: 75px;
-  right: 315px;
-  font-size: 37px;
-  text-decoration: none;
 }
 
 .api3-overlay .close-btn {
@@ -107,16 +77,37 @@ export default {
   right: 15px;
   font-size: 58px;
   text-decoration: none;
+  font-weight: bold;
 }
 
-.b2-overlay-pane-main {
+.xb2-overlay-content {
+  margin-top: 40px;
+  overflow-wrap: break-word;
+}
+
+.xb2-overlay-content-box {
+  width: 97%;
+  box-shadow: 2px 2px 5px lightgrey;
+  border: 1px solid lightgrey;
+  border-radius: 0.4em;
+  padding: 3px;
+}
+.xb2-overlay .back-btn {
+  position: fixed;
+  top: 75px;
+  right: 315px;
+  font-size: 37px;
+  text-decoration: none;
+}
+
+.xb2-overlay-pane-main {
   padding-top: 0px;
 }
-.b2-overlay-pane-template {
+.xb2-overlay-pane-template {
   padding-top: 0px;
 }
 
-.b2-overlay-title {
+.xb2-overlay-title {
   width: 100px;
   white-space: nowrap;
   overflow: hidden;

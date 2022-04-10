@@ -4,17 +4,29 @@
 -->
 
 <template>
-  <div v-if="loaded === true">
-    <blockquote>
-      ChainList.vue
-      <button @click="openOverlay()">Open Overlay</button>
-    </blockquote>
+  <div>
+    <div v-if="error === true" />
+    <div v-if="loaded === true">
+      <br /><br />
+      <div @click="setChildPageData('Rinkeby')">
+        <router-link to="./chain-detail.html">Rinkeby</router-link>
+      </div>
+      <hr />
+      <div @click="setChildPageData('Ropsten')">
+        <router-link to="./chain-detail.html">Ropsten</router-link>
+      </div>
 
-    <Overlay ref="overlayChild" />
+      <hr />
+      <router-link to="./chain-detail.html?chain_id=12345">
+        <div @click="setChildPageData('Ropsten-2')">Ropsten-2</div>
+      </router-link>
+    </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'ChainList',
   data: () => ({
@@ -29,11 +41,12 @@ export default {
     this.$nextTick(async function () {});
   },
   methods: {
-    // This function called by BeaconItem.vue to open and set the beacon in hte overly
-    openOverlay() {
-      this.$refs.overlayChild.openOverlay();
-      // Show overlay
-      //document.getElementById('api3-overlay').style.width = '350px';
+    setChildPageData(name) {
+      let childPageData = {
+        pageTitle: name,
+        chain: { name: name },
+      };
+      localStorage.setItem('childPageData', JSON.stringify(childPageData));
     },
   },
 };

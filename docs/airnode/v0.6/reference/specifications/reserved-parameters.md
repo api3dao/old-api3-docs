@@ -1,5 +1,5 @@
 ---
-title: Reserved parameters
+title: Reserved Parameters
 ---
 
 <TitleSpan>Specifications</TitleSpan>
