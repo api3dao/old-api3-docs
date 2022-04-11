@@ -44,24 +44,24 @@ Airnode提供了两个授权者合同，其中一个（RequesterAuthorizerWithAi
 
 这两个授权者合约都继承和扩展了`RequesterAuthorizer`抽象合约，该合约也扩展了 `Whitelist`合约。 这意味着这两个授权者合约在向Airnode提供请求者合约之前，都需要对其设置白名单（对于`RequesterAuthorizerWithAirnode` ，可以使用[admin-cli](../reference/packages/admin-cli.md#requesterauthorizerwithairnode)完成）。
 
-它们之间的主要区别是： `RequterAuthorizerWiAirnode` 允许 Airnode 为指定的 Airnode授予白名单角色。 On the other hand, `RequesterAuthorizerWithManager` allows the manager address (read: the API3 DAO) to grant whitelisting roles for all Airnodes that use it.
+它们之间的主要区别是： `RequterAuthorizerWiAirnode` 允许 Airnode 为指定的 Airnode授予白名单角色。 另一方面， `RequestterAuthorizerWiManager` 允许管理员地址(阅读：API3 DAO) 对所有使用它的Airnode授予白名单角色。
 
-Some common functions available are:
+一些常用的函数包括：
 
-- `requesterIsWhitelisted`: Called to check if a requester is whitelisted to use the Airnode–endpoint pair.
-- <code style="  overflow-wrap: break-word;">airnodeToEndpointIdToRequesterToWhitelistStatus</code>: Called to get the detailed whitelist status of a requester for the Airnode–endpoint pair.
+- `requestterIsWhitelisted`: 被调用，用来来检查请求者是否列入白名单，可以使用Airnode-endpoint 配对。
+- <code style="  overflow-wrap: break-word;">airnodeToEndpointIdToRequesterToWhitelistStatus</code>: 调用他，从Airnode–endpoint配对获得请求者的详细的白名单状态。
 
-### Custom Authorizers
+### 自定义授权者
 
-Custom authorizer contracts can implement any arbitrary authorization logic. An example might be where Airnode only responds to requests if the requester has made less than a specific number of requests to the Airnode in the last month, effectively implementing an on-chain call quota.
+自定义授权者合约，可以执行任意授权逻辑。 可能有这样的例子，如果请求者上个月向Airnode发出的请求少于特定数量，Airnode才会回应请求，从而有效地实现了链上呼叫配额。
 
-### Authorizer List
+### 授权者列表
 
-Airnode authorizers are listed in the config.json file at [`chains[n].authorizers`](../grp-providers/guides/build-an-airnode/configuring-airnode.md#chains). An authorizer typically checks for a single condition (has the requester made their monthly payment, is the `requester` whitelisted, etc.). Authorizers can be combined to enforce more complex policies. If any of the authorizers in the list gives access, the request will considered to be authorized. From a logical standpoint, the authorization outcomes get `OR`ed.
+Airnode 授权者放于config.json 文件中，位于 [`chain[n].authorers`](../grp-providers/guides/build-an-airnode/configuring-airnode.md#chains) 中。 授权者通常检查单个条件 (请求者是否每月支付了费用 ，是不是`请求者` 白名单等)。 授权者也可以合并来执行更复杂的策略。 如果列表中的任何授权者都允许访问，请求将被视为已授权。 从逻辑 的角度来看，授权结果已完成`or`操作。
 
-### Authorizer Interface
+### 授权者界面
 
-Authorizer contracts that inherit from `IAuthorizer` can be used to implement an arbitrary authorization policy based on its input parameters.
+继承自 `IAuthorizer` 的授权者合约，可以用来执行基于其输入参数的任意授权策略。
 
 - `requestId`: bytes32
 - `airnode`: address
@@ -69,7 +69,7 @@ Authorizer contracts that inherit from `IAuthorizer` can be used to implement an
 - `sponsor`: address
 - `requester`: address
 
-Note that the authorizer does not have to use all of the arguments, and can even decide on arbitrary on-chain criteria such as `block.number` (e.g., do not respond to anyone after block number N). An authorizer is a contract with the following interface:
+请注意，授权者不必使用所有的参数，甚至可以决定任意的链上标准，如`block.number`（例如，不要对block number N之后的任何请求做出回应）。 授权者是与以下接口的合约：
 
 ```solidity
 interface IAuthorizer {
@@ -83,7 +83,7 @@ interface IAuthorizer {
 }
 ```
 
-Below is an example of how to create the simplest form of an authorizer. This authorizer allows any requester contract to call the endpointId (0xf2ee...).
+以下是如何创建最简单的授权者形式的例子。 授权者允许任何请求者合约调用endpointId(0xf2ee...)。
 
 ```solidity
 contract myAuthorizer is IAuthorizer
@@ -101,24 +101,24 @@ contract myAuthorizer is IAuthorizer
 }
 ```
 
-### Why is an authorization scheme needed?
+### 为什么需要授权计划？
 
-Airnodes need the ability to fulfill requests selectively. This is required for two main reasons:
+Aircode需要有选择性地满足请求的能力。 这是由于两个主要原因:
 
-1. The Airnode only fulfills requests made by requesters who have made payment to the Airnode owner, which allows them to monetize their services.
-2. The services of the Airnode are sensitive and can only be accessed by certain requesters, e.g., who have gone through KYC.
+1. Airnode 只能满足已向Airnode 所有者支付费用 的请求者提出的请求，这使得他们能够将自己的服务货币化。
+2. Airnode 的服务是敏感的，只能被某些请求者，例如已经通过 KYC 的访问。
 
-A protocol that does not have the authorizer scheme or equivalent functionality cannot be considered as permissionless, and will not be able to achieve wide-spread adoption.
+没有授权者计划或同等功能的协议不能被视为无需许可，并且将无法实现广泛应用。
 
-### Are authorizers required?
+### 是否需要授权者？
 
-Authorizers are not required. An Airnode operator could use [Relayed Meta Data Security Schemes](../grp-providers/guides/build-an-airnode/api-security.md#relayed-meta-data-security-schemes). It is possible to use both authorizers and relay security schemes together.
+授权者不是必需的。 Airnode运营商可以使用 [中继元数据安全方案](../grp-providers/guides/build-an-airnode/api-security.md#relayed-meta-data-security-schemes)。 可以同时使用授权者和中继安全方案。
 
-### How are authorizers implemented?
+### 如何执行授权者？
 
-There are two main points to consider about how authorization policies are implemented:
+关于如何执行授权策略，有两点要考虑：
 
-1. If the policies are kept off-chain, the requester cannot see them or check if they satisfy them. Furthermore, the Airnode owner updating the policies (e.g., increasing the service fees) requires off-chain coordination with the requester.
+1. 如果这些策略被保存在链外，请求者就无法看到它们或检查它们是否满足。 此外，Airnode 所有者更新策略 (例如增加服务费)需要与请求者进行链下的协调。
 2. Embedding the policies in the request–response loop results in a gas cost overhead.
 
 Based on these considerations, Airnode uses a hybrid method. An Airnode announces its authorization policy through off-chain channels as the addresses of a list of authorizer contracts. Whenever the Airnode receives a request, it checks if it should fulfill this request by making a static call that queries this on-chain policy. Similarly, the requester can use this on-chain policy by making a static call to check if they are authorized. This scheme both allows the Airnode to set transparent and flexible policies, and this to be done with no gas overhead.
