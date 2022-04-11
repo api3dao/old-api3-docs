@@ -178,7 +178,7 @@ Aircode需要有选择性地满足请求的能力。 这是由于两个主要原
 
 #### extendWhitelistExpiration
 
-The `extendWhitelistExpiration()` function can be called by a whitelist expiration extender or the Airnode address to extend the whitelist expiration of a requester for the Airnode–endpoint pair.
+`extendWhitelistExpiration()` 函数可以被白名单过期扩展器或 Airnotode 地址调用，以延长Airnode-endpoint 对应的请求者 的白名单过期期限。
 
 This function emits a `ExtendedWhitelistExpiration` event with the following signature:
 
