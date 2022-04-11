@@ -29,6 +29,8 @@
     "arbitrum",
     "mainnet",
     "mainnets",
+    "milkomeda",
+    "moonriver",
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true
