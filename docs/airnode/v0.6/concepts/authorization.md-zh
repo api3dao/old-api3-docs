@@ -180,7 +180,7 @@ Aircode需要有选择性地满足请求的能力。 这是由于两个主要原
 
 `extendWhitelistExpiration()` 函数可以被白名单过期扩展器或 Airnotode 地址调用，以延长Airnode-endpoint 对应的请求者 的白名单过期期限。
 
-This function emits a `ExtendedWhitelistExpiration` event with the following signature:
+此函数发布`ExtendedWhitelistExpiration`事件，并且有以下签名：
 
 ```
     event ExtendedWhitelistExpiration(
@@ -194,9 +194,9 @@ This function emits a `ExtendedWhitelistExpiration` event with the following sig
 
 #### setWhitelistExpiration
 
-The `setWhitelistExpiration()` function can be called by a whitelist expiration setter or the Airnode address to set the whitelisting expiration of a requester for the Airnode–endpoint pair. This can hasten expiration.
+`extendWhitelistExpiration()` 函数可以被白名单过期扩展器或 Airnotode 地址调用，以延长Airnode-endpoint 对应的请求者 的白名单过期期限。 这可能会加速过期。
 
-This function emits a `SetWhitelistExpiration` event with the following signature:
+此函数发布`ExtendedWhitelistExpiration`事件，并且有以下签名：
 
 ```
     event SetWhitelistExpiration(
@@ -210,9 +210,9 @@ This function emits a `SetWhitelistExpiration` event with the following signatur
 
 #### setWhitelistStatusPastExpiration
 
-The `setWhitelistStatusPastExpiration()` function can be called by an indefinite whitelister or the Airnode address to set the whitelist status of a requester past expiration for the Airnode–endpoint pair. This is useful to allow access to an API even if the expiration date has passed. For example, keep authorizing requests while a sum of API3 tokens is locked.
+`setWhitelistStatusPastExpiration()` 函数可以被一个无限期的 白名单或Airnode 地址调用，以设置请求者的白名单状态超过Airnode-终端对的到期时间。 这对允许访问一个API很有用，即使过了有效期。 例如，继续授权请求，同时锁定一定数量的API3代币。
 
-This function emits a `ExtendedWhitelistExpiration` event with the following signature:
+此函数发布`ExtendedWhitelistExpiration`事件，并且有以下签名：
 
 ```
     event SetWhitelistStatusPastExpiration(
@@ -226,13 +226,13 @@ This function emits a `ExtendedWhitelistExpiration` event with the following sig
 
 #### isAuthorized
 
-The `isAuthorized()` function will be called by AirnodeRrp to verify the authorization status of a request. This function will return true for all whitelisted requester contracts, admins and Airnode operator address.
+`isAuthorized()` 函数将被 AirnodeRrp 调用，来验证请求的授权状态。 此函数将返回所有白名单请求者合约、管理员和 Airnode 运营商地址的真实值。
 
 ### RequesterAuthorizerWithManager
 
-This contract implements a requester-based RRP authorizer and assigns the API3 DAO as the manager or in other words, the highest ranking admin across all Airnodes.
+该合同实现了一个基于请求者的RRP授权器，并指定API3 DAO作为管理者，或者换句话说，所有Airnodes中排名最高的管理员。
 
-The manager and the accounts that it has granted the whitelist expiration extender, whitelist expiration setter and the indefinite whitelister roles will use `RequesterAuthorizerWithManager` to whitelist requesters across all Airnodes.
+管理器和它授予白名单过期扩展、白名单过期设置和无限期白名单角色的账户，使用`RequesterAuthorizerWithManager`将所有Airnode的请求者列入白名单。
 
 #### extendWhitelistExpiration
 
