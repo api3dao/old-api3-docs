@@ -1,8 +1,8 @@
 ---
-title: Airnode Authentication
+title: Airnode 身份验证
 ---
 
-<TitleSpan>Concepts and Definitions</TitleSpan>
+<TitleSpan>概念和定义</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,14 +10,14 @@ title: Airnode Authentication
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-API providers can instruct Airnode to authenticate requests to their endpoints. This is done by setting up a security scheme in the config.json file for their Airnode. Airnode supports three methods of authentication from the OpenAPI specification.
+API供应商可以指示Airnode对其端点的请求进行认证。 这是通过在Airnode的config.json文件中设置一个安全方案来实现的。 Airnode支持来自OpenAPI规范的三种认证方法。
 
 > ![airnode-auth](../assets/images/concepts-airnode-auth.png)
 
-[OAS OpenAPI Specification](https://swagger.io/docs/specification/authentication/) uses the term **security scheme** for authentication and authorization schemes. Airnode only uses standard OAS defined authentication schemes to identify itself to API endpoints. Airnode supports two types of authentication, `http` and `apiKey`.
+[OAS OpenAPI规范](https://swagger.io/docs/specification/authentication/)对认证和授权方案使用了**安全方案**这一术语。 Airnode只使用标准的OAS定义的认证方案来识别自己的API端点。 Airnode支持两种类型的认证， `http` 和 `apiKey`。
 
-- HTTP authentication schemes (using the `Authorization` header) supported by Airnode:
-  - [Basic](https://swagger.io/docs/specification/authentication/basic-authentication/)
+- Airnode支持的HTTP认证方案（使用`Authorization` header）：
+  - [基本型](https://swagger.io/docs/specification/authentication/basic-authentication/)
   - [Bearer](https://swagger.io/docs/specification/authentication/bearer-authentication/)
 - [API key](https://swagger.io/docs/specification/authentication/api-keys/) in the request header, cookie in header or query string
 
