@@ -18,16 +18,16 @@ chain.
 
 ## Contracts
 
-> This sections briefly describes the structure of the request response protocol
-> contracts. You can find more information in the
-> [source files on github](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-protocol/contracts/rrp).
+This sections briefly describes the structure of the request response protocol
+contracts. You can find more information in the
+[source files on github](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-protocol/contracts/rrp).
 
 The request–response protocol is implemented as a single permissionless contract
 that all Airnodes interact with, which is named `AirnodeRrp.sol`. This base
 contract has the following inheritance tree that compartmentalizes the aspects
 of the protocol.
 
-> ![rrp-sol-diagram](../assets/images/RRP-protocol-contracts.png)
+> <img src="../assets/images/RRP-protocol-contracts.png" width="650px"/>
 
 ### AirnodeRrp.sol
 

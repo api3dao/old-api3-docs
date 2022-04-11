@@ -16,7 +16,7 @@ relationships between [requesters](requester.md) and
 [sponsorWallets](sponsor.md#sponsorwallet). They do so by sponsoring requesters
 and deriving sponsorWallets for Airnodes they want their requesters to call.
 
-> ![relationships](../assets/images/concepts-sponsor-relationships.png)
+> <img src="../assets/images/concepts-sponsor-relationships.png" width="350px"/>
 
 Making the relationship:
 

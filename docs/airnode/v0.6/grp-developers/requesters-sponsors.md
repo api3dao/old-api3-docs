@@ -22,7 +22,7 @@ The term [requester](../concepts/requester.md) is important to remember. When
 requester is mentioned, the reference is to your smart contract that calls an
 Airnode.
 
-> ![image](../assets/images/requesters-sponsors-1.png)
+> <img src="../assets/images/requesters-sponsors-1.png" width="350px"/>
 
 As an example see the `myContract.sol` contract in the diagram within the
 [Overview](./) doc, it is a requester.

@@ -37,7 +37,7 @@ purposes. Here a sponsor (a.k.a. developer or customer) submits their
 `sponsorAddress` to be stored by an API provider. The `sponsorAddress` can be
 used to authenticate requests by a sponsor's smart contracts.</p>
 
-![concept-authorizer](../assets/images/relay-meta-flow.png)
+> <img src="../assets/images/relay-meta-flow.png" width="450px"/>
 
 The following sections relate to the numbers shown in the diagram above.
 

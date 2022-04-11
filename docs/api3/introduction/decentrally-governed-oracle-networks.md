@@ -25,10 +25,9 @@ as a smart contract called the aggregator. Individual malicious oracles cannot
 manipulate the outcome of this process, which provides a degree of
 decentralization and trustlessness.
 
-<p align="center">
-  <img src="../assets/images/central-governance.png" />
-  <img src="../assets/images/decentral-governance.png" />
-</p>
+> <img src="../assets/images/central-governance.png" width="400px"/>
+> <br/>
+> <img src="../assets/images/decentral-governance.png" width="400px"/>
 
 Here, an important thing to consider is how the oracle network is governed. If a
 central entity can switch the oracles or APIs used in the aggregator in and out,

@@ -18,7 +18,7 @@ request to its storage. The targeted off-chain [Airnode](airnode.md) gathers the
 request from AirnodeRrp.sol's storage and responds using the `fulFill()`
 function of AirnodeRrp.sol.
 
-> ![concepts-request](../assets/images/concepts-request.png)
+> <img src="../assets/images/concepts-request.png" width="600px"/>
 >
 > 1.  <p class="diagram-line">The requester calls makeFullRequest() on the AirnodeRrp protocol contract.</p>
 > 2.  <p class="diagram-line">makeFullRequest() assigns a requestId to the request for tracking purposes, adds the requestId to storage, emits the request to the event logs and returns the requestId to the requester.</p>
@@ -142,7 +142,7 @@ A request made to an Airnode has three possible outcomes:
 `fulfill()` is the desired outcome and it will only be called if Airnode
 received a successful response from the API provider.
 
-> ![request-outcomes](../assets/images/request-outcomes.png)
+> <img src="../assets/images/request-outcomes.png" width="550px"/>
 >
 > 1.  <p class="diagram-line">Airnode calls AirnodeRrp.fulFill() with a response only if the API has not responded with an error. AirnodeRrp.fulfill() performs a call back to myFulFill() which in turn receives the response.</p>
 > 2.  <p class="diagram-line" style="color:green;">If AirnodeRrp.fulFill() fails internally or the underlying low level call to myFulFill() reverts then Airnode will start the process in step #3 to fail the request.</p>

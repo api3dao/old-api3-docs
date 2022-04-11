@@ -25,7 +25,7 @@ In summary, you only need to do two things.
   The data includes the same `requestId` as the one returned at the time of
   making the request.
 
-> ![call](../assets/images/developer-overview.png)
+> <img src="../assets/images/developer-overview.png" width="650px"/>
 >
 > 1.  <p class="diagram-line" style="color:black;">The requester (myContract.sol) makes a request to the RRP protocol contract (AirnodeRrp.sol) by calling <code>makeFullRequest()</code> which adds the request to the event logs and returns a <code>requestId</code> to the requester.</p>
 > 2.  <p class="diagram-line" style="color:black;">Airnode retrieves the on-chain request from the event logs.</p>

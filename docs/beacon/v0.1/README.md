@@ -44,7 +44,7 @@ that define when and how it updates. See the
 [readBeacon()](./functions/read-beacon.md) function doc and learn how your smart
 contract can access a Beacon .
 
-> ![dapp-beacon.png](./assets/images/dapp-beacon.png)
+> <img src="./assets/images/dapp-beacon.png" width="550px"/>
 
 ## Airnode Enabled
 
@@ -60,7 +60,7 @@ tolerance deviation. The Beacon's value is updated when the off-chain value
 falls outside the Beacons value's defined tolerance. Note that a Airnode can be
 related to more than one Beacon.
 
-> ![beacon-airnode.png](./assets/images/beacon-airnode.png)
+> <img src="./assets/images/beacon-airnode.png" width="500px"/>
 
 ## dAPIs (Building on Beacons)
 
@@ -78,7 +78,7 @@ their data is also from first-party API provider _owned and operated Airnodes_.
 
 :::
 
-> ![beacon-airnode.png](./assets/images/dapi-beacons.png)
+> <img src="./assets/images/dapi-beacons.png" width="550px"/>
 >
 > <p class="diagram-line" style="color:gray;margin-top:6px;">A dApp would call a dAPI, as it would a Beacon, to get an instant
 > response.</p>

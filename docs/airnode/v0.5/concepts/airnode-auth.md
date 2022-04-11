@@ -16,7 +16,7 @@ This is done by setting up a security scheme in the config.json file for their
 Airnode. Airnode supports three methods of authentication from the OpenAPI
 specification.
 
-> ![airnode-auth](../assets/images/concepts-airnode-auth.png)
+> <img src="../assets/images/concepts-airnode-auth.png" width="350px"/>
 
 [OAS OpenAPI Specification](https://swagger.io/docs/specification/authentication/)
 uses the term **security scheme** for authentication and authorization schemes.

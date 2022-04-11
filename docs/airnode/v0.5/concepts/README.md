@@ -27,7 +27,7 @@ that all Airnodes interact with, which is named `AirnodeRrp.sol`. This base
 contract has the following inheritance tree that compartmentalizes the aspects
 of the protocol.
 
-> ![rrp-sol-diagram](../assets/images/RRP-protocol-contracts.png)
+> <img src="../assets/images/RRP-protocol-contracts.png" width="550px"/>
 
 ### AirnodeRrp.sol
 

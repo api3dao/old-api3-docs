@@ -25,9 +25,7 @@ results in an inferior solution and ecosystem (see the
 <a href="/api3-whitepaper-v1.0.2.pdf" target="_api3-whitepaper">API3
 Whitepaper</a> for a detailed explanation).
 
-<p align="center">
-  <img src="../assets/images/dapi.png" />
-</p>
+> <img src="../assets/images/dapi.png" width="450px"/>
 
 Instead, API3 builds complete products called decentralized APIs (dAPIs for
 short), which are blockchain-native, decentralized API services. From the user's

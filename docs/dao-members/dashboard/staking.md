@@ -42,14 +42,10 @@ MetaMask. If you do not have one please create one first.
 
 Connect your wallet by clicking the **Connect Wallet** button in the upper right
 hand corner. Select your wallet from the popup. Be sure your wallet is connected
-to the mainnet for production use.
+to the mainnet for production use. Once connected you can view the DAO dashboard
+showing stake and reward status. Click the image below to see the dashboard.
 
-> Once connected you can view the DAO dashboard showing stake and reward status.
-> Click the image below to see the dashboard.
->
-> <p align="left"><br/>
-> <img src="../assets/dashboard/dashboard.png"/>
-> </p>
+<img src="../assets/dashboard/dashboard.png" width="600px"/>
 
 On the left is the annual percentage yield which is the return on investment
 after one year. Below that is current inflation rate. Rewards are updated weekly

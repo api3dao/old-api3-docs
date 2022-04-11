@@ -42,7 +42,7 @@ satisfy the needs of many Airnodes.
 
 The diagram below illustrates how Airnode utilizes authorizers.
 
-> ![concept-authorizer](../assets/images/concepts-authorizers.png)
+> <img src="../assets/images/concepts-authorizers.png" width="550px"/>
 >
 > 1. <p class="diagram-line">When Airnode starts it reads its list of authorizer contracts declared in config.json.</p>
 > 2. <p class="diagram-line">Airnode gathers requests from the event logs, during its run cycle.</p>
