@@ -121,15 +121,15 @@ Aircode需要有选择性地满足请求的能力。 这是由于两个主要原
 1. 如果这些策略被保存在链外，请求者就无法看到它们或检查它们是否满足。 此外，Airnode 所有者更新策略 (例如增加服务费)需要与请求者进行链下的协调。
 2. 将策略嵌入到请求-响应循环，会带来gas费用开销。
 
-基于这些考虑，Airnode 采用混合方法。 An Airnode announces its authorization policy through off-chain channels as the addresses of a list of authorizer contracts. Whenever the Airnode receives a request, it checks if it should fulfill this request by making a static call that queries this on-chain policy. Similarly, the requester can use this on-chain policy by making a static call to check if they are authorized. This scheme both allows the Airnode to set transparent and flexible policies, and this to be done with no gas overhead.
+基于这些考虑，Airnode 采用混合方法。 Airnode通过链外渠道宣布其授权策略，作为授权者合约列表的地址。 每当Airnode收到一个请求时，它就会通过静态调用来检查是否应该满足这个请求，这个静态调用就是查询链上策略。 同样，请求者可以通过 进行静态调用来检查是否获得授权。 这个方案允许Airnode 设置透明和灵活的策略，并且不会用到gas间接费用。
 
 ### Access (deny, allow, filter)
 
-How authorizers impact access is based on the `chains` field of `config.json` for a given Airnode.
+授权者是基于特定Airnode的`config.json`的`chains`字段影响访问的。
 
 #### Deny All
 
-If the Airnode wants to deny all access for a particular chain, it should not operate on it (i.e., it should not exist in the `chains` list). The below example would "deny all" to chains 1 and 3–n since they do not have entries in the `chains` field.
+如果Airnode 想要拒绝某个特定链上的所有访问权限，它就不应该在这条链上运行 (例如，它不应该存在于 `chain` 的列表中。) The below example would "deny all" to chains 1 and 3–n since they do not have entries in the `chains` field.
 
 ```json
  chains:[
