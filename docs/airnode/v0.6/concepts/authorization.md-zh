@@ -129,7 +129,7 @@ Aircode需要有选择性地满足请求的能力。 这是由于两个主要原
 
 #### Deny All
 
-如果Airnode 想要拒绝某个特定链上的所有访问权限，它就不应该在这条链上运行 (例如，它不应该存在于 `chain` 的列表中。) The below example would "deny all" to chains 1 and 3–n since they do not have entries in the `chains` field.
+如果Airnode 想要拒绝某个特定链上的所有访问权限，它就不应该在这条链上运行 (例如，它不应该存在于 `chain` 的列表中。) 下面的例子中，将会把 "拒绝所有 "应用到链1和3-n，因为它们在`chains`字段中没有相关条目。
 
 ```json
  chains:[
@@ -141,9 +141,9 @@ Aircode需要有选择性地满足请求的能力。 这是由于两个主要原
  ]
 ```
 
-#### Allow All
+#### 全部允许
 
-A `chains.authorizers` list of [] means "let everyone through". In the example below chain 2 would allow access to any requester.
+`chains.authorizers` 列出的[]，意味着“让所有的都能通过”。 在下面的示例中，链2将允许访问任何请求者。
 
 ```json
   chains:[
@@ -156,9 +156,9 @@ A `chains.authorizers` list of [] means "let everyone through". In the example b
  ]
 ```
 
-#### Filter All
+#### 全部过滤
 
-If the Airnode wants to give access selectively, it should use one or more authorizers that implement filtering logic. In the example below the Airnode will accept requests on chain _"2"_ and the requester would be filtered by two authorizers.
+如果Airnode 想要选择性地授予访问权限，它应该使用一个或多个执行过滤逻辑的授权者。 在下面的示例中，Airnode 将接受链上 _"2"_ 上的请求，请求者将被两个授权者过滤。
 
 ```json
  chains:[
@@ -170,11 +170,11 @@ If the Airnode wants to give access selectively, it should use one or more autho
 
 ### RequesterAuthorizerWithAirnode
 
-This contract implements a requester-based RRP authorizer with three types of roles
+此合约实现了一个基于请求的RRP授权者，具有三种类型的角色。
 
-1. Whitelist expiration extender: Is allowed to extend temporary whitelisting expiration
-2. Whitelist expiration setter: Is allowed to set the temporary whitelisting expiration (i.e., they can also reduce the expiration time)
-3. Indefinite whitelister: Is allowed to whitelist/unwhitelist indefinitely Each Airnode's address is treated as if they have all these three roles for the respective Airnode, and they can also grant these roles to other accounts, which includes contracts that implement arbitrary business logic.
+1. 白名单过期扩展程序：允许延长临时白名单过期时间。
+2. 白名单过期设置：允许设置临时白名单 过期时间(即他们也可以缩短过期时间)。
+3. 无限期白名单：允许无限期的白名单/非白名单。每个Airnode的地址被视为拥有所有这三个角色的，他们也可以将这些角色授予其他账户，其中包括实现任意业务逻辑的合约。
 
 #### extendWhitelistExpiration
 
