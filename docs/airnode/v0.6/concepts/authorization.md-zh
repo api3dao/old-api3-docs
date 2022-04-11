@@ -44,7 +44,7 @@ Airnode提供了两个授权者合同，其中一个（RequesterAuthorizerWithAi
 
 这两个授权者合约都继承和扩展了`RequesterAuthorizer`抽象合约，该合约也扩展了 `Whitelist`合约。 这意味着这两个授权者合约在向Airnode提供请求者合约之前，都需要对其设置白名单（对于`RequesterAuthorizerWithAirnode` ，可以使用[admin-cli](../reference/packages/admin-cli.md#requesterauthorizerwithairnode)完成）。
 
-The main difference between them is that `RequesterAuthorizerWithAirnode` allows the Airnode address to grant whitelisting roles for that specific Airnode. On the other hand, `RequesterAuthorizerWithManager` allows the manager address (read: the API3 DAO) to grant whitelisting roles for all Airnodes that use it.
+它们之间的主要区别是： `RequterAuthorizerWiAirnode` 允许 Airnode 为指定的 Airnode授予白名单角色。 On the other hand, `RequesterAuthorizerWithManager` allows the manager address (read: the API3 DAO) to grant whitelisting roles for all Airnodes that use it.
 
 Some common functions available are:
 
