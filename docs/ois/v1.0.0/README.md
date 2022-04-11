@@ -31,7 +31,7 @@ AirnodeRrp.sol contract. Airnode uses the OIS object to map its endpoints to an
 API operation. It should be noted that Airnode can have more than one endpoint
 that maps to the same API operation.
 
-> ![ois-image](./assets/images/ois-overview-extended.png)
+> <img src="./assets/images/ois-overview-extended.png" width="650px"/>
 >
 > - <p class="diagram-line" style="color:blue;">A) <b>ois.apiSpecifications.paths</b> -  Describes API operations.</p>
 > - <p class="diagram-line" style="color:red;margin-top:10px;">B)<b> ois.endpoints -  </b>Defines Airnode endpoints.</p>

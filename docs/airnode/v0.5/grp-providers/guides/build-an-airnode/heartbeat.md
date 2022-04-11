@@ -13,7 +13,7 @@ request to a specified URL. This is both to signal that the Airnode is alive and
 working (useful especially right after the deployment) and also as a
 notification every time it runs (self-operates).
 
-> ![config-json](../../../assets/images/heartbeat.png)
+> <img src="../../../assets/images/heartbeat.png" width="550px"/>
 >
 > 1.  <p class="diagram-line" style="color:blue;">Airnode gathers on-chain requests targeting the API it supports.</p>
 > 2.  <p class="diagram-line" style="color:green;">The required API endpoint for each request is called.</p>

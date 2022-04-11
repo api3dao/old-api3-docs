@@ -22,7 +22,7 @@ Gateways.
 Both gateways are setup identically. The differences are in their purpose and
 response. Gateways are allowed only when deploying to AWS and GCP.
 
-> ![gateway](../../../assets/images/gateway.png)
+> <img src="../../../assets/images/gateway.png" width="550px"/>
 
 ### HTTP Gateway
 

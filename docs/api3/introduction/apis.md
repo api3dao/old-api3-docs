@@ -23,9 +23,7 @@ developers pay a [subscription fee](https://coinmarketcap.com/api/pricing/). In
 practice, any kind of data or service that is worth using is served by a paid
 API.
 
-<p align="center">
-  <img src="../assets/images/coinmarketcap.png" />
-</p>
+> <img src="../assets/images/coinmarketcap.png" width="650px"/>
 
 ## ~~Oracle problem~~ API connectivity problem
 

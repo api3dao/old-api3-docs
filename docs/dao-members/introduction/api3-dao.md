@@ -26,7 +26,7 @@ The DAO votes on high-level matters such as staking incentives and
 collateralization, as well as grant proposals that provide DAO treasury funds to
 teams working in support of the DAO.
 
-> ![dao](../assets/images/dao.png)
+> <img src="../assets/images/dao.png" width="550px"/>
 
 ## DAO Structure
 
@@ -62,7 +62,7 @@ The DAO governs by selectively allocating funds and delegating authority. When a
 task reaches a scale that can no longer be fulfilled by a team, it is assigned
 to a subDAO.
 
-> ![dao-subdao-teams](../assets/images/dao-subdao-teams.png)
+> <img src="../assets/images/dao-subdao-teams.png" width="350px"/>
 
 ## Principles
 

@@ -53,14 +53,14 @@ utilities:
 
 _Main utilities of the API3 token._
 
-> ![dao-pool-pool-utils](../assets/images/dao-pool-token-utils.png)
-
-1. [Staking](dao-pool.md#staking): Grants membership in the API3 DAO and rights
-   to [inflationary rewards](dao-pool.md#inflationary-rewards).
-1. [Collateral](dao-pool.md#collateral): Backs coverage services that protect
-   users from damages caused by dAPI malfunctions.
-1. [Governance](dao-pool.md#governance): Grants direct representation in the
-   API3 DAO.
+> <img src="../assets/images/dao-pool-token-utils.png" width="200px"/>
+>
+> 1. [Staking](dao-pool.md#staking): Grants membership in the API3 DAO and
+>    rights to [inflationary rewards](dao-pool.md#inflationary-rewards).
+> 1. [Collateral](dao-pool.md#collateral): Backs coverage services that protect
+>    users from damages caused by dAPI malfunctions.
+> 1. [Governance](dao-pool.md#governance): Grants direct representation in the
+>    API3 DAO.
 
 Note that it is critical for these three utilities to coincide. All governing
 entities must receive staking rewards for them to govern in a way that maximizes
@@ -80,7 +80,7 @@ governance voting rights and take part in providing API3 users with quantifiable
 _security_ in the form of the coverage service. The DAO pool also grants you
 inflationary rewards and exposes you to the risk of coverage service claims.
 
-> ![dao-pool-staking](../assets/images/dao-pool-staking.png)
+> <img src="../assets/images/dao-pool-staking.png" width="350"/>
 >
 > <p class="diagram-line" style="color:gray;margin-top:25px;">Staked tokens in the DAO pool grant 
 > governance voting rights, inflationary rewards and are used to fund the coverage 
@@ -190,7 +190,7 @@ rewards, the net revenue to the DAO will result in burning of API3 tokens. This
 mechanic will produce positive staking incentives using inflationary rewards and
 claim risks rather than revenue sharing.
 
-> ![dao-pool-staking-2](../assets/images/dao-pool-staking-2.png)
+> <img src="../assets/images/dao-pool-staking-2.png" width="450"/>
 >
 > <p class="diagram-line" style="color:gray;margin-top:25px;">Fees from revenue are burned. Inflationary rewards are distributed by the DAO. Coverage service claims are paid to dAPI covered entities from the pool of staked tokens.</p>
 

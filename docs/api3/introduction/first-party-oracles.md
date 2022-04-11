@@ -10,9 +10,7 @@ An oracle is an agent that acts as an intermediary between a smart contract
 platform and an API. In other words, a decentralized application can use an
 oracle to call an API.
 
-<p align="center">
-  <img src="../assets/images/oracle.png" />
-</p>
+> <img src="../assets/images/oracle.png" width="450px"/>
 
 An oracle consists of two parts:
 

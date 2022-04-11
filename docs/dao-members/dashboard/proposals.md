@@ -227,9 +227,7 @@ Primary type proposals require 50% of all voting power to have voted "yes" on
 the proposal. Both primary and secondary type proposals execute immediately once
 50% of all voting power has voted "yes" on them.
 
-> <p align="left">
->  <img src="../figures/dashboard/executable-proposal.png" width="400" />
-> </p>
+>  <img src="../figures/dashboard/executable-proposal.png" width="450" />
 
 ## Using ENS Names
 
@@ -263,7 +261,7 @@ they had read earlier in the forum? IPFS addressing content by its hash is
 convenient here, because any change you'll make to your proposal will change its
 hash.
 
-![image](../assets/images/ipfs-proposals.png)
+> <img src="../assets/images/ipfs-proposals.png" width="550px"/>
 
 To host a proposal description on IPFS:
 

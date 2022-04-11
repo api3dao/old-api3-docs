@@ -18,8 +18,8 @@ operations. There are two groups of security schemes.
 - [Relayed Meta Data Authentication](../../../concepts/relay-meta-auth.md)
 
 <!-- prettier-ignore-->
-> ![api-integration-ois](../../../assets/images/security-schemes.png)
-> <br/>
+> <img src="../../../assets/images/security-schemes.png" width="650px"/>
+> 
 > 1.  <p class="diagram-line" style="color:blue;">The Airnode uses <i><b>Airnode Authentication Security Schemes</b></i> to authenticate itself to an API operation of which the values are known only by the Airnode.</p>
 > 2.  <p class="diagram-line" style="color:green;">The Airnode uses <i><b>Relayed Meta Data Security Schemes</b></i> to forward known information from the requester's request to an API operation.</p>
 

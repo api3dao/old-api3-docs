@@ -21,7 +21,7 @@ the config.json file, that is designed to follow three basic steps.
 - Airnode endpoints are mapped to API operations
 
 <!-- prettier-ignore-->
-> ![api-integration-ois](../../../assets/images/api-integration-ois.png)
+> <img src="../../../assets/images/api-integration-ois.png" width="500px"/>
 > <br/><br/>
 >
 > <p class="diagram-line">The OIS object in config.json contains mapping information of API operations to Airnode endpoint definitions.</p>

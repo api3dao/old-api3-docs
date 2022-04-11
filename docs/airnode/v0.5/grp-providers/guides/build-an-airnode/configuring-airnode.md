@@ -28,7 +28,7 @@ configuration details. The `secrets.env` file holds secrets, such as API keys
 and chain provider URLs, which are referenced within the config.json file using
 interpolation.
 
-> ![config-json](../../../assets/images/config-json.png)
+> <img src="../../../assets/images/config-json.png" width="650px"/>
 >
 > - <p class="diagram-line">The <b>config.json</b> file is used during the deployment/redeployment of an Airnode to configure its behavior and to provide mappings of API operations.</p>
 > - <p class="diagram-line">The <b>secrets.env</b> file holds values for config.json that must be kept secret.</p>
