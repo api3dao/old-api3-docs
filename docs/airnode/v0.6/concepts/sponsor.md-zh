@@ -1,8 +1,8 @@
 ---
-title: Sponsor
+title: 赞助者
 ---
 
-<TitleSpan>Concepts and Definitions</TitleSpan>
+<TitleSpan>概念和定义</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,26 +10,26 @@ title: Sponsor
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-A sponsor is an entity (individual, business, etc.). Sponsors create relationships between [requesters](requester.md) and [sponsorWallets](sponsor.md#sponsorwallet). They do so by sponsoring requesters and deriving sponsorWallets for Airnodes they want their requesters to call.
+赞助者是一个实体（个人、企业等）。 赞助者建立[请求者](requester.md)和[sponsorWallets](sponsor.md#sponsorwallet)之间的关系。 他们通过赞助请求者和为希望请求者调用的Airnode衍生赞助者钱包来做到这一点。
 
 > ![relationships](../assets/images/concepts-sponsor-relationships.png)
 
-Making the relationship:
+通过以下方式建立这种关系：
 
-- A sponsor "sponsors" a requester.
-- A sponsor "derives" a [sponsorWallet](sponsor.md#sponsorwallet) for a desired Airnode.
+- 一个赞助者 "赞助 "一个请求者。
+- 赞助者为所需的Airnode "衍生 "一个 [sponsorWallet](sponsor.md#sponsorwallet)。
 
-Making a request.
+提出请求。
 
-1. The now "sponsored" requester makes a [request](request.md) of an Airnode. Parameters passed to the Airnode include the `sponsorAddress` and the `sponsorWalletAddress`.
-2. The Airnode verifies that the sponsor of the requester is the sponsor that derived the `sponsorWallet` associated with the Airnode.
-3. The Airnode uses the respective sponsor's `sponsorWallet` to fulfill the request, meaning that the sponsor covers the gas cost.
+1. 现在 "被赞助 "的请求者向Airnode提出[请求](request.md)。 传递给Airnode的参数包括`sponsorAddress`和 `sponsorWalletAddress`。
+2. Airnode验证请求者的赞助者，确认是与Airnode相关的衍生出 `sponsorWallet`的赞助者。
+3. Airnode使用各自赞助者的`sponsorWallet`来满足请求，这意味着赞助者承担了gas费用。
 
-How a requester refers to the sponsor.
+请求者如何指代赞助者。
 
-1. A requester can have multiple sponsors that have sponsored it. While making a request, the requester provides the `sponsorAddress` that it wants to have the request fulfilled by. The AirnodeRrp.sol protocol contract checks if the requester is sponsored, and if so, emits the request event.
+1. 请求者可以拥有多个赞助者。 在提出请求时，请求者提供了想让请求得到满足的`sponsorAddress` 。 AirnodeRrp.sol协议合约检查请求者是否被赞助，如果是，则发出请求事件。
 
-2. Next Airnode derives the `sponsorWallet` address using the provided `sponsorAddress`, then checks if this matches `sponsorWallet`. Airnode will ignore the request if the two do not match. This is done this way because deriving the `sponsorWallet` address from the `sponsorAddress` on-chain is not feasible.
+2. 接下来，Airnode使用提供的`sponsorAddress`衍生出 `sponsorWallet`地址，然后检查是否与`sponsorWallet`匹配。 如果两者不匹配，Airnode将忽略请求。 This is done this way because deriving the `sponsorWallet` address from the `sponsorAddress` on-chain is not feasible.
 
 ## sponsorAddress
 
