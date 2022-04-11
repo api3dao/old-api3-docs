@@ -119,9 +119,9 @@ Aircode需要有选择性地满足请求的能力。 这是由于两个主要原
 关于如何执行授权策略，有两点要考虑：
 
 1. 如果这些策略被保存在链外，请求者就无法看到它们或检查它们是否满足。 此外，Airnode 所有者更新策略 (例如增加服务费)需要与请求者进行链下的协调。
-2. Embedding the policies in the request–response loop results in a gas cost overhead.
+2. 将策略嵌入到请求-响应循环，会带来gas费用开销。
 
-Based on these considerations, Airnode uses a hybrid method. An Airnode announces its authorization policy through off-chain channels as the addresses of a list of authorizer contracts. Whenever the Airnode receives a request, it checks if it should fulfill this request by making a static call that queries this on-chain policy. Similarly, the requester can use this on-chain policy by making a static call to check if they are authorized. This scheme both allows the Airnode to set transparent and flexible policies, and this to be done with no gas overhead.
+基于这些考虑，Airnode 采用混合方法。 An Airnode announces its authorization policy through off-chain channels as the addresses of a list of authorizer contracts. Whenever the Airnode receives a request, it checks if it should fulfill this request by making a static call that queries this on-chain policy. Similarly, the requester can use this on-chain policy by making a static call to check if they are authorized. This scheme both allows the Airnode to set transparent and flexible policies, and this to be done with no gas overhead.
 
 ### Access (deny, allow, filter)
 
