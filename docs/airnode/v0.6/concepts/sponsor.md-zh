@@ -95,7 +95,7 @@ m/44'/60'/0'/1/...
 
 ### 取款
 
-如果赞助者决定不再使用某个特定的`sponsorWallet`，他们可以提出从该钱包中提取资金的请求，见[request-withdrawal](../reference/packages/admin-cli.md#request-withdrawal)命令。 The Airnode listens for withdrawal requests and fulfills them automatically. Therefore, the sponsor should be able to receive their funds from their `sponsorWallet` in a few minutes notice. The `sponsorWallet` does not get deleted, and can be used in the future simply by funding it again.
+如果赞助者决定不再使用某个特定的`sponsorWallet`，他们可以提出从该钱包中提取资金的请求，见[request-withdrawal](../reference/packages/admin-cli.md#request-withdrawal)命令。 Airnode 监听提款请求，并自动完成。 因此，在几分钟内会收到通知，赞助者应该能够从他们的`sponsorWallet`收到资金。 `sponsorWallet`不会被删除，将来只需再次注资即可使用。
 
 ::: warning 提现的优先级
 
@@ -105,11 +105,11 @@ m/44'/60'/0'/1/...
 
 ## 赞助请求者
 
-A sponsor specifies the public address (`sponsorAddress`) of an account from a mnemonic it owns and the on-chain `requesterAddress` of a requester to "sponsor a requester". This sponsorship is know to have, and be defined by, a `sponsorAddress/requesterAddress` pair.
+赞助者从其拥有的助记符中指定账户的公共地址(`sponsorAddress`) 和请求者的链上请求者地址（`requesterAddress`），以 "赞助一个请求者"。 据了解，该赞助关系需要一个`sponsorAddress/requesterAddress` 地址对，并由其定义。
 
-This sponsorship allows the requester to use the sponsor's `sponsorWallet` for a particular Airnode to cover gas costs incurred by the Airnode in response to a request. Learn more about [sponsorships](../../v0.2/grp-developers/requesters-sponsors.md).
+此赞助允许请求者使用赞助者的 `sponsorWallet`， 来支付特定的 Airnode 响应请求而带来的gas费用。 了解更多关于[赞助关系](../../v0.2/grp-developers/requesters-sponsors.md)的信息。
 
-Use the [Admin CLI tool](../reference/packages/admin-cli.md#sponsor-requester) to sponsor a requester. An example can be seem in the [Requesters and Sponsors](../grp-developers/requesters-sponsors.md#how-to-sponsor-a-requester) doc.
+使用 [Admin CLI tool](../reference/packages/admin-cli.md#sponsor-requester)，赞助一个请求者。 可以在 [请求者和赞助者](../grp-developers/requesters-sponsors.md#how-to-sponsor-a-requester)文档中查看响应的例子。
 
 ## Derive a Sponsor Wallet
 
