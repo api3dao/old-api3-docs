@@ -1,8 +1,8 @@
 ---
-title: Airnode ABI Specification
+title: Airnode ABI 规范
 ---
 
-<TitleSpan>Specifications</TitleSpan>
+<TitleSpan>技术规格：</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,15 +10,15 @@ title: Airnode ABI Specification
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,4]" />
 
-[Contract application binary interface (ABI)](https://docs.soliditylang.org/en/v0.6.12/abi-spec.html) is used to encode different types of data while interacting with Ethereum contracts. As a result, both Solidity and modules such as [web3.js](https://web3js.readthedocs.io/) and [ethers.js](https://docs.ethers.io/) treat ABI encoding–decoding functionality as a first-class citizen. This makes using contract ABI for encoding API call parameters a very attractive option.
+[合约应用二进制接口（ABI）](https://docs.soliditylang.org/en/v0.6.12/abi-spec.html)用于编码不同类型的数据，同时与Ethereum合约交互。 因此，Solidity和相应模块，如[web3.js](https://web3js.readthedocs.io/)和 [ethers.js](https://docs.ethers.io/) ，都将ABI的编码-解码功能视为一流的组成部分。 这使得使用合约ABI对API调用参数进行编码，成为一个非常有吸引力的选择。
 
-Although encoding API call parameters using contract ABI has many advantages, it cannot be used for this purpose directly. Quoting from the [Solidity docs](https://docs.soliditylang.org/en/v0.6.12/abi-spec.html):
+尽管使用合约ABI对API调用参数进行编码有很多好处，但它不能直接用于这个目的。 引自[Solidity文档](https://docs.soliditylang.org/en/v0.6.12/abi-spec.html)：
 
-> The encoding is not self describing and thus requires a schema in order to decode.
+> 编码不是自我描述的，因此需要解码程序。
 
-This means that when passing API call parameters (of type `bytes`), you would also need to pass a list of the types for these parameters, which is cumbersome and it is not clear how these types would be encoded. As a solution, Airnode uses _Airnode ABI specifications_, an extension of contract ABI specifications that includes a header that keeps the schema.
+这意味着，当传递API调用参数（`bytes`类型）时，还需要传递这些参数的类型列表，这很麻烦，而且不清楚这些类型如何编码。 作为一个解决方案，Airnode使用_Airnode ABI 规范_，这是合约ABI规范的一个扩展，包括一个保持模式的头部。
 
-## Header
+## 头部
 
 The Airnode ABI specifications header is of type `bytes32` and acts as the schema (i.e., describes the types of the API call parameters). The header is encoded in UTF-8 for ease of use. Here is an example:
 
