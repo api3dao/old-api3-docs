@@ -1,15 +1,15 @@
 <template>
   <div style="margin-top: 20px">
-    <div class="flex-container">
-      <div class="flex-left">
+    <div class="child-page-flex-container">
+      <div class="child-page-flex-left">
         <a
           href="javascript:void(0)"
-          class="chain-page-back-btn"
+          class="child-page-back-btn"
           v-on:click="goBack()"
           >←</a
         >
       </div>
-      <div class="flex-right">
+      <div class="child-page-flex-right">
         <div v-if="childPageData" style="font-size: x-large; font-weight: 600">
           {{ childPageData.pageTitle }}
         </div>
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'ChildPage',
+  name: 'ChildPageHeader',
   props: {
     parentPath: {}, // The parent page HTML path.
   },
@@ -29,6 +29,7 @@ export default {
   }),
   beforeDestroy() {
     var elements = document.getElementsByClassName('sidebar-link');
+    // Here the sidebars selection must be updated.
     elements.forEach((element) => {
       // If the new route does is not the current route, make inactive
       if (!element.href.endsWith(this.$router.currentRoute.path)) {
@@ -59,7 +60,7 @@ export default {
       setTimeout(() => {
         this.childPageData =
           JSON.parse(localStorage.getItem('childPageData')) || undefined;
-      }, 20);
+      }, 1);
     });
   },
   methods: {
@@ -71,29 +72,26 @@ export default {
 </script>
 
 <style scoped>
-.chain-page-back-btn {
-  /*position: fixed;
-  top: 65px;
-  margin-left: -25px;
-  margin-right: 30px;*/
-
+.child-page-back-btn {
   font-size: 40px;
   font-weight: bold;
   text-decoration: none;
 }
-.flex-container {
+
+.child-page-flex-container {
+  height: 62px;
   display: flex;
   border-bottom: 1px solid gray;
-  /*border: 1px solid gray;*/
+  margin-bottom: 25px;
 }
 
-.flex-left {
+.child-page-flex-left {
   margin-top: 9px;
   width: 58px;
   height: 6vh;
 }
 
-.flex-right {
+.child-page-flex-right {
   margin-top: 19px;
   height: 6vh;
 }
