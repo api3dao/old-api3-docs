@@ -25,6 +25,11 @@ function getRedirectRoute(to) {
   return undefined;
 }
 
+export let globalStore = {
+  beacons: undefined,
+  beaconFind: undefined,
+};
+
 let spaLoaded = false;
 export default ({ Vue, router, options, siteData }) => {
   router.beforeEach((to, from, next) => {
