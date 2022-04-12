@@ -24,7 +24,7 @@ title: 请求
 
 ## `requestId`
 
-`requestId` 唯一标识了一个请求。 When a requester makes a request using AirnodeRrp.sol, a `requestId` is generated before the request is added to the event logs and the requestId is returned to the requester. This `requestId` is a hash of certain data members depending on which type of request is made, `makeFullRequest()` or `makeTemplateRequest()`. They only differ in that one uses `endpointId` plus `airnode` address and the other `templateId` (since template already contains the `airnode` address).
+`requestId` 唯一标识了一个请求。 当请求者使用AirnodeRrp.sol发出请求时，在请求被添加到事件日志之前，会生成一个`requestId`，并将requestId返回给请求者。 这个 `requestId`是某些数据成员的哈希值，取决于哪种类型的请求，如`makeFullRequest()` 或`makeTemplateRequest()`。 它们的不同之处在于，一个使用 `endpointId` 加上`airnode`地址，另一个使用`templateId` （因为模板已经包含 `airnode`地址）。
 
 | makeFullRequest()                                              | makeTemplateRequest()                                          |
 |:-------------------------------------------------------------- |:-------------------------------------------------------------- |
@@ -40,19 +40,19 @@ title: 请求
 | fulfillFunctionId                                              | fulfillFunctionId                                              |
 | parameters                                                     | parameters                                                     |
 
-After the request (with `requestId`) is added to the event logs, Airnode gathers the request and verifies the `requestId` by re-computing its hash before responding to the request. This verifies the parameters have not been tampered with.
+After the request (with `requestId`) is added to the event logs, Airnode gathers the request and verifies the `requestId` by re-computing its hash before responding to the request. 这是用来验证参数没有被篡改。
 
-## Request Parameters
+## 请求参数
 
-The following list summarizes the values expected for the parameters of a request.
+下面的列表概括了请求的参数的预期值。
 
-- `templateId` the id of a template to use, _(only used for `makeTemplateRequest`)_
+- `templateId`是要使用的模板的ID_(仅用于 `makeTemplateRequest`)_。
 
-- `airnode` (address) and `endpointId` specify the endpoint, _(only used for `makeFullRequest`)_
+- `airnode` (address)（地址）和 `endpointId` 用于指定端点 _(仅用于 `makeFullRequest`)_。
 
-- `sponsor` and `sponsorWallet` (addresses) specify which wallet will be used to fulfill the request
+- `sponsor` 和`sponsorWallet` （地址）用于指定哪个钱包将被用来完成请求。
 
-- `fulfillAddress` and `fulfillFunctionId` specify which contract/function will be called to fulfill the request
+- `fulfillAddress`和`fulfillFunctionId` 用于指定哪个合约/函数将被调用，以完成请求。
 
 - `parameters` specify the API and [reserved](/ois/v1.0.0/ois.md#_5-4-reservedparameters) parameters (see [Airnode ABI specifications](../reference/specifications/airnode-abi-specifications.md) for how these are encoded)
 
