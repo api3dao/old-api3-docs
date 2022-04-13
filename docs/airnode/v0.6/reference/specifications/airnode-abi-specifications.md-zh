@@ -171,11 +171,11 @@ bytes memory parameters = abi.encode(
 
 ### 填充
 
-使用[严格的编码模式](https://docs.soliditylang.org/en/v0.6.12/abi-spec.html#strict-encoding-mode)，以便你以后可以解码这些值。 这意味着每个参数都将用零填充，使其完成32字节。 虽然这种填充增加了gas成本，但ABI 编码/解码函数是廉价的，足以得到平衡。 Furthermore, the [template](../../concepts/template.md) pattern used in the protocols allows for the referencing of these encoded parameters without explicitly passing them in requests, making the increased cost induced by padding irrelevant in most cases.
+使用[严格的编码模式](https://docs.soliditylang.org/en/v0.6.12/abi-spec.html#strict-encoding-mode)，以便你以后可以解码这些值。 这意味着每个参数都将用零填充，使其完成32字节。 虽然这种填充增加了gas成本，但ABI 编码/解码函数是廉价的，足以得到平衡。 此外，协议中使用的 [模板](../../concepts/template.md)模式允许引用这些编码参数，而不需要在请求中明确传递这些参数，这使得在大多数情况下，填充不会引起的相应的成本增加。
 
 ## `@api3/airnode-abi`
 
-Encode and decode parameters with the [airnode-abi](../packages/airnode-abi.md) package.
+使用 [airnode-abi](../packages/airnode-abi.md) 软件包编码和解码参数。
 
 ```js
 import { encode } from '@api3/airnode-abi';
@@ -192,6 +192,6 @@ console.log('ENCODED:', encodedData);
 console.log('\nDECODED:', decoded);
 ```
 
-See the package doc [airnode-abi](../packages/airnode-abi.md) for more information on how to encode and decode with Airnode ABI off-chain. Also see code samples in the [examples](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-examples) package.
+如何用 Airnode ABI 在链外编码和解码，请参阅软件包 doc [airnode-abi](../packages/airnode-abi.md)了解更多信息。 同时也可以查看[示例](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-examples)中的软件包。
 
 - [request-utils.ts](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-examples/integrations/coingecko/request-utils.ts#L8)
