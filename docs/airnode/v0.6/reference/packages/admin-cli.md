@@ -706,13 +706,34 @@ npx @api3/airnode-admin generate-mnemonic
 ### `derive-airnode-address`
 
 Derives the [airnode address](../../concepts/airnode.md#airnodeaddress) which is
-the identifier of the particular Airnode on chain. You need this identifier for
-many other admin CLI commands, such as
+the identifier of the particular Airnode on chain. The address is the default
+address of a BIP 44 wallet (with the path m/44'/60'/0'/0/0). Use this identifier
+for many other admin CLI commands, such as
 [derive-sponsor-wallet-address](admin-cli.md#derive-sponsor-wallet-address).
 
+- `airnode-mnemonic`: A mnemonic used to generate the airnode address.
+
+:::: tabs
+
+::: tab Linux/Mac/WSL2
+
 ```sh
-npx @api3/airnode-admin derive-airnode-address
+npx @api3/airnode-admin derive-airnode-address \
+--airnode-mnemonic "cricket among ..."
 ```
+
+:::
+
+::: tab Windows
+
+```sh
+npx @api3/airnode-admin derive-airnode-address ^
+--airnode-mnemonic "cricket among ..."
+```
+
+:::
+
+::::
 
 ## RequesterAuthorizerWithAirnode
 
