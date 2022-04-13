@@ -20,17 +20,17 @@ title: Airnode ABI 规范
 
 ## 头部
 
-The Airnode ABI specifications header is of type `bytes32` and acts as the schema (i.e., describes the types of the API call parameters). The header is encoded in UTF-8 for ease of use. Here is an example:
+Airnode ABI规范头部的类型是`bytes32`，作为模式（即描述API调用参数的类型）。 头部是以 UTF-8编码的，以便于使用。 下面是一个示例：
 
 ```
 "1BSasbiuBa"
 ```
 
-The first character, `1`, represents the encoding version. Each following character represents the type of an API call parameter.
+第一个字符， `1`, 表示编码版本。 后面的每个字符代表一个 API 调用参数的类型。
 
-### Type encodings
+### 类型编码
 
-The types are encoded in UTF-8 characters as follows:
+类型以 UTF-8 字符编码，具体如下：
 
 ```
 B: bytes
@@ -43,22 +43,22 @@ i: int256
 f: bool
 ```
 
-Note that dynamically-sized types are represented with uppercase letters and statically-sized types are represented with lowercase letters. Another thing to notice is that `s` represents `string32`, but this is an artificial type and it is not part of [solidity types](https://docs.soliditylang.org/en/latest/types.html). This type is instead represented on chain as `bytes32`. The reasons for this are explained in depth in [string32 details](airnode-abi-specifications.md#string32) section.
+注意，动态大小的类型用大写字母表示， 静态大小的类型用小写字母表示。 另外需要注意的是，`s`代表`string32`，但这是一个人为设定的类型，它不是[solidity 类型](https://docs.soliditylang.org/en/latest/types.html)的一部分。 这种类型代之以 `bytes32`在链上表示的。 原因在 [string32 详情](airnode-abi-specifications.md#string32) 中进行了详细解释。
 
-## Encoding format
+## 编码格式
 
-Airnode ABI specifications has the following encoding format (which is somewhat similar to [SDS](https://github.com/antirez/sds)):
+Airnode ABI 规格有以下编码格式(有点 类似于 [SDS](https://github.com/antirez/sds))：
 
 ```
 [------------------------][-----------------------------------------]
-  Header of type bytes32      API call parameter name–value pairs
+bytes32类型头部      API 调用参数名–值配对
 ```
 
-Note that each API call parameter is preceded with a name of type `bytes32`.
+请注意，每个API调用参数之前都有类型 `字节32` 的名称。
 
-## Example encoding
+## 编码示例
 
-To encode the following API call parameters
+要编码以下API调用参数
 
 ```json
 {
@@ -74,7 +74,7 @@ To encode the following API call parameters
 }
 ```
 
-you would do this in a requester contract as:
+您需要在请求者合约中这样做：
 
 ```solidity
 bytes memory parameters = abi.encode(
@@ -91,11 +91,11 @@ bytes memory parameters = abi.encode(
 );
 ```
 
-Note that you do not need to add an external library to the contract, and `abi.encode()` is fairly cheap in terms of gas usage (compared to alternative encoding methods).
+请注意，您不需要为合约添加外部库， `abi.encode()` 在gas使用方面费用相当低廉(与备选编码方法相比)。
 
-## Example decoding
+## 解码示例
 
-If you know the schema of the encoded parameters, then decode them on-chain. For example, if the schema is `(bytes,string)`:
+如果你知道编码参数的模式，然后就可以在链上对其解码。 例如，如果模式是 `(bytes,string)`格式的:
 
 ```solidity
 (
