@@ -274,15 +274,15 @@ title: config.json
 
 ### `stage`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#stage) (required) - The label used to distinguish between multiple deployments of the same Airnode on a cloud provider.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#stage) (必须) - 用于区分云供应商上同一Airnode的多个部署的标签。
 
 ### `skipValidation`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#skipvalidation) (optional) - Whether the config.json validation should be skipped. Defaults to `false`.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#skipvalidation) (可选) - 是否应该跳过 config.json 验证。 默认值为 `false`。
 
-## triggers
+## 触发器
 
-An array that maps external triggers such as a request made through RRP (or a subscription made through PSP, which is not implemented yet) to an endpoint defined in an OIS.
+一个数组，用于将外部触发器，如通过RRP提出的请求（或通过PSP提出的订阅，目前尚未实现）映射到OIS中定义的端点。
 
 ```json
 // triggers
@@ -311,69 +311,68 @@ An array that maps external triggers such as a request made through RRP (or a su
 }
 ```
 
-In the example above, the Airnode deployment has an OIS with the title `myOisTitle`. This OIS has an endpoint with the name `myEndpointName`. When the Airnode deployment detects a [request](../../concepts/request.md) that references its [`airnodeAddress`](../../concepts/airnode.md#airnodeaddress) and
-<code style="overflow-wrap: break-word;">0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5</code>
-as the [`endpointId`](../../concepts/endpoint.md#endpointid), it will call the specified endpoint (`myOisTitle`-`myEndpointName`) with the parameters provided in the request to fulfill it. See the [endpoint id documentation](../../concepts/endpoint.md#endpointid) for the default convention for deriving the `endpointId`.
+在上面的例子中，Airnode部署有一个OIS，标题为`myOisTitle`。 这个OIS有一个端点，名称为`myEndpointName`。 当Airnode部署检测到引用其[`airnodeAddress`](../../concepts/airnode.md#airnodeaddress)和
+<code style="overflow-wrap: break-word;">0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5</code>作为 [`endpointId`](../../concepts/endpoint.md#endpointid)的[request](../../concepts/request.md) 时，它将调用指定的端点（`myOisTitle`-`myEndpointName`）与请求中提供的参数来实现它。 请参阅[endpoint id documentation](../../concepts/endpoint.md#endpointid)文档，了解衍生 `endpointId`的默认惯例。
 
 ### `rrp`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#rrp) (required) - An array of endpoints from OIS that the Airnode will respond to for the RRP protocol.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#rrp) (必须) - 来自OIS的端点数组，Airnode将对RRP协议进行响应。
 
 #### `rrp[n].endpointId`
 
-(required) - A identifier derived for an oisTitle/endpointName pair, see [derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id).
+(必须) - 为 oisTitle/endpointName配对导出的标识符，见 [derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id)。
 
 #### `rrp[n].oisTitle`
 
-(required) - The title of an OIS object.
+(必须) - OIS对象的标题。
 
 #### `rrp[n].endpointName`
 
-(required) - The endpoint name of an OIS endpoint.
+(必须) - OIS端点的端点名称。
 
 ### `http`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#http) (required) - An array of endpoints from OIS that the Airnode will respond to.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#http) (必须) - Airnode 将响应的 OIS 数组端点。
 
 #### `http[n].endpointId`
 
-(required) - A identifier derived for an oisTitle/endpointName pair, see [derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id).
+(required) - 为 oisTitle/endpointName 衍生出的标识符，见 [derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id)。
 
 #### `http[n].oisTitle`
 
-(required) - The title of an OIS object.
+(必须) - OIS对象的标题。
 
 #### `http[n].endpointName`
 
-(required) - The endpoint name of an OIS endpoint.
+(必须) - OIS端点的端点名称。
 
 ### `httpSignedData`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpsigneddata) (required) - An array of endpoints from OIS that the Airnode will respond to.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpsigneddata) (必须) - Airnode 将响应的 OIS 数组端点。
 
 #### `httpSignedData[n].endpointId`
 
-(required) - A identifier derived for an oisTitle/endpointName pair, see [derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id).
+(必须) - 为 oisTitle/endpointName配对导出的标识符，见 [derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id)。
 
 #### `httpSignedData[n].oisTitle`
 
-(required) - The title of an OIS object.
+(必须) - OIS对象的标题。
 
 #### `httpSignedData[n].endpointName`
 
-(required) - The endpoint name of an OIS endpoint.
+(必须) - OIS端点的端点名称。
 
 ## ois
 
-A list of OIS objects. Since each OIS specifies the integration of an API to an oracle, a single Airnode deployment can serve multiple APIs. To avoid duplication of content, see the [Oracle Integration Specifications (OIS)](/ois/v1.0.0/) for a complete example and the explanation of its fields.
+一个OIS对象的列表。 由于每个OIS都规定了一个API与一个预言机的集成，所以一个Airnode部署可以为多个API提供服务。 为了避免内容的重复，请参阅[预言机集成(OIS)](/ois/v1.0.0/) ，了解完整的例子及其字段的解释。
 
 ## apiCredentials
 
-Each entry in `apiCredentials` maps to a security scheme defined in an OIS (`ois[n].components.securitySchemes.{securitySchemeName}`), where `oisTitle` is the `title` field of the related OIS, and `securitySchemeName` is the name of the respective security scheme. These would be `myOisTitle` and `mySecurityScheme` in the example below. `securitySchemeValue` is the value used for the authentication with the security scheme (e.g., the API key) which would be in `secrets.env` in the example below.
+`apiCredentials` 中的每个条目都映射到OIS（`ois[n].components.securitySchemes.{securitySchemeName}`）中定义的安全方案，其中 `oisTitle`是相关OIS的`title`字段，`securitySchemeName`是各自安全方案的名称。 在下面的例子中，将是 `myOisTitle` 和 `mySecurityScheme` 。 `securitySchemeValue`是用于安全方案认证的值（例如，API密钥），在下面的例子中是`secrets.env` 。
 
-The `security` field in the OIS object must be included and hold the names of all security schemes the API operation
+OIS对象中的 `security`字段必须包括在内，并持有API操作的所有安全方案的名称。
 
-Use of apiCredentials is not required, leave its array empty.
+不需要使用apiCredentials，将其数组留为空。
 
 ```json
 // apiCredentials
@@ -407,12 +406,12 @@ Use of apiCredentials is not required, leave its array empty.
 
 ### `oisTitle`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#oistitle) (required) - The `ois.title` of the OIS where the `securitySchemeName` can be found.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#oistitle) （必要) - OIS 的`ois.title`，可以在此找到 `securitySchemeName` 。
 
 ### `securitySchemeName`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#securityschemename) (required) - The name of a security scheme from `ois[n].components.securitySchemes.{securitySchemeName}`.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#securityschemename) (必须) - 来自 `ois[n].components.securitySchemes.{securitySchemeName}` 的安全方案的名称。
 
 ### `securitySchemeValue`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#securityschemevalue) (required) - The value of the security scheme used (as defined by `ois[n].components.securitySchemes.{securitySchemeName}` for the authentication. Usually stored in `secrets.env`.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#securityschemevalue) (必须) - 使用的安全方案的值（由 `ois[n].components.securitySchemes.{securitySchemeName}` 定义，用于认证。 通常存储在 `secrets.env`中。
