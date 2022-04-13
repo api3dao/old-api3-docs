@@ -2,7 +2,7 @@
 title: config.json
 ---
 
-<TitleSpan>Deployment Files</TitleSpan>
+<TitleSpan>部署文档</TitleSpan>
 
 # {{$frontmatter.title}}
 
