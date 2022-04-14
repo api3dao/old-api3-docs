@@ -133,18 +133,18 @@ airnode-deployer deploy --config pathTo/config.json --secrets pathTo/secrets.env
 
 ### 删除
 
-An Airnode can be removed using the remove command two different ways.
+删除一个 Airnode, 可以有两种不同的方式。
 
-- **Best:** With a deployment receipt created when the Airnode was deployed.
-- **Alternate:** With the Airnode short address and cloud provider specifications. The `airnodeShortAddress` is used in the cloud console within the names of the serverless functions. The other values can be found in `config.json`.
+- **最佳：** 部署了 Airnode 时创建了部署收据。
+- **备选：** 使用Airnode短地址和云供应商的规格。 `airnodeShortAddress` 被用于无服务器函数名称的 云端控制台。 其它值可以在 `config.json` 中找到。
   - `nodeSetting.cloudProvider.type`
   - `nodeSetting.cloudProvider.region`
   - <code style="overflow-wrap: break-word;">nodeSetting.cloudProvider.projectId</code>
-(GCP only)
+(仅限GCP)
   - `nodeSetting.stage`
 
 ```bash
-# Removes a deployed Airnode instance.
+# 移除已部署的 Airnode 实例。
 
 Options:
       --version                Show version number                                                             [boolean]
