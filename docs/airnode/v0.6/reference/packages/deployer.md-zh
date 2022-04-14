@@ -20,11 +20,11 @@ title: 部署器
 
 ## 用法
 
-The deployer's commands can be run using [npx](https://nodejs.dev/learn/the-npx-nodejs-package-runner), installing a global npm package or by manually building the airnode-deployer package. Using npx is the simplest method to interact with the deployer manually if you do not wish to use the Docker images.
+部署器的命令可以使用npx、安装全局[npx](https://nodejs.dev/learn/the-npx-nodejs-package-runner)软件包或通过手动构建airnode-deployer软件包来运行。 如果不希望使用Docker镜像，使用npx是与部署器手动交互的最简单方法。
 
-- [Using npx](./deployer.md#using-npx)
-- [Global Package](./deployer.md#global-package)
-- [Build Manually](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-deployer)
+- [使用 npx](./deployer.md#using-npx)
+- [全局套件](./deployer.md#global-package)
+- [手动创建](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-deployer)
 
 ### Using npx
 
