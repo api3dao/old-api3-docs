@@ -116,8 +116,8 @@ cp config/secrets.env.example config/secrets.env
 完成 `deploy` 命令后来自使用`--receiving` 参数的路径和名称 创建收据。 该收据包含关于部署的元数据，可用于删除Airnode。
 
 ```bash
-# Deploys an Airnode instance using the `config.json` and `secrets.env` files.
-# This can be used for a new deployment or to update an existing deployment.
+# 使用 `config.json` 和 `secrets.env` 文件部署一个 Airnode 实例。
+# 这可以用于新部署或更新现有部署。
 
 Options:
       --version                          Show version number                                                   [boolean]
@@ -131,7 +131,7 @@ Options:
 airnode-deployer deploy --config pathTo/config.json --secrets pathTo/secrets.env --receipt myOutput/receipt.json
 ```
 
-### remove
+### 删除
 
 An Airnode can be removed using the remove command two different ways.
 
