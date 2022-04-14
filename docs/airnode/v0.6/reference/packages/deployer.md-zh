@@ -113,7 +113,7 @@ cp config/secrets.env.example config/secrets.env
 
 请确认 `config.json` 和`secrets.env` 可在 `--configuration` 参数的路径中使用。
 
-完成 `deploy` 命令后来自使用`--receiving` 参数的路径和名称 创建收据。 The receipt contains metadata about the deployment and can be used to remove the Airnode.
+完成 `deploy` 命令后来自使用`--receiving` 参数的路径和名称 创建收据。 该收据包含关于部署的元数据，可用于删除Airnode。
 
 ```bash
 # Deploys an Airnode instance using the `config.json` and `secrets.env` files.
