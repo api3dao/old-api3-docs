@@ -180,7 +180,7 @@ by `b` in the ABI header schema.
 ```solidity
 bytes memory parameters = abi.encode(
     bytes32("1b"),
-    bytes32("MyBytes32"), 0x68656c6c6f000000000000000000000000000000000000000000000000000000,
+    bytes32("MyBytes32"), 0x1fd36c61981313c0c155d33ffac0325bd7c00d21d52442981bb13d2fa13e8f71,
 );
 ```
 
