@@ -1,8 +1,8 @@
 ---
-title: Deployer
+title: 部署器
 ---
 
-<TitleSpan>Packages</TitleSpan>
+<TitleSpan>软件包</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,11 +10,11 @@ title: Deployer
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-The [airnode-deployer](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-deployer) package is used primarily by the [Docker Images](../../grp-providers/docker/). This CLI tool provides the underlying commands used by the Docker images when deploying an Airnode.
+[Airnode部署器](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-deployer)软件包主要用于 [Docker 镜像](../../grp-providers/docker/)。 此 CLI 工具提供了Docker 镜像在 部署Airnode时使用的基本命令。
 
 ::: warning Deploying an Airnode
 
-API providers are strongly encouraged to use the [Docker Images](../../grp-providers/docker/) when deploying an Airnode and not the deployer CLI commands.
+强烈鼓励API提供商在部署一个 Airnode 时使用 [Docker 图像](../../grp-providers/docker/) 而不要使用 部署器CLI 命令。
 
 :::
 
