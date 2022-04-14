@@ -1,8 +1,8 @@
 ---
-title: Airnode Contract Addresses
+title: Airnode 合约地址
 ---
 
-<TitleSpan>Reference</TitleSpan>
+<TitleSpan>参考文件</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,7 +10,7 @@ title: Airnode Contract Addresses
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Use the contract addresses listed in the tables below to interact with Airnode on EVM-compatible blockchains. Additional addresses will be added as contracts are deployed, but feel free to [submit a GitHub issue](https://github.com/api3dao/airnode/issues) requesting a new deployment.
+使用下面表格中列出的合约地址，与EVM兼容的区块链上的Airnode 交互。 Additional addresses will be added as contracts are deployed, but feel free to [submit a GitHub issue](https://github.com/api3dao/airnode/issues) requesting a new deployment.
 
 ## AirnodeRrp
 
