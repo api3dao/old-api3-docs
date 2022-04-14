@@ -26,17 +26,17 @@ title: 部署器
 - [全局套件](./deployer.md#global-package)
 - [手动创建](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-deployer)
 
-### Using npx
+### 使用 npx
 
-The airnode-deployer package can be run as an npm package using npx. This allows you to run deployer commands without installing the deployer npm package or having to manually build the airnode-deployer package yourself.
+airnode-deployer软件包可以使用npx作为npm软件包来运行。 这允许在不安装deployer npm软件包或不需要自己手动构建airnode-deployer软件包的情况下运行deployer命令。
 
 ```sh
 npx @api3/airnode-deployer deploy --config pathTo/config.json --secrets pathTo/secrets.env --receipt myOutput/receipt.json
 ```
 
-### Global Package
+### 全局套件
 
-The airnode-deployer package can be installed globally with yarn or npm. If installed using yarn make sure yarn bin is added to `PATH`.
+airnode-deployer软件包，可以用yarn或npm全局安装。 如果使用 yarn 安装 ，请确保yarn bin 被添加到 `PATH` 中。
 
 ```sh
 yarn global add @api3/airnode-deployer
@@ -89,31 +89,31 @@ cp config/config.json.example config/config.json
 cp config/secrets.env.example config/secrets.env
 # Edit both `config.json` and `secrets.env` to reflect your configuration.
 ```
--->## Examples
+-->## 示例
 
-The deployer has two commands. To re-deploy an existing Airnode run the `deploy` command again.
+部署器有两条命令。 若要重新部署一个现有的 Airnode ，请重新运行 `deploy`命令。
 
-- [deploy](./deployer.md#deploy)
-- [remove](./deployer.md#remove)
+- [部署](./deployer.md#deploy)
+- [删除](./deployer.md#remove)
 
-### Workflows
+### 工作流程
 
-1. Make sure you have `config.json` and `secrets.env` ready. Then, use the `deploy` command to trigger your first deployment.
-2. In order to update the Airnode configuration:
-   - Update the `config.json` and `secrets.env` files as needed.
-   - Run the `deploy` command again.
-3. Use the `remove` command to remove the Airnode deployment. Use the `-r` option to provide the receipt file from the latest deployment or manually add the required arguments.
+1. 请确保您已经准备好了 `config.json` 和`secrets.env` 然后，使用 `deploy` 命令来触发您的首次部署。
+2. 为了更新Airnode 配置：
+   - 需要更新 `config.json` 和`secrets.env` 这两个文件。
+   - 重新运行 `deploy` 命令。
+3. 使用 `remove` 命令，删除 Airnode 部署。 使用 `-r`选项，提供最新部署的收据文件，或手动添加所需的参数。
 
-### deploy
+### 部署
 
-When creating or updating an Airnode the `config.json` and `secrets.env` files are needed. You can use the provided example [config.json](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-deployer/config/config.example.json) and [secrets.env](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-deployer/config/secrets.example.env) templates to get started quickly, but you will need to edit these with your own API details and secrets.
+创建或更新Airnode 时，需要 `config.json` 和 `secrets.env` 两个文件。 您可以使用提供的示例[config.json](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-deployer/config/config.example.json)和 [secrets.env](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-deployer/config/secrets.example.env)，使用上述模板可以快速启动，但您还需要使用自己的API详细信息和秘密来编辑这些模板。
 
 <!-- Use of .html below is intended. -->
 <airnode-WarningSimultaneousDeployments removeLink="../../grp-providers/docker/deployer-image.html#manual-removal"/>
 
-Make sure `config.json` and `secrets.env` are available in the path for the `--configuration` argument.
+请确认 `config.json` 和`secrets.env` 可在 `--configuration` 参数的路径中使用。
 
-When completed the `deploy` command creates a receipt using the path and name from the `--receipt` argument. The receipt contains metadata about the deployment and can be used to remove the Airnode.
+完成 `deploy` 命令后来自使用`--receiving` 参数的路径和名称 创建收据。 The receipt contains metadata about the deployment and can be used to remove the Airnode.
 
 ```bash
 # Deploys an Airnode instance using the `config.json` and `secrets.env` files.
