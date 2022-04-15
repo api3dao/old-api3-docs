@@ -48,11 +48,11 @@ Airnode. It then applies an arbitrary name for the blockchain provider
       },
       "baseFeeMultiplier": 2
     },
-    "providers": [
+    "providers": {
       "infura_rinkeby": {
         "url": "${INFURA_RINKEBY_PROVIDER_URL}"
       }
-    ]
+    }
   }
 ],
 ```
@@ -83,14 +83,14 @@ Multiple providers can be used per chain. Simply add another object to
       },
       "baseFeeMultiplier": 2
     },
-    "providers": [
+    "providers": {
       "infura_rinkeby": {
         "url": "${INFURA_RINKEBY_PROVIDER_URL}"
       },
       "alchemy_rinkeby": {
         "url": "${ALCHEMY_RINKEBY_PROVIDER_URL}"
       }
-    ]
+    }
   }
 ],
 ```
@@ -120,14 +120,14 @@ each has a unique `id` and `type` and a list of `providers` for each.
       },
       "baseFeeMultiplier": 2
     },
-    "providers": [
+    "providers": {
       "infura_rinkeby": {
         "url": "${INFURA_RINKEBY_PROVIDER_URL}"
       },
       "alchemy_rinkeby": {
         "url": "${ALCHEMY_RINKEBY_PROVIDER_URL}"
       }
-    ]
+    }
   },
   {
     "maxConcurrency": 100,
@@ -147,11 +147,11 @@ each has a unique `id` and `type` and a list of `providers` for each.
       },
       "baseFeeMultiplier": 2
     },
-    "providers": [
+    "providers": {
       "infura_ropsten": {
         "url": "${INFURA_ROPSTEN_PROVIDER_URL}"
       }
-    ]
+    }
   }
 ],
 ```

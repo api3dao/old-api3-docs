@@ -87,11 +87,11 @@ Below is a simple chain array with a single chain provider.
       },
       "baseFeeMultiplier": 2
     },
-    "providers": [
+    "providers": {
       "infura_rinkeby": {
         "url": "${INFURA_RINKEBY_PROVIDER_URL}"
       }
-    ],
+    },
     "type": "evm",
     "blockHistoryLimit": 300,
     "minConfirmations": 0,
