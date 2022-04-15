@@ -109,12 +109,13 @@ console.log(values);
 
 ### `bytes32`
 
-There is no conversion for `bytes32` - the value is expected to be a valid hex string representing the encoded 32 bytes value. This means that the encoding **must** be implemented on the API side. If you want to delegate the encoding to Airnode, see the documentation for [`string32`](adapter.md#string32-encoded-to-bytes32-on-chain).
+`bytes32` 不会发生任何转换--该值被期望是一个有效的十六进制字符串，代表编码的32字节的值。 这意味着，编码**必须**在API端实现。 如果你想把编码委托给Airnode，请看[`string32`](adapter.md#string32-encoded-to-bytes32-on-chain)的文档。
 
-For example, let's say the API wants to encode the following string `simple string` with length 13. Its encoding is
-<code style="overflow-wrap: break-word;">0x73696d706c6520737472696e6700000000000000000000000000000000000000</code>. This is the value that should be sent as a response to Airnode request, together with the `0x` prefix.
+For example, let's say the API wants to encode the following string `simple string` with length 13. 其编码是
+<code style="overflow-wrap: break-word;">0x73696d706c652073472696e670000000000000000000000000000000000000000000000000000</code>
+这个值应该作为对 Airnode 请求的响应，与 `0x` 前缀一道发送。
 
-You can use [ethers](https://docs.ethers.io/v5/) to encode these on the API side
+你可以使用 [ethers](https://docs.ethers.io/v5/) 在 API 编码这些课程
 
 ```js
 const value = 'simple string';
@@ -124,19 +125,19 @@ console.log(encoded); // 0x73696d706c6520737472696e67000000000000000000000000000
 
 ### `address`
 
-There is no conversion for `address` - the value is expected to be a string representing a valid address. Valid examples are:
+对`address`没有发生任何转换--该值将是一个代表有效地址的字符串。 有效例子有：
 
-- <code style="overflow-wrap: break-word;">0x0765baA22F6D4A53847D63B056DC79400b9A592a</code> - [EIP-55 mixed case checksum](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-55.md) of an address.
-- <code style="overflow-wrap: break-word;">0x0765baa22f6d4a53847d63b056dc79400b9a592a</code> - all lowercase address.
+- <code style="overflow-wrap: break-word;">0x0765baA22F6D4A53847D63B056DC79400b9A592a</code> - 对地址的[EIP-55 混合大小写校验](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-55.md)。
+- <code style="overflow-wrap: break-word;">0x0765baa22f6d4a53847d63b056dc79400b9a592a</code> - 所有小写地址。
 
 ### `bytes`
 
-There is no conversion for `bytes` - the value is expected to be a valid hex string representing the encoded value. This means that the encoding to bytes **must** be implemented on the API side. If you want to send a string, see the documentation for [`string`](adapter.md#string).
+`bytes` 没有任何转换--该值将是代表编码值的有效十六进制字符串。 这意味着，编码**必须**在API端实现。 如果您想要发送一个字符串，请参阅 [`string`](adapter.md#string) 的文档。
 
-For example, let's say the API wants to encode the following string `this is an example string that is a bit longer`. Its encoding is
-<code style="overflow-wrap: break-word;">0x7468697320697320616e206578616d706c6520737472696e672074686174206973206120626974206c6f6e676572</code>. This is the value that should be sent as a response to Airnode request, together with the `0x` prefix.
+例如， API如果想要编码下面的字符串 `this is an example string that is a bit longer`。 其编码是
+<code style="overflow-wrap: break-word;">0x7468697320697320616e2065716d706c6520737472696e67207468617420694206c6f6e676572</code>。 这个值应该作为对 Airnode 请求的响应，与 `0x` 前缀一道发送。
 
-You can use [ethers](https://docs.ethers.io/v5/) to encode these on the API side
+你可以使用 [ethers](https://docs.ethers.io/v5/) 在 API 编码。
 
 ```js
 const value = 'this is an example string that is a bit longer';
