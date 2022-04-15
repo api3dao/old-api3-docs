@@ -111,7 +111,7 @@ console.log(values);
 
 `bytes32` 不会发生任何转换--该值被期望是一个有效的十六进制字符串，代表编码的32字节的值。 这意味着，编码**必须**在API端实现。 如果你想把编码委托给Airnode，请看[`string32`](adapter.md#string32-encoded-to-bytes32-on-chain)的文档。
 
-For example, let's say the API wants to encode the following string `simple string` with length 13. 其编码是
+例如， API如果想要编码下面的字符串 `simple string` ，其长度为13位。 其编码是
 <code style="overflow-wrap: break-word;">0x73696d706c652073472696e670000000000000000000000000000000000000000000000000000</code>
 这个值应该作为对 Airnode 请求的响应，与 `0x` 前缀一道发送。
 
@@ -147,7 +147,7 @@ console.log(encodedValue); // 0x7468697320697320616e206578616d706c6520737472696e
 
 ### `string`
 
-You can pass any value to convert it to string - with the exception of arrays and objects, which will throw an error. All other values will be converted to `string` and before encoded on chain using the `string` type.
+您可以传递任何值将其转换为字符串 - 但数组和对象除外，它们会提示错误。 所有其他的值将被转换为`string`，并在链上使用`string`类型进行编码。
 
 ```js
 const values = [
@@ -167,14 +167,13 @@ const mappedValues = values.map((v) => {
 
 ### `string32`
 
-You can pass any value to convert it to string - with the exception of arrays and objects, which will throw an error.
+你可以传递任何值来将其转换为字符串--但数组和对象除外，它们会提示错误。
 
-However, there is one exception, if the stringified value contains more than 31 characters it will be **trimmed down** to only the first 31 characters during conversion.
+然而，有一个例外，如果字符变量包含超过31个字符，那么在转换过程中会被**裁剪**，只剩下前31个字符。
 
-For example, if the API response is the following string `this is an example string that is a bit longer` with length 46. It will be first trimmed to 31 characters, string `this is an example string that` and afterwards converted to
-<code style="overflow-wrap: break-word;">0x7468697320697320616e206578616d706c6520737472696e6720746861742000</code>.
+例如， API如果想要编码下面的字符串 `this is an example string that is a bit longer`，它有64位长。 它将首先被修剪为31个字符，字符串`this is an example string that` ，之后转换为<code style="overflow-wrap: break-word;">0x7468697320697320616e206578616d706c6520737472696e6720746861742000</code>。
 
-You can use [ethers](https://docs.ethers.io/v5/) to decode the values off chain using the following snippet
+你可以使用 [ethers](https://docs.ethers.io/v5/) 在 API 编码。
 
 ```js
 const encoded =
@@ -183,11 +182,11 @@ const decoded = ethers.utils.parseBytes32String(encoded);
 console.log(decoded); // "this is an example string that "
 ```
 
-### Arrays
+### 数组
 
-Conversion of arrays depends on the primitive type. All values of the array (or nested array) will be converted according to the rules of the primitive type.
+数组的转换取决于原始类型。 数组（或嵌套数组）的所有值都将根据原始类型的规则进行转换。
 
-For example:
+例如：
 
-- `int256[]` - has primitive type `int256`. All elements of this array follow the [`int256`](adapter.md#int256-or-uint256) rules.
-- `string32[7][][5]` - is a multidimensional array, where some dimensions are fixed and some not. This is irrelevant though, and all the elements are converted based on [`string32`](adapter.md#string32-encoded-to-bytes32-on-chain) rules.
+- `int256[]` - 原型是 `int256`。 此数组的所有元素都遵循 [`int256`](adapter.md#int256-or-uint256) 规则。
+- `string32[7][][5]` - 是一个多维数组，其中某些维度是 固定的，有些则不是固定的。 不过这并不重要，所有的元素都是根据[`string32`](adapter.md#string32-encoded-to-bytes32-on-chain)规则转换的。
