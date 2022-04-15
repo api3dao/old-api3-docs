@@ -53,8 +53,8 @@ derivation path `m/44'/60'/0'`) off-chain. Then a sponsor derives a
 requests made by the sponsor's contracts.
 
 Use the admin CLI command
-[derive-airnode-xpub](../reference/packages/admin-cli.html#derive-airnode-xpub)
-to get the `xpub` of an Airnode by passing the same mnemonic used to create the
+[derive-airnode-xpub](../reference/packages/admin-cli.md#derive-airnode-xpub) to
+get the `xpub` of an Airnode by passing the same mnemonic used to create the
 `airnodeAddress`.
 
 ```bash
