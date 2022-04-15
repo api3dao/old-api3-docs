@@ -1,7 +1,6 @@
 {
   "chains": [
     {
-      "maxConcurrency": 100,
       "authorizers": [],
       "contracts": {
         "AirnodeRrp": "0x5FbDB2315678afecb367f032d93F642f64180aa3"
@@ -21,6 +20,8 @@
         },
         "baseFeeMultiplier": 2
       },
+      "maxConcurrency": 100,
+      "fulfillmentGasLimit": 500000,
       "blockHistoryLimit": 300,
       "minConfirmations": 0,
       "ignoreBlockedRequestsAfterBlocks": 20

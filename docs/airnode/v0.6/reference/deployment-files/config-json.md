@@ -48,7 +48,6 @@ respective parameters.
 // chains
 [
   {
-    "maxConcurrency": 100,
     "authorizers": ["0xeabb...C123", "0xCE5e...1abc"],
     "contracts": {
       "AirnodeRrp": "0x12B4...0C1a"
@@ -71,6 +70,8 @@ respective parameters.
       },
       "baseFeeMultiplier": 2
     },
+    "maxConcurrency": 100,
+    "fulfillmentGasLimit": 500000,
     "blockHistoryLimit": 300,
     "minConfirmations": 0,
     "ignoreBlockedRequestsAfterBlocks": 20
@@ -95,16 +96,15 @@ respective parameters.
         "unit": "gwei"
       },
       "baseFeeMultiplier": 2
-    }
+    },
+    "maxConcurrency": 100,
+    "fulfillmentGasLimit": 500000,
+    "blockHistoryLimit": 300,
+    "minConfirmations": 0,
+    "ignoreBlockedRequestsAfterBlocks": 20
   }
 ]
 ```
-
-### `maxConcurrency`
-
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#maxconcurrency)
-(required) - The maximum concurrency specifies the maximum number of concurrent
-handler calls per single Airnode invocation.
 
 ### `authorizers`
 
@@ -165,6 +165,18 @@ to`{"value": 3.12, "value": "gwei"}`)
 
 The resulting Maximum Fee will equal
 `(Base Fee * baseFeeMultiplier) + priorityFee`
+
+### `maxConcurrency`
+
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#maxconcurrency)
+(required) - The maximum concurrency specifies the maximum number of concurrent
+handler calls per single Airnode invocation.
+
+### `fulfillmentGasLimit`
+
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#fulfillmentgaslimit)
+(required) - The maximum gas limit allowed when Airnode responds to a request.
+If exceeded the request is marked as failed.
 
 ### `blockHistoryLimit`
 

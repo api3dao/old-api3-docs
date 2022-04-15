@@ -71,7 +71,6 @@ Below is a simple chain array with a single chain provider.
 ```json
 "chains": [
   {
-    "maxConcurrency": 100,
     "authorizers": [
       "0x5Fgh48...3F6f64180acc"
     ],
@@ -79,6 +78,12 @@ Below is a simple chain array with a single chain provider.
       "AirnodeRrp": "0xF6d267546...BC9A384fa418"
     },
     "id": "4",
+    "providers": {
+      "infura_rinkeby": {
+        "url": "${INFURA_RINKEBY_PROVIDER_URL}"
+      }
+    },
+    "type": "evm",
     "options": {
       "txType": "eip1559",
       "priorityFee": {
@@ -87,18 +92,63 @@ Below is a simple chain array with a single chain provider.
       },
       "baseFeeMultiplier": 2
     },
-    "providers": [
-      "infura_rinkeby": {
-        "url": "${INFURA_RINKEBY_PROVIDER_URL}"
-      }
-    ],
-    "type": "evm",
+    "maxConcurrency": 100,
+    "fulfillmentGasLimit": 500000,
     "blockHistoryLimit": 300,
     "minConfirmations": 0,
     "ignoreBlockedRequestsAfterBlocks": 20
   }
 ],
 ```
+
+#### authorizers
+
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#authorizers)
+The list of authorizer contract addresses the Airnode deployment will set
+on-chain. See the [Authorization](../../../concepts/authorization.md) doc for
+more information.
+
+#### contracts
+
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#contracts)
+Contains the addresses of the contracts that implement the Airnode protocols.
+Although you can deploy these contracts yourself, you are recommended to use the
+ones that were deployed by API3. You can find them in the list above.
+
+#### id
+
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#id) An
+Airnode can serve multiple chains simultaneously. Set the ID of the desired
+chain in `id` (e.g., `4` for Rinkeby test network). See the list of supported
+chains in the
+[Airnode Contract Addresses](../../../reference/airnode-addresses.md) doc. See
+additional definition in the
+[reference section](../../../reference/deployment-files/config-json.md#id).
+
+#### providers
+
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#providers)
+Airnode can use multiple Ethereum providers per chain. These could be a private
+Ethereum node, or an Ethereum service provider such as Infura. Accordingly, the
+`providers` field is a list which allows for multiple Ethereum providers. Enter
+a user defined `name` which identifies the provider and the provider URL which
+usually is kept in the `secrets.env` file. The name is used in logs.
+
+#### type
+
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#type) The
+type of the chain. Only `evm` is supported at this time. See additional
+definition in the
+[reference section](../../../reference/deployment-files/config-json.md#type).
+
+#### options
+
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#options) An
+object that configures chain-related options.
+
+- txType: The transaction type to use.
+- priorityFee: An object that configures the EIP-1559 Priority Fee.
+- baseFeeMultiplier: Configures the EIP-1559 Base Fee to Maximum Fee Multiplier.
 
 #### maxConcurrency
 
@@ -149,54 +199,17 @@ chains are unrelated to each other.
 
 :::
 
-#### authorizers
+#### fulfillmentGasLimit
 
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#authorizers)
-The list of authorizer contract addresses the Airnode deployment will set
-on-chain. See the [Authorization](../../../concepts/authorization.md) doc for
-more information.
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#fulfillmentgaslimit)
+The maximum gas limit allowed when Airnode responds to a request. If exceeded
+the request is marked as failed. This is the gas cost the requester pays when a
+response to their request is placed on-chain.
 
-#### contracts
-
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#contracts)
-Contains the addresses of the contracts that implement the Airnode protocols.
-Although you can deploy these contracts yourself, you are recommended to use the
-ones that were deployed by API3. You can find them in the list above.
-
-#### id
-
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#id) An
-Airnode can serve multiple chains simultaneously. Set the ID of the desired
-chain in `id` (e.g., `4` for Rinkeby test network). See the list of supported
-chains in the
-[Airnode Contract Addresses](../../../reference/airnode-addresses.md) doc. See
-additional definition in the
-[reference section](../../../reference/deployment-files/config-json.md#id).
-
-#### providers
-
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#providers)
-Airnode can use multiple Ethereum providers per chain. These could be a private
-Ethereum node, or an Ethereum service provider such as Infura. Accordingly, the
-`providers` field is a list which allows for multiple Ethereum providers. Enter
-a user defined `name` which identifies the provider and the provider URL which
-usually is kept in the `secrets.env` file. The name is used in logs.
-
-#### type
-
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#type) The
-type of the chain. Only `evm` is supported at this time. See additional
-definition in the
-[reference section](../../../reference/deployment-files/config-json.md#type).
-
-#### options
-
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#options) An
-object that configures chain-related options.
-
-- txType: The transaction type to use.
-- priorityFee: An object that configures the EIP-1559 Priority Fee.
-- baseFeeMultiplier: Configures the EIP-1559 Base Fee to Maximum Fee Multiplier.
+<!-- prettier-ignore -->
+> fulfillmentGasLimit = 500000 
+> 
+> 500000 * 200 * 1e9 = 0.1 ETH
 
 #### blockHistoryLimit
 
