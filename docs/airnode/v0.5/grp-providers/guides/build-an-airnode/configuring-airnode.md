@@ -418,7 +418,7 @@ trigger for each endpoint in your OIS object.
 
 `rrp`, `http` and `httpSignedData` require an `endpointId` which can be derived
 from the `oisTitle` and `endpointName`, use the CLI command
-[derive-endpoint-id](../../../reference/packages/admin-cli.html#derive-endpoint-id).
+[derive-endpoint-id](../../../reference/packages/admin-cli.md#derive-endpoint-id).
 
 #### rrp
 
