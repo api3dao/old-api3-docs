@@ -1,8 +1,8 @@
 ---
-title: Adapter
+title: 适配器
 ---
 
-<TitleSpan>Packages</TitleSpan>
+<TitleSpan>软件包</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,13 +10,13 @@ title: Adapter
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,4]" />
 
-The [airnode-adapter](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-adapter) package has multiple responsibilities. It is used for building requests from an [Oracle Integration Specification (OIS)](/ois/v1.0.0/), executing them, parsing the responses, but also converting and encoding them for on chain use.
+[Airnode-adapter](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-adapter) 软件包有多重用途。 它用于从[预言机集成规范（OIS）)](/ois/v1.0.0/)中建立请求，执行它们，解析响应，还可以转换和编码它们以用于链上。
 
-It is an internal dependency of Airnode, but can also be used standalone as an API.
+它是Airnode的内部不可或缺的组成部分，但也可以作为一个独立的API。
 
-## Installation
+## 安装
 
-You can install `@api3/airnode-adapter` by adding it to the `package.json` file in your project.
+您可以在项目中将 `@api3/airnode-adapter` 添加到 `package.json` 文件 。
 
 ```sh
 npm install --save @api3/airnode-adapter
@@ -24,9 +24,9 @@ npm install --save @api3/airnode-adapter
 yarn add @api3/airnode-adapter
 ```
 
-You shouldn't need to use the adapter package directly. However, you might want to use its API to double check the conversion or encoding behavior for which you can install this package and verify your assumptions.
+你不用直接使用适配器软件包。 然而，仍然存在着这种情况，您可能想要 使用 API 来检查您的转换或编码行为，可以安装这个软件包并验证你的假设。
 
-## Conversion
+## 转换
 
 While the adapter package has many responsibilities, many of those can be treated as implementation details. On the other hand, there are a few important behaviors to be noted when converting the response values based on the target type and making the response transaction on chain.
 
