@@ -2,7 +2,7 @@
 title: Admin CLI
 ---
 
-<TitleSpan>Packages</TitleSpan>
+<TitleSpan>软件包</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,67 +10,67 @@ title: Admin CLI
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Use the [airnode-admin](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-admin) Admin CLI tool to interact with Airnode across blockchains. There are commands for both developers (dApp) and API providers. Developers can sponsor [requester](../../concepts/requester.md) contracts and derive [sponsorWallets](../../concepts/sponsor.md#sponsorwallet) for Airnodes. API providers can build [Airnodes](../../concepts/airnode.md) that serve their API data to requester contracts.
+使用[airnode-admin](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-admin)Admin CLI工具与Airnode进行跨区块链互动。 这里有针对开发者（dApp）和API供应商的命令。 开发人员可以赞助[请求者](../../concepts/requester.md)合约，并为Airnode派生出[sponsorWallets](../../concepts/sponsor.md#sponsorwallet)。 API供应商可以建立[Airnode](../../concepts/airnode.md)，将他们的API数据提供给请求者合约。
 
-::: warning Transaction Gas Costs
+::: warning 交易gas费用
 
-Some commands will incur transaction fees. These are per call transaction gas costs and are relatively small. See the [<span style="color:green;">Developer Fees</span>](../../grp-developers/fees.md) doc.
+一些命令将会产生交易费用。 这些是每次调用的交易gas费用，相对较低。 查看 [<span style="color:green;">开发者费用</span>](../../grp-developers/fees.md)文档。
 
 :::
 
-Almost all commands require you to provide a blockchain `providerUrl`. Following are just two examples of many possibilities. See the [Chain Providers](../../concepts/chain-providers.md) doc for more information.
+几乎所有命令都要求你提供一个区块链 `providerUrl`。 以下只是许多可能性中的两个例子。 更多信息请参阅 [链供应商](../../concepts/chain-providers.md) 文档 。
 
 - <code style="overflow-wrap: break-word;">https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID></code>
 - `https://ropsten.infura.io/v3/<KEY>`
 
-The CLI connects to the [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol) or the [RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol) contract, which addresses are derived from the current chain. You can optionally specify the contract addresses yourself by providing optional `airnode-rrp-address` or `requester-authorizer-with-airnode` command argument with the address of the deployed contract on your targeted chain.
+CLI连接到[AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol) 和[RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol)合约，这些地址由当前链衍生而来。 你可以通过提供可选的`airnode-rrp-address`或 `requester-authorizer-with-airnode` 命令参数，在目标链上提供已部署合约的地址，来选择自己指定合约地址。
 
-Commands that require `mnemonic` will make an on-chain transaction. The application will derive the account from the mnemonic with default ethereum derivation path `m/44'/60'/0'/0/0`. You can override this by using the optional parameter `derivation-path` (`m/44'/60'/0'/0/...`). Make sure that the wallet that is associated with the mnemonic is funded on the target chain. The application will not exit until the transaction is confirmed.
+需要`mnemonic`的命令将进行链上交易。 应用程序将通过默认的以太坊派生路径`m/44'/60'/0'/0/0`，从助记符中衍生出账户。 你可以通过使用可选的参数`derivation-path` （`m/44'/60'/0'/0/...`），覆盖这个问题。 确保与助记符相关的钱包在目标链上有资金。 在交易被确认之前，应用程序不会退出。
 
-### Using transaction overrides
+### 使用交易覆盖
 
-CLI commands also support the following transaction overrides as optional arguments: `gas-limit`, `gas-price` (legacy transactions), `max-fee` and `max-priority-fee` (EIP-1559 transactions) and `nonce`.
+CLI命令还支持以下交易覆盖作为可选参数： `gas-limit`, `gas-price` （传统交易）、`max-fee` 和 `max-priority-fee`（EIP-1559交易）和`nonce`。
 
-### Default transaction overrides
+### 默认交易覆盖
 
-If no overrides are provided, transactions will default to the following values:
+如果没有覆盖，交易将默认以下值：
 
-**EIP-1559 transactions**
+**EIP-1559 交易**
 
 ```sh
 maxPriorityFeePerGas: 3.12 gwei
 maxFeePerGas: baseFeePerGas of the last block * 2 + maxPriorityFeePerGas
 ```
 
-**Legacy transactions**
+**传统交易**
 
 ```sh
 gasPrice: gasPrice returned by the ethers getGasPrice method
 ```
 
-## Using npx
+## 使用 npx
 
-View all commands:
+查看所有命令：
 
 ```sh
 npx @api3/airnode-admin --help
 ```
 
-View the parameters of a command:
+查看命令的参数：
 
 ```sh
 npx @api3/airnode-admin $COMMAND --help
 ```
 
-## Using Docker
+## 使用 Docker
 
-Use the Admin CLI docker image as an alternative to `npx`:
+使用 Admin CLI docker镜像替代 `npx`:
 
 ```sh
 docker run api3/airnode-admin:0.6.0 --help
 ```
 
-View the parameters of a command:
+查看命令的参数：
 
 ```sh
 docker run api3/airnode-admin:0.6.0 $COMMAND --help
@@ -78,7 +78,7 @@ docker run api3/airnode-admin:0.6.0 $COMMAND --help
 
 ## SDK
 
-You can also use the package programmatically. The SDK exports respective functions for all CLI commands as well as helper functions for obtaining the contract instance on the targeted chain.
+你也可以以编程方式使用该包。 SDK为所有的CLI命令导出了相应的函数，以及用于获取目标链上的合约实例的辅助函数。
 
 ```js
 import { sponsorRequester, getAirnodeRrpWithSigner } from '@api3/admin';
@@ -94,7 +94,7 @@ const airnodeRrp = await getAirnodeRrpWithSigner(
 const requester = await sponsorRequester(airnodeRrp, requester);
 ```
 
-If you plan to use multiple commands it might be tedious to pass the contract instance to every function call. For this reason there is also class based `AdminSdk` which you initialize with `AirnodeRrp` contract only once.
+如果打算使用多个命令，那么将合约实例传递给每个函数调用，可能会很繁琐。 由于这个原因，也有基于类的`AdminSdk` ，你只需用`AdminSdk` 合约初始化一次就行。
 
 ```js
 import { AdminSdk } from '@api3/admin';
@@ -116,11 +116,11 @@ const requester = await adminSdk.sponsorRequester(requester);
 adminSdk.airnodeRrp = airnodeRrp.connect(someOtherWallet);
 ```
 
-The SDK will also provide TS typings out of the box. Please, refer to the implementation for more details.
+SDK还将提供开箱即用的TS类型。 更多细节请参考实施方案。
 
-### Using transaction overrides
+### 使用交易覆盖
 
-You can also use transaction overrides to customize gas limits and fee settings. The SDK simply passes the overrides parameter to the contract method so you can use any overrides supported by the ethers library.
+您也可以使用交易覆盖来自定义gas限制和费用设置。 SDK只是将覆盖参数传递给合约方法，因此你可以使用ethers库支持的任何参数覆盖。
 
 ```js
 import { ethers } from 'ethers';
@@ -142,9 +142,9 @@ const overrides = {
 const requester = await adminSdk.sponsorRequester(requester, overrides);
 ```
 
-## Sponsors
+## 赞助者
 
-Commands related to a [sponsor's](../../concepts/sponsor.md) relationships between [requesters](../../concepts/requester.md) and [sponsorWallets](../../concepts/sponsor.md#sponsorwallet) as well as [templates](../../concepts/template.md) used by a sponsor's requesters. Some of these commands connect to the [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol) protocol contract where the signer is sponsor account.
+以下是与[赞助者的](../../concepts/sponsor.md) 的相关命令，包括 [请求者](../../concepts/requester.md) 和[sponsorWallets](../../concepts/sponsor.md#sponsorwallet) 之间关系，以及赞助请求者使用的[模板](../../concepts/template.md)。 其中一些命令连接到[AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol)协议合约，签署者是赞助者账户。
 
 - [sponsor-requester](admin-cli.md#sponsor-requester)
 - [unsponsor-requester](admin-cli.md#unsponsor-requester)
@@ -158,11 +158,11 @@ Commands related to a [sponsor's](../../concepts/sponsor.md) relationships betwe
 
 ### `sponsor-requester`
 
-[Sponsors](../../concepts/sponsor.md) a [requester](../../concepts/requester.md) contract so that its requests can be fulfilled by the [sponsorWallet](../../concepts/sponsor.md#sponsorwallet) of an Airnode. The account derived from the `mnemonic` you provide must belong to the sponsor.
+[赞助](../../concepts/sponsor.md)一个[请求者](../../concepts/requester.md)合约，以便其请求可以由Airnode的[sponsorWallet](../../concepts/sponsor.md#sponsorwallet)完成。 您提供的账户必须来自赞助者 `mnemonic`。
 
-Sponsoring a requester and using the returned `sponsorAddress` to derive a `sponsorWallet` for an Airnode creates a [relationship](../../concepts/sponsor.md) between the requester and the Airnode, see the [`derive-sponsor-wallet-address`](admin-cli.md#derive-sponsor-wallet-address) command.
+赞助一个请求者并使用返回的 `sponsorAddress`为 Airnode 衍生出一个 `sponsorWallet`，在请求者和 Airnode 之间建立一种[关系](../../concepts/sponsor.md)，详见[`derive-sponsor-wallet-address`](admin-cli.md#derive-sponsor-wallet-address) 命令。
 
-- `provider-url`: A valid blockchain provider URL.
+- `provider-url`: 有效的区块链供应商URL。
 - `sponsor-mnemonic`: A wallet owned by the sponsor. Used to derive a `sponsorAddress` as the default account of the mnemonic unless a `derivation-path` is specified. It's also used to pay gas costs from the mnemonic's default account unless a `derivation-path` is specified.
 - `requester-address`: The contract address of the requester to sponsor.
 - `airnode-rrp-address (optional)`: The public address of the AirnodeRrp.sol protocol contract.
