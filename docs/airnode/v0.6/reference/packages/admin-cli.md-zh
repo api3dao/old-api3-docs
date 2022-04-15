@@ -163,15 +163,15 @@ const requester = await adminSdk.sponsorRequester(requester, overrides);
 赞助一个请求者并使用返回的 `sponsorAddress`为 Airnode 衍生出一个 `sponsorWallet`，在请求者和 Airnode 之间建立一种[关系](../../concepts/sponsor.md)，详见[`derive-sponsor-wallet-address`](admin-cli.md#derive-sponsor-wallet-address) 命令。
 
 - `provider-url`: 有效的区块链供应商URL。
-- `sponsor-mnemonic`: A wallet owned by the sponsor. Used to derive a `sponsorAddress` as the default account of the mnemonic unless a `derivation-path` is specified. It's also used to pay gas costs from the mnemonic's default account unless a `derivation-path` is specified.
-- `requester-address`: The contract address of the requester to sponsor.
-- `airnode-rrp-address (optional)`: The public address of the AirnodeRrp.sol protocol contract.
-- `derivation-path (optional)`: Selects an alternate account to use from the mnemonic rather than the default.
-- `gas-limit` (optional): The gas limit to use for the transaction.
-- `gas-price` (optional): The gas price (in gwei) to use for the transaction (only for legacy transactions).
-- `max-fee` (optional): The maximum fee (in gwei) per gas to use for the transaction (only for EIP-1559 transactions).
-- `max-priority-fee` (optional): The maximum priority fee (in gwei) per gas to use for the transaction (only for EIP-1559 transactions).
-- `nonce` (optional): The nonce to use for the transaction.
+- `sponsor-mnemonic`: 一个由赞助者拥有的钱包。 用于派生出一个`sponsorAddress`作为助记符的默认账户，除非指定`derivation-path`。 它也用于从助记符的默认账户中支付gas费用，除非指定`derivation-path`。
+- `requester-address`: 要赞助的请求者的合约地址。
+- `airnode-rrp-address (optional)`：AirnodeRrp.sol协议合约的公共地址。
+- `derivation-path (optional)`：从助记符中选择一个备用账户来使用，而不是默认账户。
+- `gas-limit` (可选): 交易中要使用的gas限额。
+- `gas-price` (optional): 交易中使用的gas价格（单位：gwei）（仅适用于传统交易）。
+- `max-fee` (可选): 交易中使用的gas的最高费用（单位：gwei）（仅适用于EIP-1559交易）。
+- `max-priority-fee` (可选): 用于交易的gas的最高优先级费用（单位：gwei）（仅适用于EIP-1559交易）。
+- `nonce` (可选): 交易要使用的nonce。
 
 :::: tabs
 
@@ -791,7 +791,7 @@ Called to check if a requester is whitelisted to use the Airnode–endpoint pair
 
 :::: tabs
 
-::: tab Linux/Mac/WSL2
+::: tab Windows
 
 ```sh
 npx @api3/airnode-admin is-requester-whitelisted \
@@ -819,6 +819,6 @@ npx @api3/airnode-admin is-requester-whitelisted ^
 
 ::::
 
-## More Examples
+## 更多案例
 
-You can find more examples in the _@api3-dao/airnode/package/admin_ [test files](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-admin/test).
+您可以在 _@api3-dao/airnode/package/admin_ [测试文件](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-admin/test) 中找到更多示例。
