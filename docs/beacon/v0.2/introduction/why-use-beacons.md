@@ -1,5 +1,5 @@
 ---
-title: Why use Beacons?
+title: Developers - Why use Beacons?
 ---
 
 <TitleSpan>Introduction</TitleSpan>

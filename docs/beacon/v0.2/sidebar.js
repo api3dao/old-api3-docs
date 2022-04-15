@@ -6,7 +6,7 @@ module.exports = [
     children: [
       '', //README
       'introduction/why-use-beacons',
-      'introduction/hackathon',
+      'introduction/why-power',
     ],
   },
   {
