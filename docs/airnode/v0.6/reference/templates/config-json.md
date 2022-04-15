@@ -39,7 +39,6 @@ building a config.json file.
 {
   "chains": [
     {
-      "maxConcurrency": "<FILL_NUMBER>",
       "authorizers": ["<FILL_*>"],
       "contracts": {
         "AirnodeRrp": "<FILL_*>"
@@ -54,11 +53,13 @@ building a config.json file.
       "options": {
         "txType": "<FILL_*>",
         "priorityFee": {
-          "value": "<FILL_NUMBER>",
+          "value": <FILL_NUMBER>,
           "unit": "<FILL_*>"
         },
-        "baseFeeMultiplier": "<FILL_NUMBER>"
+        "baseFeeMultiplier": <FILL_NUMBER>
       },
+      "maxConcurrency": <FILL_NUMBER>,
+      "fulfillmentGasLimit": <FILL_NUMBER>,
       "blockHistoryLimit": "<FILL_*>",
       "minConfirmations": "<FILL_*>",
       "ignoreBlockedRequestsAfterBlocks": "<FILL_*>"
@@ -68,12 +69,12 @@ building a config.json file.
     "cloudProvider": {
       "type": "aws", // local, aws or gcp
       "region": "<FILL_*>",
-      "disableConcurrencyReservations": "<FILL_BOOLEAN>", //Use for (type = gcp | aws) only
+      "disableConcurrencyReservations": <FILL_BOOLEAN>, //Use for (type = gcp | aws) only
       "projectId": "${GCP_PROJECT_ID}" // Use for (type = gcp) only
     },
     "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
     "heartbeat": {
-      "enabled": "<FILL_BOOLEAN>",
+      "enabled": <FILL_BOOLEAN>,
       "url": "${HEARTBEAT_API_KEY}", // In secrets.env
       "apiKey": "${HEARTBEAT_API_KEY}", // In secrets.env
       "id": "${HEARTBEAT_ID}" // In secrets.env
@@ -84,9 +85,9 @@ building a config.json file.
       "maxConcurrency": "<FILL_NUMBER>"
     },
     "httpSignedDataGateway": {
-      "enabled": "<FILL_BOOLEAN>",
+      "enabled": <FILL_BOOLEAN>,
       "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_API_KEY}", // In secrets.env
-      "maxConcurrency": "<FILL_NUMBER>"
+      "maxConcurrency": <FILL_NUMBER>
     },
     "logFormat": "json",
     "logLevel": "INFO",

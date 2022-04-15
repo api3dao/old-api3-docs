@@ -31,7 +31,6 @@ Airnode. It then applies an arbitrary name for the blockchain provider
 ```json
 "chains": [
   {
-    "maxConcurrency": 100,
     "authorizers": [
       "0x5Fgh48...3F6f64180acc"
     ],
@@ -39,6 +38,11 @@ Airnode. It then applies an arbitrary name for the blockchain provider
       "AirnodeRrp": "0xF6d267546...BC9A384fa418"
     },
     "id": "4",
+    "providers": {
+      "infura_rinkeby": {
+        "url": "${INFURA_RINKEBY_PROVIDER_URL}"
+      }
+    },
     "type": "evm",
     "options": {
       "txType": "eip1559",
@@ -48,11 +52,8 @@ Airnode. It then applies an arbitrary name for the blockchain provider
       },
       "baseFeeMultiplier": 2
     },
-    "providers": [
-      "infura_rinkeby": {
-        "url": "${INFURA_RINKEBY_PROVIDER_URL}"
-      }
-    ]
+    "maxConcurrency": 100,
+    "fulfillmentGasLimit": 500000
   }
 ],
 ```
@@ -66,7 +67,6 @@ Multiple providers can be used per chain. Simply add another object to
 ```json
 "chains": [
   {
-    "maxConcurrency": 100,
     "authorizers": [
       "0x5Fgh48...3F6f64180acc"
     ],
@@ -74,6 +74,14 @@ Multiple providers can be used per chain. Simply add another object to
       "AirnodeRrp": "0xF6d267546...BC9A384fa418"
     },
     "id": "4",
+    "providers": {
+      "infura_rinkeby": {
+        "url": "${INFURA_RINKEBY_PROVIDER_URL}"
+      },
+      "alchemy_rinkeby": {
+        "url": "${ALCHEMY_RINKEBY_PROVIDER_URL}"
+      }
+    },
     "type": "evm",
     "options": {
       "txType": "eip1559",
@@ -83,14 +91,8 @@ Multiple providers can be used per chain. Simply add another object to
       },
       "baseFeeMultiplier": 2
     },
-    "providers": [
-      "infura_rinkeby": {
-        "url": "${INFURA_RINKEBY_PROVIDER_URL}"
-      },
-      "alchemy_rinkeby": {
-        "url": "${ALCHEMY_RINKEBY_PROVIDER_URL}"
-      }
-    ]
+    "maxConcurrency": 100,
+    "fulfillmentGasLimit": 500000
   }
 ],
 ```
@@ -103,7 +105,6 @@ each has a unique `id` and `type` and a list of `providers` for each.
 ```json
 "chains": [
   {
-    "maxConcurrency": 100,
     "authorizers": [
       "0x5Fgh48...3F6f64180acc"
     ],
@@ -111,6 +112,14 @@ each has a unique `id` and `type` and a list of `providers` for each.
       "AirnodeRrp": "0xF6d267546...BC9A384fa418"
     },
     "id": "4",
+    "providers": {
+      "infura_rinkeby": {
+        "url": "${INFURA_RINKEBY_PROVIDER_URL}"
+      },
+      "alchemy_rinkeby": {
+        "url": "${ALCHEMY_RINKEBY_PROVIDER_URL}"
+      }
+    },
     "type": "evm",
     "options": {
       "txType": "eip1559",
@@ -120,17 +129,10 @@ each has a unique `id` and `type` and a list of `providers` for each.
       },
       "baseFeeMultiplier": 2
     },
-    "providers": [
-      "infura_rinkeby": {
-        "url": "${INFURA_RINKEBY_PROVIDER_URL}"
-      },
-      "alchemy_rinkeby": {
-        "url": "${ALCHEMY_RINKEBY_PROVIDER_URL}"
-      }
-    ]
+    "maxConcurrency": 100,
+    "fulfillmentGasLimit": 500000
   },
   {
-    "maxConcurrency": 100,
     "authorizers": [
       "0x5gh48...3F6f6418dee9"
     ],
@@ -138,6 +140,11 @@ each has a unique `id` and `type` and a list of `providers` for each.
       "AirnodeRrp": "0xG9e39...BC9A384df3434"
     },
     "id": "3",
+    "providers": {
+      "infura_ropsten": {
+        "url": "${INFURA_ROPSTEN_PROVIDER_URL}"
+      }
+    },
     "type": "evm",
     "options": {
       "txType": "eip1559",
@@ -147,11 +154,8 @@ each has a unique `id` and `type` and a list of `providers` for each.
       },
       "baseFeeMultiplier": 2
     },
-    "providers": [
-      "infura_ropsten": {
-        "url": "${INFURA_ROPSTEN_PROVIDER_URL}"
-      }
-    ]
+    "maxConcurrency": 100,
+    "fulfillmentGasLimit": 500000
   }
 ],
 ```
