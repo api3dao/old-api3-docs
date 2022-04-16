@@ -1,8 +1,8 @@
 ---
-title: API Integration
+title: API 集成
 ---
 
-<TitleSpan>Build an Airnode</TitleSpan>
+<TitleSpan>创建一个 Airnode</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,16 +10,16 @@ title: API Integration
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,4]" />
 
-A successful integration of an API with an Airnode requires the mapping of each other's interface. This is accomplished using an OIS ([Oracle Integration Specifications](/ois/v1.0.0/ois.md)) json object, found in the config.json file, that is designed to follow three basic steps.
+API与Airnode的成功集成，需要彼此的接口映射。 这是用OIS（[Oracle集成规范](/ois/v1.0.0/ois.md)）json对象完成的，在config.json文件中可以找到，根据设计，其集成需遵循三个基本步骤。
 
-- API operations are specified
-- Airnode endpoints are specified
-- Airnode endpoints are mapped to API operations
+- 指定 API 操作
+- 指定了Airnode 端点
+- Airnode 端点已映射到 API 操作
 
 <!-- prettier-ignore-->
 > ![api-integration-ois](../../../assets/images/api-integration-ois.png) <br/><br/>
 > 
-> <p class="diagram-line">The OIS object in config.json contains mapping information of API operations to Airnode endpoint definitions.</p>
+> <p class="diagram-line">config.json中的OIS对象，包含API操作与Airnode端点定义的映射信息。</p>
 OIS is a mapping of API operations, such as `GET /coins/{id}`, to Airnode endpoints. When a requester contract calls a AirnodeRrp.sol contract request function, such as `makeFullRequest(..., callData)`, the callData is communicated to the off-chain Airnode which uses OIS mappings to translate the callData into a valid HTTP request for the appropriate API operation.
 
 The only thing needed to integrate an API to Airnode is to create an OIS object which is in the Airnode's `config.json` file. This guide is an instructive approach to create an OIS object. OIS borrows formatting from [OAS OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md). If you have experience with OAS, OIS will seem familiar.
