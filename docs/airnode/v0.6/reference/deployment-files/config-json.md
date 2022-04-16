@@ -176,7 +176,8 @@ handler calls per single Airnode invocation.
 
 [<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#fulfillmentgaslimit)
 (required) - The maximum gas limit allowed when Airnode responds to a request.
-If exceeded the request is marked as failed.
+If exceeded, the request is marked as failed and will not be repeated during
+Airnode's next run cycle.
 
 ### `blockHistoryLimit`
 
