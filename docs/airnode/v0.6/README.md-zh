@@ -1,8 +1,8 @@
 ---
-title: The Airnode
+title: Airnode
 ---
 
-<TitleSpan>Introduction</TitleSpan>
+<TitleSpan>简介</TitleSpan>
 
 # {{$frontmatter.title}}
 
