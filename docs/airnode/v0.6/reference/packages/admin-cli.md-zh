@@ -201,18 +201,18 @@ npx @api3/airnode-admin sponsor-requester ^
 
 ### `unsponsor-requester`
 
-Removes the sponsorship of a [requester](../../concepts/requester.md) contract so that its requests can no longer be fulfilled by the [sponsorWallet](../../concepts/sponsor.md#sponsorwallet). The account derived from the `mnemonic` you provide here has to belong to the sponsor.
+移除 [请求者](../../concepts/requester. md) 合约的赞助者， 这样它的请求就不能再由 [sponsorWallet](../../concepts/sponsor. md#sponsorwallet)来完成。 在这里提供的`mnemonic` 所衍生的账户必须属于赞助商。
 
-- `provider-url`: A valid blockchain provider URL.
-- `sponsor-mnemonic`: A wallet owned by the sponsor. Must be the mnemonic used to sponsor the requester. Used to pay gas costs from the mnemonic's default account unless a `derivation-path` is specified.
-- `requester-address`: The contract address of the requester to unsponsor.
-- `airnode-rrp-address (optional)`: The public address of the AirnodeRrp.sol protocol contract.
-- `derivation-path (optional)`: Selects an alternate account to use from the mnemonic rather than the default.
-- `gas-limit` (optional): The gas limit to use for the transaction.
-- `gas-price` (optional): The gas price (in gwei) to use for the transaction (only for legacy transactions).
-- `max-fee` (optional): The maximum fee (in gwei) per gas to use for the transaction (only for EIP-1559 transactions).
-- `max-priority-fee` (optional): The maximum priority fee (in gwei) per gas to use for the transaction (only for EIP-1559 transactions).
-- `nonce` (optional): The nonce to use for the transaction.
+- `provider-url`: 有效的区块链供应商URL。
+- `sponsor-mnemonic`: 由赞助者拥有的钱包。 必须是用于赞助请求者的助记符。 用来从助记符的默认账户支付gas费用，除非指定了 `derivation-path`。
+- `requester-address`: 请求者要取消赞助的合同地址。
+- `airnode-rrp-address (optional)`：AirnodeRrp.sol协议合约的公共地址。
+- `derivation-path (optional)`：从助记符中选择一个备用账户来使用，而不是默认账户。
+- `gas-limit` (可选): 交易中要使用的gas限额。
+- `gas-price` (可选): 交易中使用的gas价格（单位：gwei）（仅适用于传统交易）。
+- `max-fee` (可选): 交易中使用的gas的最高费用（单位：gwei）（仅适用于EIP-1559交易）。
+- `max-priority-fee` (可选): 用于交易的gas的最高优先级费用（单位：gwei）（仅适用于EIP-1559交易）。
+- `nonce` (可选)：用于交易的nonce。
 
 :::: tabs
 
@@ -242,12 +242,12 @@ npx @api3/airnode-admin unsponsor-requester ^
 
 ### `get-sponsor-status`
 
-Returns the sponsor status for a given [sponsor](../../concepts/sponsor.md) and [requester](../../concepts/requester.md) (`true` if sponsored, `false` otherwise).
+返回给定的 [赞助者](../../concepts/sponsor.md) 和 [请求者](../../concepts/requester.md) 状态(如果赞助，返回`true` ，反之，返回 `false`）。
 
-- `provider-url`: A valid blockchain provider URL.
-- `sponsor-address`: The `sponsorAddress` returned when the requester was sponsored.
-- `requester-address`: The requester contract address.
-- `airnode-rrp-address (optional)`: The public address of the AirnodeRrp.sol protocol contract.
+- `provider-url`: 有效的区块链供应商URL。
+- `sponsor-address`: 在请求者获得赞助时`sponsorAddress`返回值。
+- `requester-address`: 请求者合约地址。
+- `airnode-rrp-address (optional)`：AirnodeRrp.sol协议合约的公共地址。
 
 :::: tabs
 
@@ -277,11 +277,11 @@ npx @api3/airnode-admin get-sponsor-status ^
 
 ### `derive-sponsor-wallet-address`
 
-Derives the address of the wallet designated by an Airnode for a [sponsor](../../concepts/sponsor.md), which is called the [sponsorWallet](../../concepts/sponsor.md#sponsorwallet). This command will error if `airnode-xpub` does not belong to the HDNode with the path `m/44'/60'/0'` of the Airnode wallet. See the [`derive-airnode-xpub`](admin-cli.md#derive-airnode-xpub) command.
+生成Airnode为[赞助者](../../concepts/sponsor.md)指定的钱包的地址，这个钱包被称为[sponsorWallet](../../concepts/sponsor.md#sponsorwallet)。 如果`airnode-xpub`不属于路径为`m/44'/60'/0'`的Airnode钱包的HDNode，这个命令会出错。 查看 [`derive-airnode-xpub`](admin-cli.md#derive-airnode-xpub) 命令。
 
-- `airnode-xpub`: The extended public address of the Airnode for path `m/44'/60'/0'`.
-- `airnode-address`: The public address of the Airnode.
-- `sponsor-address`: The address of the sponsor account.
+- `airnode-xpub`：路径`m/44'/60'/0'`的Airnode的扩展公共地址。
+- `airnode-address`: Airnode的公共地址。
+- `sponsor-address`: 赞助者帐户的地址。
 
 :::: tabs
 
@@ -311,18 +311,18 @@ npx @api3/airnode-admin derive-sponsor-wallet-address ^
 
 ### `create-template`
 
-Reads a file, uses its contents to create a [template](../../concepts/template.md) and returns a `template-id`. Also see [Using Templates](../../grp-developers/using-templates.md) for an example template file.
+读取文件，使用其内容创建一个 [template](../../concepts/template.md)并返回一个`template-id`。 参见 [使用模板](../../grp-developers/using-templates.md) 的示例 模板文件。
 
-- `provider-url`: A valid blockchain provider URL.
-- `mnemonic`: Used to pay gas costs from the mnemonic's default account unless a `derivation-path` is specified.
-- `template-file-path`: Path to the template file to create on-chain.
-- `airnode-rrp-address (optional)`: The public address of the AirnodeRrp.sol protocol contract.
-- `derivation-path (optional)`: Selects an alternate account to use from the mnemonic rather than the default.
-- `gas-limit` (optional): The gas limit to use for the transaction.
-- `gas-price` (optional): The gas price (in gwei) to use for the transaction (only for legacy transactions).
-- `max-fee` (optional): The maximum fee (in gwei) per gas to use for the transaction (only for EIP-1559 transactions).
-- `max-priority-fee` (optional): The maximum priority fee (in gwei) per gas to use for the transaction (only for EIP-1559 transactions).
-- `nonce` (optional): The nonce to use for the transaction.
+- `provider-url`: 有效的区块链供应商URL。
+- `mnemonic`：用来从助记符的默认账户支付gas费用，除非指定了 `derivation-path`。
+- `template-file-path`： 在链上创建模板文件的路径。
+- `airnode-rrp-address (optional)`：AirnodeRrp.sol协议合约的公共地址。
+- `derivation-path (optional)`：从助记符中选择一个备用账户来使用，而不是默认账户。
+- `gas-limit` (可选): 交易中要使用的gas限额。
+- `gas-price` (可选): 交易中使用的gas价格（单位：gwei）（仅适用于传统交易）。
+- `max-fee` (可选): 交易中使用的gas的最高费用（单位：gwei）（仅适用于EIP-1559交易）。
+- `max-priority-fee` (可选): 用于交易的gas的最高优先级费用（单位：gwei）（仅适用于EIP-1559交易）。
+- `nonce` (可选)：用于交易的nonce。
 
 :::: tabs
 
@@ -352,9 +352,9 @@ npx @api3/airnode-admin create-template ^
 
 ### `get-template`
 
-Returns the [template](../../concepts/template.md) for the given `template-id`.
+返回给定的`template-id`的 [模版](../../concepts/template.md)。
 
-- `provider-url`: A valid blockchain provider URL.
+- `provider-url`: 有效的区块链供应商URL。
 - `template-id`: The id of a template to return.
 - `airnode-rrp-address (optional)`: The public address of the AirnodeRrp.sol protocol contract.
 
