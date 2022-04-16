@@ -202,11 +202,14 @@ chains are unrelated to each other.
 #### fulfillmentGasLimit
 
 [<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#fulfillmentgaslimit)
-The maximum gas limit allowed when Airnode responds to a request. If exceeded
-the request is marked as failed. This is the gas cost the requester pays when a
-response to their request is placed on-chain.
+The maximum gas limit allowed when Airnode responds to a request. If exceeded,
+the request is marked as failed and will not be repeated during Airnode's next
+run cycle. This is the transaction gas cost the requester pays when a response
+to its request is placed on-chain.
 
 <!-- prettier-ignore -->
+>"fulfillmentGasLimit": 500000,
+>
 > fulfillmentGasLimit = 500000 
 > 
 > 500000 * 200 * 1e9 = 0.1 ETH
