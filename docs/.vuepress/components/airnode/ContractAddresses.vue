@@ -85,7 +85,6 @@
 
 <script>
 import axios from 'axios';
-import chains from '../../chains.json';
 export default {
   name: 'ContractAddresses',
   props: ['type'],
@@ -94,6 +93,7 @@ export default {
     showSpinner: true,
     error: null,
     contracts: [],
+    chains: {},
   }),
   methods: {
     copyAddress(id) {
@@ -110,12 +110,38 @@ export default {
       element.style.opacity = '60%';
       element.style.width = '12px';
     },
+    /** Create a chain JSON ob from the chainNames
+     * received from the repo. Add in the type (mainnet or testnet)
+     * and if important (1, ropsten, kovan, goerli, rinkeby).
+     */
+    buildChainsObj(repoChains) {
+      for (const chainId in repoChains) {
+        let chain = {};
+        this.chains[chainId] = { name: repoChains[chainId] };
+        // Set the network type (mainnet or testnet).
+        const testnets = ['ropsten', 'kovan', 'goerli', 'rinkeby'];
+        if (
+          this.chains[chainId].name.indexOf('-testnet') > 0 ||
+          testnets.includes(this.chains[chainId].name)
+        ) {
+          this.chains[chainId].type = 'testnet';
+        } else {
+          this.chains[chainId].type = 'mainnet';
+        }
+        // Set (1, ropsten, kovan, goerli, rinkeby) as
+        // important for display purpose.
+        // Note: chainId is a string
+        if (chainId == 1 || testnets.includes(this.chains[chainId].name)) {
+          this.chains[chainId].important = true;
+        }
+      }
+    },
   },
   mounted() {
     this.$nextTick(async function () {
       try {
         const response = await axios.get(
-          'https://raw.githubusercontent.com/api3dao/airnode/master/packages/airnode-protocol/deployments/references.json'
+          'https://raw.githubusercontent.com/api3dao/airnode/chain-names-in-references/packages/airnode-protocol/deployments/references.json'
         );
 
         // These are holders of specific chains that go on top of each contract's
@@ -128,15 +154,19 @@ export default {
         let goerliObj = [];
         let kovanObj = [];
 
+        // Pull the chainNames from resp
+        this.buildChainsObj(response.data.chainNames);
+        delete response.data['chainNames'];
+
         // Create a list of contracts with addresses
         for (const key in response.data) {
           // ADDRESSES
           let addresses = [];
-          for (const key2 in response.data[key]) {
+          for (const chainId in response.data[key]) {
             const add = {
-              address: response.data[key][key2],
-              chainId: key2,
-              chain: chains[key2] || { name: 'Unknown' },
+              address: response.data[key][chainId],
+              chainId: chainId,
+              chain: this.chains[chainId] || { name: 'Unknown' },
             };
             if (add.chainId === '1') mainnetObj = add;
             else if (add.chainId === '3') ropstenObj = add;
