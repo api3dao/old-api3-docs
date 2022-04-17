@@ -20,28 +20,28 @@ API与Airnode的成功集成，需要彼此的接口映射。 这是用OIS（[Or
 > ![api-integration-ois](../../../assets/images/api-integration-ois.png) <br/><br/>
 > 
 > <p class="diagram-line">config.json中的OIS对象，包含API操作与Airnode端点定义的映射信息。</p>
-OIS is a mapping of API operations, such as `GET /coins/{id}`, to Airnode endpoints. When a requester contract calls a AirnodeRrp.sol contract request function, such as `makeFullRequest(..., callData)`, the callData is communicated to the off-chain Airnode which uses OIS mappings to translate the callData into a valid HTTP request for the appropriate API operation.
+OIS是一个API操作的映射，如`GET /coins/{id}`，将其映射到Airnode端点。 当请求者合约调用AirnodeRrp.sol合同请求函数，如`makeFullRequest(..., callData) `时，呼叫数据被传达给链外的Airnode，Airnode使用OIS映射，将呼叫数据转化为适合API操作的有效HTTP请求。
 
-The only thing needed to integrate an API to Airnode is to create an OIS object which is in the Airnode's `config.json` file. This guide is an instructive approach to create an OIS object. OIS borrows formatting from [OAS OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md). If you have experience with OAS, OIS will seem familiar.
+将 API 集成到 Airnode，唯一需要做的就是在 Airnode 的 config.json 文件中创建一个 OIS 对象。 本指南是创建 OIS 对象的指导方法。 OIS 借鉴了 [OAS OpenAPI 规范](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md)的格式. 如果您有 OAS的经验，适应OIS起来也会很快。
 
 ::: tip OAS
 
-It is not recommended to refer to OAS for help while creating your OIS object. OIS only borrows formatting practices from OAS. Everything needed to create an OIS object is in these docs.
+然而，我们不建议在创建OIS对象时参考OAS的经验。 OIS只是借用了OAS的格式化做法。 创建OIS对象所需的一切，都在下列这些文档中。
 
 :::
 
-**Tips while using this guide.**
+**使用本指南的小贴士：**
 
-- Open the [OIS template](../../../reference/templates/ois-json.md) in another browser window to follow along.
-- View an example of an [Airnode config.json file](../../../reference/examples/config-json.md) from the Airnode Starter tutorial.
+- 在另一个浏览器窗口中打开[OIS模板](../../../reference/templates/ois-json.md)，以便进行跟踪。
+- 查看Airnode入门教程中的一个[Airnode config.json文件](../../../reference/examples/config-json.md)的例子。
 
-## OIS Template
+## OIS 模板
 
-OIS is a json object that is added to an Airnode's [config.json](../../../reference/templates/config-json.md) file as the (`ois`) _key_, sometimes called a _field_. Try using the [OIS template](../../../reference/templates/ois-json.md) to construct an OIS and add it to the Airnode's config.json file later.
+OIS是一个json对象，作为 (`ois`) _键_添加到Airnode的[config.json](../../../reference/templates/config-json.md)文件中，有时也被称为_字段_。 你可以尝试使用[OIS模板](../../../reference/templates/ois-json.md)来构建一个OIS，并在以后将其添加到Airnode的config.json文件中。
 
-In the OIS template, there are some fields that contain `{FILL_*}`. This means that the value added is independent from other fields. On the other hand, if two fields contain the same expression (e.g., `{FILL_OPERATION_PARAMETER_1_NAME}`), you must use the same value in them, because they are referencing each other.
+在 OIS 模板中，一些字段包含 `{FILL_*}`。 这意味着添加的值是独立于其他字段的。 另一方面，如果两个字段包含相同的表达式（例如，`{FILL_OPERATION_PARAMETER_1_NAME}`) ，你必须在其中使用相同的值，因为它们是互相引用的。
 
-OIS uses a simplified version of the OAS. This means that if you have the OpenAPI specifications of the API that you are going to integrate, you are about 80% done, because you can copy paste entire sections (but make sure that you make the necessary modifications to conform to the OIS format).
+OIS使用简化的OAS版本。 这意味着，如果你有要集成的API的OpenAPI规范，你就完成了80%，因为你可以复制粘贴整个部分（但要确保进行必要的修改，以符合OIS的格式）。
 
 <!--
 ::: tip
@@ -54,13 +54,13 @@ is a `convert` command within the Airnode
 :::
 -->
 
-This guide will assume you do not have the OpenAPI specifications of the API that you will be integrating.
+本指南将假设在没有要集成的API的OpenAPI规格时开展的操作。
 
 <!--------------- STEP 1 ---------------->
 
-## Step 1: Specify OIS Definitions
+## 第1步：指定OIS的定义
 
-Start building an OIS by adding three descriptive fields to the root of the OIS json object.
+通过向OIS json对象的根目录添加三个描述性字段，开始构建OIS。
 
 ```json
 {
@@ -73,21 +73,21 @@ Start building an OIS by adding three descriptive fields to the root of the OIS 
 
 ### oisFormat
 
-Leave this as `1.0.0`, which is the current OIS format version.
+将其保留为 `1.0.0`, 这是当前的 OIS 格式版本。
 
 ### title
 
-This is a unique title of the OIS. Note that an Airnode can be configured with more than one OIS and uses the title as the OIS identifier.
+这是该OIS的唯一标题。 注意，一个Airnode可以配置一个以上的OIS，并使用标题作为OIS的标识符。
 
 ### version
 
-This is the version of the OIS which allows for version-control of the OIS integration. It is recommended to use [semver](https://semver.org/) versioning. The initial version could be <`0.1.0`>.
+这是OIS的版本，可以对OIS的集成进行版本控制。 建议使用[semver](https://semver.org/)版本控制 最初的版本可以设置成`<0.1.0>`。
 
 <!--------------- STEP 2 ---------------->
 
-## Step 2: Specifying the API
+## 第2步：指定API
 
-The `apiSpecifications` field is used to describe the API and its operations.
+`apiSpecifications`字段用于描述API及其操作。
 
 ```json
 "apiSpecifications": {
@@ -99,17 +99,17 @@ The `apiSpecifications` field is used to describe the API and its operations.
 
 ### Servers
 
-The first step of specifying your API is to enter its _baseURL_ in the `apiSpecifications.servers[0].url` field. Only one object (i.e., url) is allowed in the `apiSpecifications.servers` array. A warning is raised during conversion if servers has multiple elements. This baseURL will apply to all operations.
+指定你的API，第一步是在`apiSpecifications.servers[0].url`字段中输入其_baseUR_。 `apiSpecifications.servers`数组中只允许有一个对象（即 url）。 如果服务器有多 个元素，则会在转换期间引发警告。 此 baseURL 将适用于所有操作。
 
-#### Choosing a Base URL
+#### 选择基本 URL
 
-Consider the following full URL to execute an API operation that returns all know tokens.
+考虑以下完整 URL 来执行返回所有已知令牌的 API 操作。
 
 <!-- markdown-link-check-disable-next-line -->
 
 > https://www.myapi.com/v1/tokens
 
-There are two ways to segment this.
+有两种方式解决此问题。
 
 <!-- markdown-link-check-disable-next-line -->
 
@@ -117,7 +117,7 @@ There are two ways to segment this.
 > 
 > **path:** /v1/data
 
-or
+或者
 
 <!-- markdown-link-check-disable-next-line -->
 
@@ -125,11 +125,11 @@ or
 > 
 > **path:** /data
 
-Because the call will be made to <`baseURL+path`> both will result in the same full URL.
+因为调用`baseURL+path`的结果，都是同一个完整的URL。
 
 <!-- markdown-link-check-disable-next-line -->
 
-Set the baseURL as the section of the full URL that you expect to be shared by all operations. From the examples above it is recommended to use `https://www.myapi.com`, in case additional paths starting with `/v2` get added to the API in the future. As you can tell, API integration requires many subjective choices, and is more art than science.
+将baseURL设置为你期望被所有操作共享的完整URL的部分。 从上面的例子来看，建议使用`https://www.myapi.com`，以备将来在API中添加以` /v2`开头的额外路径。 正如大家都知道的那样，API集成需要许多主观的选择，而且是艺术多于科学。
 
 ```json
 "apiSpecifications": {
@@ -142,11 +142,11 @@ Set the baseURL as the section of the full URL that you expect to be shared by a
 }
 ```
 
-### Paths
+### 路径
 
-The _paths_ field defines all the API operations much like an OpenAPI Specification file.
+_paths_字段定义了所有的API操作，很像一个OpenAPI规范文件。
 
-_What is an API operation?_
+_什么是API操作？_
 
 > An API operation is specified as a unique combination of a _**path**_ and an HTTP _**method**_. `GET /token/{id}`
 
