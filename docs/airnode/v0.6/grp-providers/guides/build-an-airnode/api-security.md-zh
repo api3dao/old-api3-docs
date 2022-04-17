@@ -2,7 +2,7 @@
 title: API Security
 ---
 
-<TitleSpan>Build an Airnode</TitleSpan>
+<TitleSpan>创建一个 Airnode</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,31 +10,31 @@ title: API Security
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Airnode can pass along security information (schemes) when making calls to API operations. There are two groups of security schemes.
+Airnode 可以在调用 API 操作时传递安全信息（方案）。 这里有两组安全方案。
 
-- [Airnode Authentication](../../../concepts/airnode-auth.md)
-- [Relayed Meta Data Authentication](../../../concepts/relay-meta-auth.md)
+- [Airnode 身份验证](../../../concepts/airnode-auth.md)
+- [中继元数据身份验证](../../../concepts/relay-meta-auth.md)
 
 <!-- prettier-ignore-->
-> ![api-integration-ois](../../../assets/images/security-schemes.png) <br/> 1.  <p class="diagram-line" style="color:blue;">The Airnode uses <i><b>Airnode Authentication Security Schemes</b></i> to authenticate itself to an API operation of which the values are known only by the Airnode.</p>
-  2.  <p class="diagram-line" style="color:green;">The Airnode uses <i><b>Relayed Meta Data Security Schemes</b></i> to forward known information from the requester's request to an API operation.</p>
-Security schemes are declared by the required `type` property inside the security scheme definition. The following security scheme types are supported.
+> ![api-integration-ois](../../../assets/images/security-schemes.png) <br/> 1.  <p class="diagram-line" style="color:blue;">Airnode使用<i><b>Airnode认证安全方案</b></i>，对API操作进行自我认证，其数值只有Airnode知道。</p>
+  2.  <p class="diagram-line" style="color:green;">Airnode使用<i><b>中继元数据安全方案</b></i>，将请求者的请求中的已知信息转发给API操作。</p>
+安全方案由安全方案定义中所需的type属性声明， 支持以下安全方案类型。
 
-- Airnode Authentication Security Schemes
+- Airnode 认证安全方案
 
   - apiKey
   - http
 
-- Relayed Meta Data Security Schemes
+- 中继元数据安全方案
   - relayRequesterAddress
   - relayChainId
   - relayChainType
   - relaySponsorAddress
   - relaySponsorWalletAddress
 
-## Airnode Authentication Security Schemes
+## Airnode 身份验证安全方案
 
-An Airnode can use the following security scheme types to authenticate itself to API operations.
+Airnode 可以使用以下安全方案类型来对 API 操作进行身份验证。
 
 - [apiKey](./api-security.md#apikey)
 - [http](./api-security.md#http)
