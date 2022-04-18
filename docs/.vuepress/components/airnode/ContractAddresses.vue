@@ -7,78 +7,89 @@
 <template>
   <div v-if="loaded === true">
     <!-- LOADING IMAGE -->
-    <div style="padding-left: 55px">
-      <img src="/img/spinner.gif" v-show="showSpinner" />
-    </div>
+
     <!-- ERROR -->
     <p v-show="error !== null" class="contract-addresses-error">
-      The Chain list failed to load: ({{ error }})
+      The Contract list failed to load: ({{ error }})
     </p>
 
     <!-- OUTER CONTRACT LIST -->
-    <div v-for="(contract, index) in contracts" :key="index">
-      <h3>{{ contract.contractName }}</h3>
-      <table>
-        <th class="contract-addresses-heading">Chain</th>
-        <th class="contract-addresses-heading">Chain ID</th>
-        <th class="contract-addresses-heading">Contract Address</th>
-        <tr
-          v-for="(item, index) in contract.addresses"
-          v-bind:key="index"
-          v-show="type === item.chain.type"
-          v-bind:class="{
-            contract_tr_highlight: item.chain.important,
-          }"
-        >
-          <td>
-            {{ item.chain.name }}
-          </td>
-          <td>
-            {{ item.chainId }}
-          </td>
-          <td NOWRAP>
-            <!--a
-              target="_etherscan"
-              :href="'https://etherscan.io/address/' + item.address"
-              :id="contract.contractName + index"
-              class="contract-addresses-address"
-              >{{ item.address }}</a
-            ><ExternalLinkImage /-->
+    <div v-show="error == null">
+      <div v-for="(contract, index) in contracts" :key="index">
+        <h3>{{ contract.contractName }}</h3>
+        <table>
+          <th class="contract-addresses-heading">Chain</th>
+          <th class="contract-addresses-heading">Chain ID</th>
+          <th class="contract-addresses-heading">Contract Address</th>
+          <tr
+            v-for="(item, index) in contract.addresses"
+            v-bind:key="index"
+            v-show="type === item.chain.type"
+            v-bind:class="{
+              contract_tr_highlight: item.chain.important,
+            }"
+          >
+            <td>
+              {{ item.chain.name }}
+            </td>
+            <td>
+              {{ item.chainId }}
+            </td>
+            <td NOWRAP>
+              <!--a
+                target="_etherscan"
+                :href="'https://etherscan.io/address/' + item.address"
+                :id="contract.contractName + index"
+                class="contract-addresses-address"
+                >{{ item.address }}</a
+              ><ExternalLinkImage /-->
 
-            <span
-              :id="item.chain.type + '-' + contract.contractName + '-' + index"
-              class="contract-addresses-address"
-              >{{ item.address }}</span
-            >
-
-            <!-- COPY ICON 
-              The style applied (style="opacity: 60%; width: 12px") is very
-              important. If included in the class it will work on the dev 
-              server but not on a production build.
-            -->
-            <span style="display: inline-block; width: 18px">
-              <img
+              <span
                 :id="
-                  'copy-icon-' +
-                  item.chain.type +
-                  '-' +
-                  contract.contractName +
-                  '-' +
-                  index
+                  item.chain.type + '-' + contract.contractName + '-' + index
                 "
-                v-on:click="
-                  copyAddress(
-                    item.chain.type + '-' + contract.contractName + '-' + index
-                  )
-                "
-                src="/img/copy.png"
-                class="contract-addresses-copy-icon"
-                style="opacity: 60%; width: 12px"
-              />
-            </span>
-          </td>
-        </tr>
-      </table>
+                class="contract-addresses-address"
+                >{{ item.address }}</span
+              >
+
+              <!-- COPY ICON 
+                The style applied (style="opacity: 60%; width: 12px") is very
+                important. If included in the class it will work on the dev 
+                server but not on a production build.
+              -->
+              <span style="display: inline-block; width: 18px">
+                <img
+                  :id="
+                    'copy-icon-' +
+                    item.chain.type +
+                    '-' +
+                    contract.contractName +
+                    '-' +
+                    index
+                  "
+                  v-on:click="
+                    copyAddress(
+                      item.chain.type +
+                        '-' +
+                        contract.contractName +
+                        '-' +
+                        index
+                    )
+                  "
+                  src="/img/copy.png"
+                  class="contract-addresses-copy-icon"
+                  style="opacity: 60%; width: 12px"
+                />
+              </span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div v-else>
+    <div style="padding-left: 55px">
+      <img src="/img/spinner.gif" v-show="showSpinner" />
     </div>
   </div>
 </template>
@@ -141,7 +152,7 @@ export default {
     this.$nextTick(async function () {
       try {
         const response = await axios.get(
-          'https://raw.githubusercontent.com/api3dao/airnode/chain-names-in-references/packages/airnode-protocol/deployments/references.json'
+          'https://raw.githubusercontent.com/api3dao/airnode/master/packages/airnode-protocol/deployments/references.json'
         );
 
         // These are holders of specific chains that go on top of each contract's
@@ -190,31 +201,33 @@ export default {
           let contract = { contractName: key, addresses: addresses };
           this.contracts.push(contract);
         }
+
+        // Need to reorder the response.data by contract
+        // AirnodeRrp, RequesterAuthorizerWithAirnode, AccessControlRegistry first
+        // then any "other" contracts that might be present
+
+        // AccessControlRegistry
+        let index = this.contracts.findIndex(
+          (x) => x.contractName === 'AccessControlRegistry'
+        );
+        let contract = this.contracts.splice(index, 1);
+        this.contracts.unshift(contract[0]);
+        // RequesterAuthorizerWithAirnode
+        index = this.contracts.findIndex(
+          (x) => x.contractName === 'RequesterAuthorizerWithAirnode'
+        );
+        contract = this.contracts.splice(index, 1);
+        this.contracts.unshift(contract[0]);
+        // AirnodeRrp
+        index = this.contracts.findIndex(
+          (x) => x.contractName === 'AirnodeRrp'
+        );
+        contract = this.contracts.splice(index, 1);
+        this.contracts.unshift(contract[0]);
       } catch (err) {
-        console.error(err.toString());
         this.error = err.toString();
+        console.error('error:', this.error);
       }
-
-      // Need to reorder the response.data by contract
-      // AirnodeRrp, RequesterAuthorizerWithAirnode, AccessControlRegistry first
-      // then any "other" contracts that might be present
-
-      // AccessControlRegistry
-      let index = this.contracts.findIndex(
-        (x) => x.contractName === 'AccessControlRegistry'
-      );
-      let contract = this.contracts.splice(index, 1);
-      this.contracts.unshift(contract[0]);
-      // RequesterAuthorizerWithAirnode
-      index = this.contracts.findIndex(
-        (x) => x.contractName === 'RequesterAuthorizerWithAirnode'
-      );
-      contract = this.contracts.splice(index, 1);
-      this.contracts.unshift(contract[0]);
-      // AirnodeRrp
-      index = this.contracts.findIndex((x) => x.contractName === 'AirnodeRrp');
-      contract = this.contracts.splice(index, 1);
-      this.contracts.unshift(contract[0]);
 
       // Page state
       this.showSpinner = false;
