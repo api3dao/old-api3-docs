@@ -8,9 +8,6 @@ title: Cloud Resources
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
-
 When deployed to a cloud provider, such as AWS or GCP, Airnode uses certain
 resources to fully operate.
 
