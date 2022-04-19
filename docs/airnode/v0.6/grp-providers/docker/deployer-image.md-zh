@@ -23,9 +23,9 @@ title: Airnode 部署器镜像
 
 :::
 
-## Cloud Provider Credentials
+## 云供应商账户
 
-In order to deploy Airnode to a serverless cloud provider, you need to provide could provider credentials to the Airnode deployer image. The deployer image currently supports deploying to AWS and GCP.
+为了将Airnode部署到无服务器的云提供商，你需要向Airnode部署器镜像提供供应商的凭证。 该部署器镜像目前支持部署到AWS和GCP。
 
 ### AWS
 
