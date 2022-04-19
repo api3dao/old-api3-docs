@@ -2,7 +2,7 @@
 title: readerCanReadBeacon()
 ---
 
-<TitleSpan>Functions</TitleSpan>
+<TitleSpan>dApp Developers</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -12,7 +12,7 @@ title: readerCanReadBeacon()
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 For on-chain smart contracts, the function
-[readerCanReadBeacon()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L349-L361)
+[readerCanReadBeacon()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServerV0.sol#L349-L361)
 returns true if the `reader` parameter can access the `beaconId` parameter
 meaning that the reader address has been whitelisted. Please contact the
 [API3 Business Development API Team](https://api3.org) to be whitelisted.

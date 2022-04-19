@@ -41,8 +41,8 @@ Beacon values readily available for smart contracts to retrieve instantly as
 illustrated in figure below. A Beacon is updated when a pre-defined tolerance of
 the Beacon's value is detected. Each Beacon has its own configuration parameters
 that define when and how it updates. See the
-[readBeacon()](./functions/read-beacon.md) function doc and learn how your smart
-contract can access a Beacon .
+[readBeacon()](./developers/read-beacon.md) function doc and learn how your
+smart contract can access a Beacon .
 
 > <img src="./assets/images/dapp-beacon.png" width="550px"/>
 
