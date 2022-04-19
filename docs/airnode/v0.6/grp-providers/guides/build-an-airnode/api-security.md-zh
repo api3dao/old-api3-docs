@@ -41,12 +41,12 @@ Airnode 可以使用以下安全方案类型来对 API 操作进行身份验证�
 
 ### apiKey
 
-The `apiKey` security scheme type allows you to define an API key the Airnode will send to your API operations. It is an object which consists of the following fields:
+`apiKey`安全方案类型允许你定义一个API密钥，Airnode将其发送至你的API操作中。 它作为一个对象，由以下字段组成：
 
-- `type` must be `apiKey`
-- `in` can be one of the `query`, `header` or `cookie`. This value specifies how should the value be sent to your API. When using the `query` option, the API key will be sent in the request body for POST requests and in query string for GET requests.
+- `type`必须是 `apiKey`
+- `in`可以是`query`, `header` 或 `cookie`中的一个。 这个值指定了应如何将该值发送到你的API。 当使用`query`选项时，API密钥将在POST请求的请求正文中发送，在GET请求的查询字符串中发送。
 
-- `name` is the name of the API key that should be sent to your API. For example "X-Api-Key".
+- `name`是应该被发送到你的API的API密钥的名称。 例如，"X-api-Key"。
 
 ```json
 {
@@ -58,7 +58,7 @@ The `apiKey` security scheme type allows you to define an API key the Airnode wi
 }
 ```
 
-The value of the `apiKey` goes in the `apiCredentials` field of `config.json`. Normally the value is accessed using interpolation from the `secrets.env` file.
+`apiKey`的值在`config.json`的`apiCredentials`字段中。 通常使用来自 `secrets.env` 文件的插值访问该值。
 
 ```json
 {
@@ -70,10 +70,10 @@ The value of the `apiKey` goes in the `apiCredentials` field of `config.json`. N
 
 ### http
 
-The `http` security scheme type allows you to define a `basic` or `bearer` authentication. This security scheme will always be sent in the headers. The security scheme value should be base64 encoded value "username:password" for `basic` auth and the encoded token for `bearer` auth. It is an object which consists of the following fields:
+`http` 安全方案类型允许您定义`基本`或`不记名`身份验证。 此安全方案将始终在头部中发送。 安全方案值应该是`基本`身份验证的 base64 编码值“用户名：密码”和`不记名`身份验证的编码令牌。 它作为一个对象，由以下字段组成：
 
-- `type` must be `http`
-- `scheme` is either `basic` or `bearer`
+- `type`必须是 `apiKey`
+- `scheme` 是 `basic` 或是`bearer`
 
 ```json
 {
@@ -84,7 +84,7 @@ The `http` security scheme type allows you to define a `basic` or `bearer` authe
 }
 ```
 
-The value of the `http` as (`basic or bearer`) goes in the `apiCredentials` field of `config.json`. Normally the value is accessed using interpolation from the `secrets.emv` file.
+`http`的值为(`basic or bearer`), 在 `apiCredentials` 的`config.json` 字段中。 通常使用来自 `secrets.emv` 文件的插值访问该值。
 
 ```json
 {
@@ -94,7 +94,7 @@ The value of the `http` as (`basic or bearer`) goes in the `apiCredentials` fiel
 }
 ```
 
-## Relayed Meta Data Security Schemes
+## 中继元数据安全方案
 
 In addition to authenticating itself, Airnode can "relay" security information about a request to an API operation. This is different then [Authorization](./apply-auth.md) of requesters to access the Airnode.
 
