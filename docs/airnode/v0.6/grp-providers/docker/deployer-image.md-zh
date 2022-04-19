@@ -29,25 +29,30 @@ title: Airnode 部署器镜像
 
 ### AWS
 
-If you are new to AWS watch this [video](https://www.youtube.com/watch?v=KngM5bfpttA) to set up an AWS account and create cloud provider credentials.
+如果你是AWS的新用户，请观看此[视频](https://www.youtube.com/watch?v=KngM5bfpttA)，以设置AWS账户并创建云供应商的凭证。
 
 ### GCP
 
-- Create a [Google Cloud project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
-- Enable [App Engine Admin API](https://console.cloud.google.com/apis/library/appengine.googleapis.com) for your project
-- Create a new [service account](https://console.cloud.google.com/iam-admin/serviceaccounts) with the `Owner` role
-- Add a new access key of type JSON for the service account and download it as `gcp.json`
+- 创建一个[谷歌云项目](https://cloud.google.com/resource-manager/docs/creating-managing-projects)。
+- 为你的项目启用[App Engine Admin API](https://console.cloud.google.com/apis/library/appengine.googleapis.com)。
+- 创建一个具有`Owner` 角色的新的
 
-## deploy
+服务</code>账户。</p></li> 
+  
+  - 为服务账户添加一个新的JSON类型的访问密钥，并将其下载另存为`gcp.json`。</ul> 
 
-The `deploy` command will create the Airnode with a cloud provider or update it if it already exists. Three files are needed to run the deploy command.
+
+
+## 部署
+
+`deploy`命令将创建带有云供应商的Airnode，如果它已经存在，则更新它。 运行deploy命令需要三个文件。
 
 - config.json
 - secrets.env
-- aws.env (AWS only)
-- gcp.json (GCP only)
+- aws.env (仅适用于 AWS)
+- gcp.json (仅限GP)
 
-A `receipt.json` file will be created upon completion. It contains some deployment information and is used to remove the Airnode.
+`receivt.json` 文件将在完成后创建。 它包含一些部署信息，并用于移除Airnode。
 
 <!-- Use of .html below is intended. -->
 <airnode-WarningSimultaneousDeployments removeLink="./deployer-image.html#manual-removal"/>
@@ -60,6 +65,8 @@ A `receipt.json` file will be created upon completion. It contains some deployme
 
 ::: tab Linux/Mac/WSL2
 
+
+
 ```sh
 docker run -it --rm \
   --env-file aws.env \
@@ -69,11 +76,14 @@ docker run -it --rm \
   api3/airnode-deployer:0.6.0 deploy
 ```
 
+
 :::
 
 ::: tab Windows
 
-For Windows, use CMD (and not PowerShell).
+For Windows, use CMD (而不是PowerShell).
+
+
 
 ```sh
 docker run -it --rm ^
@@ -83,15 +93,20 @@ docker run -it --rm ^
   api3/airnode-deployer:0.6.0 deploy
 ```
 
+
 :::
 
 ::::
+
+
 
 ### GCP
 
 :::: tabs
 
 ::: tab Linux/Mac/WSL2
+
+
 
 ```sh
 docker run -it --rm \
@@ -102,9 +117,12 @@ docker run -it --rm \
   api3/airnode-deployer:0.6.0 deploy
 ```
 
+
 :::
 
 ::: tab Windows
+
+
 
 ```sh
 docker run -it --rm ^
@@ -114,19 +132,26 @@ docker run -it --rm ^
   api3/airnode-deployer:0.6.0 deploy
 ```
 
+
 :::
 
 ::::
 
-## remove
 
-When an Airnode was deployed using the `deploy` command a `receipt.json` file was created. Use this file to remove an Airnode.
+
+## 移除
+
+当使用`deploy`命令部署Airnode时，会创建一个 `receipt.json`文件。 使用此文件来删除 Airnode。
+
+
 
 ### AWS
 
 :::: tabs
 
 ::: tab Linux/Mac/WSL2
+
+
 
 ```sh
 docker run -it --rm \
@@ -135,11 +160,14 @@ docker run -it --rm \
   api3/airnode-deployer:0.6.0 remove -r output/receipt.json
 ```
 
+
 :::
 
 ::: tab Windows
 
-For Windows, use CMD (and not PowerShell).
+For Windows, use CMD (而不是PowerShell).
+
+
 
 ```sh
 docker run -it --rm ^
@@ -148,15 +176,20 @@ docker run -it --rm ^
   api3/airnode-deployer:0.6.0 remove -r output/receipt.json
 ```
 
+
 :::
 
 ::::
+
+
 
 ### GCP
 
 :::: tabs
 
 ::: tab Linux/Mac/WSL2
+
+
 
 ```sh
 docker run -it --rm \
@@ -165,11 +198,14 @@ docker run -it --rm \
   api3/airnode=deployer:0.6.0 remove -r output/receipt.json
 ```
 
+
 :::
 
 ::: tab Windows
 
-For Windows, use CMD (and not PowerShell).
+For Windows, use CMD (而不是PowerShell).
+
+
 
 ```sh
 docker run -it --rm ^
@@ -178,17 +214,20 @@ docker run -it --rm ^
   api3/airnode-deployer:0.6.0 remove -r output/receipt.json
 ```
 
+
 :::
 
 ::::
 
-## Manual Removal
 
-Optionally you can remove an Airnode manually though it is highly recommended that you do so using the deployer image's `remove` command. Airnode has a presence in several areas of both AWS and GCP. An Airnode has a `airnodeAddressShort` (e.g., `0ab830c`) that is included in the element name of AWS and GCP deployed features.
 
-::: danger Remember
+## 手动移除
 
-Only delete elements of a feature with the `airnodeAddressShort` address in the name you are targeting. There can be more than one Airnode.
+你可以选择手动删除Airnode，但强烈建议使用部署者镜像的`remove`命令来删除。 Airnode在AWS和GCP的多个领域都有存在。 Airnode有一个`airnodeAddressShort`短地址（例如0ab830c），它包含在AWS和GCP部署功能的元素名称中。
+
+::: 危险提示
+
+只删除你所针对的名称中带有`airnodeAddressShort`地址的元素。 因为可能存在不止一个的Airnode。
 
 :::
 
@@ -208,4 +247,4 @@ Only delete elements of a feature with the `airnodeAddressShort` address in the 
 
 ::::
 
-Learn more about AWS or GCP resources that Airnode uses in the [Cloud Resources](../../reference/cloud-resources.md) doc.
+如需了解更多关于 AWS 或 GCP 的资源，请通过 [云资源](../../reference/cloud-resources.md) 文档查看。
