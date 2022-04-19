@@ -43,12 +43,12 @@ function.
 
 Create a `templateId` by hashing the Airnode address, the endpointId and the
 parameters of the template. See the
-[createTemplate()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/TemplateUtils.sol#L17-L46)
+[createTemplate()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/TemplateUtilsV0.sol#L17-L46)
 function in the monorepo.
 
 Create a `beaconId` by hashing the `templateId` and the Beacon parameters. See
 the
-[requestBeaconUpdate()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L213)
+[requestBeaconUpdate()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServerV0.sol#L213)
 function in the monorepo.
 
 The `templateId` cannot be derived from the `beaconId`.
