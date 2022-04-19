@@ -10,14 +10,14 @@ module.exports = [
     ],
   },
   {
-    title: 'Beacon Server Functions',
+    title: 'dApp Developers',
     initialOpenGroupIndex: 1,
     collapsable: false,
     children: [
-      'functions/', // README
-      'functions/read-beacon',
-      'functions/reader-can-read-beacon',
-      'functions/beaconid-reader-whiteliststatus',
+      'developers/', // README
+      'developers/read-beacon',
+      'developers/reader-can-read-beacon',
+      'developers/beaconid-reader-whiteliststatus',
     ],
   },
 

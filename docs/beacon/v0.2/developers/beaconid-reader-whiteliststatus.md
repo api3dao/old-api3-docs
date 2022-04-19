@@ -2,7 +2,7 @@
 title: beaconIdToReaderToWhitelistStatus()
 ---
 
-<TitleSpan>Functions</TitleSpan>
+<TitleSpan>dApp Developers</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -12,7 +12,7 @@ title: beaconIdToReaderToWhitelistStatus()
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 For on-chain smart contracts, the function
-[beaconIdToReaderToWhitelistStatus()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L363-L383)
+[beaconIdToReaderToWhitelistStatus()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServerV0.sol#L363-L383)
 returns detailed whitelisting status for the `reader` and `beaconId` parameters.
 
 ::: tip Get Whitelisted

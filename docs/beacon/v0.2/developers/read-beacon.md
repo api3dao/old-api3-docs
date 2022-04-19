@@ -2,7 +2,7 @@
 title: readBeacon()
 ---
 
-<TitleSpan>Functions</TitleSpan>
+<TitleSpan>dApp Developers</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -13,7 +13,7 @@ title: readBeacon()
 
 Reading a Beacon value is simple and straight forward. For on-chain smart
 contracts the `msg.sender` argument received by the function
-[readBeacon()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L326-L361)
+[readBeacon()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServerV0.sol#L326-L361)
 must be whitelisted.
 
 ::: tip Get Whitelisted
