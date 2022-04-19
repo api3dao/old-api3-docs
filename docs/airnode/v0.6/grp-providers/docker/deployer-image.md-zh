@@ -1,8 +1,8 @@
 ---
-title: Airnode Deployer Image
+title: Airnode 部署器镜像
 ---
 
-<TitleSpan>Docker Images</TitleSpan>
+<TitleSpan>Docker 镜像</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,16 +10,16 @@ title: Airnode Deployer Image
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Use the deployer image to deploy or remove an Airnode with a cloud provider such as AWS. The simplest way is to use the pre-built packages. If you would rather build the images yourself see the [README](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-deployer/docker) in the deployer package.
+可以使用部署器映像来部署或删除与AWS等云提供商的Airnode。 最简单的方法是使用预设置的软件包。 如果您希望 自行构建镜像，请在部署器软件包[README](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-deployer/docker)中查看。
 
-The deployer image has two commands.
+部署器镜像有两条命令。
 
-- `deploy`: Deploys or updates an Airnode using configuration files.
-- `remove`: Removes an Airnode using its `receipt.json` file.
+- `deploy`: 使用配置文件部署或更新一个Airnode。
+- `remove`: 使用 `receivt.json` 文件删除一个 Airnode
 
-::: tip Quick Deploy Demos
+::: tip 快速部署演示
 
-See the [Quick Deploy Demos](../tutorial/) to quickly `deploy` and `remove` a preconfigured Airnode using the deployer image.
+请参阅 [快速部署演示](../tutorial/)，用部署器镜像快速`deploy` 和 `remove`预配置的Airnode。
 
 :::
 
