@@ -114,19 +114,19 @@ docker run --detach ^
 
 ### 检查 Airnode 日志
 
-如果您以分离模式运行Airnode ，您需要使用 `日志` 命令到 访问日志。 You can also use `--follow` parameter to stream the Airnode log output.
+如果您以分离模式运行Airnode ，您需要使用 `日志` 命令到 访问日志。 你也可以使用`--follow` 参数来串联Airnode的日志输出。
 
 ```bash
 docker logs airnode
 ```
 
-or
+或者
 
 ```bash
 docker logs --follow airnode
 ```
 
-## Stopping Airnode
+## 停止Airnode
 
 ```bash
 docker stop airnode
