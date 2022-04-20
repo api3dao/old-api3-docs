@@ -20,7 +20,6 @@ internal Airnode development.
 - [airnode-admin](./admin-cli.md)
 - [airnode-abi](./airnode-abi.md)
 - [airnode-deployer](./deployer.md)
-- [airnode-validator](./validator.md)
 
 ---
 

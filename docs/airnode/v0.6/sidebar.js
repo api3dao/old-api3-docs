@@ -185,7 +185,6 @@ module.exports = [
           'reference/packages/deployer',
           // For now this package is not added, it is considered internal use only
           //'reference/packages/operation',
-          'reference/packages/validator',
         ],
       },
       'reference/airnode-addresses',
