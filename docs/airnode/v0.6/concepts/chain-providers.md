@@ -32,10 +32,10 @@ Airnode. It then applies an arbitrary name for the blockchain provider
 "chains": [
   {
     "authorizers": [
-      "0x5Fgh48...3F6f64180acc"
+      "0xf18c105D0375E80980e4EED829a4A68A539E6178"
     ],
     "contracts": {
-      "AirnodeRrp": "0xF6d267546...BC9A384fa418"
+      "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
     },
     "id": "4",
     "providers": {
@@ -68,10 +68,10 @@ Multiple providers can be used per chain. Simply add another object to
 "chains": [
   {
     "authorizers": [
-      "0x5Fgh48...3F6f64180acc"
+      "0xf18c105D0375E80980e4EED829a4A68A539E6178"
     ],
     "contracts": {
-      "AirnodeRrp": "0xF6d267546...BC9A384fa418"
+      "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
     },
     "id": "4",
     "providers": {
@@ -106,10 +106,10 @@ each has a unique `id` and `type` and a list of `providers` for each.
 "chains": [
   {
     "authorizers": [
-      "0x5Fgh48...3F6f64180acc"
+      "0xf18c105D0375E80980e4EED829a4A68A539E6178"
     ],
     "contracts": {
-      "AirnodeRrp": "0xF6d267546...BC9A384fa418"
+      "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
     },
     "id": "4",
     "providers": {
@@ -134,10 +134,10 @@ each has a unique `id` and `type` and a list of `providers` for each.
   },
   {
     "authorizers": [
-      "0x5gh48...3F6f6418dee9"
+      "0xf18c105D0375E80980e4EED829a4A68A539E6178"
     ],
     "contracts": {
-      "AirnodeRrp": "0xG9e39...BC9A384df3434"
+      "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
     },
     "id": "3",
     "providers": {
