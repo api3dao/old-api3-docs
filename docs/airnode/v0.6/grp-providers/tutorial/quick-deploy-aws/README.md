@@ -328,8 +328,8 @@ docker run -it --rm ^
 
 You have deployed an Airnode on AWS and tested it using the HTTP gateway that
 was enabled as part of the Airnode deployment. The Airnode, upon deployment,
-started contacting the AirnodeRrp contract on the Rinkeby testnet to gather any
-requests made by requesters to this Airnode. This tutorial did not address
+started contacting the AirnodeRrpV0 contract on the Rinkeby testnet to gather
+any requests made by requesters to this Airnode. This tutorial did not address
 making a request as its purpose was simply to quickly deploy a functional
 Airnode.
 

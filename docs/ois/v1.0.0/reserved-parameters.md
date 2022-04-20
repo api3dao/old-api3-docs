@@ -18,9 +18,9 @@ parameters (API parameters). They are used by Airnode for special purposes.
 A requester can pass request parameters either by referencing a
 [template](/airnode/v0.5/concepts/template.md) that contains them, or as an
 argument of the request-making methods of
-[AirnodeRrp.sol](/airnode/v0.5/concepts/#airnoderrp-sol). In either case, these
-parameters are encoded using the
-[AirnodeRrp ABI](/airnode/v0.5/reference/specifications/airnode-abi-specifications.md).
+[AirnodeRrpV0.sol](/airnode/v0.5/concepts/#airnoderrp-sol). In either case,
+these parameters are encoded using the
+[AirnodeRrpV0 ABI](/airnode/v0.5/reference/specifications/airnode-abi-specifications.md).
 There are two types of parameters which are part of the [OIS](/ois/v1.0.0/)
 object:
 

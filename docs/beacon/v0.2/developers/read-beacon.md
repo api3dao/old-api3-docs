@@ -13,7 +13,7 @@ title: readBeacon()
 
 Reading a Beacon value is simple and straight forward. For on-chain smart
 contracts the `msg.sender` argument received by the function
-[readBeacon()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServerV0.sol#L326-L361)
+[readBeacon()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServerV0.sol#L173-L195)
 must be whitelisted.
 
 ::: tip Get Whitelisted
@@ -49,7 +49,7 @@ contract mySmartContract {
 
         // Calling the BeaconServer for a Beacon value.
         (value, timestamp) =
-            RrpBeaconServer(_beaconContractAddress).readBeacon(_beaconId);
+            RrpBeaconServerV0(_beaconContractAddress).readBeacon(_beaconId);
     }
 }
 ```

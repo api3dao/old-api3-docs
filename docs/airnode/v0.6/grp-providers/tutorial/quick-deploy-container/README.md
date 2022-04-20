@@ -240,6 +240,6 @@ in production environments.
 
 This Airnode attaches itself to the Rinkeby testnet as stated in the
 `config.json` file. The Airnode, upon deployment, started contacting the
-AirnodeRrp contract on the Rinkeby testnet to gather any requests made by
+AirnodeRrpV0 contract on the Rinkeby testnet to gather any requests made by
 requesters to this Airnode. This tutorial did not address making a request
 on-chain as its purpose was simply to quickly deploy a functional Airnode.

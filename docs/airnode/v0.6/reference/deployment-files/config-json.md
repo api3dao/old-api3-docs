@@ -48,9 +48,12 @@ respective parameters.
 // chains
 [
   {
-    "authorizers": ["0xeabb...C123", "0xCE5e...1abc"],
+    "authorizers": [
+      "0xf18c105D0375E80980e4EED829a4A68A539E6178",
+      "0xCE5e...1abc"
+    ],
     "contracts": {
-      "AirnodeRrp": "0x12B4...0C1a"
+      "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
     },
     "id": "1",
     "providers": {
@@ -80,7 +83,7 @@ respective parameters.
     "maxConcurrency": 100,
     "authorizers": [],
     "contracts": {
-      "AirnodeRrp": "0xf1d4...0bd1"
+      "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
     },
     "id": "3",
     "providers": {

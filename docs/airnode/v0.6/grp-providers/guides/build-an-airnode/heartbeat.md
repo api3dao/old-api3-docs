@@ -16,9 +16,9 @@ notification every time it runs (self-operates).
 > <img src="../../../assets/images/heartbeat.png" width="650ps"/>
 >
 > 1.  <p class="diagram-line" style="color:blue;">Airnode gathers on-chain requests targeting the API it supports.</p>
-> 2.  <p class="diagram-line" style="color:green;">The required API endpoint for each request is called.</p>
+> 2.  <p class="diagram-line" style="color:green;">The required API operation for each request is called.</p>
 > 3.  <p class="diagram-line" style="color:red;">A response is sent to each request.</p>
-> 4.  <p class="diagram-line" style="color:black;">Finally Airnode makes a request to the heartbeat URL (HTTP POST). This could be to an endpoint within API the Airnode supports or to any cloud REST endpoint such as a monitoring service.</p>
+> 4.  <p class="diagram-line" style="color:black;">Finally Airnode makes a request to the heartbeat URL (HTTP POST). This could be to an operation within the API Airnode supports or to any cloud REST endpoint such as a monitoring service.</p>
 
 Turn on the optional heartbeat functionality by setting all fields in the
 `config.json` section for `nodeSettings.heartbeat`.

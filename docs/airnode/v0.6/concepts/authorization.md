@@ -312,7 +312,7 @@ signature:
 
 #### isAuthorized
 
-The `isAuthorized()` function will be called by AirnodeRrp to verify the
+The `isAuthorized()` function will be called by AirnodeRrpV0 to verify the
 authorization status of a request. This function will return true for all
 whitelisted requester contracts, admins and Airnode operator address.
 
@@ -388,8 +388,6 @@ signature:
 
 #### isAuthorized
 
-The `isAuthorized()` function will be called by AirnodeRrp to verify the
+The `isAuthorized()` function will be called by AirnodeRrpV0 to verify the
 authorization status of a request. This function will return true for all
 whitelisted requester contracts, admins and the meta-admin address.
-
-<divider/>

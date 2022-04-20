@@ -20,11 +20,11 @@ function of AirnodeRrpV0.sol.
 
 > <img src="../assets/images/concepts-request.png" width="650px"/>
 >
-> 1.  <p class="diagram-line">The requester calls makeFullRequest() on the AirnodeRrp protocol contract.</p>
+> 1.  <p class="diagram-line">The requester calls makeFullRequest() on the AirnodeRrpV0 protocol contract.</p>
 > 2.  <p class="diagram-line">makeFullRequest() assigns a requestId to the request for tracking purposes, adds the requestId to storage, emits the request to the event logs and returns the requestId to the requester.</p>
 > 3.  <p class="diagram-line" style="color:gray;">Airnode, during its run cycle, picks the request from the event logs.</p>
 > 4.  <p class="diagram-line" style="color:blue;">Airnode gets data from the API and encodes it. The encoded response must have length at most 1024 bytes. (This is negligible in practice, since large responses are costly to store)</p>
-> 5.  <p class="diagram-line" style="color:green;">Airnode sends the response to fulFill() in AirnodeRrp which in turn removes the pending requestId from storage and forwards the response to myFulFill(). The requestId is included as part of the response.</p>
+> 5.  <p class="diagram-line" style="color:green;">Airnode sends the response to fulFill() in AirnodeRrpV0 which in turn removes the pending requestId from storage and forwards the response to myFulFill(). The requestId is included as part of the response.</p>
 
 Learn more on how to [Call an Airnode](../grp-developers/call-an-airnode.md).
 
@@ -144,9 +144,9 @@ received a successful response from the API provider.
 
 > <img src="../assets/images/request-outcomes.png" width="550px"/>
 >
-> 1.  <p class="diagram-line">Airnode calls AirnodeRrp.fulFill() with a response only if the API has not responded with an error. AirnodeRrp.fulfill() performs a call back to myFulFill() which in turn receives the response.</p>
-> 2.  <p class="diagram-line" style="color:green;">If AirnodeRrp.fulFill() fails internally or the underlying low level call to myFulFill() reverts then Airnode will start the process in step #3 to fail the request.</p>
-> 3.  <p class="diagram-line" style="color:green;">If Airnode errors, or is told by AirnodeRrp.fulFill() to error, it calls AirnodeRrp.fail() which removes the request from the pending list of requestIds on-chain.</p>
+> 1.  <p class="diagram-line">Airnode calls AirnodeRrpV0.fulFill() with a response only if the API has not responded with an error. AirnodeRrpV0.fulfill() performs a call back to myFulFill() which in turn receives the response.</p>
+> 2.  <p class="diagram-line" style="color:green;">If AirnodeRrpV0.fulFill() fails internally or the underlying low level call to myFulFill() reverts then Airnode will start the process in step #3 to fail the request.</p>
+> 3.  <p class="diagram-line" style="color:green;">If Airnode errors, or is told by AirnodeRrpV0.fulFill() to error, it calls AirnodeRrpV0.fail() which removes the request from the pending list of requestIds on-chain.</p>
 
 ::: tip Important to Note
 

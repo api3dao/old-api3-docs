@@ -20,12 +20,12 @@ Airnode consists of two parts: the off-chain **Airnode** (a.k.a. "the node")
 deployed as self hosted or cloud provider functions, e.g., AWS) and the on-chain
 **protocol contract** AirnodeRrpV0.sol. A requester calls the protocol contract,
 which emits a blockchain event with the request parameters. Airnode listens to
-the events emitted by the AirnodeRrp contract. During the next run cycle,
+the events emitted by the AirnodeRrpV0 contract. During the next run cycle,
 Airnode gets the request parameters from the emitted event. The diagram below
 and the diagram in the [Overview](./) doc for developers illustrate the
 mechanics of the entire process.
 
-The AirnodeRrp protocol is designed to be flexible and is meant to serve a
+The AirnodeRrpV0 protocol is designed to be flexible and is meant to serve a
 variety of use cases. See the Airnode
 [requester examples](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-examples/contracts)
 for potential design patterns.
@@ -39,8 +39,8 @@ primarily focuses on two tasks, indicated by points A & B in the diagram below.
 
 > <img src="../assets/images/call-an-airnode.png" width="650px"/>
 >
-> 1.  <p class="diagram-line" style="color:green;">A requester makes a request to the AirnodeRrp contract which adds the <code>requestId</code> to storage, emits the request to the event logs and returns the <code>requestId</code> to the requester. The request is retrieved by the Airnode during its next run cycle. It then verifies the requester is authorized by checking authorizer contracts assigned to the Airnode.</p>
-> 2.  <p class="diagram-line" style="color:blue;">If the request is authorized, Airnode proceeds to respond. It first gathers the requested data from the API and calls the <code>fulfill()</code> function in AirnodeRrp, which removes the pending <code>requestId</code> from storage and makes a callback to <code>myFulfill()</code>. The gas costs associated 
+> 1.  <p class="diagram-line" style="color:green;">A requester makes a request to the AirnodeRrpV0 contract which adds the <code>requestId</code> to storage, emits the request to the event logs and returns the <code>requestId</code> to the requester. The request is retrieved by the Airnode during its next run cycle. It then verifies the requester is authorized by checking authorizer contracts assigned to the Airnode.</p>
+> 2.  <p class="diagram-line" style="color:blue;">If the request is authorized, Airnode proceeds to respond. It first gathers the requested data from the API and calls the <code>fulfill()</code> function in AirnodeRrpV0, which removes the pending <code>requestId</code> from storage and makes a callback to <code>myFulfill()</code>. The gas costs associated 
 >     with the response are covered by the sponsor of the requester.</p>
 
 The following section of this document discusses the requester implementation,
@@ -49,18 +49,18 @@ its deployment and sponsoring.
 ## Step #1: Inherit RrpRequesterV0.sol
 
 A requester inherits from the
-[RrpRequesterVo.sol](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpRequesterV0.sol)
+[RrpRequesterV0.sol](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpRequesterV0.sol)
 contract. This will expose the AirnodeRrpV0.sol protocol contract to the
 requester allowing it to make Airnode requests.
 
 ```solidity
 import "@api3/airnode-protocol/contracts/rrp/requesters/RrpRequesterV0.sol";
 
-contract MyRequester is RrpRequester {
+contract MyRequester is V0 {
   ...
   constructor (address airnodeRrpAddress)
       public
-      RrpRequester(airnodeRrpAddress)
+      RrpRequesterV0(airnodeRrpAddress)
   {}
   ...
 }
@@ -98,13 +98,13 @@ requester later at the function (`airnodeCallback`) with the `requestId` and the
 ```solidity
 import "@api3/airnode-protocol/contracts/rrp/requesters/RrpRequesterV0.sol";
 
-contract MyRequester is RrpRequester {
+contract MyRequester is RrpRequesterV0 {
   mapping(bytes32 => bool) public incomingFulfillments;
   mapping(bytes32 => int256) public fulfilledData;
 
   constructor (address airnodeRrpAddress)
       public
-      RrpRequester(airnodeRrpAddress)
+      RrpRequesterV0(airnodeRrpAddress)
   {}
 
   function callTheAirnode(
@@ -227,7 +227,7 @@ contract MyRequester is RrpRequester {
 
     constructor (address airnodeRrpAddress)
         public
-        RrpRequester(airnodeRrpAddress)
+        RrpRequesterV0(airnodeRrpAddress)
     {}
 
     function callTheAirnode(

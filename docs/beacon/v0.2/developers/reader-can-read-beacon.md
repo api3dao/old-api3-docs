@@ -12,7 +12,7 @@ title: readerCanReadBeacon()
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 For on-chain smart contracts, the function
-[readerCanReadBeacon()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServerV0.sol#L349-L361)
+[readerCanReadBeacon()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServerV0.sol#L196-L209)
 returns true if the `reader` parameter can access the `beaconId` parameter
 meaning that the reader address has been whitelisted. Please contact the
 [API3 Business Development API Team](https://api3.org) to be whitelisted.
@@ -39,7 +39,7 @@ contract mySmartContract {
     // Calling the BeaconServer for reader status
     // where "this" is the contract address of this contract (myVerifyReadable).
     (canRead) =
-      RrpBeaconServer(_beaconContractAddress).readerCanReadBeacon(_beaconId, this);
+      RrpBeaconServerV0(_beaconContractAddress).readerCanReadBeacon(_beaconId, this);
   }
 }
 

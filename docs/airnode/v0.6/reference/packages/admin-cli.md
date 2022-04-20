@@ -130,7 +130,7 @@ instance to every function call. For this reason there is also class based
 ```js
 import { AdminSdk } from '@api3/admin';
 
-// First initialize the SDK with AirnodeRrp contract instance.
+// First initialize the SDK with AirnodeRrpV0 contract instance.
 // You can use static AdminSdk functions or provide your own instance.
 const airnodeRrp = await AdminSdk.getAirnodeRrpWithSigner(
   mnemonic,
