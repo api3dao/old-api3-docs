@@ -52,7 +52,7 @@ chain. This means that neither Airnode operators nor requesters need to deploy
 this contract themselves. Instead, API3 will deploy this contract once per chain
 and you simply connect your Airnode or requester contract to that deployed
 contract. See the
-[Airnode contract addresses](../reference/airnode-addresses.md) for reference.
+[Airnode Contract Addresses](../reference/airnode-addresses.md) for reference.
 
 The [`@api3/airnode-admin`](../reference/packages/admin-cli.md) package is a CLI
 tool used to interact with `AirnodeRrpV0.sol` and perform administrative

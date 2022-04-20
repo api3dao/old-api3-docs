@@ -27,9 +27,9 @@ For more information about the config.json file see the
 section in the Airnode document set.
 
 In the diagram below, an Airnode exposes its endpoints to the on-chain
-AirnodeRrp.sol contract. Airnode uses the OIS object to map its endpoints to an
-API operation. It should be noted that Airnode can have more than one endpoint
-that maps to the same API operation.
+AirnodeRrpV0.sol contract. Airnode uses the OIS object to map its endpoints to
+an API operation. It should be noted that Airnode can have more than one
+endpoint that maps to the same API operation.
 
 > <img src="./assets/images/ois-overview-extended.png" width="650px"/>
 >
