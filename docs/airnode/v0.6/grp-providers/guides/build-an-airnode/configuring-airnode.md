@@ -441,7 +441,7 @@ from the `oisTitle` and `endpointName`, use the CLI command
 [<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#rrp) An
 array of endpoints from OIS that the Airnode will respond to for the RRP
 protocol. Only endpoints listed here will be served through the RRP protocol
-[AirnodeRrp.sol](../../../concepts/airnode.md).
+[AirnodeRrpV0.sol](../../../concepts/airnode.md).
 
 - oisTitle & endpointName: Each trigger has an `oisTitle` and `endpointName`
   that allow you to refer to one of the endpoints in an OIS object. Remember

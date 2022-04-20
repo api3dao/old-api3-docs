@@ -38,8 +38,8 @@ How a requester refers to the sponsor.
 
 1. A requester can have multiple sponsors that have sponsored it. While making a
    request, the requester provides the `sponsorAddress` that it wants to have
-   the request fulfilled by. The AirnodeRrp.sol protocol contract checks if the
-   requester is sponsored, and if so, emits the request event.
+   the request fulfilled by. The AirnodeRrpV0.sol protocol contract checks if
+   the requester is sponsored, and if so, emits the request event.
 
 2. Next Airnode derives the `sponsorWallet` address using the provided
    `sponsorAddress`, then checks if this matches `sponsorWallet`. Airnode will

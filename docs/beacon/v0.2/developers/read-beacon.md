@@ -37,7 +37,7 @@ GitHub repository.
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.3;
 
-import "@api3/airnode-protocol/contracts/rrp/requesters/interfaces/IRrpBeaconServer.sol";
+import "@api3/airnode-protocol/contracts/rrp/requesters/interfaces/IRrpBeaconServerV0.sol";
 contract mySmartContract {
 
     function myGetBeaconValue(
@@ -67,10 +67,10 @@ contract mySmartContract {
 
 ::: tip Please note:
 
-The `RrpBeaconServer.sol` contract casts the reported data point to `int224`. If
-this is a problem (because the reported data may not fit into 224 bits or it is
-of a completely different type such as `bytes32`), do not use this contract and
-implement a customized version instead. The contract casts the timestamps to
+The `RrpBeaconServerV0.sol` contract casts the reported data point to `int224`.
+If this is a problem (because the reported data may not fit into 224 bits or it
+is of a completely different type such as `bytes32`), do not use this contract
+and implement a customized version instead. The contract casts the timestamps to
 `uint32`, which means it will not work work past-2106 in the current form. If
 this is an issue, consider casting the timestamps to a larger type.
 

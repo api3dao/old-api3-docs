@@ -23,24 +23,24 @@ contracts. You can find more information in the
 [source files on github](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-protocol/contracts/rrp).
 
 The request–response protocol is implemented as a single permissionless contract
-that all Airnodes interact with, which is named `AirnodeRrp.sol`. This base
+that all Airnodes interact with, which is named `AirnodeRrpV0.sol`. This base
 contract has the following inheritance tree that compartmentalizes the aspects
 of the protocol.
 
 > <img src="../assets/images/RRP-protocol-contracts.png" width="650px"/>
 
-### AirnodeRrp.sol
+### AirnodeRrpV0.sol
 
 The
-[AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol)
+[AirnodeRrpV0.sol](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/AirnodeRrpV0.sol)
 contract sits between a [requester](./requester.md) and the
 [Airnode](./airnode.md). It inherits from four additional contracts as
 illustrated in the diagram above:
 
-- [IAirnodeRrp.sol](README.md#iairnoderrp-sol)
-- [AuthorizationUtils.sol](README.md#authorizationutils-sol)
-- [WithdrawalUtils.sol](README.md#withdrawalutils-sol)
-- [TemplateUtils.sol](README.md#templateutils-sol)
+- [IAirnodeRrpV0.sol](README.md#iairnoderrp-sol)
+- [AuthorizationUtilsV0.sol](README.md#authorizationutils-sol)
+- [WithdrawalUtilsV0.sol](README.md#withdrawalutils-sol)
+- [TemplateUtilsV0.sol](README.md#templateutilsv0-sol)
 
 This contract has two key responsibilities:
 
@@ -55,38 +55,39 @@ contract. See the
 [Airnode contract addresses](../reference/airnode-addresses.md) for reference.
 
 The [`@api3/airnode-admin`](../reference/packages/admin-cli.md) package is a CLI
-tool used to interact with `AirnodeRrp.sol` and perform administrative actions.
+tool used to interact with `AirnodeRrpV0.sol` and perform administrative
+actions.
 
-### IAirnodeRrp.sol
+### IAirnodeRrpV0.sol
 
 The
-[IAirnodeRrp.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/interfaces/IAirnodeRrp.sol)
-interface describes all functions and events of the `AirnodeRrp.sol` contract
+[IAirnodeRrpV0.sol](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/interfaces/IAirnodeRrpV0.sol)
+interface describes all functions and events of the `AirnodeRrpV0.sol` contract
 which implements this interface.
 
 This interface inherits:
 
-- [IAuthorizationUtils.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/interfaces/IAuthorizationUtils.sol)
-- [IWithdrawalUtils.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/interfaces/IWithdrawalUtils.sol)
-- [ITemplateUtils.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/interfaces/ITemplateUtils.sol)
+- [IAuthorizationUtilsV0.sol](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/interfaces/IAuthorizationUtilsV0.sol)
+- [IWithdrawalUtilsV0.sol](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/interfaces/IWithdrawalUtilsV0.sol)
+- [ITemplateUtilsV0.sol](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/interfaces/ITemplateUtilsV0.sol)
 
-### AuthorizationUtils.sol
+### AuthorizationUtilsV0.sol
 
 The
-[AuthorizationUtils.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/AuthorizationUtils.sol)
+[AuthorizationUtilsV0.sol](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/AuthorizationUtilsV0.sol)
 contract implements Airnode [Authorizer](./authorization.md) checks.
 
-### WithdrawalUtils.sol
+### WithdrawalUtilsV0.sol
 
 The
-[WithdrawalUtils.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/WithdrawalUtils.sol)
+[WithdrawalUtilsV0.sol](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/WithdrawalUtilsV0.sol)
 contract allows the [sponsor](./sponsor.md) to trigger a withdrawal request
 which is later fulfilled by Airnode and all sponsor wallet funds are sent back
 to the sponsor.
 
-### TemplateUtils.sol
+### TemplateUtilsV0.sol
 
 The
-[TemplateUtils.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/TemplateUtils.sol)
+[TemplateUtilsV0.sol](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/TemplateUtilsV0.sol)
 contract is used to create and store Airnode [templates](./template.md) used to
 create a [template request](./request.md#template-request).
