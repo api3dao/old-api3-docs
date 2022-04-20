@@ -36,11 +36,11 @@ selection of third parties.
 
 ## Simple Implementation
 
-The Beacon Server contract (_RrpBeaconServer.sol_) maintains a cache of on-chain
-Beacon values readily available for smart contracts to retrieve instantly as
-illustrated in figure below. A Beacon is updated when a pre-defined tolerance of
-the Beacon's value is detected. Each Beacon has its own configuration parameters
-that define when and how it updates. See the
+The Beacon Server contract (_RrpBeaconServerV0.sol_) maintains a cache of
+on-chain Beacon values readily available for smart contracts to retrieve
+instantly as illustrated in figure below. A Beacon is updated when a pre-defined
+tolerance of the Beacon's value is detected. Each Beacon has its own
+configuration parameters that define when and how it updates. See the
 [readBeacon()](./developers/read-beacon.md) function doc and learn how your
 smart contract can access a Beacon .
 

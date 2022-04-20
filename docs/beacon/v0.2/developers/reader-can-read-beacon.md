@@ -26,7 +26,7 @@ subject to whitelisting. Off-chain code is beyond the scope of this doc.
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.3;
 
-import "@api3/airnode-protocol/contracts/rrp/requesters/interfaces/IRrpBeaconServer.sol";
+import "@api3/airnode-protocol/contracts/rrp/requesters/interfaces/IRrpBeaconServerV0.sol";
 contract mySmartContract {
 
 

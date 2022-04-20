@@ -11,7 +11,7 @@ title: Getting Started
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-[RrpBeaconServer.sol](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServerV0.sol)
+[RrpBeaconServerV0.sol](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServerV0.sol)
 serves Beacon values sourced from Airnode. A Beacon is a live data point
 associated with a `beaconId` which is derived from a `templateId` and additional
 parameters. This is suitable where the more recent data point is always more
@@ -80,7 +80,7 @@ of addresses available on specific networks.
 ## Solidity Videos
 
 The following short videos are relevant to smart contracts when calling other
-contracts such as `RrpBeaconServer.sol`.
+contracts such as `RrpBeaconServerV0.sol`.
 
 - [Call contract with an interface](https://www.youtube.com/watch?v=tbjyc-VQaQo)
 - [Call other contracts](https://www.youtube.com/watch?v=6aQErpWPLbk)

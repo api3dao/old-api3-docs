@@ -20,7 +20,7 @@ The version above may need to be removed.
 
 :::
 
-## RrpBeaconServer.sol
+## RrpBeaconServerV0.sol
 
 <!-- https://github.com/api3dao/beacon-setup-guide/blob/main/deployments/0.3.1/goerli.json -->
 
