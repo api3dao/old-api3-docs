@@ -14,7 +14,7 @@ title: Airnode Deployer Image
 Use the deployer image to deploy or remove an Airnode with a cloud provider such
 as AWS. The simplest way is to use the pre-built packages. If you would rather
 build the images yourself see the
-[README](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-deployer/docker)
+[README](https://github.com/api3dao/airnode/tree/v0.6/packages/airnode-deployer/docker)
 in the deployer package.
 
 The deployer image has two commands.

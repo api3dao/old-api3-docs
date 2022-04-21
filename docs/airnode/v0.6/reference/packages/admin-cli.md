@@ -12,7 +12,7 @@ title: Admin CLI
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 Use the
-[airnode-admin](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-admin)
+[airnode-admin](https://github.com/api3dao/airnode/tree/v0.6/packages/airnode-admin)
 Admin CLI tool to interact with Airnode across blockchains. There are commands
 for both developers (dApp) and API providers. Developers can sponsor
 [requester](../../concepts/requester.md) contracts and derive
@@ -37,9 +37,9 @@ are just two examples of many possibilities. See the
 - `https://ropsten.infura.io/v3/<KEY>`
 
 The CLI connects to the
-[AirnodeRrpV0.sol](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/AirnodeRrpV0.sol)
+[AirnodeRrpV0.sol](https://github.com/api3dao/airnode/blob/v0.6/packages/airnode-protocol/contracts/rrp/AirnodeRrpV0.sol)
 or the
-[RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol)
+[RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/v0.6/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol)
 contract, which addresses are derived from the current chain. You can optionally
 specify the contract addresses yourself by providing optional
 `airnode-rrp-address` or `requester-authorizer-with-airnode` command argument
@@ -183,7 +183,7 @@ between [requesters](../../concepts/requester.md) and
 [sponsorWallets](../../concepts/sponsor.md#sponsorwallet) as well as
 [templates](../../concepts/template.md) used by a sponsor's requesters. Some of
 these commands connect to the
-[AirnodeRrpV0.sol](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/AirnodeRrpV0.sol)
+[AirnodeRrpV0.sol](https://github.com/api3dao/airnode/blob/v0.6/packages/airnode-protocol/contracts/rrp/AirnodeRrpV0.sol)
 protocol contract where the signer is sponsor account.
 
 - [sponsor-requester](admin-cli.md#sponsor-requester)
@@ -746,7 +746,7 @@ This authorizer contract can whitelist [requesters](../../concepts/requester.md)
 where each Airnode is adminned by themselves.
 
 These commands connect to the
-[RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol)
+[RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/v0.6/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol)
 contract.
 
 - [set-whitelist-expiration](admin-cli.md#set-whitelist-expiration)
@@ -1022,4 +1022,4 @@ npx @api3/airnode-admin is-requester-whitelisted ^
 ## More Examples
 
 You can find more examples in the _@api3-dao/airnode/package/admin_
-[test files](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-admin/test).
+[test files](https://github.com/api3dao/airnode/tree/v0.6/packages/airnode-admin/test).
