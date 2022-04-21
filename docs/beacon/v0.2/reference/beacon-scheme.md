@@ -27,7 +27,7 @@ endpoint. The template contains the parameters used by Airnode when calling the
 API endpoint. Additional Beacon parameters may be required to merge with the
 template for the Airnode to call an API endpoint. This entire process is
 completed using the function
-[requestBeaconUpdate()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServerV0.sol#L73-L121).
+[requestBeaconUpdate()](https://github.com/api3dao/airnode/blob/v0.6/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServerV0.sol#L73-L121).
 
 ::: tip
 
@@ -35,7 +35,7 @@ Useless you intent to ask the Beacon to update itself, outside of its normal
 update process, the use of a Beacon's template will be of no concern. However to
 update a Beacon manually a requester will need the templateId of the Beacon when
 calling the
-[requestBeaconUpdate()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServerV0.sol#L73-L121)
+[requestBeaconUpdate()](https://github.com/api3dao/airnode/blob/v0.6/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServerV0.sol#L73-L121)
 function.
 
 :::
@@ -44,12 +44,12 @@ function.
 
 Create a `templateId` by hashing the Airnode address, the endpointId and the
 parameters of the template. See the
-[createTemplate()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/TemplateUtilsV0.sol#L16-L46)
+[createTemplate()](https://github.com/api3dao/airnode/blob/v0.6/packages/airnode-protocol/contracts/rrp/TemplateUtilsV0.sol#L16-L46)
 function in the monorepo.
 
 Create a `beaconId` by hashing the `templateId` and the Beacon parameters. See
 the
-[requestBeaconUpdate()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServerV0.sol#L73-L121)
+[requestBeaconUpdate()](https://github.com/api3dao/airnode/blob/v0.6/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServerV0.sol#L73-L121)
 function in the monorepo.
 
 The `templateId` cannot be derived from the `beaconId`.

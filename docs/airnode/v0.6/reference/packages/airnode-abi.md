@@ -12,7 +12,7 @@ title: ABI
 <TOC class="table-of-contents" :include-level="[2,4]" />
 
 The
-[airnode-abi](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-abi)
+[airnode-abi](https://github.com/api3dao/airnode/tree/v0.6/packages/airnode-abi)
 package is a unique way to encode and decode parameters for use with Airnode.
 Parameters are provided with encoding types, names and values. The types are
 shortened and grouped with a version as the "header". The name/value pairs are

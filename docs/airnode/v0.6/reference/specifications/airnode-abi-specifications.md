@@ -247,7 +247,7 @@ console.log('\nDECODED:', decoded);
 See the package doc [airnode-abi](../packages/airnode-abi.md) for more
 information on how to encode and decode with Airnode ABI off-chain. Also see
 code samples in the
-[examples](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-examples)
+[examples](https://github.com/api3dao/airnode/tree/v0.6/packages/airnode-examples)
 package.
 
-- [request-utils.ts](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-examples/integrations/coingecko/request-utils.ts#L8)
+- [request-utils.ts](https://github.com/api3dao/airnode/blob/v0.6/packages/airnode-examples/integrations/coingecko/request-utils.ts#L8)

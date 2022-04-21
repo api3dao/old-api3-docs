@@ -186,7 +186,7 @@ a requester". This sponsorship is know to have, and be defined by, a
 This sponsorship allows the requester to use the sponsor's `sponsorWallet` for a
 particular Airnode to cover gas costs incurred by the Airnode in response to a
 request. Learn more about
-[sponsorships](../../v0.2/grp-developers/requesters-sponsors.md).
+[sponsorships](../grp-developers/requesters-sponsors.md).
 
 Use the [Admin CLI tool](../reference/packages/admin-cli.md#sponsor-requester)
 to sponsor a requester. An example can be seem in the

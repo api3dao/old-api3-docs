@@ -11,7 +11,7 @@ title: Getting Started
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-[RrpBeaconServerV0.sol](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServerV0.sol)
+[RrpBeaconServerV0.sol](https://github.com/api3dao/airnode/blob/v0.6/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServerV0.sol)
 serves Beacon values sourced from Airnode. A Beacon is a live data point
 associated with a `beaconId` which is derived from a `templateId` and additional
 parameters. This is suitable where the more recent data point is always more
