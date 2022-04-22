@@ -131,7 +131,7 @@ Add values for each of the these fields.
 4. Enable the
    [API Gateway](https://console.cloud.google.com/apis/library/apigateway.googleapis.com).
    Select the proper project on the GCP Gateway page, then select the Enable
-   button. If the Manage button is present for the project, the GCP Gateway is
+   button. If the _Manage_ button is present for the project, the GCP Gateway is
    already enabled.
    <!--https://console.cloud.google.com/marketplace/product/google/apigateway.googleapis.com?returnUrl=%2Fapi-gateway%2Fapi&project=zzz  -->
 
