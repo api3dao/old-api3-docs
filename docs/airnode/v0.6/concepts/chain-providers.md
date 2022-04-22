@@ -50,10 +50,10 @@ Airnode. It then applies an arbitrary name for the blockchain provider
         "value": 3.12,
         "unit": "gwei"
       },
-      "baseFeeMultiplier": 2
+      "baseFeeMultiplier": 2,
+      "fulfillmentGasLimit": 500000
     },
-    "maxConcurrency": 100,
-    "fulfillmentGasLimit": 500000
+    "maxConcurrency": 100
   }
 ],
 ```
@@ -89,10 +89,10 @@ Multiple providers can be used per chain. Simply add another object to
         "value": 3.12,
         "unit": "gwei"
       },
-      "baseFeeMultiplier": 2
+      "baseFeeMultiplier": 2,
+      "fulfillmentGasLimit": 500000
     },
-    "maxConcurrency": 100,
-    "fulfillmentGasLimit": 500000
+    "maxConcurrency": 100
   }
 ],
 ```
@@ -127,10 +127,10 @@ each has a unique `id` and `type` and a list of `providers` for each.
         "value": 3.12,
         "unit": "gwei"
       },
-      "baseFeeMultiplier": 2
+      "baseFeeMultiplier": 2,
+      "fulfillmentGasLimit": 500000
     },
-    "maxConcurrency": 100,
-    "fulfillmentGasLimit": 500000
+    "maxConcurrency": 100
   },
   {
     "authorizers": [
@@ -152,10 +152,10 @@ each has a unique `id` and `type` and a list of `providers` for each.
         "value": 3.12,
         "unit": "gwei"
       },
-      "baseFeeMultiplier": 2
+      "baseFeeMultiplier": 2,
+      "fulfillmentGasLimit": 500000
     },
-    "maxConcurrency": 100,
-    "fulfillmentGasLimit": 500000
+    "maxConcurrency": 100
   }
 ],
 ```

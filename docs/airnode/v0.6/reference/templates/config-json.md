@@ -56,10 +56,10 @@ building a config.json file.
           "value": <FILL_NUMBER>,
           "unit": "<FILL_*>"
         },
-        "baseFeeMultiplier": <FILL_NUMBER>
+        "baseFeeMultiplier": <FILL_NUMBER>,
+        "fulfillmentGasLimit": <FILL_NUMBER>,
       },
       "maxConcurrency": <FILL_NUMBER>,
-      "fulfillmentGasLimit": <FILL_NUMBER>,
       "blockHistoryLimit": "<FILL_*>",
       "minConfirmations": "<FILL_*>",
       "ignoreBlockedRequestsAfterBlocks": "<FILL_*>"
