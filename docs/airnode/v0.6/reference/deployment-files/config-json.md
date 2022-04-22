@@ -71,16 +71,16 @@ respective parameters.
         "value": 3.12,
         "unit": "gwei"
       },
-      "baseFeeMultiplier": 2
+      "baseFeeMultiplier": 2,
+      "fulfillmentGasLimit": 500000
     },
     "maxConcurrency": 100,
-    "fulfillmentGasLimit": 500000,
+
     "blockHistoryLimit": 300,
     "minConfirmations": 0,
     "ignoreBlockedRequestsAfterBlocks": 20
   },
   {
-    "maxConcurrency": 100,
     "authorizers": [],
     "contracts": {
       "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
@@ -98,10 +98,10 @@ respective parameters.
         "value": 3.12,
         "unit": "gwei"
       },
-      "baseFeeMultiplier": 2
+      "baseFeeMultiplier": 2,
+      "fulfillmentGasLimit": 500000
     },
     "maxConcurrency": 100,
-    "fulfillmentGasLimit": 500000,
     "blockHistoryLimit": 300,
     "minConfirmations": 0,
     "ignoreBlockedRequestsAfterBlocks": 20
@@ -169,18 +169,18 @@ to`{"value": 3.12, "value": "gwei"}`)
 The resulting Maximum Fee will equal
 `(Base Fee * baseFeeMultiplier) + priorityFee`
 
+#### `options.fulfillmentGasLimit`
+
+(required) - The maximum gas limit allowed when Airnode responds to a request.
+See
+[chain-related options](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#options)
+for additional details.
+
 ### `maxConcurrency`
 
 [<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#maxconcurrency)
 (required) - The maximum concurrency specifies the maximum number of concurrent
 handler calls per single Airnode invocation.
-
-### `fulfillmentGasLimit`
-
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#fulfillmentgaslimit)
-(required) - The maximum gas limit allowed when Airnode responds to a request.
-If exceeded, the request is marked as failed and will not be repeated during
-Airnode's next run cycle.
 
 ### `blockHistoryLimit`
 
@@ -266,7 +266,7 @@ using GCP, make sure to choose a
 
 (required for AWS and GCP) - Disables concurency reservations for spawned cloud
 functions. For more information refer to the
-[`maxConcurrency`](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#maxconcurrency)
+[maxConcurrency](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#maxconcurrency)
 section.
 
 #### `cloudProvider.projectId`
