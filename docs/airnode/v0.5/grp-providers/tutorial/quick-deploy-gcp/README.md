@@ -119,27 +119,28 @@ Add values for each of the these fields.
    where the Airnode will be deployed. Once the project is created, add the
    project ID to the [secrets.env](./secrets-env.md) file.
 
-2. In order for Airnode to deploy successfully, you need to enable the
+2. Make sure you have billing enabled for your project. To do so, you will need
+   to pair the project with your bank card, although no charges will be incurred
+   since the resource usage fits well within the free tier limit.
+
+3. In order for Airnode to deploy successfully, you need to enable the
    [App Engine Admin API](https://console.cloud.google.com/apis/library/appengine.googleapis.com)
    specifically for the project. After enabling it, wait a few minutes before
    deploying the Airnode for this change to take effect.
 
-3. Make sure you have billing enabled for your project. To do so, you will need
-   to pair the project with your bank card, although no charges will be incurred
-   since the resource usage fits well within the free tier limit.
-
-<!-- 3. Enable the
-   [API Gateway](https://console.cloud.google.com/marketplace/product/google/apigateway.googleapis.com?returnUrl=%2Fapi-gateway%2Fapi&project=zzz).
+4. Enable the
+   [API Gateway](https://console.cloud.google.com/apis/library/apigateway.googleapis.com).
    Select the proper project on the GCP Gateway page, then select the Enable
-   button. If the Manage button is present for the project, the GCP Gateway is
-   already enabled.-->
+   button. If the _Manage_ button is present for the project, the GCP Gateway is
+   already enabled.
+   <!--https://console.cloud.google.com/marketplace/product/google/apigateway.googleapis.com?returnUrl=%2Fapi-gateway%2Fapi&project=zzz  -->
 
-4. Create a new service account from the
+5. Create a new service account from the
    [Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts)
    menu. Grant this account access to the project by adding the role `Owner`
    during creation.
 
-5. Once the new service account is created, click on it to bring up its
+6. Once the new service account is created, click on it to bring up its
    management page. Select the KEYS tab and add a new access key of type JSON
    for this account. Download the key file and place in the root of the
    `/quick-deploy-gcp` directory. Rename it `gcp.json`.
