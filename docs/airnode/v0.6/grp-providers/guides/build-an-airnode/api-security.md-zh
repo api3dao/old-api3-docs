@@ -96,7 +96,7 @@ Airnode 可以使用以下安全方案类型来对 API 操作进行身份验证�
 
 ## 中继元数据安全方案
 
-In addition to authenticating itself, Airnode can "relay" security information about a request to an API operation. This is different then [Authorization](./apply-auth.md) of requesters to access the Airnode.
+除了身份验证之外，Airnode 可以“传送”关于 API 操作请求的安全信息。 。 这不同于 [授权](./apply-auth.md) 请求者访问Airnode。
 
 - [relayRequesterAddress](./api-security.md#relayrequesteraddress)
 - [relayChainId](./api-security.md#relaychainid)
