@@ -1,5 +1,5 @@
 ---
-title: API Security
+title: API 安全性
 ---
 
 <TitleSpan>创建一个 Airnode</TitleSpan>
@@ -228,30 +228,30 @@ _请注意，这一步似乎是额外的工作，因为没有理由去定义一�
 
 在定义并开启安全方案后，可能并不清楚谁提供了该值，以及如何设置。
 
-认证方案旨在为整个OIS所共有，并由API提供者使用`config.json`的`apiCredentials`部分来设置。 The `apiCredentials` is an array which specifies the values for all security schemes in all OIS definitions. Each element of this array contains the following fields
+认证方案旨在为整个OIS所共有，并由API提供者使用`config.json`的`apiCredentials`部分来设置。 `apiCredentials`是一个数组，它指定了所有OIS定义中所有安全方案的值。 这个数组的每个元素都包含以下字段：
 
-- `oisTitle` is the title of the OIS for the particular security scheme
-- `securitySchemeName` is the name of the security scheme
-- `securitySchemeValue` is the actual value that should be used by Airnode when making the API request. This value is usually a secret and it is recommended to interpolate it from `secrets.env`.
+- `oisTitle`是特定安全方案的OIS的标题
+- `securitySchemeName`是安全方案的名称
+- `securitySchemeValue`是Airnode在进行API请求时应该使用的实际值。 这个值通常是保密的，建议从`secrets.env`中插值出来。
 
-If you want to base your API authentication on dynamic data, for example [requester](../../../concepts/requester.md) address, you can utilize the relayed meta data security schemes [described above](./api-security.md#relayrequesteraddress) which can forward metadata to all API operations.
+如果你想把API认证建立在动态数据上，例如[请求者](../../../concepts/requester.md)地址，你可以利用[上面](./api-security.md#relayrequesteraddress)描述的中继元数据安全方案，它可以把元数据转发给所有API操作。
 
-::: tip Relayed meta data security schemes values.
+::: tip 中继元数据安全方案的值
 
-The relayed meta data security schemes do not require a supplied value. Values will be provided (relayed) by Airnode depending on the particular request.
+中继元数据安全方案不需要提供值。 值将由Airnode提供（中继），这取决于特定的请求。
 
 :::
 
-## Using Different Security Schemes
+## 使用不同的安全方案
 
-Currently, if you want different API operations to use different security schemes they must be grouped in different OIS objects based on their common security schemes. For example, your API has four operations, three require an API key in the HTTP header, another (public `/ping` endpoint) requires no security.
+目前，如果你想让不同的API操作使用不同的安全方案，它们必须根据其共同的安全方案，被归入不同的OIS对象。 例如，你的API有四个操作，其中三个需要HTTP头部中的API密钥，另一个（公共`/ping`端点）不需要安全性。
 
-- The first three API operations might be in the `ois[0]` object with a security scheme named _requiresXApiKey_ of type _apiKey_ as shown above.
-- The /ping API operation would be in `ois[1]` which would not have any `component.securitySchemes` and `security` would be an empty array.
+- 前三个API操作可能在 `ois[0]`对象中，其安全方案名为_requestXApiKey_，类型为_apiKey_，如上所示。
+- /ping API操作将在`ois[1]`中，它没有任何`component.securitySchemes`，`security`将是一个空数组。
 
-## Multiple Security Schemes
+## 多重安全方案
 
-You can use multiple security schemes (e.g., an API key goes in the header, and an additional secret goes in the query).
+你可以使用多个安全方案（例如，一个API密钥放在头中，一个额外的秘密放在查询中）。
 
 ```json
 // inside ois[n].apiSpecifications.
@@ -275,6 +275,6 @@ You can use multiple security schemes (e.g., an API key goes in the header, and 
 }
 ```
 
-## No Security
+## 无安全性
 
-If the API you are integrating is publicly accessible, you can set both the `security schemes` and `security` fields to empty objects.
+如果你要集成的API是公开的，你可以把`security schemes`和`security` 字段都设置为空对象。
