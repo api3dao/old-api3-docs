@@ -114,7 +114,7 @@ Airnode 可以使用以下安全方案类型来对 API 操作进行身份验证�
 
 ### relayRequesterAddress
 
-The `relayRequesterAddress` security scheme type instructs Airnode to forward the [requester](../../../concepts/requester.md) address.
+`relayRequesterAddress`安全方案类型，指示Airnode转发[请求者](../../../concepts/requester.md)地址。
 
 ```json
 {
@@ -126,7 +126,7 @@ The `relayRequesterAddress` security scheme type instructs Airnode to forward th
 
 ### relayChainId
 
-The `relayChainId` security scheme type instructs Airnode to forward the chain's ID.
+`relayChainId` 安全计划类型，指示Airnode 转发链ID。
 
 ```json
 {
@@ -138,7 +138,7 @@ The `relayChainId` security scheme type instructs Airnode to forward the chain's
 
 ### relayChainType
 
-The `relayChainType` security scheme type instructs Airnode to forward the chain's type.
+`relayChainType` 安全方案类型，指示Airnode 转发 链的类型。
 
 ```json
 {
@@ -150,7 +150,7 @@ The `relayChainType` security scheme type instructs Airnode to forward the chain
 
 ### relaySponsorAddress
 
-The `relaySponsorAddress` security scheme type instructs Airnode to forward the [sponsor address](../../../concepts/sponsor.md#sponsoraddress).
+The `relaySponsorAddress` 安全计划类型指示Airnode 转发 [赞助者地址](../../../concepts/sponsor.md#sponsoraddress)。
 
 ```json
 {
@@ -162,7 +162,7 @@ The `relaySponsorAddress` security scheme type instructs Airnode to forward the 
 
 ### relaySponsorWalletAddress
 
-The `relaySponsorWalletAddress` security scheme type instructs Airnode to forward the [sponsor wallet address](../../../concepts/sponsor.md#sponsorwallet).
+`relaySponsorWalletAddress` 安全方案类型，指示Airnode 转发 [赞助钱包地址](../../../concepts/sponsor.md#sponsorwallet)
 
 ```json
 {
@@ -172,15 +172,15 @@ The `relaySponsorWalletAddress` security scheme type instructs Airnode to forwar
 }
 ```
 
-## Example
+## 示例
 
-OIS security is inspired by OAS security practices. This is implemented using the security schemes and security field. All supported security schemes are described in detail in the [Airnode Authentication Security Schemes](./api-security.md#airnode-authentication-security-schemes) and [Relayed Meta Data Security Schemes](./api-security.md#relayed-meta-data-security-schemes) sections above. The following example is related to _Airnode Authentication Security Schemes_. Working with security schemes can be described in three steps.
+OIS的安全受到OAS安全实践的启发。 这是用安全方案和安全字段实现的。 所有支持的安全方案，在上面的[Airnode认证安全方案](./api-security.md#airnode-authentication-security-schemes)和[中继元数据安全方案](./api-security.md#relayed-meta-data-security-schemes)部分都有详细描述。 下面的例子与_Airnode认证安全方案_有关。 使用安全方案的工作可以分三个步骤描述。
 
-1. [Define the security schemes for an OIS](./api-security.md#step-1-define-the-security-schemes-for-an-ois)
-2. [Turn on the defined security schemes](./api-security.md#step-2-turn-on-the-defined-security-schemes)
-3. [Specify the values for the defined security schemes](./api-security.md#step-3-specify-the-values-for-the-defined-security-schemes)
+1. [定义OIS的安全方案](./api-security.md#step-1-define-the-security-schemes-for-an-ois)
+2. [打开已定义的安全方案](./api-security.md#step-2-turn-on-the-defined-security-schemes)
+3. [指定定义安全方案的值](./api-security.md#step-3-specify-the-values-for-the-defined-security-schemes)
 
-Following is an example of a partial `config.json` which demonstrates the usage of security scheme and security field.
+下面是一个局部的`config.json`的例子，演示了安全方案和安全字段的使用。
 
 ```json
 {
@@ -213,23 +213,22 @@ Following is an example of a partial `config.json` which demonstrates the usage 
 }
 ```
 
-### Step #1: Define the security schemes for an OIS
+### 第 1 步：为OIS定义安全方案
 
-You use
-<code style="overflow-wrap:break-word;">ois[n].apiSpecifications.components.securitySchemes</code>
-to define the security schemes your API will use. Consider the partial `config.json` above that declares a security scheme named "requiresXApiKey". This scheme declares that the API requires an API key that must exist in the HTTP header named "X-api-key".
+您需要使用
+<code style="overflow-wrap:break-word;">ois[n].apiSpecifications.components.securitySchemes</code>， 定义您的 API 将使用的安全方案。 考虑上面局部的`config.json` ，声明名为 "requirexApiKey" 的安全方案。 这个方案声明API需要一个 API 密钥，这个密钥必须存在于HTTP 头部，名为“X-api-key”。
 
-### Step #2: Turn on the defined security schemes
+### 第 2步：打开已定义的安全方案
 
-When the scheme is defined, it is not turned on by default. You need to explicitly list the security schemes you intend to use in the `security` field located in `ois[n].apiSpecifications.security` object. The keys in this object are the names of security schemes to be used. Use empty array (`[]`) as values for now.
+当方案被定义时，它在默认情况下不会被打开。 你需要在位于 `ois[n].apiSpecifications.security` 对象的`security`字段中，明确列出你打算使用的安全方案。 这个对象中的键是要使用的安全方案的名称。 现在使用空数组 (`[]`) 作为值。
 
-_Be aware that this step seems like extra work since there is no reason to define a security scheme that will not be used. However, Airnode may support [more complex authentication](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#security-requirement-object) logic in the future and using `[]` allows its implementation without a breaking change._
+_请注意，这一步似乎是额外的工作，因为没有理由去定义一个不会被使用的安全方案。 然而，Airnode在未来可能会支持[更复杂的认证](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#security-requirement-object)逻辑，使用`[]` 可以实现它，而不需要破坏性改变现有结构。_
 
-### Step #3: Specify the values for the defined security schemes
+### 第3步：指定定义安全方案的值
 
-After defining and turning on a security scheme, it may be unclear what provides the value and how it is set.
+在定义并开启安全方案后，可能并不清楚谁提供了该值，以及如何设置。
 
-The authentication schemes are intended to be common for the whole OIS and set by the API provider using `apiCredentials` part of the `config.json`. The `apiCredentials` is an array which specifies the values for all security schemes in all OIS definitions. Each element of this array contains the following fields
+认证方案旨在为整个OIS所共有，并由API提供者使用`config.json`的`apiCredentials`部分来设置。 The `apiCredentials` is an array which specifies the values for all security schemes in all OIS definitions. Each element of this array contains the following fields
 
 - `oisTitle` is the title of the OIS for the particular security scheme
 - `securitySchemeName` is the name of the security scheme
