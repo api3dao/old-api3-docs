@@ -104,11 +104,11 @@ Airnode 可以使用以下安全方案类型来对 API 操作进行身份验证�
 - [relaySponsorAddress](./api-security.md#relaysponsoraddress)
 - [relaySponsorWalletAddress](./api-security.md#relaysponsorwalletaddress)
 
-For relayed meta data security schemes you do not provide any values in [apiCredentials](../../../reference/deployment-files/config-json.md#apicredentials) as they are extracted from the request by Airnode.
+对于传输的元数据安全方案，您不需要在 [apiCredentials](../../../reference/deployment-files/config-json.md#apicredentials) 中提供任何值，因为它们是从 Airnode的请求中提取的。
 
-::: tip Additional Processing Logic
+::: 附加处理逻辑提示
 
-Note that Airnode is just relaying metadata to your API operations and does not perform any additional logic. You must implement any desired logic in your API operations. See [Relayed Meta Data Authentication](../../../concepts/relay-meta-auth.md) for overview of its usage.
+请注意，Airnode只是将元数据转发给你的API操作，并不执行任何额外的逻辑。 你必须在API操作中实现任何需要的逻辑。 请参阅[中继元数据认证](../../../concepts/relay-meta-auth.md)以了解其使用概况。
 
 :::
 
