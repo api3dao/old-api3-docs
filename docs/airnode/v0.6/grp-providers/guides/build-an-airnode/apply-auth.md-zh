@@ -1,8 +1,8 @@
 ---
-title: Using Authorizers (optional)
+title: 使用授权者(可选)
 ---
 
-<TitleSpan>Build an Airnode</TitleSpan>
+<TitleSpan>创建一个 Airnode</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,13 +10,13 @@ title: Using Authorizers (optional)
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-An Airnode can authorize requester contract access to its underlying API using [Authorizers](../../../concepts/authorization.md). This method is on-chain and requires some blockchain knowledge by an API provider.
+Airnode可以使用[授权者](../../../concepts/authorization.md)，授权请求者合约访问其底层API。 这种方法是在链上操作的，需要API供应商具备一些区块链知识。
 
-An [authorizer](../../../concepts/authorization.md) is a contract which typically checks for a single condition ("has the requester made their monthly payment", "is this `requesterAddress` whitelisted", etc.). Authorizers can be combined to enforce more complex policies. If any of the authorizers in the list gives access, the request will considered to be authorized. From a logical standpoint, the authorization outcomes get **OR**ed.
+[授权者](../../../concepts/authorization.md)是一个合约，它通常检查一个单一的条件（"请求者是否已经支付了他们的月费"，"这个`requesterAddress`是否被列入白名单"，等等）。 授权者可以被组合起来以执行更复杂的策略。 如果列表中的任何一个授权者给予访问权，该请求将被认为是已授权的。 从逻辑的角度看，授权结果得到**OR**。
 
-::: tip Alternative: Relayed Meta Data
+::: tip 备选方案：中继的元数据
 
-As an alternative to authorizers, an API provider can use [Relayed Meta Data](./api-security.md#relayed-meta-data-security-schemes) to authenticate a request. This approach is off-chain and requires no blockchain knowledge by the API provider. Note that it is possible to use both authorizers and relayed meta data together.
+作为授权者的替代品，API提供者可以使用[中继元数据](./api-security.md#relayed-meta-data-security-schemes)来验证请求。 这种方法是链外的，不需要API供应商的区块链知识。 请注意，有可能同时使用授权者和中继元数据。
 
 :::
 
