@@ -11,81 +11,79 @@ title: API Providers - Why power Beacons?
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Beacons allow smart contract developers to connect Web3 applications to
-continuously updated streams of off-chain data, such as the latest
-cryptocurrency, stock, and commodities prices. Beacon are light-weight,
-first-party data feeds that increase transparency, reduce cost, and scale data
-access for Web3.
+Beacons are lightweight, first-party data feeds that increase transparency,
+reduce cost, and scale data access for Web3. They allow smart contract
+developers to connect Web3 applications to continuously updated streams of
+off-chain data, such as the latest cryptocurrency, stock, and commodities
+prices.
 
-Why power Beacons? API providers are in the business to monetize their data and
-on-chain Beacons make it possible. Smart contract developers are demanding
-on-chain data at affordable pricing and Beacons are the easy solution.
+Why should API providers power Beacons? Beacons unlock a novel data monetization
+channel targeting the growing market of smart contract developers building the
+next generation of games, applications, and services.
 
-## Beacons are everywhere!
-
-Operated by the market’s most trusted and reliable data providers, Beacons are a
-transparent, cost-efficient, and scalable way for smart contracts to interact
-with data they need.
-
-Beacons are literally everywhere and data from API providers will get maximum
-exposure to dApps that &ndash; run wherever. The simple design and
-implementation makes it easy for API3 to deploy its Beacon server contract on
-compatible evm chains. API providers simply deploy an Airnode (_API provider
-owned and operated_) and instantly present their Beacon data on the blockchains
-of their choosing.
-
-> <img src="../assets/images/why-power-beacons.png" width="350px"/>
->
-> Data source transparent. Data source operated.
+Sound appealing? API3 is ready to help onboard your organization to Web3 data
+provision.
 
 ## Reasons to power Beacons
 
-Beacons are designed for API providers big and small and create a new
-marketplace for them. Implementation costs are minimal and API3 is ready to
-help.
+Beacons enable API providers of all sizes the ability to transparently,
+securely, and cost-efficiently monetize their data on Web3.
 
-### Monetize
+### Monetization
 
-With attractive pricing of Beacons, developers are now building smart contracts
-that consume off-chain data they could not previously afford. API providers
-stand to profit from this explosion of data hungry dApps.
+Innovative decentralized applications (dApps) are increasingly demanding access
+to off-chain data. API providers that utilize Beacons to satisfy this need will
+tap into a novel and growing revenue stream.
+
+### Security
+
+Other oracle implementations that provide Web3 data rely on networks of
+3rd-party oracle nodes acting as middlemen. Beacons, on the other hand, feed
+data from API provider directly to the blockchain and thereby avoid security
+risks and fees introduced by third parties. Moreover, developers leveraging
+Beacons for their dApps are provided with security guarantees associated with
+knowing exactly where their data comes from.
 
 ### Pricing
 
-Traditional Web3 data feeds rely on networks of 3rd-party oracle nodes. Built on
-API3’s first-party oracles, Beacons cut out the middlemen and the hefty fees
-they collect. In doing so API provider data is attractively priced.
+Another benefit of the first-party design of Beacons is that API providers can
+price data attractively for developers thanks to the absence of hefty fees
+charged by middlemen.
 
 ### Exposure
 
 By engaging the emerging Web3 market for Beacons, API providers gain exposure
-for their organizations. API providers that power Beacons on many blockchains
-will establish a reputation as premier data providers.
-
-### Security
-
-Beacons are fed directly from the API provider to the blockchain. There are no
-3rd-party oracle nodes in the middle to attack. Developers of dApps know exactly
-where their data came from. This insures a level of comfort that other 3rd-party
-data feeds cannot offer.
+for their organizations. API providers that power Beacons on multiple
+blockchains will further establish a reputation as premier data providers.
 
 ### Reputation
 
-When data comes directly from a reputable source, the provider’s off-chain
-reputation comes with it. Using "first-party" sourced data for their Beacons
-says a lot about an API provider.
+When data comes directly from a source, as is the case with Beacons, the
+provider’s off-chain reputation comes with it. API providers can therefore
+leverage the off-chain reputation they have built to attract developers
+demanding high quality data.
 
 ### Transparency
 
-API3 Beacons provide an API provider with a completely transparent model to
-place their data on-chain. More transparency means more selectivity and
-security. Developers of dApps have come to trust and believe in the API3 DAO for
-its transparent practices. The code and the parameters used to bring _off-chain_
-data _on-chain_ is 100% open source. Beacons offer dApp developers a level of
-comfort that black-boxed third-party data feeds cannot.
+Beacons bring transparency to on-chain data delivery. API providers benefit from
+control over how their data are handled, while dApp developers benefit from
+knowing the provenance of the data they receive. Beacon development also
+embodies transparency: API providers and dApp developers trust the API3 DAO for
+its public governance and open source development practices.
 
 ### Scalability
 
-Beacons are light-weight and highly scalable. Scale up for high performance
-chains. Scale down for a wide range of use cases that aren’t feasible with
-traditional data feeds.
+Beacons are lightweight and capable of meeting the demands of popular dApps and
+high performance blockchains. At the same time, the cost-efficiency of Beacons
+enable a wide range of use cases that aren’t feasible with traditional data
+feeds.
+
+## Get started with Beacons!
+
+Join the growing number of Beacons operated by the market’s most trusted and
+reliable data providers. The simple design and implementation makes it easy to
+deploy Beacons on EVM-compatible chains and API3 is always here to help!
+
+> <img src="../assets/images/why-power-beacons.png" width="350px"/>
+>
+> Provider operated. Data source transparent.
