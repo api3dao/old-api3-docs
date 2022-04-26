@@ -20,7 +20,7 @@ Airnode可以使用[授权者](../../../concepts/authorization.md)，授权请�
 
 :::
 
-When you deploy your Airnode a receipt file is generated which contains the Airnode's `airnodeAddress`. Sponsors (via their sponsored requesters) use `airnodeAddress` and an `endpointId` to make requests to your Airnode's endpoints. However, you probably do not want to serve them publicly.
+当你部署Airnode时，会产生一个包含Airnode的`airnodeAddress`的收据文件。 赞助者（通过其赞助的请求者）使用`airnodeAddress`和`endpointId`来向你的Airnode的端点提出请求。 However, you probably do not want to serve them publicly.
 
 - Only serve your own [requester contracts](../../../grp-developers/requesters-sponsors.md).
 - Only serve sponsors who have made a subscription payment.
