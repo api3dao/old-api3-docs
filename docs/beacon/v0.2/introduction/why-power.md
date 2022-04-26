@@ -17,12 +17,13 @@ developers to connect Web3 applications to continuously updated streams of
 off-chain data, such as the latest cryptocurrency, stock, and commodities
 prices.
 
+> <img src="../assets/images/why-power-beacons.png" width="350px"/>
+>
+> Provider operated. Data source transparent.
+
 Why should API providers power Beacons? Beacons unlock a novel data monetization
 channel targeting the growing market of smart contract developers building the
 next generation of games, applications, and services.
-
-Sound appealing? API3 is ready to help onboard your organization to Web3 data
-provision.
 
 ## Reasons to power Beacons
 
@@ -84,6 +85,5 @@ Join the growing number of Beacons operated by the market’s most trusted and
 reliable data providers. The simple design and implementation makes it easy to
 deploy Beacons on EVM-compatible chains and API3 is always here to help!
 
-> <img src="../assets/images/why-power-beacons.png" width="350px"/>
->
-> Provider operated. Data source transparent.
+Sound appealing? API3 is ready to help onboard your organization to Web3 data
+provision.
