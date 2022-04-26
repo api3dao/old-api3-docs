@@ -1,8 +1,8 @@
 ---
-title: Deploying Airnode
+title: 部署 Airnode
 ---
 
-<TitleSpan>Build an Airnode</TitleSpan>
+<TitleSpan>创建一个 Airnode</TitleSpan>
 
 # {{$frontmatter.title}}
 
