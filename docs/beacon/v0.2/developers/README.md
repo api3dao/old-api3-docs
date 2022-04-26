@@ -27,55 +27,141 @@ individually or combined to build decentralized data feeds or
 - [beaconIdToReaderToWhitelistStatus()](./beaconid-reader-whiteliststatus.md) -
   Details about the whitelist status of a reader address.
 
-## Creating a starter project
+## Starter Project
 
-### Using a CLI tool
-
-The easiest way to create a new project is by running a CLI tool, which
-generates the minimal project files that will get you started with building your
-application based on beacons. Simply run:
-
-```
-npm exec --package @api3/services --call create-beacon-reader-app
-```
-
-The CLI tool will ask you for path in which to initialize the project and
-template on which the project files are based. As of now, there is only one
-template to choose (using javascript + hardhat), but there will be more
-templates in the future. You can also show help or pass the arguments directly:
-
-```
-# To show help
-npm exec --package @api3/services --call "create-beacon-reader-app --help"
-# To provide the path and template directly through CLI
-npm exec --package @api3/services --call "create-beacon-reader-app  --path=./my-app --template=javascript-ethers-hardhat"
-```
-
-::: warning Git needed
-
-In order to install the `@api3/services` repository you need to have `git`
-installed.
-
-:::
-
-### Clone or download an existing repo
-
-Alternatively, you can clone or download the
-[beacon-reader-example](https://github.com/api3dao/beacon-reader-example)
-repository from GitHub. This project was created by the services CLI tool
-mentioned above.
-
-This starter project steps through reading a Beacon value from a smart contract.
-Be sure to read through the
+This [beacon-reader-example](https://github.com/api3dao/beacon-reader-example)
+starter project runs the unit tests of the project and steps through reading a
+Beacon value from a smart contract both locally and remote. Be sure to read
+through the
 [README.md](https://github.com/api3dao/beacon-reader-example/blob/main/README.md)
 and some of the example code such as the
 [BeaconReaderExample.sol](https://github.com/api3dao/beacon-reader-example/blob/main/contracts/BeaconReaderExample.sol)
 smart contract.
 
-## RrpBeaconServer Contract Addresses
+- [Setup](./#setup) - Clone the project and install dependencies.
+- [Unit Tests](./#unit-tests) - Run tests that use a MockRrpBeaconServer
+  contract to simulate reading a beacon.
+- [Network: localhost](./#network-localhost) - Scripts to deploy the
+  BeaconReaderExample contract to a localhost evm. Includes a script to have
+  `BeaconReaderExample` read a beacon.
+- [Networks: testnets](./#networks-testnets) - Scripts to deploy the
+  BeaconReaderExample contract to a supported testnet. Includes a script to
+  whitelist `BeaconReaderExample` and another for it to read a beacon.
 
-See the [Contract Addresses](../reference/contract-addresses.md) doc for a list
-of addresses available on specific networks.
+### Setup
+
+Clone or download the
+[beacon-reader-example](https://github.com/api3dao/beacon-reader-example)
+repository from GitHub.
+
+```sh
+git clone https://github.com/api3dao/beacon-reader-example.git
+cd beacon-reader-example
+```
+
+Install the dependencies:
+
+```sh
+npm install
+```
+
+### Unit Tests
+
+Run tests that use a MockRrpBeaconServer contract to simulate reading a beacon
+defined in the `test/` directory:
+
+```sh
+npm run test
+```
+
+### Network: `localhost`
+
+This section will deploy the BeaconReaderExample contract to a localhost evm.
+Whitelisting the `BeaconReaderExample` contract is not required when using a
+`localhost` evm. Start a local Ethereum node on a separate terminal:
+
+```sh
+npm run eth-node
+```
+
+Deploy `MockRrpBeaconServer`, `BeaconReaderExample`, and mock-set a beacon
+value:
+
+```sh
+npm run deploy:localhost
+```
+
+Have `BeaconReaderExample` read the mocked beacon value and print it on the
+terminal:
+
+```sh
+npm run read-beacon:localhost
+```
+
+### Networks: `testnets`
+
+This section will use the address of a `RrpBeaconServerV0` contract already
+deployed on the selected network.See
+[Contract Addresses](./../reference/contract-addresses.md) for the address of
+the deployed contract you wish to use. You can deploy the BeaconReaderExample
+contract to one of the following networks.
+
+- ropsten
+- rinkeby
+- goerli
+- polygon-mumbai
+
+Create a `credentials.json` file at the root of the repo, similar to
+`credentials.example.json`. Fill in the mnemonic and the provider URL for the
+chain you will be working on.
+
+::: tip
+
+You can replace `polygon-mumbai` in the following commands with `ropsten`,
+`rinkeby` or `goerli`.
+
+:::
+
+Deploy `BeaconReaderExample` that is pointed to the pre-deployed
+`RrpBeaconServer`:
+
+```sh
+npm run deploy:polygon-mumbai
+```
+
+Whitelist the `BeaconReaderExample` you have deployed for the `ETH/USD` Beacon
+powered by Amberdata:
+
+```sh
+npm run whitelist-reader:polygon-mumbai
+```
+
+Have `BeaconReaderExample` read the Beacon value and print it on the terminal:
+
+```sh
+npm run read-beacon:polygon-mumbai
+```
+
+::: tip
+
+You can read Beacons other than `ETH/USD` by modifying
+`scripts/whitelist-reader.js` and `scripts/read-beacon.js`. Refer to the
+[Beacon Browser](../reference/beacon-browser.md) doc for a complete list.
+
+:::
+
+This should get you started on building a project that uses Beacons! Continue
+reading if you want to learn more.
+
+## Resources
+
+- [Contract Addresses](../reference/contract-addresses.md): A list of
+  `RrpBeaconServerV0` and `SelfServeRrpBeaconServerWhitelister` contract
+  addresses available on specific networks.
+- [Chains](../reference/chains.md): A list of chains that Beacon contracts have
+  been deployed to.
+- [Beacon Browser](../reference/beacon-browser.md): A list of functioning
+  Beacons that have been deployed.
 
 ## Solidity Videos
 

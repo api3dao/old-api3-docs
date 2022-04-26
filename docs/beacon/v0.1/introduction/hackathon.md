@@ -19,9 +19,9 @@ Beacons that API3 has set up using the first-party oracle operated by Amberdata.
 
 ## Amberdata Beacons
 
-[Amberdata](https://amberdata.io) is among the leading cryptocurreny market data
-providers and has made some of their API endpoints available as Beacons for you
-to build DeFi applications with. You can see the complete list
+[Amberdata](https://amberdata.io) is among the leading cryptocurrency market
+data providers and has made some of their API endpoints available as Beacons for
+you to build DeFi applications with. You can see the complete list
 [here](../reference/beacon-ids.md). These Beacons represent VWAP (Volume
 Weighted Average Price) pair values and are an aggregated form of trade data.
 VWAP is the average price of an asset over a time interval, based on both volume
