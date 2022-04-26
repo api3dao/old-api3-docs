@@ -1,8 +1,8 @@
 ---
-title: HTTP Gateways (optional)
+title: HTTP 网关(可选)
 ---
 
-<TitleSpan>Build an Airnode</TitleSpan>
+<TitleSpan>创建一个 Airnode</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,32 +10,32 @@ title: HTTP Gateways (optional)
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-As part of the Airnode deployment you can decide to deploy two different HTTP Gateways.
+作为Airnode 部署的一部分，您可以决定部署两个不同的 HTTP 网关。
 
-- HTTP Gateway: testing
-- HTTP Signed Data Gateway: production use
+- HTTP 网关：测试
+- HTTP 签名数据网关：生产使用
 
-## Gateway Differences
+## 网关的差异
 
-Both gateways are setup identically. The differences are in their purpose and response. Gateways are allowed only when deploying to AWS and GCP.
+两种网关的设置是相同的。 不同之处在于它们的目的和反应。 只有在部署到AWS和GCP时才允许网关。
 
 > ![gateway](../../../assets/images/gateway.png)
 
-### HTTP Gateway
+### HTTP网关
 
-The regular HTTP gateway is strictly for testing purposes. Using a simple tool like CURL you can test that endpoints in the Airnode configuration are working properly without accessing the blockchain.
+常规的HTTP网关是严格用于测试的。 使用像CURL这样的简单工具，你可以测试Airnode配置中的端点是否正常工作，而无需访问区块链。
 
-### HTTP Signed Data Gateway
+### HTTP 签名数据网关
 
-The HTTP signed data gateway is used for production purposes. While it is executed in a similar way as the HTTP gateway, its response is signed and does not contain a `rawValue` field. This gateway is executed by an off-chain code source that may in turn push data to a blockchain.
+HTTP签名的数据网关是用于生产目的。 虽然它的执行方式与HTTP网关类似，但其响应是经过签名的，不包含`rawValue`字段。 该网关由链外代码源执行，该代码源可能反过来将数据推送到区块链上。
 
-## Setup
+## 设置
 
-Enable either gateway in the `config.json` file fields `nodeSettings.httpGateway` and `nodeSettings.httpSignedDataGateway`.
+启用 `config.json` 文件中的字段 `nodeSetings.httpGateway` 和 `nodeSettings.httpSignedDataGatel`。
 
-- **enabled**: A boolean to enable/disable for the gateway.
-- **apiKey**: A user defined API key to authenticate against the gateway. The key must have a length of between 30 - 120 characters.
-- **maxConcurrency**: (optional) A number higher than zero that represents the maximum number of serverless functions serving gateway requests. When omitted, there is no maximum concurrency set.
+- **enabled**: 开启/禁用网关的布尔值。
+- **apiKey**: 用户定义的 API 密钥来验证网关。 密钥长度必须介于 30 - 120 个字符之间。
+- **maxConcurrency**: (可选) 一个高于零的数字，代表了为网关请求服务的无服务器函数的 最大数量。 当省略时，没有设置最大并发数。
 
 ```json
 "nodeSettings": {
@@ -59,7 +59,7 @@ Enable either gateway in the `config.json` file fields `nodeSettings.httpGateway
 },
 ```
 
-Add the desired endpoints the gateways can respond to in the `triggers.http[n]` and/or `triggers.httpSignedData[n]` arrays. The corresponding arrays do not need to match. You may want to test all endpoints but only serve certain endpoints using the HTTP signed data gateway or via RRP.
+在 `triggers.http[n]`和/或`triggers.httpSignedData[n]`数组中，添加网关可以响应的预期端点。 相应的数组不需要匹配。 可能想测试所有的端点，但只能通过HTTP签名数据网关或通过RRP服务某些端点。
 
 ```json
 // in config.json
