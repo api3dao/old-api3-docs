@@ -62,7 +62,7 @@ cd beacon-reader-example
 Install the dependencies:
 
 ```sh
-npm install
+yarn install
 ```
 
 ### Unit Tests
@@ -71,7 +71,7 @@ Run tests that use a MockRrpBeaconServer contract to simulate reading a beacon
 defined in the `test/` directory:
 
 ```sh
-npm run test
+yarn run test
 ```
 
 ### Network: `localhost`
@@ -81,21 +81,21 @@ Whitelisting the `BeaconReaderExample` contract is not required when using a
 `localhost` evm. Start a local Ethereum node on a separate terminal:
 
 ```sh
-npm run eth-node
+yarn run eth-node
 ```
 
-Deploy `MockRrpBeaconServer`, `BeaconReaderExample`, and mock-set a beacon
-value:
+Open a new shell prompt and deploy `MockRrpBeaconServer`, `BeaconReaderExample`,
+and mock-set a beacon value:
 
 ```sh
-npm run deploy:localhost
+yarn run deploy:localhost
 ```
 
 Have `BeaconReaderExample` read the mocked beacon value and print it on the
 terminal:
 
 ```sh
-npm run read-beacon:localhost
+yarn run read-beacon:localhost
 ```
 
 ### Networks: `testnets`
@@ -126,20 +126,20 @@ Deploy `BeaconReaderExample` that is pointed to the pre-deployed
 `RrpBeaconServer`:
 
 ```sh
-npm run deploy:polygon-mumbai
+yarn run deploy:polygon-mumbai
 ```
 
 Whitelist the `BeaconReaderExample` you have deployed for the `ETH/USD` Beacon
 powered by Amberdata:
 
 ```sh
-npm run whitelist-reader:polygon-mumbai
+yarn run whitelist-reader:polygon-mumbai
 ```
 
 Have `BeaconReaderExample` read the Beacon value and print it on the terminal:
 
 ```sh
-npm run read-beacon:polygon-mumbai
+yarn run read-beacon:polygon-mumbai
 ```
 
 ::: tip
