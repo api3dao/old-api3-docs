@@ -19,7 +19,7 @@ title: HTTP 网关(可选)
 
 两种网关的设置是相同的。 不同之处在于它们的目的和反应。 只有在部署到AWS和GCP时才允许网关。
 
-> ![gateway](../../../assets/images/gateway.png)
+> ![网关](../../../assets/images/gateway.png)
 
 ### HTTP网关
 
@@ -98,14 +98,14 @@ HTTP签名的数据网关是用于生产目的。 虽然它的执行方式与HTT
 
 - 以`endpointId`作为路径参数发出一个POST请求。 可以在config.json中的 `triggers.http.endpointId` 或`triggers.httpSignedData.endpointId`下找到`endpointId`。
 - 添加`Content-Type`头部，设置为`application/json`。
-- Add the `x-api-key` header, set to the apiKey. The `x-api-key` can found in config.json under `nodeSettings.httpGateway.apiKey` or `nodeSettings.httpSignedDataGateway.apiKey`.
-- Place the parameters/encodedParameters in the request body.
+- 添加 `x-api-key` 头, 设置为 apiKey `x-api-key`可以在config.json的`nodeSettings.httpGateway.apiKey`或`nodeSettings.httpSignedDataGateway.apiKey`下找到。
+- 将参数/编码参数放在请求正文中。
 
 <style type="text/css" rel="stylesheet">
 .tSmall { font-size:x-small; margin-left:13px;}
 </style>
 
-| CURL Parameters                                 | In     | CURL Options                                              |
+| CURL 参数                                         | 输入     | CURL 选项                                                   |
 | ----------------------------------------------- | ------ | --------------------------------------------------------- |
 | Content-Type                                    | header | `-H 'Content-Type: application/json'`                     |
 | x-api-key                                       | header | `-H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e'`    |
@@ -113,15 +113,15 @@ HTTP签名的数据网关是用于生产目的。 虽然它的执行方式与HTT
 | \* parameters<div class="tSmall">HTTP Gateway</div>        | body   | `-d '{"parameters": {"param1": "myValue", "param2": 5}}'` |
 | \* encodedParameters<div class="tSmall">HTTP Signed Data Gateway</div> | body   | `-d '{"encodedParameters": "0x3173737300....000"}'`       |
 
-\* Parameters for the gateways are named differently. The HTTP signed data gateway requires that the `encodedParameters` be encoded using [Airnode ABI](../../../reference/specifications/airnode-abi-specifications.md).
+\* 网关参数的命名不同。 HTTP 签名数据网关要求使用 [Airnode ABI](../../../reference/specifications/airnode-abi-specifications.md)对`encodedParameters` 进行编码。
 
-Replace `<gatewayUrl>` in the examples below with a URL from the `receipt.json` file using the `httpGatewayUrl` or `httpSignedDataGatewayUrl` field. The [receipt.json](../../../reference/deployment-files/receipt-json.md) file is created when you deploy an Airnode.
+将以下示例中的 `<gatewayUrl>` 替换为使用 `httpGatewayUrl` 或 `httpSignedDataGatewayUrl` 字段的`receipt.json` 文件中的URL。 部署 Airnode 时会创建[receipt.json](../../../reference/deployment-files/receipt-json.md) 文件。
 
-### Request
+### 请求
 
 :::: tabs
 
-::: tab HTTP Gateway
+::: tab HTTP网关
 
 ```sh
 curl \
@@ -134,7 +134,7 @@ curl \
 
 :::
 
-::: tab HTTP Signed Data Gateway
+::: HTTP 签名数据网关
 
 ```sh
 curl \
@@ -149,11 +149,11 @@ curl \
 
 ::::
 
-### Response
+### 响应
 
 :::: tabs
 
-::: tab HTTP Gateway
+::: tab HTTP网关
 
 ```json
 {
@@ -163,15 +163,15 @@ curl \
 }
 ```
 
-The response format is a simple JSON object with the following fields:
+响应格式是一个简单的 JSON 对象，具有以下字段：
 
-- `rawValue` - the API response
-- `values` - an array of values after they are [extracted and converted](../../../reference/packages/adapter.md#conversion) to the target type
-- `encodedValue` - the encoded bytes value that is sent as payload in the response transaction on chain
+- `rawValue` - API 响应
+- `values` - 被[提取并转换](../../../reference/packages/adapter.md#conversion)为目标类型后的数值数组
+- `encodedValue` - 编码后的字节值，在链上的响应交易中作为有效载荷发送。
 
 :::
 
-::: tab HTTP Signed Data Gateway
+::: tab HTTP签名数据网关
 
 ```json
 {
@@ -183,14 +183,14 @@ The response format is a simple JSON object with the following fields:
 }
 ```
 
-The response format is a simple JSON object with the following fields:
+响应格式是一个简单的 JSON 对象，具有以下字段：
 
-- `data.timestamp` - The timestamp applied to the response.
-- `data.value` - The encoded bytes value that is sent as payload in the response. Suitable for use on-chain.
-- `signature` - The response has been signed by Airnode.
+- `data.timestamp` - 应用于响应的时间戳。
+- `data.value` - 响应中作为有效载荷发送的编码字节值。 适合于在链上使用。
+- `signature` - 响应已被Airnode签名。
 
 :::
 
 ::::
 
-There are additional examples of using CURL to call the HTTP gateway in both the [Quick Deploy AWS](../../tutorial/quick-deploy-aws/#execute-endpoint) and [Quick Deploy GCP](../../tutorial/quick-deploy-gcp/#execute-endpoint) tutorials.
+在 [快速部署AWS](../../tutorial/quick-deploy-aws/#execute-endpoint) 和 [快速部署GCP](../../tutorial/quick-deploy-gcp/#execute-endpoint) 教程中使用CURL 调用 HTTP 网关的其他例子。
