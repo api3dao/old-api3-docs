@@ -1,8 +1,8 @@
 ---
-title: Configuring Airnode
+title: 配置 Airnode
 ---
 
-<TitleSpan>Build an Airnode</TitleSpan>
+<TitleSpan>创建一个 Airnode</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,22 +10,22 @@ title: Configuring Airnode
 
 <TocHeader /> <TOC class="table-of-contents" :include-level=[2,5] />
 
-::: tip Complete the following before configuring your Airnode.
+::: tip 在部署Airnode之前完成以下工作。
 
-- [API Integration](api-integration.md)
-- [API Security](api-security.md)
+- [API 集成](api-integration.md)
+- [API 安全性](api-security.md)
 
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md) This icon links to additional field information in the reference section.
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md) 这个图标链接到参考部分的其他领域信息。
 
 :::
 
-An Airnode is deployed or redeployed using configuration values from its `config.json` and `secrets.env` files. The `config.json` specifies the [Oracle Integration Specifications OIS](/ois/v1.0.0/ois.md) and other specific configuration details. The `secrets.env` file holds secrets, such as API keys and chain provider URLs, which are referenced within the config.json file using interpolation.
+Airnode的部署或重新部署使用其`config.json`和`secrets.env`文件的配置值。 `config.json`指定了[Oracle集成规范OIS](/ois/v1.0.0/ois.md)和其他具体的配置细节。 `secrets.env`文件包括秘密信息，如API密钥和链供应商的URL，它们在config.json文件中使用插值引用。
 
 > ![config-json](../../../assets/images/config-json.png)
 > 
-> - <p class="diagram-line">The <b>config.json</b> file is used during the deployment/redeployment of an Airnode to configure its behavior and to provide mappings of API operations.</p>
-> - <p class="diagram-line">The <b>secrets.env</b> file holds values for config.json that must be kept secret.</p>
-> - <p class="diagram-line">The <b>aws.env</b> file holds AWS credentials for deployments targeted to AWS.</p>
+> - <p class="diagram-line"><b>config.json</b>文件在Airnode的部署/重新部署期间被用来配置其行为，并提供API操作的映射。</p>
+> - <p class="diagram-line"><b>secrets.env</b>文件持有必须保密的config.json的值。</p>
+> - <p class="diagram-line"><b>aws.env</b>文件为针对AWS的部署保存AWS凭证。</p>
 > - <p class="diagram-line">The <b>gcp.json</b> file holds GCP credentials for deployments targeted to GCP.</p>
 
 The following example files are useful while reading this doc.
