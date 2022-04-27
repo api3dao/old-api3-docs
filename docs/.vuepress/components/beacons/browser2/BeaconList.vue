@@ -8,11 +8,8 @@
         The searchText may need to be updated in mount() 
         and thus the input field must be in hte DOM. 
   -->
-  <div v-show="loaded === true">
-    <p v-show="error !== null" class="b2-beacon-list-error">
-      The Beacon list failed to load: ({{ error }})
-    </p>
-    <div v-show="!error">
+  <div>
+    <div v-show="loaded === true">
       <!-- Filter  -->
       <input
         id="searchText"
@@ -25,9 +22,6 @@
         Beacons: ({{ beacons.length }})
       </div>
       <hr />
-      <div style="padding-left: 55px">
-        <img src="/img/spinner.gif" v-show="showSpinner" />
-      </div>
 
       <!-- item line -->
       <beacons-browser2-BeaconItem
@@ -36,6 +30,13 @@
         v-bind:beacon="item"
         v-bind:cnt="i"
       ></beacons-browser2-BeaconItem>
+    </div>
+
+    <div style="padding: 55px" v-show="showSpinner">
+      <img src="/img/spinner.gif" />
+    </div>
+    <div v-show="error !== null" class="b2-beacon-list-error">
+      The Beacon list failed to load: ({{ error }})
     </div>
   </div>
 </template>
@@ -49,17 +50,17 @@ export default {
   name: 'BeaconList',
   data: () => ({
     loaded: false,
-    showSpinner: true,
+    showSpinner: false,
     error: null,
     beacons: [],
   }),
   mounted() {
     this.$nextTick(function () {
       if (globalStore.beacons === undefined) {
+        this.showSpinner = true;
         this.loadBeaconsFromRepo();
       } else {
         this.beacons = globalStore.beacons;
-        this.showSpinner = false;
         this.loaded = true;
         // If the user last used a filtered find apply it
         if (globalStore.beaconFind) {
@@ -72,6 +73,12 @@ export default {
   methods: {
     async loadBeaconsFromRepo() {
       try {
+        /*const responseB = await axios.get(
+          'https://api.api3labs.link/operations/beacons'
+        );
+        console.log('===============================================');
+        console.log(responseB);*/
+
         const response = await axios.get(
           'https://raw.githubusercontent.com/api3dao/operations/v0.1/data/documentation_metadata.json'
         );
@@ -145,6 +152,7 @@ export default {
 
 <style>
 .b2-beacon-list-error {
+  padding: 55px;
   color: red;
 }
 .b2-beacon-list-filter-input {
