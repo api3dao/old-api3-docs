@@ -24,12 +24,12 @@ or the value block will fail to get its parameter.
       </div>
 
       <!-- Value -->
-      <div class="bcd-content-box">
+      <!--div class="bcd-content-box">
         <beacons-browser2-BeaconValue
           v-bind:beaconParam="beacon"
           class="bcd-content-box-label"
         />
-      </div>
+      </div-->
 
       <!-- Beacon ID -->
       <div class="bcd-content-box">
