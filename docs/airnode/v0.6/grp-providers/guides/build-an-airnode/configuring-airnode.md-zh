@@ -245,21 +245,21 @@ Airnode的部署或重新部署使用其`config.json`和`secrets.env`文件的�
 
 #### nodeVersion
 
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#nodeversion) 在表格 `#.#.#`中，此字段表示这个节点 (Airnode) 版本 `config.json` 已准备就绪。 由于`config.json`的格式会随着节点版本的变化而变化，所以在另一个Airnode版本中使用为一个Airnode版本准备的`config.json`可能会导致意外的问题。 See the [Releases page of the Airnode repo](https://github.com/api3dao/airnode/releases) for available versions.
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#nodeversion) 在表格 `#.#.#`中，此字段表示这个节点 (Airnode) 版本 `config.json` 已准备就绪。 由于`config.json`的格式会随着节点版本的变化而变化，所以在另一个Airnode版本中使用为一个Airnode版本准备的`config.json`可能会导致意外的问题。 查看 [ Airnode repo发布页面](https://github.com/api3dao/airnode/releases) 获取可用版本。
 
 #### stage
 
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#stage) This field allows the deployment of multiple Airnodes with the same provider ID. For example, the same Airnode may have multiple deployments with `stage` set to a different value (dev, public, prod). `stage` cannot be longer than 16 characters and can only include lowercase alphanumeric characters (`a–z`, `0–9`) and hyphens (`-`).
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#stage) 这个字段允许以相同的提供者ID部署多个Airnode。 例如，同一个Airnode可以有多个部署，这时 `stage`设置为不同的值（dev、public、prod）。 `stage`不能超过16个字符，只能包括小写字母数字字符（`a-z`、`0-9`）和连字符（`-`）。
 
 #### skipValidation
 
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#skipvalidation) This is an optional attribute which decides whether Airnode validates the config.json during deployment or when run in a docker. Possible values are `true` and `false`. By default, this flag is set to `false`.
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#skipvalidation) 这是一个可选的属性，用于决定 Airnode 是在部署期间还是在运行Docker时验证 config.json 。 可以设置为 `true` 和 `false`. 默认情况下，这个标志设置为 `false`。
 
 ### triggers
 
-The `triggers` field allows you to expose Airnode endpoints from an OIS selectively for the RRP protocol or via the HTTP gateway. For example, your OIS may include 10 endpoints, but you may only want to serve 2 for RRP and all 10 for the gateway.
+`triggers` 字段允许你有选择地从OIS中为RRP协议或通过HTTP网关公开Airnode端点。 例如，你的OIS可能包括10个端点，但你可能只想为RRP提供2个端点，为网关提供全部10个端点。
 
-List the endpoints that you want to serve with the request–response protocol (RRP) under `triggers.rrp`. List the endpoints that you want to serve with the HTTP gateway under `triggers.http`. List the endpoints which can be used to get the signed data in `triggers.httpSignedData`. In most cases, you would create a trigger for each endpoint in your OIS object.
+列出您想要在 `triggers.rrp`下使用 request-response 协议 (RRP) 服务的端点。 列出您想要在 `triggers.http`下使用 request-response 协议 (RRP) 服务的端点。 列出可用于在 `triggers.httpSignedData` 中获取签名数据的端点。 在大多数情况下，您将为 OIS 对象中的每个端点创建一个触发器。
 
 ```json
 "triggers": {
@@ -287,15 +287,15 @@ List the endpoints that you want to serve with the request–response protocol (
   },
 ```
 
-`rrp`, `http` and `httpSignedData` require an `endpointId` which can be derived from the `oisTitle` and `endpointName`, use the CLI command [derive-endpoint-id](../../../reference/packages/admin-cli.md#derive-endpoint-id).
+`rrp`, `http` 和`httpSignedData` 需要一个`endpointId` ，可以从 `oisTitle` 和`endpointName`中衍生出来, 使用CLI命令 [derive-endpoint-id](../../../reference/packages/admin-cli.md#derive-endpoint-id).
 
 #### rrp
 
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#rrp) An array of endpoints from OIS that the Airnode will respond to for the RRP protocol. Only endpoints listed here will be served through the RRP protocol [AirnodeRrp.sol](../../../concepts/airnode.md).
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#rrp) 来自 OIS 的一组端点，Airnode 将响应 RRP 协议。 此处列出的端点只能通过RRP 协议 [AirnodeRrp.sol](../../../concepts/airnode.md) 服务。
 
-- oisTitle & endpointName: Each trigger has an `oisTitle` and `endpointName` that allow you to refer to one of the endpoints in an OIS object. Remember that an Airnode's config.json file can have more than one OIS object.
+- oisTitle & endpointName: 每个触发器都有一个 `oisTitle` 和 `endpointName`，允许你在OIS对象中引用其中一个端点。 记住 Airnode的 config.json 文件可以有一个以上的 OIS 对象。
 
-- endpointId: Add an `endpointId` to the trigger which is the ID that a requester will use for on-chain requests to reference a specific trigger. Use the admin CLI command [derive-endpoint-id](../../../reference/packages/admin-cli.md#derive-endpoint-id) to derive endpoint IDs using the `oisTitle` and `endpointName`.
+- endpointId: 为触发器添加一个`endpointId`，这是请求者在链上请求时使用的ID，以引用一个特定的触发器。 使用管理员CLI命令[derive-endpoint-id](../../../reference/packages/admin-cli.md#derive-endpoint-id)，使用`oisTitle`和`endpointName`推导出端点ID。
 
 #### http
 
