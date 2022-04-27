@@ -110,7 +110,7 @@ the config.js file.
 
    ```json
    sidebar: {
-         '/airnode/v0.5/': require(`../airnode/v0.5/sidebar.js`),
+         '/airnode/v0.7/': require(`../airnode/v0.7/sidebar.js`),
          ...
          '/airnode/pre-alpha/': require(`../airnode/pre-alpha/sidebar.js`),
          '/beacon/v0.1/': require(`../beacon/v0.1/sidebar.js`),
@@ -129,7 +129,9 @@ the config.js file.
 5. Update the zip files for the necessary tutorials. See
    [Zip Tutorial Files](./zip-files.md).
 
-6. Push branch changes to the repo, pull back to local main branch and run
+6. Update each tutorial download link to reflect the new version.
+
+7. Push branch changes to the repo, pull back to local main branch and run
    `sh deploy.sh`.
 
 ## Update Older Versions
