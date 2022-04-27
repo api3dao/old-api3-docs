@@ -73,11 +73,11 @@ export default {
   methods: {
     async loadBeaconsFromRepo() {
       try {
-        /*const responseB = await axios.get(
+        const responseB = await axios.get(
           'https://api.api3labs.link/operations/beacons'
         );
         console.log('===============================================');
-        console.log(responseB);*/
+        console.log(responseB);
 
         const response = await axios.get(
           'https://raw.githubusercontent.com/api3dao/operations/v0.1/data/documentation_metadata.json'
