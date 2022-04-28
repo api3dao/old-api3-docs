@@ -299,29 +299,29 @@ Airnode的部署或重新部署使用其`config.json`和`secrets.env`文件的�
 
 #### http
 
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#http) An array of endpoints from OIS that the Airnode will respond to for the HTTP gateway. Only endpoints listed here can be tested via the HTTP gateway.
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#http) 来自OIS的端点数组，Airnode将响应HTTP网关。 只有这里列出的端点可以通过HTTP网关测试。
 
-- oisTitle & endpointName: Each trigger has an `oisTitle` and `endpointName` that allow you to refer to one of the endpoints in an OIS object. Remember that an Airnode's config.json file can have more than one OIS object.
+- oisTitle& endpointName: 每个触发器都有一个 `oisTitle` 和 `endpointName`，允许在OIS对象中引用其中一个端点。 记住，一个Airnode的config.json文件可以有一个以上的OIS对象。
 
-- endpointId: Add an `endpointId` to the trigger which is the ID that a requester will use for on-chain requests to reference a specific trigger. Use the admin CLI command [derive-endpoint-id](../../../reference/packages/admin-cli.md#derive-endpoint-id) to derive endpoint IDs using the `oisTitle` and `endpointName`.
+- endpointId: 给触发器添加一个`endpointId`，这是请求者在链上请求引用特定触发器时要使用的ID。 使用管理员CLI命令[derive-endpoint-id](../../../reference/packages/admin-cli.md#derive-endpoint-id)，并使用`oisTitle`和`endpointName`推导出端点ID。
 
 #### httpSignedData
 
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#httpsigneddata) An array of endpoints from OIS that the Airnode will respond to for the signed data requests. Only endpoints listed here can be called to provide the signed data.
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#httpsigneddata) 来自OIS的端点数组，Airnode将响应签名数据请求 只有这里列出的端点可以被调用以提供签名数据。
 
-- oisTitle & endpointName: Each trigger has an `oisTitle` and `endpointName` that allow you to refer to one of the endpoints in an OIS object. Remember that an Airnode's config.json file can have more than one OIS object.
+- oisTitle & endpointName：每个触发器都有一个 `oisTitle` 和 `endpointName`，允许你在 OIS 对象中引用其中一个端点。 记住，一个Airnode的config.json文件可以有一个以上的OIS对象。
 
-- endpointId: Add an `endpointId` to the trigger which is the ID that a requester will use for on-chain requests to reference a specific trigger. Use the admin CLI command [derive-endpoint-id](../../../reference/packages/admin-cli.md#derive-endpoint-id) to derive endpoint IDs using the `oisTitle` and `endpointName`.
+- endpointId：给触发器添加一个`endpointId`，这是请求者在链上请求时使用的ID，以引用一个特定的触发器。 使用管理员CLI命令[derive-endpoint-id](../../../reference/packages/admin-cli.md#derive-endpoint-id)，并使用`oisTitle`和`endpointName`推导出端点ID。
 
 ### ois
 
-The `ois` field is a list OIS objects that Airnode will be serving. This means that a single instance of an Airnode can serve multiple APIs. You can simply copy paste OIS objects that you will be serving into the `ois` list. Use the previous guide [API Integration](api-integration.md) to create an OIS object.
+`ois`字段是Airnode将要服务的OIS对象列表。 这意味着一个Airnode的单一实例可以为多个API服务。 你可以简单地复制粘贴你要服务的OIS对象到`ois` 列表中。 使用之前的指南中的内容[API集成](api-integration.md)来创建一个OIS对象。
 
 ### apiCredentials
 
-Each entry in `apiCredentials` maps to a security scheme defined in an OIS (`ois[n].components.securitySchemes.{securitySchemeName}` and `ois[n].security`), where `oisTitle` is the `title` field of the related OIS, and `securitySchemeName` is the name of the respective security scheme. These would be `myOisTitle` and `mySecurityScheme` in the example below. `securitySchemeValue` is the value used for the authentication with the security scheme (e.g., the API key).
+`apiCredentials`中的每个条目都映射到OIS中定义的安全方案（`ois[n].component.securitySchemes.{securitySchemeName}`和`ois[n].security`），其中`oisTitle`是相关 `title`的标题字段，`securitySchemeName`是各自安全方案的名称。 在下面的例子中，这些将变成`myOisTitle<code>和<0>mySecurityScheme`。 `securitySchemeValue`是用于安全方案认证的值（例如，API密钥）。
 
-Use of apiCredentials is not required, leave its array empty if you don't need any security scheme.
+使用 apiCertification不是必须的，如果您不需要任何安全方案，请将其数组留空。
 
 ```json
 // apiCredentials
