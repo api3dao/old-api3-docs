@@ -20,11 +20,11 @@ title: 概述
 
 ::: tip 单一示例
 
-There are additional examples of Airnode deployments in the [examples package](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-examples) of the Airnode monorepo.
+在[Airnode monorepo的](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-examples)示例包里，有更多的关于Airnode部署的例子。
 
-- Run Airnode as a docker container locally while connected to Rinkeby network.
-- Run Airnode as a docker container locally, but connected to the hardhat (local) network.
-- Deploy Airnode on AWS and use the Rinkeby network.
-- Deploy Airnode on GCP and use the Rinkeby network.
+- 在本地作为docker容器运行Airnode，同时连接到Rinkeby网络。
+- 在本地作为一个docker容器运行Airnode，但连接到hardhat（本地）网络。
+- 在AWS上部署Airnode，并使用Rinkeby网络。
+- 在GCP上部署Airnode，并使用Rinkeby网络。
 
 :::
