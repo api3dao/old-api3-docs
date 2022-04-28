@@ -218,7 +218,7 @@ The response format is a simple JSON object with the following fields:
 
 The response format is a simple JSON object with the following fields:
 
-- `data.timestamp` - The timestamp applied to the response.
+- `data.timestamp` - The UNIX timestamp applied to the response.
 - `data.value` - The encoded bytes value that is sent as payload in the
   response. Suitable for use on-chain.
 - `signature` - The response has been signed by Airnode.
