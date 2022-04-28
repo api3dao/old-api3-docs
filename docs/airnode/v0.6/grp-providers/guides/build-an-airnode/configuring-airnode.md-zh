@@ -356,17 +356,17 @@ Use of apiCredentials is not required, leave its array empty if you don't need a
 
 #### `oisTitle`
 
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#oistitle) The `ois.title` of the OIS where the `securitySchemeName` can be found.
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#oistitle) 可以找到`securitySchemeName`的`OIS.title`。
 
 #### `securitySchemeName`
 
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#securityschemename) The name of a security scheme from `ois[n].components.securitySchemes.{securitySchemeName}`.
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#securityschemename) 来自 `ois[n].components.securitySchemes.{securitySchemeName}` 的安全方案名称。
 
 #### `securitySchemeValue`
 
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#securityschemevalue) The value of the security scheme used (as defined by `ois[n].components.securitySchemes.{securitySchemeName}` for the authentication. Usually stored in `secrets.env`.
+[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#securityschemevalue) 用于认证的安全方案的值（由 `ois[n].component.securitySchemes.{securitySchemeName}`定义）。 通常存储在 `secrets.env` 中。
 
-Based on the setup above Airnode will call the API operation with the following header.
+基于上面的设置，Airnode 将使用下面的头部调用 API 操作。
 
 ```json
 headers: {
@@ -374,9 +374,9 @@ headers: {
 }
 ```
 
-## Creating `secrets.env`
+## 创建 `secrets.env`
 
-The `secrets.env` file contains values (secrets) such as blockchain provider urls, chain provider urls, etc. These secrets are embedded in [config.json](../../../reference/deployment-files/config-json.md) using interpolation.
+`secrets.env` 文件包含的值 (秘密事项)，例如区块链供应商 urls, 链供应商urls, 等等。 这些秘密使用插值嵌入 [config.json](../../../reference/deployment-files/config-json.md) 之中。
 
 ```json
 // Sample interpolation value from config.json
@@ -390,50 +390,50 @@ The `secrets.env` file contains values (secrets) such as blockchain provider url
 HTTP_GATEWAY_API_KEY="FRACZKMH4F32BZ8X5uTd"
 ```
 
-Use the [secrets.env](../../../reference/templates/secrets-env.md) template and refer to [Reference > Deployment Files > secrets.env](../../../reference/deployment-files/secrets-env.md) as needed.
+使用[secrets.en](../../../reference/templates/secrets-env.md)模板，并根据需要参见：<a href="../../../reference/deployment-files/secrets-env.md"参考文件>部署文件>secrets.env</a>。
 
-## AWS setup (AWS deployment only)
+## AWS 设置(仅供AWS部署)
 
-When it is time to deploy the Airnode to AWS, the Docker [deployer image](../../docker/deployer-image.md) will need the AWS credentials to build the node on AWS Lambda.
+当需要将Airnode部署到AWS时，Docker[部署镜像](../../docker/deployer-image.md)将需要AWS凭证，在AWS Lambda上建立节点。
 
-### Creating `aws.env` (AWS only)
+### 创建 `aws.env` (仅适用于 AWS)
 
-Follow [this video](https://www.youtube.com/watch?v=KngM5bfpttA) if needed. It will show you how to create an IAM user and get security credentials. Put them in the `aws.env` file as shown below. See an [example file](../../../reference/templates/aws-env.md) in the reference section.
+如果需要，关注 [此视频](https://www.youtube.com/watch?v=KngM5bfpttA)。 将向您展示如何创建 IAM 用户并获取安全凭证。 将它们放入下面显示的 `aws.env` 文件中。 在引用 部分中查看 [示例文件](../../../reference/templates/aws-env.md)
 
-- Do not place double quotes (") around the value of each variable.
-- Variable names cannot contain dashes (-).
+- 不要在每个变量的值上放置双引号 (")
+- 变量名称不能包含破折号 (-)。
 
 ```bash
 AWS_ACCESS_KEY_ID=XYZ...123
 AWS_SECRET_ACCESS_KEY=ABC7...89
 ```
 
-## GCP setup (GCP deployment only)
+## AWS 设置(仅供AWS部署)
 
-When it is time to deploy the Airnode to GCP, the Docker [deployer image](../../docker/deployer-image.md) will need the GCP project ID to build the Airnode.
+当需要将Airnode部署到GCP时，Docker[部署镜像](../../docker/deployer-image.md)将需要GCP项目ID来构建Airnode。
 
-### Creating a GCP project
+### 创建GCP项目
 
-First, you need to [create a GCP project](https://cloud.google.com/resource-manager/docs/creating-managing-projects) under which will the Airnode be deployed. Once the project is created, insert its [projectId](./configuring-airnode.md#cloudprovider) into your `config.json`.
+首先，你需要[创建一个GCP项目](https://cloud.google.com/resource-manager/docs/creating-managing-projects)，将Airnode部署在该项目下。 一旦创建了项目，就把它的[projectId](./configuring-airnode.md#cloudprovider)插入到`config.json`中。
 
-### Enable required API
+### 启用必要的 API
 
-In order for Airnode to deploy successfully, you need to enable [App Engine Admin API](https://console.cloud.google.com/apis/library/appengine.googleapis.com) for your GCP project. After enabling it, wait a few minutes before the deployment itself so the change will take place.
+为了让Airnode成功部署，你需要为你的GCP项目启用[App Engine Admin API](https://console.cloud.google.com/apis/library/appengine.googleapis.com)。 启用后，在部署前等待几分钟，这样就会发生变化。
 
-### Creating a Service Account
+### 创建服务帐户
 
-Create a new service account from the [Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) menu. Grant this service account access to the project by adding a role `Owner` during the creation process.
+从[服务帐户](https://console.cloud.google.com/iam-admin/serviceaccounts)菜单中创建一个新的服务帐户。 通过在创建过程中添加角色 `Owner`，授予此服务账户对项目的访问权。
 
-Once the account is created, add a new access key of type JSON for this account. Download the key file as `gcp.json` into the root of your project.
+一旦帐户被创建，为该帐户添加新的 JSON 类型的访问密钥。 将密钥文件下载为 `gcp.json` ，下载到您的项目根目录中。
 
-## Summary
+## 总结
 
-In this guide you created the `config.json`, `secrets.env` and obtained cloud provider credentials required to deploy an Airnode to a cloud provider. Note that `config.json` is user-specific and therefore it is not much use to others.
+在本指南中，创建了`config.json`、`secrets.env`并获得了将Airnode部署到云供应商所需的云供应商凭证。 注意`config.json` 是针对用户的，因此它对其他人没有多大用处。
 
-The `secrets.env`, `aws.env` and `gcp.json` files contains keys, chain provider urls and security credentials, so they should be kept secret. Make sure that you do not push your credentials to a repository or otherwise expose them as these credentials can be used to gain access to your Airnode's private key, AWS account or GCP account.
+`secrets.env`, `aws.env` 和 `gcp. son` 文件包含密钥、链供应商urls 和安全凭证，因此它们应该是保密的。 确保你不要把凭证推送到存储库或以其他方式暴露出来，因为这些凭证可以用来访问你的Airnode的私钥、AWS账户或GCP账户。
 
-The next three steps in this guide are optional.
+本指南下面的三个步骤是可选的。
 
-- [Using Authorizers](./apply-auth.md) optional
-- [Heartbeat](./heartbeat.md) optional
-- [HTTP Gateways](./http-gateways.md) optional
+- [使用授权者](./apply-auth.md) 可选
+- [Heartbeat](./heartbeat.md) 可选
+- [HTTP 网关](./http-gateways.md) 可选
