@@ -78,12 +78,64 @@ yields:
 The validator package contains an API that can be used to validate Airnode
 configuration files programatically.
 
-<!-- TODO: https://api3dao.atlassian.net/browse/AN-609 -->
+The following functions can be used:
+
+- `parseConfigWithSecrets(config, secrets)` - Interpolates `secrets` into
+  `config` and validates the interpolated configuration. Expects both `config`
+  and `secrets` to be JSON objects.
+- `parseConfig(config)` - Validates the `config`. Expects the `config` to be a
+  JSON object.
+- `parseSecrets(secrets)` - Validates the `secrets`. Expects the `secrets` to be
+  a JSON object.
+- `parseReceipt(receipt)` - Validates the `receipt`. Expects the `receipt` to be
+  a JSON object.
+- `unsafeParseConfigWithSecrets(config, secrets)` - Interpolates `secrets` into
+  `config` but does not perform any validation afterwards. Use this function
+  only when you can guarantee that the configuration is valid.
+
+Validator has also full TypeScript support. All of these functions return a
+typed object.
 
 ### Examples
 
-<!-- TODO: https://api3dao.atlassian.net/browse/AN-609 -->
+```js
+const validator = require('@api3/airnode-validator');
+const dotenv = require('dotenv');
+const fs = require('fs');
+
+const config = JSON.parse(fs.readFileSync('pathTo/config.json', 'utf-8'));
+const secrets = dotenv.parse(fs.readFileSync('pathTo/secrets.env', 'utf-8'));
+
+const parseResult = validator.parseConfigWithSecrets(config, secrets);
+if (parseResult.success) {
+  const config = parseResult.data;
+  // ... (do something with valid "config")
+} else {
+  console.error(parseResult.error);
+}
+```
+
+or:
+
+```ts
+import * as validator from '@api3/airnode-validator';
+import { join } from 'path';
+import dotenv from 'dotenv';
+import { readFileSync } from 'fs';
+
+const config = JSON.parse(readFileSync('pathTo/config.json', 'utf-8'));
+const secrets = dotenv.parse(readFileSync('pathTo/secrets.env', 'utf-8'));
+
+const parseResult = validator.parseConfigWithSecrets(config, secrets);
+if (parseResult.success) {
+  const config = parseResult.data;
+  // ... (do something with valid "config")
+} else {
+  console.error(parseResult.error);
+}
+```
 
 ## Build Manually
 
-<!-- TODO: https://api3dao.atlassian.net/browse/AN-609 -->
+See the build instruction in the package developer documentation:
+https://github.com/api3dao/airnode/tree/v0.6/packages/airnode-validator
