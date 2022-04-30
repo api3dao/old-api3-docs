@@ -8,7 +8,20 @@ Use v-if="dataLoaded" not v-show. The beacon is loading from localStorage
 with a delay. We do not want to load the DOM until the Beacon is loaded
 or the value block will fail to get its parameter.
 -->
-  <div v-if="dataLoaded === true">
+  <div v-if="loaded === true">
+    <div class="bcd-flex-container">
+      <div class="bcd-flex-left">
+        <a href="javascript:void(0)" class="bcd-back-btn" v-on:click="goBack()"
+          >←</a
+        >
+      </div>
+      <div class="bcd-flex-right">
+        <div style="font-size: x-large; font-weight: 600">
+          {{ beacon.name }}
+        </div>
+      </div>
+    </div>
+
     <div class="bcd-error" v-if="error">
       {{ error }} Please report this error.
     </div>
@@ -16,16 +29,25 @@ or the value block will fail to get its parameter.
     <div v-show="!error">
       <div class="bcd-content-box">
         <i class="bcd-content-box-label">Description:</i>
-        {{ beacon.description }}
+        <span class="bcd-content-box-value">{{ beacon.description }}</span>
       </div>
       <div class="bcd-content-box">
-        <i class="bcd-content-box-label">Provider:</i>
-        <a :href="beacon.url">{{ beacon.apiName }}</a> <ExternalLinkImage />
+        <img style="width: 25px; margin-top: 2px" :src="provider.logoPath" />
+        <div
+          style="
+            margin-top: -26px;
+            margin-left: 34px;
+            padding-bottom: 4px;
+            font-size: large;
+          "
+        >
+          {{ provider.name }}
+        </div>
       </div>
 
       <!-- Value -->
       <!--div class="bcd-content-box">
-        <beacons-browser2-BeaconValue
+        <beacons-browser2-BeaconValue2
           v-bind:beaconParam="beacon"
           class="bcd-content-box-label"
         />
@@ -34,7 +56,7 @@ or the value block will fail to get its parameter.
       <!-- Beacon ID -->
       <div class="bcd-content-box">
         <i class="bcd-content-box-label">Beacon ID:</i>
-        <span class="bcd-content-box-id">
+        <span class="bcd-content-box-value">
           {{ beacon.beaconId }}
         </span>
       </div>
@@ -42,8 +64,16 @@ or the value block will fail to get its parameter.
       <!-- Template ID -->
       <div class="bcd-content-box">
         <i class="bcd-content-box-label">Template ID:</i>
-        <span class="bcd-content-box-id">
+        <span class="bcd-content-box-value">
           {{ beacon.templateId }}
+        </span>
+      </div>
+
+      <!-- Airnode address -->
+      <div class="bcd-content-box">
+        <i class="bcd-content-box-label">Airnode address:</i>
+        <span class="bcd-content-box-value">
+          {{ beacon.airnodeAddress }}
         </span>
       </div>
 
@@ -83,32 +113,29 @@ or the value block will fail to get its parameter.
 
 <script>
 export default {
-  name: 'BeaconChildDetail',
+  name: 'BeaconDetails2',
+  props: {
+    dataDetails: {},
+  },
   data: () => ({
     beacon: {},
-    //cnt: 0,
-    dataLoaded: false,
+    provider: {},
+    loaded: false,
     error: String,
-    //showMain: true,
-    //showTemplate: false,
   }),
   mounted() {
     this.$nextTick(async function () {
-      // Get the Beacons from GitHub
       this.error = null;
-      // Needed because the parent has set the localStorage and
-      // and a delay is needed for it to set.
-      setTimeout(() => {
-        const childPageData =
-          JSON.parse(localStorage.getItem('childPageData')) || undefined;
-        if (childPageData === undefined) {
-          this.error = 'The Beacon in localStorage is undefined.';
-        } else {
-          this.beacon = childPageData.beacon;
-        }
-        this.dataLoaded = true;
-      }, 1);
+      this.provider = this.dataDetails.provider;
+      this.beacon = this.dataDetails.beacon;
+      this.loaded = true;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+  },
+  methods: {
+    goBack() {
+      this.$parent.togglePanes();
+    },
   },
 };
 </script>
@@ -131,33 +158,34 @@ export default {
   margin-left: 5px;
 }
 
-.bcd-content-box-id {
+.bcd-content-box-value {
   margin-left: 5px;
   font-family: courier;
   font-size: small;
   overflow-wrap: break-word;
 }
 
-/* When the height of the screen is less than 450 pixels, change the font-size of the links
-and position the close button again, so they don't overlap */
-/*@media screen and (max-height: 450px) {
-  .b2-overlay a {
-    font-size: 20px;
-  }
-  .b2-overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 25px;
-  }
-}*/
+.bcd-back-btn {
+  font-size: 40px;
+  font-weight: bold;
+  text-decoration: none;
+}
 
-/*@media screen and (max-width: 450px) {
-  .b2-overlay-content-box {
-    width: 97%;
-    box-shadow: 2px 2px 5px lightgrey;
-    border: 1px solid lightgrey;
-    border-radius: 0.4em;
-    padding: 3px;
-  }
-}*/
+.bcd-flex-container {
+  height: 62px;
+  display: flex;
+  border-bottom: 1px solid gray;
+  margin-bottom: 25px;
+}
+
+.bcd-flex-left {
+  margin-top: 9px;
+  width: 58px;
+  height: 6vh;
+}
+
+.bcd-flex-right {
+  margin-top: 19px;
+  height: 6vh;
+}
 </style>

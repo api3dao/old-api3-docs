@@ -32,6 +32,7 @@
     "milkomeda",
     "moonriver",
     "composability",
+    "xpub",
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true

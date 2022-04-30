@@ -25,10 +25,8 @@ function getRedirectRoute(to) {
   return undefined;
 }
 
-export let globalStore = {
-  beacons: undefined,
-  beaconFind: undefined,
-};
+/// Can store variables for global use.
+export let globalStore = {};
 
 let spaLoaded = false;
 export default ({ Vue, router, options, siteData }) => {
