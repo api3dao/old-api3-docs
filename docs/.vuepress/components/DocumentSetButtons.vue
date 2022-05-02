@@ -37,6 +37,13 @@ it will always default to the startPath in config.json.
         operations.
       </p>
     </li>
+    <!--li>
+      <router-link to="/qrng">
+        <img src="/img/Quantum-State=Active@2x.png" />
+        QRNG</router-link
+      >
+      <p>Quantum random number generation provided as an oracle service.</p>
+    </li-->
     <li>
       <router-link to="/dao-members/">
         <img src="/img/02-DAO-State=Active@2x-1.png" />

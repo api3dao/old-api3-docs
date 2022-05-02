@@ -65,6 +65,7 @@ module.exports = {
       '/beacon/v0.2/': require(`../beacon/v0.2/sidebar.js`),
       '/beacon/v0.1/': require(`../beacon/v0.1/sidebar.js`),
       '/ois/v1.0.0/': require(`../ois/v1.0.0/sidebar.js`),
+      '/qrng/': require(`../qrng/sidebar.js`),
       '/chainapi/': require(`../chainapi/sidebar.js`),
       '/dao-members/': require(`../dao-members/sidebar.js`),
       '/api3/': require(`../api3/sidebar.js`),
