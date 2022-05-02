@@ -35,7 +35,7 @@ Gets the Beacon's on-chain value from an API using ethers.js.
 const axios = require('axios');
 
 export default {
-  name: 'BeaconValue',
+  name: 'BeaconValue2',
   props: ['beaconParam'],
   data: () => ({
     beacon: undefined,

@@ -8,4 +8,4 @@ title: Beacon Browser
 
 <VersionWarning/>
 
-<beacons-browser2-BeaconList tag="main"/>
+<beacons-browser2-BeaconList2/>
