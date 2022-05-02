@@ -104,8 +104,8 @@ or the value block will fail to get its parameter.
 
       <!-- Template -->
       <div class="bcd-content-box">
-        <i class="bcd-content-box-label">Template decoded parameters:</i>
-        <pre><code>{{beacon.decodedParameters}}</code></pre>
+        <i class="bcd-content-box-label">Template:</i>
+        <pre><code>{{beacon.template}}</code></pre>
       </div>
     </div>
   </div>
