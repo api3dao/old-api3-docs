@@ -113,32 +113,17 @@ export default {
           let beacons = [];
           let templates = [];
 
-          // Templates
-          for (var templateKey in this.providers[key].templates) {
-            templates.push(this.providers[key].templates[templateKey]);
-          }
-
           // Beacons
           for (var beaconKey in this.providers[key].beacons) {
             this.providers[key].beacons[beaconKey].show = true;
 
-            this.providers.templates;
-
-            // Get the Beacon's template which is a hassle because
-            // the template name does not match the beacons name. Will
-            // to spin thru the templates and find the templateId.
-            /*console.log('T', beaconKey, this.providers[key].templates);
-            for (var template in this.providers[key].templates) {
-              console.log(1, template);
-              console.log(2, beaconKey);
-              if (
-                template.templateId ===
-                this.providers[key].beacons[beaconKey].templateId
-              ) {
-                this.providers[key].beacons[beaconKey].template = template;
-                exit;
-              }
-            }*/
+            // Get the beacon's template
+            const id = this.providers[key].beacons[beaconKey].templateId;
+            // Convert templates json obj to an array
+            const templates = Object.values(this.providers[key].templates);
+            this.providers[key].beacons[beaconKey].template = templates.find(
+              (template) => template.templateId === id
+            );
 
             // Build the grafana URLs
             let beaconId = this.providers[key].beacons[beaconKey].beaconId;
@@ -171,10 +156,8 @@ export default {
             beaconCnt: beacons.length,
             logoPath: providerLogo,
             beacons: beacons,
-            templates: templates,
           });
         }
-        console.log('Data >', this.data);
       } catch (err) {
         console.error(err.toString());
         this.error = err.toString();
