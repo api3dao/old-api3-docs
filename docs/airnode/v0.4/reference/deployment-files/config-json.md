@@ -182,9 +182,7 @@ valid. Defaults to `0`.-->
 (optional) - The number of blocks that need to pass for the node to start
 ignoring blocked requests. Defaults to `20`. A request is blocked whenever the
 API call cannot be made. For example, endpoint (specified by its id in the
-request) cannot be found in config.json. (optional) - The number of blocks in
-the past that the Airnode deployment should search for requests. Defaults to
-`300` (roughly 1 hour for Ethereum).
+request) cannot be found in config.json.
 
 ## nodeSettings
 
