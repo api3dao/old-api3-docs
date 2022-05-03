@@ -42,12 +42,20 @@
         <td>0.5.0</td>
       </tr>
       <tr>
+        <td>0.5.2</td>
+        <td>0.5.2</td>
+      </tr>
+      <tr>
         <td>0.6.0</td>
         <td>0.6.0</td>
       </tr>
       <tr>
+        <td>0.6.2</td>
+        <td>0.6.2</td>
+      </tr>
+      <tr>
         <td>latest</td>
-        <td>0.6.0</td>
+        <td>0.6.2</td>
       </tr>
     </table>
     <div style="font-size: small; margin-left: 20px; margin-top: -10px">

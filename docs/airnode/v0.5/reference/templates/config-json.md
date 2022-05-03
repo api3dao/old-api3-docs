@@ -90,7 +90,7 @@ building a config.json file.
     },
     "logFormat": "json",
     "logLevel": "INFO",
-    "nodeVersion": "0.5.0",
+    "nodeVersion": "0.5.2",
     "stage": "<FILL_*>"
   },
   "triggers": {
