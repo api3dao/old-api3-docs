@@ -126,10 +126,20 @@ the config.js file.
 4. Change the version in `package.json` to the new version. This version
    reflects a release of the docs and is not shown anywhere in the docs.
 
-5. Update the zip files for the necessary tutorials. See
-   [Zip Tutorial Files](./zip-files.md).
+5. Update `check-links-imgs.yaml` to exclude future versions.
 
-6. Update each tutorial download link to reflect the new version.
+   ```sh
+   run: >
+      find docs/
+      -not -path "*/.vuepress/*"
+      -not -path "docs/airnode/v0.7/*"
+      -not -path "docs/beacon/v0.2/*"
+      -type f -name "*.md" | xargs lychee - -c .github/workflows/lychee.toml
+   ```
+
+6. Update each tutorial download link and the corresponding config.json files to
+   reflect the new version of the Docker images. The update the zip files for
+   the necessary tutorials. See [Zip Tutorial Files](./zip-files.md).
 
 7. Push branch changes to the repo, pull back to local main branch and run
    `sh deploy.sh`.

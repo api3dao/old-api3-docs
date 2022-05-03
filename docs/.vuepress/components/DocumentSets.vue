@@ -151,26 +151,6 @@ export default {
       // START TEMPORARY
       // This is a temp fix until ChainAPI goes into prod. If the user discovers
       // ChainAPI (via url) then add it into the pick list.
-      let flag = false;
-      for (var i = 0; i < this.docSets.length; i++) {
-        if (this.docSets[i].name === 'QRNG') {
-          flag = true;
-          break;
-        }
-      }
-      if (!flag && path.indexOf('/qrng') > -1) {
-        this.docSets.push({
-          name: 'QRNG',
-          iconActive: '/img/Quantum-State=Active@2x.png',
-          iconInactive: '/img/Quantum-State=Default@2x.png',
-          path: '/qrng/',
-        });
-      }
-      /// END TEMPORARY
-
-      // START TEMPORARY
-      // This is a temp fix until ChainAPI goes into prod. If the user discovers
-      // ChainAPI (via url) then add it into the pick list.
       let flag2 = false;
       for (var i = 0; i < this.docSets.length; i++) {
         if (this.docSets[i].name === 'ChainAPI') {
@@ -240,13 +220,9 @@ export default {
   mounted() {
     // Code that will run only after the entire view has been rendered
     this.$nextTick(function () {
-      // TEMP remove QRNG for now
-      if (this.env != 'development') {
-        this.docSets.splice(3, 1); // Removes QRNG
-      }
       // TEMP remove ChainApi for now
       if (this.env != 'development') {
-        this.docSets.splice(3, 1); // Removes ChainApi
+        this.docSets.splice(4, 1); // Removes ChainApi
       }
 
       this.selectIcon(this.$route.path);
