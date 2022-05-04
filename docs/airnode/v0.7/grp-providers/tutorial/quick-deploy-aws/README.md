@@ -84,6 +84,15 @@ API endpoint. It will instruct the Airnode to attach to the Rinkeby test
 network. There are three variables this file will extract (interpolation) from
 `secrets.env`.
 
+Note that `nodeSetting.disableConcurrencyReservations` has been set to `true`.
+This is a precaution for new AWS accounts that have yet to address concurrency
+management. For production deployments, `disableConcurrencyReservations` should
+be set to `false`. See
+[disableConcurrencyReservations](../../guides/build-an-airnode/configuring-airnode.md#cloudprovider)
+under the `cloudProvider` key and
+[maxConcurrency](../../guides/build-an-airnode/configuring-airnode.md#maxconcurrency)
+for more information.
+
 ### secrets.env
 
 Add values for each of the these fields.

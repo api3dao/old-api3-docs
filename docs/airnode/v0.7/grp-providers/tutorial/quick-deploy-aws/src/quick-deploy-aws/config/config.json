@@ -28,7 +28,7 @@
     "cloudProvider": {
       "type": "aws",
       "region": "us-east-1",
-      "disableConcurrencyReservations": false
+      "disableConcurrencyReservations": true
     },
     "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
     "heartbeat": {
