@@ -262,7 +262,7 @@ using GCP, make sure to choose a
 
 #### `cloudProvider.disableConcurrencyReservations`
 
-(required for AWS and GCP) - Disables concurency reservations for spawned cloud
+(required for AWS and GCP) - Disables concurrency reservations for spawned cloud
 functions. For more information refer to the
 [maxConcurrency](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#maxconcurrency)
 section.
