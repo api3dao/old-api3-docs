@@ -62,5 +62,5 @@ Development and testing utilities for the core parts of Airnode.
 [**airnode-protocol**:](https://github.com/api3dao/airnode/tree/v0.6/packages/airnode-protocol)
 Contracts that implement Airnode RRP (request–response protocol).
 
-<!-- [**airnode-validator**:](https://github.com/api3dao/airnode/tree/v0.6/packages/airnode-validator)
-A package that can be used to validate and convert airnode specification files.-->
+[**airnode-validator**:](https://github.com/api3dao/airnode/tree/v0.6/packages/airnode-validator)
+A package that can be used to validate Airnode configuration.
