@@ -280,8 +280,7 @@ configuration. There are currently three options available: `aws`, `gcp`
   specific deployment.
 - disableConcurrencyReservations: (AWS and GCP only) Disables concurency
   reservations for spawned cloud functions (all of them, including the HTTP
-  gateway one). For more information refer to the
-  [`maxConcurrency`](#maxconcurrency) section.
+  gateway one). For more information see [maxConcurrency](#maxconcurrency).
 - projectId: (GCP only) Project ID of the GCP project the Airnode will be
   deployed under.
 
