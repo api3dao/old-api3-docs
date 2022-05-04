@@ -302,6 +302,12 @@
           "dt": "2022-03-31",
           "title": "API3 Core Technical Team Report, March 2022",
           "url": "https://bbenligiray.medium.com/api3-core-technical-team-report-march-2022-951fb63e6338"
+        },
+        {
+          "date": "Apr 30, 2022",
+          "dt": "2022-04-30",
+          "title": "API3 Core Technical Team Report, April 2022",
+          "url": "https://bbenligiray.medium.com/api3-core-technical-team-report-april-2022-24173b2f9978"
         }
       ]
     },
@@ -329,7 +335,6 @@
         }
       ]
     },
-
     {
       "tag": "Operations Team",
       "posts": [
@@ -350,10 +355,21 @@
           "dt": "2022-03-02",
           "title": "API3 Operations Update: February 2022",
           "url": "https://medium.com/api3/api3-operations-update-february-2022-7326377d422e"
+        },
+        {
+          "date": "Apr 04, 2022",
+          "dt": "2022-04-04",
+          "title": "API3 Operations Update: March 2022",
+          "url": "https://medium.com/api3/api3-operations-update-march-2022-9dd631d00e29"
+        },
+        {
+          "date": "May 03, 2022",
+          "dt": "2022-05-03",
+          "title": "API3 Operations Update: April 2022",
+          "url": "https://medium.com/api3/api3-operations-update-april-2022-a79f74f6ec8e"
         }
       ]
     },
-
     {
       "tag": "Enterprise Development Team",
       "posts": [
@@ -374,10 +390,15 @@
           "dt": "2022-01-27",
           "title": "API3 Enterprise Development Report, November-December 2021, January 2022",
           "url": "https://medium.com/api3/api3-enterprise-development-report-november-december-2021-january-2022-7e100b52f5d8"
+        },
+        {
+          "date": "Apr 20, 2022",
+          "dt": "2022-04-20",
+          "title": "API3 Enterprise Development Report, February, March, April 2022",
+          "url": "https://medium.com/api3/api3-enterprise-development-report-february-march-april-2022-3cb811562abe"
         }
       ]
     },
-
     {
       "tag": "Standalone Posts",
       "posts": [
@@ -434,6 +455,12 @@
           "dt": "2021-12-19",
           "title": "Reference-based storage of NFTs",
           "url": "https://bbenligiray.medium.com/reference-based-storage-of-nfts-270cbd882ac1"
+        },
+        {
+          "date": "May 03, 2022",
+          "dt": "2022-05-03",
+          "title": "API3 QRNG — Web3 Quantum Random Numbers",
+          "url": "https://medium.com/api3/api3-qrng-web3-quantum-random-numbers-4ca7517fc5bc"
         }
       ]
     }
