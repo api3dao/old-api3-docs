@@ -8,12 +8,8 @@ title: Chains
 
 <VersionWarning/>
 
-::: danger TODO
-
-The `documentation.json` file will list all chains in the `operations` repo.
-
-:::
-
-Beacons can be found on the following chains.
+Beacons can be found on the following chains. Use the
+[Beacon Browser](./beacon-browser.md) to find Beacons and the networks they are
+available on.
 
 <beacons-ChainsList/>
