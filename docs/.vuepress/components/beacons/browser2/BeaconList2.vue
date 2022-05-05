@@ -99,12 +99,12 @@ export default {
         );
 
         this.providers = response.data.payload.apis;
-        this.providers['wkande'] = JSON.parse(
+        /*this.providers['wkande'] = JSON.parse(
           JSON.stringify(response.data.payload.apis.api3)
         );
         this.providers['wkande'].apiMetadata.name = 'Better Beacon Company';
         this.providers['wkande'].apiMetadata.logoPath = '/img/beacon.png';
-
+*/
         // Providers
         for (var key in this.providers) {
           const providerKey = key;
