@@ -1,6 +1,5 @@
 <!--
-  This component displays a list of all Beacons sorted by name.
-  It loads from the operations repo real-time.
+  This component displays a list of all chains sorted by name.
 -->
 
 <template>
@@ -15,25 +14,35 @@
         </div>
         <hr />
 
-        <!-- Iterate over keys (items) in the chains object. -->
+        <!-- Start chain list -->
         <div
           class="bc-chain-box"
-          v-for="(chain, key, i) in chains"
+          v-for="chain in chains"
           v-bind:key="chain.name"
         >
-          <!--span style="opacity: 0.8"
-            ><Badge type="junk" :text="(i + 1).toString()" vertical="middle"
-          /></span-->
           <img
             :src="chain.logoPath"
             width="33px;"
             style="float: left; margin-top: -4px; margin-right: 15px"
           />
-          <span class="bc-chain-name">{{ key }}</span>
+          <span class="bc-chain-name">{{ chain.name }}</span>
+
+          <!-- Start contract list -->
+          <hr style="margin-left: 48px" />
+          <div
+            class="bc-contract-address"
+            v-for="(address, key) in chain.contracts"
+            v-bind:key="address"
+          >
+            {{ key }}: <span>{{ address }}</span
+            ><CopyIcon :text="address" />
+          </div>
+          <!-- End contract list-->
         </div>
+        <!-- End chain list-->
       </div>
     </div>
-    <div v-else style="padding-left: 55px">
+    <div v-else style="padding-left: 155px">
       <img src="/img/spinner.gif" v-show="showSpinner" />
     </div>
   </div>
@@ -60,15 +69,11 @@ export default {
     async loadChainsFromRepo() {
       try {
         const response = await axios.get(
-          'https://raw.githubusercontent.com/api3dao/operations/master/data/documentation.json'
+          'https://api.api3labs.link/operations/chains'
         );
+        console.log('chains', response);
 
-        this.chains = response.data.chains;
-        this.chains['mainnet'] = {
-          id: '1',
-          name: 'mainnet',
-          logoPath: 'https://api.anyblock.tools/ethereum/ewf/ewc/icon/',
-        };
+        this.chains = response.data.payload;
         this.chains = this.sortByName(this.chains);
         var keys = [];
         for (var k in this.chains) keys.push(k);
@@ -105,5 +110,10 @@ export default {
 }
 .bc-chain-name {
   font-size: large;
+}
+.bc-contract-address {
+  font-family: courier;
+  font-size: small;
+  margin-left: 48px;
 }
 </style>

@@ -57,7 +57,7 @@ or the value block will fail to get its parameter.
       <div class="bcd-content-box">
         <i class="bcd-content-box-label">Beacon ID:</i>
         <span class="bcd-content-box-value">
-          {{ beacon.beaconId }}
+          {{ beacon.beaconId }}<CopyIcon :text="beacon.beaconId" />
         </span>
       </div>
 
@@ -65,7 +65,7 @@ or the value block will fail to get its parameter.
       <div class="bcd-content-box">
         <i class="bcd-content-box-label">Template ID:</i>
         <span class="bcd-content-box-value">
-          {{ beacon.templateId }}
+          {{ beacon.templateId }}<CopyIcon :text="beacon.templateId" />
         </span>
       </div>
 
@@ -73,7 +73,7 @@ or the value block will fail to get its parameter.
       <div class="bcd-content-box">
         <i class="bcd-content-box-label">Airnode address:</i>
         <span class="bcd-content-box-value">
-          {{ beacon.airnodeAddress }}
+          {{ beacon.airnodeAddress }}<CopyIcon :text="beacon.airnodeAddress" />
         </span>
       </div>
 
