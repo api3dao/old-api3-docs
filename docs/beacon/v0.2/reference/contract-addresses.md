@@ -16,7 +16,12 @@ Following is a list of the contract addresses for use with Airnode version
 
 ::: danger TODO
 
-The version above may need to be removed.
+Do we add `DapiServer.sol` to this page. Also why does the `/operations` API not
+include `SelfServeRrpBeaconServerWhitelister.sol` and `RrpBeaconServerV0.sol` in
+hte contracts list that is attached to each chain, see the
+[Chains.md page](./chains.md). <hr/>
+
+The Airnode version above may need to be removed.
 
 :::
 
