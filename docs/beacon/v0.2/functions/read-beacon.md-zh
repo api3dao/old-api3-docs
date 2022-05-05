@@ -58,10 +58,10 @@ contract mySmartContract {
 
 ::: 提示  请注意:
 
-`RrpBeaconServer.sol`合约将已经报告的数据点转为 `int224`。 如果这有问题（因为报告的的数据可能不适用于224位或者它是完全不同的类型，比如 `bytes32`），请不要使用此合约，并使用其自定义版本。 合约的时间戳转为`uint32`，这意味着它不会以当前形式在past-2106工作。 If this is an issue, consider casting the timestamps to a larger type.
+`RrpBeaconServer.sol`合约将已经报告的数据点转为 `int224`。 如果这有问题（因为报告的的数据可能不适用于224位或者它是完全不同的类型，比如 `bytes32`），请不要使用此合约，并使用其自定义版本。 合约的时间戳转为`uint32`，这意味着它不会以当前形式在past-2106工作。 如果还是有问题，请考虑将时间戳转为更大容量的类型。
 
 :::
 
-If the `timestamp` of a Beacon is zero, this means that it was never written to. This may be the case for new Beacons. Therefore a zero value in the `value` field is not valid if the `timestamp` is zero.
+如果Beacon的 `timestamp` 为0，这意味着它从未被写入。 新的Beacon有可能就会面临这样的情况。 因此，如果 `timestamp` 为0，`value`字段中的0值无效。
 
-In general, make sure to check if the timestamp of the Beacon is fresh enough, and definitely disregard Beacons with zero `timestamp`.
+通常而言，请确保检查Beacon的时间戳是否足够新，并且忽略`timestamp`为0的Beacon。
