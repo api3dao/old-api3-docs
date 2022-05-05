@@ -1,5 +1,5 @@
 ---
-title: What is a Beacon?
+title: Beacon是什么？
 ---
 
 <TitleSpan>Introduction</TitleSpan>
@@ -10,15 +10,15 @@ title: What is a Beacon?
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-信标是由API数据供应商自己管理的第一组Web3数据源，而第三方预言机节点则是中间商。 Beacons allow smart contract developers to connect their Web3 applications to continuously updated streams of off-chain data, such as the latest cryptocurrency, stock and commodities prices. They can power various decentralized applications, such as DeFi lending, synthetic assets, stable coins, derivatives, quality assurance, NFTs and more. Operated by the market’s most trusted and reliable data providers, Beacons are a transparent, cost efficient and scalable way for smart contracts to connect to the data that they need.
+信标是由API数据供应商自己管理的第一组Web3数据源，而第三方预言机节点则是中间商。 Beacon允许智能合约开发人员将他们的Web3应用连接到不断更新的链外数据流，比如最新的加密货币、股票和商品价格。Beacon可以支持各种不同的去中心化应用程序，比如DeFi借贷、合成资产、稳定币、衍生品、质量保证、NFT等。Beacon是由市场上最值得信赖的数据提供商运行，是智能合约连接到他们所需数据的一种透明、经济高效、可扩展的方式。
 
-To achieve a completely transparent and secure design, Beacons are operated directly by the API provider of the data they serve, without third-party node operators used as data relayers. This means that when calling a Beacon for the latest price of an asset, your smart contract receives a value directly from the Web3-enabled API of the source data provider - not a third-party or a network of third party middlemen.
+为了实现完全透明和安全的设计，Beacon由其提供数据的API提供商直接操作，而不使用第三方节点运营商作为数据中继器。这意味着当调用Beacon获取资产的最新价格时，您的智能合约就会直接接收来自源数据提供商的Web3 API的数值，而不接触第三方或第三方中间商网络。
 
-The provider-operated nature of Beacons allows any dApp to consider the off-chain reputation of the data provider and their suitability for any use case. Bringing this level of transparency to the source of data in smart contracts gives dApp developers confidence rather than relying on a pseudonymous selection of third parties.
+Beacon这种以提供商为主的特性允许任何dApp可以参考数据提供者的链外声誉及其对任何用例的适用性。 将这种透明机制引入到智能合约中的数据源，而不是依赖于匿名的第三方，可以让dApp开发者充满信心。
 
-## Simple Implementation
+## 简单用例分析
 
-The Beacon Server contract (_RrpBeaconServer.sol_) maintains a cache of on-chain Beacon values readily available for smart contracts to retrieve instantly as illustrated in figure below. A Beacon is updated when a pre-defined tolerance of the Beacon's value is detected. Each Beacon has its own configuration parameters that define when and how it updates. See the [readBeacon()](./functions/read-beacon.md) function doc and learn how your smart contract can access a Beacon .
+Beacon Server合约(_RrpBeaconServer. ol_维护着链上Beacon值的缓存，以供智能合约随时检索，如下图所示。 A Beacon is updated when a pre-defined tolerance of the Beacon's value is detected. Each Beacon has its own configuration parameters that define when and how it updates. See the [readBeacon()](./functions/read-beacon.md) function doc and learn how your smart contract can access a Beacon .
 
 > ![dapp-beacon.png](./assets/images/dapp-beacon.png)
 
