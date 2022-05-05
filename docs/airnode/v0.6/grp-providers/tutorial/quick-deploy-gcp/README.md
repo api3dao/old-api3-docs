@@ -128,19 +128,12 @@ Add values for each of the these fields.
    specifically for the project. After enabling it, wait a few minutes before
    deploying the Airnode for this change to take effect.
 
-4. Enable the
-   [API Gateway](https://console.cloud.google.com/apis/library/apigateway.googleapis.com).
-   Select the proper project on the GCP Gateway page, then select the Enable
-   button. If the _Manage_ button is present for the project, the GCP Gateway is
-   already enabled.
-   <!--https://console.cloud.google.com/marketplace/product/google/apigateway.googleapis.com?returnUrl=%2Fapi-gateway%2Fapi&project=zzz  -->
-
-5. Create a new service account from the
-   [Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts)
+4. Create a new service account from the
+   [IAM and admin > Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts)
    menu. Grant this account access to the project by adding the role `Owner`
    during creation.
 
-6. Once the new service account is created, click on it to bring up its
+5. Once the new service account is created, click on it to bring up its
    management page. Select the KEYS tab and add a new access key of type JSON
    for this account. Download the key file and place in the root of the
    `/quick-deploy-gcp` directory. Rename it `gcp.json`.
