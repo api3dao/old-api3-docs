@@ -150,7 +150,7 @@
                 "value": "payload.vwap,"
             }
         ],
-        "templateId": "0xfdd77a1208e279748c30666828ad48e6687f72cc8f44cb1c354b12bb61c4fb47",
+        "templateId": "0xfdd77a1208e279748c30666828ad48e6687f72cc8f44cb1c354bb61c4fb47",
         "oisTitle": "Amberdata-Lite",
         "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
         "beaconId": "0xae2ee59a0945dbc086d56f9e266ceb995378cab7e36210b020b0fae5a3959e0e"
