@@ -22,7 +22,7 @@ title: readBeacon()
 
 ## 示例代码
 
-There is an additional example of a contract that reads a Beacon in the [beacon-reader-example](https://github.com/api3dao/beacon-reader-example/blob/main/contracts/BeaconReaderExample.sol) GitHub repository.
+从GitHub 储存库[beacon-reader-example](https://github.com/api3dao/beacon-reader-example/blob/main/contracts/BeaconReaderExample.sol)中还有一个读取Beacon的合约另一个示例。
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -45,18 +45,18 @@ contract mySmartContract {
 }
 ```
 
-## Parameters
+## 参数
 
-`readBeacon(bytes32 _beaconId)`
+`readBeacon(bytes32 _bearaconId)`
 
-- `bytes32 beaconId` - The ID of the Beacon to retrieve a value for.
+- `bytes32 beaconId` - 为其检索的Beacon的ID。
 
-## Returns
+## 返回
 
-- `int224 value` - The value of the Beacon.
-- `uint32 timestamp` - The timestamp associated with the Beacon value.
+- `int224 value` - Beacon的值。
+- `data.timestamp` -  与 Beacon 值关联的时间戳。
 
-::: tip Please note:
+::: 提示  请注意:
 
 The `RrpBeaconServer.sol` contract casts the reported data point to `int224`. If this is a problem (because the reported data may not fit into 224 bits or it is of a completely different type such as `bytes32`), do not use this contract and implement a customized version instead. The contract casts the timestamps to `uint32`, which means it will not work work past-2106 in the current form. If this is an issue, consider casting the timestamps to a larger type.
 
