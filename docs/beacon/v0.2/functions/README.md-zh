@@ -1,8 +1,8 @@
 ---
-title: Overview
+title: 概述
 ---
 
-<TitleSpan>Functions</TitleSpan>
+<TitleSpan>函数</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,7 +10,7 @@ title: Overview
 
 <TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-[RrpBeaconServer.sol](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol) serves Beacon values sourced from Airnode. A Beacon is a live data point associated with a `beaconId` which is derived from a `templateId` and additional parameters. This is suitable where the more recent data point is always more favorable, e.g., in the context of an asset price data feed.
+[RrpBeaconServer.sol](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol)提供来自Airnode的Beacon值， Beacon值是与派生自`templateId` 和其他参数的`beaconId`关联的实时数据点。 This is suitable where the more recent data point is always more favorable, e.g., in the context of an asset price data feed.
 
 Another definition of Beacons are single-Airnode data feeds that can be used individually or combined to build decentralized data feeds or [dAPIs](../#dapis-building-on-beacons).
 
