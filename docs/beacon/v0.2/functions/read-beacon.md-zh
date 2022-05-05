@@ -58,7 +58,7 @@ contract mySmartContract {
 
 ::: 提示  请注意:
 
-The `RrpBeaconServer.sol` contract casts the reported data point to `int224`. If this is a problem (because the reported data may not fit into 224 bits or it is of a completely different type such as `bytes32`), do not use this contract and implement a customized version instead. The contract casts the timestamps to `uint32`, which means it will not work work past-2106 in the current form. If this is an issue, consider casting the timestamps to a larger type.
+`RrpBeaconServer.sol`合约将已经报告的数据点转为 `int224`。 如果这有问题（因为报告的的数据可能不适用于224位或者它是完全不同的类型，比如 `bytes32`），请不要使用此合约，并使用其自定义版本。 合约的时间戳转为`uint32`，这意味着它不会以当前形式在past-2106工作。 If this is an issue, consider casting the timestamps to a larger type.
 
 :::
 
