@@ -314,7 +314,8 @@ gateway.
 
 #### `httpGateway.apiKey`
 
-(only if enabled) - The API key to authenticate against the gateway.
+(only if enabled) - The API key to authenticate against the gateway. Do not use
+the same key for `httpGateway` and `httpSignedDataGateway`.
 
 #### `httpGateway.maxConcurrency`
 
@@ -335,7 +336,8 @@ gateway.
 
 #### `httpSignedDataGateway.apiKey`
 
-(only if enabled) - The API key to authenticate against the gateway.
+(only if enabled) - The API key to authenticate against the gateway. Do not use
+the same key for `httpGateway` and `httpSignedDataGateway`.
 
 #### `httpSignedDataGateway.maxConcurrency`
 
