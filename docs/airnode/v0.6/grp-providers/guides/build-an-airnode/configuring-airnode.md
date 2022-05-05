@@ -320,7 +320,8 @@ blockchain. See the [HTTP Gateways](./http-gateways.md) doc for more info.
 - enabled: Enable/disable, using true/false, Airnode's access to the HTTP
   gateway.
 - apiKey: A user defined API key to authenticate against the gateway. The key
-  must have a length of between 30 - 120 characters.
+  must have a length of between 30 - 120 characters. Do not use the same key for
+  `httpGateway` and `httpSignedDataGateway`.
 - maxConcurrency: (optional) A number higher than zero representing the maximum
   number of serverless functions serving HTTP gateway requests running at the
   same time. When omitted, there is no maximum concurrency set.
@@ -335,7 +336,8 @@ blockchain. Responses are signed and can be submitted to the blockchain. See the
 - enabled: Enable/disable, using true/false, Airnode's access to the HTTP
   gateway.
 - apiKey: A user defined API key to authenticate against the gateway. The key
-  must have a length of between 30 - 120 characters.
+  must have a length of between 30 - 120 characters. Do not use the same key for
+  `httpGateway` and `httpSignedDataGateway`.
 - maxConcurrency: (optional) A number higher than zero representing the maximum
   number of serverless functions serving HTTP gateway requests running at the
   same time. When omitted, there is no maximum concurrency set.
