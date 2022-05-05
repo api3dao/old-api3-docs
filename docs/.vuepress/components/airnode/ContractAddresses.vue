@@ -51,36 +51,7 @@
                 class="contract-addresses-address"
                 >{{ item.address }}</span
               >
-
-              <!-- COPY ICON 
-                The style applied (style="opacity: 60%; width: 12px") is very
-                important. If included in the class it will work on the dev 
-                server but not on a production build.
-              -->
-              <span style="display: inline-block; width: 18px">
-                <img
-                  :id="
-                    'copy-icon-' +
-                    item.chain.type +
-                    '-' +
-                    contract.contractName +
-                    '-' +
-                    index
-                  "
-                  v-on:click="
-                    copyAddress(
-                      item.chain.type +
-                        '-' +
-                        contract.contractName +
-                        '-' +
-                        index
-                    )
-                  "
-                  src="/img/copy.png"
-                  class="contract-addresses-copy-icon"
-                  style="opacity: 60%; width: 12px"
-                />
-              </span>
+              <CopyIcon :text="item.address" />
             </td>
           </tr>
         </table>
@@ -107,21 +78,7 @@ export default {
     chains: {},
   }),
   methods: {
-    copyAddress(id) {
-      var copyText = document.getElementById(id).textContent;
-      var copyIcon = document.getElementById('copy-icon-' + id);
-      copyIcon.style.opacity = '100%';
-      copyIcon.style.width = '20px';
-      window.setTimeout(this.setCopiedTimeout, 700, copyIcon);
-
-      if (navigator && navigator.clipboard && navigator.clipboard.writeText)
-        navigator.clipboard.writeText(copyText);
-    },
-    setCopiedTimeout(element) {
-      element.style.opacity = '60%';
-      element.style.width = '12px';
-    },
-    /** Create a chain JSON ob from the chainNames
+    /** Create a chain JSON obj from the chainNames
      * received from the repo. Add in the type (mainnet or testnet)
      * and if important (1, ropsten, kovan, goerli, rinkeby).
      */
