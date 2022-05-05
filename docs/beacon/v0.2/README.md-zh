@@ -18,25 +18,25 @@ Beacon这种以提供商为主的特性允许任何dApp可以参考数据提供�
 
 ## 简单用例分析
 
-Beacon Server合约(_RrpBeaconServer. ol_维护着链上Beacon值的缓存，以供智能合约随时检索，如下图所示。 A Beacon is updated when a pre-defined tolerance of the Beacon's value is detected. Each Beacon has its own configuration parameters that define when and how it updates. See the [readBeacon()](./functions/read-beacon.md) function doc and learn how your smart contract can access a Beacon .
+Beacon Server合约(_RrpBeaconServer. ol_维护着链上Beacon值的缓存，以供智能合约随时检索，如下图所示。 当检测到Beacon值预定义容差时，Beacon就会被更新。 每个Beacon都有自己的配置参数，以定义其更新的时间和方式。 查看 [readBeacon()](./functions/read-beacon.md) 函数文档，了解您的智能合约如何访问Beacon。
 
 > ![dapp-beacon.png](./assets/images/dapp-beacon.png)
 
-## Airnode Enabled
+## 启用Airnode
 
-Making it all work is a simple and efficient system that leverages first-party Airnodes to keep individual Beacon values up-to-date. When a Beacon's value falls outside a pre-defined tolerance it self-updates by calling its associated Airnode.
+能够使所有一切正常运营的工作是基于一个简单而有效的系统，它利用第一方Airnode来保持每个Beacon值的最新状态。 当一个Beacon值超出预定义容差值时，它就会调用其关联的Airnode自我更新。
 
-In the figure below, on-chain Beacons request updates from their linked off-chain Airnode. The Airnode's owner (an API provider) configures the pre-defined tolerance of a Beacon's value as well as the frequency to check for tolerance deviation. The Beacon's value is updated when the off-chain value falls outside the Beacons value's defined tolerance. Note that a Airnode can be related to more than one Beacon.
+在以下图例中，链上Beacon请求从他们关联的链外Airnode进行更新。 Airnode的持有者（API提供者）配置Beacon值的预定义容差以及检查允差的频率。 当链外值超出Beacon值的定义容差，Beacon值会随即更新。 值得注意的是，一个Airnode可以与多个Beacon相关联。
 
 > ![beacon-airnode.png](./assets/images/beacon-airnode.png)
 
-## dAPIs (Building on Beacons)
+## dAPIs （基于Beacon的构建）
 
-To further exploit the benefit of Beacons, forthcoming dAPIs will enable dApp developers a powerful new tool to quickly acquire aggregated Beacon values on-chain.
+为了进一步利用Beacon的优势，即将推出的dAPI会成为让dApp开发人员快速获取链上聚合信息的Beacon值的一个强大新工具。
 
-dAPIs, like Beacons, are data feeds built entirely on-chain by aggregating data from more than one Beacon. Because they are built on top of the Beacon layer their data is also from first-party API provider _owned and operated Airnodes_.
+dAPI，就像Beacon一样，聚合了来自多个Beacon节点的数据，并完全建立在链上的数据提供。 因为它们构建于Beacon层上，所以它们的数据也来自于第一方API提供者 _拥有和运行的 Airnodes_。
 
-::: tip dAPIs are under development for a pending release.
+:::  dAPI正在开发中，待发布。
 
 &nbsp;
 
@@ -44,6 +44,5 @@ dAPIs, like Beacons, are data feeds built entirely on-chain by aggregating data 
 
 > ![beacon-airnode.png](./assets/images/dapi-beacons.png)
 > 
-> <p class="diagram-line" style="color:gray;margin-top:6px;">A dApp would call a dAPI, as it would a Beacon, to get an instant
-> response.</p>
-dAPIs consume data from Beacons in order to provide an aggregate value. For example, in the diagram above there could be a dAPI for the ETH/USD price where it fetches different prices from multiple Beacons such as a CoinGecko ETH/USD beacon value, a Binance ETH/USD beacon value and so on. Such an dAPI would aggregate and provide a value for the ETH/USD pair. This is just one use case for a dAPI from endless possibilities.
+> <p class="diagram-line" style="color:gray;margin-top:6px;">一个dApp可以调用一个dAPI，就像调用Beacon一样，会获得即时响应。</p>
+dAPI使用来自Beacon的数据以提供一个聚合值。 举个例子，在上图中，ETH/USD价格可能有一个dAPI，它从多个Beacon获取不同的价格，比如CoinGecko ETH/USD beacon值，Binance ETH/USD beacon值等等。 这样一个dAPI就会聚合以上信息，并为ETH/USD交易对提供一个值。 这只是dAPI无限可能性中的一个案例。
