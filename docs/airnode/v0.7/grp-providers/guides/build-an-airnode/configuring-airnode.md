@@ -149,6 +149,7 @@ object that configures chain-related options.
 - txType: The transaction type to use.
 - priorityFee: An object that configures the EIP-1559 Priority Fee.
 - baseFeeMultiplier: Configures the EIP-1559 Base Fee to Maximum Fee Multiplier.
+- gasPriceMultiplier: Configures the Legacy Gas Price Multiplier
 - fulfillmentGasLimit: The maximum gas limit allowed when Airnode responds to a
   request. If exceeded, the request is marked as failed and will not be repeated
   during Airnode's next run cycle. This is the transaction gas cost the
