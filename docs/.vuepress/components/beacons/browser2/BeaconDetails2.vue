@@ -46,12 +46,13 @@ or the value block will fail to get its parameter.
       </div>
 
       <!-- Value -->
-      <!--div class="bcd-content-box">
+      <div class="bcd-content-box">
         <beacons-browser2-BeaconValue2
+          :chains="chains"
           v-bind:beaconParam="beacon"
           class="bcd-content-box-label"
         />
-      </div-->
+      </div>
 
       <!-- Beacon ID -->
       <div class="bcd-content-box">
@@ -116,6 +117,7 @@ export default {
   name: 'BeaconDetails2',
   props: {
     dataDetails: {},
+    chains: {},
   },
   data: () => ({
     beacon: {},
@@ -125,6 +127,7 @@ export default {
   }),
   mounted() {
     this.$nextTick(async function () {
+      console.log('beacon details chains >', this.chains);
       this.error = null;
       this.provider = this.dataDetails.provider;
       this.beacon = this.dataDetails.beacon;

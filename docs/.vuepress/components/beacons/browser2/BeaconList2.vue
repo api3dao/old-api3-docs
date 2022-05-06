@@ -58,7 +58,10 @@
     <!-- PANE, beacon details -->
     <div v-if="showDetails">
       <hr />
-      <beacons-browser2-BeaconDetails2 :dataDetails="dataDetails" />
+      <beacons-browser2-BeaconDetails2
+        :dataDetails="dataDetails"
+        :chains="chains"
+      />
     </div>
 
     <div style="padding: 155px" v-show="showSpinner">
@@ -82,6 +85,7 @@ export default {
     error: null,
     data: [],
     dataDetails: undefined, // Passes data to child pane BeaconDetails2.vue
+    chains: undefined, // Passed to the detail and then value component
     cnt: 0,
     scrollY: 0, // Remember Y position when going to details pane
   }),
@@ -99,19 +103,14 @@ export default {
         );
 
         this.providers = response.data.payload.apis;
-        /*this.providers['wkande'] = JSON.parse(
-          JSON.stringify(response.data.payload.apis.api3)
-        );
-        this.providers['wkande'].apiMetadata.name = 'Better Beacon Company';
-        this.providers['wkande'].apiMetadata.logoPath = '/img/beacon.png';
-*/
+        this.chains = response.data.payload.chains;
+
         // Providers
         for (var key in this.providers) {
           const providerKey = key;
           const providerName = this.providers[key].apiMetadata.name;
           const providerLogo = this.providers[key].apiMetadata.logoPath;
           let beacons = [];
-          let templates = [];
 
           // Beacons
           for (var beaconKey in this.providers[key].beacons) {
@@ -157,6 +156,8 @@ export default {
             logoPath: providerLogo,
             beacons: beacons,
           });
+          console.log('\n------------> response', response);
+          console.log('------------> data', this.data);
         }
       } catch (err) {
         console.error(err.toString());
@@ -249,15 +250,15 @@ export default {
   min-width: 185px;
   max-width: 185px;
   width: 185px;
-  height: 84px;
+  height: 74px;
   border: 1px solid lightgrey;
-
   border-radius: 0.3em;
   margin: 8px 8px 8px 5px;
   padding: 5px;
   overflow: auto;
   color: #50c878;
-  font-size: medium;
+  font-size: 11pt;
+  font-weight: 600;
   overflow: hidden;
   text-overflow: ellipsis;
   box-shadow: 2px 2px 4px lightgrey;
@@ -266,8 +267,10 @@ export default {
   cursor: pointer;
 }
 .flex-container > div > div > div {
-  font-size: 8.5pt;
+  font-size: small;
   padding: 5px 5px 5px 10px;
-  color: black;
+  font-weight: 500;
+  font-family: courier;
+  color: gray;
 }
 </style>
