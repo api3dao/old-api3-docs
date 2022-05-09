@@ -16,7 +16,7 @@ navbar: false
 
 <div class="features">
   <div class="feature">
-    <h2>Decentralized APIs</h2> 
+    <h2> Decentralized APIs</h2> 
     <p>Create powerful decentralized applications with API3's decentrally governed and quantifiably secure data feeds.
     </p>
   </div>
