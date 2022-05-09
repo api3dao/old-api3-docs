@@ -1,24 +1,18 @@
 ---
-title: Overview
+title: 概述
 ---
 
 # {{$frontmatter.title}}
 
-The **DAO Members** documentation describes the structure and functionality of
-the API3 DAO. It is aimed at DAO members and others that want to understand how
-to interact with the DAO or modify / reuse any of its infrastructure. The
-following topics are covered:
+**DAO 成员** 文档描述了 API3 DAO 的结构和功能。 它的使用对象是API3 成员和其他想要理解如何与 DAO 交互或 修改/重新使用其任何基础设施的人。 文档包括以下主题：
 
-- Smart contract overview
-- Staking API3 tokens into the governance / claims pool to earn rewards and gain
-  voting power in the DAO
-- Delegating voting power
-- Participating in API3 governance via proposal creation, voting, and execution
+- 智能合约概览
+- 将 API3 代币质押进入治理/索偿池，以获得奖励和 在 DAO 中的投票权
+- 委托投票权
+- 通过提案的创建、投票和执行参与API3 的治理
 
-::: tip DAO Dashboard
+::: tip DAO 控制面板
 
-Access the [DAO Dashboard](https://api3.eth.link/#/) on **Mainnet**.
+通过 **Mainnet**访问 **[DAO 控制面板](https://api3.eth.link/#/)**。
 
-:::
-
-<!--[staging.api3.eth](https://staging.api3.eth.link/) (Rinkeby Testnet)-->
+:::<!--\[staging.api3.eth\](https://staging.api3.eth.link/) (Rinkeby Testnet)-->

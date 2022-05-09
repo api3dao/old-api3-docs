@@ -1,45 +1,30 @@
 ---
-title: Overview
+title: 概述
 ---
 
-<TitleSpan>Tutorials</TitleSpan>
+<TitleSpan>教程</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-The tutorials section of the docs provides some simple guides regarding the
-setup and use of Airnodes.
+文档中的教程，提供了一些关于设置和使用Airnode的简单指南。
 
-The **"Quick"** series of tutorials are simple introductions to setting up an
-Airnode. The purpose is to demonstrate what is needed to deploy an Airnode.
-Configuration files are provided with only minor changes to be made on your
-part.
+**“快速”**系列教程是设置Airnode的简单介绍。 其目的是展示部署Airnode所需要的东西。 所提供的配置文件只需要你做一些小的改动。
 
-- **Quick Deploy AWS** or [Deploying Airnode to AWS](./quick-deploy-aws/): This
-  guide is a straight forward starter to create an Airnode on AWS. This
-  deployment type is a typical production environment.
+- **快速部署AWS**或[将Airnode部署到AWS](./quick-deploy-aws/)：本指南是在AWS上创建一个Airnode的直接启动程序。 此部署类型是典型的生产环境。
 
-- **Quick Deploy GCP** or [Deploying Airnode to GCP](./quick-deploy-gcp/): This
-  guide is a straight forward starter to create an Airnode on GCP. This
-  deployment type is a typical production environment.
+- **快速部署GCP**或[将Airnode部署到GCP](./quick-deploy-gcp/)：本指南是在GCP上创建一个Airnode的直接启动程序。 此部署类型是典型的生产环境。
 
-- **Quick Deploy Container** or
-  [Deploying Airnode to a Docker Container](./quick-deploy-container/): This
-  guide is a straight forward starter to create an Airnode locally in a Docker
-  container. This deployment type is a typical development environment although
-  self hosted Docker containers can be used for production environments.
+- **快速部署容器**或[将Airnode部署到Docker容器中](./quick-deploy-container/)：本指南是在Docker容器中本地创建一个Airnode的直接启动程序。 这种部署类型是一个典型的开发环境，尽管自我托管的Docker容器可以用于生产环境。
 
-::: tip Monorepo Examples
+::: tip 单一示例
 
-There are additional examples of Airnode deployments in the
-[examples package](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-examples)
-of the Airnode monorepo.
+在[Airnode monorepo的](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-examples)示例包里，有更多的关于Airnode部署的例子。
 
-- Run Airnode as a docker container locally while connected to Rinkeby network.
-- Run Airnode as a docker container locally, but connected to the hardhat
-  (local) network.
-- Deploy Airnode on AWS and use the Rinkeby network.
-- Deploy Airnode on GCP and use the Rinkeby network.
+- 在本地作为docker容器运行Airnode，同时连接到Rinkeby网络。
+- 在本地作为一个docker容器运行Airnode，但连接到hardhat（本地）网络。
+- 在AWS上部署Airnode，并使用Rinkeby网络。
+- 在GCP上部署Airnode，并使用Rinkeby网络。
 
 :::

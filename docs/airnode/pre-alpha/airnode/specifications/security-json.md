@@ -4,8 +4,7 @@ title: security.json
 
 # {{$frontmatter.title}}
 <VersionWarning/>
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
 `security.json` is the file the deployer uses to push API credentials along with the serverless function.
 

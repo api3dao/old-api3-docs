@@ -8,14 +8,9 @@ title: Airnode Contract Addresses
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Use the contract addresses listed in the tables below to interact with Airnode
-on EVM-compatible blockchains. Additional addresses will be added as contracts
-are deployed, but feel free to
-[submit a GitHub issue](https://github.com/api3dao/airnode/issues) requesting a
-new deployment.
+Use the contract addresses listed in the tables below to interact with Airnode on EVM-compatible blockchains. Additional addresses will be added as contracts are deployed, but feel free to [submit a GitHub issue](https://github.com/api3dao/airnode/issues) requesting a new deployment.
 
 ## AirnodeRrp
 

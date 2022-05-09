@@ -1,48 +1,34 @@
 ---
-title: Overview
+title: 概述
 ---
 
-<TitleSpan>Functions</TitleSpan>
+<TitleSpan>函数</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-[RrpBeaconServer.sol](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol)
-serves Beacon values sourced from Airnode. A Beacon is a live data point
-associated with a `beaconId` which is derived from a `templateId` and additional
-parameters. This is suitable where the more recent data point is always more
-favorable, e.g., in the context of an asset price data feed.
+[RrpBeaconServer.sol](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol)提供来自Airnode的Beacon值， Beacon值是与派生自`templateId` 和其他参数的`beaconId`关联的实时数据点。 这适用于青睐新数据的场合，比如在资产价格数据传送的情况中。
 
-Another definition of Beacons are single-Airnode data feeds that can be used
-individually or combined to build decentralized data feeds or
-[dAPIs](../#dapis-building-on-beacons).
+Beacon的另一种定义是单Airnode数据传递，可以单独使用或是组合使用以构建去中心化数据传递或[dAPIs](../#dapis-building-on-beacons)。
 
-- [readBeacon()](./read-beacon.md) - Returns a Beacon's value.
-- [readerCanReadBeacon()](./reader-can-read-beacon.md) - Check if a reader
-  address is whitelisted to read the beacon.
-- [beaconIdToReaderToWhitelistStatus()](./beaconid-reader-whiteliststatus.md) -
-  Details about the whitelist status of a reader address.
+- [readBeacon()](./read-beacon.md) - 返回 Beacon的值。
+- [readerCanReadBeacon()](./reader-can-read-beacon.md) - 检查读取地址是否被列入白名单以读取beacon。
+- [beaconIdToReaderToWhitelistStatus()](./beaconid-reader-whiteliststatus.md) - 有关读取地址白名单状态的详细信息。
 
-## Creating a starter project
+## 创建启动项目
 
-### Using a CLI tool
+### 使用CLI工具
 
-The easiest way to create a new project is by running a CLI tool, which
-generates the minimal project files that will get you started with building your
-application based on beacons. Simply run:
+创建新项目最简单的方式就是运行一个CLI工具，该工具会生成最少的项目文件，并协助您开始基于Beacon构建应用程序。 简单运行命令：
 
 ```
 npm exec --package @api3/services --call create-beacon-reader-app
 ```
 
-The CLI tool will ask you for path in which to initialize the project and
-template on which the project files are based. As of now, there is only one
-template to choose (using javascript + hardhat), but there will be more
-templates in the future. You can also show help or pass the arguments directly:
+CLI工具将要求您提供初始化项目的项目文件，及其所基于的模板的路径。 截止目前，只有一个模板可供选择（使用javascript + hardhat），但未来会有更多可选择的模板，敬请期待。 您还可以显示需要帮助或是直接传递的参数。
 
 ```
 # To show help
@@ -51,36 +37,25 @@ npm exec --package @api3/services --call "create-beacon-reader-app --help"
 npm exec --package @api3/services --call "create-beacon-reader-app  --path=./my-app --template=javascript-ethers-hardhat"
 ```
 
-::: warning Git needed
+::: 警告  需要安装Git
 
-In order to install the `@api3/services` repository you need to have `git`
-installed.
+为了安装`@api3/services`数据储存库，您事先需要安装`git`。
 
 :::
 
-### Clone or download an existing repo
+### 克隆或是下载已有的repo
 
-Alternatively, you can clone or download the
-[beacon-reader-example](https://github.com/api3dao/beacon-reader-example)
-repository from GitHub. This project was created by the services CLI tool
-mentioned above.
+您也可以选择从GitHub克隆或是下载[beacon-reader-example](https://github.com/api3dao/beacon-reader-example)储存库。 这是由以上提到的服务CLI工具创建。
 
-This starter project steps through reading a Beacon value from a smart contract.
-Be sure to read through the
-[README.md](https://github.com/api3dao/beacon-reader-example/blob/main/README.md)
-and some of the example code such as the
-[BeaconReaderExample.sol](https://github.com/api3dao/beacon-reader-example/blob/main/contracts/BeaconReaderExample.sol)
-smart contract.
+这个入门项目逐步完成从一个智能合约读取Beacon值的过程。 请务必通读[README.md](https://github.com/api3dao/beacon-reader-example/blob/main/README.md)这一链接里的文章以及一些示例代码，比如[BeaconReaderExample.sol](https://github.com/api3dao/beacon-reader-example/blob/main/contracts/BeaconReaderExample.sol)智能合约。
 
-## RrpBeaconServer Contract Addresses
+## RrpBeaconServer合约地址
 
-See the [Contract Addresses](../reference/contract-addresses.md) doc for a list
-of addresses available on specific networks.
+请点击[Contract Addresses](../reference/contract-addresses.md) 文档查阅有关特定网络上可用地址的列表。
 
-## Solidity Videos
+## Solidity 视频
 
-The following short videos are relevant to smart contracts when calling other
-contracts such as `RrpBeaconServer.sol`.
+以下短视频有关于调用其他合约时与智能合约，比如`RrpBeaconServer.sol`。
 
 - [Call contract with an interface](https://www.youtube.com/watch?v=tbjyc-VQaQo)
 - [Call other contracts](https://www.youtube.com/watch?v=6aQErpWPLbk)

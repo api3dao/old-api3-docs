@@ -1,59 +1,38 @@
 ---
-title: Fees
+title: 手续费
 ---
 
-<TitleSpan>Developers</TitleSpan>
+<TitleSpan>开发者</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-There are some one-time setup/maintenance costs and some ongoing costs of
-calling an Airnode. The Airnode protocol is designed in a way that the requester
-assumes all gas costs, including the request fulfillment (response)
-transactions.
+调用Airnode会有一些一次性的设置/维护费用和一些持续的费用。 Airnode协议的设计方式是，由请求者承担所有的gas费用，包括请求的实现（响应）交易。
 
-## Sponsors
+## 赞助者
 
-Fees are encountered when a sponsor engages in setup activity such as sponsoring
-a requester. These are per call transaction gas costs and are relatively small.
-The funds come from the wallet mnemonic that the sponsor supplies when calling
-certain [admin commands](../reference/packages/admin-cli.md) as shown below.
+当赞助者参与设置活动时会遇到费用，如赞助申请者时。 这些是每次调用的交易gas费用，相对较低。 如下所示，这些资金来自赞助者在调用某些 [管理命令](../reference/packages/admin-cli.md) 时提供的钱包助记符。
 
-- [sponsor-requester](../reference/packages/admin-cli.md#sponsor-requester)
-- [unsponsor-requester](../reference/packages/admin-cli.md#unsponsor-requester)
-- [create-template](../reference/packages/admin-cli.md#create-template)
-- [request-withdrawal](../reference/packages/admin-cli.md#request-withdrawal)
+- [赞助请求者](../reference/packages/admin-cli.md#sponsor-requester)
+- [取消赞助请求者](../reference/packages/admin-cli.md#unsponsor-requester)
+- [新建模板](../reference/packages/admin-cli.md#create-template)
+- [撤回请求](../reference/packages/admin-cli.md#request-withdrawal)
 
 ## Airnodes
 
-The fees take the form of transaction gas costs. These are applied when funding
-a requester's sponsor wallet for an Airnode and when executing the Airnode in
-response to a request.
+这些费用采取交易gas费用的形式。 这些费用在为请求者的赞助者钱包提供资金以获得Airnode时，以及在响应请求而执行Airnode时适用。
 
-- Funding a sponsor wallet associated with an Airnode: A sponsor wallet is
-  funded manually by a sponsor using their preferred wallet management tool such
-  as MetaMask.
+- 为与Airnode相关的赞助者钱包提供资金：赞助者的钱包，是由赞助者使用其首选的钱包管理工具（如MetaMask）手动提供资金。
 
-- [Calling](../grp-developers/call-an-airnode.md) an Airnode: Transaction gas
-  fees are withdrawn from the sponsor wallet related to the Airnode being called
-  by a sponsored requester.
+- [调用](../grp-developers/call-an-airnode.md) Airnode：交易gas费用从赞助者钱包中提取，与被赞助者请求者调用的Airnode有关。
 
 <airnode-SponsorWalletWarning/>
 
-Learn more about [sponsor wallets](../concepts/sponsor.md) in the reference
-section.
+在参考资料部分，了解更多关于[赞助者钱包](../concepts/sponsor.md)的信息。
 
-## API Provider Fees
+## API 提供者费用
 
-Some API providers charge a subscription fee for access to their data. This is a
-typical practice and usually requires the requester to create an account on the
-provider's website and then subscribe to a level of service offered. These types
-of services are usually billed monthly and can be based on an annual rate to
-save costs. The subscription (even if free) will most likely involve the use of
-a security scheme such as an API key that must be used to access the data. See
-[Calling an Airnode](call-an-airnode.md) to learn more on how to pass the
-security credentials to an Airnode.
+一些API供应商对其数据的访问收取订阅费用。 这是典型的做法，通常需要请求者在供应商的网站上创建一个帐户，然后订阅所提供的一定等级的服务。 这种类型的服务通常是按月计费，并且可以根据年费率来计算，以节省费用。 订阅（即使是免费的）将很可能涉及到使用安全方案，如必须使用API密钥来访问数据。 请参阅[调用Airnode](call-an-airnode.md)，了解更多关于如何将安全凭证传递给Airnode的信息。

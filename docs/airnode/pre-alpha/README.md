@@ -4,24 +4,19 @@ title: The Airnode
 
 # {{$frontmatter.title}}
 <VersionWarning/>
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
 Airnode is a serverless oracle node implemented with a "set and forget" philosophy. Airnode is composed of two parts: the off-chain **Airnode** (a.k.a. "the node") deployed as self hosted or cloud provider functions, e.g., AWS) and the on-chain **protocol contract**  AirnodeRrp.sol.
 
-> ![2-parts](./assets/images/summary-airnode-2-parts.png)
-<br/><br/>
-> <p class="diagram-line" style="color:black;">Airnode is composed of two parts: the off-chain **Airnode** (a.k.a. "the node") deployed usually as cloud provider functions, e.g., AWS) and the on-chain **protocol contract**  AirnodeRrp.sol.</p>
-
+> ![2-parts](./assets/images/summary-airnode-2-parts.png) <br/><br/>
+   <p class="diagram-line" style="color:black;">Airnode is composed of two parts: the off-chain **Airnode** (a.k.a. "the node") deployed usually as cloud provider functions, e.g., AWS) and the on-chain **protocol contract**  AirnodeRrp.sol.</p>
 At its core, **Airnode** brings the ability for API providers to easily run their own _oracle nodes_. This allows them to provide their data on-chain, without an intermediary, to any _decentralized app_ \(dApp\) interested in their services.
 
 At the heart of this mechanism sits **Airnode**, an open-source oracle node. It's designed to be easily deployed by any API provider with almost no maintenance. Because of Airnode, dApp developers can write _smart contracts_ to interact with the on-chain data of API providers.
 
 Airnode is designed with mechanisms to remove the on-chain or off-chain concerns of API providers. The set-and-forget framework of Airnode is all about ease of implementation.
 
-::: tip Learn more about Airnode experience
-Read Section 4 of the [API3 Whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf). _Airnode: A Node Designed for First-Party Oracles_
-:::
+::: tip Learn more about Airnode experience Read Section 4 of the [API3 Whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf). _Airnode: A Node Designed for First-Party Oracles_ :::
 
 ## Designed for First-Party Oracles
 
@@ -93,27 +88,8 @@ Finally, let us briefly mention how the Airnode protocol approaches monetization
 
 ## API Integrations
 
-There is a chicken-and-egg problem when it comes to integrating APIs to oracles. If
-there is no existing demand for an API in an oracle ecosystem, nobody is incentivized 
-to do the integration. If the API is not available due to a lack of integration,
-nobody develops applications that will create the demand. 
+There is a chicken-and-egg problem when it comes to integrating APIs to oracles. If there is no existing demand for an API in an oracle ecosystem, nobody is incentivized to do the integration. If the API is not available due to a lack of integration, nobody develops applications that will create the demand.
 
-For API3 to reach its full potential, it will need hundreds, if not thousands of first party oracles so that it can easily set up new dAPIs or recompose existing ones. This
-can only be achieved if APIs can be integrated to Airnode in an even more scalable
-way. To this end, an improved version of the proprietary integration tools 
-will be open sourced for Airnode. Borrowing from the OpenAPI Specification
-format [30], Oracle Integration Specifications (OIS) define the operations of an API,
-the endpoints of an oracle, and how the two map to each other. An Airnode user
-will be able to serve an API over their oracle simply by providing its OIS to their
-node. Integrations made in this standardized format will be very easy to collect,
-version and distribute.
+For API3 to reach its full potential, it will need hundreds, if not thousands of first party oracles so that it can easily set up new dAPIs or recompose existing ones. This can only be achieved if APIs can be integrated to Airnode in an even more scalable way. To this end, an improved version of the proprietary integration tools will be open sourced for Airnode. Borrowing from the OpenAPI Specification format [30], Oracle Integration Specifications (OIS) define the operations of an API, the endpoints of an oracle, and how the two map to each other. An Airnode user will be able to serve an API over their oracle simply by providing its OIS to their node. Integrations made in this standardized format will be very easy to collect, version and distribute.
 
-OIS is a JSON file, primarily designed to describe the integration specifications for
-Airnode to use. This means that it does not aim to be human-readable first and
-creating it manually to specify an integration would be difficult. This problem will
-be solved by ChainAPI (a product from API3 currently in development), an integration platform that will allow users to generate OIS
-for their APIs through an easy-to-use graphical interface. This will be accompanied
-by other quality of life improvements for Airnode users, such as a node dashboard
-and a marketplace to list their endpoints. As a result, API3 will have a wide selection
-of first-party oracles to compose dAPIs from and ecosystem growth will no longer
-be bottle necked by integration capacity.
+OIS is a JSON file, primarily designed to describe the integration specifications for Airnode to use. This means that it does not aim to be human-readable first and creating it manually to specify an integration would be difficult. This problem will be solved by ChainAPI (a product from API3 currently in development), an integration platform that will allow users to generate OIS for their APIs through an easy-to-use graphical interface. This will be accompanied by other quality of life improvements for Airnode users, such as a node dashboard and a marketplace to list their endpoints. As a result, API3 will have a wide selection of first-party oracles to compose dAPIs from and ecosystem growth will no longer be bottle necked by integration capacity.

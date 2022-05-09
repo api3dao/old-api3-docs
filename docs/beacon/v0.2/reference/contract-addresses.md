@@ -1,18 +1,16 @@
 ---
-title: Contract Addresses
+title: 合约地址
 ---
 
-<TitleSpan>Reference</TitleSpan>
+<TitleSpan>参考</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Following is a list of the contract addresses for use with Airnode version
-`v0.3.1`.
+以下是使用Airnode version`v0.3.1`版本的合约地址列表：
 
 ## RrpBeaconServer.sol
 

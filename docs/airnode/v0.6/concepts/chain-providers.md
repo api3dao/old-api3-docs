@@ -1,32 +1,24 @@
 ---
-title: Chain Providers
+title: 区块链供应商
 ---
 
-<TitleSpan>Concepts and Definitions</TitleSpan>
+<TitleSpan>概念和定义</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Chain providers provide access to an evm on behalf of an API provider. Your
-Airnode will interact with one or more chain providers and respond to requests.
-You can use multiple chain providers for each chain and declare multiple chains
-each with one of more chain providers. Below are some of the chain providers you
-might use.
+区块链供应商代表一个API供应商提供对evm的访问权限。 Airnode将与一个或多个区块链供应商交互，并对请求作出回应 可以为每条链使用多个区块链供应商，并声明多条链，每条链有一个或多个区块链供应商。 下面是您可能会用到的一些区块链供应商。
 
 - [Pocket](https://www.pokt.network/)
 - [Infura](https://infura.io)
 - [Alchemy](https://www.alchemy.com/)
 
-## One Chain: One Provider
+## 一条链：一个供应商
 
-As an example the `chains` field declares its use of blockchain 4, _Rinkeby_.
-The `type` is set to _evm_ which is the only type currently supported by
-Airnode. It then applies an arbitrary name for the blockchain provider
-"infura_rinkeby" in the `providers` array.
+举例来说，`chains`字段声明其使用的是区块链4，_Rinkeby_。 `type` 被设置为 _evm_ ，这是目前Airnode支持的唯一类型。 然后它在 `providers`数组中，为区块链供应商使用了一个任意的名称 "infura_rinkeby"。
 
 ```json
 "chains": [
@@ -57,11 +49,9 @@ Airnode. It then applies an arbitrary name for the blockchain provider
 ],
 ```
 
-## One Chain: Multiple Providers
+## 一个链：多个提供商
 
-Multiple providers can be used per chain. Simply add another object to
-`providers`. In this case both blockchain providers will have the same chain
-`id` and `type`.
+一条链可以使用多个供应商。 只需将另一个对象添加到`providers`中。 在这种情况下，两个区块链供应商将具有相同的链`id` 和`type`。
 
 ```json
 "chains": [
@@ -95,10 +85,9 @@ Multiple providers can be used per chain. Simply add another object to
 ],
 ```
 
-## Multiple Chains: Multiple Providers
+## 多条链：多个提供商
 
-Not as complicated as it sounds. First create two or more chain objects were
-each has a unique `id` and `type` and a list of `providers` for each.
+并不像听起来那么复杂。 首先创建两个或更多的链对象，每个对象都有一个独特的`id` 和 `type`，以及每个对象的`providers`列表。
 
 ```json
 "chains": [

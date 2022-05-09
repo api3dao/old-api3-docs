@@ -2,102 +2,75 @@
 title: Admin CLI
 ---
 
-<TitleSpan>Packages</TitleSpan>
+<TitleSpan>软件包</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Use the
-[airnode-admin](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-admin)
-Admin CLI tool to interact with Airnode across blockchains. There are commands
-for both developers (dApp) and API providers. Developers can sponsor
-[requester](../../concepts/requester.md) contracts and derive
-[sponsorWallets](../../concepts/sponsor.md#sponsorwallet) for Airnodes. API
-providers can build [Airnodes](../../concepts/airnode.md) that serve their API
-data to requester contracts.
+使用[airnode-admin](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-admin)Admin CLI工具与Airnode进行跨区块链互动。 这里有针对开发者（dApp）和API供应商的命令。 开发人员可以赞助[请求者](../../concepts/requester.md)合约，并为Airnode派生出[sponsorWallets](../../concepts/sponsor.md#sponsorwallet)。 API供应商可以建立[Airnode](../../concepts/airnode.md)，将他们的API数据提供给请求者合约。
 
-::: warning Transaction Gas Costs
+::: warning 交易gas费用
 
-Some commands will incur transaction fees. These are per call transaction gas
-costs and are relatively small. See the
-[<span style="color:green;">Developer Fees</span>](../../grp-developers/fees.md)
-doc.
+一些命令将会产生交易费用。 这些是每次调用的交易gas费用，相对较低。 查看 [<span style="color:green;">开发者费用</span>](../../grp-developers/fees.md)文档。
 
 :::
 
-Almost all commands require you to provide a blockchain `providerUrl`. Following
-are just two examples of many possibilities. See the
-[Chain Providers](../../concepts/chain-providers.md) doc for more information.
+几乎所有命令都要求你提供一个区块链 `providerUrl`。 以下只是许多可能性中的两个例子。 更多信息请参阅 [链供应商](../../concepts/chain-providers.md) 文档 。
 
 - <code style="overflow-wrap: break-word;">https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID></code>
 - `https://ropsten.infura.io/v3/<KEY>`
 
-The CLI connects to the
-[AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol)
-or the
-[RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol)
-contract, which addresses are derived from the current chain. You can optionally
-specify the contract addresses yourself by providing optional
-`airnode-rrp-address` or `requester-authorizer-with-airnode` command argument
-with the address of the deployed contract on your targeted chain.
+CLI连接到[AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol) 和[RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol)合约，这些地址由当前链衍生而来。 你可以通过提供可选的`airnode-rrp-address`或 `requester-authorizer-with-airnode` 命令参数，在目标链上提供已部署合约的地址，来选择自己指定合约地址。
 
-Commands that require `mnemonic` will make an on-chain transaction. The
-application will derive the account from the mnemonic with default ethereum
-derivation path `m/44'/60'/0'/0/0`. You can override this by using the optional
-parameter `derivation-path` (`m/44'/60'/0'/0/...`). Make sure that the wallet
-that is associated with the mnemonic is funded on the target chain. The
-application will not exit until the transaction is confirmed.
+需要`mnemonic`的命令将进行链上交易。 应用程序将通过默认的以太坊派生路径`m/44'/60'/0'/0/0`，从助记符中衍生出账户。 你可以通过使用可选的参数`derivation-path` （`m/44'/60'/0'/0/...`），覆盖这个问题。 确保与助记符相关的钱包在目标链上有资金。 在交易被确认之前，应用程序不会退出。
 
-### Using transaction overrides
+### 使用交易覆盖
 
-CLI commands also support the following transaction overrides as optional
-arguments: `gas-limit`, `gas-price` (legacy transactions), `max-fee` and
-`max-priority-fee` (EIP-1559 transactions) and `nonce`.
+CLI命令还支持以下交易覆盖作为可选参数： `gas-limit`, `gas-price` （传统交易）、`max-fee` 和 `max-priority-fee`（EIP-1559交易）和`nonce`。
 
-### Default transaction overrides
+### 默认交易覆盖
 
-If no overrides are provided, transactions will default to the following values:
+如果没有覆盖，交易将默认以下值：
 
-**EIP-1559 transactions**
+**EIP-1559 交易**
 
 ```sh
 maxPriorityFeePerGas: 3.12 gwei
 maxFeePerGas: baseFeePerGas of the last block * 2 + maxPriorityFeePerGas
 ```
 
-**Legacy transactions**
+**传统交易**
 
 ```sh
 gasPrice: gasPrice returned by the ethers getGasPrice method
 ```
 
-## Using npx
+## 使用 npx
 
-View all commands:
+查看所有命令：
 
 ```sh
 npx @api3/airnode-admin --help
 ```
 
-View the parameters of a command:
+查看命令的参数：
 
 ```sh
 npx @api3/airnode-admin $COMMAND --help
 ```
 
-## Using Docker
+## 使用 Docker
 
-Use the Admin CLI docker image as an alternative to `npx`:
+使用 Admin CLI docker镜像替代 `npx`:
 
 ```sh
 docker run api3/airnode-admin:0.6.0 --help
 ```
 
-View the parameters of a command:
+查看命令的参数：
 
 ```sh
 docker run api3/airnode-admin:0.6.0 $COMMAND --help
@@ -105,9 +78,7 @@ docker run api3/airnode-admin:0.6.0 $COMMAND --help
 
 ## SDK
 
-You can also use the package programmatically. The SDK exports respective
-functions for all CLI commands as well as helper functions for obtaining the
-contract instance on the targeted chain.
+你也可以以编程方式使用该包。 SDK为所有的CLI命令导出了相应的函数，以及用于获取目标链上的合约实例的辅助函数。
 
 ```js
 import { sponsorRequester, getAirnodeRrpWithSigner } from '@api3/admin';
@@ -123,9 +94,7 @@ const airnodeRrp = await getAirnodeRrpWithSigner(
 const requester = await sponsorRequester(airnodeRrp, requester);
 ```
 
-If you plan to use multiple commands it might be tedious to pass the contract
-instance to every function call. For this reason there is also class based
-`AdminSdk` which you initialize with `AirnodeRrp` contract only once.
+如果打算使用多个命令，那么将合约实例传递给每个函数调用，可能会很繁琐。 由于这个原因，也有基于类的`AdminSdk` ，你只需用`AdminSdk` 合约初始化一次就行。
 
 ```js
 import { AdminSdk } from '@api3/admin';
@@ -147,14 +116,11 @@ const requester = await adminSdk.sponsorRequester(requester);
 adminSdk.airnodeRrp = airnodeRrp.connect(someOtherWallet);
 ```
 
-The SDK will also provide TS typings out of the box. Please, refer to the
-implementation for more details.
+SDK还将提供开箱即用的TS类型。 更多细节请参考实施方案。
 
-### Using transaction overrides
+### 使用交易覆盖
 
-You can also use transaction overrides to customize gas limits and fee settings.
-The SDK simply passes the overrides parameter to the contract method so you can
-use any overrides supported by the ethers library.
+您也可以使用交易覆盖来自定义gas限制和费用设置。 SDK只是将覆盖参数传递给合约方法，因此你可以使用ethers库支持的任何参数覆盖。
 
 ```js
 import { ethers } from 'ethers';
@@ -176,15 +142,9 @@ const overrides = {
 const requester = await adminSdk.sponsorRequester(requester, overrides);
 ```
 
-## Sponsors
+## 赞助者
 
-Commands related to a [sponsor's](../../concepts/sponsor.md) relationships
-between [requesters](../../concepts/requester.md) and
-[sponsorWallets](../../concepts/sponsor.md#sponsorwallet) as well as
-[templates](../../concepts/template.md) used by a sponsor's requesters. Some of
-these commands connect to the
-[AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol)
-protocol contract where the signer is sponsor account.
+以下是与[赞助者的](../../concepts/sponsor.md) 的相关命令，包括 [请求者](../../concepts/requester.md) 和[sponsorWallets](../../concepts/sponsor.md#sponsorwallet) 之间关系，以及赞助请求者使用的[模板](../../concepts/template.md)。 其中一些命令连接到[AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol)协议合约，签署者是赞助者账户。
 
 - [sponsor-requester](admin-cli.md#sponsor-requester)
 - [unsponsor-requester](admin-cli.md#unsponsor-requester)
@@ -198,36 +158,20 @@ protocol contract where the signer is sponsor account.
 
 ### `sponsor-requester`
 
-[Sponsors](../../concepts/sponsor.md) a [requester](../../concepts/requester.md)
-contract so that its requests can be fulfilled by the
-[sponsorWallet](../../concepts/sponsor.md#sponsorwallet) of an Airnode. The
-account derived from the `mnemonic` you provide must belong to the sponsor.
+[赞助](../../concepts/sponsor.md)一个[请求者](../../concepts/requester.md)合约，以便其请求可以由Airnode的[sponsorWallet](../../concepts/sponsor.md#sponsorwallet)完成。 您提供的账户必须来自赞助者 `mnemonic`。
 
-Sponsoring a requester and using the returned `sponsorAddress` to derive a
-`sponsorWallet` for an Airnode creates a
-[relationship](../../concepts/sponsor.md) between the requester and the Airnode,
-see the
-[`derive-sponsor-wallet-address`](admin-cli.md#derive-sponsor-wallet-address)
-command.
+赞助一个请求者并使用返回的 `sponsorAddress`为 Airnode 衍生出一个 `sponsorWallet`，在请求者和 Airnode 之间建立一种[关系](../../concepts/sponsor.md)，详见[`derive-sponsor-wallet-address`](admin-cli.md#derive-sponsor-wallet-address) 命令。
 
-- `provider-url`: A valid blockchain provider URL.
-- `sponsor-mnemonic`: A wallet owned by the sponsor. Used to derive a
-  `sponsorAddress` as the default account of the mnemonic unless a
-  `derivation-path` is specified. It's also used to pay gas costs from the
-  mnemonic's default account unless a `derivation-path` is specified.
-- `requester-address`: The contract address of the requester to sponsor.
-- `airnode-rrp-address (optional)`: The public address of the AirnodeRrp.sol
-  protocol contract.
-- `derivation-path (optional)`: Selects an alternate account to use from the
-  mnemonic rather than the default.
-- `gas-limit` (optional): The gas limit to use for the transaction.
-- `gas-price` (optional): The gas price (in gwei) to use for the transaction
-  (only for legacy transactions).
-- `max-fee` (optional): The maximum fee (in gwei) per gas to use for the
-  transaction (only for EIP-1559 transactions).
-- `max-priority-fee` (optional): The maximum priority fee (in gwei) per gas to
-  use for the transaction (only for EIP-1559 transactions).
-- `nonce` (optional): The nonce to use for the transaction.
+- `provider-url`: 有效的区块链供应商URL。
+- `sponsor-mnemonic`: 一个由赞助者拥有的钱包。 用于派生出一个`sponsorAddress`作为助记符的默认账户，除非指定`derivation-path`。 它也用于从助记符的默认账户中支付gas费用，除非指定`derivation-path`。
+- `requester-address`: 要赞助的请求者的合约地址。
+- `airnode-rrp-address (optional)`：AirnodeRrp.sol协议合约的公共地址。
+- `derivation-path (optional)`：从助记符中选择一个备用账户来使用，而不是默认账户。
+- `gas-limit` (可选): 交易中要使用的gas限额。
+- `gas-price` (optional): 交易中使用的gas价格（单位：gwei）（仅适用于传统交易）。
+- `max-fee` (可选): 交易中使用的gas的最高费用（单位：gwei）（仅适用于EIP-1559交易）。
+- `max-priority-fee` (可选): 用于交易的gas的最高优先级费用（单位：gwei）（仅适用于EIP-1559交易）。
+- `nonce` (可选): 交易要使用的nonce。
 
 :::: tabs
 
@@ -257,28 +201,18 @@ npx @api3/airnode-admin sponsor-requester ^
 
 ### `unsponsor-requester`
 
-Removes the sponsorship of a [requester](../../concepts/requester.md) contract
-so that its requests can no longer be fulfilled by the
-[sponsorWallet](../../concepts/sponsor.md#sponsorwallet). The account derived
-from the `mnemonic` you provide here has to belong to the sponsor.
+移除 [请求者](../../concepts/requester. md) 合约的赞助者， 这样它的请求就不能再由 [sponsorWallet](../../concepts/sponsor. md#sponsorwallet)来完成。 在这里提供的`mnemonic` 所衍生的账户必须属于赞助商。
 
-- `provider-url`: A valid blockchain provider URL.
-- `sponsor-mnemonic`: A wallet owned by the sponsor. Must be the mnemonic used
-  to sponsor the requester. Used to pay gas costs from the mnemonic's default
-  account unless a `derivation-path` is specified.
-- `requester-address`: The contract address of the requester to unsponsor.
-- `airnode-rrp-address (optional)`: The public address of the AirnodeRrp.sol
-  protocol contract.
-- `derivation-path (optional)`: Selects an alternate account to use from the
-  mnemonic rather than the default.
-- `gas-limit` (optional): The gas limit to use for the transaction.
-- `gas-price` (optional): The gas price (in gwei) to use for the transaction
-  (only for legacy transactions).
-- `max-fee` (optional): The maximum fee (in gwei) per gas to use for the
-  transaction (only for EIP-1559 transactions).
-- `max-priority-fee` (optional): The maximum priority fee (in gwei) per gas to
-  use for the transaction (only for EIP-1559 transactions).
-- `nonce` (optional): The nonce to use for the transaction.
+- `provider-url`: 有效的区块链供应商URL。
+- `sponsor-mnemonic`: 由赞助者拥有的钱包。 必须是用于赞助请求者的助记符。 用来从助记符的默认账户支付gas费用，除非指定了 `derivation-path`。
+- `requester-address`: 请求者要取消赞助的合同地址。
+- `airnode-rrp-address (optional)`：AirnodeRrp.sol协议合约的公共地址。
+- `derivation-path (optional)`：从助记符中选择一个备用账户来使用，而不是默认账户。
+- `gas-limit` (可选): 交易中要使用的gas限额。
+- `gas-price` (可选): 交易中使用的gas价格（单位：gwei）（仅适用于传统交易）。
+- `max-fee` (可选): 交易中使用的gas的最高费用（单位：gwei）（仅适用于EIP-1559交易）。
+- `max-priority-fee` (可选): 用于交易的gas的最高优先级费用（单位：gwei）（仅适用于EIP-1559交易）。
+- `nonce` (可选)：用于交易的nonce。
 
 :::: tabs
 
@@ -308,16 +242,12 @@ npx @api3/airnode-admin unsponsor-requester ^
 
 ### `get-sponsor-status`
 
-Returns the sponsor status for a given [sponsor](../../concepts/sponsor.md) and
-[requester](../../concepts/requester.md) (`true` if sponsored, `false`
-otherwise).
+返回给定的 [赞助者](../../concepts/sponsor.md) 和 [请求者](../../concepts/requester.md) 状态(如果赞助，返回`true` ，反之，返回 `false`）。
 
-- `provider-url`: A valid blockchain provider URL.
-- `sponsor-address`: The `sponsorAddress` returned when the requester was
-  sponsored.
-- `requester-address`: The requester contract address.
-- `airnode-rrp-address (optional)`: The public address of the AirnodeRrp.sol
-  protocol contract.
+- `provider-url`: 有效的区块链供应商URL。
+- `sponsor-address`: 在请求者获得赞助时`sponsorAddress`返回值。
+- `requester-address`: 请求者合约地址。
+- `airnode-rrp-address (optional)`：AirnodeRrp.sol协议合约的公共地址。
 
 :::: tabs
 
@@ -347,17 +277,11 @@ npx @api3/airnode-admin get-sponsor-status ^
 
 ### `derive-sponsor-wallet-address`
 
-Derives the address of the wallet designated by an Airnode for a
-[sponsor](../../concepts/sponsor.md), which is called the
-[sponsorWallet](../../concepts/sponsor.md#sponsorwallet). This command will
-error if `airnode-xpub` does not belong to the HDNode with the path
-`m/44'/60'/0'` of the Airnode wallet. See the
-[`derive-airnode-xpub`](admin-cli.md#derive-airnode-xpub) command.
+生成Airnode为[赞助者](../../concepts/sponsor.md)指定的钱包的地址，这个钱包被称为[sponsorWallet](../../concepts/sponsor.md#sponsorwallet)。 如果`airnode-xpub`不属于路径为`m/44'/60'/0'`的Airnode钱包的HDNode，这个命令会出错。 查看 [`derive-airnode-xpub`](admin-cli.md#derive-airnode-xpub) 命令。
 
-- `airnode-xpub`: The extended public address of the Airnode for path
-  `m/44'/60'/0'`.
-- `airnode-address`: The public address of the Airnode.
-- `sponsor-address`: The address of the sponsor account.
+- `airnode-xpub`：路径`m/44'/60'/0'`的Airnode的扩展公共地址。
+- `airnode-address`: Airnode的公共地址。
+- `sponsor-address`: 赞助者帐户的地址。
 
 :::: tabs
 
@@ -387,27 +311,18 @@ npx @api3/airnode-admin derive-sponsor-wallet-address ^
 
 ### `create-template`
 
-Reads a file, uses its contents to create a
-[template](../../concepts/template.md) and returns a `template-id`. Also see
-[Using Templates](../../grp-developers/using-templates.md) for an example
-template file.
+读取文件，使用其内容创建一个 [template](../../concepts/template.md)并返回一个`template-id`。 参见 [使用模板](../../grp-developers/using-templates.md) 的示例 模板文件。
 
-- `provider-url`: A valid blockchain provider URL.
-- `mnemonic`: Used to pay gas costs from the mnemonic's default account unless a
-  `derivation-path` is specified.
-- `template-file-path`: Path to the template file to create on-chain.
-- `airnode-rrp-address (optional)`: The public address of the AirnodeRrp.sol
-  protocol contract.
-- `derivation-path (optional)`: Selects an alternate account to use from the
-  mnemonic rather than the default.
-- `gas-limit` (optional): The gas limit to use for the transaction.
-- `gas-price` (optional): The gas price (in gwei) to use for the transaction
-  (only for legacy transactions).
-- `max-fee` (optional): The maximum fee (in gwei) per gas to use for the
-  transaction (only for EIP-1559 transactions).
-- `max-priority-fee` (optional): The maximum priority fee (in gwei) per gas to
-  use for the transaction (only for EIP-1559 transactions).
-- `nonce` (optional): The nonce to use for the transaction.
+- `provider-url`: 有效的区块链供应商URL。
+- `mnemonic`：用来从助记符的默认账户支付gas费用，除非指定了 `derivation-path`。
+- `template-file-path`： 在链上创建模板文件的路径。
+- `airnode-rrp-address (optional)`：AirnodeRrp.sol协议合约的公共地址。
+- `derivation-path (optional)`：从助记符中选择一个备用账户来使用，而不是默认账户。
+- `gas-limit` (可选): 交易中要使用的gas限额。
+- `gas-price` (可选): 交易中使用的gas价格（单位：gwei）（仅适用于传统交易）。
+- `max-fee` (可选): 交易中使用的gas的最高费用（单位：gwei）（仅适用于EIP-1559交易）。
+- `max-priority-fee` (可选): 用于交易的gas的最高优先级费用（单位：gwei）（仅适用于EIP-1559交易）。
+- `nonce` (可选)：用于交易的nonce。
 
 :::: tabs
 
@@ -437,12 +352,11 @@ npx @api3/airnode-admin create-template ^
 
 ### `get-template`
 
-Returns the [template](../../concepts/template.md) for the given `template-id`.
+返回给定的`template-id`的 [模版](../../concepts/template.md)。
 
-- `provider-url`: A valid blockchain provider URL.
-- `template-id`: The id of a template to return.
-- `airnode-rrp-address (optional)`: The public address of the AirnodeRrp.sol
-  protocol contract.
+- `provider-url`: 有效的区块链供应商URL。
+- `template-id`: 要返回的模板的 id。
+- `airnode-rrp-address (optional)`：AirnodeRrp.sol协议合约的公共地址。
 
 :::: tabs
 
@@ -470,47 +384,29 @@ npx @api3/airnode-admin get-template ^
 
 ### `request-withdrawal`
 
-Requests a [withdrawal](../../concepts/sponsor.md#withdrawals) from a
-[sponsorWallet](../../concepts/sponsor.md#sponsorwallet) managed by an Airnode.
+清求从由Airnode管理的[sponsorWallet](../../concepts/sponsor.md#sponsorwallet)进行[提款](../../concepts/sponsor.md#withdrawals) 。
 
-The funds will be returned to the account derived from the `sponsor-mnemonic`.
-This account must belong to a [sponsor](../../concepts/sponsor.md) for the
-specified [sponsor wallet address](../../concepts/sponsor.md#sponsorwallet) in
-the command.
+资金将退回到从 `sponsor-mnemonic`衍生的账户。 这个账户必须属于命令中指定的[赞助者钱包地址](../../concepts/sponsor.md#sponsorwallet)的[赞助者](../../concepts/sponsor.md)。
 
-After the request is made, it needs to be fulfilled by Airnode, so the return
-value of this command is only a `withdrawal-request-id` which you can use to
-call [check-withdrawal-request](admin-cli.md#check-withdrawal-request) to see
-whether the request was processed or not.
+请求发出后，需要由Airnode来完成，所以这个命令的返回值只是一个`withdrawal-request-id` ，你可以用来调用[check-withdrawal-request](admin-cli.md#check-withdrawal-request)来查看请求是否被处理。
 
-::: warning Withdrawal Priority
+::: warning 提现的优先级
 
-Airnode will drop any pending API calls associated with a `sponsorWallet` once a
-withdrawal is requested.
+一旦申请提款，Airnode将放弃与`sponsorWallet`相关的任何待执行的API调用。
 
 :::
 
-- `provider-url`: A valid blockchain provider URL.
-- `sponsor-mnemonic`: A wallet owned by the sponsor. Used to pay gas costs from
-  the mnemonic's default account unless a `derivation-path` is specified.
-  Withdrawn funds will be added to this mnemonic's default address unless a
-  `derivation-path` is specified.
-- `airnode-address`: The public address of the Airnode.
-- `sponsor-wallet-address`: The pubic address of the sponsorWallet to withdraw
-  from. This address was returned by the `derive-sponsor-wallet-address`
-  command.
-- `airnode-rrp-address (optional)`: The public address of the AirnodeRrp.sol
-  protocol contract.
-- `derivation-path (optional)` : The destination address of the `mnemonic`
-  parameter to add the withdrawn funds to if the default address is not desired.
-- `gas-limit` (optional): The gas limit to use for the transaction.
-- `gas-price` (optional): The gas price (in gwei) to use for the transaction
-  (only for legacy transactions).
-- `max-fee` (optional): The maximum fee (in gwei) per gas to use for the
-  transaction (only for EIP-1559 transactions).
-- `max-priority-fee` (optional): The maximum priority fee (in gwei) per gas to
-  use for the transaction (only for EIP-1559 transactions).
-- `nonce` (optional): The nonce to use for the transaction.
+- `provider-url`: 有效的区块链供应商URL。
+- `sponsor-mnemonic`: 由赞助者拥有的钱包。 用来从助记符的默认账户支付gas费用，除非指定了 `derivation-path`。 除非指定一个`derivation-path` ，否则提取资金将被添加到此助记符的默认地址。
+- `airnode-address`: Airnode的公共地址。
+- `sponsor-wallet-address`： 赞助者钱包的公共地址，可以以从中取款。 这个地址是由`derive-sponsor-wallet-address`命令返回的。
+- `airnode-rrp-address (optional)`：AirnodeRrp.sol协议合约的公共地址。
+- `derivation-path (optional)` : 如果不希望使用默认地址，将会把提取的资金添加到`mnemonic`参数的目标地址。
+- `gas-limit` (可选): 交易中要使用的gas限额。
+- `gas-price` (optional): 交易中使用的gas价格（单位：gwei）（仅适用于传统交易）。
+- `max-fee` (可选): 交易中使用的gas的最高费用（单位：gwei）（仅适用于EIP-1559交易）。
+- `max-priority-fee` (可选): 用于交易的gas的最高优先级费用（单位：gwei）（仅适用于EIP-1559交易）。
+- `nonce` (可选): 交易要使用的nonce。
 
 :::: tabs
 
@@ -542,15 +438,11 @@ npx @api3/airnode-admin request-withdrawal ^
 
 ### `check-withdrawal-request`
 
-Checks the status of the [withdrawal](../../concepts/sponsor.md#withdrawals)
-request with the given `withdrawal-request-id` from the
-[request withdrawal command](admin-cli.md#request-withdrawal) above.
+通过 [请求提款命令](admin-cli.md#request-withdrawal)，检查 [提款](../../concepts/sponsor.md#withdrawals) 请求的状态与给定的 `withdrawal-request-id` 。
 
-- `provider-url`: A valid blockchain provider URL.
-- `withdrawal-request-id`: This id was returned by the `request-withdrawal`
-  command.
-- `airnode-rrp-address (optional)`: The public address of the AirnodeRrp.sol
-  protocol contract.
+- `provider-url`: 有效的区块链供应商URL。
+- `withdrawal-request-id` 这个id 是由 `request-remission`命令返回的。
+- `airnode-rrp-address (optional)`：AirnodeRrp.sol协议合约的公共地址。
 
 :::: tabs
 
@@ -578,19 +470,11 @@ npx @api3/airnode-admin check-withdrawal-request ^
 
 ### `verify-airnode-xpub`
 
-Verifies that the `airnode-xpub` belongs to the HDNode with the path
-`m/44'/60'/0'` of the Airnode wallet. This command checks that the Airnode
-address can be derived with provided Airnode
-[xpub](../../concepts/airnode.md#xpub) with default derivation path
-`m/44'/60'/0'/0/0` and compares it with the `airnode-address`. This command will
-most likely be used by a [sponsor](../../concepts/sponsor.md) to verify that the
-xpub belongs to the Airnode before calling the
-[derive-sponsor-wallet-address](admin-cli.md#derive-sponsor-wallet-address)
-command.
+验证`airnode-xpub`是否属于HDNode，其路径为Airnode钱包的`m/44'/60'/0'`路径。 该命令检查Airnode地址是否可以通过提供的Airnode [xpub](../../concepts/airnode.md#xpub)与默认衍生路径`m/44'/60'/0'/0/0`进行衍生，并与`airnode-address`进行比较。 在调用[derive-sponsor-wallet-address](admin-cli.md#derive-sponsor-wallet-address)命令之前，这个命令很可能被[赞助者](../../concepts/sponsor.md)用来验证xpub是否属于Airnode。
 
 :::: tabs
 
-::: tab Linux/Mac/WSL2
+::: tab Windows
 
 ```sh
 npx @api3/airnode-admin verify-airnode-xpub \
@@ -614,9 +498,7 @@ npx @api3/airnode-admin verify-airnode-xpub ^
 
 ## Airnodes
 
-Helper commands for a previously deployed Airnode. Some of these commands
-connect to the AirnodeRrp.sol protocol contract where the signer must be the
-Airnode wallet.
+先前部署的Airnode的助手命令。 其中一些命令连接到AirnodeRrp.sol协议合同，签署者必须是Airnode钱包。
 
 - [derive-airnode-xpub](admin-cli.md#derive-airnode-xpub)
 - [derive-endpoint-id](admin-cli.md#derive-endpoint-id)
@@ -625,18 +507,13 @@ Airnode wallet.
 
 ### `derive-airnode-xpub`
 
-Derives the Airnode extended public key
-([xpub](../../concepts/airnode.md#xpub)). This xpub must be announced via
-off-chain channels because it will be needed to derive a
-[sponsorWallet](../../concepts/sponsor.md#sponsorwallet) address. See the
-[derive-sponsor-wallet-address](admin-cli.md#derive-sponsor-wallet-address)
-command.
+生成 Airnode 扩展公钥 ([xpub](../../concepts/airnode.md#xpub))。 这个xpub必须通过链外渠道公布，因为需要它来衍生[sponsorWallet](../../concepts/sponsor.md#sponsorwallet) 地址。 参见 [derive-sponsor-wallet-address](admin-cli.md#derive-sponsor-wallet-address)命令.
 
-- `airnode-mnemonic`: The Airnode mnemonic for which the xpub is to be derived.
+- `airnode-mnemonic`: 衍生出xpub的Airnode助记符。
 
 :::: tabs
 
-::: tab Linux/Mac/WSL2
+::: tab Windows
 
 ```sh
 npx @api3/airnode-admin derive-airnode-xpub --airnode-mnemonic "nature about salad..."
@@ -656,16 +533,10 @@ npx @api3/airnode-admin derive-airnode-xpub --airnode-mnemonic "nature about sal
 
 ### `derive-endpoint-id`
 
-Derives an [endpointId](../deployment-files/config-json.md#triggers) from the
-OIS title and the endpoint's name. This command uses the convention described in
-the
-[triggers](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#triggers)
-section of the configuring airnode documentation. Add the `endpointId` to the
-config.json file (`triggers.rrp[n].endpointId`).
+从OIS的标题和端点的名称中得出 [endpointId](../deployment-files/config-json. md#triggers)。 该命令使用配置airnode文档中的[触发器](../../grp-providers/guides/build-an-airnode/configuring-airnode. md#triggers)部分描述的惯例用法。 将`endpointId`添加到config.json文件中（`triggers.rrp[n].endpointId`）。
 
-- `ois-title`: The title of the OIS from config.json (`ois.title`).
-- `endpoint-name`: The name of the endpoint from config.json
-  (`triggers.rrp[n].endpointName`).
+- `ois-title`: 来自config.json (`ois.title`) 的 OIS 标题。
+- `endpoint-name`:来自 config.json (`triggers.rrp[n].endpointName`)的短点名称。
 
 :::: tabs
 
@@ -693,11 +564,7 @@ npx @api3/airnode-admin derive-endpoint-id ^
 
 ### `generate-mnemonic`
 
-Generates a unique mnemonic which can be used to create an
-[airnode wallet](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#airnodewalletmnemonic).
-In addition to the mnemonic, this command will also display the corresponding
-[airnode address](../../concepts/airnode.md#airnodeaddress) and its extended
-public key ([xpub](../../concepts/airnode.md#xpub)).
+生成一个独特的助记符，用于创建一个 [airnode钱包](../../grp-providers/guides/build-an-airnode/configuring-airnode. md#airnodewalletmnemonic) 除了助记符外，该命令还将显示相应的[airnode 地址](../../concepts/airnode.md#airnodeaddress)及其扩展公钥（[xpub](../../concepts/airnode.md#xpub)）。
 
 ```sh
 npx @api3/airnode-admin generate-mnemonic
@@ -705,10 +572,7 @@ npx @api3/airnode-admin generate-mnemonic
 
 ### `derive-airnode-address`
 
-Derives the [airnode address](../../concepts/airnode.md#airnodeaddress) which is
-the identifier of the particular Airnode on chain. You need this identifier for
-many other admin CLI commands, such as
-[derive-sponsor-wallet-address](admin-cli.md#derive-sponsor-wallet-address).
+生成 [airnode 地址](../../concepts/airnode.md#airnodeaddress)，该地址是链上特定的 Airnode 标识符。 您需要此标识符，用于其他许多管理员CLI 命令，如 [derive-sponsor-wallet-address](admin-cli.md#derive-sponsor-wallet-address)。
 
 ```sh
 npx @api3/airnode-admin derive-airnode-address
@@ -716,17 +580,11 @@ npx @api3/airnode-admin derive-airnode-address
 
 ## RequesterAuthorizerWithAirnode
 
-RequesterAuthorizerWithAirnode contract was written by API3 as an
-[authorizer](../../concepts/authorization.md) contract that can be used by any
-Airnode. Airnode owners can use this contract in addition to authorizer
-contracts they have written themselves.
+Requester AuthorizerWandAirnode 合约由 API3 编写，为[授权者](../../concepts/authorization.md)合约，任何Airnode都可以使用。 Airnode所有者可以在他们自己编写的授权者合约之外使用这个合约。
 
-This authorizer contract can whitelist [requesters](../../concepts/requester.md)
-where each Airnode is adminned by themselves.
+这个授权者合同可以将[请求者](../../concepts/requester.md)列入白名单，其中每个Airnode 都是由他们自己管理的。
 
-These commands connect to the
-[RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol)
-contract.
+这些命令连接到[RequesterWidairnode.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol)合约。
 
 - [set-whitelist-expiration](admin-cli.md#set-whitelist-expiration)
 - [extend-whitelist-expiration](admin-cli.md#extend-whitelist-expiration)
@@ -736,32 +594,21 @@ contract.
 
 ### `set-whitelist-expiration`
 
-Called by the Airnode wallet or a whitelist expiration setter to set the
-whitelisting expiration of a requester for the Airnode–endpoint pair. This can
-hasten expiration in the case the new expiration timestamp is prior to a
-previously set timestamp.
+由Airnode钱包或白名单过期设置者调用，以设置Airnode-端点配对的请求者的白名单过期。 在新的过期时间戳早于先前设置的时间戳的情况下，可以加速过期。
 
-- `mnemonic`: Used to pay gas costs from the mnemonic's default account unless a
-  `derivation-path` is specified. The mnemonic must be at least an Admin or
-  Airnode wallet.
-- `provider-url`: A valid blockchain provider URL.
-- `endpoint-id`: The [`endpointId`](../deployment-files/config-json.md#triggers)
-  for which permission is granted (from OIS).
-- `requester-address`: The public address of the requester contract.
-- `expiration-timestamp`: A unix formatted timestamp.
-- `airnode-address`: The public address of the Airnode.
-- `requester-authorizer-with-airnode (optional)`: The authorizer contract
-  address.
-- `derivation-path (optional)`: Selects an alternate account to use from the
-  mnemonic rather than the default.
-- `gas-limit` (optional): The gas limit to use for the transaction.
-- `gas-price` (optional): The gas price (in gwei) to use for the transaction
-  (only for legacy transactions).
-- `max-fee` (optional): The maximum fee (in gwei) per gas to use for the
-  transaction (only for EIP-1559 transactions).
-- `max-priority-fee` (optional): The maximum priority fee (in gwei) per gas to
-  use for the transaction (only for EIP-1559 transactions).
-- `nonce` (optional): The nonce to use for the transaction.
+- `mnemonic`：用来从助记符的默认账户支付gas费用，除非指定了 `derivation-path`。 助记符必须至少是一个管理员或 Airnode 钱包。
+- `provider-url`: 有效的区块链供应商URL。
+- `endpoint-id`: 授予权限的 [`endpointId`](../deployment-files/config-json.md#triggers)（来自OIS）。
+- `requester-address`:: 请求者合约的公共地址。
+- `expiration-timestamp`:: Unix格式化的时间戳.
+- `airnode-address`: Airnode的公共地址。
+- `requester-authorizer-with-airnode (optional)`: 授权者合约地址。
+- `derivation-path (optional)`：从助记符中选择一个备用账户来使用，而不是默认账户。
+- `gas-limit` (可选): 交易中要使用的gas限额。
+- `gas-price` (可选): 交易中使用的gas价格（单位：gwei）（仅适用于传统交易）。
+- `max-fee` (可选): 交易中使用的gas的最高费用（单位：gwei）（仅适用于EIP-1559交易）。
+- `max-priority-fee` (可选): 用于交易的gas的最高优先级费用（单位：gwei）（仅适用于EIP-1559交易）。
+- `nonce` (可选): 交易要使用的nonce。
 
 :::: tabs
 
@@ -797,31 +644,21 @@ npx @api3/airnode-admin set-whitelist-expiration ^
 
 ### `extend-whitelist-expiration`
 
-Called by the Airnode wallet or a whitelist expiration extender to extend the
-whitelist expiration of a requester for the Airnode–endpoint pair. This command
-expects that the new expiration timestamp is later then the previously set
-timestamp.
+由Airnode钱包或白名单过期扩展器调用，以延长Airnode-端点配对的请求者的白名单过期时间。 该命令希望新的过期时间戳晚于先前设置的时间戳。
 
-- `mnemonic`: Used to pay on-chain gas cost for this command's transaction. The
-  mnemonic must be at least an Admin or Airnode wallet.
-- `provider-url`: A valid blockchain provider URL.
-- `endpoint-id`: The [`endpointId`](../deployment-files/config-json.md#triggers)
-  for which permission is granted (from OIS).
-- `requester-address`: The public address of the requester contract.
-- `expiration-timestamp`: A unix formatted timestamp.
-- `airnode-address`: The public address of the Airnode.
-- `requester-authorizer-with-airnode (optional)`: The authorizer contract
-  address.
-- `derivation-path (optional)`: Selects an alternate account to use from the
-  mnemonic rather than the default.
-- `gas-limit` (optional): The gas limit to use for the transaction.
-- `gas-price` (optional): The gas price (in gwei) to use for the transaction
-  (only for legacy transactions).
-- `max-fee` (optional): The maximum fee (in gwei) per gas to use for the
-  transaction (only for EIP-1559 transactions).
-- `max-priority-fee` (optional): The maximum priority fee (in gwei) per gas to
-  use for the transaction (only for EIP-1559 transactions).
-- `nonce` (optional): The nonce to use for the transaction.
+- `mnemonic`: 用于支付该命令交易的链上gas费用。 助记符必须至少是一个管理员或Airnode 钱包。
+- `provider-url`: 有效的区块链供应商URL。
+- `endpoint-id`: 授予权限的 [`endpointId`](../deployment-files/config-json.md#triggers)（来自OIS）。
+- `requester-address`:: 请求者合约的公共地址。
+- `expiration-timestamp`:: Unix格式化的时间戳.
+- `airnode-address`: Airnode的公共地址。
+- `requester-authorizer-with-airnode (optional)`: 授权者合约地址。
+- `derivation-path (optional)`：从助记符中选择一个备用账户来使用，而不是默认账户。
+- `gas-limit` (可选): 交易中要使用的gas限额。
+- `gas-price` (optional): 交易中使用的gas价格（单位：gwei）（仅适用于传统交易）。
+- `max-fee` (可选): 交易中使用的gas的最高费用（单位：gwei）（仅适用于EIP-1559交易）。
+- `max-priority-fee` (可选): 用于交易的gas的最高优先级费用（单位：gwei）（仅适用于EIP-1559交易）。
+- `nonce` (可选): 交易要使用的nonce。
 
 :::: tabs
 
@@ -857,34 +694,22 @@ npx @api3/airnode-admin extend-whitelist-expiration ^
 
 ### `set-indefinite-whitelist-status`
 
-Called by the Airnode wallet or an indefinite whitelister to whitelist a
-requester indefinitely for the Airnode–endpoint pair. This command can be used
-to make whitelisting permanent in cases where it is needed to allow requests
-even beyond the expiration period.
+由Airnode钱包或无限期白名单调用，对Airnode-端点配对的请求者列入无限期白名单。 在需要允许请求超过有效期的情况下，这个命令可以用来使白名单永久化。
 
-- `mnemonic`: Used to pay on-chain gas cost for this command's transaction. The
-  mnemonic must be at least an Admin or Airnode wallet. The default address of
-  the mnemonic will be used unless a derivation-path is provided.
-- `provider-url`: A valid blockchain provider URL.
-- `endpoint-id`: The [`endpointId`](../deployment-files/config-json.md#triggers)
-  for which permission is granted (from OIS).
-- `requester-address`: The public address of the requester contract.
-- `expiration-timestamp`: A unix formatted timestamp.
-- `airnode-address`: The public address of the Airnode.
-- `requester-authorizer-with-airnode (optional)`: The authorizer contract
-  address.
-- `derivation-path (optional)`: Selects an alternate account to use from the
-  mnemonic rather than the default.
-- `indefinite-whitelist-status`: Whether the Airnode-endpoint pair should be
-  whitelisted indefinitely or not.
-- `gas-limit` (optional): The gas limit to use for the transaction.
-- `gas-price` (optional): The gas price (in gwei) to use for the transaction
-  (only for legacy transactions).
-- `max-fee` (optional): The maximum fee (in gwei) per gas to use for the
-  transaction (only for EIP-1559 transactions).
-- `max-priority-fee` (optional): The maximum priority fee (in gwei) per gas to
-  use for the transaction (only for EIP-1559 transactions).
-- `nonce` (optional): The nonce to use for the transaction.
+- `mnemonic`: 用于支付该命令交易的链上gas费用。 助记符必须至少是一个管理员或Airnode 钱包。 助记符的默认地址将被使用，除非提供衍生工具路径。
+- `provider-url`: 有效的区块链供应商URL。
+- `endpoint-id`: 被授予权限的[`endpointId`](../deployment-files/config-json.md#triggers)（来自OIS）。
+- `requester-address`: 请求者合约的公共地址。
+- `expiration-timestamp`: Unix格式化的时间戳.
+- `airnode-address`: Airnode的公共地址。
+- `requester-authorizer-with-airnode (optional)`: 授权者合约地址。
+- `derivation-path (optional)`：从助记符中选择一个备用账户来使用，而不是默认账户。
+- `indefinite-whitelist-status`: Airnode-端点配对是否应该被无限期地列入白名单。
+- `gas-limit` (可选): 交易中要使用的gas限额。
+- `gas-price` (optional): 交易中使用的gas价格（单位：gwei）（仅适用于传统交易）。
+- `max-fee` (可选): 交易中使用的gas的最高费用（单位：gwei）（仅适用于EIP-1559交易）。
+- `max-priority-fee` (可选): 用于交易的gas的最高优先级费用（单位：gwei）（仅适用于EIP-1559交易）。
+- `nonce` (可选): 交易要使用的nonce。
 
 :::: tabs
 
@@ -918,16 +743,13 @@ npx @api3/airnode-admin set-indefinite-whitelist-status ^
 
 ### `get-whitelist-status`
 
-Called to get the detailed whitelist status of a requester for the
-Airnode–endpoint pair.
+调用该功能是为了获得Airnode-端点配对的请求者的详细白名单状态
 
-- `provider-url`: A valid blockchain provider URL.
-- `endpoint-id`: The [`endpointId`](../deployment-files/config-json.md#triggers)
-  for which permission is granted (from OIS).
-- `requester-address`: The public address of the requester contract.
-- `airnode-address`: The public address of the Airnode.
-- `requester-authorizer-with-airnode (optional)`: The authorizer contract
-  address.
+- `provider-url`: 有效的区块链供应商URL。
+- `endpoint-id`: 授予权限的 [`endpointId`](../deployment-files/config-json.md#triggers)（来自OIS）。
+- `requester-address`：请求者合约的公共地址。
+- `airnode-address`: Airnode的公共地址。
+- `requester-authorizer-with-airnode (optional)`: 授权者合约地址。
 
 :::: tabs
 
@@ -959,18 +781,17 @@ npx @api3/airnode-admin get-whitelist-status ^
 
 ### `is-requester-whitelisted`
 
-Called to check if a requester is whitelisted to use the Airnode–endpoint pair.
+调用以检查请求者是否被列入白名单以使用Airnode-端点配对。
 
-- `provider-url`: A valid blockchain provider URL.
-- `requester-authorizer-with-airnode`: The authorizer contract address.
-- `endpoint-id`: The [`endpointId`](../deployment-files/config-json.md#triggers)
-  for which permission is granted (from OIS).
-- `requester-address`: The public address of the requester contract.
-- `airnode-address`: The public address of the Airnode.
+- `provider-url`: 有效的区块链供应商URL。
+- `requester-authorizer-with-airnode (optional)`: 授权者合约地址。
+- `endpoint-id`: 授予权限的 [`endpointId`](../deployment-files/config-json.md#triggers)（来自OIS）。
+- `requester-address`: 请求者合约的公共地址。
+- `airnode-address`: Airnode的公共地址。
 
 :::: tabs
 
-::: tab Linux/Mac/WSL2
+::: tab Windows
 
 ```sh
 npx @api3/airnode-admin is-requester-whitelisted \
@@ -998,7 +819,6 @@ npx @api3/airnode-admin is-requester-whitelisted ^
 
 ::::
 
-## More Examples
+## 更多案例
 
-You can find more examples in the _@api3-dao/airnode/package/admin_
-[test files](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-admin/test).
+您可以在 _@api3-dao/airnode/package/admin_ [测试文件](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-admin/test) 中找到更多示例。

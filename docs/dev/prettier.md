@@ -4,22 +4,17 @@ title: Prettier
 
 # {{$frontmatter.title}}
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Standard formatting for all docs after `/pre-alpha`. If needed run
-`yarn add prettier` to install the prettier dependency.
+Standard formatting for all docs after `/pre-alpha`. If needed run `yarn add prettier` to install the prettier dependency.
 
 ## `/.prettierignore`
 
-Always ignore `/pre-alpha`. It is useful to have a discussion with others before
-updating this file.
+Always ignore `/pre-alpha`. It is useful to have a discussion with others before updating this file.
 
 ## `/.prettierrc`
 
-Note the `"printWidth": 80` which allows VS Code to have two panes open
-side-by-side, one for the markdown editor and another for a viewer. This allows
-the editor content to be mostly in view while editing.
+Note the `"printWidth": 80` which allows VS Code to have two panes open side-by-side, one for the markdown editor and another for a viewer. This allows the editor content to be mostly in view while editing.
 
 ```json
 {
@@ -43,8 +38,7 @@ the editor content to be mostly in view while editing.
 
 ## Editor Settings
 
-It is helpful to format on save and to use prettier as the default formatter
-over other formatters.
+It is helpful to format on save and to use prettier as the default formatter over other formatters.
 
 Use VS Code settings.
 

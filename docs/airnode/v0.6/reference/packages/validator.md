@@ -1,53 +1,39 @@
 ---
-title: Validator
+title: 验证程序
 ---
 
-<TitleSpan>Packages</TitleSpan>
+<TitleSpan>软件包</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-The
-[airnode-validator](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-validator)
-package, known as the validator, is used by the
-[Docker Images](../../grp-providers/docker/) to validate the
-[configuration files](../../grp-providers/guides/build-an-airnode/configuring-airnode.md)
-you provide when deploying an Airnode. You can also use the validator to check
-the configuration files for correct formatting and other issues while creating
-them.
+[airnode-validator](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-validator)软件包被称为验证器，它被[Docker 镜像](../../grp-providers/docker/) 用来验证你在部署Airnode时提供的[配置文件](../../grp-providers/guides/build-an-airnode/configuring-airnode.md)。 你也可以使用验证器在创建配置文件时，检查其格式是否正确和其他问题。
 
-## Usage
+## 用法
 
-The validator's commands can be run using
-[npx](https://nodejs.dev/learn/the-npx-nodejs-package-runner), installing a
-global npm package, the validator SDK or by manually building the validator
-package. Using npx is the simplest method to interact with the validator.
+验证器的命令可以使用[npx](https://nodejs.dev/learn/the-npx-nodejs-package-runner)、安装全局npm包、验证器SDK或通过手动构建验证器包来运行。 使用npx是与验证器交互的最简单方法。
 
-- [Using npx](./validator.md#using-npx)
-- [Global Package](./validator.md#global-package)
-- [Use the SDK](./validator.md#use-the-sdk)
-- [Build Manually](./validator.md#build-manually)
+- [使用 npx](./validator.md#using-npx)
+- [全局套件](./validator.md#global-package)
+- [使用 SDK](./validator.md#use-the-sdk)
+- [手动创建](./validator.md#build-manually)
 
 <!-- TODO: Before going through code examples first describe the 3 execution methods. -->
 
-### Using npx
+### 使用 npx
 
-The validator package can be run as an npm package using npx. This allows you to
-run validator commands without installing the validator npm package or having to
-manually build the validator package yourself.
+验证程序包可以使用 npx 作为一个npm 软件包运行。 这允许您运行验证器命令，而不需要安装验证器npm 软件包或自己手动构建验证器软件包。
 
 ```sh
 npx @api3/airnode-validator api3-validator --template="config" --specs="config.json"
 ```
 
-### Global Package
+### 全局套件
 
-The validator package can be installed globally with yarn or npm. If installed
-using yarn make sure yarn bin is added to `PATH`.
+验证程序包可以用 yarn 或 npm 全局安装。 如果使用 yarn 安装，请确保yarn bin 被添加到 `PATH` 中。
 
 ```sh
 yarn global add @api3/airnode-validator
@@ -58,12 +44,9 @@ npm install @api3/airnode-validator -g
 api3-validator --template="config" --specs="config.json"
 ```
 
-### Use the SDK
+### 使用 SDK
 
-The validator package exports useful functions for validation. In the output
-`valid` is set to `true` when there are no errors, however there could be
-warnings in the `messages`. The validator uses the latest template unless a
-template version is applied.
+验证程序包导出用于验证的有用函数。 在输出中，当没有错误时，`valid`被设置为`true`，然而在`messages`中可能有警告。 验证器使用了最新的模板，除非应用了特定的模板版本。
 
 ```js
 const validator = require('@api3/airnode-validator');
@@ -83,18 +66,13 @@ console.log(
 }
 ```
 
-### Build Manually
+### 手动创建
 
-You can clone and build the Airnode monorepo then run the validator as a yarn
-script from inside the `packages/airnode-validator` directory. The instructions
-to do so are in the monorepo validator package
-[README](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-validator).
+你可以克隆并构建Airnode monorepo，然后在 `packages/airnode-validator` 目录下，以yarn脚本的方式运行验证器。 参见monorepo验证器包的[README](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-validator)中的说明。
 
-## Examples
+## 示例
 
-The validator is based on two primary arguments to function. The `--template`
-argument describes the content type to validate. Secondly the `--specs` argument
-which requires a file containing the content to validate.
+验证器是基于两个主要参数来运作的。 `--template`参数描述了要验证的内容类型。 第二， `--specs` 参数需要包含内容的文件才能验证。
 
 ```
 npx @api3/airnode-validator --help
@@ -110,27 +88,18 @@ Options:
                                 specification                          [string]
 ```
 
-For the `--template` argument use one of the following values which are
-case-insensitive.
+对于`--template`参数，请使用以下不区分大小写的数值之一。
 
 - [config](./validator.md#config)
 - [OIS](./validator.md#ois)
 - [apiSpecifications](./validator.md#apispecifications) _or_ apiSpecs
 - [endpoints](./validator.md#endpoints)
 
-The validator will automatically validate the latest available version of a
-template (i.e., `--template="config"`) when the template does not contain a
-specific version . If a specific version is needed it can be appended to the
-template argument (i.e., `--template="config@0.3"`). You can see the different
-[template versions](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-validator/templates)
-in the validator package of the Airnode monorepo.
+当模板不包含特定的版本时，验证器会自动验证模板的最新可用版本（即， `--template="config"`）。 如果需要特定版本，可以将其附加到模板参数中(如 `--template="config@0.3"`)。 你可以在Airnode monorepo的验证器包中看到不同的[模板版本](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-validator/templates)。
 
 ### config
 
-The following code example validates a `config.json` file. This is the most
-common validation use case. The other templates
-(`apiSpecifications, endpoints, OIS`) support objects within the config.json and
-must be in separate files to be validated.
+以下代码示例验证一个 `config.json` 文件。 这是最常见的验证用例。 其他模板（`apiSpecifications, endpoints, OIS`）支持config.json中的对象，必须在单独的文件中才能被验证。
 
 ```sh
 # Validates a completed config.json file using the latest template version.
@@ -140,9 +109,7 @@ npx @api3/airnode-validator --template="config" --specs="myProject/config/config
 npx @api3/airnode-validator --template="config@0.6" --specs="myProject/config/config.json"
 ```
 
-You will most likely keep secrets in a file separate from the `config.json`
-file. Using interpolation with an env file is supported using the `--secrets`
-argument.
+你很可能将秘密保存在一个与`config.json`文件分开的文件中。 使用`--secrets`参数，支持用env文件进行插值。
 
 ```sh
 npx @api3/airnode-validator --template="config" --secrets="secrets.env" --specs="myProject/config/config.json"
@@ -150,10 +117,7 @@ npx @api3/airnode-validator --template="config" --secrets="secrets.env" --specs=
 
 ### OIS
 
-The following code example validates an [OIS](/ois/v1.0.0/ois.md) object that
-has been placed in a file separate from a `config.json` file. The OIS object
-contains the mapping between an API and Airnode endpoints. _Interpolation with
-an env file is supported._
+下面的代码例子验证了一个[OIS](/ois/v1.0.0/ois.md) 对象，它被放置在一个独立于`config.json`文件的文件中。 OIS对象包含一个 API 和 Airnode 端点之间的映射。 _支持使用env文件进行插值。_
 
 ```sh
 # Validates an OIS object from an ois-spec.json file.
@@ -162,11 +126,7 @@ npx @api3/airnode-validator --template="OIS" --specs="myProject/config/ois-spec.
 
 ### apiSpecifications
 
-The following code example validates an `ois.apiSpecifications` object that has
-been placed in a file separate from a `config.json` file and its parent object
-`ois`. The [ois.apiSpecifications](/ois/v1.0.0/ois.md#_4-apispecifications)
-object defines/specifies the API Airnode will call. _Interpolation with an env
-file is supported._
+下面的代码示例验证一个`ois.apiSpecifications`对象，该对象被放置在一个独立于 `config.json` file and its parent object文件及其父对象 `ois`的文件中。 [ois.apiSpecifications](/ois/v1.0.0/ois.md#_4-apispecifications)对象定义/指定了Airnode将调用的API。 _支持使用env文件进行插值。_
 
 ```sh
 npx @api3/airnode-validator --template="apiSpecifications" --specs="myProject/config/apiSpecifications.json"
@@ -174,17 +134,11 @@ npx @api3/airnode-validator --template="apiSpecifications" --specs="myProject/co
 
 ### endpoints
 
-The following code example validates an `ois.endpoints` object that has been
-placed in a file separate from a `config.json` file and its parent object `ois`.
-The [ois.endpoints](/ois/v1.0.0/ois.md#_5-endpoints) object contains Airnode
-endpoints that map to the `ois.apiSpecifications` object. _Interpolation with an
-env file is supported._
+下面的代码示例验证一个`ois.endpoints` 对象，该对象被放置在一个独立于 `config.json`文件及其父对象 `ois`的文件中。 [ois.endpoint](/ois/v1.0.0/ois.md#_5-endpoints) 对象包含 Airnode 端点，映射到 `ois.apiProcesses` 对象。 _支持使用 env 文件进行插值。_
 
 ```sh
 npx @api3/airnode-validator --template="endpoints" --specs="myProject/config/endpoints.json"
-```
-
-<!-- PLEASE NOTE:
+```<!-- PLEASE NOTE:
 THE CONVERTOR HAS BEEN COMMENTED OUT AS OF Jan 5th, 2021.
 
 
@@ -255,9 +209,7 @@ Airnode will behave.
 - [ois](../deployment-files/config-json.md#ois)
 - [apiCredentials](../deployment-files/config-json.md#apicredentials)
 
--->
-
-## Output
+-->## 输出:
 
 <!--The validator and its convertor implementation provide the following output. The
 `output` object contains the converted specification only when using the
@@ -265,7 +217,7 @@ convertor. Alternatively the convertor commands can be executed the with
 argument `--specs-only`, which will return only the converted specification.
 -->
 
-The validator provides the following output.
+验证器提供以下输出：
 
 ```json
 // Default output

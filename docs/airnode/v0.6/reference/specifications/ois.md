@@ -1,8 +1,8 @@
 ---
-title: Oracle Integration Specifications (OIS)
+title: 预言机集成规范(OIS)
 ---
 
-<TitleSpan>Specifications</TitleSpan>
+<TitleSpan>技术规格：</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -10,11 +10,6 @@ title: Oracle Integration Specifications (OIS)
 
 <!--TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" /-->
 
-The `ois` JSON object, in the `config.json` file that defines an Airnode, is an
-integral part of an Airnode's understanding of an API's specification and its
-endpoints. OIS provide a description of API endpoints and maps Airnode endpoints
-to them. There can be more than one OIS object in the `config.json` file as
-Airnode can serve endpoints from more than one API.
+在定义Airnode的`config.json`文件中，`ois` JSON对象是Airnode对API规格及其端点的一个进行理解的组成部分。 OIS提供API端点的描述，并向它们映射Airnode 端点。 `config.json`文件中可以有一个以上的OIS对象，因为Airnode可以为多个API的端点提供服务。
 
-Learn more about [Oracle Integration Specifications (OIS)](/ois/v1.0.0/) in its
-versioned document set.
+了解更多关于[预言机集成规范（OIS）](/ois/v1.0.0/)的信息，请查阅其按版本管理的文档集。

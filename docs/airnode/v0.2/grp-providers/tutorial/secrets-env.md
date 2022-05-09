@@ -6,8 +6,7 @@ title: secrets.env
 
 # {{$frontmatter.title}}
 
-<VersionWarning/>
-The secrets.env file contents shown below is for the [Quick Deploy](./) demo.
+<VersionWarning/> The secrets.env file contents shown below is for the [Quick Deploy](./) demo.
 
 ```
 CHAIN_PROVIDER_URL=

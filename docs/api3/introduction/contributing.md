@@ -1,50 +1,33 @@
 ---
-title: Contributing
+title: 贡献
 ---
 
 # {{$frontmatter.title}}
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-(To the API3 DAO as a technical member)
+(以技术成员身份加入API3 DAO)
 
-## Prerequisites
+## 加入条件
 
-This is aimed to guide an API3 DAO member with a technical background to
-contribute to the project (through development, integrations, writing
-documentation, etc.). The general point is that one needs to be able to use a
-solution proficiently before being able to improve it. Therefore, you are
-recommended to do all of the below before attempting to contribute, and make
-sure to ask any questions you have on
-[our Discord](https://discord.gg/qnRrcfnm5W).
+设置这些条件旨在引导具有技术背景的API3 DAO成员为项目做出贡献（通过开发、集成、编写文档等）。 总的来说，在能够改进一个解决方案之前，人们需要能够熟练地使用它。 因此，建议你在尝试做出贡献之前，先做好以下所有工作，并务必在我们的[Discord](https://discord.gg/qnRrcfnm5W)上提出你的任何问题。
 
-- If you do not have any blockchain development experience, read
-  [Mastering Ethereum](https://github.com/ethereumbook/ethereumbook) cover to
-  cover. It is a light read that touches on all subjects that you will need to
-  know about superficially.
+- 如果您没有任何区块链开发经验，请通读 [Mastering Ethereum](https://github.com/ethereumbook/ethereumbook)。 这是一本通俗易懂的书，涉及到所有你需要初步了解的主题。
 
-- To get a general grasp of the project, read the
+- 为了对项目有一个总体的把握，请阅读
   <a href="/api3-whitepaper-v1.0.2.pdf" target="_api3-whitepaper">API3
-  Whitepaper</a> and our [blog posts](./symlink-blog-posts.md) on Medium.
+  白皮书</a> 和我们的Medium [文章](./symlink-blog-posts.md) 。
 
-- Read the entirety of these docs. Take notes and cross-reference, but do not
-  expect to understand everything. Feel free to ask questions.
+- 阅读整个文档，并做好笔记和交叉参考，但不要期望理解所有的东西。请自由提问   。
 
-- Run and understand the Airnode starter tutorial
+- 运行并能够理解Airnode启动教程 。
 
-- (Optional, but ideal) Integrate an API to an Airnode without using any guide,
-  deploy the Airnode, and build a dApp that uses the Airnode. Better yet, join
-  one of our hackathons.
+- (优选条件）在不使用任何指南的情况下，将API集成到Airnode，部署Airnode，并建立一个使用Airnode的dApp。要是能加入我们的黑客马拉松更好。
 
-- (For the curious) Explore all the repos hosted on
-  [our GitHub](https://github.com/api3dao), go through the issues, PRs, etc.
+- (兴趣爱好者) 探索我们[GitHub](https://github.com/api3dao)上的所有代码库， 通读所有议题（ issues）、合并请求项（Pull requests ）等内容。
 
-This guide will be updated as more materials are produced. Please feel free to
-create [issues](https://github.com/api3dao/api3-docs/issues) to make
-suggestions.
+随着更多内容的添加，本指南将被实时更新。 请随时 创建 [议题](https://github.com/api3dao/api3-docs/issues) 来提出 建议。
 
-## Contributing to the docs
+## 为文档做贡献
 
-See the [dev documentation](/dev/) for an overview of the API3 docs site and for
-instructions on how to run the project locally.
+关于API3文档网站的概述以及如何在本地运行项目的说明书，请参阅 [dev 文档](/dev/) 。

@@ -2,36 +2,31 @@
 title: secrets.env
 ---
 
-<TitleSpan>Deployment Files</TitleSpan>
+<TitleSpan>部署文档</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-The `secrets.env` file is bundled with a [config.json](config-json.md) file and
-contains the secrets that the respective Airnode deployments will need. All
-variables defined in a `secrets.env` file will be available in the `config.json`
-file via variable interpolation (e.g. `${VARIABLE_NAME}`).
+`secrets.env` 文件与 [config.json](config-json.md) 文件绑定在一起，包含了相应的 Airnode 部署将需要的秘密信息。 `secrets.env`文件中定义的所有变量，将通过变量插值（`${VARIABLE_NAME}`的方式，在`config.json`文件中可用。
 
-There are few pieces of data that are **highly recommend** to be provided via
-variables. The variable names shown can be adjusted to anything desired. Just be
-sure to change the correlating interpolation value in `config.json`.
+**强烈推荐**其中几个数据通过变量提供。 显示的变量名称可以调整为任何想要的名称。 只要确保在`config.json`中改变相关的插值。
 
-| Variable name                    | `config.json` field name                    | Description                                                      |
-| -------------------------------- | ------------------------------------------- | ---------------------------------------------------------------- |
-| AIRNODE_WALLET_MNEMONIC          | `nodeSettings.airnodeWalletMnemonic`        | The wallet mnemonic that will be used by the Airnode             |
-| CHAIN_PROVIDER_URL               | `chains[].providers.<name>.url`             | The blockchain provider url                                      |
-| SS_MY_API_KEY                    | `apiCredentials[].securitySchemeValue`      | A security scheme value                                          |
-| HEARTBEAT_URL                    | `nodeSettings.heartbeat.url`                | The URL to make the heartbeat request to                         |
-| HEARTBEAT_API_KEY                | `nodeSettings.heartbeat.apiKey`             | The API key to authenticate against the heartbeat URL            |
-| HEARTBEAT_ID                     | `nodeSettings.heartbeat.id`                 | The Airnode heartbeat ID for accounting purposes                 |
-| HTTP_GATEWAY_API_KEY             | `nodeSettings.httpGateway.apiKey`           | The API key to authenticate against the HTTP gateway             |
-| HTTP_SIGNED_DATA_GATEWAY_API_KEY | `nodeSettings.httpSignedDataGateway.apiKey` | The API key to authenticate against the signed data HTTP gateway |
-| GCP_PROJECT_ID                   | `nodeSettings.cloudProvider.projectId`      | (GCP only) The GCP project ID for deployment                     |
+| 变量名称                                 | `config.json` 字段名称                          | 说明                           |
+| ------------------------------------ | ------------------------------------------- | ---------------------------- |
+| AIRNODE_WALLET_MNEMONIC            | `nodeSettings.airnodeWalletMnemonic`        | 将被Airnode 使用的钱包助记符           |
+| CHAIN_PROVIDER_URL                 | `chains[].providers.<name>.url`       | 区块链供应商网址                     |
+| SS_MY_API_KEY                      | `apiCredentials[].securitySchemeValue`      | 安全计划值                        |
+| HEARTBEAT_URL                        | `nodeSettings.heartbeat.url`                | 要让heartbeat请求的 URL           |
+| HEARTBEAT_API_KEY                  | `nodeSettings.hearbeat.apiKey`              | 对heartbeat URL进行身份验证的 API 密钥 |
+| HEARTBEAT_ID                         | `nodeSettings.hearbeat.id`                  | 用于核算的Airnode heartbeat ID    |
+| HTTP_GATEWAY_API_KEY               | `nodeSettings.httpGateway.apiKey`           | 使用 HTTP 网关进行身份验证的 API 密钥     |
+| HTTP_SIGNED_DATA_GATEWAY_API_KEY | `nodeSettings.httpSignedDataGateway.apiKey` | 验证已签名数据的 HTTP 网关的 API 密钥     |
+| GCP_PROJECT_ID                     | `nodeSettings.cloudProvider.projectId`      | (仅限GCP) 供部署的GCP项目 ID         |
 
-Below is an example of `secrets.env`.
+如下是 `customRuntimeOptions` 的示例。
 
-- Variable names cannot contain dashes (-).
+- 变量名称不能包含破折号 (-)。
 
 <!-- TODO: Reference a file from Airnode examples instead -->
 

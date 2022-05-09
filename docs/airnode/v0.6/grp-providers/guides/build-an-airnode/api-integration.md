@@ -1,76 +1,47 @@
 ---
-title: API Integration
+title: API 集成
 ---
 
-<TitleSpan>Build an Airnode</TitleSpan>
+<TitleSpan>创建一个 Airnode</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,4]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,4]" />
 
-A successful integration of an API with an Airnode requires the mapping of each
-other's interface. This is accomplished using an OIS
-([Oracle Integration Specifications](/ois/v1.0.0/ois.md)) json object, found in
-the config.json file, that is designed to follow three basic steps.
+API与Airnode的成功集成，需要彼此的接口映射。 这是用OIS（[Oracle集成规范](/ois/v1.0.0/ois.md)）json对象完成的，在config.json文件中可以找到，根据设计，其集成需遵循三个基本步骤。
 
-- API operations are specified
-- Airnode endpoints are specified
-- Airnode endpoints are mapped to API operations
+- 指定 API 操作
+- 指定了Airnode 端点
+- Airnode 端点已映射到 API 操作
 
 <!-- prettier-ignore-->
-> ![api-integration-ois](../../../assets/images/api-integration-ois.png)
-> <br/><br/>
->
-> <p class="diagram-line">The OIS object in config.json contains mapping information of API operations to Airnode endpoint definitions.</p>
+> ![api-integration-ois](../../../assets/images/api-integration-ois.png) <br/><br/>
+> 
+> <p class="diagram-line">config.json中的OIS对象，包含API操作与Airnode端点定义的映射信息。</p>
+OIS是一个API操作的映射，如`GET /coins/{id}`，将其映射到Airnode端点。 当请求者合约调用AirnodeRrp.sol合同请求函数，如`makeFullRequest(..., callData) `时，呼叫数据被传达给链外的Airnode，Airnode使用OIS映射，将呼叫数据转化为适合API操作的有效HTTP请求。
 
-OIS is a mapping of API operations, such as `GET /coins/{id}`, to Airnode
-endpoints. When a requester contract calls a AirnodeRrp.sol contract request
-function, such as `makeFullRequest(..., callData)`, the callData is communicated
-to the off-chain Airnode which uses OIS mappings to translate the callData into
-a valid HTTP request for the appropriate API operation.
-
-The only thing needed to integrate an API to Airnode is to create an OIS object
-which is in the Airnode's `config.json` file. This guide is an instructive
-approach to create an OIS object. OIS borrows formatting from
-[OAS OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md).
-If you have experience with OAS, OIS will seem familiar.
+将 API 集成到 Airnode，唯一需要做的就是在 Airnode 的 config.json 文件中创建一个 OIS 对象。 本指南是创建 OIS 对象的指导方法。 OIS 借鉴了 [OAS OpenAPI 规范](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md)的格式. 如果您有 OAS的经验，适应OIS起来也会很快。
 
 ::: tip OAS
 
-It is not recommended to refer to OAS for help while creating your OIS object.
-OIS only borrows formatting practices from OAS. Everything needed to create an
-OIS object is in these docs.
+然而，我们不建议在创建OIS对象时参考OAS的经验。 OIS只是借用了OAS的格式化做法。 创建OIS对象所需的一切，都在下列这些文档中。
 
 :::
 
-**Tips while using this guide.**
+**使用本指南的小贴士：**
 
-- Open the [OIS template](../../../reference/templates/ois-json.md) in another
-  browser window to follow along.
-- View an example of an
-  [Airnode config.json file](../../../reference/examples/config-json.md) from
-  the Airnode Starter tutorial.
+- 在另一个浏览器窗口中打开[OIS模板](../../../reference/templates/ois-json.md)，以便进行跟踪。
+- 查看Airnode入门教程中的一个[Airnode config.json文件](../../../reference/examples/config-json.md)的例子。
 
-## OIS Template
+## OIS 模板
 
-OIS is a json object that is added to an Airnode's
-[config.json](../../../reference/templates/config-json.md) file as the (`ois`)
-_key_, sometimes called a _field_. Try using the
-[OIS template](../../../reference/templates/ois-json.md) to construct an OIS and
-add it to the Airnode's config.json file later.
+OIS是一个json对象，作为 (`ois`) _键_添加到Airnode的[config.json](../../../reference/templates/config-json.md)文件中，有时也被称为_字段_。 你可以尝试使用[OIS模板](../../../reference/templates/ois-json.md)来构建一个OIS，并在以后将其添加到Airnode的config.json文件中。
 
-In the OIS template, there are some fields that contain `{FILL_*}`. This means
-that the value added is independent from other fields. On the other hand, if two
-fields contain the same expression (e.g., `{FILL_OPERATION_PARAMETER_1_NAME}`),
-you must use the same value in them, because they are referencing each other.
+在 OIS 模板中，一些字段包含 `{FILL_*}`。 这意味着添加的值是独立于其他字段的。 另一方面，如果两个字段包含相同的表达式（例如，`{FILL_OPERATION_PARAMETER_1_NAME}`) ，你必须在其中使用相同的值，因为它们是互相引用的。
 
-OIS uses a simplified version of the OAS. This means that if you have the
-OpenAPI specifications of the API that you are going to integrate, you are about
-80% done, because you can copy paste entire sections (but make sure that you
-make the necessary modifications to conform to the OIS format).
+OIS使用简化的OAS版本。 这意味着，如果你有要集成的API的OpenAPI规范，你就完成了80%，因为你可以复制粘贴整个部分（但要确保进行必要的修改，以符合OIS的格式）。
 
 <!--
 ::: tip
@@ -83,15 +54,13 @@ is a `convert` command within the Airnode
 :::
 -->
 
-This guide will assume you do not have the OpenAPI specifications of the API
-that you will be integrating.
+本指南将假设在没有要集成的API的OpenAPI规格时开展的操作。
 
 <!--------------- STEP 1 ---------------->
 
-## Step 1: Specify OIS Definitions
+## 第1步：指定OIS的定义
 
-Start building an OIS by adding three descriptive fields to the root of the OIS
-json object.
+通过向OIS json对象的根目录添加三个描述性字段，开始构建OIS。
 
 ```json
 {
@@ -104,24 +73,21 @@ json object.
 
 ### oisFormat
 
-Leave this as `1.0.0`, which is the current OIS format version.
+将其保留为 `1.0.0`, 这是当前的 OIS 格式版本。
 
 ### title
 
-This is a unique title of the OIS. Note that an Airnode can be configured with
-more than one OIS and uses the title as the OIS identifier.
+这是该OIS的唯一标题。 注意，一个Airnode可以配置一个以上的OIS，并使用标题作为OIS的标识符。
 
 ### version
 
-This is the version of the OIS which allows for version-control of the OIS
-integration. It is recommended to use [semver](https://semver.org/) versioning.
-The initial version could be <`0.1.0`>.
+这是OIS的版本，可以对OIS的集成进行版本控制。 建议使用[semver](https://semver.org/)版本控制 最初的版本可以设置成`<0.1.0>`。
 
 <!--------------- STEP 2 ---------------->
 
-## Step 2: Specifying the API
+## 第2步：指定API
 
-The `apiSpecifications` field is used to describe the API and its operations.
+`apiSpecifications`字段用于描述API及其操作。
 
 ```json
 "apiSpecifications": {
@@ -133,46 +99,37 @@ The `apiSpecifications` field is used to describe the API and its operations.
 
 ### Servers
 
-The first step of specifying your API is to enter its _baseURL_ in the
-`apiSpecifications.servers[0].url` field. Only one object (i.e., url) is allowed
-in the `apiSpecifications.servers` array. A warning is raised during conversion
-if servers has multiple elements. This baseURL will apply to all operations.
+指定你的API，第一步是在`apiSpecifications.servers[0].url`字段中输入其_baseUR_。 `apiSpecifications.servers`数组中只允许有一个对象（即 url）。 如果服务器有多 个元素，则会在转换期间引发警告。 此 baseURL 将适用于所有操作。
 
-#### Choosing a Base URL
+#### 选择基本 URL
 
-Consider the following full URL to execute an API operation that returns all
-know tokens.
+考虑以下完整 URL 来执行返回所有已知令牌的 API 操作。
 
 <!-- markdown-link-check-disable-next-line -->
 
 > https://www.myapi.com/v1/tokens
 
-There are two ways to segment this.
+有两种方式解决此问题。
 
 <!-- markdown-link-check-disable-next-line -->
 
 > **baseURL:** https://www.myapi.com
->
+> 
 > **path:** /v1/data
 
-or
+或者
 
 <!-- markdown-link-check-disable-next-line -->
 
 > **baseURL**: https://www.myapi.com/v1
->
+> 
 > **path:** /data
 
-Because the call will be made to <`baseURL+path`> both will result in the same
-full URL.
+因为调用`baseURL+path`的结果，都是同一个完整的URL。
 
 <!-- markdown-link-check-disable-next-line -->
 
-Set the baseURL as the section of the full URL that you expect to be shared by
-all operations. From the examples above it is recommended to use
-`https://www.myapi.com`, in case additional paths starting with `/v2` get added
-to the API in the future. As you can tell, API integration requires many
-subjective choices, and is more art than science.
+将baseURL设置为你期望被所有操作共享的完整URL的部分。 从上面的例子来看，建议使用`https://www.myapi.com`，以备将来在API中添加以` /v2`开头的额外路径。 正如大家都知道的那样，API集成需要许多主观的选择，而且是艺术多于科学。
 
 ```json
 "apiSpecifications": {
@@ -185,44 +142,31 @@ subjective choices, and is more art than science.
 }
 ```
 
-### Paths
+### 路径
 
-The _paths_ field defines all the API operations much like an OpenAPI
-Specification file.
+_paths_字段定义了所有的API操作，很像一个OpenAPI规范文件。
 
-_What is an API operation?_
+_什么是API操作？_
 
-> An API operation is specified as a unique combination of a _**path**_ and an
-> HTTP _**method**_. `GET /token/{id}`
+> API操作被指定为一个 _**path**_ 和HTTP _**method**_的唯一组合。 `GET /token/{id}`
 
-#### Operations
+#### 操作
 
-In the examples below, `GET` refers to an
-[HTTP request method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
-This implies that you could have another API operation that can be specified
-using a different method but the same path.
+在下面的例子中， `GET`指的是一种[HTTP请求方法](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)。 这意味着你可以有另一个API操作，可以使用不同的方法来指定，但路径相同。
 
 > path: /data
->
+> 
 > method: GET
 
 > path: /data
->
+> 
 > method: POST
 
-Therefore, a path is not enough to specify an API operation by itself, you must
-also provide a method. If a new path is needed then it must start a new object
-in paths with its own methods. Currently only the GET and POST methods are
-supported by Airnode.
+因此，仅靠路径不足以指定 API 操作，还必须提供方法。 如果需要新路径，则它必须使用自己的方法，在路径中启动一个新对象。 目前 Airnode 仅支持 GET 和 POST 方法。
 
-With regards to the [OIS template](../../../reference/templates/ois-json.md),
-the name of the element (denoted as `{FILL_PATH}`) should be replaced with the
-path (e.g., `/data`). Similarly, `{FILL_METHOD}` should be replaced with the
-method of the operation you want to integrate (e.g., `get`). The method must be
-lowercase.
+对于 [OIS 模板](../../../reference/templates/ois-json.md)，元素的名称（表示为`{FILL_PATH}`）应替换为路径（例如` /data`）。 同样，`{FILL_METHOD} `应替换为您要集成的操作的方法（例如 `get`)。 这种方法必须使用小写。
 
-The following example illustrates three operations, `GET /data`, `POST /data`,
-`GET /tokens`.
+下面的例子说明了三种操作, `GET /data`, `POST /data`, `GET /tokens`.
 
 ```json
 "paths": {
@@ -242,29 +186,18 @@ The following example illustrates three operations, `GET /data`, `POST /data`,
 }
 ```
 
-#### Parameters (operation)
+#### 参数 (操作)
 
-After specifying the path and method of an API operation, the final step is to
-specify its parameters. Each parameter is an object in the
-`apiSpecifications.paths.{PATH}.{METHOD}.parameters` array, with the fields `in`
-and `name`. `in` tells where the parameter goes in the HTTP request and `name`
-tells the name that the parameter value will be sent under. Currently Airnode
-supports the following parameter types for use with `in`.
+在指定 API 操作的路径和方法后，最后一步是指定其参数。 每个参数都是 `apiSpecifications.paths.{PATH}.{METHOD}.parameters`数组中的一个对象，其中包含字段` in`和 `name`。 `in`告诉参数在 HTTP 请求中的位置，`name`告诉参数值将被发送的名称。 目前 Airnode 支持以下参数类型，可与`in`一起使用。
 
 - query
 - header
 - path
 - cookie
 
-When integrating a POST method, define the body parameters with `in: query`.
-Airnode will convert all `query` types into the `requestBody`. Note that only
-the non-nested application/json content-type is supported.
+集成 POST 方法时，使用` in: query`定义body参数。 Airnode 会将所有`query` 类型转换为 `requestBody`。 请注意，仅支持非嵌套的 application/json 内容类型。
 
-It is not necessary to specify all API operation parameters, but only the ones
-the on-chain requester will need to be able to provide (see Airnode endpoint
-[parameters](./api-integration.md#parameters)), and the ones that you want to
-hard-code a value for (see Airnode endpoint
-[fixed operation parameters](./api-integration.md#fixedoperationparameters)).
+不必指定所有 API 操作参数，只需指定链上请求者需要的、能够提供的参数（请参阅 Airnode 端点[参数](./api-integration.md#parameters)），以及您要为其硬编码值的参数（请参阅 Airnode 端点[固定操作参数](./api-integration.md#fixedoperationparameters)）。
 
 ```json
 "paths": {
@@ -285,22 +218,17 @@ hard-code a value for (see Airnode endpoint
 }
 ```
 
-_Example: Get a token_
+_Example: 获取代币_
 
-The `GET /token/{id}` returns a token using the token's `id` which is a `path`
-parameter.
+`GET /token/{id}` 函数使用作为`path` 参数的代币`id` ，返回一个代币。
 
 | Method | Path        | in   | name |
 | ------ | ----------- | ---- | ---- |
 | GET    | /token/{id} | path | id   |
 
-_Example: Create a token_
+_示例：创建代币_
 
-The `POST /token` operation accepts three parameters. The name and description
-of the token are placed in the type `query` and will be moved by Airnode to the
-requestBody upon calling the API operation. The third is a `header` parameter
-that describes the Content-Type of the request such as `application/json` or
-`application/x-www-form-urlencoded`.
+`POST /token` 操作可以接受三个参数。 代币的名称和描述放在类型`query` 中，并在调用 API 操作时由 Airnode 移动到 requestBody。 第三个是`header`参数，描述请求的Content-Type，例如`application/json`或者 `application/x-www-form-urlencoded`。
 
 | Method | Path   | in     | name        |
 | ------ | ------ | ------ | ----------- |
@@ -308,130 +236,62 @@ that describes the Content-Type of the request such as `application/json` or
 |        |        | query  | description |
 |        |        | header | Accept      |
 
-_Example: Get all tokens_
+_示例：获取所有代币_
 
-The `GET /tokens` returns a list of all tokens. The list count can be limited
-using the `limit' parameter which the API operation considers as optional since
-it will not return an error if omitted.
+`GET /tokens` 返回所有代币的列表。 列表计数可以使用 API 操作认为是可选的 `limit' 参数来限制，因为如果省略它不会返回错误。
 
-> `GET /tokens` returns all tokens.
->
-> `GET /tokens?limit=10` returns the first ten tokens.
+> `GET /tokens` 返回所有代币。
+> 
+> `GET /tokens?limit=10` 返回前10个代币。
 
-| Method | Path    | in    | name  |
-| ------ | ------- | ----- | ----- |
-| GET    | /tokens | query | limit |
+| Method | Path   | in    | name  |
+| ------ | ------ | ----- | ----- |
+| GET    | /token | query | limit |
 
 <!--------------- STEP 1 ---------------->
 
-## Step 3: Specifying Airnode Endpoints
+## 第 3 步：指定 Airnode 端点
 
-An Airnode endpoint is a service that Airnode exposes to on-chain requesters. It
-maps to an API operation, but the nature of this mapping is customizable. It is
-the integrator's job to define what this service is.
+Airnode 端点是 Airnode 向链上请求者公开的服务。 它映射到 API 操作，但这种映射的性质是可定制的。 集成者的工作就是定义这个服务是什么。
 
-For example, if your API operation returns an asset price given its ticker
-(e.g., `BTC`), you can specify the endpoint such that the requester provides the
-ticker as a parameter. The resulting endpoint would be a general one that
-returns prices for any kind of asset. On the other hand, you can hardcode `BTC`
-as the asset whose price will be returned (using
-[fixed operation parameters](./api-integration.md#fixedoperationparameters)),
-which would make your endpoint a specific one that only returns the BTC price.
+例如，如果您的 API 操作根据其代码（例如 `BTC`）返回资产价格，您可以指定端点，以便请求者将代码作为参数提供。 由此产生的端点将是一个通用的端点，可以返回任何种类资产的价格。 另一方面，您可以将 `BTC` 硬编码为将返回其价格的资产（使用[固定操作参数](./api-integration.md#fixedoperationparameters)），这将使你的端点成为一个特定的端点，只返回BTC的价格。
 
-The recommended endpoint definition pattern is to create an Airnode endpoint for
-each API operation, and allow the requesters to provide all operation parameters
-themselves. This results in optimal flexibility, and essentially allows the
-requesters to use the entire API functionality on-chain. Normally, oracle
-integrations strive to hard-code as many API parameters as possible because
-passing these parameters on-chain results in a gas cost overhead. However, the
-Airnode protocol uses [templates](../../../concepts/template.md) (not to be
-confused with the OIS template used for this guide), which allow requesters to
-specify a large number of endpoint parameters at no additional gas cost.
+推荐的端点定义模式是为每个API操作创建一个Airnode端点，并允许请求者自己提供所有操作参数。 这将带来最佳的灵活性，并从本质上允许请求者在链上使用完整的API功能。 通常情况下，预言机集成会努力对尽可能多的API参数进行硬编码，因为在链上传递这些参数会产生gas 成本开销。 然而，Airnode协议使用[模板](../../../concepts/template.md)（不要与本指南使用的OIS模板相混淆），它允许请求者在没有额外gas 成本的情况下，指定大量的端点参数。
 
-Note that there are some cases where you may not want to map endpoints to API
-operations one-to-one. For example, an API operation can have a `header`
-parameter, `Accept`, that can take the values `application/json` or
-`applicatino/xml` to determine how to format the data that the API will respond
-to the call. Airnode expects responses to be in JSON format, and thus
-hard-coding this parameter as `JSON` would be more suitable than letting the
-requester decide, as there is only one valid choice. Again, the integrator's job
-is to be aware of these subtleties and use judgement.
+请注意，在某些情况下，你可能不希望将端点与API操作一一对应。 例如，一个API操作可以有一个`header` 参数：`Accept`, 它可以取值为 `application/json`或 `applicatino/xml `，以确定如何格式化API将响应调用的数据。 Airnode期望响应为`JSON `格式的，因此将这个参数硬编码为JSON比让请求者决定更合适，因为只有一个有效的选择。 同样，集成商的工作就是要意识到这些微妙之处，并做出判断。
 
-After this brief detour, let us get back to filling in our OIS template.
+在这个简短的迂回之后，让我们回到填写我们的OIS模板上。
 
-### Endpoints
+### 端点
 
-The field `endpoints` is an array, with each row representing an Airnode
-endpoint. The first field you need to fill in is `name`. Make sure that it is
-descriptive and unique from other endpoint names. If you are integrating API
-operations to Airnode endpoints one-to-one, using the API operation path as the
-endpoint name is a decent choice (i.e., `/token`). Note that you would also add
-the method to this name if there were multiple operations with different methods
-for a single path (i.e., `GET/token`).
+字段 `endpoints`是一个数组，每一行代表一个 Airnode 端点。 您需要填写的第一个字段是 `name`。 确保它是描述性的并且与其他端点名称不同。 如果您将 API 操作一对一地集成到 Airnode 端点，使用 API 操作路径作为端点名称是一个不错的选择（即`/token`）。 请注意， 如果对单个路径（即`GET/token`）有多个使用不同方法的操作，您也可以将方法添加到此名称中。
 
-The next step is to fill in `operation` object. Here, you need to enter the
-`path` and `method` of an API operation you have defined in
-`apiSpecifications.paths`, resulting in the Airnode endpoint calling the now
-linked API operation.
+下一步是填写`operation` 对象 。 在这里，您需要输入您在 `apiSpecifications.paths`,中定义的 API 操作`path` 和`method`， 从而导致 Airnode 端点调用现在链接的 API 操作。
 
 #### fixedOperationParameters
 
-It is not uncommon to hard-code API parameters (recall the `Accept` operation
-parameter in the above example). Such hard-coded parameters are called
-`fixedOperationParameters`.
+硬编码 API 参数并不少见（回想一下上面示例中的`Accept `操作参数）。 这种硬编码的参数称为`fixedOperationParameters`。
 
-In the OIS template there is a fixed operation parameter under
-`endpoints[n].fixedOperationParameters`, and it refers to the first API
-operation parameter. This means that whenever the Airnode receives a request for
-this endpoint, the respective API call will be made with that API operation
-parameter set to
-<code style="overflow-wrap:break-word;">endpoints[n].fixedOperationParameters[n].value</code>.
-The requester does not supply a value for `fixedOperationParameters`.
+OIS模板中`endpoints[n].fixedOperationParameters`下有一个固定的操作参数，指的是第一个API操作参数。 这意味着，每当 Airnode 收到对该端点的请求时，都会使用设置为 <code style="overflow-wrap:break-word;">endpoints[n].fixedOperationParameters[n].value </code>的 API 操作参数进行相应的 API 调用。 请求者不提供` fixedOperationParameters `的值。
 
-An Airnode endpoint can have multiple `fixedOperationParameters`. An API
-operation parameter cannot be in both `endpoints[n].fixedOperationParameters`
-and `endpoints[n].parameters`.
+一个 Airnode 端点可以有多个` fixedOperationParameters`。 API 操作参数不能同时存在于 `endpoints[n].fixedOperationParameters` 和`endpoints[n].parameters`.。
 
 #### reservedParameters
 
-The requester can provide some parameters that are not mapped to API operation
-parameters. These parameters are called "reserved parameters", and their names
-start with an underscore. See the
-[related OIS docs](/ois/v1.0.0/ois.md#_5-4-reservedparameters) for more
-information.
+请求者可以提供一些未映射到 API 操作参数的参数。 这些参数被称为“保留参数”，他们的名称 以下划线开头。 有关更多信息，请参阅[相关的 OIS 文档](/ois/v1.0.0/ois.md#_5-4-reservedparameters)。
 
-The current list of reserved parameters are `_type`, `_path` and `_times`. See
-[Reserved Parameters](/ois/v1.0.0/reserved-parameters.md) in the OIS document
-set to understand what each of these parameters are for. In most cases, all
-three should be defined as reserved parameters with no fixed/default values, as
-doing so provides the requester with the most flexibility.
+当前的保留参数列表是`_type`, `_path` 和 `_times`。 请参阅 OIS 文档集中的[保留参数](/ois/v1.0.0/reserved-parameters.md)以了解每个参数的用途。 在大多数情况下，所有三个都应定义为没有固定/默认值的保留参数，因为这样做为请求者提供了最大的灵活性。
 
 #### parameters
 
-Airnode endpoint parameters map to API operation parameters that the requester
-is allowed to provide values for. It refers to an API operation through its
-field `operationParameter`. You can also provide `default` values for endpoint
-parameters, though this is not recommended in most cases.
+Airnode端点参数，映射到允许请求者提供值的API操作参数。 它通过其字段`operationParameter`指代API操作。 你也可以为端点参数提供 `default` ，但在大多数情况下不建议这样做。
 
-Endpoint parameters have a `name` field, which does not have to be the same as
-the API operation parameter that they map to. As a separate note, an Airnode
-endpoint can have multiple parameters.
+端点参数有一个 `name`字段，它不一定与其所映射的API操作参数相同。 作为一个单独的说明，一个Airnode端点可以有多个参数。
 
-## Conclusion
+## 结论
 
-The API operations and Airnode endpoints are now specified. Each Airnode
-endpoint maps to an API operation, and each Airnode endpoint parameter or
-fixedOperationParameter maps to an API operation parameter. The resulting OIS
-includes no user-specific information, which means that you can share it for
-others to easily provide the same services (for example, to set up a third-party
-oracle network).
+现在，API操作和Airnode端点已被指定。 每个Airnode端点映射到一个API操作，每个Airnode端点参数或fixedOperationParameter映射到一个API操作参数。 由此产生的OIS不包括特定于用户的信息，这意味着你可以分享它，让其他人轻松地提供相同的服务（例如，建立一个第三方预言机网络）。
 
-Note that there was some subjectivity while defining the Airnode endpoints. This
-means that two different OISes can exist for the same exact API, differing based
-on how the integrators designed the interface that the requester will use.
-However, in most cases, one would simply map API operations to Airnode endpoints
-directly, and let the requester provide all API operation parameters through the
-Airnode endpoint parameters.
+请注意，在定义Airnode端点的时候，存在一些主观性。 这意味着对于相同的 API，可以存在两个不同的 OIS，根据集成商如何设计请求者将使用的接口而有所不同。 然而，在大多数情况下，我们只需将API操作直接映射到Airnode端点，并让请求者通过Airnode端点参数提供所有API操作参数。
 
-Now that you have an OIS object, the next step is
-[API Security](api-security.md).
+现在你已经设置好了OIS对象，下一步就是[Airnode安全性](api-security.md)。

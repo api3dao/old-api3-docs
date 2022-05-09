@@ -2,7 +2,7 @@
 title: config.json
 ---
 
-<TitleSpan>Example Files</TitleSpan>
+<TitleSpan>示例文件</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -12,9 +12,7 @@ title: config.json
 
 ::: tab Cloud Chain
 
-You can also view this example
-[config.json](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-deployer/config/config.example.json)
-in the Airnode repo.
+您也可以在 Airnode 仓库查看这个示例 [config.json](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-deployer/config/config.example.json)
 
 <<< @/docs/airnode/v0.6/reference/examples/config-cloud.json
 
@@ -22,9 +20,7 @@ in the Airnode repo.
 
 ::: tab Local Chain
 
-You can also view this example
-[config.json](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-node/config/config.example.json)
-in the Airnode repo.
+您也可以在 Airnode 仓库查看这个示例 [config.json](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-node/config/config.example.json)
 
 <<< @/docs/airnode/v0.6/reference/examples/config-local.json
 

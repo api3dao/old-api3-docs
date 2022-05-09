@@ -1,5 +1,5 @@
 ---
-title: Who is API3?
+title: API3是什么？
 ---
 
 <p align="center">
@@ -8,144 +8,102 @@ title: Who is API3?
 
 # {{$frontmatter.title}}
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-**API3** ([https://api3.org](https://api3.org)) is a collaborative project to
-deliver traditional API services to smart contract platforms in a decentralized
-and trust-minimized way. It is governed by a _decentralized autonomous
-organization_ (DAO), namely the **API3 DAO**. Therefore, its code is open source
-and its operations are transparent.
+**API3** ([https://api3.org](https://api3.org)) 是一个合作项目，以去中心化和信任最小化的方式向智能合约平台提供传统API服务。 它由一个 _去中心化 组织_ (DAO)管理，这个DAO即 **API3 DAO** 。 因此，API3的代码是开源的，其运作也是透明的。
 
-## Thesis Statement
+## 概述
 
-The vast majority of the external integrations that decentralized applications
-need are to commercial Web APIs that traditional businesses have built to
-monetize their data and services.
+去中心化的应用程序需要的绝大多数外部集成都是商业网络API，这也是传统企业为实现其数据和服务的变现而建立的。
 
-Therefore, what is widely known as _the oracle problem_ is in practice _an API
-connectivity problem_.
+因此，广为人知的 _预言机问题_ 实际上是 _一个 API 连通性问题_。
 
-Existing oracle solutions fall short because they fail to make this distinction,
-resulting in inferior solutions that depend on third-party oracles and
-ecosystems that exclude _API providers_. By refining the definition of the
-problem, **API3** aims to provide a much more optimal solution.
+现有的预言机解决方案由于不能做出这种区分而显得不足，导致依赖第三方预言机的劣质解决方案和排除_API提供商_的生态系统。 通过深入分析问题，**API3**旨在提供一个更加优化的解决方案。
 
-::: tip API3 Whitepaper (pdf)
+::: tip API3 白皮书(pdf)
 
-For a detailed discussion of the API3 project, read the
+为进一步详细讨论API3项目，请阅读
 <a href="/api3-whitepaper-v1.0.2.pdf" target="_api3-whitepaper">API3
-Whitepaper</a>.
+白皮书</a>。
 
 :::
 
-## The Airnode
+## Airnode
 
-At its core, **API3** brings the ability for API providers to easily run their
-own _oracle nodes_. This allows them to provide their data on-chain, without an
-intermediary, to any _decentralized app_ \(dApp\) interested in their services.
+**API3** 的核心为API提供商提供了轻松运行他们自己的_预言机节点_的能力。 这使他们能够在链上不需要中间人，就可以向任何对他们的服务感兴趣的 _去中心化应用程序_ （dApp）提供数据。
 
-At the heart of this mechanism sits **Airnode**, an open-source oracle node.
-It's designed to be easily deployed by any API provider with almost no
-maintenance. Because of Airnode, dApp developers can write _smart contracts_ to
-interact with the on-chain data of API providers.
+这个机制的核心是 **Airnode**, 一个开源的预言机节点。 它被设计成可由任何API提供商轻松部署，而且几乎无需维护。 因为有了Airnode，dApp开发者可以编写_智能合约_，与API提供商的链上数据进行互动。
 
-Airnode is designed with mechanisms to remove the on-chain or off-chain concerns
-of API providers. The set-and-forget framework of Airnode is all about ease of
-implementation.
+Airnode的设计机制是为了消除API提供商链上或链下的担忧。 Airnode的无忧式（set-and-forget）框架设计是为了便于实施。
 
 ::: tip
 
-Learn more about Airnode Read Section 4 of the
-<a href="/api3-whitepaper-v1.0.2.pdf#Airnode:%20A%20Node%20Designed%20for%20First-Party%20Oracles" target="_api3-whitepaper">API3
-Whitepaper</a> _Airnode: A Node Designed for First-Party Oracles_
+可以在<a href="/api3-whitepaper-v1.0.2.pdf#Airnode:%20A%20Node%20Designed%20for%20First-Party%20Oracles" target="_api3-whitepaper">API3白皮书<em x-id="4"></a>_第四章Airnode: 专为第一方预言机设计的节点_中了解更多Airnode。
 
 :::
 
-## Learn More about API3
+## 关于 API3更多内容
 
 <!-- START TAB BOX -->
 
 :::: tabs
 
-::: tab API3 Website
+::: tab  API3 网站
 
-The API3 website ([https://api3.org/](https://api3.org/)) is the best place to
-learn more.
-
-:::
-
-::: tab The Whitepaper
-
-**Abstract from the
-<a href="/api3-whitepaper-v1.0.2.pdf" target="_api3-whitepaper">API3
-Whitepaper</a>**
-
-With decentralized applications beginning to provide meaningful services in
-areas such as decentralized finance, there is an increasing need for these
-applications to receive data or trigger events using traditional Web APIs.
-
-However, the generic oracle solutions fail to appropriately address the API
-connectivity problem due to an over-generalized and misguided approach. To
-remedy this issue, API3 will drive a collaborative effort to create a new
-generation of blockchain-native, decentralized APIs, or dAPIs for short.
-
-dAPIs are composed of first-party oracles operated by API providers, and thus
-are more secure and cost-efficient than alternative solutions that employ
-middlemen. At the core of the governance, security, and value capture mechanics
-of this initiative will be the API3 token. Staking the token will grant its
-holders full governing rights over the API3 DAO along with all the associated
-rewards.
-
-Staked API3 tokens will be used as collateral for the on-chain coverage service
-that will provide quantifiable and trustless security guarantees to dAPI users.
-These mechanics will remove the need for a central authority at the ecosystem
-level. As a result, the API3 Project will allow smart contract platforms to
-leverage APIs for the building of meaningful applications in a truly
-decentralized and trust-minimized way.
+API3网站[https://api3.org/](https://api3.org/)是 了解更多API3信息的最好地方。
 
 :::
 
-::: tab Blog Posts
+::: tab 白皮书
 
-Not comfortable with academic-style papers? The following Blog Posts explain the
-Whitepaper in smaller digestible articles.
+**<a href="/api3-whitepaper-v1.0.2.pdf" target="_api3-whitepaper">API3白皮书</a>摘要**
+
+随着去中心化应用开始在去中心化金融等领域提供有意义的服务，这些应用越来越需要使用传统的Web API来接收数据或触发事件。
+
+然而，由于过于笼统和误导性，通用预言机解决方案无法正确解决API连接问题。 为了解决此问题，API3将致力于推动协作以创建新一代的区块链原生、去中心化API（简称dAPI）。
+
+dAPI由API提供商运营的第一方预言机组成，因此比采用中间人的替代解决方案更安全、更经济。 该方案的治理、安全性和价值获取机制的核心将是API3代币。 对API3代币进行质押将授予其持有者对API3 DAO的全部管理权以及所有相关激励。
+
+质押的API3代币将用作链上保险服务的抵押品，该链上保险服务将为dAPI用户提供可量化且去信任的安全保证。 这些机制将消除在生态系统层面的中央权威机构的需求。 因此，API3项目将允许智能合约平台利用API，以真正去中心化和信任最小化的方式来构建有意义的应用。
+
+:::
+
+::: tab 博文
+
+对学术风格的论文不适应？ 下面的博客文章以浅显易懂的方式解释白皮书。
 
 <blog-posts :tab="'byGroup'"/>
 
-**All the Blog Posts**
+**所有博文**
 
-You can find all our blog posts on our
-[Medium page here](https://medium.com/api3)
+你可以在我们的[Medium网页](https://medium.com/api3)上找到我们的所有博文。
 
 :::
 
-::: tab Communities
+::: tab  社区
 
-Join the API3 community on the following services.
+加入API3社区
 
-[API3 Forum](https://forum.api3.org/)
+[[API3 论坛](https://forum.api3.org/)](https://forum.api3.org/)
 
-Community Chat on [Telegram](https://t.me/API3DAO)
+社区电报交流群[Telegram](https://t.me/API3DAO)
 
-Developer Chat on [Discord](https://discord.gg/qnRrcfnm5W)
+开发者交流群在 [Discord](https://discord.gg/qnRrcfnm5W)
 
-[YouTube Channel](https://www.youtube.com/channel/UCCpUthOhahxjdeX9T7t7nJQ)
+[YouTube 频道[YouTube](https://www.youtube.com/channel/UCCpUthOhahxjdeX9T7t7nJQ)](https://www.youtube.com/channel/UCCpUthOhahxjdeX9T7t7nJQ)
 
 :::
 
 ::: tab GitHub
 
-Visit the [API3 GitHub](https://github.com/api3dao) page and find everything
-about.. everything. Explore the many repositories to gain in-depth knowledge
-about API3.
+访问 [API3 GitHub](https://github.com/api3dao) 页面可以找到任何你想知道的事情 ， 查阅众多代码库以深入了解API3.
 
-- the whitepaper
-- source code
-- documentation
-- usage examples
+- 白皮书
+- 源代码
+- 文档
+- 用例
 
-Please feel free to contribute to any API3 GitHub repositories.
+欢迎随时为API3的GitHub代码库做出贡献。
 
 :::
 
@@ -153,14 +111,12 @@ Please feel free to contribute to any API3 GitHub repositories.
 
 <!-- END TAB BOX -->
 
-## Contributing
+## 贡献
 
-At **API3** is open to any proposals and improvements. Please feel free to
-contribute.
+**API3**对任何建议和改进都是开放的，欢迎所有人做出自己的贡献。
 
-- opening issues
-- making pull requests
-- proposing features
+- 新建议题
+- 提出合并请求
+- 功能建议
 
-Read more about contributing in the
-[Contributing](./introduction/contributing.md) section.
+在[贡献](./introduction/contributing.md) 章节了解更多关于贡献。

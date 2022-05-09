@@ -2,38 +2,23 @@
 title: ABI
 ---
 
-<TitleSpan>Packages</TitleSpan>
+<TitleSpan>软件包</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,4]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,4]" />
 
-The
-[airnode-abi](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-abi)
-package is a unique way to encode and decode parameters for use with Airnode.
-Parameters are provided with encoding types, names and values. The types are
-shortened and grouped with a version as the "header". The name/value pairs are
-then grouped and encoded as the rest of the body.
+[airnode-abi](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-abi) 软件包是用于使用 Airnode编码和解码参数的唯一方式。 参数包含编码类型、名称和值。 这些类型被缩短，并以一个版本作为 "头部 "进行分组。 然后，这些名/值配对被分组，并作为正文的其余部分进行编码。
 
-An advantage of encoding parameters this way is that parameters can be decoded
-natively using the language(s) of the specific blockchain. In the case of EVM
-blockchains, this means that parameters can be encoded as well as decoded in
-Solidity (or Vyper), without any additional requirements.
+这种编码参数的一个优点是，可以使用特定区块链中的语言来解码参数 。 在 EVM区块链中， 这意味着参数可以在 Solidity (or Vyper) 中编码和解码，而不需要任何额外的要求。
 
-You can find additional documentation in
-[Airnode ABI Specifications](../specifications/airnode-abi-specifications.md)
-doc.
+您可以在 [Airnode ABI 规格](../specifications/airnode-abi-specifications.md) 文档中找到其他文档。
 
-## Installation
+## 安装
 
-You can install
-[@api3/airnode-abi](https://www.npmjs.com/package/@api3/airnode-abi?activeTab=dependencies)
-with either
-[npm](https://docs.npmjs.com/getting-started/installing-node#install-npm--manage-npm-versions)
-or [Yarn](https://yarnpkg.com/en/docs/install)
+您可以安装 [@api3/airnode-abi](https://www.npmjs.com/package/@api3/airnode-abi?activeTab=dependencies)，通过 [npm](https://docs.npmjs.com/getting-started/installing-node#install-npm--manage-npm-versions) 或 [Yarn](https://yarnpkg.com/en/docs/install)。
 
 ```sh
 # npm
@@ -43,22 +28,19 @@ npm install --save @api3/airnode-abi
 yarn add @api3/airnode-abi
 ```
 
-## Usage
+## 用法
 
-### `encode`
+### `编码`
 
-Accepts an array of objects with the following required keys:
+接受一个包含以下所需密钥的对象数组：
 
-1. `type` - The full list of accepted types can be found in the
-   [Airnode ABI](../specifications/airnode-abi-specifications.md#type-encodings)
-   specifications doc.
+1. `type`- 可以在[Airnode ABI](../specifications/airnode-abi-specifications.md#type-encodings) 规格文件中找到完整的可接受类型列表。
 
 2. `name`
 
-3. `value`
+3. `值`
 
-It is important to note that numeric values (`int256` and `uint256`) should be
-submitted as **strings** in order to preserve precision.
+必须注意的是，数值(`int256` 和`uint256`) 应以 **strings** 形式提交，以保持精度。
 
 ```ts
 import { encode } from '@api3/airnode-abi';
@@ -73,13 +55,11 @@ console.log(encodedData);
 // '0x...'
 ```
 
-## `decode`
+## `解码`
 
-Returns an object where the keys are the "names" and the values are the "values"
-from the initial encoding.
+从初始编码返回键值为“name”，而值为“value” 的对象。
 
-It is important to note that `int256` and `uint256` will be decoded back to
-strings.
+需要注意的是，`int256` 和`uint256` 将解码回到 字符串。
 
 ```ts
 import { decode } from '@api3/airnode-abi';

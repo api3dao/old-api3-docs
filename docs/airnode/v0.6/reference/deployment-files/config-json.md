@@ -2,18 +2,15 @@
 title: config.json
 ---
 
-<TitleSpan>Deployment Files</TitleSpan>
+<TitleSpan>部署文档</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2, 4]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2, 4]" />
 
-The `config.json` defines a single Airnode deployment. The file contents are a
-single JSON object. Each config object can be thought of as the static NoSQL
-database of an Airnode deployment. It contains five fields as show below.
+`config.json`定义了一个单一的Airnode部署。 该文件内容是一个单一的JSON对象。 每个配置对象可以被认为是Airnode部署的静态NoSQL数据库。 它包含五个字段，如下所示。
 
 ```json
 {
@@ -25,22 +22,15 @@ database of an Airnode deployment. It contains five fields as show below.
 }
 ```
 
-- [chains](./config-json.md#chains): Blockchains the Airnode deployment will
-  serve on and configuration details
-- [nodeSettings](./config-json.md#nodesettings): General deployment parameters
-  such as node version and deployment configuration.
-- [triggers](./config-json.md#triggers): Which on-chain endpoints will be usable
-  by which an available protocol (currently only RRP) and under what endpoint
-  ID.
-- [ois](./config-json.md#ois): API specifications and the corresponding on-chain
-  endpoints, kept as [OIS](/ois/v1.0.0/ois.md) objects.
-- [apiCredentials](./config-json.md#apicredentials): Which API credentials will
-  be usable by which OIS and security scheme.
+- [chain](./config-json.md#chains): Airnode 部署将 服务的区块链及其配置细节
+- [nodeSettings](./config-json.md#nodesettings): 常规部署参数，例如节点版本和部署配置。
+- [triggers](./config-json.md#triggers): 哪些链上的端点将被哪些可用的协议（目前只有RRP）使用，以及在什么端点ID下使用。
+- [ois](./config-json.md#ois): API规格和相应的链上端点，作为[OIS](/ois/v1.0.0/ois.md)对象保存。
+- [apiCredentials](./config-json.md#apicredentials): 哪些API凭证，可用于哪些OIS和安全方案。
 
-## chains
+## 区块链
 
-Lists the blockchains the Airnode deployment will serve on and specifies
-respective parameters.
+列出Airnode 部署将服务的区块链，并规定相关参数。
 
 <!--  -->
 
@@ -102,96 +92,64 @@ respective parameters.
 
 ### `maxConcurrency`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#maxconcurrency)
-(required) - The maximum concurrency specifies the maximum number of concurrent
-handler calls per single Airnode invocation.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#maxconcurrency) (必须) - 最大并发数，指定了每个单一的Airnode调用的最大并发处理程序数量。
 
 ### `authorizers`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#authorizers)
-(required) - The list of authorizer contract addresses specifying the
-authorization patterns that the Airnode should use. An empty array would
-allow-all.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#authorizers) (必须) - 授权者合同地址列表，指定Airnode应该使用的授权模式。 一个空数组将允许所有。
 
 ### `contracts`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#contracts)
-(required) - An object that keeps the addresses of the protocol contracts
-deployed on the respective chain. It must include the `AirnodeRRP` contract
-address.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#contracts) （必须）一个对象，用于保存部署在各自链上的协议合约的地址。 必须包括`AirnodeRRP` 合约地址。
 
 ### `id`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#id)
-(required) - The corresponding chain (or network) ID. If this is an
-Ethereum-based chain, `id` should be the chain ID as described in
-[EIP-155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md#list-of-chain-ids).
-Refer to the documentations of the chain you will be using to find its chain ID.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#id) (必须) - 相应的链(或网络) ID。 如果这是一个基于Ethereum的链，`id` 应该是[EIP-155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md#list-of-chain-ids)中描述的链ID。 请参考你将要使用的链的文件，以找到它的链ID。
 
 ### `providers`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#providers)
-(required) - List of chain providers that will be used. Note that multiple of
-them can be used simultaneously. The Airnode deployment will expect to find the
-URLs of each of these chain providers in their respective `url` fields.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#providers) (必须) - 将要使用的区块链供应商名单。 注意，其中的多个可以同时使用。 Airnode部署将期望在各自的`url`字段中找到这些链提供商的URL。
 
 ### `type`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#type)
-(required) - The type of chain. Currently only `evm` is supported.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#type) (必须) - 链的类型。 目前只支持 `evm`。
 
 ### `options`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#options)
-(required) - An object that configures chain-related options.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#options) (必须) - 配置链相关选项的对象。
 
 #### `options.txType`
 
-(required) - The transaction type to use:
+(必须) - 要使用的交易类型：
 
-- `"legacy"` - Legacy Transaction Type
-- `"eip1559"` -
-  [EIP-1559 Transaction Type](https://eips.ethereum.org/EIPS/eip-1559)
+- `"legacy"` - 传统的交易类型
+- `"eip1559"` - [EIP-1559交易类型](https://eips.ethereum.org/EIPS/eip-1559)
 
 #### `options.priorityFee`
 
-(optional) - An object that configures the EIP-1559 Priority Fee (defaults
-to`{"value": 3.12, "value": "gwei"}`)
+(可选) - 配置EIP-1559为优先收费的对象 (默认为 为`{"value": 3.12, "value": "gwei"}`)
 
 #### `options.baseFeeMultiplier`
 
-(optional) - Configures the EIP-1559 Base Fee to Maximum Fee Multiplier
-(defaults to `2`)
+(可选) - 将 EIP-1559基础费用定义为最大费用乘数 (默认为 `2`)
 
-The resulting Maximum Fee will equal
-`(Base Fee * baseFeeMultiplier) + priorityFee`
+最终最大费用将等于 `(Base Fee * baseFeeMultiplier) + priorityFee`
 
 ### `blockHistoryLimit`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#blockhistorylimit)
-(optional) - The number of blocks in the past that the Airnode deployment should
-search for requests. Defaults to `300` (roughly 1 hour for Ethereum).
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#blockhistorylimit) (可选) - Airnode部署应搜索请求的过去区块的数量。 默认值为 `300` (Etherum大约为1小时)。
 
 ### `minConfirmations`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#minconfirmations)
-(optional) - The number of confirmations required for a request to be considered
-valid. Minimum confirmations refers to the number of blocks that have elapsed
-since the current confirmed block. Defaults to `0`.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#minconfirmations) (可选) - 请求被视为有效的确认数。 最小确认数指的是自当前确认的区块以来已经过去的区块数。 默认值为：`0`。
 
 ### `ignoreBlockedRequestsAfterBlocks`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#ignoreblockedrequestsafterblocks)
-(optional) - The number of blocks that need to pass for the node to start
-ignoring blocked requests. Defaults to `20`. A request is blocked whenever the
-API call cannot be made. For example, endpoint (specified by its id in the
-request) cannot be found in config.json. (optional) - The number of blocks in
-the past that the Airnode deployment should search for requests. Defaults to
-`300` (roughly 1 hour for Ethereum).
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#ignoreblockedrequestsafterblocks) （可选) - 需要通过的块数，节点才能启动，忽略被阻止的请求。 默认值为：`20`。 当无法调用API时，请求将被阻止。 在config.json中找不到端点（由请求中的id指定）。 (可选) - Airnode部署应该搜索请求的过去的区块数。 默认值为 `300` (Etherum大约为1小时)。
 
 ## nodeSettings
 
-An object containing general deployment parameters of an Airnode.
+一个包含Airnode常规部署参数的对象。
 
 ```json
 // nodeSettings
@@ -228,142 +186,103 @@ An object containing general deployment parameters of an Airnode.
 
 ### `cloudProvider`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#cloudprovider)
-(required) - The cloud provider that the node will be deployed at and its
-configuration.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#cloudprovider) (必填) - 节点将被部署的云供应商及其配置。
 
 #### `cloudProvider.type`
 
-(required) - Currently `aws` and `gcp` are supported for serverless
-([deployer-image](../../grp-providers/docker/deployer-image.md)). Use `local` if
-you want to run Airnode as a docker container locally
-([client-image](../../grp-providers/docker/client-image.md)).
+(必须) - 目前无服务器([deployer-image](../../grp-providers/docker/deployer-image.md))支持`aws` 和`gcp`。 如果你想把Airnode作为一个docker容器在本地运行（[client-image](../../grp-providers/docker/client-image.md)），则使用 `local`。
 
 #### `cloudProvider.region`
 
-(required for AWS and GCP) - The cloud provider region that the node will be
-deployed at. See the cloud provider's documentation for possible values. When
-using GCP, make sure to choose a
-[**zone** not a location](https://cloud.google.com/compute/docs/regions-zones)
+（AWS和GCP必须) - 节点将被部署在的云供应商区域。 关于可能的值，请参见云提供商的文档。 当使用GCP时，确保选择一个[**区域**而不是位置](https://cloud.google.com/compute/docs/regions-zones)。
 
 #### `cloudProvider.disableConcurrencyReservations`
 
-(required for AWS and GCP) - Disables concurency reservations for spawned cloud
-functions. For more information refer to the
-[`maxConcurrency`](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#maxconcurrency)
-section.
+(AWS 和 GCP所需) - 禁用生成云端函数的缓存保留。 欲了解更多信息，请参阅 [`maxConcurrency`](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#maxconcurrency) 部分。
 
 #### `cloudProvider.projectId`
 
-(required for GCP) - Project ID of the GCP project the Airnode will be deployed
-under.
+(GCP所需) -Airnode将被部署在GCP项目下的项目ID。
 
 ### `airnodeWalletMnemonic`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#airnodewalletmnemonic)
-(required) - The wallet mnemonic that will be used by the Airnode.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#airnodewalletmnemonic) (必需) - 将被Airnode使用的钱包助记符。
 
 ### `heartbeat`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#heartbeat)
-(required) - The Airnode's "call home" functionality. Airnode can periodically
-make a request to the specified URL signaling that it's active. There are plans
-in the future to allow the sending of a payload with information for reporting
-purposes.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#heartbeat) (必须) - Airnode的“调用主页”功能。 Airnode可以定期向指定的URL发出请求，表示它是激活的。 未来有计划允许发送一个有效载荷，其中包括用于报告目的的信息。
 
 #### `heartbeat.enabled`
 
-(required) - Enable/disable, using true/false, Airnode's heartbeat.
+(required) - 启用/禁用，使用 true/false，Airnode的heartbeat。
 
 #### `heartbeat.apiKey`
 
-(only if enabled) - The API key to authenticate against the heartbeat URL.
+(仅在启用时) - 用于验证heartbeat URL 的 API 密钥。
 
 #### `heartbeat.id`
 
-(only if enabled) - The Airnode heartbeat ID for accounting purposes.
+(仅在启用时) - 为了核算目的的 Airnode heartbeat ID。
 
 #### `heartbeat.url`
 
-(only if enabled) - The URL to make the heartbeat request to.
+(仅在启用时) - 作出heartbeat请求的URL。
 
 ### `httpGateway`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpgateway)
-(required) - The Airnode's HTTP gateway can request endpoints without using the
-blockchain.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpgateway) （必须) - Airnode的HTTP网关，可以在不使用区块链的情况下请求端点。
 
 #### `httpGateway.enabled`
 
-(required) - Enable/disable, using true/false, Airnode's access to the HTTP
-gateway.
+(必须) - 启用/禁用，使用 true/false, Airnode访问 HTTP网关。
 
 #### `httpGateway.apiKey`
 
-(only if enabled) - The API key to authenticate against the gateway.
+(仅在启用时) - 要在网关上进行身份验证的 API 密钥。
 
 #### `httpGateway.maxConcurrency`
 
-(only if enabled, optional) - A number higher than zero representing the maximum
-number of serverless functions serving HTTP gateway requests running at the same
-time. When omitted, there is no maximum concurrency set.
+(只有在启用的情况下，可选) - 一个大于零的数字，代表同时运行的服务于HTTP网关请求的无服务器函数的最大数量。 当省略时，没有设置最大并发数。
 
 ### `httpSignedDataGateway`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpsigneddatagateway)
-(required) - The Airnode's HTTP gateway can request endpoints without using the
-blockchain.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpsigneddatagateway) （必须) - Airnode的HTTP网关，可以在不使用区块链的情况下请求端点。
 
 #### `httpSignedDataGateway.enabled`
 
-(required) - Enable/disable, using true/false, Airnode's access to the HTTP
-gateway.
+(必须) - 启用/禁用，使用 true/false, Airnode访问 HTTP网关。
 
 #### `httpSignedDataGateway.apiKey`
 
-(only if enabled) - The API key to authenticate against the gateway.
+(仅在启用时) - 要在网关上验证的 API 密钥。
 
 #### `httpSignedDataGateway.maxConcurrency`
 
-(only if enabled, optional) - A number higher than zero representing the maximum
-number of serverless functions serving HTTP gateway requests running at the same
-time. When omitted, there is no maximum concurrency set.
+(只有在启用的情况下，可选) - 一个大于零的数字，代表同时运行的服务于HTTP网关请求的无服务器函数的最大数量。 当省略时，没有设置最大并发量。
 
 ### `logFormat`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#logformat)
-(required) - The format that will be used to output logs. Either `json` or
-`plain`.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#logformat) (必须) - 用于输出日志的格式。 要么是`json`，要么是 `plain`.
 
 ### `logLevel`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#loglevel)
-(required) - The highest verbosity level of the logs that will be outputted.
-`DEBUG`, `INFO`, `WARN` or `ERROR`.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#loglevel) (必须) - 将要输出的日志的最高级别. `DEBUG`, `INFO`, `WARN` 或是 `ERROR`.
 
 ### `nodeVersion`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#nodeversion)
-(required) - The version of the node (Airnode) that will be deployed with this
-config object.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#nodeversion) (必须) - 将与此配置对象一起部署的节点(Airnode)。
 
 ### `stage`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#stage)
-(required) - The label used to distinguish between multiple deployments of the
-same Airnode on a cloud provider.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#stage) (必须) - 用于区分云供应商上同一Airnode的多个部署的标签。
 
 ### `skipValidation`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#skipvalidation)
-(optional) - Whether the config.json validation should be skipped. Defaults to
-`false`.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#skipvalidation) (可选) - 是否应该跳过 config.json 验证。 默认值为 `false`。
 
-## triggers
+## 触发器
 
-An array that maps external triggers such as a request made through RRP (or a
-subscription made through PSP, which is not implemented yet) to an endpoint
-defined in an OIS.
+一个数组，用于将外部触发器，如通过RRP提出的请求（或通过PSP提出的订阅，目前尚未实现）映射到OIS中定义的端点。
 
 ```json
 // triggers
@@ -392,94 +311,68 @@ defined in an OIS.
 }
 ```
 
-In the example above, the Airnode deployment has an OIS with the title
-`myOisTitle`. This OIS has an endpoint with the name `myEndpointName`. When the
-Airnode deployment detects a [request](../../concepts/request.md) that
-references its [`airnodeAddress`](../../concepts/airnode.md#airnodeaddress) and
-<code style="overflow-wrap: break-word;">0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5</code>
-as the [`endpointId`](../../concepts/endpoint.md#endpointid), it will call the
-specified endpoint (`myOisTitle`-`myEndpointName`) with the parameters provided
-in the request to fulfill it. See the
-[endpoint id documentation](../../concepts/endpoint.md#endpointid) for the
-default convention for deriving the `endpointId`.
+在上面的例子中，Airnode部署有一个OIS，标题为`myOisTitle`。 这个OIS有一个端点，名称为`myEndpointName`。 当Airnode部署检测到引用其[`airnodeAddress`](../../concepts/airnode.md#airnodeaddress)和
+<code style="overflow-wrap: break-word;">0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5</code>作为 [`endpointId`](../../concepts/endpoint.md#endpointid)的[request](../../concepts/request.md) 时，它将调用指定的端点（`myOisTitle`-`myEndpointName`）与请求中提供的参数来实现它。 请参阅[endpoint id documentation](../../concepts/endpoint.md#endpointid)文档，了解衍生 `endpointId`的默认惯例。
 
 ### `rrp`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#rrp)
-(required) - An array of endpoints from OIS that the Airnode will respond to for
-the RRP protocol.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#rrp) (必须) - 来自OIS的端点数组，Airnode将对RRP协议进行响应。
 
 #### `rrp[n].endpointId`
 
-(required) - A identifier derived for an oisTitle/endpointName pair, see
-[derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id).
+(必须) - 为 oisTitle/endpointName配对导出的标识符，见 [derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id)。
 
 #### `rrp[n].oisTitle`
 
-(required) - The title of an OIS object.
+(必须) - OIS对象的标题。
 
 #### `rrp[n].endpointName`
 
-(required) - The endpoint name of an OIS endpoint.
+(必须) - OIS端点的端点名称。
 
 ### `http`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#http)
-(required) - An array of endpoints from OIS that the Airnode will respond to.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#http) (必须) - Airnode 将响应的 OIS 数组端点。
 
 #### `http[n].endpointId`
 
-(required) - A identifier derived for an oisTitle/endpointName pair, see
-[derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id).
+(required) - 为 oisTitle/endpointName 衍生出的标识符，见 [derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id)。
 
 #### `http[n].oisTitle`
 
-(required) - The title of an OIS object.
+(必须) - OIS对象的标题。
 
 #### `http[n].endpointName`
 
-(required) - The endpoint name of an OIS endpoint.
+(必须) - OIS端点的端点名称。
 
 ### `httpSignedData`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpsigneddata)
-(required) - An array of endpoints from OIS that the Airnode will respond to.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpsigneddata) (必须) - Airnode 将响应的 OIS 数组端点。
 
 #### `httpSignedData[n].endpointId`
 
-(required) - A identifier derived for an oisTitle/endpointName pair, see
-[derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id).
+(必须) - 为 oisTitle/endpointName配对导出的标识符，见 [derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id)。
 
 #### `httpSignedData[n].oisTitle`
 
-(required) - The title of an OIS object.
+(必须) - OIS对象的标题。
 
 #### `httpSignedData[n].endpointName`
 
-(required) - The endpoint name of an OIS endpoint.
+(必须) - OIS端点的端点名称。
 
 ## ois
 
-A list of OIS objects. Since each OIS specifies the integration of an API to an
-oracle, a single Airnode deployment can serve multiple APIs. To avoid
-duplication of content, see the
-[Oracle Integration Specifications (OIS)](/ois/v1.0.0/) for a complete example
-and the explanation of its fields.
+一个OIS对象的列表。 由于每个OIS都规定了一个API与一个预言机的集成，所以一个Airnode部署可以为多个API提供服务。 为了避免内容的重复，请参阅[预言机集成(OIS)](/ois/v1.0.0/) ，了解完整的例子及其字段的解释。
 
 ## apiCredentials
 
-Each entry in `apiCredentials` maps to a security scheme defined in an OIS
-(`ois[n].components.securitySchemes.{securitySchemeName}`), where `oisTitle` is
-the `title` field of the related OIS, and `securitySchemeName` is the name of
-the respective security scheme. These would be `myOisTitle` and
-`mySecurityScheme` in the example below. `securitySchemeValue` is the value used
-for the authentication with the security scheme (e.g., the API key) which would
-be in `secrets.env` in the example below.
+`apiCredentials` 中的每个条目都映射到OIS（`ois[n].components.securitySchemes.{securitySchemeName}`）中定义的安全方案，其中 `oisTitle`是相关OIS的`title`字段，`securitySchemeName`是各自安全方案的名称。 在下面的例子中，将是 `myOisTitle` 和 `mySecurityScheme` 。 `securitySchemeValue`是用于安全方案认证的值（例如，API密钥），在下面的例子中是`secrets.env` 。
 
-The `security` field in the OIS object must be included and hold the names of
-all security schemes the API operation
+OIS对象中的 `security`字段必须包括在内，并持有API操作的所有安全方案的名称。
 
-Use of apiCredentials is not required, leave its array empty.
+不需要使用apiCredentials，将其数组留为空。
 
 ```json
 // apiCredentials
@@ -513,19 +406,12 @@ Use of apiCredentials is not required, leave its array empty.
 
 ### `oisTitle`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#oistitle)
-(required) - The `ois.title` of the OIS where the `securitySchemeName` can be
-found.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#oistitle) （必要) - OIS 的`ois.title`，可以在此找到 `securitySchemeName` 。
 
 ### `securitySchemeName`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#securityschemename)
-(required) - The name of a security scheme from
-`ois[n].components.securitySchemes.{securitySchemeName}`.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#securityschemename) (必须) - 来自 `ois[n].components.securitySchemes.{securitySchemeName}` 的安全方案的名称。
 
 ### `securitySchemeValue`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#securityschemevalue)
-(required) - The value of the security scheme used (as defined by
-`ois[n].components.securitySchemes.{securitySchemeName}` for the authentication.
-Usually stored in `secrets.env`.
+[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#securityschemevalue) (必须) - 使用的安全方案的值（由 `ois[n].components.securitySchemes.{securitySchemeName}` 定义，用于认证。 通常存储在 `secrets.env`中。

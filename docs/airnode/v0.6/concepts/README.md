@@ -1,70 +1,48 @@
 ---
-title: Request-Response Protocol
+title: 请求-响应协议
 ---
 
-<TitleSpan>Concepts and Definitions</TitleSpan>
+<TitleSpan>A. 概念和定义</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-The first protocol implemented for Airnode is request–response. An Airnode
-serving the request–response protocol listens for requests, makes the API call
-specified by the request, and finally makes the response transaction back on
-chain.
+为Airnode实现的第一个协议是请求-响应协议。 服务于请求-响应协议的Airnode监听请求，进行请求所指定的API调用，最后在链上进行响应交易。
 
-## Contracts
+## 合约
 
-> This sections briefly describes the structure of the request response protocol
-> contracts. You can find more information in the
-> [source files on github](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-protocol/contracts/rrp).
+> 本节简要介绍请求响应-协议合约的结构。 您可以在 [source files on github](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-protocol/contracts/rrp) 中找到更多信息。
 
-The request–response protocol is implemented as a single permissionless contract
-that all Airnodes interact with, which is named `AirnodeRrp.sol`. This base
-contract has the following inheritance tree that compartmentalizes the aspects
-of the protocol.
+请求-响应协议被实现为单一的无权限合约，所有的Airnode都与之交互，它被命名为`AirnodeRrp.sol`。 这个基础合约有以下的继承树，将协议的各方面分门别类。
 
 > ![rrp-sol-diagram](../assets/images/RRP-protocol-contracts.png)
 
 ### AirnodeRrp.sol
 
-The
-[AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol)
-contract sits between a [requester](./requester.md) and the
-[Airnode](./airnode.md). It inherits from four additional contracts as
-illustrated in the diagram above:
+[AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol) 合约位于[请求者](./requester.md) 和 [Airnode](./airnode.md)之间。 它继承了四个额外的合约，如上图所示：
 
 - [IAirnodeRrp.sol](README.md#iairnoderrp-sol)
 - [AuthorizationUtils.sol](README.md#authorizationutils-sol)
 - [WithdrawalUtils.sol](README.md#withdrawalutils-sol)
 - [TemplateUtils.sol](README.md#templateutils-sol)
 
-This contract has two key responsibilities:
+该合约有两项重要责任：
 
-- It is used by requesters to make requests.
-- It is used by Airnodes to fulfill requests.
+- 请求者使用它提出请求。
+- Airnodes使用它来完成请求。
 
-However, this contract is shared for all requesters and Airnodes on a particular
-chain. This means that neither Airnode operators nor requesters need to deploy
-this contract themselves. Instead, API3 will deploy this contract once per chain
-and you simply connect your Airnode or requester contract to that deployed
-contract. See the
-[Airnode contract addresses](../reference/airnode-addresses.md) for reference.
+然而，这个合约是为特定链上的所有请求者和Airnode共享的。 这意味着，无论是Airnode运营商还是请求者都不需要自己部署这个合约。 相反，API3将在每条链上部署一次该合约，你只需将你的Airnode或请求者合约连接到该部署的合约。 请参阅 [Airnode contracting address](../reference/airnode-addresses.md) 以获取参考信息。
 
-The [`@api3/airnode-admin`](../reference/packages/admin-cli.md) package is a CLI
-tool used to interact with `AirnodeRrp.sol` and perform administrative actions.
+[`@api3/airnode-admin`](../reference/packages/admin-cli.md)软件包是一个CLI工具，用于与`AirnodeRrp.sol`互动并执行管理动作。
 
 ### IAirnodeRrp.sol
 
-The
-[IAirnodeRrp.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/interfaces/IAirnodeRrp.sol)
-interface describes all functions and events of the `AirnodeRrp.sol` contract
-which implements this interface.
+[IAirnodeRrp.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/interfaces/IAirnodeRrp.sol) 接口描述了 `AirnodeRrp.sol` 合约用于 实现此接口的所有功能和事件。
 
-This interface inherits:
+这个接口继承了：
 
 - [IAuthorizationUtils.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/interfaces/IAuthorizationUtils.sol)
 - [IWithdrawalUtils.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/interfaces/IWithdrawalUtils.sol)
@@ -72,21 +50,12 @@ This interface inherits:
 
 ### AuthorizationUtils.sol
 
-The
-[AuthorizationUtils.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/AuthorizationUtils.sol)
-contract implements Airnode [Authorizer](./authorization.md) checks.
+[AuthorizationUtils.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/AuthorizationUtils.sol) 合约用于实施Airnode [Authorizer](./authorization.md) 检查功能.
 
 ### WithdrawalUtils.sol
 
-The
-[WithdrawalUtils.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/WithdrawalUtils.sol)
-contract allows the [sponsor](./sponsor.md) to trigger a withdrawal request
-which is later fulfilled by Airnode and all sponsor wallet funds are sent back
-to the sponsor.
+[WithdrawalUtils.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/WithdrawalUtils.sol)合约允许[赞助者](./sponsor.md)触发提款请求，随后由Airnode完成，所有赞助者的钱包资金被送回给赞助者。
 
 ### TemplateUtils.sol
 
-The
-[TemplateUtils.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/TemplateUtils.sol)
-contract is used to create and store Airnode [templates](./template.md) used to
-create a [template request](./request.md#template-request).
+[TemplateUtils.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/TemplateUtils.sol)合约用于创建和存储用于创建[模板请求](./request.md#template-request)的Airnode[templates](./template.md)。

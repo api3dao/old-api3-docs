@@ -4,16 +4,10 @@ title: DAO (Api3Template.sol)
 
 # {{$frontmatter.title}}
 
-The API3 DAO contract is the core DAO contract, and it serves a coordinating and
-setup role. It holds the admin role in API3's contracts including the DAO pool,
-and it delegates some of this responsibility to the DAO's other contracts (its
-voting apps and [Aragon Agents](https://aragon.org/agent)).
+API3 DAO合约是核心DAO合约，它的作用是协调和设置。 它在API3的合约中担任管理角色，包括DAO池，它将部分权利委托给DAO的其他合约(其 投票app和 [Aragon 代理](https://aragon.org/agent))。
 
-The base Aragon DAO template contract used by API3 DAO can be found
-[here](https://github.com/aragon/dao-templates/blob/master/shared/contracts/BaseTemplate.sol).
+API3 DAO使用的基础Aragon DAO模板合约可以在[这里](https://github.com/aragon/dao-templates/blob/master/shared/contracts/BaseTemplate.sol)找到。
 
-See the
-[Api3Template.sol](https://github.com/api3dao/api3-dao/tree/main/packages/dao/contracts)
-contract code and the list of contracts it inherits from.
+查看 [Api3Template.sol](https://github.com/api3dao/api3-dao/tree/main/packages/dao/contracts) 合约代码和它所继承的合约列表。
 
-- BaseTemplate
+- 基础模板

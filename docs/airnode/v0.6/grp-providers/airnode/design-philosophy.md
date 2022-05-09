@@ -1,65 +1,38 @@
 ---
-title: Design Philosophy
+title: 设计理念
 ---
 
-<TitleSpan>API Providers</TitleSpan>
+<TitleSpan>API供应商</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-_See our article,
-[Airnode: The API gateway for blockchains](https://medium.com/api3/airnode-the-api-gateway-for-blockchains-8b07ff136840)
-for a high level overview of Airnode._
+_参见文章[Airnode：区块链的API 网关](https://medium.com/api3/airnode-the-api-gateway-for-blockchains-8b07ff136840)，了解有关 Airnode 的深度介绍。_
 
-The API3 solution to the API connectivity problem requires an ecosystem of a
-large number of first-party oracles. Airnode's role in this is to make
-first-party oracles a reality.
+API3提供了API 连接问题的解决方案，需要构建由大量第一方预言机组成的生态系统。 Airnode 在这方面的作用，是让第一方预言机成为现实。
 
-## Scope
+## 范围
 
-Any non-essential feature added to an application will return as an increase in
-development time, maintenance cost and bugs. On the other hand, essential
-features should be included out-of-the-box, and should not be left to the user
-to implement. For example, depending on third party external adapters for
-fundamental functionality is a failure in design. Then, it is important to know
-what exactly the application will be used for to specify its scope.
+任何添加到应用程序中的非必要功能，都会带来开发时间、维护成本和bug的增加。 另一方面，基本的功能应该是开箱即用的，而不应该留给用户去实现。 例如，如果依赖第三方外部适配器来实现其基本功能，那是设计上的失败 然后，重要的是，要知道应用程序到底要用来做什么，以指定其范围。
 
-Airnode is designed to interface APIs to smart contract platforms. This means
-that it can only do this, but do it well. Note that this scope is not as
-restrictive as it seems, as APIs come in many shapes and forms (HTTP/WebSocket,
-request–response/publish–subscribe/webhooks, etc.). The long term plan is to
-support all API schemes that there are demand for.
+Airnode的设计是将API与智能合约平台对接。 这意味着它要专注这项业务，并且要做得很好。 需要注意的是，这个业务范围并不像看起来那样具有限制性，因为API有很多不同的形式（HTTP/WebSocket，请求-响应/发布-订阅/webhooks，等等） Airnode长期的计划是，支持所有有需求的API方案。
 
-## Requirements
+## 需求：
 
-_See our article,
-[Where are the first-party oracles?](https://medium.com/api3/where-are-the-first-party-oracles-5078cebaf17)
-that lists the obstacles in the way of first-party oracles._
+_参见我们的文章[第一方预言机在哪里](https://medium.com/api3/where-are-the-first-party-oracles-5078cebaf17)，其中列出了第一方预言机应用存在的障碍。_
 
-Airnode is designed to be operated as a first-party oracle, i.e., by the API
-provider themselves. This results in very restrictive requirements:
+Airnode被设计为作为第一方预言机来操作，也就是说，由API供应商自己来操作。 这对Airnode提出了非常严格的要求。
 
 <p align="center">
   <img src="../../assets/images/airnode.png" />
 </p>
 
-- The API provider does not know how to operate an oracle node. Then, the oracle
-  node should not require any know-how from the API provider.
-- API–oracle node integration should be standardized so that tools can be
-  developed to streamline the process.
-- The API provider does not want to invest man-hours to operate the node. Then,
-  the oracle node should be _set-and-forget_.
-- The API provider does not want to pay for hosting when their oracle is not
-  being used. Then, the hosting services should be priced on-demand.
-- The API provider cannot accept cryptocurrency as payment due to compliance,
-  legal and accounting reasons. They cannot exchange cryptocurrencies or fund
-  their node wallets for the same reasons. Then, the protocol should not require
-  the API provider to handle cryptocurrency as a means of payment, or fund their
-  node wallet periodically.
-- The API provider cannot stake funds that would expose them to financial risk
-  due to compliance, legal and accounting reasons. Therefore, the security
-  mechanics of the protocol should not depend on oracles to stake.
+- API供应商不知道如何操作预言机节点。 那么，预言机节点就不应该要求API供应商具备相应的技术知识。
+- API-预言机节点的集成应该是标准化的，这样就可以开发工具来简化这个过程。
+- API供应商不希望投入工时来操作节点。 那么，预言机节点应该是_安装后就不管_的。
+- API 供应商不想在他们的预言机不被使用时为托管付费。 然后，托管服务应该按需定价。
+- 由于合规、法律和会计审计等原因，API供应商不能接受加密货币作为付款。 出于同样的原因，他们无法交换加密货币或为其节点钱包提供资金。 因此，该协议不应要求 API 供应商将加密货币作为一种支付手段来处理，或定期为其节点钱包提供资金。
+- 由于合规、法律和会计审计方面的原因，API供应商不能质押可能使他们面临财务风险的资金。 因此，协议的安全机制不应该依赖于预言机进行质押。

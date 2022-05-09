@@ -1,53 +1,41 @@
 ---
-title: HTTP Gateways (optional)
+title: HTTP 网关(可选)
 ---
 
-<TitleSpan>Build an Airnode</TitleSpan>
+<TitleSpan>创建一个 Airnode</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-As part of the Airnode deployment you can decide to deploy two different HTTP
-Gateways.
+作为Airnode 部署的一部分，您可以决定部署两个不同的 HTTP 网关。
 
-- HTTP Gateway: testing
-- HTTP Signed Data Gateway: production use
+- HTTP 网关：测试
+- HTTP 签名数据网关：生产使用
 
-## Gateway Differences
+## 网关的差异
 
-Both gateways are setup identically. The differences are in their purpose and
-response. Gateways are allowed only when deploying to AWS and GCP.
+两种网关的设置是相同的。 不同之处在于它们的目的和反应。 只有在部署到AWS和GCP时才允许网关。
 
-> ![gateway](../../../assets/images/gateway.png)
+> ![网关](../../../assets/images/gateway.png)
 
-### HTTP Gateway
+### HTTP网关
 
-The regular HTTP gateway is strictly for testing purposes. Using a simple tool
-like CURL you can test that endpoints in the Airnode configuration are working
-properly without accessing the blockchain.
+常规的HTTP网关是严格用于测试的。 使用像CURL这样的简单工具，你可以测试Airnode配置中的端点是否正常工作，而无需访问区块链。
 
-### HTTP Signed Data Gateway
+### HTTP 签名数据网关
 
-The HTTP signed data gateway is used for production purposes. While it is
-executed in a similar way as the HTTP gateway, its response is signed and does
-not contain a `rawValue` field. This gateway is executed by an off-chain code
-source that may in turn push data to a blockchain.
+HTTP签名的数据网关是用于生产目的。 虽然它的执行方式与HTTP网关类似，但其响应是经过签名的，不包含`rawValue`字段。 该网关由链外代码源执行，该代码源可能反过来将数据推送到区块链上。
 
-## Setup
+## 设置
 
-Enable either gateway in the `config.json` file fields
-`nodeSettings.httpGateway` and `nodeSettings.httpSignedDataGateway`.
+启用 `config.json` 文件中的字段 `nodeSetings.httpGateway` 和 `nodeSettings.httpSignedDataGatel`。
 
-- **enabled**: A boolean to enable/disable for the gateway.
-- **apiKey**: A user defined API key to authenticate against the gateway. The
-  key must have a length of between 30 - 120 characters.
-- **maxConcurrency**: (optional) A number higher than zero that represents the
-  maximum number of serverless functions serving gateway requests. When omitted,
-  there is no maximum concurrency set.
+- **enabled**: 开启/禁用网关的布尔值。
+- **apiKey**: 用户定义的 API 密钥来验证网关。 密钥长度必须介于 30 - 120 个字符之间。
+- **maxConcurrency**: (可选) 一个高于零的数字，代表了为网关请求服务的无服务器函数的 最大数量。 当省略时，没有设置最大并发数。
 
 ```json
 "nodeSettings": {
@@ -71,10 +59,7 @@ Enable either gateway in the `config.json` file fields
 },
 ```
 
-Add the desired endpoints the gateways can respond to in the `triggers.http[n]`
-and/or `triggers.httpSignedData[n]` arrays. The corresponding arrays do not need
-to match. You may want to test all endpoints but only serve certain endpoints
-using the HTTP signed data gateway or via RRP.
+在 `triggers.http[n]`和/或`triggers.httpSignedData[n]`数组中，添加网关可以响应的预期端点。 相应的数组不需要匹配。 可能想测试所有的端点，但只能通过HTTP签名数据网关或通过RRP服务某些端点。
 
 ```json
 // in config.json
@@ -103,55 +88,40 @@ using the HTTP signed data gateway or via RRP.
 }
 ```
 
-## Gateway URLs
+## 网关URL
 
-A gateway URL is generated for each gateway (when enabled) when Airnode is
-deployed. You can obtain the URLs `api.httpGatewayUrl` and
-`api.httpSignedDataGatewayUrl` from the
-[receipt.json](../../../reference/deployment-files/receipt-json.md) file
-returned by the Airnode deployer. They are also available as part of the payload
-sent from Airnode's [heartbeat](./heartbeat.md) to your specified heartbeat URL.
+当Airnode部署时，每个网关（当启用时）都会生成一个网关的URL。 您可以获取 `api.httpGatewayUrl` 和 `api. tpSignedDataGatewayUrl` ，两者来自于 [receivt.json](../../../reference/deployment-files/receipt-json.md) 文件， 由 Airnode 部署器返回。 它们也可以作为从Airnode的[heartbeat](./heartbeat.md) 发送至你指定的heartbeat URL的有效载荷的一部分。
 
-## Using CURL
+## 使用 CURL
 
-In order to execute an endpoint served by either gateway, the following are
-required as part of the CURL call.
+为了执行由任一网关提供的端点，作为CURL调用的一部分，需要做到以下几点。
 
-- Make a POST request with the `endpointId` as a path parameter. An `endpointId`
-  can found in config.json under `triggers.http.endpointId` or
-  `triggers.httpSignedData.endpointId`.
-- Add the `Content-Type` header, set to `application/json`.
-- Add the `x-api-key` header, set to the apiKey. The `x-api-key` can found in
-  config.json under `nodeSettings.httpGateway.apiKey` or
-  `nodeSettings.httpSignedDataGateway.apiKey`.
-- Place the parameters/encodedParameters in the request body.
+- 以`endpointId`作为路径参数发出一个POST请求。 可以在config.json中的 `triggers.http.endpointId` 或`triggers.httpSignedData.endpointId`下找到`endpointId`。
+- 添加`Content-Type`头部，设置为`application/json`。
+- 添加 `x-api-key` 头, 设置为 apiKey `x-api-key`可以在config.json的`nodeSettings.httpGateway.apiKey`或`nodeSettings.httpSignedDataGateway.apiKey`下找到。
+- 将参数/编码参数放在请求正文中。
 
 <style type="text/css" rel="stylesheet">
 .tSmall { font-size:x-small; margin-left:13px;}
 </style>
 
-| CURL Parameters                                                        | In     | CURL Options                                              |
-| ---------------------------------------------------------------------- | ------ | --------------------------------------------------------- |
-| Content-Type                                                           | header | `-H 'Content-Type: application/json'`                     |
-| x-api-key                                                              | header | `-H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e'`    |
-| endpointId                                                             | path   | `<gatewayUrl>/0xf466b8feec...99e9f9f90453c`               |
-| \* parameters<div class="tSmall">HTTP Gateway</div>                    | body   | `-d '{"parameters": {"param1": "myValue", "param2": 5}}'` |
+| CURL 参数                                         | 输入     | CURL 选项                                                   |
+| ----------------------------------------------- | ------ | --------------------------------------------------------- |
+| Content-Type                                    | header | `-H 'Content-Type: application/json'`                     |
+| x-api-key                                       | header | `-H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e'`    |
+| endpointId                                      | path   | `<gatewayUrl>/0xf466b8feec...99e9f9f90453c`         |
+| \* parameters<div class="tSmall">HTTP Gateway</div>        | body   | `-d '{"parameters": {"param1": "myValue", "param2": 5}}'` |
 | \* encodedParameters<div class="tSmall">HTTP Signed Data Gateway</div> | body   | `-d '{"encodedParameters": "0x3173737300....000"}'`       |
 
-\* Parameters for the gateways are named differently. The HTTP signed data
-gateway requires that the `encodedParameters` be encoded using
-[Airnode ABI](../../../reference/specifications/airnode-abi-specifications.md).
+\* 网关参数的命名不同。 HTTP 签名数据网关要求使用 [Airnode ABI](../../../reference/specifications/airnode-abi-specifications.md)对`encodedParameters` 进行编码。
 
-Replace `<gatewayUrl>` in the examples below with a URL from the `receipt.json`
-file using the `httpGatewayUrl` or `httpSignedDataGatewayUrl` field. The
-[receipt.json](../../../reference/deployment-files/receipt-json.md) file is
-created when you deploy an Airnode.
+将以下示例中的 `<gatewayUrl>` 替换为使用 `httpGatewayUrl` 或 `httpSignedDataGatewayUrl` 字段的`receipt.json` 文件中的URL。 部署 Airnode 时会创建[receipt.json](../../../reference/deployment-files/receipt-json.md) 文件。
 
-### Request
+### 请求
 
 :::: tabs
 
-::: tab HTTP Gateway
+::: tab HTTP网关
 
 ```sh
 curl \
@@ -164,7 +134,7 @@ curl \
 
 :::
 
-::: tab HTTP Signed Data Gateway
+::: HTTP 签名数据网关
 
 ```sh
 curl \
@@ -179,11 +149,11 @@ curl \
 
 ::::
 
-### Response
+### 响应
 
 :::: tabs
 
-::: tab HTTP Gateway
+::: tab HTTP网关
 
 ```json
 {
@@ -193,18 +163,15 @@ curl \
 }
 ```
 
-The response format is a simple JSON object with the following fields:
+响应格式是一个简单的 JSON 对象，具有以下字段：
 
-- `rawValue` - the API response
-- `values` - an array of values after they are
-  [extracted and converted](../../../reference/packages/adapter.md#conversion)
-  to the target type
-- `encodedValue` - the encoded bytes value that is sent as payload in the
-  response transaction on chain
+- `rawValue` - API 响应
+- `values` - 被[提取并转换](../../../reference/packages/adapter.md#conversion)为目标类型后的数值数组
+- `encodedValue` - 编码后的字节值，在链上的响应交易中作为有效载荷发送。
 
 :::
 
-::: tab HTTP Signed Data Gateway
+::: tab HTTP签名数据网关
 
 ```json
 {
@@ -216,17 +183,14 @@ The response format is a simple JSON object with the following fields:
 }
 ```
 
-The response format is a simple JSON object with the following fields:
+响应格式是一个简单的 JSON 对象，具有以下字段：
 
-- `data.timestamp` - The timestamp applied to the response.
-- `data.value` - The encoded bytes value that is sent as payload in the
-  response. Suitable for use on-chain.
-- `signature` - The response has been signed by Airnode.
+- `data.timestamp` - 应用于响应的时间戳。
+- `data.value` - 响应中作为有效载荷发送的编码字节值。 适合于在链上使用。
+- `signature` - 响应已被Airnode签名。
 
 :::
 
 ::::
 
-There are additional examples of using CURL to call the HTTP gateway in both the
-[Quick Deploy AWS](../../tutorial/quick-deploy-aws/#execute-endpoint) and
-[Quick Deploy GCP](../../tutorial/quick-deploy-gcp/#execute-endpoint) tutorials.
+在 [快速部署AWS](../../tutorial/quick-deploy-aws/#execute-endpoint) 和 [快速部署GCP](../../tutorial/quick-deploy-gcp/#execute-endpoint) 教程中使用CURL 调用 HTTP 网关的其他例子。

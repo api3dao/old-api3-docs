@@ -1,118 +1,53 @@
 ---
-title: Airnode implementation
+title: Airnode 实施
 ---
 
-<TitleSpan>API Providers</TitleSpan>
+<TitleSpan>API供应商</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-_See our article,
-[Getting to know Airnode](https://medium.com/api3/getting-to-know-airnode-162e50ea243e)
-for a technical overview of the software._
+_请参阅我们的文章[了解Annode](https://medium.com/api3/getting-to-know-airnode-162e50ea243e)，了解该软件的技术概况。_
 
-## Statelessness
+## 无状态性
 
-Oracle nodes typically keep persistent track of the blockchain and the state of
-the requests they receive (i.e., at what stage of fulfillment they are at),
-either in-memory or in a database. In systems terminology, they are not
-memoryless. Doing so comes with many disadvantages:
+预言机节点通常在内存中或在数据库中，对区块链和它们收到的请求的状态（即它们处于哪个履行阶段）进行持久跟踪。 用系统术语来说，它们不是无记忆的。 这样做有很多弊端：
 
-1. The database becomes a single point of failure. Orchestrating redundancy is
-   costly and not trivial.
-2. Any anomaly that happens on the blockchain (block reorgs, ommer blocks, etc.)
-   results in the oracle node state to fall out of sync with the chain, which is
-   not trivial to correct.
-3. A highly stateful application has many edge cases. These are difficult to
-   cover with tests completely and are likely to result in bugs that
-   incapacitate the node.
+1. 数据库成为一个单点故障。 编排冗余是昂贵的，而且不是小事。
+2. 区块链上发生的任何异常情况（区块重组、ommer区块等）都会导致预言机节点的状态与链上的状态不同步， 纠正起来并非易事。
+3. 一个高度有状态的应用程序有许多边缘情况。 这些情况很难被测试完全覆盖，而且很可能导致节点无法正常工作的错误。
 
-These disadvantages result in an unstable oracle node, which is the essential
-reason why traditional oracle nodes require _professional node operators_ that
-need to be ready to respond to incidents 24/7. Since this is not a realistic
-requirement for first-party oracles, an oracle node that is designed for
-first-party oracles has to be stateless.
+这些缺点导致预言机节点不稳定，这也是传统预言机节点为什么需要_专业的节点运营商_，需要全天候准备应对事件的根本原因。 由于这不是第一方预言机的现实要求，因此为第一方预言机设计的预言机节点必须是无状态的。
 
-Another way to look at keeping oracle node state is this: The blockchain (e.g.,
-Ethereum) node that the oracle node uses already keeps the state on behalf of
-the oracle node. The duplication of this responsibility also duplicates the
-points of failure (where failure in either of them results in total failure).
-Then, the oracle node should depend on the blockchain node to keep its state,
-which requires the protocol to be designed to fit this scheme.
+保持预言机节点状态的另一种方法是：预言机节点使用的区块链（例如以太坊）节点已经代表预言机节点保持状态。 这种责任的重复也会重复失败点（其中任何一个失败都会导致完全失败）。 因此，预言机节点应该依赖区块链节点来保持其状态，这需要设计协议以适应该方案。
 
-### Non-idempotent operations
+### 非幂等操作
 
-An API operation is idempotent if calling it multiple times has the same effect
-as calling it once. For example, using a GET operation of an exchange API to get
-the ETH/USD price data is typically an idempotent operation. Calling it once or
-more will not make any difference at the API server-side. In contrast, using a
-POST operation of a remittance service provider API to send $100 to another
-party would be a non-idempotent operation. Each call would send an additional
-$100, and thus using the operation multiple times would have a different effect
-than using it once.
+如果多次调用 API 操作与调用一次具有相同的效果，则 API 操作是幂等的。 例如，使用交易所 API 的 GET 操作来获取 ETH/USD 价格数据通常是幂等操作。 在 API 服务器端调用一次或多次不会产生任何影响。 相反，使用汇款服务提供商 API 的 POST 操作向另一方发送 100 美元将是非幂等操作。 每次调用都会额外发送 100 美元，因此多次使用该操作与使用一次会产生不同的效果。
 
-The oracle node being stateless means that it would not be able to "remember" if
-it has made an API call associated with a request, and may repeat it under
-certain conditions. This is not an issue at the moment, because presently,
-oracles are only used for idempotent operations. The aim is for Airnode to
-support non-idempotent operations as well. There is research into alternative
-methods to achieve this while protecting the resiliency that statelessness
-provides.
+预言机节点是无状态的，这意味着它无法“记住”它是否进行了与请求相关联的 API 调用，并且可能会在某些条件下重复调用。 目前这不是问题，因为当前预言机仅用于幂等操作。 我们的目标是让Airnode也能支持非幂等操作。 目前正在研究其他方法来实现这一目标，同时保护无状态性所提供的弹性。
 
-## Fully-serverless stack
+## 完全无服务器堆栈
 
-Although serverless functions are better known for scaling automatically even
-with extreme concurrent usage (which may also come in handy in a bright future),
-Airnode uses it for different reasons:
+尽管无服务器功能以自动扩展而闻名，即使在极端并发使用情况下（这也可能在光明的未来派上用场），但 Airnode 使用它却是出于不同的原因：
 
-- Serverless functions are stateless. This means that whatever problem occurs in
-  an invocation, the next invocation will start with a clean slate. This
-  provides great resiliency against internal (from Airnode itself) or external
-  (from the API, Ethereum node) bugs. In other words, the oracle node _turns
-  itself off and on again_ very frequently, which automatically fixes the
-  majority of the potential problems.
-- Serverless functions are fully managed. They provide the closest experience to
-  _set-and-forget_ possible.
-- Serverless functions are priced on-demand. Especially considering that Airnode
-  will not require major concurrent usage, this will result in great
-  cost-efficiency (and even let the user stay below free tier
-  ([AWS](https://aws.amazon.com/free), [GCP](https://cloud.google.com/free))
-  limits).
-- Bare serverless functions are easy to port across cloud providers (e.g., using
-  [Terraform Framework](https://www.terraform.io/)), especially when their cloud
-  provider-specific dependencies are limited.
+- 无服务器函数是无状态的。 这意味着无论调用中出现什么问题，下一次调用都将从一个干净的状态开始。 这为内部（来自 Airnode 本身）或外部（来自 API、以太坊节点）错误的消除提供了极大的弹性。 换句话说，预言机节点会非常频繁地_自行关闭并再次打开_，这就自动修复大部分潜在问题。
+- 无服务器函数是完全托管的。 它们提供了近乎_一劳永逸_的体验。
+- 无服务器功能按需定价。 特别是考虑到 Airnode 不需要大量的并发使用，这将带来巨大的成本效益（甚至让用户保持在免费层（[AWS](https://aws.amazon.com/free)、[GCP](https://cloud.google.com/free)）的限制之下）
+- 裸服务器功能很容易跨云供应商移植（例如，使用 [Terraform 框架](https://www.terraform.io/)），尤其是当他们的云供应商特定的依赖项受到限制时。
 
-## Approach to security
+## 处理安全问题的方法
 
-For an optimally hands-off user experience, Airnode should utilize fully-managed
-services whenever possible. To allow this to be done securely, the node is
-designed in a defensive way.
+为了获得最佳的用户体验，Airnode 应尽可能使用完全托管的服务。 为了确保安全地完成此操作，该节点以防御方式设计。
 
-There are two external parties that Airnode interacts with:
+Airnode 与两个外部方进行交互：
 
-- **APIs:** Although Airnode is designed for first-party oracles, it considers
-  serving data from third-party APIs as a valid usage scenario. In this case,
-  calls made to all APIs are contained in separate serverless function
-  invocations so that they cannot induce node-level failure.
-- **Blockchain nodes:** Similarly, using blockchain (e.g., Ethereum) nodes run
-  by third party service providers is considered as a valid usage scenario.
-  Airnode uses all providers simultaneously (i.e., not through a Quorum-based
-  consensus or behind a load balancer) for maximum availability, which is made
-  possible by its unique stateless design. The interactions made with each
-  provider is contained in a separate serverless function invocation so that a
-  malicious provider cannot induce node-level failure.
+- **API**：尽管 Airnode 是为第一方预言机设计的，但它认为从第三方 API 提供数据也是一种有效的使用场景。 在这种情况下，对所有 API 的调用都包含在单独的无服务器函数调用中，因此它们不会导致节点级故障。
+- **区块链节点**：同样，使用由第三方服务供应商运行的区块链（例如以太坊）节点被认为是有效的使用场景。 Airnode 同时使用所有供应商（即不通过基于 Quorum 的共识或负载均衡器之后）以实现最大可用性，这是通过其独特的无状态设计实现的。 与每个供应商进行的交互，都包含在单独的无服务器函数调用中，因此恶意供应商无法引发节点级故障。
 
-In addition, the protocol is implemented in a way that a blockchain service
-provider cannot tamper with the parameters of a request, but only deny service.
-Note that this is not the case with alternative solutions, as they treat the
-blockchain service provider as a trusted party.
+此外，该协议的实现方式是，区块链服务供应商不能篡改请求的参数，而只能拒绝服务 请注意，其他解决方案并非如此，因为它们将区块链服务供应商视为可信的一方。
 
-Cloud hosting is recommended over hosting on-premises due to the superior
-availability of serverless functions, and also for their set-and-forget
-qualities. As a precaution, redundancy on multiple cloud providers can be
-provisioned easily and virtually at no cost thanks to the fully-serverless
-design of Airnode.
+由于无服务器功能的超强可用性，以及设置后一劳永逸的特性，建议使用云托管而不是本地托管。 作为预防措施，由于Airnode的完全无服务器设计，可以很容易地在多个云供应商上提供冗余，而且几乎没有成本。

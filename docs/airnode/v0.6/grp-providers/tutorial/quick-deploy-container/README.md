@@ -1,55 +1,37 @@
 ---
-title: Instructions
+title: 说明
 ---
 
-<TitleSpan>Quick Deploy Container</TitleSpan>
+<TitleSpan>快速部署容器</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-This demo is a simple Airnode deployment, using a hands-on approach, to better
-understand the overall deployment process of the Airnode
-[client image](../../../grp-providers/docker/deployer-image.md) which deploys
-the off-chain component of Airnode ([a.k.a., the node](../../../)) to a Docker
-container, in this case a locally run Docker container. It uses an API endpoint
-(`GET /simple/price`) from
-[CoinGecko](https://www.coingecko.com/en/api/documentation) which returns the
-current value of a coin. This demo does not detail the overall configuration of
-an Airnode, it is just a quick start.
+这个演示是一个简单的Airnode部署，使用实践的方法，以更好地理解Airnode[客户端镜像](../../../grp-providers/docker/deployer-image.md)的整体部署过程，它将Airnode的链外组件（[又称节点](../../../)）部署到Docker容器中，在这种情况下，作为一个本地运行的Docker容器。 它使用来自[CoinGecko](https://www.coingecko.com/en/api/documentation)的API端点（`GET /simple/price`），返回一个代币的当前价值。 这个演示并没有详细说明Airnode的整体配置，它只是一个快速入门。
 
-An Airnode Docker container deployment uses a Docker image (called
-[client image](../../../grp-providers/docker/deployer-image.md)) which in turn
-requires two files as input.
+Airnode Docker容器部署使用Docker镜像 (称为 [客户端镜像](../../../grp-providers/docker/deployer-image.md))，反过来 需要两个文件作为输入。
 
 - [config.json](./config-json.md)
 - [secrets.env](./secrets-env.md)
 
-For the purpose of this demo these files have been created and only require a
-few minor changes on your part to make the deployment of the demo Airnode
-successful. These changes are needed to supply a chain provider url and a
-mnemonic.
+为了开展演示，这些文件已经创建，只需要你做一些小的改动，就可以成功部署演示的Airnode。 这些修改是为了提供一个链供应商的网址和一个助记符。
 
-## Install Prerequisites
+## 安装预设
 
-Install the [Docker Desktop](https://docs.docker.com/get-docker/) and launch it.
+安装 [Docker桌面](https://docs.docker.com/get-docker/) 并启动它。
 
-## Project Folder
+## 项目文件夹
 
-A project folder is needed for this demo. You can create it manually or download
-a zip file ready to go.
+此演示需要一个项目文件夹。 您可以手动创建它，或下载准备就绪的压缩文件。
 
 :::: tabs
 
-::: tab Create Manually
+::: tab 手动创建
 
-Create a folder called `quick-deploy-container` with an internal folder named
-`/config`. Place the contents of the files provided
-([config.json](./config-json.md) and [secrets.env](./secrets-env.md)) into the
-locations show below.
+创建一个名为`quick-deploy-container`的文件夹，内部文件夹名为`/config`。 将所提供的文件（[config.json、[secrets.env](./secrets-env.md)和aws.env](./config-json.md)）的内容放入以下所示的位置。
 
 ```
 quick-deploy-container
@@ -60,54 +42,40 @@ quick-deploy-container
 
 :::
 
-::: tab Download
+::: tab 下载
 
-Download the <a href="/zip-files/quick-deploy-container-v0.6.zip" download>
-quick-deploy-container</a> project folder.
+下载 <a href="/zip-files/quick-deploy-container-v0.6.zip" download>
+quick-deploy-aws</a> 项目文件夹。
 
 :::
 
 ::::
 
-## Configuration
+## 系统配置
 
-Prepare the two configuration files, `config.json` and `secrets.env`. By
-default, the Airnode client image looks for them in the `/config` folder.
+Airnode 运行需要两个配置文件： `config.json` 以及 `secrets.env`。 默认情况下，Airnode客户端镜像会在`/config`文件夹中寻找它们。
 
 ### config.json
 
-This file requires no changes on your part. It has been created with just one
-API endpoint. It will instruct the Airnode to attach to the Rinkeby test
-network. There are two variables this file will extract (interpolation) from
-`secrets.env`.
+这个文件不需要你做任何改动。 它只用一个API端点创建。 它将指示Airnode连接到Rinkeby测试网络。 此文件将从 `secrets.env` 中提取两个变量。
 
 ### secrets.env
 
-Add values for each of the these fields.
+为每个字段添加值。
 
-- `CHAIN_PROVIDER_URL`: A chain provider url from a provider such as
-  [Infura](https://infura.io/). Make sure the provider url you use is for the
-  Rinkeby test network. Using another chain provider other than Infura is
-  acceptable.
+- `CHAIN_PROVIDER_URL`:来自链供应商（如[Infura](https://infura.io/)）的网址。 请确保你使用的提供者网址是Rinkeby测试网络的。 使用Infura以外的其他连锁供应商也是可以接受的。
 
-  - Sign-up or login to Infura.
-  - Create a new project, select the **Settings** tab in the project.
-  - Copy the URL (https) for Rinkeby under the Endpoints pick list.
+  - 注册或登录Infura。
+  - 创建一个新的项目，选择项目中的**设置**标签。
+  - 在端点选择列表下复制Rinkeby的 URL (https)
 
-- `AIRNODE_WALLET_MNEMONIC`: Provide the seed phrase (mnemonic) to a digital
-  wallet. For the purpose of this demo it does not need eth in it for the
-  Rinkeby test network. If you don't have one use the Admin CLI command
-  [generate-mnemonic](../../../reference/packages/admin-cli.md#generate-mnemonic)
-  to create one or another method you prefer.
+- `AIRNODE_WALLET_MNEMONIC`: 为数字钱包提供种子短语（助记符）。 在本演示中，它不需要Rinkeby测试网络中的eth。 如果你没有，请使用管理员CLI命令[generate-mnemonic](../../../reference/packages/admin-cli.md#generate-mnemonic)来创建一个助记符，或使用其他你喜欢的方法。
 
-## Deploy
+## 部署
 
-Make sure Docker is running and then execute the client image from the root of
-the `quick-deploy-container` folder.
+确保Docker正在运行，然后从`quick-deploy-aws`文件夹的根部执行部署器镜像。
 
-Run the following command to deploy the demo Airnode locally. Note that the
-version of `api3/airnode-deployer` matches the `nodeVersion` in the config.json
-file.
+运行以下命令以在本地部署演示Airnode。 注意，`api3/airnode-deployer`的版本与config.json文件中的`nodeVersion`一致。
 
 :::: tabs
 
@@ -124,7 +92,7 @@ docker run --detach \
 
 ::: tab Windows CMD
 
-For Windows, use CMD (and not PowerShell).
+对于Windows，使用 CMD (而不是 PowerShell)。
 
 ```sh
 docker run --detach ^
@@ -137,10 +105,9 @@ docker run --detach ^
 
 ::::
 
-## Start and Stop
+## 开始和停止
 
-You can start and stop the Airnode with the Docker desktop application or via
-terminal commands.
+您可以使用 Docker 桌面应用程序或通过 终端命令来启动和停止 Airnode 。
 
 ```sh
 docker stop quick-deploy-container-airnode
@@ -148,10 +115,9 @@ docker stop quick-deploy-container-airnode
 docker start quick-deploy-container-airnode
 ```
 
-## Logs
+## 日志
 
-You can view the Airnode's logs with the Docker desktop application or via
-terminal commands.
+您可以使用 Docker 桌面应用程序或 终端命令查看Airnode的日志。
 
 ```sh
 docker logs quick-deploy-container-airnode
@@ -159,36 +125,24 @@ docker logs quick-deploy-container-airnode
 docker logs --follow quick-deploy-container-airnode
 ```
 
-## Test the Airnode
+## 测试 Airnode
 
-After a successful deployment the Airnode can be tested using the
-[test-api.js](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-node#testing-api)
-script which allows you to execute an Airnode endpoint without accessing the
-blockchain.
+在成功部署后，可以使用[test-api.js](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-node#testing-api)脚本测试Airnode，它允许你在不访问区块链的情况下执行Airnode端点。
 
-::: warning test-api.js
+::: 警告 test-api.js
 
-The `test-api.js` nodejs script is an unsupported feature used for internal
-development and should not be used for any production purposes. It is used here
-purely for demonstration purposes.
+`test-api.js` nodejs 脚本是一个不支持的功能，用于内部 开发，不应用于任何生产目的。 这里完全用于演示目的。
 
 :::
 
-The Nodejs script `test-api.js` requires two arguments, endpointId and
-parameters to get a response from an integrated API. These arguments come from
-the `config.json` file.
+Nodejs 脚本 `test-api.js` 需要两个参数, endpointId 和 参数才能从集成的 API 获得响应。 这些参数从 `config.json` 文件获取.
 
-- -e, --endpoint-id [string][required]: See config.json
-  `triggers.rrp[0].endpointId`.
-- -p, --parameters [string] [default: "{}"]: See config.json
-  `ois.endpoints[0].parameters[0].name`.
+- -e, --endpoint-id \[string\]\[required\]: 参见 config.json `triggers.rrp[0].endpointId`
+- -p, --parameters \[string\] \[default: "{}"\]: 查看 config.json `ois.endpoints[0].parameters[0].name`.
 
-The arguments are pre-filled for you in the request code below. Note the JSON
-response value is the ETH price multiplied by `1e6`, which results from setting
-the `_times` reserved parameter to `1000000` in `config.json`. This manipulation
-is necessary in order to correctly handle floating point numbers.
+在下面的请求代码中，预先填写参数。 注意JSON响应值是ETH价格乘以`1e6`，这是由于在`config.json`中设置`_times`保留参数为`1000000`的结果。 此操作 是正确处理浮点数所必需的。
 
-### Request
+### 请求
 
 ```sh
 # For Windows CMD replace line termination marker \ with ^
@@ -197,8 +151,7 @@ docker exec -it quick-deploy-container-airnode node src/cli/test-api.js \
   -p '{"coinIds":"api3", "coinVs_currencies":"usd"}'
 ```
 
-Alternately you could run the test using the CLI command prompt provided for the
-container in the Docker desktop application.
+或者，您可以使用 Docker 桌面应用程序为 容器提供的 CLI 命令提示来运行测试。
 
 ```sh
 # For Windows CMD replace line termination marker \ with ^
@@ -207,7 +160,7 @@ node src/cli/test-api.js \
   -p '{"coinIds":"api3", "coinVs_currencies":"usd"}'
 ```
 
-### Response
+### 响应
 
 ```json
 {
@@ -219,27 +172,19 @@ node src/cli/test-api.js \
 
 <airnode-tutorials-TutorialResponse/>
 
-## Remove the Airnode
+## 移除Airnode
 
-When you are done with this demo you can remove it. Do so using the Docker
-desktop application or by using the following terminal command. When using the
-terminal command be sure to stop the container first if running.
+当你完成这个演示时，你可以删除它。 使用 Docker 桌面应用程序或使用以下终端命令。 当使用 终端命令时，如果正在运行，会先停止容器。
 
 ```sh
-# Stop the container if it is running.
+# 如果容器正在运行，请停止它。
 docker stop quick-deploy-container-airnode
 
 docker rm quick-deploy-container-airnode
 ```
 
-## Summary
+## 总结
 
-You have deployed an Airnode into a Docker container and tested it using the
-`test-api.js` Nodejs script. Please remember the script is not supported for use
-in production environments.
+您已经在 Docker 容器中部署了一个 Airnote，并使用 `test-api.js` Nodejs 脚本测试了它。 请记住不支持脚本在生产环境中使用。
 
-This Airnode attaches itself to the Rinkeby testnet as stated in the
-`config.json` file. The Airnode, upon deployment, started contacting the
-AirnodeRrp contract on the Rinkeby testnet to gather any requests made by
-requesters to this Airnode. This tutorial did not address making a request
-on-chain as its purpose was simply to quickly deploy a functional Airnode.
+如`config.json`文件中所述，这个Airnode将自己连接到Rinkeby testnet。 Airnode在部署后，开始与Rinkeby testnet上的AnnodeRrp合约联系，以收集请求者向这个Airnode提出的任何请求。 本教程不涉及在链上发出请求，因为其目的只是为了快速部署一个功能性的Airnode。

@@ -1,39 +1,26 @@
 ---
-title: Airnode Client Image
+title: Airnode 客户端镜像
 ---
 
-<TitleSpan>Docker Images</TitleSpan>
+<TitleSpan>Docker 镜像</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Usually the Airnode is deployed on a serverless platform using the
-[deployer](./deployer-image.md). However, there is another option which is to
-run the Airnode in a docker container on your machine locally, on premise or
-cloud hosted.
+通常使用 [部署器](./deployer-image.md)， 在无服务器平台上部署Airnode 。 不过，还有另一个选择，那就是在本地机器上的docker容器中运行Airnode，无论是在本地还是在云端托管。
 
-A docker client image has been published on
-[Docker Hub](https://hub.docker.com/r/api3/airnode-client). If you want to build
-the container from the source yourself, you can find the image and built
-instructions in the
-[Airnode repository](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-node/docker).
+docker客户端镜像已在 [Docker Hub](https://hub.docker.com/r/api3/airnode-client) 上发布。 如果您想要从源代码中自行构建容器， 您可以在 [Airnode 仓库](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-node/docker) 中找到镜像以及生成说明。
 
-## Configuration
+## 配置
 
-The Airnode needs two configuration files for its run: `config.json` and
-`secrets.env`. These files need to be passed to the Docker container via
-volumes.
+Airnode 运行需要两个配置文件： `config.json` and `secrets.env`。 这些文件需要通过 卷传递到 Docker容器。
 
-The Docker container looks for configuration files mounted internally in the
-`/app/config` directory.
+Docker容器寻找内部安装在 `/app/config` 目录下的配置文件。
 
-Your current working directory should contain the `config` folder with the
-configuration files above and you bind it to the `/app/config` directory for the
-docker using the `--volume` parameter.
+你当前的工作目录应该包含有上述配置文件的`config`文件夹，使用`--volume`参数将其绑定到docker的`/app/config`目录。
 
 :::: tabs
 
@@ -78,15 +65,13 @@ $ docker run --volume %cd%:/config:/app/config ...
 
 ::::
 
-## Usage
+## 用法
 
-Example directory structure and commands for running the Airnode Docker
-container. The below commands are run from the depicted directory.
+运行 Airnode Docker 容器的示例目录结构和命令。 下面的命令是从描述的目录运行的。
 
-### Running Airnode
+### 运行Airnode
 
-It is recommended to run the Airnode in a detached mode using the `--detach`
-parameter, but you may run the it without it as well.
+建议使用 `--detach` 参数以分离模式运行 Airnode ，但也可以在没有它的情况下运行它。
 
 :::: tabs
 
@@ -125,29 +110,23 @@ docker run --detach ^
 
 ::::
 
-> If you want to connect Airnode to a blockchain running on localhost, you need
-> to make the blockchain accessible from within the docker itself. If you use
-> docker for linux you can use `--network="host"` parameter. For windows, wsl or
-> mac connect to `host.docker.internal` instead of `127.0.0.1`. See
-> [https://stackoverflow.com/a/24326540](https://stackoverflow.com/a/24326540).
+> 如果你想把Airnode连接到运行在localhost上的区块链，需要让区块链可以从docker内部访问。 如果你使用版本的linux，可以使用 `--network="host"` 参数。 对于windows、wsl或mac，连接到`host.docker.internal`而不是`127.0.0.1`。 请参阅 [https://stackoverflow.com/a/24326540](https://stackoverflow.com/a/24326540)。
 
-### Checking Airnode logs
+### 检查 Airnode 日志
 
-If you run the Airnode in a detached mode, you need to use the `logs` command to
-access the logs. You can also use `--follow` parameter to stream the Airnode log
-output.
+如果您以分离模式运行Airnode ，您需要使用 `日志` 命令到 访问日志。 你也可以使用`--follow` 参数来串联Airnode的日志输出。
 
 ```bash
 docker logs airnode
 ```
 
-or
+或者
 
 ```bash
 docker logs --follow airnode
 ```
 
-## Stopping Airnode
+## 停止Airnode
 
 ```bash
 docker stop airnode

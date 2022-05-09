@@ -2,14 +2,14 @@
 title: aws.env
 ---
 
-<TitleSpan>Example Files</TitleSpan>
+<TitleSpan>示例文件</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-- Do not place double quotes (") around the value of each variable.
-- Variable names cannot contain dashes (-).
+- 不要在每个变量的值上放置双引号 (")
+- 变量名称不能包含破折号 (-)。
 
 ```sh
 AWS_ACCESS_KEY_ID=AKIA...GYZWRAHOH

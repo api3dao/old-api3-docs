@@ -1,223 +1,117 @@
 ---
-title: The DAO Pool
+title: DAO 池
 ---
 
 # {{$frontmatter.title}}
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-The API3 DAO has a single staking pool called the **DAO pool**. Staking API3
-tokens in the pool will grant representation and staking rewards, but at the
-same time, the staked tokens will be used as collateral to pay out coverage
-service claims as needed. To do this, the pool focuses on three token utilities
-and implements a coverage service which by design balances rewards and risks
-through responsible governance.
+API3 DAO 有一个单独的质押池，称为 **DAO 池**。 在池中质押 API3 代币将授予代表权和质押奖励，但同时为 质押代币将被用作担保品，用于支付所需的 保险服务索偿。 为了做到这一点，该池设置三个代币工具，并实施保险服务，通过责任治理来平衡奖励和风险。
 
-## Tokens
+## 代币
 
-API3 is the native token of the API3 project. The API3 ecosystem is a single
-token environment. Check out the Medium post
-[API3 Tokenomics Update](https://medium.com/api3/api3-tokenomics-update-f032d6e49b30)
-for an in-depth overview on API3 tokenomics.
+API3 是 API3 项目的原生代币。 API3 生态系统是单币模式。 查看Medium帖子 [API3 Tokenomics Update](https://medium.com/api3/api3-tokenomics-update-f032d6e49b30) 以获取关于API3 代币经济的深入描述。
 
-### Unstaked Tokens
+### 未质押代币
 
-Unstaked tokens are simply owned by an entity and do not generate revenue or
-have voting rights. They are subject to market value and inflation.
+未质押的代币只是个人拥有所有权，不产生收入或 拥有投票权。 它们由市场定价并会有通货膨胀。
 
-### Staked Tokens
+### 质押代币
 
-Staked API3 tokens are used as collateral for the on-chain coverage service that
-will provide quantifiable and trustless security guarantees to dAPI users. These
-mechanics will remove the need for a central authority at the ecosystem level.
+质押的API3代币将用作链上保险服务的抵押品，该链上保险服务将为dAPI用户提供可量化、信任最小化的安全保证。 这些机制将消除在生态系统层面的中心化权威机构的需求。
 
-Staking simply means you are placing API3 tokens into the DAO pool. When staking
-tokens to the DAO pool you gain access to weekly staking rewards but also share
-in the risk of the coverage service. You are also granted voting rights on
-active DAO proposals and inflationary rewards.
+质押就是指您将 API3代币存入DAO 池。 当向DAO池质押代币时，你可以获得每周的质押奖励，但也需要承担保险服务的风险。 你也被授予对活跃的DAO提案的投票权和通胀奖励。
 
-To stake your tokens see [StakingTokens](../dashboard/staking.md). You can stake
-as many times as you’d like. Your percentage of all the tokens in the DAO pool
-are directly related to your percentage of the rewards and the risks. If you
-stake 10% of the pool you earn 10% of rewards and will pay 10% of coverage
-service claims.
+若要质押代币，请参阅 [StakingTokens](../dashboard/staking.md)。 您可以质押任意次数。 您在 DAO 池中的质押代币的百分比 直接与您的奖励和风险中的百分比相关。 如果您 持有10%的质押代币，您将获得10%的总奖励，同时也将支付10%的保险 服务索偿。
 
-## Token Utilities
+## 代币工具
 
-Decentralized governance requires well-balanced incentive mechanisms that
-accurately model both positive and negative outcomes. In other words, the
-governing entities should be rewarded for good results and penalized for bad
-ones. The API3 token is designed to facilitate this through three main
-utilities:
+去中心化治理需要均衡的激励机制，恰当地反应积极和消极的结果。 换句话说， 治理应该因为良好的结果而得到奖励，因为不好的 结果而受到惩罚。 API3 代币旨在通过以下三个主要工具来实现这一点：
 
-_Main utilities of the API3 token._
+_API3 代币的主要工具。_
 
 > ![dao-pool-pool-utils](../assets/images/dao-pool-token-utils.png)
 
-1. [Staking](dao-pool.md#staking): Grants membership in the API3 DAO and rights
-   to [inflationary rewards](dao-pool.md#inflationary-rewards).
-1. [Collateral](dao-pool.md#collateral): Backs coverage services that protect
-   users from damages caused by dAPI malfunctions.
-1. [Governance](dao-pool.md#governance): Grants direct representation in the
-   API3 DAO.
+1. [质押](dao-pool.md#staking): 授予API3 DAO的成员资格和[通胀奖励](dao-pool.md#inflationary-rewards).
+1. [担保](dao-pool.md#collateral): 用于保护 用户免受dAPI 故障损失的保险服务。
+1. [治理](dao-pool.md#governance): 在 API3 DAO中给予直接代表权。
 
-Note that it is critical for these three utilities to coincide. All governing
-entities must receive staking rewards for them to govern in a way that maximizes
-revenue. All governing entities must have their funds used as collateral for
-them to govern in a way that minimizes **_security_** risks. "_Security_" refers
-to a "guarantee or reliability of dAPI service"
+请注意，必须配合使用这三个工具。 所有治理 方通必须获得质押奖励，才能治理中最大限度地增加 收益。 所有治理费方必须将其资金用作担保，以最大限度地减少 **_安全_** 风险。 _安全_" 指的是 "保证dAPI服务的可靠性"
 
-Reference
-<a href="/api3-whitepaper-v1.0.2.pdf#API3%20tokenomics" target="_api3-whitepaper">section
-5.4 _"API3 Tokenomics"_</a> of the API3 whitepaper.
+参考API3白皮书
+<a href="/api3-whitepaper-v1.0.2.pdf#API3%20tokenomics" target="_api3-whitepaper">
+5.4章节 _"API3 代币经济学"_</a>。
 
-### Staking
+### 质押
 
-The staking utility incentivizes participation in the DAO and alignment of
-incentives. By staking your API3 tokens into the DAO pool, you receive
-governance voting rights and take part in providing API3 users with quantifiable
-_security_ in the form of the coverage service. The DAO pool also grants you
-inflationary rewards and exposes you to the risk of coverage service claims.
+质押工具实现参与DAO的激励和调整 奖励措施。 将您的 API3 代币质押进入DAO 池， 您会获得 治理投票权，并参与为 API3 用户提供可量化 _安全性_ 的保险服务。 DAO池也给您 通胀奖励，并使您面临投保服务索偿的风险。
 
 > ![dao-pool-staking](../assets/images/dao-pool-staking.png)
->
-> <p class="diagram-line" style="color:gray;margin-top:25px;">Staked tokens in the DAO pool grant 
-> governance voting rights, inflationary rewards and are used to fund the coverage 
-> service which exposes staked tokens to the risks of coverage service claims.</p>
+> 
+> <p class="diagram-line" style="color:gray;margin-top:25px;">在 DAO 池中质押授予 
+> 治理投票权 通胀奖励，用于为保险 
+> 服务提供资金，这种服务使质押代币面临投保服务索偿风险。</p>
+**收益：**
 
-**Benefits:**
+- 通过保险 服务费的收入分配，从DAO中获得配额(代币)。
+- 通过燃烧保险费减少API3 代币的流通供应量，获得通胀奖励。
+- 与未质押代币相比，代币通货膨胀保护得到改进。
+- DAO提案的投票权。
 
-- Generate shares (tokens) in the DAO through revenue sharing from the coverage
-  service fees.
-- Generates inflationary rewards by decreasing the circulating supply of API3
-  tokens through revenue burn from the coverage service fees.
-- Improved token inflation protection compared to unstaked tokens.
-- Voting privileges on DAO proposals.
+**风险：**
 
-**Risks:**
+- DAO 池中的相关代币用于偿付dAPI 用户可能由于 dAPI 故障造成的潜在资金损失。
 
-- Staked tokens in the DAO pool are used to cover potential financial losses
-  from dAPI malfunctions that the dAPI consumer might incur.
+若要质押代币，请参阅 [Dashboard](../dashboard/staking.md)。 您可以质押任意次数。 您在 DAO 池中的质押代币的百分比 直接与您的奖励和风险中的百分比相关。 如果您 持有10%的质押代币，您将获得10%的总奖励，同时也将支付10%的保险 服务索偿。
 
-To stake your tokens use the [Dashboard](../dashboard/staking.md). You can stake
-as many times as you’d like. Your percentage of all the tokens in the DAO pool
-are directly related to your percentage of the rewards and the risks. If you
-stake 10% of the pool you earn 10% of rewards and will pay 10% of coverage
-service claims.
+### 担保
 
-### Collateral
+担保工具使参与者分担DAO的运作风险， 促使他们将DAO运作降低到最低限度。
 
-The collateral utility has the participants share the DAO's operational risk and
-incentivizes them to minimize it.
+如果质押代币只产生收益，唯一的治理激励就是 最大限度地增加收入。 要做到这一点，就必须积极增加dAPI 用户的数量以及使用 dAPI 的保额。 这样做 会给一个 dAPI 带来过大的压力，让它更可能因为 一次攻击而发生故障。 因此，这在 去中心化数据传送中是不可持续的治理战略。
 
-If staking tokens only yielded rewards, the sole governance incentive would be
-to maximize the revenue. This would be done by increasing the number of dAPI
-users aggressively, and the amount that is secured by the dAPIs with it. Doing
-so puts excessive pressure on a dAPI which is more likely to malfunction due to
-an attack. Therefore, this is not a sustainable governance strategy for
-decentralized data feeds.
+将治理方暴露在风险中会使他们的利益与DAO的利益一致。 当使用 dAPI 发生故障时，治理方需要通过链上保险服务受到惩罚，它提供了 dAPI 用户 的可量化和可信赖的安全保证。 [保险服务](dao-pool.md#coverage-service) 使用 DAO 的 质押代币 作为担保， 这意味着当通过争端解决协议确认了 dAPI 故障时， 用户损失将从 池的质押代币中得到补偿。
 
-Exposing the governing parties to the risk would align their incentives with
-that of the DAO. The governing parties need to be penalized when a dAPI
-malfunction occurs using an onchain coverage service that provides dAPI users
-with quantifiable and trustless security guarantees. The
-[Coverage Service](dao-pool.md#coverage-service) uses staked tokens of the DAO
-pool as collateral, which means that when a dAPI malfunction is confirmed
-through the dispute resolution protocol, user damages will be covered from the
-pool's staked tokens.
+参考API3白皮书
+<a href="/api3-whitepaper-v1.0.2.pdf#Collateral" target="_api3-whitepaper">
+5.4.2章节 _"担保"_</a> 。
 
-Reference
-<a href="/api3-whitepaper-v1.0.2.pdf#Collateral" target="_api3-whitepaper">section
-5.4.2 _"Collateral"_</a> of the API3 whitepaper.
+### 治理
 
-### Governance
+治理工具使参与者有能力执行和管理 质押和担保操作。
 
-The governance utility gives the participants the ability to enact and manage
-staking and collateral.
+在API3 DAO上获得代表权的唯一方法是将API3代币质押到池中。 质押代币给持有者通过DAO参与API3生态治理的权限。 代币持有者必须将他们的API3代币质押进入池中才能投票，这让他们可以获得每周的质押奖励，但也需要承担保险服务的风险。
 
-The only way to gain representation in the DAO is to stake API3 tokens in the
-pool. Staked tokens give their holders the right to take part in the governance
-of the API3 ecosystem through the DAO. To vote token holders must stake their
-API3 tokens in the pool, which also gives them access to weekly staking rewards
-but also share in the risk of the coverage service.
+所有治理方都将承担API3的所有风险和收益，并将 通过治理优化。 通胀奖励和被质押的代币作为担保 将在治理 质量方面产生积极的反馈循环。 初始代币持有者如果不想因通货膨胀而失去价值，就必须质押并承担风险 。 如果他们治理不善，则会因保险服务索赔而损失 担保代币， 这些代币将被返回到公开市场，并在那里被新的治理方购买。 相反，如果代币持有者治理得当，并带来代币市场稀缺性，则奖励分配将受到保护。 换言之， 治理代币被用作担保品，形成了健壮的Darwinian 结构，这种结构能够改善自己，并从故障中恢复过来。
 
-All governing parties will be exposed to all risks and rewards of API3, and will
-govern to optimize them. Inflationary rewards and the staked tokens being used
-as collateral will create a positive feedback loop in terms of governance
-quality. Initial token holders will have to stake and expose themselves to risk
-if they do not want to lose value to inflation. If they misgovern and lose
-collateral through coverage service claims, these tokens will get returned to
-the open market, from where they will be acquired by new governing parties. In
-contrast, if initial token holders govern well and cause token scarcity in the
-market, the representation distribution will be protected. In other words,
-governance tokens being used as collateral results in a robust Darwinian
-structure that improves itself and is able to recover from failures.
+## 变现
 
-## Monetization
+一般来说，API提供商订阅费的行业标准通常是 每月或每年支付。 因为这个方案既适合API提供商又适合他们的 客户。 API3 遵循同样的 dAPI 方案。
 
-In general the industry standard for API provider subscription fees are commonly
-paid monthly or annually, as this scheme suits both API providers and their
-clients. API3 follows the same scheme for dAPIs.
+### dAPI 变现
 
-### dAPI monetization
+若要访问 dAPI，dApp 将支付定期订阅费， 费用 可以根据特定的使用情况为dApp 固定或定制。 这些价格将由代表团队决定，dApp如果希望获得 [保险服务](dao-pool.md#coverage-service)还将包含保险费。 这笔付款可以用任何加密货币支付，它将通过一个基于流动池的去中心化交易所以 API3 代币形式被DAO 接收。
 
-To gain access to a dAPI, a dApp will pay a recurring subscription fee, which
-may be fixed or customized for the dApp based on a specific use case. These
-prices will be determined by the respective team, and will include a premium if
-the dApp wants to receive the [Coverage Service](dao-pool.md#coverage-service).
-The payment can be made in any cryptocurrency, which will be received by the DAO
-in API3 tokens through a liquidity pool-based decentralized exchange.
+### API提供商补偿
 
-### API provider compensation
+API提供商将定期获得固定补偿，这也将适合他们现有的定价策略。 尽可能使用 稳定币来进行补偿，一些API 提供商明确拒绝处理 加密货币付款。 在这种情况下， DAO将提供一笔支付资金，为API提供商提供法币形式补偿。
 
-API providers will be compensated periodically at fixed rates, which will fit
-their existing pricing models. This will be done using stable coins wherever
-possible, some API providers categorically reject handling cryptocurrency as
-payment. In such cases, the DAO will provide a grant that will be paid out in
-return of the proof that the API provider is compensated in fiat by the grantee.
+## 奖励
 
-## Rewards
-
-API3 aims to set up, maintain, and [monetize](dao-pool.md#monetization) dAPIs at
-scale. Its success in doing so can be estimated by its total revenue, as this
-will increase with the number of dAPIs and the amount of funds secured by them.
-API3 generates revenue through subscription fees and coverage service fees. The
-fees can be made in any cryptocurrency, which will be received by the DAO in
-API3 tokens through a liquidity pool-based decentralized exchange. To align the
-governance incentives with API3’s success, combined with the inflationary
-rewards, the net revenue to the DAO will result in burning of API3 tokens. This
-mechanic will produce positive staking incentives using inflationary rewards and
-claim risks rather than revenue sharing.
+API3 旨在规模化建立、维护 dAPI，并让其 [变现](dao-pool.md#monetization)。 它在这方面的成功可以通过其总收入来估计，因为这将随着dAPI的数量和它们所保护的资金数额而增加。 API3通过订阅费和保险服务费产生收入。 这些费用可以用任何加密货币支付，DAO将通过基于流动性池的去中心化交易所收到API3代币。 为了使治理激励与API3的成功保持一致，再加上通胀奖励，DAO的净收入的产生表现为API3代币的燃烧。 相比收入分配，这种机制通过通胀奖励和索赔风险将产生更加积极的质押激励。
 
 > ![dao-pool-staking-2](../assets/images/dao-pool-staking-2.png)
->
-> <p class="diagram-line" style="color:gray;margin-top:25px;">Fees from revenue are burned. Inflationary rewards are distributed by the DAO. Coverage service claims are paid to dAPI covered entities from the pool of staked tokens.</p>
+> 
+> <p class="diagram-line" style="color:gray;margin-top:25px;">收入费用被燃烧销毁。 通胀奖励通过DAO分配。 保险服务索赔是通过池子中的质押代币付给dAPI服务的用户。</p>
+### 赚取奖励
 
-### Earning Rewards
+赚取奖励很简单：拥有DAO池份额的每个人(所有 已经将 API3 代币质押到DAO池合约的人) 都会获得奖励，奖励也会 被添加到DAO池。 当您解除质押代币时，您将不会再 通过 这些代币赚取奖励。
 
-Earning rewards is simple: everyone who owns shares of the DAO pool (everyone
-who has staked API3 tokens into the DAO pool contract) will earn rewards as they
-are added to the DAO pool. When you schedule tokens to be unstaked, you stop
-earning rewards for those tokens.
+请记住，当您质押时，您会收到不可转让的池子份额，池子份额即当前已质押代币的数量除以池子中质押代币总数。 因为奖励为池中添加了额外的代币，所以一个份额的“价值”并不一定是指一个代币。
 
-Remember that when you stake, you receive non-transferable pool shares equal to
-the current total number of issued shares divided by the total number of tokens
-staked. Since the reward adds additional tokens to the pool, the "price" for one
-share will not always be one token.
+### 通胀奖励
 
-### Inflationary Rewards
-
-In essence, inflationary rewards force token holders to stake and preserve the
-value of their tokens. However, staking is risky due to the funds being used as
-collateral for the [Coverage Service](dao-pool.md#coverage-service), and forces
-the staker to participate in governance to ensure that the risk is minimized. As
-a combination of the two, an inflationary governance token used as collateral
-forces all token holders to participate in governance, which is ideal because it
-maximizes the decentralization of governance. Inflationary rewards are paid
-weekly by an implicit and automatic process through an on-chain contract.
-Furthermore, inflationary rewards are vested for a year, which results in
-governing parties sharing the project’s long term interests.
+从本质上讲，通胀奖励促使代币持有人质押其代币并使代币保值。 然而，由于质押代币被用作 [保险服务](dao-pool.md#coverage-service)的 担保，存在一定风险。同时，促使 质押者参与治理，以确保将风险降到最低程度。 因为 两者的结合，一个用作担保的通胀治理代币 促使所有代币持有人参与治理。 它之所以很理想，是因为它 最大限度地实现去中心化治理。 每周会在链上通过合约默认和自动支付通胀奖励。 此外，通货膨胀奖励周期一年，让 治理方可以跟随项目成长长期获益。
 
 <!--
 > ![dao-pool-staking-2](../assets/images/token-weekly-emission.png)
@@ -227,130 +121,65 @@ As a result the change in the total supply of API3 tokens is illustrated below.
 > ![dao-pool-staking-2](../assets/images/token-total-supply.png)
 > -->
 
-### Reward Calculation And Distribution
+### 奖励计算和分配
 
-The staking reward will float to have the total staked amount reach equilibrium
-at the target. In other words, the staking reward will increase while the staked
-amount is below the target, and vice versa. It will not have a pre-determined
-schedule.
+质押奖励是浮动的，以使质押代币数量与质押目标量达成平衡。 换言之，如果质押数量低于目标，那么相关的奖励将会增加，反之亦然。 奖励不会有预定的 计划。
 
-Reward amount is represented as APR (annual percentage rate). You can derive APY
-(annual percentage yield) using an
-[online calculator](https://www.aprtoapy.com/). There is a governable "APR
-update step", which is the step size each week the APR will be updated with.
-Also there are governable minimum and maximum APR values, but these (especially
-maximum APR) are there as safety measures and should not affect rewards in
-day-to-day operation. In general, governing the stake target will be the primary
-tool for regulating rewards.
+奖励数额按APR（年度百分比）计算。 您可以使用 [在线计算器](https://www.aprtoapy.com/) 得出APY (年收益百分比)。 每周APR将根据一个可调节的“APR 调整步骤”来调整。 此外，还有可调节的最低和最高APR值，但这些（尤其是最高APR）是作为安全措施存在的，不应该影响日常运作的奖励。 一般来说，调整质押目标将是奖励调节的主要工具。
 
-Rewards are added as staked API3 tokens into the DAO pool each time the
-`mintReward` function is called. `mintReward` is callable by anyone, once per
-"epoch" (and single epoch length is 1 week). When it is called, an amount of
-API3 tokens is minted and added to the DAO pool:
+每次调用 `mintRward` 函数后，奖励会以质押API3代币形式添加到DAO 池中。 `mintReward` 可以由任何人调用，每 "周期" 一次(单个周期 长度为1周)。 当它被调用时，一定量的 API3 代币被添加到 DAO 池中：
 
 > `rewardAmount = totalStakedTokens * APR * epochLengthInSeconds / yearInSeconds / 100`
->
-> (see the
-> [smart contract source](https://github.com/api3dao/api3-dao/blob/main/packages/pool/contracts/RewardUtils.sol#L24)
-> for more information).
+> 
+> 了解更多信息请参阅 [智能合约源](https://github.com/api3dao/api3-dao/blob/main/packages/pool/contracts/RewardUtils.sol#L24)
 
-In addition, each time `mintReward` is called, the annual percentage (the reward
-rate) is updated up or down by the APR update step size (1%), according to
-whether the total number of staked tokens is above or below its target. The
-initial target is 50%, so if the total number of staked tokens is less than 50%
-of the total token supply when `mintReward` is called, APR will be raised by 1%
-for the next reward payout (and vice versa). Thus, APR will constantly be
-adjusted, but it will always stay between a designated maximum and minimum.
+此外，每次调用 `mintReward` 时， 年度百分比(奖励 率)根据 质押代币的总数量是否高于或低于目标，按APR 更新步骤大小(1%)调整更新 。 初步目标是50%， 如果质押代币的总数量少于代币总供应量的50%， `mintReward` 被调用， 下次奖励增加1% (反之亦然)。 这样，APR 将不断调整 ，但始终处于指定的最大值和最小值之间。
 
-:::tip Example
+:::tip 示例
 
-Rewards Distribution User X stakes 600 tokens and user Y stakes 400, so there is
-a 60% (X) 40% (Y) split ownership in the 1000 token DAO pool. For a particular
-week the reward payout is 1% (10 total tokens) and the pool is now 1010 tokens.
-X at 60% now has 606 tokens and Y has 404. Remember that the 10 reward tokens
-will not vest for a period of one year.
+奖励分发用户 X 质押代币数量为 600 ，用户 Y 质押代币数量为 400， 所以在 1000 代币的 DAO 池中分别有60% (X) 和40% (Y) 的所有权。 在某 个星期内，奖励回报为1% (总共令牌10个)，池中现在是 1010 个令牌。 用户X的60%份额就变成了606个代币，而用户Y是404个。 请记住，10个奖励代币 不会在一年内解锁。
 
 :::
 
-### Reward Withdrawal
+### 奖励提取
 
-Rewards withdrawals are baked into default withdrawals, except that rewards are
-locked for 1 year after minting. As a staker, your pool shares will always
-reflect a proportional right to the pool of staked tokens, including any rewards
-that have been minted. When you unstake and withdraw your tokens, you will
-receive:
+奖励默认是可以提取的，除非奖励在 赚取后被锁定一年。 作为一个质押者，您在质押池的份额将始终 与权利成正比，包括赚取的奖励 。 当您解除质押并提取代币时，您将会收到 ：
 
-- your tokens,
-- plus any share of the rewards you earned,
-- minus rewards that were added to the pool within the last year, which will
-  remain staked.
+- 您的代币，
+- 加上您赚取的奖励份额，
+- 减去一年内添加到池子中的奖励，这些奖励代币将继续质押 。
 
-_To summarize reward withdrawal:_ you will not be able to withdraw your rewards
-for a year. Since rewards get paid out every week, you can think of this as a
-rolling unlock (the rewards you receive this week will get unlocked 1 year
-later, the rewards you will receive next week will get unlocked 1 year 1 week
-later, etc.) This 1 year-lock is the secret sauce to good decentralized
-governance, it essentially aligns the incentives of the stakers/governors with
-the ones of the DAO/project/token for a whole year.
+_总结奖励提取：_ 您将无法提取您一年时间内获得的奖励。 既然每周都能获得奖励，所以您可以认为这是一个 滚动解锁(您本周收到的奖励将在一年后解锁， 您下周将得到的奖励将在 1 年1 周 之后解锁，等等）。 一年锁定期是优秀去中心化治理的秘诀，它本质上是将质押者/治理者的激励与DAO/项目/代币的利益绑定，为期一年。
 
-## Coverage Service
+## 保险服务
 
-::: warning Please note Coverage Service products are not implemented yet.
+::: warning 请注意保险服务还未上线.
 
-Before they are, a proposal with a 50% quorum requirement will have to be passed
-for them to go active
+在保险服务上线之前，必须通过一项要求达到50%法定人数的提案 才能激活
 
 :::
 
-API3 provides dAPI users with a quantifiable level of _security_ in the form of
-an on-chain coverage service. Staked tokens in the DAO pool are used to cover
-potential financial losses from dAPI malfunctions that the dAPI consumer might
-incur. This accomplishes two goals.
+API3 为 dAPI 用户提供了一个可量化的 _安全_ 的在线保险服务。 DAO 池中的质押代币用于偿付dAPI 用户可能由于 dAPI 故障造成的潜在资金损失。 这实现两个目标：
 
-- The coverage service acts as a well-defined and trustless safety net in case
-  of a dAPI malfunction.
-- It holds the governing parties responsible for dAPI malfunctions, and thus
-  incentivizes them to govern towards more secure dAPIs.
+- 在dAPI发生故障的情形下，保险服务提供一个明确的、去信任的安全网络。
+- 让治理方对dAPI 故障负责，因此 促使他们通过治理推动dAPI越来越安全。
 
-API3 co-developed an on-chain coverage service with Kleros that provides
-quantifiable and trustless _security_ to dAPI users. This coverage service will
-protect the dAPI user against damages caused by certain dAPI malfunctions up to
-a payout limit. Note that even if API3 did not provide this service, the dAPI
-user could have received on-chain coverage services using a third party
-solution. Such a solution would tend towards charging very high coverage service
-premiums, as they would not have access to the information and expertise to
-accurately assess dAPI risks.
+API3 与 Kleros 共同开发了一个链上保险服务，为 dAPI 用户提供 可量化、去信任的 _安全_保障。 这保险服务将 保护dAPI 用户免受某些dAPI 故障造成损失，赔付以用户支出为限。 注意，即使API3没有提供这种服务， dAPI 用户可以使用第三方 解决方案获得链上保险服务。 第三方解决方案很可能会收取非常高的保费， 因为他们无法获得足够信息和专业知识来 准确评估dAPI风险。
 
-The proposed coverage service is special in the way that it is collateralized by
-the funds staked by the governing parties of the API3 DAO into the DAO pool.
-Therefore, it not only provides _security_ to the dAPI user, but also creates a
-very strong incentive for dAPIs to be governed in a way that dAPI _security_ is
-maximized, which will further decrease coverage service costs.
+准备推出的保险服务的特殊之处在于，它是由API3 DAO的治理方押入DAO池的资金来担保的。 因此，它不仅为dAPI用户提供了 _安全保障_ ，而且还为dAPI的治理创造了一个非常强大的激励机制，使dAPI的 _安全性_ 得到最大化，这将进一步降低保险服务成本。
 
-### Claim Risks
+### 索偿风险
 
-The staked tokens in the pool are used as collateral for coverage service
-claims. Any payout results in the reduction of the total token count in the
-pool. The reduction is charged against each entity's percentage of tokens in the
-pool.
+池中的质押代币被用作保险服务 的担保。 任何赔付支出都会减少 池中的总代币数量。 减少的代币将从每个质押者在代币池中的份额按百分比中支出。
 
-::: tip Example
+::: tip 示例
 
-Claim Risks User X and Y both stake 500 API3 tokens, so each has 50% ownership
-in a 1000 token DAO pool. There is a coverage service claim payout of 3.4 tokens
-and the pool is now 996.6 tokens. X and Y now own 498.3 tokens each based on
-their 50% ownership.
+索偿用户X和用户Y的风险均质押了500 个API3代币，所以每个用户在1000个代币的池中各拥有50%的所有权 。 某个保险服务赔付支出为3.4个代币 ，池还剩996.6个代币。 用户X 和用户 Y 根据各自50%的所有权，现在每人拥有498.3个代币。
 
 :::
 
-### ClaimsManager
+### 索偿管理器
 
-To insure against potential system failures, the DAO pool can empower special
-`ClaimsManager` contracts to withdraw staked tokens directly. Approved
-`ClaimsManager` contracts do this by calling
-`payOutClaim(address recipient, uint256 amount)` in the DAO pool contract, which
-transfers tokens from the DAO pool to the recipient. When this occurs, the total
-number of staked tokens goes down, and pool share value goes down in turn.
-Reference
-<a href="/api3-whitepaper-v1.0.2.pdf#Insurance process" target="_api3-whitepaper">section
-6.3 _"Coverage service process"_</a> of the API3 whitepaper.
+为了防止潜在的系统故障，DAO池可以部署特殊的 `ClaimsManager` 合约，直接提取质押的代币。 通过调用在 DAO 池合约中 `payOutClaim(address recipient, uint256 amount)` 命令，批准 `ClaimsManager` 合约 从 DAO 池向指定地址转账代币。 当这种情况发生时，质押代币 的数量下降了，同时相应的池份额值下降。 参考API3白皮书
+<a href="/api3-whitepaper-v1.0.2.pdf#Insurance process" target="_api3-whitepaper">
+6.3章节 _"保险服务流程"_</a> 。

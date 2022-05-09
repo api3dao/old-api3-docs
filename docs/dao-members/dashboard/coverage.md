@@ -1,8 +1,9 @@
 ---
-title: Coverage Service
+title: 保险服务
 ---
 
 # {{$frontmatter.title}}
+
 
 <!--TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" /-->
@@ -14,16 +15,8 @@ This doc is a placeholder for now. Do not add it to production docs.
 
 -->
 
-::: warning Coverage Services are under development As of July 8th, 2021 the
-ClaimsManagers contracts that implements coverage claims have not been
-implemented and is scheduled for a later date. :::
+::: 警告 覆盖服务正在开发中， 截至2021年7月8日， 实现保险索赔的ClaimsManagers合约还没有被实施，并计划在稍后日期实施。 :::
 
-To insure against potential system failures, the DAO pool can empower special
-`ClaimsManager` contracts to withdraw staked tokens directly. Approved
-`ClaimsManager` contracts do this by calling
-`payOutClaim(address recipient, uint256 amount)` in the DAO pool contract, which
-transfers tokens from the DAO pool to the recipient. When this occurs, the total
-number of staked tokens goes down, and pool share value goes down in turn.
+为了防止潜在的系统故障，DAO池可以部署特殊的 `ClaimsManager` 合约，直接提取质押的代币。 通过调用在 DAO 池合约中 `payOutClaim(address recipient, uint256 amount)` 命令，批准 `ClaimsManager` 合约 从 DAO 池向指定地址转账代币。 当这种情况发生时，质押代币 的数量下降了，同时相应的池份额值下降。
 
-_No ClaimsManagers have been implemented or approved by the DAO pool contract as
-of July 8th, 2021._
+_截至2021年7月8日 ，DAO 池合约还没有执行或批准ClaimsManagers。_

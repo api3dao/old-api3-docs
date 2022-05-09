@@ -1,5 +1,5 @@
 ---
-title: OIS Template
+title: OIS 模板
 ---
 
 <TitleSpan>OIS</TitleSpan>
@@ -8,18 +8,11 @@ title: OIS Template
 
 <VersionWarning/>
 
-An OIS (Oracle Integration Specifications) JSON object is part of an Airnode's
-`config.json` file.
+一个 OIS (Oracle Introduction Specifications) JSON 对象是Airnode的 `config.json` 文件的一部分。
 
-In the OIS template, there are some fields that contain <FILL\_\*>. This means
-that the value you will be replacing this with is independent from the other
-fields. On the other hand, if two fields contain the same expression (e.g.,
-<FILL_OPERATION_PARAMETER_1_NAME>), you must use the same value in them, because
-they are referencing each other.
+在 OIS 模板中，一些字段包含 <FILL\_\*>。 这意味着你要替换的值与其他字段是独立的。 另一方面，如果两个字段包含相同的表达式，例如，你必须在其中使用相同的值，因为它们是互相引用的。 <FILL_OPERATION_PARAMETER_1_NAME>), you must use the same value in them, because they are referencing each other.
 
-The file below is a basic template for OIS. Note, that it might look differently
-for your particular use case. You can also check out the OISes created for our
-[examples in Airnode repository](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-examples/integrations).
+下面的文件是OIS的一个基本模板。 请注意，对于你的特定用例，它可能看起来不一样。 你也可以在[ Airnode资源库中](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-examples/integrations)查看为我们的例子创建的OIS。
 
 ```json
 {

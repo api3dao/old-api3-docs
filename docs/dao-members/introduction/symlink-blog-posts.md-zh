@@ -1,1 +1,0 @@
-../../common/blog-posts.md

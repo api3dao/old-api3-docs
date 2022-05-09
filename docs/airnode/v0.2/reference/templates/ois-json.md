@@ -6,21 +6,11 @@ title: ois.json
 
 # {{$frontmatter.title}}
 
-<VersionWarning/>
-An
-[OIS (Oracle Integration Specifications)](../../grp-providers/guides/build-an-airnode/api-integration.md#ois-template)
-json object is part of an Airnode's
-[config.json](../deployment-files/config-json.md) file.
+<VersionWarning/> An [OIS (Oracle Integration Specifications)](../../grp-providers/guides/build-an-airnode/api-integration.md#ois-template) json object is part of an Airnode's [config.json](../deployment-files/config-json.md) file.
 
-In the OIS template, there are some fields that contain <FILL\_\*>. This means
-that the value you will be replacing this with is independent from the other
-fields. On the other hand, if two fields contain the same expression (e.g.,
-<FILL_OPERATION_PARAMETER_1_NAME>), you must use the same value in them, because
-they are referencing each other.
+In the OIS template, there are some fields that contain <FILL\_\*>. This means that the value you will be replacing this with is independent from the other fields. On the other hand, if two fields contain the same expression (e.g., <FILL_OPERATION_PARAMETER_1_NAME>), you must use the same value in them, because they are referencing each other.
 
-The file below is a basic template for OIS. Note, that it might look differently
-for your particular use case. You can also check out the OISes created for our
-[examples in Airnode repository](https://github.com/api3dao/airnode/tree/v0.2/packages/airnode-examples/integrations).
+The file below is a basic template for OIS. Note, that it might look differently for your particular use case. You can also check out the OISes created for our [examples in Airnode repository](https://github.com/api3dao/airnode/tree/v0.2/packages/airnode-examples/integrations).
 
 ```json
 {

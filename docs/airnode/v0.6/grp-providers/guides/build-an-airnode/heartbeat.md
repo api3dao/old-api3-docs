@@ -1,27 +1,23 @@
 ---
-title: Heartbeat (optional)
+title: Heartbeat (可选)
 ---
 
-<TitleSpan>Build an Airnode</TitleSpan>
+<TitleSpan>创建一个 Airnode</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-At the end of an Airnode's run (every minute), Airnode can make an HTTP POST
-request to a specified URL. This is both to signal that the Airnode is alive and
-working (useful especially right after the deployment) and also as a
-notification every time it runs (self-operates).
+在Airnode运行结束时（每分钟），Airnode可以向一个指定的URL发出HTTP POST请求。 这既是Airnode存活并在工作的信号（特别是在部署后很有用），也是它每次运行（自我操作）的通知。
 
 > ![config-json](../../../assets/images/heartbeat.png)
->
-> 1.  <p class="diagram-line" style="color:blue;">Airnode gathers on-chain requests targeting the API it supports.</p>
-> 2.  <p class="diagram-line" style="color:green;">The required API endpoint for each request is called.</p>
-> 3.  <p class="diagram-line" style="color:red;">A response is sent to each request.</p>
-> 4.  <p class="diagram-line" style="color:black;">Finally Airnode makes a request to the heartbeat URL (HTTP POST). This could be to an endpoint within API the Airnode supports or to any cloud REST endpoint such as a monitoring service.</p>
+> 
+> 1. <p class="diagram-line" style="color:blue;">Airnode 收集针对其支持的 API 的链上请求。</p>
+> 2. <p class="diagram-line" style="color:green;">调用每个请求所需的 API 端点。</p>
+> 3. <p class="diagram-line" style="color:red;">对每项请求都作出答复。</p>
+> 4. <p class="diagram-line" style="color:black;">最后，Airnode 向heartbeat的URL (HTTP POST) 提出请求。 这可以是Airnode支持的API中的一个端点，或任何云端REST端点，如监控服务。</p>
 
-Turn on the optional heartbeat functionality by setting all fields in the
-`config.json` section for `nodeSettings.heartbeat`.
+通过设置`nodeSettings.heartbeat`的`config.json`部分的所有字段，打开可选的heartbeat功能。
 
 ```json
 {
@@ -59,23 +55,23 @@ Turn on the optional heartbeat functionality by setting all fields in the
 }
 ```
 
-- `enabled`: Enable/disable Airnode's heartbeat.
-- `url`: The URL to make the heartbeat request to.
-- `apiKey`: The API key to authenticate with the heartbeat URL.
-- `id`: The Airnode heartbeat ID for accounting purposes.
+- `enabled`: 启用/禁用Airnode的 heartbeat。
+- `url`: 进行heartbeat请求的URL。
+- `apiKey`: 用来验证heartbeat URL的API密钥。
+- `id`: 用于核算的Airnode heartbeat ID。.
 
-## Heartbeat Endpoint
+## Heartbeat 端点
 
-The table below illustrates the parameters passed to the Heartbeat URL.
+下表说明了传递给 Heartbeat URL 的参数。
 
-| name                         | in     | type   |
-| ---------------------------- | ------ | ------ |
-| airnode-heartbeat-api-key    | header | string |
-| deployment_id                | body   | string |
-| http_gateway_url             | body   | string |
-| http_signed_data_gateway_url | body   | string |
+| name                             | in | type   |
+| -------------------------------- | -- | ------ |
+| airnode-heartbeat-api-key        | 头部 | 字符串    |
+| deployment_id                    | 主体 | 字符串    |
+| http_gateway_url               | 主体 | string |
+| http_signed_data_gateway_url | 主体 | 字符串    |
 
-Below is an example of what is included in the request body to `heartbeat.url`.
+下面是一个示例，其中包含在 `heartbeat.url`的请求正文中。
 
 ```json
 {
@@ -87,15 +83,15 @@ Below is an example of what is included in the request body to `heartbeat.url`.
 
 <table>
   <tr>
-    <td>airnode-heartbeat-api-key:</td><td>API key for heartbeat calls configured in nodeSettings.heartbeat.apiKey. Used for authentication against the heartbeat service running on URL from nodeSettings.heartbeat.url.</td>
+    <td>airnode-hebbeat-api-key</td><td>在nodeSettings.heartbeat.apiKey中配置的用于heartbeat调用的API密钥。 用于对运行在nodeSettings.heartbeat.url上的heartbeat服务进行认证。</td>
   </tr>
   <tr>
-    <td>deployment_id:</td><td>An ID for accounting purposes, unique to the deployed Airnode.</td>
+    <td>deployment_id:</td><td>一个用于核算的ID，对已部署的Airnode来说是唯一的。</td>
   </tr>
   <tr>
-    <td>http_gateway_url:</td><td>If HTTP gateway is enabled this is the URL of the gateway you can make test HTTP calls against.</td>
+    <td>http_gateway_url:</td><td>如果HTTP网关被启用，这就是网关的URL，可以进行测试HTTP调用。</td>
   </tr>
     <tr>
-    <td>http_signed_data_gateway_url:</td><td>If HTTP signed data gateway is enabled this is the URL of the gateway you can make HTTP calls against.</td>
+    <td>http_signed_data_gateway_url:</td><td>如果启用了HTTP签名数据网关，这是你可以进行HTTP调用的网关的URL。</td>
   </tr>
 </table>

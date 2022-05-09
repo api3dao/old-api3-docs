@@ -8,22 +8,14 @@ title: Using Templates
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
+
 
 <!-- TODO: 2021-11-02 wkande: Should this doc speak to creating a templateId? See the code
 example ./code/create-template-id.js which may not be used anywhere in
 these docs at this time. -->
 
-A request to an Airnode can have many parameters. It is very common for
-requester contracts (e.g., a data feed) to make repeated requests with the exact
-same parameters. In such instances, it is wasteful to pass all of these
-parameters repeatedly. Templates are used to hold a set of parameter values
-on-chain that can be used repeatedly when calling
-the`makeTemplateRequest()`function in
-[AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol).
-Unlike`makeFullRequest(), makeTemplateRequest()`requires that a requester
-pass`templateId`which identifies a template.
+A request to an Airnode can have many parameters. It is very common for requester contracts (e.g., a data feed) to make repeated requests with the exact same parameters. In such instances, it is wasteful to pass all of these parameters repeatedly. Templates are used to hold a set of parameter values on-chain that can be used repeatedly when calling the`makeTemplateRequest()`function in [AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol). Unlike`makeFullRequest(), makeTemplateRequest()`requires that a requester pass`templateId`which identifies a template.
 
 ```solidity
 function makeTemplateRequest(
@@ -36,10 +28,7 @@ function makeTemplateRequest(
 ) external override returns (bytes32 requestId) {
 ```
 
-When a template is used to make a request, both the parameters encoded in
-parameters of the template and parameters provided at request-time (if any) will
-be used by the Airnode. In case the two include a parameter with the same name,
-the one provided at request-time will be used.
+When a template is used to make a request, both the parameters encoded in parameters of the template and parameters provided at request-time (if any) will be used by the Airnode. In case the two include a parameter with the same name, the one provided at request-time will be used.
 
 The structure of a template, as shown below, is simple.
 
@@ -55,19 +44,13 @@ struct Template {
 }
 ```
 
-There are just a few steps to create and place a template on-chain for a
-requester contract to use. Each template is identified by a`templateId`, which
-is the hash of its contents. When you create a template record on-chain,
-[see Part #2: Upload Template](using-templates.md#part-2-upload-template), a
-templateId will be returned.
+There are just a few steps to create and place a template on-chain for a requester contract to use. Each template is identified by a`templateId`, which is the hash of its contents. When you create a template record on-chain, [see Part #2: Upload Template](using-templates.md#part-2-upload-template), a templateId will be returned.
 
 <divider/>
 
 ## Part #1: Build a Template
 
-First create a file that contains a template object. Below is an example. You
-will need the address of the Airnode and its endpointId to be called. Below are
-links that discuss request parameters if you need help.
+First create a file that contains a template object. Below is an example. You will need the address of the Airnode and its endpointId to be called. Below are links that discuss request parameters if you need help.
 
 - [Reference > Request-Response Protocol > Request](../concepts/request.md)
 - [Calling an Airnode](../grp-developers/call-an-airnode.md#request-parameters)
@@ -91,20 +74,13 @@ links that discuss request parameters if you need help.
 }
 ```
 
-If you create more than one template using the same parameter values for an
-Airnode/endpointID the same`templateId`will be returned for each. Only one
-template is created when the parameters are the same.
+If you create more than one template using the same parameter values for an Airnode/endpointID the same`templateId`will be returned for each. Only one template is created when the parameters are the same.
 
 <divider/>
 
 ## Part #2: Upload Template
 
-Use the
-[create-template](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-admin#create-template)
-command in the @api3/airnode-admin package to move your template on-chain. The
-command`create-template`reads a file, uses its contents to create a template and
-returns a`templateId`. To create a new template record you will need the
-following.
+Use the [create-template](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-admin#create-template) command in the @api3/airnode-admin package to move your template on-chain. The command`create-template`reads a file, uses its contents to create a template and returns a`templateId`. To create a new template record you will need the following.
 
 - A providerURL from your blockchain provider.
 - A mnemonic for gas to fund the record creation.
@@ -112,10 +88,7 @@ following.
 
 ::: tip mnemonic
 
-This wallet pays the transaction gas costs to write the template record. This is
-not the wallet(s) that will pay gas costs to actually execute any Airnode, for
-that the Airnode themselves will create sponsor wallets on behalf of your
-sponsor record.
+This wallet pays the transaction gas costs to write the template record. This is not the wallet(s) that will pay gas costs to actually execute any Airnode, for that the Airnode themselves will create sponsor wallets on behalf of your sponsor record.
 
 :::
 
@@ -130,6 +103,4 @@ npx @api3/airnode-admin create-template \
 
 ## More on Templates
 
-You can create as many templates as needed. Call the `getTemplates`command in
-the @api3/airnode-admin package to get a list of the templates by
-their`templateIds`.
+You can create as many templates as needed. Call the `getTemplates`command in the @api3/airnode-admin package to get a list of the templates by their`templateIds`.

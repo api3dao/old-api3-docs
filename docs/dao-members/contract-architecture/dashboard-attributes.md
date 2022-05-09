@@ -1,18 +1,16 @@
 ---
-title: Dashboard Attributes
+title: 控制面板属性
 ---
 
 # {{$frontmatter.title}}
 
-The following parameters can be updated via DAO proposal by calling
-`StateUtils.sol` functions within the [API3 Pool contract](pool.md). For
-reference, percentage values are based on `10^18 = 100%`.
+以下参数可以通过 DAO 提案更新，在 [API3 池合约](pool.md) 中调用 `StateUtils.sol` 功能。 作为参考，百分比值是基于 `10^18 = 100%`。
 
-| Parameter Name               | Initial Value (units) | Function Signature                                                       | Description                                                                                      |
-| ---------------------------- | --------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| stakeTarget                  | 50 * 10^16 (%*10^16)  | `setStakeTarget(uint256 _stakeTarget)`                                   | Percentage of all tokens targeted to be staked                                                   |
-| aprUpdateStep                | 1 * 10^16 (%*10^16)   | `setAprUpdateStep(uint256 _aprUpdateStep)`                               | Percentage reward APR will be increased or decreased by                                          |
-| maxApr                       | 75 * 10^16 (%*10^16)  | `setMaxApr(uint256 _maxApr)`                                             | Maximum reward APR                                                                               |
-| minApr                       | 2.5 * 10^16 (%*10^16) | `setMinApr(uint256 _minApr)`                                             | Minimum reward APR                                                                               |
-| proposalVotingPowerThreshold | 0.1 * 10^16 (%*10^16) | `setProposalVotingPowerThreshold(uint256 _proposalVotingPowerThreshold)` | Percentage of all shares that must be held to create a new proposal                              |
-| unstakeWaitPeriod            | 604800 (seconds)      | `setUnstakeWaitPeriod(uint256 _unstakeWaitPeriod)`                       | Length of time a member must wait after scheduling unstake before unstaking tokens from the pool |
+| 参数名称                         | 初始值 (单位)                | 函数签名                                                                     | 描述                         |
+| ---------------------------- | ----------------------- | ------------------------------------------------------------------------ | -------------------------- |
+| stakeTarget                  | 50 * 10^16 (%*10^16)  | `setStakeTarget(uint256 _stakeTarget)`                                   | 代币质押百分比                    |
+| aprUpdateStep                | 1 * 10^16 (%*10^16)   | `setAprUpdateStep(uint256 _aprUpdateStep)`                               | 增加或减少的奖励APR百分比             |
+| maxApr                       | 75 * 10^16 (%*10^16)  | `setMaxApr(uint256 _maxApr)`                                             | 最大奖励APR                    |
+| minApr                       | 2.5 * 10^16 (%*10^16) | `setMinApr(uint256 _minApr)`                                             | 最小奖励 APR                   |
+| proposalVotingPowerThreshold | 0.1 * 10^16 (%*10^16) | `setProposalVotingPowerThreshold(uint256 _proposalVotingPowerThreshold)` | 创建新提案必须具备的持币百分比            |
+| unstakeWaitPeriod            | 604800 (seconds)        | `setUnstockWaitPeriod(uint256 _unstakehWaitPeriod)`                      | 成员在解除质押后，从池中取出代币前必须等待的时间长度 |

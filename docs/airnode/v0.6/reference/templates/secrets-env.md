@@ -8,12 +8,9 @@ title: secrets.env
 
 <VersionWarning/>
 
-The `secrets.env` contains the secrets that the respective Airnode deployments
-will need. All variables defined in a `secrets.env` can be interpolated inside
-`config.json`. For more details, see the full description of the
-[secrets.env](../deployment-files/secrets-env.md) file.
+`secrets.env` 包含了相应的 Airnode 部署 需要的秘密信息。 在 `secrets.env`中定义的所有变量都可以在`config.json`中插值 更多详情，请查看 [secrets.env](../deployment-files/secrets-env.md) 文件的完整描述。
 
-- Variable names cannot contain dashes (-).
+- 变量名称不能包含破折号 (-)。
 
 ```sh
 AIRNODE_WALLET_MNEMONIC="<FILL_*>"

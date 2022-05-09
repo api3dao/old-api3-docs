@@ -1,50 +1,37 @@
 ---
-title: Overview
+title: 概述
 ---
 
-<TitleSpan>Docker Images</TitleSpan>
+<TitleSpan>Docker 镜像</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Using Docker is the easiest way to both deploy an Airnode to a cloud provider
-and to run an Airnode locally. There are two Docker images: the Airnode deployer
-image and the Airnode client image.
+使用Docker是将Airnode部署到云供应商和在本地运行Airnode的最简单方法。 有两个Docker镜像：Airnode部署器镜像和Airnode客户端镜像。
 
-There is also a docker image wrapping the admin CLI package, as an alternative
-to using `npx`.
+还有一个docker镜像包装了admin CLI软件包，作为使用`npx`的替代方案。
 
-To use these images first install [Docker](https://docs.docker.com/get-docker/)
-if it is not present on your system.
+要使用这些镜像，首先要安装[Docker](https://docs.docker.com/get-docker/)（如果你的系统上没有的话）。
 
-- The [Airnode deployer image](./deployer-image.md) deploys the node in the form
-  of serverless functions to a serverless cloud provider (e.g. AWS Lambda).
+- [Airnode部署器镜像](./deployer-image.md)将节点以无服务器功能的形式，部署到无服务器云供应商（例如AWS Lambda）。
 
-- The [Airnode client image](client-image.md) is the node itself, containerized.
-  The container can be run locally or deployed to a cloud hosting service (e.g.
-  AWS EC2 or Lightsail).
+- [Airnode客户端镜像](client-image.md)是节点本身的容器化。 容器可以在本地运行，也可以部署到云托管服务（如AWS EC2或Lightsail）。
 
-- The [Airnode admin CLI image](admin-cli-image.md) wraps the admin CLI package
-  in a docker image to provide an alternative usage option to the Admin CLI
-  commands (npx).
+- [Airnode管理员CLI镜像](admin-cli-image.md)将管理员CLI包包裹在docker镜像中，为管理员CLI命令（npx）提供替代使用选项。
 
 ## DockerHub
 
-All images are available on DockerHub. It is not required to download these
-manually because they are pulled automatically when running the provided Docker
-commands.
+所有镜像都可在 DockerHub 上获取。 不需要手动下载这些镜像，因为在运行所提供的Docker命令时，它们会自动推送。
 
 <ul>
   <li>
     <a
       :href="'https://hub.docker.com/r/api3/airnode-deployer/tags'"
       target="_docker-hub"
-      >Airnode deployer images
-      <ExternalLinkImage />
+      >Airnode 部署器镜像      <ExternalLinkImage />
     </a>
   </li>
 
@@ -52,8 +39,7 @@ commands.
     <a
       :href="'https://hub.docker.com/r/api3/airnode-client/tags'"
       target="_docker-hub"
-      >Airnode client images
-      <ExternalLinkImage />
+      >Airnode 客户端镜像      <ExternalLinkImage />
     </a>
   </li>
 
@@ -61,8 +47,7 @@ commands.
     <a
       :href="'https://hub.docker.com/r/api3/airnode-admin/tags'"
       target="_docker-hub"
-      >Airnode admin CLI images
-      <ExternalLinkImage />
+      >Airnode 管理员CLI镜像      <ExternalLinkImage />
     </a>
   </li>
 </ul>

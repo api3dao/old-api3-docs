@@ -2,36 +2,27 @@
 title: readBeacon()
 ---
 
-<TitleSpan>Functions</TitleSpan>
+<TitleSpan>函数</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Reading a Beacon value is simple and straight forward. For on-chain smart
-contracts the `msg.sender` argument received by the function
-[readBeacon()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L326-L361)
-must be whitelisted.
+读取Beacon非常简单直接。 而对于链上智能合约，函数[readBeacon()](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServer.sol#L326-L361)收到的`msg.sender` 必须加入白名单中。
 
-::: tip Get Whitelisted
+::: 提示  获取白名单
 
-Please contact the
-[API3 Business Development API Team](https://api3dao.typeform.com/to/O1Uvxc8m)
-about Beacon whitelisting.
+请联系[API3 Business Development API Team](https://api3dao.typeform.com/to/O1Uvxc8m)（API3业务开发API团队）了解Beacon白名单。
 
 :::
 
-Calling from off-chain code (_using a library such as `ether.js`_) is not
-subject to whitelisting. Off-chain code is beyond the scope of this doc.
+从链下代码(_使用类似于 `ether.js`_的库) 调用不受白名单的约束。 链下代码的讨论不在本文档的范围内。
 
-## Example Code
+## 示例代码
 
-There is an additional example of a contract that reads a Beacon in the
-[beacon-reader-example](https://github.com/api3dao/beacon-reader-example/blob/main/contracts/BeaconReaderExample.sol)
-GitHub repository.
+从GitHub 储存库[beacon-reader-example](https://github.com/api3dao/beacon-reader-example/blob/main/contracts/BeaconReaderExample.sol)中还有一个读取Beacon的合约另一个示例。
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -54,31 +45,23 @@ contract mySmartContract {
 }
 ```
 
-## Parameters
+## 参数
 
-`readBeacon(bytes32 _beaconId)`
+`readBeacon(bytes32 _bearaconId)`
 
-- `bytes32 beaconId` - The ID of the Beacon to retrieve a value for.
+- `bytes32 beaconId` - 为其检索的Beacon的ID。
 
-## Returns
+## 返回
 
-- `int224 value` - The value of the Beacon.
-- `uint32 timestamp` - The timestamp associated with the Beacon value.
+- `int224 value` - Beacon的值。
+- `data.timestamp` -  与 Beacon 值关联的时间戳。
 
-::: tip Please note:
+::: 提示  请注意:
 
-The `RrpBeaconServer.sol` contract casts the reported data point to `int224`. If
-this is a problem (because the reported data may not fit into 224 bits or it is
-of a completely different type such as `bytes32`), do not use this contract and
-implement a customized version instead. The contract casts the timestamps to
-`uint32`, which means it will not work work past-2106 in the current form. If
-this is an issue, consider casting the timestamps to a larger type.
+`RrpBeaconServer.sol`合约将已经报告的数据点转为 `int224`。 如果这有问题（因为报告的的数据可能不适用于224位或者它是完全不同的类型，比如 `bytes32`），请不要使用此合约，并使用其自定义版本。 合约的时间戳转为`uint32`，这意味着它不会以当前形式在past-2106工作。 如果还是有问题，请考虑将时间戳转为更大容量的类型。
 
 :::
 
-If the `timestamp` of a Beacon is zero, this means that it was never written to.
-This may be the case for new Beacons. Therefore a zero value in the `value`
-field is not valid if the `timestamp` is zero.
+如果Beacon的 `timestamp` 为0，这意味着它从未被写入。 新的Beacon有可能就会面临这样的情况。 因此，如果 `timestamp` 为0，`value`字段中的0值无效。
 
-In general, make sure to check if the timestamp of the Beacon is fresh enough,
-and definitely disregard Beacons with zero `timestamp`.
+通常而言，请确保检查Beacon的时间戳是否足够新，并且忽略`timestamp`为0的Beacon。

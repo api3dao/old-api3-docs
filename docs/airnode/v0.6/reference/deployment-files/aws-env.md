@@ -2,18 +2,16 @@
 title: aws.env
 ---
 
-<TitleSpan>Deployment Files</TitleSpan>
+<TitleSpan>部署文档</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-When it is time to deploy the Airnode to AWS, the Docker
-[deployer image](../../grp-providers/docker/deployer-image.md) will need the AWS
-credentials to build the node.
+当需要将Airnode部署到AWS时，Docker[部署镜像](../../grp-providers/docker/deployer-image.md)将需要AWS凭证来构建节点。
 
-- Do not place double quotes (") around the value of each variable.
-- Variable names cannot contain dashes (-).
+- 不要在每个变量的值上放置双引号 (")
+- 变量名称不能包含破折号 (-)。
 
 ```bash
 AWS_ACCESS_KEY_ID=XYZ...123

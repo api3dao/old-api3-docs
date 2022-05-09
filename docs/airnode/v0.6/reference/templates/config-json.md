@@ -2,29 +2,23 @@
 title: config.json
 ---
 
-<TitleSpan>Templates</TitleSpan>
+<TitleSpan>模板</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-A template for an Airnode's configuration file. Below are notations to help
-explain contents of the template.
+Airnode配置文件的模板。 下面是帮助理解模板内容的注释。
 
-- `<FILL_*>, <FILL_NUMBER>, <FILL_BOOLEAN>`: The value added is independent from
-  other fields and a value is needed unless otherwise indicated. These values
-  are not considered secret unless you want them to be.
+- `< FILL_*>, < FILL_NUMBER>, < FILL_BOOLEAN>`: 添加值独立于 其他字段，除非另有说明，否则需要一个值。 这些值不被认为是秘密，除非有意为之。
 
-- `<FILL_OPERATION_PARAMETER_1_NAME>`: If two fields contain the same
-  expression, use the same value in them because they are referencing each
-  other. Usually these are not considered to be secret.
+- `< FILL_OPERATION_PARAMETER_1_NAME>`: 如果两个字段包含相同的 表达式, 使用相同的值, 那是因为它们正在相互引用。 通常，这些都不被视为秘密。
 
-- `${CHAIN_PROVIDER_URL}`: Interpolated values ${} that should be added to
-  `secrets.env` though it is not required.
+- `${CHAIN_PROVIDER_URL}`: 应该添加到 `secrets.env` 的内插值 ${} ，尽管它不需要。
 
-Consider the following relationships.
+请考虑下面的示例.
 
-- `ois[0].title` is related to `triggers.rrp[0].oisTitle`.
+- `ois[0].title` 与 `triggers.rrp[0].oisTitle`有关.
 
 - `ois[0].apiSpecifications.paths[path][method].parameters[0].in` is related to
   <code style="overflow-wrap: break-word;">ois[0].endpoints[0].fixedOperationParameters[0].operationParameter.in</code>
@@ -32,8 +26,7 @@ Consider the following relationships.
 - `ois[0].apiSpecifications.paths[path][method].parameters[1].in` is related to
   <code style="overflow-wrap: break-word;">ois[0].endpoints[0].parameters[0].operationParameter.in</code>
 
-See [config.json](../deployment-files/config-json.md) as a reference while
-building a config.json file.
+构建config.json 文件时，请查看 [config.json](../deployment-files/config-json.md) 作为参考。
 
 ```json
 {

@@ -6,8 +6,7 @@ title: aws.env
 
 # {{$frontmatter.title}}
 
-<VersionWarning/>
-The aws.env file contents shown below is for the [Quick Deploy](./) demo.
+<VersionWarning/> The aws.env file contents shown below is for the [Quick Deploy](./) demo.
 
 ```
 AWS_ACCESS_KEY_ID=

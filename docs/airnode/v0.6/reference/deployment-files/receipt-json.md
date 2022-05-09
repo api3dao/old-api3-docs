@@ -2,31 +2,21 @@
 title: receipt.json
 ---
 
-<TitleSpan>Deployment Files</TitleSpan>
+<TitleSpan>部署文档</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-A `receipt.json` file is outputted after each deployment and contains
-non-sensitive information about the deployment. The main use of a receipt file
-is to remove an Airnode deployment when no longer needed. Use the
-[docker image](../../grp-providers/docker/deployer-image.md#remove) to execute
-the remove command.
+每次部署后都会输出一个`receipt.json` 文件，其中包含关于部署的非敏感信息。 收据文件的主要用途是，在不再需要时删除Airnode部署。 使用[docker镜像](../../grp-providers/docker/deployer-image.md#remove)来执行删除命令。
 
-It also provides the Airnode xpub for the hardened derivation path
-`m/44'/60'/0'` that must be announced off-chain in order for sponsors to derive
-their designated sponsor wallet. This wallet will then be used by the Airnode to
-fulfill each request made by the requester contracts.
+它还为硬化衍生路径`m/44'/60'/0'` 提供了Airnode xpub，并且必须在链外宣布，以便赞助者衍生出他们指定的赞助者钱包。 然后这个钱包将被Airnode使用，满足请求者合约提出的每个请求。
 
-- `airnodeWallet`: describes the Airnode that was deployed
-- `deployment`: where the Airnode was deployed to
-- `api`: contains the details of the Airnode API (e.g.
-  [heartbeat](../../grp-providers/guides/build-an-airnode/heartbeat.md) or
-  [testing gateways](../../grp-providers/guides/build-an-airnode/http-gateways.md))
+- `airnodeWallet`: 描述已部署的 Airnode
+- `deployment`：Airnode被部署到哪里
+- `api`: 包含 Airnode API 的详细信息(例如， [heartbeat](../../grp-providers/guides/build-an-airnode/heartbeat.md) 或 [测试网关](../../grp-providers/guides/build-an-airnode/http-gateways.md))
 
-A `receipt.json` file is created for both a AWS or GCP deployment. A receipt is
-not generated for client deployments (deploying to a Docker container).
+AWS或GCP部署都会创建一个 `receipt.json`文件 客户端部署（部署到Docker容器）不会生成收据。
 
 :::: tabs
 

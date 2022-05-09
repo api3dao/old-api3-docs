@@ -2,14 +2,13 @@
 title: secrets.env
 ---
 
-<TitleSpan>Quick Deploy AWS</TitleSpan>
+<TitleSpan>快速部署 AWS</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-The secrets.env file contents shown below is for the [Quick Deploy AWS](./)
-demo.
+下面显示的 secrets.env 文件内容为 [快速部署AWS](./)的演示。
 
 <!-- prettier-ignore -->
 <<< @/docs/airnode/v0.6/grp-providers/tutorial/quick-deploy-aws/src/quick-deploy-aws/config/secrets.env

@@ -2,13 +2,13 @@
 title: secrets.env
 ---
 
-<TitleSpan>Example Files</TitleSpan>
+<TitleSpan>示例文件</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-- Variable names cannot contain dashes (-).
+- 变量名称不能包含破折号 (-)。
 
 :::: tabs
 

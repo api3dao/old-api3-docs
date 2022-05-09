@@ -1,71 +1,58 @@
 ---
-title: Airnode Deployer Image
+title: Airnode 部署器镜像
 ---
 
-<TitleSpan>Docker Images</TitleSpan>
+<TitleSpan>Docker 镜像</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Use the deployer image to deploy or remove an Airnode with a cloud provider such
-as AWS. The simplest way is to use the pre-built packages. If you would rather
-build the images yourself see the
-[README](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-deployer/docker)
-in the deployer package.
+可以使用部署器映像来部署或删除与AWS等云提供商的Airnode。 最简单的方法是使用预设置的软件包。 如果您希望 自行构建镜像，请在部署器软件包[README](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-deployer/docker)中查看。
 
-The deployer image has two commands.
+部署器镜像有两条命令。
 
-- `deploy`: Deploys or updates an Airnode using configuration files.
-- `remove`: Removes an Airnode using its `receipt.json` file.
+- `deploy`: 使用配置文件部署或更新一个Airnode。
+- `remove`: 使用 `receivt.json` 文件删除一个 Airnode
 
-::: tip Quick Deploy Demos
+::: tip 快速部署演示
 
-See the [Quick Deploy Demos](../tutorial/) to quickly `deploy` and `remove` a
-preconfigured Airnode using the deployer image.
+请参阅 [快速部署演示](../tutorial/)，用部署器镜像快速`deploy` 和 `remove`预配置的Airnode。
 
 :::
 
-## Cloud Provider Credentials
+## 云供应商账户
 
-In order to deploy Airnode to a serverless cloud provider, you need to provide
-could provider credentials to the Airnode deployer image. The deployer image
-currently supports deploying to AWS and GCP.
+为了将Airnode部署到无服务器的云提供商，你需要向Airnode部署器镜像提供供应商的凭证。 该部署器镜像目前支持部署到AWS和GCP。
 
 ### AWS
 
-If you are new to AWS watch this
-[video](https://www.youtube.com/watch?v=KngM5bfpttA) to set up an AWS account
-and create cloud provider credentials.
+如果你是AWS的新用户，请观看此[视频](https://www.youtube.com/watch?v=KngM5bfpttA)，以设置AWS账户并创建云供应商的凭证。
 
 ### GCP
 
-- Create a
-  [Google Cloud project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
-- Enable
-  [App Engine Admin API](https://console.cloud.google.com/apis/library/appengine.googleapis.com)
-  for your project
-- Create a new
-  [service account](https://console.cloud.google.com/iam-admin/serviceaccounts)
-  with the `Owner` role
-- Add a new access key of type JSON for the service account and download it as
-  `gcp.json`
+- 创建一个[谷歌云项目](https://cloud.google.com/resource-manager/docs/creating-managing-projects)。
+- 为你的项目启用[App Engine Admin API](https://console.cloud.google.com/apis/library/appengine.googleapis.com)。
+- 创建一个具有`Owner` 角色的新的
 
-## deploy
+服务</code>账户。</p></li> 
+  
+  - 为服务账户添加一个新的JSON类型的访问密钥，并将其下载另存为`gcp.json`。</ul> 
 
-The `deploy` command will create the Airnode with a cloud provider or update it
-if it already exists. Three files are needed to run the deploy command.
+
+
+## 部署
+
+`deploy`命令将创建带有云供应商的Airnode，如果它已经存在，则更新它。 运行deploy命令需要三个文件。
 
 - config.json
 - secrets.env
-- aws.env (AWS only)
-- gcp.json (GCP only)
+- aws.env (仅适用于 AWS)
+- gcp.json (仅限GP)
 
-A `receipt.json` file will be created upon completion. It contains some
-deployment information and is used to remove the Airnode.
+`receivt.json` 文件将在完成后创建。 它包含一些部署信息，并用于移除Airnode。
 
 <!-- Use of .html below is intended. -->
 <airnode-WarningSimultaneousDeployments removeLink="./deployer-image.html#manual-removal"/>
@@ -78,6 +65,8 @@ deployment information and is used to remove the Airnode.
 
 ::: tab Linux/Mac/WSL2
 
+
+
 ```sh
 docker run -it --rm \
   --env-file aws.env \
@@ -87,11 +76,14 @@ docker run -it --rm \
   api3/airnode-deployer:0.6.0 deploy
 ```
 
+
 :::
 
 ::: tab Windows
 
-For Windows, use CMD (and not PowerShell).
+For Windows, use CMD (而不是PowerShell).
+
+
 
 ```sh
 docker run -it --rm ^
@@ -101,15 +93,20 @@ docker run -it --rm ^
   api3/airnode-deployer:0.6.0 deploy
 ```
 
+
 :::
 
 ::::
+
+
 
 ### GCP
 
 :::: tabs
 
 ::: tab Linux/Mac/WSL2
+
+
 
 ```sh
 docker run -it --rm \
@@ -120,9 +117,12 @@ docker run -it --rm \
   api3/airnode-deployer:0.6.0 deploy
 ```
 
+
 :::
 
 ::: tab Windows
+
+
 
 ```sh
 docker run -it --rm ^
@@ -132,20 +132,26 @@ docker run -it --rm ^
   api3/airnode-deployer:0.6.0 deploy
 ```
 
+
 :::
 
 ::::
 
-## remove
 
-When an Airnode was deployed using the `deploy` command a `receipt.json` file
-was created. Use this file to remove an Airnode.
+
+## 移除
+
+当使用`deploy`命令部署Airnode时，会创建一个 `receipt.json`文件。 使用此文件来删除 Airnode。
+
+
 
 ### AWS
 
 :::: tabs
 
 ::: tab Linux/Mac/WSL2
+
+
 
 ```sh
 docker run -it --rm \
@@ -154,11 +160,14 @@ docker run -it --rm \
   api3/airnode-deployer:0.6.0 remove -r output/receipt.json
 ```
 
+
 :::
 
 ::: tab Windows
 
-For Windows, use CMD (and not PowerShell).
+For Windows, use CMD (而不是PowerShell).
+
+
 
 ```sh
 docker run -it --rm ^
@@ -167,15 +176,20 @@ docker run -it --rm ^
   api3/airnode-deployer:0.6.0 remove -r output/receipt.json
 ```
 
+
 :::
 
 ::::
+
+
 
 ### GCP
 
 :::: tabs
 
 ::: tab Linux/Mac/WSL2
+
+
 
 ```sh
 docker run -it --rm \
@@ -184,11 +198,14 @@ docker run -it --rm \
   api3/airnode=deployer:0.6.0 remove -r output/receipt.json
 ```
 
+
 :::
 
 ::: tab Windows
 
-For Windows, use CMD (and not PowerShell).
+For Windows, use CMD (而不是PowerShell).
+
+
 
 ```sh
 docker run -it --rm ^
@@ -197,22 +214,20 @@ docker run -it --rm ^
   api3/airnode-deployer:0.6.0 remove -r output/receipt.json
 ```
 
+
 :::
 
 ::::
 
-## Manual Removal
 
-Optionally you can remove an Airnode manually though it is highly recommended
-that you do so using the deployer image's `remove` command. Airnode has a
-presence in several areas of both AWS and GCP. An Airnode has a
-`airnodeAddressShort` (e.g., `0ab830c`) that is included in the element name of
-AWS and GCP deployed features.
 
-::: danger Remember
+## 手动移除
 
-Only delete elements of a feature with the `airnodeAddressShort` address in the
-name you are targeting. There can be more than one Airnode.
+你可以选择手动删除Airnode，但强烈建议使用部署者镜像的`remove`命令来删除。 Airnode在AWS和GCP的多个领域都有存在。 Airnode有一个`airnodeAddressShort`短地址（例如0ab830c），它包含在AWS和GCP部署功能的元素名称中。
+
+::: 危险提示
+
+只删除你所针对的名称中带有`airnodeAddressShort`地址的元素。 因为可能存在不止一个的Airnode。
 
 :::
 
@@ -232,5 +247,4 @@ name you are targeting. There can be more than one Airnode.
 
 ::::
 
-Learn more about AWS or GCP resources that Airnode uses in the
-[Cloud Resources](../../reference/cloud-resources.md) doc.
+如需了解更多关于 AWS 或 GCP 的资源，请通过 [云资源](../../reference/cloud-resources.md) 文档查看。

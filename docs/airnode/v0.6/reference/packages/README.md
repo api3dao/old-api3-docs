@@ -1,20 +1,14 @@
 ---
-title: Overview
+title: 概述
 ---
 
-<TitleSpan>Packages</TitleSpan>
+<TitleSpan>软件包</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-Airnode is a fully-serverless oracle node that is designed specifically for API
-providers to operate their own oracles. Its code base is a monorepo managed
-using [Lerna](https://github.com/lerna/lerna). The
-[Airnode monorepo](https://github.com/api3dao/airnode/tree/v0.5/packages) has
-several packages. Some of these packages are used by dApp developers and API
-providers to interact with or to build Airnode. A few are simply used for
-internal Airnode development.
+Airnode是一个完全无服务器的预言机节点，是专门为API供应商操作自己的预言机而设计的。 它的代码库是一个使用[Lerna](https://github.com/lerna/lerna)a管理的monorepo。 [Airnode monorepo](https://github.com/api3dao/airnode/tree/v0.5/packages) 有好几个软件包。 其中一些软件包被dApp开发者和API提供者用来与Airnode交互，或构建Airnode。 有一些只是用于Airnode的内部开发。
 
 - [airnode-adapter](./adapter.md)
 - [airnode-admin](./admin-cli.md)
@@ -24,44 +18,26 @@ internal Airnode development.
 
 ---
 
-**Read about each package in the monorepo.**
+**阅读monorepo中每个软件包的相关信息。**
 
-Airnode packages are cross platform, available as npm packages or docker
-containers. You should also be able to clone, build and use the packages on any
-platform. However there is no guarantee that the development only features (e.g.
-test or examples) will work out of the box. It is recommend to use UNIX based
-systems for development. If you are using Windows, consider
-[WSL2](https://docs.microsoft.com/en-us/windows/wsl/install).
+Airnode软件包是跨平台的，可作为npm包或docker容器。 你也应该能够在任何平台上克隆、构建和使用这些包。 然而，不能保证只有开发的功能（如测试或例子）能够开箱即用。 建议使用基于UNIX的系统进行开发。 如果你使用的是Windows，可以考虑[WSL2](https://docs.microsoft.com/en-us/windows/wsl/install)。
 
-[**airnode-adapter**:](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-adapter)
-The module that makes an API call, processes the response and returns a single
-value.
+[**airnode-adapter**:](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-adapter) 进行API调用的模块, 处理响应, 并返回单个 值。
 
-[**airnode-admin**:](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-admin)
-A package/CLI tool to interact with the Airnode contracts across chains.
+[**airnode-admin**:](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-admin) 一个与Airnode合约进行跨链互动的软件包/CLI 工具。
 
-[**airnode-abi**:](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-abi)
-Encoding and decoding utilities for Airnode according to the
-[Airnode ABI specifications](../specifications/airnode-abi-specifications.md).
+[**airnode-abi**:](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-abi) 依照[Airnode ABI 规格](../specifications/airnode-abi-specifications.md) ，为Airnode提供编码和解码工具。
 
-[**airnode-deployer**:](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-deployer)
-Tools to automate Airnode deployment.
+[**airnode-deployer**:](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-deployer)自动部署的工具。
 
-[**airnode-examples**:](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-examples)
-A public list of examples showcasing the features of Airnode.
+[**airnode-examples**:](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-examples) 显示Airnode功能的示例列表。
 
-[**airnode-node**:](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-node)
-The node part of Airnode that allows for connecting multiple blockchains to the
-rest of the world.
+[**airnode-node**:](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-node) Airnode 的节点部分允许将多个区块链连接到其余的世界。
 
-[**airnode-ois**:](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-ois)
-Types for [Oracle Integration Specification (OIS)](/ois/v1.0.0/ois.md).
+[**airnode-ois**:](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-ois) [预言机集成规格(OIS)](/ois/v1.0.0/ois.md)的类型。
 
-[**airnode-operation**:](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-operation)
-Development and testing utilities for the core parts of Airnode.
+[**airnode-operation**:](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-operation) Airnode核心部件的开发和测试工具。
 
-[**airnode-protocol**:](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-protocol)
-Contracts that implement Airnode RRP (request–response protocol).
+[**airnode-protocol**:](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-protocol) 实现Airnode RRP (请求-响应协议)的合约。
 
-[**airnode-validator**:](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-validator)
-A package that can be used to validate and convert airnode specification files.
+[**airnode-validator**:](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-validator) 可以用于验证和转换airnode规范文件的软件包。

@@ -2,27 +2,23 @@ module.exports = {
   env: process.env.NODE_ENV,
   /// Airnode doc set version pick list.
   versions: [
-    { name: 'v0.5', url: '/airnode/v0.5/' },
-    { name: 'v0.4', url: '/airnode/v0.4/' },
-    { name: 'v0.3', url: '/airnode/v0.3/' },
-    { name: 'v0.2', url: '/airnode/v0.2/' },
-    { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
+    { name: 'v0.6', url: '/airnode/v0.6/' },
   ],
   /// Next version of airnode, used by /next route.
   airnodeVersionNext: [{ name: 'v0.6', url: '/airnode/v0.6/' }],
   /// Beacon doc set version pick list.
   versionsBeacon: [{ name: 'v0.1', url: '/beacon/v0.1/' }],
   /// OIS doc set version pick list.
-  versionsOis: [{ name: 'zh', url: '/ois/zh/' }],
+  versionsOis: [{ name: 'v1.0.0', url: '/ois/v1.0.0/' }],
   /// Latest/current Airnode doc set version.
   /// Used by api3dao/airnode CI link checking
-  latestVersion: '/airnode/v0.5/',
+  latestVersion: '/airnode/v0.6/',
   /// Latest/current Beacon doc set version.
   /// Used by api3dao/airnode CI link checking
   latestBeaconVersion: '/beacon/v0.1/',
   /// Latest/current OIS doc set version.
   /// Used by api3dao/airnode CI link checking
-  latestOisVersion: '/ois/zh/',
+  latestOisVersion: '/ois/v1.0.0/',
   /// Job page revision, incremented when a new job(s) is added
   jobPageRevision: 3,
   head: [
@@ -44,7 +40,7 @@ module.exports = {
     extractHeaders: ['h2', 'h3', 'h4', 'h5'],
   },
   themeConfig: {
-    startPath: '/airnode/v0.5/',
+    startPath: '/airnode/v0.6/',
     sidebarDepth: 0,
     displayAllHeaders: false,
     logo: '/img/logo.png',
@@ -55,14 +51,8 @@ module.exports = {
     ],
     sidebar: {
       '/airnode/v0.6/': require(`../airnode/v0.6/sidebar.js`),
-      '/airnode/v0.5/': require(`../airnode/v0.5/sidebar.js`),
-      '/airnode/v0.4/': require(`../airnode/v0.4/sidebar.js`),
-      '/airnode/v0.3/': require(`../airnode/v0.3/sidebar.js`),
-      '/airnode/v0.2/': require(`../airnode/v0.2/sidebar.js`),
-      '/airnode/pre-alpha/': require(`../airnode/pre-alpha/sidebar.js`),
       '/beacon/v0.2/': require(`../beacon/v0.2/sidebar.js`),
-      '/beacon/v0.1/': require(`../beacon/v0.1/sidebar.js`),
-      '/ois/zh/': require(`../ois/zh/sidebar.js`),
+      '/docs/ois/v1.0.0/': require(`../ois/v1.0.0/sidebar.js`),
       '/chainapi/': require(`../chainapi/sidebar.js`),
       '/dao-members/': require(`../dao-members/sidebar.js`),
       '/api3/': require(`../api3/sidebar.js`),

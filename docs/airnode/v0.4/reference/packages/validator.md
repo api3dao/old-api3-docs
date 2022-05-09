@@ -6,25 +6,14 @@ title: Validator
 
 # {{$frontmatter.title}}
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 <VersionWarning/>
 
-The
-[airnode-validator](https://github.com/api3dao/airnode/tree/v0.4/packages/airnode-validator)
-package, known as the validator, is used by the
-[Docker Images](../../grp-providers/docker/) to validate the
-[configuration files](../../grp-providers/guides/build-an-airnode/configuring-airnode.md)
-you provide when deploying an Airnode. You can also use the validator to check
-the configuration files for correct formatting and other issues while creating
-them.
+The [airnode-validator](https://github.com/api3dao/airnode/tree/v0.4/packages/airnode-validator) package, known as the validator, is used by the [Docker Images](../../grp-providers/docker/) to validate the [configuration files](../../grp-providers/guides/build-an-airnode/configuring-airnode.md) you provide when deploying an Airnode. You can also use the validator to check the configuration files for correct formatting and other issues while creating them.
 
 ## Usage
 
-The validator's commands can be run using
-[npx](https://nodejs.dev/learn/the-npx-nodejs-package-runner), installing a
-global npm package, the validator SDK or by manually building the validator
-package. Using npx is the simplest method to interact with the validator.
+The validator's commands can be run using [npx](https://nodejs.dev/learn/the-npx-nodejs-package-runner), installing a global npm package, the validator SDK or by manually building the validator package. Using npx is the simplest method to interact with the validator.
 
 - [Using npx](./validator.md#using-npx)
 - [Global Package](./validator.md#global-package)
@@ -35,9 +24,7 @@ package. Using npx is the simplest method to interact with the validator.
 
 ### Using npx
 
-The validator package can be run as an npm package using npx. This allows you to
-run validator commands without installing the validator npm package or having to
-manually build the validator package yourself.
+The validator package can be run as an npm package using npx. This allows you to run validator commands without installing the validator npm package or having to manually build the validator package yourself.
 
 ```sh
 npx @api3/airnode-validator api3-validator --template="config" --specs="config.json"
@@ -45,8 +32,7 @@ npx @api3/airnode-validator api3-validator --template="config" --specs="config.j
 
 ### Global Package
 
-The validator package can be installed globally with yarn or npm. If installed
-using yarn make sure yarn bin is added to `PATH`.
+The validator package can be installed globally with yarn or npm. If installed using yarn make sure yarn bin is added to `PATH`.
 
 ```sh
 yarn global add @api3/airnode-validator
@@ -59,10 +45,7 @@ api3-validator --template="config" --specs="config.json"
 
 ### Use the SDK
 
-The validator package exports useful functions for validation. In the output
-`valid` is set to `true` when there are no errors, however there could be
-warnings in the `messages`. The validator uses the latest template unless a
-template version is applied.
+The validator package exports useful functions for validation. In the output `valid` is set to `true` when there are no errors, however there could be warnings in the `messages`. The validator uses the latest template unless a template version is applied.
 
 ```js
 const validator = require('@api3/airnode-validator');
@@ -84,16 +67,11 @@ console.log(
 
 ### Build Manually
 
-You can clone and build the Airnode monorepo then run the validator as a yarn
-script from inside the `packages/airnode-validator` directory. The instructions
-to do so are in the monorepo validator package
-[README](https://github.com/api3dao/airnode/tree/v0.4/packages/airnode-validator).
+You can clone and build the Airnode monorepo then run the validator as a yarn script from inside the `packages/airnode-validator` directory. The instructions to do so are in the monorepo validator package [README](https://github.com/api3dao/airnode/tree/v0.4/packages/airnode-validator).
 
 ## Examples
 
-The validator is based on two primary arguments to function. The `--template`
-argument describes the content type to validate. Secondly the `--specs` argument
-which requires a file containing the content to validate.
+The validator is based on two primary arguments to function. The `--template` argument describes the content type to validate. Secondly the `--specs` argument which requires a file containing the content to validate.
 
 ```
 npx @api3/airnode-validator --help
@@ -109,27 +87,18 @@ Options:
                                 specification                          [string]
 ```
 
-For the `--template` argument use one of the following values which are
-case-insensitive.
+For the `--template` argument use one of the following values which are case-insensitive.
 
 - [config](./validator.md#config)
 - [OIS](./validator.md#ois)
 - [apiSpecifications](./validator.md#apispecifications) _or_ apiSpecs
 - [endpoints](./validator.md#endpoints)
 
-The validator will automatically validate the latest available version of a
-template (i.e., `--template="config"`) when the template does not contain a
-specific version . If a specific version is needed it can be appended to the
-template argument (i.e., `--template="config@0.4"`). You can see the different
-[template versions](https://github.com/api3dao/airnode/tree/v0.4/packages/airnode-validator/templates)
-in the validator package of the Airnode monorepo.
+The validator will automatically validate the latest available version of a template (i.e., `--template="config"`) when the template does not contain a specific version . If a specific version is needed it can be appended to the template argument (i.e., `--template="config@0.4"`). You can see the different [template versions](https://github.com/api3dao/airnode/tree/v0.4/packages/airnode-validator/templates) in the validator package of the Airnode monorepo.
 
 ### config
 
-The following code example validates a `config.json` file. This is the most
-common validation use case. The other templates
-(`apiSpecifications, endpoints, OIS`) support objects within the config.json and
-must be in separate files to be validated.
+The following code example validates a `config.json` file. This is the most common validation use case. The other templates (`apiSpecifications, endpoints, OIS`) support objects within the config.json and must be in separate files to be validated.
 
 ```sh
 # Validates a completed config.json file using the latest template version.
@@ -139,9 +108,7 @@ npx @api3/airnode-validator --template="config" --specs="myProject/config/config
 npx @api3/airnode-validator --template="config@0.4" --specs="myProject/config/config.json"
 ```
 
-You will most likely keep secrets in a file separate from the `config.json`
-file. Using interpolation with an env file is supported using the `--secrets`
-argument.
+You will most likely keep secrets in a file separate from the `config.json` file. Using interpolation with an env file is supported using the `--secrets` argument.
 
 ```sh
 npx @api3/airnode-validator --template="config" --secrets="secrets.env" --specs="myProject/config/config.json"
@@ -149,10 +116,7 @@ npx @api3/airnode-validator --template="config" --secrets="secrets.env" --specs=
 
 ### OIS
 
-The following code example validates an [OIS](/ois/v1.0.0/ois.md) object that
-has been placed in a file separate from a `config.json` file. The OIS object
-contains the mapping between an API and Airnode endpoints. _Interpolation with
-an env file is supported._
+The following code example validates an [OIS](/ois/v1.0.0/ois.md) object that has been placed in a file separate from a `config.json` file. The OIS object contains the mapping between an API and Airnode endpoints. _Interpolation with an env file is supported._
 
 ```sh
 # Validates an OIS object from an ois-spec.json file.
@@ -161,11 +125,7 @@ npx @api3/airnode-validator --template="OIS" --specs="myProject/config/ois-spec.
 
 ### apiSpecifications
 
-The following code example validates an `ois.apiSpecifications` object that has
-been placed in a file separate from a `config.json` file and its parent object
-`ois`. The [ois.apiSpecifications](/ois/v1.0.0/ois.md#_4-apispecifications)
-object defines/specifies the API Airnode will call. _Interpolation with an env
-file is supported._
+The following code example validates an `ois.apiSpecifications` object that has been placed in a file separate from a `config.json` file and its parent object `ois`. The [ois.apiSpecifications](/ois/v1.0.0/ois.md#_4-apispecifications) object defines/specifies the API Airnode will call. _Interpolation with an env file is supported._
 
 ```sh
 npx @api3/airnode-validator --template="apiSpecifications" --specs="myProject/config/apiSpecifications.json"
@@ -173,17 +133,11 @@ npx @api3/airnode-validator --template="apiSpecifications" --specs="myProject/co
 
 ### endpoints
 
-The following code example validates an `ois.endpoints` object that has been
-placed in a file separate from a `config.json` file and its parent object `ois`.
-The [ois.endpoints](/ois/v1.0.0/ois.md#_5-endpoints) object contains Airnode
-endpoints that map to the `ois.apiSpecifications` object. _Interpolation with an
-env file is supported._
+The following code example validates an `ois.endpoints` object that has been placed in a file separate from a `config.json` file and its parent object `ois`. The [ois.endpoints](/ois/v1.0.0/ois.md#_5-endpoints) object contains Airnode endpoints that map to the `ois.apiSpecifications` object. _Interpolation with an env file is supported._
 
 ```sh
 npx @api3/airnode-validator --template="endpoints" --specs="myProject/config/endpoints.json"
-```
-
-<!-- PLEASE NOTE:
+```<!-- PLEASE NOTE:
 THE CONVERTOR HAS BEEN COMMENTED OUT AS OF Jan 5th, 2021.
 
 
@@ -254,9 +208,7 @@ Airnode will behave.
 - [ois](../deployment-files/config-json.md#ois)
 - [apiCredentials](../deployment-files/config-json.md#apicredentials)
 
--->
-
-## Output
+-->## Output
 
 <!--The validator and its convertor implementation provide the following output. The
 `output` object contains the converted specification only when using the

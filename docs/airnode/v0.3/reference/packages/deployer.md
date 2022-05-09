@@ -8,30 +8,19 @@ title: Deployer
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-The
-[airnode-deployer](https://github.com/api3dao/airnode/tree/v0.3/packages/airnode-deployer)
-package is used primarily by the [Docker Images](../../grp-providers/docker/).
-This CLI tool provides the underlying commands used by the Docker images when
-deploying an Airnode.
+The [airnode-deployer](https://github.com/api3dao/airnode/tree/v0.3/packages/airnode-deployer) package is used primarily by the [Docker Images](../../grp-providers/docker/). This CLI tool provides the underlying commands used by the Docker images when deploying an Airnode.
 
 ::: warning Deploying an Airnode
 
-API providers are strongly encouraged to use the
-[Docker Images](../../grp-providers/docker/) when deploying an Airnode and not
-the deployer CLI commands.
+API providers are strongly encouraged to use the [Docker Images](../../grp-providers/docker/) when deploying an Airnode and not the deployer CLI commands.
 
 :::
 
 ## Usage
 
-The deployer's commands can be run using
-[npx](https://nodejs.dev/learn/the-npx-nodejs-package-runner), installing a
-global npm package or by manually building the airnode-deployer package. Using
-npx is the simplest method to interact with the deployer manually if you do not
-wish to use the Docker images.
+The deployer's commands can be run using [npx](https://nodejs.dev/learn/the-npx-nodejs-package-runner), installing a global npm package or by manually building the airnode-deployer package. Using npx is the simplest method to interact with the deployer manually if you do not wish to use the Docker images.
 
 - [Using npx](./deployer.md#using-npx)
 - [Global Package](./deployer.md#global-package)
@@ -39,9 +28,7 @@ wish to use the Docker images.
 
 ### Using npx
 
-The airnode-deployer package can be run as an npm package using npx. This allows
-you to run deployer commands without installing the deployer npm package or
-having to manually build the airnode-deployer package yourself.
+The airnode-deployer package can be run as an npm package using npx. This allows you to run deployer commands without installing the deployer npm package or having to manually build the airnode-deployer package yourself.
 
 ```sh
 npx @api3/airnode-deployer deploy --config myConfig/config.json --secrets myConfig/secrets.env -r myOutput/receipt.json
@@ -49,8 +36,7 @@ npx @api3/airnode-deployer deploy --config myConfig/config.json --secrets myConf
 
 ### Global Package
 
-The airnode-deployer package can be installed globally with yarn or npm. If
-installed using yarn make sure yarn bin is added to `PATH`.
+The airnode-deployer package can be installed globally with yarn or npm. If installed using yarn make sure yarn bin is added to `PATH`.
 
 ```sh
 yarn global add @api3/airnode-deployer
@@ -60,6 +46,7 @@ npm install @api3/airnode-deployer -g
 # Executing the deployer.
 api3-deployer deploy --config myConfig/config.json --secrets myConfig/secrets.env -r myOutput/receipt.json
 ```
+
 
 <!--  HOLD THIS UNTIL THE REPO README IS UPDATED
 ### Prerequisites
@@ -109,39 +96,26 @@ cp config/secrets.env.example config/secrets.env
 
 ## Examples
 
-The deployer has two commands. To re-deploy an existing Airnode run the `deploy`
-command again.
+The deployer has two commands. To re-deploy an existing Airnode run the `deploy` command again.
 
 - [deploy](./deployer.md#deploy)
 - [remove](./deployer.md#remove)
 
 ### Workflows
 
-1. Make sure you have `config.json` and `secrets.env` ready. Then, use the
-   `deploy` command to trigger your first deployment.
+1. Make sure you have `config.json` and `secrets.env` ready. Then, use the `deploy` command to trigger your first deployment.
 2. In order to update the Airnode configuration:
    - Update the `config.json` and `secrets.env` files as needed.
    - Run the `deploy` command again.
-3. Use the `remove` command to remove the Airnode deployment. Use the `-r`
-   option to provide the receipt file from the latest deployment or manually add
-   the required arguments.
+3. Use the `remove` command to remove the Airnode deployment. Use the `-r` option to provide the receipt file from the latest deployment or manually add the required arguments.
 
 ### deploy
 
-When creating or updating an Airnode the `config.json` and `secrets.env` files
-are needed. You can use the provided example
-[config.json](https://github.com/api3dao/airnode/blob/v0.3/packages/airnode-deployer/config/config.json.example)
-and
-[secrets.env](https://github.com/api3dao/airnode/blob/v0.3/packages/airnode-deployer/config/secrets.env.example)
-templates to get started quickly, but you will need to edit these with your own
-API details and secrets.
+When creating or updating an Airnode the `config.json` and `secrets.env` files are needed. You can use the provided example [config.json](https://github.com/api3dao/airnode/blob/v0.3/packages/airnode-deployer/config/config.json.example) and [secrets.env](https://github.com/api3dao/airnode/blob/v0.3/packages/airnode-deployer/config/secrets.env.example) templates to get started quickly, but you will need to edit these with your own API details and secrets.
 
-Make sure `config.json` and `secrets.env` are available in the path for the
-`--configuration` argument.
+Make sure `config.json` and `secrets.env` are available in the path for the `--configuration` argument.
 
-When completed the `deploy` command creates a receipt using the path and name
-from the `--receipt` argument. The receipt contains metadata about the
-deployment and can be used to remove the Airnode.
+When completed the `deploy` command creates a receipt using the path and name from the `--receipt` argument. The receipt contains metadata about the deployment and can be used to remove the Airnode.
 
 ```bash
 # Deploys an Airnode instance using the `config.json` and `secrets.env` files.
@@ -166,10 +140,7 @@ deployer deploy --config myConfig/config.json --secrets myConfig/secrets.env -r 
 An Airnode can be removed using the remove command two different ways.
 
 - **Best:** With a deployment receipt created when the Airnode was deployed.
-- **Alternate:** With the Airnode short address and cloud provider
-  specifications. The `airnodeShortAddress` is used in the cloud console within
-  the names of the serverless functions. The other values can be found in
-  `config.json`.
+- **Alternate:** With the Airnode short address and cloud provider specifications. The `airnodeShortAddress` is used in the cloud console within the names of the serverless functions. The other values can be found in `config.json`.
   - `nodeSetting.cloudProvider.type`
   - `nodeSetting.cloudProvider.region`
   - `nodeSetting.cloudProvider.projectId` (GCP only)

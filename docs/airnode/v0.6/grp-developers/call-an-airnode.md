@@ -1,57 +1,36 @@
 ---
-title: Calling an Airnode
+title: 调用Airnode
 ---
 
-<TitleSpan>Developers</TitleSpan>
+<TitleSpan>开发者</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-A requester is a contract that can trigger an Airnode request. To do so, the
-requester needs to be sponsored and make the request using a matching sponsor
-wallet. See [Requesters and Sponsors](requesters-sponsors.md) on how to sponsor
-a requester and derive the sponsor wallet.
+请求者是一个可以触发Airnode 请求的合约。 要做到这一点，请求者需要被赞助，并使用匹配的赞助者 钱包提出请求。 查看 [Requesters and Sponsors](requesters-sponsors.md)章节，了解如何赞助请求者，并获取赞助者钱包。
 
-Airnode consists of two parts: the off-chain **Airnode** (a.k.a. "the node")
-deployed as self hosted or cloud provider functions, e.g., AWS) and the on-chain
-**protocol contract** AirnodeRrp.sol. A requester calls the protocol contract,
-which emits a blockchain event with the request parameters. Airnode listens to
-the events emitted by the AirnodeRrp contract. During the next run cycle,
-Airnode gets the request parameters from the emitted event. The diagram below
-and the diagram in the [Overview](./) doc for developers illustrate the
-mechanics of the entire process.
+Airnode 由两个部分组成：链下 **Airnode**(例如 "节点")已部署为自托管或云端提供功能，例如AWS)，以及链上的 **协议合约** AirnodeRrp.sol。 请求者调用协议合约，发出带有请求参数的区块链事件。 Airnode 监听AirnodeRrp 合约释放的事件。 在下一个运行周期，Airnode从发出的事件中获得请求参数。 下图和为开发者准备的[Overview](./) 文档中的图表说明了整个过程的机制。
 
-The AirnodeRrp protocol is designed to be flexible and is meant to serve a
-variety of use cases. See the Airnode
-[requester examples](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-examples/contracts)
-for potential design patterns.
+AirnodeRrp协议的设计是灵活的，意在为各种不同的使用案例服务。 关于潜在的设计模式，参见Airnode[requester examples](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-examples/contracts)的例子。
 
-Ignoring the mechanics of the overall process, the requester calling an Airnode
-primarily focuses on two tasks, indicated by points A & B in the diagram below.
+忽略整个过程的机制，请求者调用 Airnode 主要集中于两个任务， 以下图表中点A & B所示。
 
-- <span style="color:green;font-weight:bold;">1</span>: Make the request
-- <span style="color:blue;font-weight:bold;">2</span>: Accept and decode the
-  response
+- <span style="color:green;font-weight:bold;">1</span>: 发出请求
+- <span style="color:blue;font-weight:bold;">2</span>: 接受并解码 回应
 
-> ![request-flow](../assets/images/call-an-airnode.png)
->
-> 1.  <p class="diagram-line" style="color:green;">A requester makes a request to the AirnodeRrp contract which adds the <code>requestId</code> to storage, emits the request to the event logs and returns the <code>requestId</code> to the requester. The request is retrieved by the Airnode during its next run cycle. It then verifies the requester is authorized by checking authorizer contracts assigned to the Airnode.</p>
-> 2.  <p class="diagram-line" style="color:blue;">If the request is authorized, Airnode proceeds to respond. It first gathers the requested data from the API and calls the <code>fulfill()</code> function in AirnodeRrp, which removes the pending <code>requestId</code> from storage and makes a callback to <code>myFulfill()</code>. The gas costs associated 
->     with the response are covered by the sponsor of the requester.</p>
+> ![请求流程](../assets/images/call-an-airnode.png)
+> 
+> 1. <p class="diagram-line" style="color:green;">请求者向AirnodeRrp合同提出请求，将 <code>requestId</code> 添加到存储，将请求发送到事件日志，并将 <code>requestId</code> 退回请求者。 在下一个运行周期，Airnode 将检索这个请求。 然后，它通过检查分配给Airnode的授权者合约，验证请求者是否得到授权。</p>
+> 2. <p class="diagram-line" style="color:blue;">如果请求获得授权，Airnode 开始响应。 它首先从API收集请求的数据，并调用AirnodeRrp中的<code>fulfill()</code>函数，该函数从存储中删除待定的 <code>requestId</code> ，并对<code>myFulfill()</code>进行回调。 与相应有关的gas费用>由请求者的赞助者承担。</p>
 
-The following section of this document discusses the requester implementation,
-its deployment and sponsoring.
+本文档以下部分讨论了请求者的实施、部署和赞助。
 
-## Step #1: Inherit RrpRequester.sol
+## 步骤 #1: 继承RrpRequestter.sol
 
-A requester inherits from the
-[RrpRequester.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/requesters/RrpRequester.sol)
-contract. This will expose the AirnodeRrp.sol protocol contract to the requester
-allowing it to make Airnode requests.
+请求者从[RrpRequester.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/requesters/RrpRequester.sol)合约继承过来。 这将向请求者公开AnnodeRrp.sol协议合约，允许其提出Annode请求。
 
 ```solidity
 import "@api3/airnode-protocol/contracts/rrp/requesters/RrpRequester.sol";
@@ -66,34 +45,17 @@ contract MyRequester is RrpRequester {
 }
 ```
 
-Note the constructor parameter `airnodeRrpAddress`, which is the public address
-of the AirnodeRrp.sol protocol contract on the blockchain you wish to use. It is
-used by RrpRequester.sol to point itself to AirnodeRrp.sol.
+注意构造函数参数`airnodeRrpAddress`，它是你想使用的区块链上AirnodeRrp.sol协议合约的公共地址。 它是RrpRequestter.sol 用于将其指向AirnodeRrp.sol的。
 
-See the list of all
-[Airnode contract addresses](../reference/airnode-addresses.md) in the reference
-section.
+请参阅参考文献部分的所有[Airnode contract addresses](../reference/airnode-addresses.md)列表。
 
-## Step #2: Implement the request logic
+## 步骤 #2: 实现请求逻辑。
 
-There are two types of requests provided by the AirnodeRrp.sol contract. See the
-[Request](../concepts/request.md) page for information related to each request
-type.
+AirnodeRrp.sol合约提出了两类要求。 请参阅 [请求](../concepts/request.md) 页面获取与每个请求 类型相关的信息。
 
-This example uses a [full request](../concepts/request.md#full-request) type
-(note the `airnodeRrp.makeFullRequest` function call in the code below) which is
-called from the requester's own function `callTheAirnode`. The function
-`makeFullRequest` requires that the requester pass all parameters needed by
-Airnode to call its underlying API.
+这个例子使用了一个[full request](../concepts/request.md#full-request) type类型（注意下面代码中的`airnodeRrp.makeFullRequest`函数调用），它是由请求者自己的函数`callTheAirnode`调用。 函数`makeFullRequest` 要求请求者传递 Airnode 所需的所有参数，来调用其原始API。
 
-Once the request has been made to `airnodeRrp.makeFullRequest`, the
-AirnodeRrp.sol contract returns a `requestId` confirming the request has been
-accepted and is in process of being executed. Your requester would most likely
-wish to track all `requestId`s. Note the line
-`incomingFulfillments[requestId] = true;` in the code below that stores the
-`requestId`s in a mapping. This is useful when the Airnode responds to the
-requester later at the function (`airnodeCallback`) with the `requestId` and the
-`data` requested.
+一旦向`airnodeRrp.makeFullRequest`提出请求，AirnodeRrp.sol合约就会返回一个`requestId`，确认该请求已被接受并正在执行中。 您的请求者很可能 会追踪所有 `requestId`。 注意下面代码中的`incomingFulfillments[requestId] = true;` 一行，它将`requestId`存储在一个映射中。 当Airnode在稍后的函数(`airnodeCallback`) 中，以`requestId` 和 `data`响应请求者时，这很有用。
 
 ```solidity
 import "@api3/airnode-protocol/contracts/rrp/requesters/RrpRequester.sol";
@@ -137,43 +99,23 @@ contract MyRequester is RrpRequester {
 }
 ```
 
-### Request Parameters
+### 请求参数
 
-A full request using the AirnodeRrp.sol contract `makeFullRequest` function
-requires all parameters needed by the Airnode application to be passed at
-runtime. This is in contrast to a template request that would use a template for
-some or all of the required parameters. Learn more about
-[using templates](call-an-airnode.md#using-templates).
+使用AirnodeRrp.sol合约`makeFullRequest`函数的完整请求，需要在运行时传递Airnode应用程序所需的所有参数。 这与模板请求不同，模板请求会使用部分或全部所需参数的模板。 了解更多关于使用模板[using templates](call-an-airnode.md#using-templates)的信息。
 
-Since the `callTheAirnode` function makes a
-[full request](../concepts/request.md#full-request), it must gather the
-following parameters to pass on to `airnodeRrp.makeFullRequest`.
+由于 `callTheAirnode` 函数提出了一个[full request](../concepts/request.md#full-request)，它必须收集以下参数来传递给`airnodeRrp.makeFullRequest`。
 
-- **airnode** and **endpointId**: As a pair, these uniquely identify the
-  endpoint desired at a particular Airnode.
+- **airnode** and **endpointId**: 作为一个配对, 它们独特地识别了在某个特定的 Airnode所需要的 端点。
 
-- **sponsor**: The [sponsor](requesters-sponsors.md#what-is-a-sponsor) address.
+- **赞助者**: [赞助者](requesters-sponsors.md#what-is-a-sponsor) 地址
 
-- **sponsorWallet**: The
-  [sponsor wallet](requesters-sponsors.md#how-to-derive-a-sponsor-wallet)
-  address that the sponsor received when deriving the wallet for the Airnode
-  being called.
+- **sponsorWallet**：[sponsor wallet](requesters-sponsors.md#how-to-derive-a-sponsor-wallet)地址，赞助者在为被调用的Airnode派生钱包时收到的钱包。
 
-- **fulfillAddress** and **fulfillFunctionId**: The public address of your
-  requester contract and its function that is called upon the return of the
-  request.
+- **fulfillAddress** 和 **fulfillFunctionId**：请求者合约的公共地址及其在返回请求时被调用的函数。
 
-- **parameters**: Specify the API parameters and any
-  [reserved parameters](../reference/specifications/reserved-parameters.md),
-  these must be encoded. See
-  [Airnode ABI specifications](../reference/specifications/airnode-abi-specifications.md)
-  for how these are encoded.
+- **parameters**: 指定API参数和任何[reserved parameters](../reference/specifications/reserved-parameters.md)，这些必须被编码。 关于这些参数的编码方式，请参见[Airnode ABI specifications](../reference/specifications/airnode-abi-specifications.md)。
 
-  In most, cases the parameters are encoded off-chain and passed to the
-  requester which only forwards them. You can use the
-  [@api3/airnode-abi](../reference/specifications/airnode-abi-specifications.md#api3-airnode-abi)
-  package to perform the encoding and decoding. Take a look at the JavaScript
-  snippet below.
+  在大多数情况下，参数是在链下编码外传递到 请求者，后者只是转发它们。 您可以使用 [@api3/airnode-abi](../reference/specifications/airnode-abi-specifications.md#api3-airnode-abi) 软件包来执行编码和解码。 请查看下面的 JavaScript代码片段。
 
   ```javascript
   // JavaScript snippet
@@ -190,8 +132,7 @@ following parameters to pass on to `airnodeRrp.makeFullRequest`.
   // '0x...'
   ```
 
-  However, this is not a hard requirement and you can encode the parameters
-  on-chain as well. Take a look at the Solidity snippet below.
+  然而，这不是一个硬性要求，您也可以在链上编码参数。 请查看下面的 JavaScript代码片段。
 
   ```solidity
   // Solidity snippet
@@ -203,19 +144,11 @@ following parameters to pass on to `airnodeRrp.makeFullRequest`.
   )
   ```
 
-For additional information on request parameters when calling
-`airnodeRrp.makeFullRequest()`, see
-[Request Parameters](../concepts/request.md#request-parameters) in the Reference
-section.
+关于调用`airnodeRrp.makeFullRequest()`时请求参数的其他信息，请参见参考文献中的[Request Parameters](../concepts/request.md#request-parameters) 。
 
-## Step #3: Capture the Response
+## 步骤 #3：捕捉响应
 
-As soon as the Airnode gets a request, it gathers the data, encodes it and
-starts an on-chain transaction responding to the request. The Airnode calls the
-AirnodeRrp.sol contract function `fulfill()`, which in turn calls the requester,
-in this case, at `airnodeCallback`. For the purposes of the callback, recall the
-request supplied the request contract address and the desired callback function
-which the AirnodeRrp.sol protocol contract stored with the `requestId`.
+一旦Airnode收到请求，它就会收集数据，对其进行编码，并启动一个响应请求的链上交易。 Airnode 调用AirnodeRrp合约函数 `fulfill()`， 后者又调用请求者，在本例中为 `airnodeCallback`。 为了回调的目的，回顾请求提供的请求合同地址和所需的回调函数，AirnodeRrp.sol协议合同与`requestId`一起存储。
 
 ```solidity
 import "@api3/airnode-protocol/contracts/rrp/requesters/RrpRequester.sol";
@@ -248,21 +181,13 @@ contract MyRequester is RrpRequester {
 }
 ```
 
-### Response Parameters
+### 响应参数:
 
-The callback to a requester contains two parameters, as shown in the
-`airnodeCallback` function in the code sample above.
+对请求者的回调包含两个参数，如上面代码样本中的`airnodeCallback`函数所示。
 
-- **requestId**: First acquired when making the request and passed here as a
-  reference to identify the request for which the response is intended.
-- **data**: In case of a successful response, this is the requested data which
-  has been encoded and contains a
-  [timestamp](/ois/v1.0.0/reserved-parameters.md#timestamp-encoded-to-uint256-on-chain)
-  in addition to other response data. Decode it using the function `decode()`
-  from the `abi` object.
+- **requestId**: 在提出请求时首次获得，在此作为参考传递，以确定响应所针对的请求。
+- **data**: 在响应成功的情况下，这就是请求的数据并且已经被编码，除了其他响应数据外，还包含一个[时间戳](/ois/v1.0.0/reserved-parameters.md#timestamp-encoded-to-uint256-on-chain)。 要使用 `abi` 对象的函数`decode()`对其进行解码。
 
-## Step #4: Deploy and Sponsor the Requester
+## 步骤 #4：部署并赞助请求者
 
-Deploy the requester to the desired blockchain and then sponsor the requester.
-See [Requesters and Sponsors](requesters-sponsors.md#how-to-sponsor-a-requester)
-to learn more about sponsoring a requester.
+将请求者部署到有需要的区块链上，然后赞助请求者。 查看 [请求者和赞助者](requesters-sponsors.md#how-to-sponsor-a-requester)，了解更多关于赞助请求者的信息。

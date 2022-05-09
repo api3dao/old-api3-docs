@@ -8,18 +8,16 @@ title: Cloud Resources
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-When deployed to a cloud provider, such as AWS or GCP, Airnode uses certain
-resources to fully operate.
+When deployed to a cloud provider, such as AWS or GCP, Airnode uses certain resources to fully operate.
 
 :::: tabs
 
 ::: tab AWS
 
 | Resource    | Description                                                                   |
-| :---------- | :---------------------------------------------------------------------------- |
+|:----------- |:----------------------------------------------------------------------------- |
 | EventBridge | Timer starting the Airnode service.                                           |
 | CloudWatch  | Log groups for deployed resources.                                            |
 | Lambda      | The heart of the Airnode. Serverless functions providing the Airnode service. |
@@ -32,7 +30,7 @@ resources to fully operate.
 ::: tab GCP
 
 | Resource        | Description                                                                                 |
-| :-------------- | :------------------------------------------------------------------------------------------ |
+|:--------------- |:------------------------------------------------------------------------------------------- |
 | Cloud Scheduler | Timer starting the Airnode service.                                                         |
 | Cloud Functions | The heart of the Airnode. Serverless functions providing the Airnode service.               |
 | API Gateway     | Endpoints for the HTTP Gateway and HTTP Signed Data Gateway.                                |

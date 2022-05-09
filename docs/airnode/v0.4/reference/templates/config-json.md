@@ -8,18 +8,13 @@ title: config.json
 
 <VersionWarning/>
 
-A template for an Airnode's configuration file. Below are notations to help
-explain contents of the template.
+A template for an Airnode's configuration file. Below are notations to help explain contents of the template.
 
-- `<FILL_*>`: The value added is independent from other fields and a value is
-  needed. These values are not considered secret unless you want them to be.
+- `<FILL_*>`: The value added is independent from other fields and a value is needed. These values are not considered secret unless you want them to be.
 
-- `<FILL_OPERATION_PARAMETER_1_NAME>`: If two fields contain the same
-  expression, use the same value in them because they are referencing each
-  other. Usually these are not considered to be secret.
+- `<FILL_OPERATION_PARAMETER_1_NAME>`: If two fields contain the same expression, use the same value in them because they are referencing each other. Usually these are not considered to be secret.
 
-- `${CHAIN_PROVIDER_URL}`: Interpolated values ${} that should be added to
-  `secrets.env` though it is not required.
+- `${CHAIN_PROVIDER_URL}`: Interpolated values ${} that should be added to `secrets.env` though it is not required.
 
 Consider the following relationships.
 
@@ -31,8 +26,7 @@ Consider the following relationships.
 - `ois[0].apiSpecifications.paths[path][method].parameters[1].in` is related to
   <code style="overflow-wrap: break-word;">ois[0].endpoints[0].parameters[0].operationParameter.in</code>
 
-See [config.json](../deployment-files/config-json.md) as a reference while
-building a config.json file.
+See [config.json](../deployment-files/config-json.md) as a reference while building a config.json file.
 
 <!-- "minConfirmations": "<FILL_*>", -->
 

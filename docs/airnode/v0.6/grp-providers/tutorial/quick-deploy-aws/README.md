@@ -1,55 +1,38 @@
 ---
-title: Instructions
+title: 说明
 ---
 
-<TitleSpan>Quick Deploy AWS</TitleSpan>
+<TitleSpan>快速部署 AWS</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,4]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,4]" />
 
-This demo is a simple Airnode deployment, using a hands-on approach, to better
-understand the overall deployment process of the Airnode
-[deployer image](../../../grp-providers/docker/deployer-image.md) which deploys
-the off-chain component of Airnode (a.k.a., the node) to AWS. It uses an API
-endpoint (`GET /simple/price`) from
-[CoinGecko](https://www.coingecko.com/en/api/documentation) which returns the
-current value of a coin. This demo does not detail the overall configuration of
-an Airnode, it is just a quick start.
+这个演示是一个简单的Airnode部署，使用实践的方法，以更好地了解Airnode[部署器镜像](../../../grp-providers/docker/deployer-image.md)的整体部署过程，它将Airnode的链外组件（又称节点）部署到AWS。 它使用来自[CoinGecko](https://www.coingecko.com/en/api/documentation)的API端点（`GET /simple/price`），返回一个代币的当前价值。 这个演示并没有详细说明Airnode的整体配置，它只是一个快速入门。
 
-An Airnode cloud provider deployment uses a Docker image (called
-[deployer image](../../../grp-providers/docker/deployer-image.md)) which in turn
-requires three files as input.
+Airnode云提供商的部署使用了一个Docker镜像（称为deployer镜像），这又需要三个文件作为输入。
 
 - [config.json](./config-json.md)
 - [secrets.env](./secrets-env.md)
 - [aws.env](./aws-env.md)
 
-For the purpose of this demo these files have been created and only require a
-few minor changes on your part to make the deployment of the demo Airnode
-successful. These changes are needed to supply AWS credentials, a chain provider
-url, a mnemonic and a self-defined apiKey for the HTTP testing gateway.
+为了开展演示，这些文件已经创建，只需要你做一些小的改动，就可以成功部署演示的Airnode。 这些修改需要为HTTP测试网关提供AWS凭证、链提供商网址、助记符和自定的apiKey。 安装先决条件。
 
-## Install Prerequisites
+## 安装预设
 
-Install the [Docker Desktop](https://docs.docker.com/get-docker/) and launch it.
+安装 [Docker桌面](https://docs.docker.com/get-docker/) 并启动它。
 
-## Project Folder
+## 项目文件夹
 
-A project folder is needed for this demo. You can create it manually or download
-a zip file ready to go.
+这个演示需要一个项目文件夹。 您可以手动创建它或下载一个准备好的zip文件。
 
 :::: tabs
 
-::: tab Create Manually
+::: tab 手动创建
 
-Create a folder called `/quick-deploy-aws` with two more internal folders named
-`/config` and `/output`. Place the contents of the files provided
-([config.json](./config-json.md), [secrets.env](./secrets-env.md) and
-[aws.env](./aws-env.md)) into the locations show below.
+创建一个名为`/quick-deploy-aws`的文件夹，还有两个名为`/config`和`/output`的内部文件夹。 将所提供的文件（[config.json](./config-json.md)、[secrets.env](./secrets-env.md)和[aws.env](./aws-env.md)）的内容放入以下所示的位置。
 
 ```
 quick-deploy-aws
@@ -62,75 +45,52 @@ quick-deploy-aws
 
 :::
 
-::: tab Download
+::: tab 下载
 
-Download the <a href="/zip-files/quick-deploy-aws-v0.6.zip" download>
-quick-deploy-aws</a> project folder.
+下载 <a href="/zip-files/quick-deploy-aws-v0.6.zip" download>
+quick-deploy-aws</a> 项目文件夹。
 
 :::
 
 ::::
 
-## Configuration
+## 系统配置
 
-Prepare the three configuration files. By default, the Airnode deployer image
-looks for `config.json` and `secrets.env` in `/config`, for `aws.env` in the
-project root and writes `receipt.json` to the `/output` folder.
+准备好三个配置文件。 默认情况下，Airnode部署器镜像会在`/config`中寻找`config.json`和`secrets.env`，在项目根中寻找`aws.env`，并将 `receipt.json`写到`/output`文件夹中。
 
 ### config.json
 
-This file requires no changes on your part. It has been created with just one
-API endpoint. It will instruct the Airnode to attach to the Rinkeby test
-network. There are three variables this file will extract (interpolation) from
-`secrets.env`.
+这个文件不需要你做任何改动。 它只用一个API端点创建。 它将指示Airnode连接到Rinkeby测试网络。 这个文件将从secrets.env中提取（插值）三个变量。
 
 ### secrets.env
 
-Add values for each of the these fields.
+为每个字段添加值。
 
-- `CHAIN_PROVIDER_URL`: A chain provider url from a provider such as
-  [Infura](https://infura.io/). Make sure the provider url you use is for the
-  Rinkeby test network. Using another chain provider other than Infura is
-  acceptable.
+- `CHAIN_PROVIDER_URL`: 链供应商的url地址，如 [Infura](https://infura.io/). 请确保你使用的提供者网址是Rinkeby测试网络的。 使用Infura以外的其他连锁供应商也是可以接受的。
 
-  - Sign-up or login to Infura.
-  - Create a new project, select the **Settings** tab in the project.
-  - Copy the URL (https) for Rinkeby under the Endpoints pick list.
+  - 注册或登录Infura。
+  - 创建一个新的项目，选择项目中的**设置**标签。
+  - 在端点选择列表下复制Rinkeby的 URL (https)
 
-- `AIRNODE_WALLET_MNEMONIC`: Provide the seed phrase (mnemonic) to a digital
-  wallet. For the purpose of this demo it does not need eth in it for the
-  Rinkeby test network. If you don't have one use the Admin CLI command
-  [generate-mnemonic](../../../reference/packages/admin-cli.md#generate-mnemonic)
-  to create one or another method you prefer.
+- `AIRNODE_WALLET_MNEMONIC`: 为数字钱包提供种子短语（助记符）。 在本演示中，它不需要Rinkeby测试网络中的eth。 如果你没有，请使用管理员CLI命令[generate-mnemonic](../../../reference/packages/admin-cli.md#generate-mnemonic)来创建一个助记符，或使用其他你喜欢的方法。
 
-- `HTTP_GATEWAY_API_KEY`: Make up an apiKey to authenticate calls to the HTTP
-  Gateway. Used to test your Airnode with CURL later. The expected length is
-  30 - 128 characters.
+- `HTTP_GATEWAY_API_KEY`：创建一个apiKey来验证对HTTP网关的调用。 稍后使用 CURL 测试您的 Airnode 预计长度为 30 - 128 个字符。
 
 ### aws.env
 
-Add the access credentials to your AWS account. The deployer image will use them
-to install the Airnode functions to Lambda under your account's control. If you
-do not have an account watch this
-[video](https://www.youtube.com/watch?v=KngM5bfpttA) to create one. Unlike
-`secrets.env`, you cannot surround values with double quotes (").
+将访问凭证添加到你的AWS账户。 部署器镜像将使用它们，将Airnode函数安装到您账户控制的Lambda上。 如果你没有账户，请观看这个[视频](https://www.youtube.com/watch?v=KngM5bfpttA)来创建一个。 与secrets.env不同的是，你不能用双引号（"）放在数值上。
 
-- `AWS_ACCESS_KEY_ID`: Is ACCESS_KEY_ID in IAM.
-- `AWS_SECRET_ACCESS_KEY`: Is SECRET_ACCESS_KEY in IAM.
+- `AWS_ACCESS_KEY_ID`: 表示IAM 中的ACCESS_KEY_ID。
+- `AWS_SECRET_ACCESS_KEY`: 表示IAM中的SECRET_ACCESS_KEY。
 
-## Deploy
+## 部署
 
-Make sure Docker is running and then execute the deployer image from the root of
-the `quick-deploy-aws` folder. A `receipt.json` file will be created upon
-completion. It contains some deployment information and is used to remove the
-Airnode.
+确保Docker正在运行，然后从`quick-deploy-aws`文件夹的根部执行部署器镜像。 `receivt.json` 文件将在完成后创建。 它包含一些部署信息，并将用于删除Airnode。
 
 <!-- Use of .html below is intended. -->
 <airnode-WarningSimultaneousDeployments removeLink="../../docker/deployer-image.html#manual-removal"/>
 
-Run the following command to deploy the demo Airnode. Note that the version of
-`api3/airnode-deployer` matches the `nodeVersion` in the config.json file.
-<airnode-DeployerPermissionsWarning/>
+运行以下命令来部署演示Airnode。 注意，`api3/airnode-deployer`的版本与config.json文件中的`nodeVersion`一致。 <airnode-DeployerPermissionsWarning/>
 
 :::: tabs
 
@@ -149,7 +109,7 @@ docker run -it --rm \
 
 ::: tab Windows
 
-For Windows, use CMD (and not PowerShell).
+对于Windows，使用 CMD (而不是 PowerShell)。
 
 ```sh
 docker run -it --rm ^
@@ -163,20 +123,13 @@ docker run -it --rm ^
 
 ::::
 
-## Test the Airnode
+## 测试 Airnode
 
-After a successful deployment the Airnode can be tested directly using the
-[HTTP Gateways](../../guides/build-an-airnode/http-gateways.md) without
-accessing the blockchain. You provide endpoint parameters to get a response from
-an integrated API.
+在成功部署后，Airnode可以直接使用[HTTP网关](../../guides/build-an-airnode/http-gateways.md)进行测试，而无需访问区块链。 您需要提供端点参数，以便从集成API中获得响应。
 
-### HTTP Gateway
+### HTTP网关
 
-Looking at the [config.json](./config-json.md) code snippet below shows the HTTP
-gateway was activated for the Airnode. Furthermore the endpoint for
-`/simple/price` (with an `endpointId` of `0xf...53c`) has been added to
-`triggers.http[n]`. Only those endpoints added to the `http` array can be
-tested.
+查看下面的[config.json](./config-json.md)代码片段，可以看到Airnode的HTTP网关被激活了。 此外，`/simple/price`的端点（`endpointId`为`0xf...53c`）已被添加到`triggers.http[n]`。 只有添加到 `http` 数组的端点才能够测试。
 
 ```json
 "nodeSettings": {
@@ -207,39 +160,25 @@ tested.
 }
 ```
 
-### Execute Endpoint
+### 执行端点
 
-Use CURL to execute the Airnode and get the results from the CoinGecko endpoint
-`/simple/price` bypassing the Rinkeby test network that Airnode was deployed
-for. As an alternative to CURL try an app such as
-[Insomnia](https://insomnia.rest/) or
-[Postman](https://www.postman.com/product/rest-client/). Windows users can also
-use
-[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install)
-(WSL2) to run CURL for Linux.
+使用CURL来执行Airnode，并从CoinGecko端点`/simple/price`获得结果，绕过Airnode部署的Rinkeby测试网络。 作为CURL的替代品，请尝试使用[Insomnia](https://insomnia.rest/) or [Postman](https://www.postman.com/product/rest-client/)等应用程序。 Windows用户也可以使用[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install)（WSL2）来运行CURL for Linux。
 
-In order to test an endpoint make a HTTP POST request with the `endpointId` as a
-path parameter, the `Content-Type` header set to `application/json`, the
-`x-api-key` header set to the key and place the endpoint parameter in the
-request body as a key/value pair.
+为了测试一个端点，做一个HTTP POST请求，将`endpointId`作为路径参数，`Content-Type`头设置为`application/json`，`x-api-key`头设置为key，将端点参数作为一个key/value对放在请求体中。
 
 - `-X`: POST
-- `-H`: The `Content-Type` using the value of `application/json`.
-- `-H`: The `x-api-key` using the value of `HTTP_GATEWAY_API_KEY` from
-  `secrets.env` file.
-- `-d`: Use request body data to pass the endpoint parameter key/value pair.
+- `-H`: `Content-Type` 使用 `application/json` 的值。
+- `-H`: `x-api-key` 使用 `HTTP_GATEWAY_API_KEY` 来自 `secrets.env` 文件的值。
+- `-d`: 使用请求正文数据来传递端点参数键/值对。
 
-URL:
+URL：
 
 <code style="overflow-wrap:break-word;">&#60;httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c</code>
 
-- `<httpGatewayUrl>`: The base URL to the gateway, found in the `receipts.json`
-  file. Update the placeholder in the CURL example below with its value.
-- <code style="overflow-wrap:break-word;">0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c</code>:
-  Passed as a path parameter, the endpointId to call, see
-  `triggers.rrp[0].endpointId` in the `config.json` file.
+- `<httpGatewayUrl>`: 网关的基础URL, 可见于`receivents.json`文件。 用它的值更新下面CURL例子中的占位符。
+- <code style="overflow-wrap:break-word;">0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c</code>: 作为路径参数传递，要调用的endpointId，见`config.json`文件中的 `triggers.rrp[0].endpointId`。
 
-#### Request
+#### 请求
 
 :::: tabs
 
@@ -271,7 +210,7 @@ curl -v ^
 
 ::::
 
-#### Response
+#### 响应
 
 ```json
 {
@@ -287,14 +226,12 @@ curl -v ^
 
 <airnode-tutorials-TutorialResponse/>
 
-## Remove the Airnode
+## 移除Airnode
 
-When you are done with this demo you can remove it. When the Airnode was
-deployed a `receipt.json` file was created in the `/output` folder. This file is
-needed to remove an Airnode.
+当你完成这个演示时，你可以删除它。 当部署完成后，`receipt.json`文件将被写入`/output`文件夹中。 需要此文件才能删除 Airnode。
 
-- `--env-file`: Location of the `aws.env` file.
-- `-v`: Location of the `receipt.json` file.
+- `--env-file`:定位 `aws.env` 文件的位置。
+- `-v`: 定位`receipt.json` 文件的位置。
 
 :::: tabs
 
@@ -311,7 +248,7 @@ docker run -it --rm \
 
 ::: tab Windows
 
-For Windows, use CMD (and not PowerShell).
+对于Windows，使用 CMD (而不是 PowerShell)。
 
 ```sh
 docker run -it --rm ^
@@ -324,14 +261,8 @@ docker run -it --rm ^
 
 ::::
 
-## Summary
+## 总结
 
-You have deployed an Airnode on AWS and tested it using the HTTP gateway that
-was enabled as part of the Airnode deployment. The Airnode, upon deployment,
-started contacting the AirnodeRrp contract on the Rinkeby testnet to gather any
-requests made by requesters to this Airnode. This tutorial did not address
-making a request as its purpose was simply to quickly deploy a functional
-Airnode.
+在AWS上部署了一个Airnode，并使用作为Airnode部署的一部分而启用的HTTP网关对其进行测试。 Airnode一经部署，就开始与Rinkeby testnet上的AnnodeRrp合约联系，以收集请求者对该Airnode提出的任何请求。 本教程没有涉及提出请求，因为其目的只是为了快速部署一个功能性的Airnode。
 
-Learn more about AWS resources that Airnode uses in the
-[Cloud Resources](../../../reference/cloud-resources.md) doc.
+在[云资源](../../../reference/cloud-resources.md)文档中了解更多关于Airnode使用的AWS资源。

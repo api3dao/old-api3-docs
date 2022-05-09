@@ -4,8 +4,7 @@ title: Airnode starter
 
 # {{$frontmatter.title}}
 <VersionWarning/>
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
 Using the [airnode-starter](https://github.com/api3dao/airnode-starter/tree/pre-alpha) project you will deploy an Airnode and make requests to it. This project is composed of setup and three steps.
 
@@ -35,7 +34,7 @@ In preparation to deploy an Airnode a few items need to be prepared.
     # Using https
     git clone https://github.com/api3dao/airnode-starter.git  
     ```
-2. Be sure to use the pre-alpha branch. 
+2. Be sure to use the pre-alpha branch.
     ```bash
     cd airnode-starter
     git switch pre-alpha
@@ -51,7 +50,7 @@ In preparation to deploy an Airnode a few items need to be prepared.
 
 ### Create Wallet
 
-You will need a wallet to hold funds for a testnet such as Ropsten. These funds will be used to pay fees to setup an Airnode. Funds on a testnet are free. 
+You will need a wallet to hold funds for a testnet such as Ropsten. These funds will be used to pay fees to setup an Airnode. Funds on a testnet are free.
 
 Run the following to generate a new wallet, whose mnemonic phrase will be displayed on the terminal and recorded in a `.env` file at the project root. If you already have a wallet for your desired testnet you can use it by entering its MNEMONIC manually into `.env` at the project root.
 ```sh
@@ -117,8 +116,7 @@ npm run customize-config
 
 Now your`/config`directory should have the required [config.json](../airnode/specifications/config-json.md), [security.json](../airnode/specifications/security-json.md) and [.env](../guides/provider/deploying-airnode.md#creating-cloud-credentials) files. Run the following to deploy your node.
 
-:::: tabs
-::: tab Linux/Mac
+:::: tabs ::: tab Linux/Mac
 ```sh
 cd config
 # The deployer has to be run in the directory where the configuration files are
@@ -128,8 +126,7 @@ docker run -it --rm \
   -v $(pwd):/airnode/out \
   api3/airnode-deployer:pre-alpha
 ```
-:::
-::: tab Windows
+::: ::: tab Windows
 ```sh
 cd config
 # The deployer has to be run in the directory where the configuration files are
@@ -139,8 +136,7 @@ docker run -it --rm ^
   -v "%cd%":/airnode/out ^
   api3/airnode-deployer:pre-alpha
 ```
-:::
-::::
+::: ::::
 
 This will output a receipt file with the extension`.receipt.json`.
 
@@ -151,8 +147,7 @@ Run the following to send your master wallet 0.1 ETH for it to [create a provide
 npm run fund-master-wallet
 ```
 
-Your deployed Airnode will use these funds to make the transaction that will create the provider record on the chain you are operating on, and send the leftover ETH back to your address automatically.
-**You will have to wait ~1 minute for this to happen, otherwise the next step will fail.**
+Your deployed Airnode will use these funds to make the transaction that will create the provider record on the chain you are operating on, and send the leftover ETH back to your address automatically. **You will have to wait ~1 minute for this to happen, otherwise the next step will fail.**
 
 ### Make your endpoint publicly accessible
 
@@ -163,9 +158,7 @@ npm run update-authorizers
 
 ## Step 2: Make a request
 
-The scripts in this step will use the Airnode you have deployed if you have completed Step 1.
-Otherwise, it will use the `providerId` of the Airnode that we have deployed given in `src/parameters.js`.
-Note that the `endpointId` will be the same either way because it is [derived from the OIS and endpoint name](../protocols/request-response/endpoint.md#endpointid).
+The scripts in this step will use the Airnode you have deployed if you have completed Step 1. Otherwise, it will use the `providerId` of the Airnode that we have deployed given in `src/parameters.js`. Note that the `endpointId` will be the same either way because it is [derived from the OIS and endpoint name](../protocols/request-response/endpoint.md#endpointid).
 
 ### Create a requester
 
@@ -174,8 +167,7 @@ Run the following to create an on-chain [requester](../protocols/request-respons
 npm run create-requester
 ```
 
-You can use this requester denoted with an index in other projects as well.
-Note that `requesterIndex` is chain-specific, so you will have to create another requester record on other chains.
+You can use this requester denoted with an index in other projects as well. Note that `requesterIndex` is chain-specific, so you will have to create another requester record on other chains.
 
 ### Deploy the client contract
 
@@ -202,8 +194,7 @@ Then fund this designated wallet with 0.1 ETH.
 npm run fund-designated-wallet
 ```
 
-The requests that the client contract will make will be funded by this 0.1 ETH.
-Note that you may have to run `fund-designated-wallet` again if you make too many requests and use up this 0.1 ETH (very unlikely).
+The requests that the client contract will make will be funded by this 0.1 ETH. Note that you may have to run `fund-designated-wallet` again if you make too many requests and use up this 0.1 ETH (very unlikely).
 
 ### Make a request
 
@@ -219,8 +210,7 @@ Try replacing the `coinId` value in `/scripts/make-request` from `"ethereum"` to
 Don't forget to take down your Airnode as it is designed to be *set-and-forget*. When you are done with this project, go to`config/`as your working directory and use the command below where`$RECEIPT_FILENAME`is replaced with the name of your receipt file ending with`.receipt.json`. You can refer to our [Docker instructions](../guides/docker/deployer-image.md) for more information.
 
 
-:::: tabs
-::: tab Linux/Mac
+:::: tabs ::: tab Linux/Mac
 ```sh
 docker run -it --rm \
   --env-file .env \
@@ -229,8 +219,7 @@ docker run -it --rm \
   -v $(pwd):/airnode/out \
   api3/airnode-deployer:pre-alpha
 ```
-:::
-::: tab Windows
+::: ::: tab Windows
 ```sh
 docker run -it --rm ^
   --env-file .env ^
@@ -239,13 +228,11 @@ docker run -it --rm ^
   -v "%cd%":/airnode/out ^
   api3/airnode-deployer:pre-alpha
 ```
-:::
-::::
+::: ::::
 
 ## Conclusion
 
-You deployed an Airnode, made a request to it and received the response at the contract.
-If you want to learn more, see the following resources:
+You deployed an Airnode, made a request to it and received the response at the contract. If you want to learn more, see the following resources:
 
 - [API3 whitepaper](https://github.com/api3dao/api3-whitepaper) will give you a broad overview of the project.
 - [Medium posts](https://medium.com/api3) explain API3 in smaller, more digestible articles.

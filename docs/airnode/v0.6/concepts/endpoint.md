@@ -1,33 +1,22 @@
 ---
-title: Endpoint
+title: 端点
 ---
 
-<TitleSpan>Concepts and Definitions</TitleSpan>
+<TitleSpan>概念和定义</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Airnode serves APIs to blockchains according to
-[Oracle Integration Specifications (OIS)](/ois/v1.0.0/). APIs are composed of
-[operations](/ois/v1.0.0/ois.md#_5-2-operation), which represent individual
-functionalities that an API offers. OIS maps each API operation to an
-[endpoint](/ois/v1.0.0/ois.md#_5-endpoints), which can be thought of as an
-Airnode operation. The endpoints that an Airnode will serve over the
-request–response protocol are listed under
-[triggers](../reference/deployment-files/config-json.md#triggers) of
-[config.json](../reference/deployment-files/config-json.md).
+Airnode根据[预言机集成规范（OIS）](/ois/v1.0.0/)向区块链提供API。 API是由[操作](/ois/v1.0.0/ois.md#_5-2-operation)组成的，这些操作代表了一个API所提供的各个功能。 OIS将每个API操作映射到一个[端点](/ois/v1.0.0/ois.md#_5-endpoints)，这可以被认为是一个Airnode操作。 Airnode将通过请求-响应协议提供服务的端点列在[config.json](../reference/deployment-files/config-json.md)的[触发器](../reference/deployment-files/config-json.md#triggers)下。
 
 ## `endpointId`
 
-> You can use the [admin CLI](../reference/packages/admin-cli.md) to derive the
-> endpoint id from your terminal
+> 您可以使用 [管理员CLI](../reference/packages/admin-cli.md) 从您的终端生成端点id。
 
-`endpointId` identifies specific endpoints that an Airnode serves, and is
-computed in JS (using ethers.js) as follows:
+`endpointId` 标识了Airnode所服务的特定端点，在JS中（使用ethers.js）计算如下：
 
 ```js
 ethers.utils.keccak256(
@@ -38,17 +27,10 @@ ethers.utils.keccak256(
 );
 ```
 
-Note that this means that an `endpointId` is not unique, and two Airnodes can
-serve equivalent endpoints using the same ID (in fact, this is the desired
-outcome).This is not an issue, as requests are made with a `airnode` (Airnode's
-`address`) and `endpointId` pair.
+请注意，这意味着`endpointId`不是唯一的，两个Airnode可以使用相同的ID为相等的端点提供服务（事实上，这也是我们希望的结果）。这不是一个问题，因为请求是用`airnode` （Airnode的`address`)）和 `endpointId`配对提出的。
 
-This convention of determining an `endpointId` is not enforced at the
-protocol-level. For example, one could choose to generate an `endpointId`
-randomly, and as long as requesters use the correct `endpointId`, this will not
-be an issue.
+这种确定 `endpointId`的惯例，在协议层面上并没有被强制执行。 例如，人们可以选择随机生成一个`endpointId`，只要请求者使用正确的`endpointId`，这就不是一个问题。
 
-## Authorizers
+## 授权者
 
-Airnodes can assign a list of authorizers to their endpoints. See the section
-[Authorizer](authorization.md) for more information.
+Airnodes可以给他们的端点分配一个授权者的列表。 更多信息请参见[授权者](authorization.md)一节。

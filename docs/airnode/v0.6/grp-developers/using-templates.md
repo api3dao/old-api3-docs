@@ -1,29 +1,21 @@
 ---
-title: Using Templates
+title: 使用模板
 ---
 
-<TitleSpan>Developers</TitleSpan>
+<TitleSpan>开发者</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
+
 
 <!-- TODO: 2021-11-02 wkande: Should this doc speak to creating a templateId? See the code
 example ./code/create-template-id.js which may not be used anywhere in
 these docs at this time. -->
 
-A request to an Airnode can have many parameters. It is very common for
-requester contracts (e.g., a data feed) to make repeated requests with the exact
-same parameters. In such instances, it is wasteful to pass all of these
-parameters repeatedly. Templates are used to hold a set of parameter values
-on-chain that can be used repeatedly when calling
-the`makeTemplateRequest()`function in
-[AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol).
-Unlike`makeFullRequest(), makeTemplateRequest()`requires that a requester
-pass`templateId`which identifies a template.
+对 Airnode 的请求可能有许多参数。 请求者合约（例如数据馈送）用完全相同的参数重复请求是很常见的。 在这种情况下，重复传递所有参数是很浪费的。 模板用于在链上保存一组参数值，当从[AirnodeRrp.sol](https://github.com/api3dao/airnode/blob/v0.5/packages/airnode-protocol/contracts/rrp/AirnodeRrp.sol) 中调用`makeTemplateRequest()`函数时，可以重复使用。 不同于`makeFullRequest(), makeTemplateRequest()`要求请求者通过`模板Id`指定模板。
 
 ```solidity
 function makeTemplateRequest(
@@ -36,16 +28,13 @@ function makeTemplateRequest(
 ) external override returns (bytes32 requestId) {
 ```
 
-When a template is used to make a request, both the parameters encoded in
-parameters of the template and parameters provided at request-time (if any) will
-be used by the Airnode. In case the two include a parameter with the same name,
-the one provided at request-time will be used.
+当使用模板提出请求时， 在模板参数中，编码的参数和在请求时提供的参数(如果有的话) 将被Airnode使用。 如果两者包括一个具有相同名称的参数，将使用请求时提供的参数。
 
-The structure of a template, as shown below, is simple.
+如下所示，模板的结构很简单。
 
-- address of the desired Airnode
-- endpointId from the Airnode
-- endpoint parameters
+- 所需的 Airnode 地址
+- airnode 的 endpointId
+- 端点参数
 
 ```solidity
 struct Template {
@@ -55,22 +44,16 @@ struct Template {
 }
 ```
 
-There are just a few steps to create and place a template on-chain for a
-requester contract to use. Each template is identified by a`templateId`, which
-is the hash of its contents. When you create a template record on-chain,
-[see Part #2: Upload Template](using-templates.md#part-2-upload-template), a
-templateId will be returned.
+创建和放置一个模板到链上用于请求者合约，只需要几个步骤。 每个模板都由`templateId`确定，该模板是其内容的哈希值。 当您创建一个链上的模板记录时， [查看第二部分：上传模板](using-templates.md#part-2-upload-template)，将返回一个模板ID。
 
 <divider/>
 
-## Part #1: Build a Template
+## 第#1部分：构建模板
 
-First create a file that contains a template object. Below is an example. You
-will need the address of the Airnode and its endpointId to be called. Below are
-links that discuss request parameters if you need help.
+首先创建一个包含模板对象的文件。 参见下面的示例。 您需要调用 Airnode 及其endpointId 地址。 下面是讨论请求参数的链接，如果你需要帮助，可以自行查看。
 
-- [Reference > Request-Response Protocol > Request](../concepts/request.md)
-- [Calling an Airnode](../grp-developers/call-an-airnode.md#request-parameters)
+- [参考资料 > 请求-响应协议 > 请求](../concepts/request.md)
+- [调用Airnode](../grp-developers/call-an-airnode.md#request-parameters)
 
 ```
 {
@@ -91,31 +74,21 @@ links that discuss request parameters if you need help.
 }
 ```
 
-If you create more than one template using the same parameter values for an
-Airnode/endpointID the same`templateId`will be returned for each. Only one
-template is created when the parameters are the same.
+如果您使用相同的参数值为 Airnode/endpointID 创建多个模板，每个模板将返回相同的`templateId` 当参数相同时，仅创建一个 模板。
 
 <divider/>
 
-## Part #2: Upload Template
+## 第#2部分：上传模板
 
-Use the
-[create-template](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-admin#create-template)
-command in the @api3/airnode-admin package to move your template on-chain. The
-command`create-template`reads a file, uses its contents to create a template and
-returns a`templateId`. To create a new template record you will need the
-following.
+使用@api3/airnode-admin包中的[create-template](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-admin#create-template)命令，将你的模板移到链上。 通过命令`create-template`读取一个文件，使用其内容创建一个模板，并返回`templateId`。 若要创建一个新的模板记录，您需要关注以下要点。
 
-- A providerURL from your blockchain provider.
-- A mnemonic for gas to fund the record creation.
-- The path to a template file.
+- 来自区块链供应商的providerURL。
+- 资助记录创建的gas的助记符。
+- 模板文件的路径。
 
 ::: tip mnemonic
 
-This wallet pays the transaction gas costs to write the template record. This is
-not the wallet(s) that will pay gas costs to actually execute any Airnode, for
-that the Airnode themselves will create sponsor wallets on behalf of your
-sponsor record.
+这个钱包通过支付交易gas费用，写入模板记录。 这不是支付实际执行任何Airnode的gas费用的钱包，因为Airnode本身将代表你的赞助者，记录创建赞助者钱包。
 
 :::
 
@@ -128,8 +101,6 @@ npx @api3/airnode-admin create-template \
 
 <divider/>
 
-## More on Templates
+## 关于模板的更多信息
 
-You can create as many templates as needed. Call the `getTemplates`command in
-the @api3/airnode-admin package to get a list of the templates by
-their`templateIds`.
+您可以根据需要创建更多模板。 调用 `getTemplates`命令在 @api3/airnode-admin软件包获取模板列表的 `templateIds`。

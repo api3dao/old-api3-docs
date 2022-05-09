@@ -4,8 +4,7 @@ title: Deployer image instructions
 
 # {{$frontmatter.title}}
 <VersionWarning/>
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
 1. Build the Docker image
     ```sh
@@ -14,15 +13,13 @@ title: Deployer image instructions
 
 2. Ensure that your `.env` file looks like [.env.example](https://github.com/api3dao/airnode/blob/pre-alpha/packages/deployer/.env.example) and is the current working directory.
 
-3. If you will be running [deploy-first-time](deployer-image.md#deploy-first-time) or [redeploy](deployer-image.md#redeploy), your `config.json` and `security.json` must be in the current working directory.
-(They are also needed for other commands temporarily.)
+3. If you will be running [deploy-first-time](deployer-image.md#deploy-first-time) or [redeploy](deployer-image.md#redeploy), your `config.json` and `security.json` must be in the current working directory. (They are also needed for other commands temporarily.)
 
 4. Run the image with one of the following commands:
 
 ## `deploy-first-time`
 
-:::: tabs
-::: tab Linux/Mac
+:::: tabs ::: tab Linux/Mac
   ```sh
   docker run -it --rm \
     --env-file .env \
@@ -30,8 +27,7 @@ title: Deployer image instructions
     -v "$(pwd):/airnode/out" \
     api3/airnode-deployer:pre-alpha
   ```
-:::
-::: tab Windows
+::: ::: tab Windows
   ```sh
   docker run -it --rm ^
     --env-file .env ^
@@ -39,13 +35,11 @@ title: Deployer image instructions
     -v "%cd%:/airnode/out" ^
     api3/airnode-deployer:pre-alpha
   ```
-:::
-::::
+::: ::::
 
 ## `redeploy`
 
-:::: tabs
-::: tab Linux/Mac
+:::: tabs ::: tab Linux/Mac
   ```sh
   docker run -it --rm \
     --env-file .env \
@@ -53,8 +47,7 @@ title: Deployer image instructions
     -v "$(pwd):/airnode/out" \
     api3/airnode-deployer:pre-alpha
   ```
-:::
-::: tab Windows
+::: ::: tab Windows
   ```sh
   docker run -it --rm ^
     --env-file .env ^
@@ -62,15 +55,13 @@ title: Deployer image instructions
     -v "%cd%:/airnode/out" ^
     api3/airnode-deployer:pre-alpha
   ```
-:::
-::::
+::: ::::
 
 ## `deploy-mnemonic`
 
 Note that you must replace `$MNEMONIC` and `$REGION` with your values Enclose your mnemonic in quotation marks because it includes white spaces.
 
-:::: tabs
-::: tab Linux/Mac
+:::: tabs ::: tab Linux/Mac
   ```sh
   docker run -it --rm \
     --env-file .env \
@@ -80,8 +71,7 @@ Note that you must replace `$MNEMONIC` and `$REGION` with your values Enclose yo
     -v "$(pwd):/airnode/out" \
     api3/airnode-deployer:pre-alpha
   ```
-:::
-::: tab Windows
+::: ::: tab Windows
   ```sh
   docker run -it --rm ^
     --env-file .env ^
@@ -91,15 +81,13 @@ Note that you must replace `$MNEMONIC` and `$REGION` with your values Enclose yo
     -v "%cd%:/airnode/out" ^
     api3/airnode-deployer:pre-alpha
   ```
-:::
-::::
+::: ::::
 
 ## `remove-with-receipt`
 
 Note that you must replace `$RECEIPT_FILENAME` with your value and `$RECEIPT_FILENAME` must be in the current working directory.
 
-:::: tabs
-::: tab Linux/Mac
+:::: tabs ::: tab Linux/Mac
   ```sh
   docker run -it --rm \
     --env-file .env \
@@ -108,8 +96,7 @@ Note that you must replace `$RECEIPT_FILENAME` with your value and `$RECEIPT_FIL
     -v "$(pwd):/airnode/out" \
     api3/airnode-deployer:pre-alpha
   ```
-:::
-::: tab Windows
+::: ::: tab Windows
   ```sh
   docker run -it --rm ^
     --env-file .env ^
@@ -118,15 +105,13 @@ Note that you must replace `$RECEIPT_FILENAME` with your value and `$RECEIPT_FIL
     -v "%cd%:/airnode/out" ^
     api3/airnode-deployer:pre-alpha
   ```
-:::
-::::
+::: ::::
 
 ## `remove-mnemonic`
 
 Note that you must replace `$PROVIDER_ID_SHORT` and `$REGION` with your values.
 
-:::: tabs
-::: tab Linux/Mac
+:::: tabs ::: tab Linux/Mac
   ```sh
   docker run -it --rm \
     --env-file .env \
@@ -136,8 +121,7 @@ Note that you must replace `$PROVIDER_ID_SHORT` and `$REGION` with your values.
     -v "$(pwd):/airnode/out" \
     api3/airnode-deployer:pre-alpha
   ```
-:::
-::: tab Windows
+::: ::: tab Windows
   ```sh
   docker run -it --rm ^
     --env-file .env ^
@@ -147,15 +131,13 @@ Note that you must replace `$PROVIDER_ID_SHORT` and `$REGION` with your values.
     -v "%cd%:/airnode/out" ^
     api3/airnode-deployer:pre-alpha
   ```
-:::
-::::
+::: ::::
 
 ## `remove-airnode`
 
 Note that you must replace `$PROVIDER_ID_SHORT`, `$REGION` and `$STAGE` with your values.
 
-:::: tabs
-::: tab Linux/Mac
+:::: tabs ::: tab Linux/Mac
   ```sh
   docker run -it --rm \
     --env-file .env \
@@ -166,8 +148,7 @@ Note that you must replace `$PROVIDER_ID_SHORT`, `$REGION` and `$STAGE` with you
     -v "$(pwd):/airnode/out" \
     api3/airnode-deployer:pre-alpha
   ```
-:::
-::: tab Windows
+::: ::: tab Windows
   ```sh
   docker run -it --rm ^
     --env-file .env ^
@@ -178,5 +159,4 @@ Note that you must replace `$PROVIDER_ID_SHORT`, `$REGION` and `$STAGE` with you
     -v "%cd%:/airnode/out" ^
     api3/airnode-deployer:pre-alpha
   ```
-:::
-::::
+::: ::::

@@ -8,20 +8,16 @@ title: Heartbeat (optional)
 
 <VersionWarning/>
 
-At the end of an Airnode's run (every minute), Airnode can make an HTTP POST
-request to a specified URL. This is both to signal that the Airnode is alive and
-working (useful especially right after the deployment) and also as a
-notification every time it runs (self-operates).
+At the end of an Airnode's run (every minute), Airnode can make an HTTP POST request to a specified URL. This is both to signal that the Airnode is alive and working (useful especially right after the deployment) and also as a notification every time it runs (self-operates).
 
 > ![config-json](../../../assets/images/heartbeat.png)
->
-> 1.  <p class="diagram-line" style="color:blue;">Airnode gathers on-chain requests targeting the API it supports.</p>
-> 2.  <p class="diagram-line" style="color:green;">The required API endpoint for each request is called.</p>
-> 3.  <p class="diagram-line" style="color:red;">A response is sent to each request.</p>
-> 4.  <p class="diagram-line" style="color:black;">Finally Airnode makes a request to the heartbeat URL (HTTP POST). This could be to an endpoint within API the Airnode supports or to any cloud REST endpoint such as a monitoring service.</p>
+> 
+> 1. <p class="diagram-line" style="color:blue;">Airnode gathers on-chain requests targeting the API it supports.</p>
+> 2. <p class="diagram-line" style="color:green;">The required API endpoint for each request is called.</p>
+> 3. <p class="diagram-line" style="color:red;">A response is sent to each request.</p>
+> 4. <p class="diagram-line" style="color:black;">Finally Airnode makes a request to the heartbeat URL (HTTP POST). This could be to an endpoint within API the Airnode supports or to any cloud REST endpoint such as a monitoring service.</p>
 
-Turn on the optional heartbeat functionality by setting all fields in the
-`config.json` section for `nodeSettings.heartbeat`.
+Turn on the optional heartbeat functionality by setting all fields in the `config.json` section for `nodeSettings.heartbeat`.
 
 ```json
 {
@@ -68,11 +64,11 @@ Turn on the optional heartbeat functionality by setting all fields in the
 
 The table below illustrates the parameters passed to the Heartbeat URL.
 
-| name                         | in     | type   |
-| ---------------------------- | ------ | ------ |
-| airnode-heartbeat-api-key    | header | string |
-| deployment_id                | body   | string |
-| http_gateway_url             | body   | string |
+| name                             | in     | type   |
+| -------------------------------- | ------ | ------ |
+| airnode-heartbeat-api-key        | header | string |
+| deployment_id                    | body   | string |
+| http_gateway_url               | body   | string |
 | http_signed_data_gateway_url | body   | string |
 
 Below is an example of what is included in the request body to `heartbeat.url`.

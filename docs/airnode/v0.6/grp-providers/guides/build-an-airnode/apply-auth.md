@@ -1,53 +1,32 @@
 ---
-title: Using Authorizers (optional)
+title: 使用授权者(可选)
 ---
 
-<TitleSpan>Build an Airnode</TitleSpan>
+<TitleSpan>创建一个 Airnode</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-An Airnode can authorize requester contract access to its underlying API using
-[Authorizers](../../../concepts/authorization.md). This method is on-chain and
-requires some blockchain knowledge by an API provider.
+Airnode可以使用[授权者](../../../concepts/authorization.md)，授权请求者合约访问其底层API。 这种方法是在链上操作的，需要API供应商具备一些区块链知识。
 
-An [authorizer](../../../concepts/authorization.md) is a contract which
-typically checks for a single condition ("has the requester made their monthly
-payment", "is this `requesterAddress` whitelisted", etc.). Authorizers can be
-combined to enforce more complex policies. If any of the authorizers in the list
-gives access, the request will considered to be authorized. From a logical
-standpoint, the authorization outcomes get **OR**ed.
+[授权者](../../../concepts/authorization.md)是一个合约，它通常检查一个单一的条件（"请求者是否已经支付了他们的月费"，"这个`requesterAddress`是否被列入白名单"，等等）。 授权者可以被组合起来以执行更复杂的策略。 如果列表中的任何一个授权者给予访问权，该请求将被认为是已授权的。 从逻辑的角度看，授权结果得到**OR**。
 
-::: tip Alternative: Relayed Meta Data
+::: tip 备选方案：中继的元数据
 
-As an alternative to authorizers, an API provider can use
-[Relayed Meta Data](./api-security.md#relayed-meta-data-security-schemes) to
-authenticate a request. This approach is off-chain and requires no blockchain
-knowledge by the API provider. Note that it is possible to use both authorizers
-and relayed meta data together.
+作为授权者的替代品，API提供者可以使用[中继元数据](./api-security.md#relayed-meta-data-security-schemes)来验证请求。 这种方法是链外的，不需要API供应商的区块链知识。 请注意，有可能同时使用授权者和中继元数据。
 
 :::
 
-When you deploy your Airnode a receipt file is generated which contains the
-Airnode's `airnodeAddress`. Sponsors (via their sponsored requesters) use
-`airnodeAddress` and an `endpointId` to make requests to your Airnode's
-endpoints. However, you probably do not want to serve them publicly.
+当你部署Airnode时，会产生一个包含Airnode的`airnodeAddress`的收据文件。 赞助者（通过其赞助的请求者）使用`airnodeAddress`和`endpointId`来向你的Airnode的端点提出请求。 然而，你可能也不希望公开为他们服务。
 
-- Only serve your own
-  [requester contracts](../../../grp-developers/requesters-sponsors.md).
-- Only serve sponsors who have made a subscription payment.
-- Only serve sponsors who have gone through KYC.
+- 仅为您自己的 [请求者合约](../../../grp-developers/requesters-sponsors.md) 服务。
+- 仅为已经支付订阅费的赞助者服务。
+- 只为已通过KYC的赞助者服务。
 
-You can use different authorizers contracts for your Airnode deployment per
-chain by declaring them in the `config.json` file under `chains[n].authorizers`.
-Add a list of authorizer contracts addresses for each chain. If the
-`chains[n].authorizers` array is left empty then all requests will be accepted
-by the Airnode but still could be filtered by the second method of
-authorization, [relay security schemes](./apply-auth.md#relay-security-schemes).
+你可以通过在`config.json`文件中的`chains[n].authorizers`提出声明，为Airnode部署的每条链使用不同的授权者合约。 为每个链添加一个授权者合约地址列表。 如果`chains[n].authorizers`数组为空，那么所有的请求都会被Airnode接受，但仍然可以通过第二种授权方法，即[中继安全方案](./apply-auth.md#relay-security-schemes)进行过滤。
 
 ```json
 {
@@ -78,29 +57,15 @@ authorization, [relay security schemes](./apply-auth.md#relay-security-schemes).
 }
 ```
 
-The authorizers you use will authorize all requests regardless of which endpoint
-is called. Endpoints are declared in the `ois.endpoints` field of the
-`config.json` file. To further filter by a particular endpoint you must use an
-authorizer like RequesterAuthorizerWithAirnode.
+无论调用哪个端点，您使用的授权者都会授权所有请求。 端点需要在 `config.json` 文件的 `ois.endpoints` 字段中声明。 要进一步通过一个特定的端点进行过滤，你必须使用像RequesterAuthorizerWithAirnode这样的授权器。
 
 ## RequesterAuthorizerWithAirnode
 
-A common use case for an authorizer is the
-[RequesterAuthorizerWithAirnode](../../../concepts/authorization.md#requesterauthorizerwithairnode)
-authorizer contract developed for Airnode operators to use right out-of-the-box.
-It allows the whitelisting of requester contracts (with or without expiration
-timestamps) on a per endpoint basis. This is the most common use case and may in
-fact satisfy the needs of many Airnodes. You can find the contract address of
-this authorizer in the
-[Airnode Contract Addresses](../../../reference/airnode-addresses.md) doc.
+授权者的一个常见用例是，为Airnode运营商开发的[RequesterAuthorizerWithAirnode](../../../concepts/authorization.md#requesterauthorizerwithairnode)授权者合约，可直接使用。 它允许在每个端点的基础上，对请求者合约（有或没有过期时间戳）设置白名单。 这是最常见的用例，实际上可以满足许多 Airnode 的需求。 你可以在[Airnode合约地址](../../../reference/airnode-addresses.md)文档中找到这个授权者的合同地址。
 
-To use the RequesterAuthorizerWithAirnode authorizer:
+要使用 Requester AuthorizerWairnode 授权器：
 
-1. Add the authorizer contract address to the `chains[n].authorizers[]` array.
-2. After your Airnode is deployed, call the Admin CLI command
-   [set-whitelist-expiration](../../../reference/packages/admin-cli.md#set-whitelist-expiration)
-   to add the desired requester contract addresses to the whitelist maintained
-   by RequesterAuthorizerWithAirnode.
+1. 将授权者合同地址添加到`chain[n].authorizers[]`数组中。
+2. 在你的Airnode部署后，调用Admin CLI命令[set-whitelist-expiration](../../../reference/packages/admin-cli.md#set-whitelist-expiration)，将所需的请求者合约地址添加到RequesterAuthorizerWithAirnode维护的白名单中。
 
-Once implemented, only requester contract addresses you have added to
-RequesterAuthorizerWithAirnode will have access to your Airnode.
+一旦实施，只有你添加到RequesterAuthorizerWithAirnode的请求者合约地址，才能访问你的Airnode。

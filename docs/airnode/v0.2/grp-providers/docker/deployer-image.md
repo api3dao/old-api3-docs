@@ -7,14 +7,9 @@ title: Airnode Deployer Image
 # {{$frontmatter.title}}
 
 <VersionWarning/>
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Use the deployer image to deploy or remove an Airnode with a cloud provider such
-as AWS. The simplest way is to use the pre-built packages. If you would rather
-build the images yourself see the
-[README](https://github.com/api3dao/airnode/tree/v0.2/packages/airnode-deployer/docker)
-in the deployer package.
+Use the deployer image to deploy or remove an Airnode with a cloud provider such as AWS. The simplest way is to use the pre-built packages. If you would rather build the images yourself see the [README](https://github.com/api3dao/airnode/tree/v0.2/packages/airnode-deployer/docker) in the deployer package.
 
 The deployer image has two commands.
 
@@ -23,30 +18,23 @@ The deployer image has two commands.
 
 ::: tip Quick Deploy Demo
 
-See the [Quick Deploy](../tutorial/) demo to quickly `deploy` and `remove` a
-preconfigured Airnode using the deployer image.
+See the [Quick Deploy](../tutorial/) demo to quickly `deploy` and `remove` a preconfigured Airnode using the deployer image.
 
 :::
 
 ## Cloud Provider Credentials
 
-In order to deploy Airnode to a serverless cloud provider like AWS, you need to
-provide could provider credentials to the Airnode deployer image. The deployer
-image currently supports deploying to AWS. If you are new to AWS watch this
-[video](https://www.youtube.com/watch?v=KngM5bfpttA) to set up an AWS account
-and create cloud provider credentials.
+In order to deploy Airnode to a serverless cloud provider like AWS, you need to provide could provider credentials to the Airnode deployer image. The deployer image currently supports deploying to AWS. If you are new to AWS watch this [video](https://www.youtube.com/watch?v=KngM5bfpttA) to set up an AWS account and create cloud provider credentials.
 
 ## `deploy`
 
-The `deploy` command will create the Airnode with a cloud provider or update it
-if it already exists. Three files are needed to run the deploy command.
+The `deploy` command will create the Airnode with a cloud provider or update it if it already exists. Three files are needed to run the deploy command.
 
 - config.json
 - secrets.env
 - aws.env
 
-A `receipt.json` file will be created upon completion. It contains some
-deployment information and is used to remove the Airnode.
+A `receipt.json` file will be created upon completion. It contains some deployment information and is used to remove the Airnode.
 
 <p><airnode-DeployerPermissionsWarning/></p>
 
@@ -83,8 +71,7 @@ docker run -it --rm ^
 
 ## `remove`
 
-When an Airnode was deployed using the `deploy` command a `receipt.json` file
-was created. Use this file to remove an Airnode.
+When an Airnode was deployed using the `deploy` command a `receipt.json` file was created. Use this file to remove an Airnode.
 
 :::: tabs
 

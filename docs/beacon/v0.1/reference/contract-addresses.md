@@ -8,11 +8,9 @@ title: Contract Addresses
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Following is a list of the contract addresses for use with Airnode version
-`v0.3.1`.
+Following is a list of the contract addresses for use with Airnode version `v0.3.1`.
 
 ## RrpBeaconServer.sol
 

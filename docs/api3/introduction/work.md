@@ -1,191 +1,153 @@
 ---
-title: Work with API3
+title: API3工作机会
 ---
 
 # {{$frontmatter.title}}
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Consider joining the distributed, highly collaborative Core Development Team at
-API3. We are constantly searching for talented individuals who think blockchain
-technology is _the big thing_ and want to build a future where off-chain,
-real-world data seamlessly interfaces with smart contracts and decentralized
-applications.
+考虑加入API3的分布式、高度协作的核心开发团队。 我们正在不断寻找一些有才华的人，他们认为区块链技术是_了不起的事_ 的人，并希望建立一个未来，让链外的真实世界数据与智能合约和去中心化应用程序无缝对接。
 
 ## We are Builders
 
-The Core Development Team is focused on delivering optimized solutions to
-securely, efficiently, and transparently access off-chain data. We are pioneers
-in first-party oracle technology that underlies a growing ecosystem of
-institutions participating in the Web3 API economy. In addition to working in
-public and releasing open source software, the Core Development Team embraces
-automation, experimentation, multi-hat roles, high standards, and supporting one
-another.
+核心开发团队专注于提供优化的解决方案，以安全、高效、透明地访问链外数据。我们是第一方预言机技术的先驱者，该技术是参与Web3 API经济的机构的一个不断增长的生态系统的基础。核心开发团队除了共享办公和发布开源软件外，还提供自动化办公、实验、多角色和高标准的互助支持等资源。
 
-## Openings
+## 招聘职位
 
 <!-- prettier-ignore-->
-Here are some great roles we need help with. Then again, maybe you can define one for us. <api3-JobsEmailAddress/>
+以下是我们需要的重要职位，当然，或许你能帮我们新设计一个职位。   <api3-JobsEmailAddress/>
 
-1. [Senior Quality Assurance/Quality Control Engineer](./work.md#senior-quality-assurance-quality-control-engineer-job-description)
-2. [Blockchain Technical Project Manager](./work.md#blockchain-technical-project-manager-job-description)
-3. [Full Stack Developer](./work.md#full-stack-developer-job-description)
-4. [Elixir Backend Developer](./work.md#elixir-backend-developer-job-description)
-5. [Senior Blockchain Engineer](./work.md#senior-blockchain-engineer-job-description)
+1. [高级质量保证/质量控制工程师职位](./work.md#senior-quality-assurance-quality-control-engineer-job-description)
+2. [区块链技术项目经理职位](./work.md#blockchain-technical-project-manager-job-description)
+3. [全栈开发人员](./work.md#full-stack-developer-job-description)
+4. [Elixir后端开发人员](./work.md#elixir-backend-developer-job-description)
+5. [高级区块链工程师](./work.md#senior-blockchain-engineer-job-description)
 
-<hr/>
+<hr />
 
-### Senior Quality Assurance/Quality Control Engineer Job Description
+### 高级质量保证/质量控制工程师职位
 
-**Responsibilities:**
+**职责：**
 
-- Hands-on manual investigation and reproduction of functional backend software
-  issues.
-- Root cause analysis of existing test script failures.
-- Identification of current test script deficiencies and candidates for
-  additional scripted coverage.
-- Investigatory testing of unreleased features including defining requirements,
-  behavior and impact.
-- Documentation and design of candidate test scenarios for the above.
+- 对后台软件功能问题进行手动调查和重现。
+- 现有测试脚本失败的根本原因分析。
+- 识别当前测试脚本的缺陷和候选脚本覆盖率。
+- 对未发布的功能进行调查测试，包括定义需求、行为和影响。
+- 记录和设计上述的候选测试方案。
 
-**Requirements:**
+**要求：**
 
-- 5 years+ of backend QA engineering experience, frontend manual/auto testing
-  experience is a great bonus.
-- 1 year+ of Smart contract security auditing/testing.
-- Full cycle testing from designing manual tests, developing scripts and
-  execution.
-- Strong experience with Blockchain Ethereum technologies.
-- Scripting ability using NodeJs, bash, Python.
-- Experience testing backend services such as APIs, Databases, distributed
-  services (non-monolithic), solidity smart contract.
-- Enjoys breaking things and solving problems - not just able to find out the
-  'what', but also the 'why'.
-- Very good English and good communication skills.
+- 5年以上的后端QA工程经验，前台手动/自动测试经验将有很大的优势。
+- 1年以上的智能合约安全审计/测试工作。
+- 从设计手动测试、开发脚本到执行的全周期测试。
+- 对区块链Ethereum技术有丰富的经验。
+- 熟练使用NodeJs、bash、Python编程。
+- 有测试后端服务的经验，如测试API、数据库、分布式服务（非单一的）、solidity智能合约。
+- 喜欢深入研究和解决问题—不仅能找出 "什么"，还能找出 "为什么"。
+- 良好的英语交流和沟通能力。
 
 <api3-JobsEmailAddress/>
 
-<hr/>
+<hr />
 
-### Blockchain Technical Project Manager Job Description
+### 区块链技术项目经理职位
 
-**Key Job Responsibilities:**
+**主要工作职责：**
 
-- Have a strong track record of shaping business strategy for technical products
-  or services.
-- A strong understanding of the API connectivity problem is desirable.
-- Understand how to design scalable software.
-- Be conversant with emerging technologies.
-- Communicate effectively with both business and technical partners.
-- Have an entrepreneurial spirit.
+- 在为技术产品或服务制定商业战略方面有优秀的履历。
+- 对API连接性问题有很好的理解。
+- 了解如何设计可扩展的软件。
+- 熟悉新兴技术。
+- 能够与业务和技术伙伴进行有效沟通。
+- 有创业精神。
 
-**Basic Qualifications:**
+**基本资格：**
 
-- 5+ years of experience managing complex technology projects.
-- Experience with agile development methodologies (i.e. Scrum, XP, Kanban, etc).
-- Experience with project delivery for large, cross-functional projects.
-- Experience and proficiency with web technologies and tools.
-- Track record of authoring forward looking technology roadmap/ yearly planning
-  docs to enable trade-off and decision at leadership level.
-- Strong analytical and problem solving skills.
+- 有5年以上管理复杂技术项目的经验。
+- 具有敏捷软件开发（如Scrum、XP、Kanban等）的经验。 有大型、跨职能项目的项目交付经验。
+- 有大型、跨职能项目的项目交付经验。
+- 熟练运用网络技术和工具。
+- 有撰写前瞻性技术路线图/年度计划文件的履历，具备领导层面权衡和决策能力。
+- 强大的分析和解决问题的能力。
 
-**Preferred Qualifications:**
+**优先考虑的资格：**
 
-- Master's degree in a business or technology discipline or related field.
-- Superior project management and organizational skills.
-- Strong customer focus and ability to demonstrate pragmatic decision-making.
-- Exceptional verbal and written communication skills.
-- Experience delivering large-scale systems with world-class availability,
-  scalability, and performance requirements.
-- Experience in non-technical aspects including idea generation, business
-  analysis, financial understanding, and process optimization.
+- 拥有商业、技术学科或相关领域的硕士学位。
+- 卓越的项目管理和组织能力。
+- 以客户为中心，有能力展示务实的决策。
+- 卓越的口头和书面沟通能力。
+- 具有交付具有世界级可用性、可扩展性等性能要求的大规模系统的经验。
+- 有非技术方面的经验，包括创意、商业分析、财务知识和流程优化。
 
 <api3-JobsEmailAddress/>
 
-<hr/>
+<hr />
 
-### Full Stack Developer Job Description
+### 全栈开发人员职位
 
-**Required Skills:**
+**技能要求:**
 
-- 5 years of experience delivering enterprise class JavaScript web applications.
-- 3 years of experience building single page applications with React or similar.
-- Experience with Typescript ES6/ES7 JavaScript.
-- Solid fundamental understanding of unit, integration, and e2e testing.
-- Practical experience building and consuming RESTful APIs in node.js.
-- Solid understanding of the full web technology stack (e.g. HTTP, cookies,
-  asset loading, caching, REST).
-- Experience using CI/CD tools and systems such as Jenkins, GitHub, GitLab,
-  Bitbucket, etc.
-- Experience with HTML, CSS, Sass, Bootstrap or similar.
-- Solid understanding of object-oriented design and functional programming
-  concepts, core JavaScript concepts like scope/closures, the event loop,
-  asynchronous callbacks and promises.
-- Have a passion for quality and writing clean, solid, readable code that scales
-  and performs well.
-- Strong desire to learn, communicate, and share knowledge with others.
-- Strong critical thinking and problem solving skills.
-- Experience architecting and implementing complex solutions from infrastructure
-  to application level.
+- 5年以上交付企业级JavaScript网络应用程序的经验。
+- 3年以上使用React或类似技术构建单页应用的经验。
+- 具有Typescript ES6/ES7 JavaScript的经验。
+- 对单元、集成和e2e测试有扎实的基础了解。
+- 具有在node.js中构建和使用RESTful API的实践经验。
+- 对整个网络技术栈（如HTTP、cookies、资源加载、缓存、REST）有深刻的理解。
+- 有使用CI/CD工具和系统的经验，如Jenkins、GitHub、GitLab、Bitbucket等。
+- 有HTML、CSS、Sass、Bootstrap或类似的经验。
+- 对面向对象的设计和函数式编程概念、核心的JavaScript概念，如作用域/闭包、事件循环、异步回调和承诺有扎实的了解。
+- 热爱编写高质量、清晰、扎实、易读的代码，并具有良好的扩展性和运行表现。
+- 有强烈的学习、交流和与他人分享知识的意愿。
+- 有很强的批判性思维和解决问题的能力。
+- 有架构和解决基础设施到应用层面的复杂问题的经验。
 
-**Preferred Qualifications:**
+**优先考虑的资格：**
 
-- Experience with cloud infrastructure (AWS, Azure, or similar) and/or
-  containerization (Docker, Kubernetes).
-- Experience with SQL, RMDBS, and NoSQL.
-- UI/UX Design experience is a plus.
-- Experience working in an Agile environment.
-- Experience with Unix/Linux.
+- 有云平台（AWS、Azure或类似）和/或容器（Docker、Kubernetes）的使用经验。
+- 有SQL、RMDBS和NoSQL的经验。
+- 有UI/UX设计经验者优先。
+- 有在Agile环境中工作的经验。
+- 有Unix/Linux的经验。
 
-**Experience:**
+**经验要求：**
 
-Seeking eight (8) years of overall experience performing web development
-activities with a Bachelor’s Degree.
+8年以上从事完整网络开发活动的经验，并获得本科学位。
 
 <api3-JobsEmailAddress/>
 
-<hr/>
+<hr />
 
-### Elixir Backend Developer Job Description
+### Elixir后端开发人员职位
 
-**Required Skills:**
+**技能要求:**
 
-- 7+ years of experience is a professional development environment.
-- 4+ years of experience with Functional programming (Ideally Elixir).
-- 1+ years of experience working with AWS or other cloud environments (GCP,
-  Azure).
-- The ability to improve everyday and take ownership of your work.
-- The ability to collaborate with team members and be coachable.
+- 有7年以上专业开发平台的工作经验。
+- 4年以上函数式编程（最好是Elixir）的经验。
+- 1年以上AWS或其他云平台（GCP，Azure）的工作经验。
+- 有自我超越的精神，并能全身心投入工作。
+- 有团队精神，并能接受指导。
 
-**Preferred Qualifications:**
+**优先考虑的资格：**
 
-- 7+ years working as a full stack engineer.
-- Passionate about Elixir and filling in any gaps of knowledge of the cutting
-  edge language.
-- Experience with React/NextJs Framework.
-- Passionate about growing on a daily basis.
-- Disciplined approach to testing and quality assurance.
+- 7年以上全栈工程师工作经验。
+- 热爱Elixir编程，及时掌握Elixir前沿技术。
+- 有React/NextJs框架工作经验。
+- 能够每天保持激情满满。
+- 对测试和质量保证有严谨的态度。
 
 <api3-JobsEmailAddress/>
 
-<hr/>
+<hr />
 
-### Senior Blockchain Engineer Job Description
+### 高级区块链工程师职位
 
-**Required Skills:**
+**技能要求:**
 
-- 2+ years of smart contract development experience in Solidity (experience in
-  other smart contract languages is an asset).
-- Strong knowledge of design principles both specific to smart contract (like
-  factory pattern, proxy design) or more generic like OOP, functional
-  programming, REST.
-- Experience in Solidity, Typescript, OpenZeppelin standards, Web3,
-  Truffle/Hardhat, the Graph, NodeJS, AWS, MySQL/Postgres, MongoDB/NoSQL.
-- Experience in smart contract auditing is a strong asset.
-- Familiar with cryptography and encryption methods. Experience with enterprise
-  level key management solutions or projects is a strong asset.
-- Ability to grow yourself and other engineers through code reviews, design
-  reviews, and screenshare/peer debugging.
+- 2年以上的Solidity智能合约开发经验（有其他智能合约语言经验者优先）。
+- 对智能合约的具体设计原则（如工厂模式、代理设计）或更多的通用设计原则（如OOP、函数式编程、REST）都有很深的了解。
+- 有Solidity、Typescript、OpenZeppelin标准、Web3、Truffle/Hardhat、the Graph、NodeJS、AWS、MySQL/Postgres、MongoDB/NoSQL的开发经验。
+- 拥有智能合约审计经验是很好的加分项。
+- 熟悉密码学和加密方法，有企业级密钥管理解决方案或项目的经验是很好的加分项。
+- 有能力通过代码审查、设计审查和屏幕共享/同行调试，使自己和其他工程师共同成长。
 
 <api3-JobsEmailAddress/>

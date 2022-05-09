@@ -1,5 +1,5 @@
 ---
-title: Contracts Overview
+title: 合约概览
 ---
 
 # {{$frontmatter.title}}
@@ -8,13 +8,10 @@ title: Contracts Overview
   <img src="../figures/dao-contract-structure.png" width="700" />
 </p>
 
-The core of the DAO is a set of smart contracts based on Aragon's
-[aragonOS](https://github.com/aragon/aragonOS). The code for these contracts can
-be found [here](https://github.com/api3dao/api3-dao/), along with instructions
-for how to deploy a copy of the DAO.
+DAO的核心是一组基于Aragon的 [aragonOS](https://github.com/aragon/aragonOS) 的智能合约。 这些合约的代码可以在[这里](https://github.com/api3dao/api3-dao/)找到，同时还有如何部署DAO副本的说明。
 
-| Name             | Mainnet Address                              |
-| :--------------- | :------------------------------------------- |
+| 名称               | 主网地址                                         |
+|:---------------- |:-------------------------------------------- |
 | DAO Kernel       | `0x593ea926ee9820a933488b6a288433c387d06dba` |
 | ACL              | `0x1e7ecc6d3b5b4cfdfc71cb7c3ea9ac4a55f4195a` |
 | DAO Pool         | `0x6dd655f10d4b9e242ae186d9050b68f725c76d76` |

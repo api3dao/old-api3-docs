@@ -4,15 +4,13 @@ title: Oracle Integration Specifications (OIS) 1.0.0
 
 # {{$frontmatter.title}}
 <VersionWarning/>
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
 *See our article, [Setting Oracle Integration Standards](https://medium.com/api3/setting-oracle-integration-standards-ac9104c38f9e) for an overview of OIS.*
 
 *Fields denoted by \* are for documentation purposes and not used by the oracle node.*
 
-*The OAS equivalents given are used to automatically populate OIS fields.
-These prepopulated fields are expected to be reviewed and customized by the integrating party.*
+*The OAS equivalents given are used to automatically populate OIS fields. These prepopulated fields are expected to be reviewed and customized by the integrating party.*
 
 *All URLs are absolute (i.e., [relative URLs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#relative-references-in-urls) are not supported).*
 
@@ -95,9 +93,7 @@ OAS equivalent: `info.title`
 
 ### 4.1. `servers`
 
-(Required) An array of objects containing the base URL of the API.
-Only one object (i.e., base URL) is allowed in the array.
-Applies to all operations.
+(Required) An array of objects containing the base URL of the API. Only one object (i.e., base URL) is allowed in the array. Applies to all operations.
 
 OAS equivalent: `servers.0` (raise warning during conversion if `servers` has multiple elements)
 
@@ -136,17 +132,13 @@ OAS equivalent: `components.securitySchemes.{securitySchemeName}.in`
 
 (Required if security scheme `type` is `http`) The name of the HTTP Authorization scheme to be used in the [Authorization header as defined in RFC7235](https://tools.ietf.org/html/rfc7235#section-5.1).
 
-Allowed values: The values used SHOULD be registered in the [IANA Authentication Scheme registry](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml).
-We support `basic` and `bearer`.
+Allowed values: The values used SHOULD be registered in the [IANA Authentication Scheme registry](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml). We support `basic` and `bearer`.
 
 OAS equivalent: `components.securitySchemes.{securitySchemeName}.scheme`
 
 ### 4.3. `security`
 
-(Required) An object containing all security schemes that need to be used to access the API.
-Applies to all operations.
-Unlike in OAS, `security` cannot be a list.
-Each security scheme maps to an empty list as:
+(Required) An object containing all security schemes that need to be used to access the API. Applies to all operations. Unlike in OAS, `security` cannot be a list. Each security scheme maps to an empty list as:
 
 ```json
 "security": {
@@ -293,8 +285,7 @@ OAS equivalent: The `{method}` parameter in the `paths.{path}.{method}` for the 
 
 ### 5.4. `reservedParameters`
 
-(Optional) A list of objects that specify reserved endpoint parameters that do not map to operation parameters, but used for special purposes by the oracle node.
-Each object has the following elements:
+(Optional) A list of objects that specify reserved endpoint parameters that do not map to operation parameters, but used for special purposes by the oracle node. Each object has the following elements:
 
 - [`name`](ois.md#_5-4-1-name)
 - [`fixed`](ois.md#_5-4-2-fixed)
@@ -302,8 +293,7 @@ Each object has the following elements:
 
 #### 5.4.1. `name`
 
-(Required) The name of the reserved parameter.
-Always starts with `_`.
+(Required) The name of the reserved parameter. Always starts with `_`.
 
 Allowed values: `_type`, `_path`, `_times`, `_relay_metadata`
 
@@ -313,13 +303,11 @@ Allowed values: `_type`, `_path`, `_times`, `_relay_metadata`
 
 #### 5.4.3. `default`
 
-(Optional) The default value for the reserved parameter.
-Used when no value is provided.
+(Optional) The default value for the reserved parameter. Used when no value is provided.
 
 ### 5.5. `parameters`
 
-(Optional) A list of objects that specify endpoint parameters that map to operation parameters.
-Each object has the following elements:
+(Optional) A list of objects that specify endpoint parameters that map to operation parameters. Each object has the following elements:
 
 - [`operationParameter`](ois.md#_5-5-1-operationparameter)
 - [`name`](ois.md#_5-5-2-name)
@@ -337,15 +325,13 @@ Each object has the following elements:
 
 #### 5.5.2. `name`
 
-(Required) The name of the endpoint parameter.
-Is not allowed to start with `_`.
+(Required) The name of the endpoint parameter. Is not allowed to start with `_`.
 
 OAS equivalent: `paths.{path}.{method}.parameters.{#}.name` of corresponding operation parameter
 
 #### 5.5.3. `default`
 
-(Optional) The default value for the endpoint parameter.
-Used when no value is provided.
+(Optional) The default value for the endpoint parameter. Used when no value is provided.
 
 OAS equivalent: `paths.{path}.{method}.parameters.{#}.default` of corresponding operation parameter
 

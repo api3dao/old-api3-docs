@@ -8,22 +8,13 @@ title: receipt.json
 
 <VersionWarning/>
 
-A `receipt.json` file is outputted after each deployment and contains
-non-sensitive information about the deployment. The main use of a receipt file
-is to remove an Airnode deployment when no longer needed. Use the
-[docker image](../../grp-providers/docker/deployer-image.md#remove) to execute
-the remove command.
+A `receipt.json` file is outputted after each deployment and contains non-sensitive information about the deployment. The main use of a receipt file is to remove an Airnode deployment when no longer needed. Use the [docker image](../../grp-providers/docker/deployer-image.md#remove) to execute the remove command.
 
-It also provides the Airnode xpub for the hardened derivation path
-`m/44'/60'/0'` that must be announced off-chain in order for sponsors to derive
-their designated sponsor wallet. This wallet will then be used by the Airnode to
-fulfill each request made by the requester contracts.
+It also provides the Airnode xpub for the hardened derivation path `m/44'/60'/0'` that must be announced off-chain in order for sponsors to derive their designated sponsor wallet. This wallet will then be used by the Airnode to fulfill each request made by the requester contracts.
 
 - `airnodeWallet`: describes the Airnode that was deployed
 - `deployment`: where the Airnode was deployed to
-- `api`: contains the details of the Airnode API (e.g.
-  [heartbeat](../../grp-providers/guides/build-an-airnode/heartbeat.md) or
-  [testing gateway](../../grp-providers/guides/build-an-airnode/http-gateway.md))
+- `api`: contains the details of the Airnode API (e.g. [heartbeat](../../grp-providers/guides/build-an-airnode/heartbeat.md) or [testing gateway](../../grp-providers/guides/build-an-airnode/http-gateway.md))
 
 Example receipt:
 

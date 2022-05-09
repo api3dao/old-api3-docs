@@ -2,38 +2,25 @@
 title: Airnode
 ---
 
-<TitleSpan>Concepts and Definitions</TitleSpan>
+<TitleSpan>概念和定义</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Airnode is a serverless oracle node implemented with a _"set and forget"_
-[philosophy](../grp-providers/airnode/design-philosophy.md).
+Airnode 是一个无服务器的预言机节点，以 _"设置后就不用管"_ [的设计理念](../grp-providers/airnode/design-philosophy.md)来实现。
 
 <!-- TODO: Link why should you use Airnode -->
 
-Airnode is capable of serving one or more APIs to it's
-[requesters](./requester.md) which are smart contracts on chain who request the
-data server by the particular Airnode. Each Airnode has a
-[unique mnemonic](../grp-providers/guides/build-an-airnode/configuring-airnode.md#airnodewalletmnemonic)
-identifying its wallet. This mnemonic is kept in secret and Airnode is publicly
-identified using the default [address](airnode.md#airnodeaddress) derived from
-the mnemonic.
+Airnode能够为[请求者](./requester.md) 提供一个或多个API，这些请求者是链上的智能合约，他们请求特定Airnode的数据服务器。 每个Airnode都有一个[独特的助记符](../grp-providers/guides/build-an-airnode/configuring-airnode.md#airnodewalletmnemonic)来识别它的钱包。 这个助记符是保密的，Airnode使用助记符衍生的默认[地址](airnode.md#airnodeaddress) ，以便被公开识别。
 
 ## `airnodeAddress`
 
-An Airnode is identified by the default address of a BIP 44 wallet (with the
-path `m/44'/60'/0'/0/0`). This address is same for all chains on which Airnode
-operates. You specify the wallet mnemonic in the
-[`secrets.env`](../grp-providers/guides/build-an-airnode/configuring-airnode.md#creating-secrets-env)
-file which you use when deploying the Airnode.
+Airnode 通过一个 BIP 44 钱包的默认地址来识别(使用路径 `m/44'/60'/0'/0/0`)。 这个地址对Airnode运作的所有区块链都是一样的。 你在部署Airnode时使用的[`secrets.env`](../grp-providers/guides/build-an-airnode/configuring-airnode.md#creating-secrets-env)文件中，指定了钱包的助记符。
 
-You can also use ethers.js to derive the `airnodeAddress` from the mnemonic for
-informational purposes.
+您也可以使用ethers.js从助记符中衍生出`airnodeAddress`，供参考使用。
 
 <!-- TODO: This should probably be supported in the admin CLI package -->
 
@@ -45,12 +32,6 @@ airnodeAddress = airnodeHdNode.address;
 
 ## `xpub`
 
-The Airnode owner announces their extended public key (`xpub` of the hardened
-derivation path `m/44'/60'/0'`) off-chain for sponsors to be able to derive
-their [sponsor wallets](sponsor.md#sponsorwallet). This wallet will then be used
-by the Airnode to fulfill each request made by the requester contracts. The
-`xpub` that the owner has announced is not verified on-chain.
+Airnode所有者在链外公布他们的扩展公钥（硬衍生路径 `m/44'/60'/0'`的`xpub` ），以便赞助者能够衍生出他们的[赞助者钱包](sponsor.md#sponsorwallet)。 然后这个钱包将被Airnode用来满足请求者合约提出的每个请求。 Airnode所有者公布的`xpub` 是不在链上验证的。
 
-However, the sponsor can verify it off-chain. You can use the
-[`verify-xpub`](../reference/packages/admin-cli.md#verify-airnode-xpub) command
-from the admin CLI.
+然而，赞助者可以在链下验证它。 您可以使用来自管理员CLI的 [`Verify-xpub`](../reference/packages/admin-cli.md#verify-airnode-xpub) 命令来实现。

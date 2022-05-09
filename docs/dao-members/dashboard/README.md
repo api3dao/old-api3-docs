@@ -1,57 +1,41 @@
 ---
-title: Overview
+title: 概述
 ---
 
 # {{$frontmatter.title}}
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" />
 
-The DAO dashboard is the portal to participate in the API3 DAO. It is aimed at
-API3 members and others that want to understand how to interact with the DAO or
-modify/reuse any of its infrastructure.
+DAO控制面板是参与API3 DAO的门户。 它的使用对象是 API3 成员和其他想要理解如何与 DAO 交互或 修改/重新使用其任何基础设施的人。
 
-The DAO dashboard focuses on your interaction with the DAO:
+DAO控制面板侧重于您与 DAO 的交互：
 
-- [Staking Tokens](staking.md) - Stake API3 tokens into the DAO pool to gain
-  governance rights (proposals and voting) and earn rewards.
-- [Working with Proposals](proposals.md) - View and create proposals.
-- [How to Vote](voting.md) - Vote on proposals directly or through delegation.
+- [Staking Tokens](staking.md) （质押代币）- 将 API3 代币质押到DAO 池以获得 治理权(提案和投票)，并获得奖励。
+- [Working with Proposals](proposals.md) （处理提案）- 查看和创建提案。
+- [How to Vote](voting.md)（如何投票） - 直接或通过委托对提案进行投票。
 
-## Access the Dashboard
+## 访问控制面板
 
-- Access the [DAO Dashboard](https://api3.eth.link/) on **Mainnet**.
+- 通过 **Mainnet**访问 **[DAO 控制面板](https://api3.eth.link/)**。
 
-- Access the [Stage DAO Dashboard](https://staging.api3.eth.link/#/) on Rinkeby.
-  This is a staging area for beta and other testing but may not be available at
-  certain times.
+- 通过 Rinkeby 上访问 [测试 DAO 控制面板](https://staging.api3.eth.link/#/)。 这是测试版本和其他测试的中转区，可能在 特定时间会无法使用。
 
-Connect your wallet by clicking the **Connect Wallet** button in the upper right
-hand corner. Select your wallet from the popup. Once connected you can view the
-DAO dashboard showing stake and reward status.
+点击右上角的 **Connect Wallet** 按钮连接您的钱包。 从弹出窗口中选择你的钱包。 一旦连接，您可以看到 DAO控制面板显示的质押和奖励状态。
 
-<blockquote> 
+<blockquote>
 <p align="left">
 <img src="../assets/dashboard/dashboard.png" width="350" />
 </p>
 </blockquote>
 
-## Navigation
+## 导航
 
-The DAO dashboard has three simple views as seen in the navigation menu in the
-upper left hand corner. Each of these are covered in the
-[Staking Tokens](staking.md), [Working with Proposals](proposals.md) and
-[How to Vote](voting.md) pages.
+DAO控制面板有三个简单的视图，可见于 左上角的导航菜单。 每个视图都涵盖在 [Staking Tokens](staking.md), [Working with Proposals](proposals.md) 和 [How to Vote](voting.md) 页面中.
 
-- Staking
-- Governance
-- History
+- 质押
+- 治理
+- 投票
 
-## Dashboard Attributes
+## 控制面板属性
 
-Some attributes that determine values displayed on the DAO dashboard (such as
-the STAKING TARGET) can be changed by creating a proposal and calling the
-appropriate function on the DAO pool contract. See
-[Dashboard Attributes](../contract-architecture/dashboard-attributes.md) on the
-**DAO Contracts** page in the reference section for more details on the
-available function calls.
+一些决定在DAO控制面板上显示值的属性（如STAKING TARGET）可以通过创建一个提案和调用DAO池合约中的适当函数来改变。 在 **DAO Contracts** 页面中查阅 [控制面板属性](../contract-architecture/dashboard-attributes.md) ，以获取 可用函数调用的更多细节。

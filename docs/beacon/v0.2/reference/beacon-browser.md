@@ -1,8 +1,8 @@
 ---
-title: Beacon Browser
+title: Beacon 浏览器
 ---
 
-<TitleSpan>Reference</TitleSpan>
+<TitleSpan>参考</TitleSpan>
 
 # {{$frontmatter.title}}
 

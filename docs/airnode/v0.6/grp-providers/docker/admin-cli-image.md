@@ -1,37 +1,22 @@
 ---
-title: Airnode Admin CLI Image
+title: Airnode Admin CLI镜像
 ---
 
-<TitleSpan>Docker Images</TitleSpan>
+<TitleSpan>Docker 镜像</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,3]" /><!-- TODO: link \[docker hub\](https://hub.docker.com/r/api3/airnode-admin) once image is published --><!-- TODO: link \[Airnode repository\](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-admin/docker) once image is published -->使用 admin CLI 图像作为替代方法，使用npx执行 [AdminCLI 命令](../../reference/packages/admin-cli.md)。 两种方法将实现相同的结果。 该镜像放弃下载admin CLI软件包，每次使用npx执行命令时都会重新下载。
 
-<!-- TODO: link [docker hub](https://hub.docker.com/r/api3/airnode-admin) once image is published -->
-<!-- TODO: link [Airnode repository](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-admin/docker) once image is published -->
+如果您想要从源代码创建管理员CLI镜像， 您可以在 Airnode 仓库中找到这个[镜像生成说明](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-admin/docker)。
 
-Use the admin CLI image as an alternative method to execute
-[Admin CLI Commands](../../reference/packages/admin-cli.md) using npx. Either
-method will achieve the same results. The image forgoes downloading the admin
-CLI package each time a command is executed using npx.
+关于 [admin CLI image](../../reference/packages/admin-cli.md#using-docker) 的其他信息，可在管理员CLI 命令文档中获取。
 
-If you want to build the admin CLI image from the source yourself, you can find
-the
-[image built instructions](https://github.com/api3dao/airnode/tree/v0.5/packages/airnode-admin/docker)
-in the Airnode repository.
+## 用法
 
-Additional information about the
-[admin CLI image](../../reference/packages/admin-cli.md#using-docker) is
-available in the admin CLI commands doc.
-
-## Usage
-
-The following example shows the difference between using the docker image versus
-npx when executing the `get-sponsor-status` admin CLI command.
+下面的示例显示了在执行`get-sponsor-status` 管理员CLI 命令时，使用docker镜像与npx 之间的差异。
 
 ```sh
 #npx
