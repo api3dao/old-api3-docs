@@ -11,10 +11,13 @@ Requests will be responded to after `minConfirmations` blocks (see
 context). Expect this to correspond to 1–3 minutes based on chain conditions
 such as congestion and block times. These numbers are subject to change.
 
-You can import `AirnodeRrp` addresses from the `@api3/airnode-protocol` package,
-see the [QRNG example project](https://github.com/api3dao/qrng-example).
+You can import `AirnodeRrpV0` addresses from the `@api3/airnode-protocol`
+package, see the
+[QRNG example project](https://github.com/api3dao/qrng-example). The
+[@api3/airnode-protocol](https://www.npmjs.com/package/@api3/airnode-protocol)
+package is distributed via npm.
 
-| Network   | Chain ID | `AirnodeRrp` Address                       | `minConfirmations` |
+| Network   | Chain ID | `AirnodeRrpV0` Address                     | `minConfirmations` |
 | --------- | -------- | ------------------------------------------ | ------------------ |
 | ropsten   | 3        | 0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd | 1                  |
 | rinkeby   | 4        | 0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd | 1                  |
