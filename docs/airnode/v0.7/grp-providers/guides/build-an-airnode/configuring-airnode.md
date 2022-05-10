@@ -66,7 +66,9 @@ with one of more chain providers. See
 [Chains Providers](../../../concepts/chain-providers.md) in _Concepts and
 Definitions_.
 
-Below is a simple chain array with a single chain provider.
+Below is a simple chain array with a single chain provider. See the
+[Reference document](../../../reference/deployment-files/config-json.md) for
+field details.
 
 ```json
 "chains": [
@@ -100,129 +102,6 @@ Below is a simple chain array with a single chain provider.
   }
 ],
 ```
-
-#### authorizers
-
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#authorizers)
-The list of authorizer contract addresses the Airnode deployment will set
-on-chain. See the [Authorization](../../../concepts/authorization.md) doc for
-more information.
-
-#### contracts
-
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#contracts)
-Contains the addresses of the contracts that implement the Airnode protocols.
-Although you can deploy these contracts yourself, you are recommended to use the
-ones that were deployed by API3. You can find them in the list above.
-
-#### id
-
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#id) An
-Airnode can serve multiple chains simultaneously. Set the ID of the desired
-chain in `id` (e.g., `4` for Rinkeby test network). See the list of supported
-chains in the
-[Airnode Contract Addresses](../../../reference/airnode-addresses.md) doc. See
-additional definition in the
-[reference section](../../../reference/deployment-files/config-json.md#id).
-
-#### providers
-
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#providers)
-Airnode can use multiple Ethereum providers per chain. These could be a private
-Ethereum node, or an Ethereum service provider such as Infura. Accordingly, the
-`providers` field is a list which allows for multiple Ethereum providers. Enter
-a user defined `name` which identifies the provider and the provider URL which
-usually is kept in the `secrets.env` file. The name is used in logs.
-
-#### type
-
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#type) The
-type of the chain. Only `evm` is supported at this time. See additional
-definition in the
-[reference section](../../../reference/deployment-files/config-json.md#type).
-
-#### options
-
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#options) An
-object that configures chain-related options.
-
-- txType: The transaction type to use.
-- priorityFee: An object that configures the EIP-1559 Priority Fee.
-- baseFeeMultiplier: Configures the EIP-1559 Base Fee to Maximum Fee Multiplier.
-- fulfillmentGasLimit: The maximum gas limit allowed when Airnode responds to a
-  request. If exceeded, the request is marked as failed and will not be repeated
-  during Airnode's next run cycle. This is the transaction gas cost the
-  requester pays when a response to its request is placed on-chain.
-  > fulfillmentGasLimit = 500000
-  >
-  > 500000 _ 200 _ 1e9 = 0.1 ETH
-
-#### maxConcurrency
-
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#maxconcurrency)
-Airnode is designed to scale well with the number of requests made. To
-accomplish this, it spawns new cloud functions (called handlers) when necessary
-and these handlers run in parallel.
-
-The maximum concurrency specifies the maximum number of concurrent handler calls
-per single Airnode invocation. Airnode is reserving
-([AWS](https://docs.aws.amazon.com/lambda/latest/operatorguide/reserved-concurrency.html))
-and limiting
-([AWS](https://docs.aws.amazon.com/lambda/latest/operatorguide/reserved-concurrency.html),
-[GCP](https://cloud.google.com/functions/docs/configuring/max-instances)) the
-number of spawned cloud functions based on this field. If you want to disable
-this behavior, take a look at the `disableConcurrencyReservations` field in the
-[cloudProvider](#cloudprovider) section.
-
-If you set this field to value X, then Airnode will guarantee that:
-
-- At most X api calls are made to the API
-- At most X transactions (made by blockchain providers) will be made by the
-  blockchain providers of the respective chain
-
-When doing this, Airnode will calculate the total number of requests reported by
-all blockchain providers. If this number exceeds the maximum concurrency limit
-it will start dropping the latest requests from the blockchain provider with the
-maximum number of requests until the number of them is under the limit.
-
-For example, if `maxConcurrency` set to 5 and there are three providers (A, B
-and C) and they reported the following requests:
-
-- A1, A2, A3, A4 and A5
-- B1, B2 and B3
-- C1 and C2
-
-The above example results in the following requests: A1, A2, B1, B2 and C2. Note
-that neither of the providers has more than 2 requests, but this is still not
-enough to meet the limit so request C2 is dropped as well.
-
-::: warning
-
-Note, that this limit only applies to the requests initiated on chain. For
-example, requests initiated using HTTP gateway are not included in this limit.
-
-Also note that, this limit is configured per chain and the limits of different
-chains are unrelated to each other.
-
-:::
-
-#### blockHistoryLimit
-
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#blockhistorylimit)
-The number of blocks in the past that the Airnode deployment should search for
-requests. Defaults to `300` (roughly 1 hour for Ethereum).
-
-#### minConfirmations
-
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#minconfirmations)
-The number of confirmations required for a request to be considered valid.
-Defaults to `0`.
-
-#### ignoreBlockedRequestsAfterBlocks
-
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#ignoreblockedrequestsafterblocks)
-The number of blocks that need to pass for the node to start ignoring blocked
-requests. Defaults to `20`.
 
 ### nodeSettings
 

@@ -111,17 +111,18 @@ respective parameters.
 
 ### `authorizers`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#authorizers)
 (required) - The list of authorizer contract addresses specifying the
 authorization patterns that the Airnode should use. An empty array would
-allow-all.
+allow-all. See the [Authorization](../../concepts/authorization.md) doc for more
+information.
 
 ### `contracts`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#contracts)
 (required) - An object that keeps the addresses of the protocol contracts
 deployed on the respective chain. It must include the `AirnodeRrp` contract
-address.
+address. Although you can deploy these contracts yourself, you are recommended
+to use the ones that were deployed by API3 listed
+[here](../airnode-addresses.md).
 
 ### `id`
 
@@ -130,22 +131,23 @@ address.
 Ethereum-based chain, `id` should be the chain ID as described in
 [EIP-155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md#list-of-chain-ids).
 Refer to the documentations of the chain you will be using to find its chain ID.
+Supported chains are listed under
+[Airnode Contract Addresses](../airnode-addresses.md).
 
 ### `providers`
 
 [<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#providers)
-(required) - List of chain providers that will be used. Note that multiple of
-them can be used simultaneously. The Airnode deployment will expect to find the
-URLs of each of these chain providers in their respective `url` fields.
+(required) - List of chain providers. Note that multiple can be used
+simultaneously. The Airnode deployment will expect to find the URLs of each of
+these chain providers in their respective `url` fields. It is generally
+recommended to provide `url` via interpolation from the `secrets.env` file.
 
 ### `type`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#type)
 (required) - The type of chain. Currently only `evm` is supported.
 
 ### `options`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#options)
 (required) - An object that configures chain-related options.
 
 #### `options.txType`
@@ -171,33 +173,68 @@ The resulting Maximum Fee will equal
 
 #### `options.fulfillmentGasLimit`
 
-(required) - The maximum gas limit allowed when Airnode responds to a request.
-See
-[chain-related options](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#options)
-for additional details.
+(required) - The maximum gas limit allowed when Airnode responds to a request,
+paid by the requester. If exceeded, the request is marked as failed and will not
+be repeated during Airnode's next run cycle.
 
 ### `maxConcurrency`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#maxconcurrency)
-(required) - The maximum concurrency specifies the maximum number of concurrent
-handler calls per single Airnode invocation.
+(required) - The maximum number of concurrent handler calls per single Airnode
+invocation. Airnode is reserving
+([AWS](https://docs.aws.amazon.com/lambda/latest/operatorguide/reserved-concurrency.html))
+and limiting
+([AWS](https://docs.aws.amazon.com/lambda/latest/operatorguide/reserved-concurrency.html),
+[GCP](https://cloud.google.com/functions/docs/configuring/max-instances)) the
+number of spawned cloud functions based on this field.
+
+If you set this field to value X, then Airnode will guarantee that:
+
+- At most X api calls are made to the API
+- At most X transactions (made by blockchain providers) will be made by the
+  blockchain providers of the respective chain
+
+When doing this, Airnode will calculate the total number of requests reported by
+all blockchain providers. If this number exceeds the maximum concurrency limit
+it will start dropping the latest requests from the blockchain provider with the
+maximum number of requests until the number of them is under the limit.
+
+For example, if `maxConcurrency` set to 5 and there are three providers (A, B
+and C) and they reported the following requests:
+
+- A1, A2, A3, A4 and A5
+- B1, B2 and B3
+- C1 and C2
+
+The above example results in the following requests: A1, A2, B1, B2 and C2. Note
+that neither of the providers has more than 2 requests, but this is still not
+enough to meet the limit so request C2 is dropped as well.
+
+If you want to disable this behavior, see
+[`disableConcurrencyReservations`](#cloudproviderdisableconcurrencyreservations).
+
+::: warning
+
+Note, that this limit only applies to the requests initiated on chain. For
+example, requests initiated using HTTP gateway are not included in this limit.
+
+Also note that, this limit is configured per chain and the limits of different
+chains are unrelated to each other.
+
+:::
 
 ### `blockHistoryLimit`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#blockhistorylimit)
 (optional) - The number of blocks in the past that the Airnode deployment should
 search for requests. Defaults to `300` (roughly 1 hour for Ethereum).
 
 ### `minConfirmations`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#minconfirmations)
 (optional) - The number of confirmations required for a request to be considered
 valid. Minimum confirmations refers to the number of blocks that have elapsed
 since the current confirmed block. Defaults to `0`.
 
 ### `ignoreBlockedRequestsAfterBlocks`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#ignoreblockedrequestsafterblocks)
 (optional) - The number of blocks that need to pass for the node to start
 ignoring blocked requests. Defaults to `20`. A request is blocked whenever the
 API call cannot be made. For example, endpoint (specified by its id in the
