@@ -227,3 +227,9 @@ You can use an existing wallet's mnemonic but it is recommended to create one
 specifically for your requester's sponsor wallet.
 
 <airnode-SponsorWalletWarning/>
+
+## QRNG on YouTube
+
+See the YouTube video
+[API3 Developers: QRNG Access & Usage Guide](https://www.youtube.com/watch?v=hnQ5Hd-EGbQ)
+that also covers how to use QRNG.
