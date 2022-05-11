@@ -32,9 +32,9 @@ host the oracle node?
 2. If a third-party middleman hosts the oracle node, the oracle is called a
    **third-party oracle**.
 
-_See our article,
+<!--_See our article,
 [First-Party vs Third-Party Oracles](https://medium.com/api3/first-party-vs-third-party-oracles-90356e3cffe5)
-for a comparison of the two types of oracles._
+for a comparison of the two types of oracles._-->
 
 Third party oracles are both insecure and expensive (see the
 <a href="/api3-whitepaper-v1.0.2.pdf#Issues%20with%20Third-Party%20Oracles%20as%20Middlemen" target="_api3-whitepaper">API3
