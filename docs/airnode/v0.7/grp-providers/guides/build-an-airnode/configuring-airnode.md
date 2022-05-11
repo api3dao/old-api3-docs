@@ -66,9 +66,7 @@ with one of more chain providers. See
 [Chains Providers](../../../concepts/chain-providers.md) in _Concepts and
 Definitions_.
 
-Below is a simple chain array with a single chain provider. See the
-[Reference document](../../../reference/deployment-files/config-json.md) for
-field details.
+Below is a simple chain array with a single chain provider.
 
 ```json
 "chains": [
@@ -102,6 +100,23 @@ field details.
   }
 ],
 ```
+
+See the below links for the details of each field:
+
+- [authorizers](../../../reference/deployment-files/config-json.md#authorizers)
+- [contracts](../../../reference/deployment-files/config-json.md#contracts)
+- [id](../../../reference/deployment-files/config-json.md#id)
+- [providers](../../../reference/deployment-files/config-json.md#providers)
+- [type](../../../reference/deployment-files/config-json.md#type)
+- [options](../../../reference/deployment-files/config-json.md#options)
+  - [options.txType](../../../reference/deployment-files/config-json.md#optionstxtype)
+  - [options.priorityFee](../../../reference/deployment-files/config-json.md#optionspriorityfee)
+  - [options.baseFeeMultiplier](../../../reference/deployment-files/config-json.md#optionsbasefeemultiplier)
+  - [options.fulfillmentGasLimit](../../../reference/deployment-files/config-json.md#optionsfulfillmentgaslimit)
+- [maxConcurrency](../../../reference/deployment-files/config-json.md#maxconcurrency)
+- [blockHistoryLimit](../../../reference/deployment-files/config-json.md#blockhistorylimit)
+- [minConfirmations](../../../reference/deployment-files/config-json.md#minconfirmations)
+- [ignoreBlockedRequestsAfterBlocks](../../../reference/deployment-files/config-json.md#ignoreblockedrequestsafterblocks)
 
 ### nodeSettings
 
