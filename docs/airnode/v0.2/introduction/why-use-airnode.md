@@ -20,8 +20,7 @@ should be understood.
 
 - First-party - First-party oracles overcome the significant disadvantages of
   third-party oracle node solutions that use middlemen to deliver APIs to the
-  blockchain. You can read about these in
-  [this blog post](https://medium.com/api3/first-party-vs-third-party-oracles-90356e3cffe5).
+  blockchain.
 - Simple - Airnode's simple "set and forget" design avoids the time, complexity,
   and cost of other third-party oracle node solutions.
 - Stateless - Airnode is stateless and treats the blockchain as the single
