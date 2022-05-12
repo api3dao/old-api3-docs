@@ -171,6 +171,13 @@ to`{"value": 3.12, "value": "gwei"}`)
 The resulting Maximum Fee will equal
 `(Base Fee * baseFeeMultiplier) + priorityFee`
 
+#### `options.gasPriceMultiplier`
+
+(optional) - Configures the Legacy Gas Price Multiplier (no multiplier is used
+by default)
+
+The resulting Gas Price will equal `Gas Price * gasPriceMultiplier`
+
 #### `options.fulfillmentGasLimit`
 
 (required) - The maximum gas limit allowed when Airnode responds to a request,

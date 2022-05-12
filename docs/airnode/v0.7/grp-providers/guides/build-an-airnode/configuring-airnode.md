@@ -112,6 +112,7 @@ See the below links for the details of each field:
   - [options.txType](../../../reference/deployment-files/config-json.md#options-txtype)
   - [options.priorityFee](../../../reference/deployment-files/config-json.md#options-priorityfee)
   - [options.baseFeeMultiplier](../../../reference/deployment-files/config-json.md#options-basefeemultiplier)
+  - [options.gasPriceMultiplier](../../../reference/deployment-files/config-json.md#options-gaspricemultiplier)
   - [options.fulfillmentGasLimit](../../../reference/deployment-files/config-json.md#options-fulfillmentgaslimit)
 - [maxConcurrency](../../../reference/deployment-files/config-json.md#maxconcurrency)
 - [blockHistoryLimit](../../../reference/deployment-files/config-json.md#blockhistorylimit)

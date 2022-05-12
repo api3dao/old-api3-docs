@@ -54,14 +54,23 @@ function tempCB(dirPath, dirs, files) {
   arr.push({ dir: dirPath, files: files });
 }
 
+// TODO: This needs to move to an ignore file.
+/*
+var fs = require("fs");
+var text = fs.readFileSync("./link-validator-ignore.txt");
+var textByLine = text.split("\n")
+*/
+let ignore = [
+  'https://staging.api3.eth.link/#/',
+  'https://www.coingecko.com/en/api/documentation',
+  'https://faucet.goerli.mudit.blog/',
+  'https://www.rinkebyfaucet.com/',
+  'https://dx.doi.org/10.1063/1.3597793',
+];
+
 async function testLink(url, filePath) {
   try {
-    // START: ignore section
-    // TODO: This needs to move to an ignore file.
-    let ignore = [
-      'https://staging.api3.eth.link/#/',
-      'https://www.coingecko.com/en/api/documentation',
-    ];
+    // IGNORE
     // Some a tags may have javascript:void(0) in href
     if (ignore.indexOf(url) > -1 || url.indexOf('javascript:void(0)') > -1) {
       return;

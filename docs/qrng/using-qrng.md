@@ -10,7 +10,9 @@ title: How to use API3 QRNG
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 The API3 QRNG service is implemented using the Airnode request–response protocol
-contract, `AirnodeRrp`, to acquire a random number.
+contract,
+[AirnodeRrpV0](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/AirnodeRrpV0.sol),
+to acquire a random number.
 
 ::: tip Gas Costs
 
@@ -22,19 +24,19 @@ on-chain in response to a request, which the requester needs to pay for.
 
 ## How it Works
 
-Upon request, the provider [Airnode](/airnode/v0.6/) calls a designated API
-operation and acquires a random number and then delivers it on-chain, via the
-`AirnodeRrp` protocol contract, to a requester.
+Upon request, [Airnode](/airnode/v0.6/) calls a designated API operation and
+acquires a random number and then delivers it on-chain, via the `AirnodeRrpV0`
+protocol contract, to a requester.
 
 In the diagram below a requester (smart contract) submits a request for a random
-number to `AirnodeRrp`. Airnode gathers the request from the `AirnodeRrp`
-protocol contract, gets the random number from the API and sends it back to
-`AirnodeRrp`. Once received, `AirnodeRrp` performs a callback to the requester
-with the random number.
+number to `AirnodeRrpV0`. Airnode gathers the request from the `AirnodeRrpV0`
+protocol contract, gets the random number from an API operation and sends it
+back to `AirnodeRrpV0`. Once received, `AirnodeRrpV0` performs a callback to the
+requester with the random number.
 
 > <img src="./assets/images/access-overview.png" width="400"  />
 
-Calling `AirnodeRrp` for a random number is the same as any other Airnode
+Calling `AirnodeRrpV0` for a random number is the same as any other Airnode
 request. Read more about how a requester
 [accesses an Airnode](/airnode/v0.6/grp-developers/) to acquire data from API
 operations.
@@ -62,9 +64,11 @@ Preparing to use the QRNG service involves three steps.
 ### Step 1: Create a Requester
 
 Call the QRNG service using the _request–response protocol (RRP)_ implemented by
-the on-chain `AirnodeRrp` contract. Refer to the
+the on-chain `AirnodeRrpV0` contract. Refer to the
 [Calling an Airnode](/airnode/v0.6/grp-developers/call-an-airnode.md) doc for a
-detailed explanation and instructions to make a `AirnodeRrp` request.
+detailed explanation and instructions to make a `AirnodeRrpV0` request. The
+[@api3/airnode-protocol](https://www.npmjs.com/package/@api3/airnode-protocol)
+package is distributed via npm.
 
 The code example below is what a requester might look like when requesting a
 single random number. The code is extracted from the
@@ -75,9 +79,9 @@ each call.
 ```js
 //SPDX-License-Identifier: MIT
 pragma solidity 0.8.9;
-import "@api3/airnode-protocol/contracts/rrp/requesters/RrpRequester.sol";
+import "@api3/airnode-protocol/contracts/rrp/requesters/RrpRequesterV0.sol";
 
-contract QrngExample is RrpRequester {
+contract QrngExample is RrpRequesterV0 {
     event RequestedUint256(bytes32 indexed requestId);
     event ReceivedUint256(bytes32 indexed requestId, uint256 response);
 
@@ -88,7 +92,7 @@ contract QrngExample is RrpRequester {
 
     mapping(bytes32 => bool) public expectingRequestWithIdToBeFulfilled;
 
-    constructor(address _airnodeRrp) RrpRequester(_airnodeRrp) {}
+    constructor(address _airnodeRrp) RrpRequesterV0(_airnodeRrp) {}
 
     // Set parameters used by airnodeRrp.makeFullRequest(...)
     // See makeRequestUint256()
@@ -223,3 +227,9 @@ You can use an existing wallet's mnemonic but it is recommended to create one
 specifically for your requester's sponsor wallet.
 
 <airnode-SponsorWalletWarning/>
+
+## QRNG on YouTube
+
+See the YouTube video
+[API3 Developers: QRNG Access & Usage Guide](https://www.youtube.com/watch?v=hnQ5Hd-EGbQ)
+that also covers how to use QRNG.
