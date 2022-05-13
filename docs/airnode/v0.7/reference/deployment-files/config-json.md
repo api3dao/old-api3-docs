@@ -148,7 +148,9 @@ recommended to provide `url` via interpolation from the `secrets.env` file.
 
 ### `options`
 
-(required) - An object that configures chain-related options.
+(required) - An object that configures chain-related options. See
+[Configuring an Airnode](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#considerations-transaction-options)
+for some considerations.
 
 #### `options.txType`
 
@@ -194,40 +196,12 @@ and limiting
 [GCP](https://cloud.google.com/functions/docs/configuring/max-instances)) the
 number of spawned cloud functions based on this field.
 
-If you set this field to value X, then Airnode will guarantee that:
-
-- At most X api calls are made to the API
-- At most X transactions (made by blockchain providers) will be made by the
-  blockchain providers of the respective chain
-
-When doing this, Airnode will calculate the total number of requests reported by
-all blockchain providers. If this number exceeds the maximum concurrency limit
-it will start dropping the latest requests from the blockchain provider with the
-maximum number of requests until the number of them is under the limit.
-
-For example, if `maxConcurrency` set to 5 and there are three providers (A, B
-and C) and they reported the following requests:
-
-- A1, A2, A3, A4 and A5
-- B1, B2 and B3
-- C1 and C2
-
-The above example results in the following requests: A1, A2, B1, B2 and C2. Note
-that neither of the providers has more than 2 requests, but this is still not
-enough to meet the limit so request C2 is dropped as well.
-
 If you want to disable this behavior, see
-[`disableConcurrencyReservations`](#cloudproviderdisableconcurrencyreservations).
+[`disableConcurrencyReservations`](#cloudprovider-disableconcurrencyreservations).
 
-::: warning
-
-Note, that this limit only applies to the requests initiated on chain. For
-example, requests initiated using HTTP gateway are not included in this limit.
-
-Also note that, this limit is configured per chain and the limits of different
-chains are unrelated to each other.
-
-:::
+See
+[Configuring an Airnode](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#considerations-concurrency)
+for additional considerations.
 
 ### `blockHistoryLimit`
 
