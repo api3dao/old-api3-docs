@@ -44,6 +44,7 @@ export default {
   },
   methods: {
     onClickOutside(url, event) {
+      console.log('emitted');
       this.$emit('clicked'); // goes to parent method
     },
   },
