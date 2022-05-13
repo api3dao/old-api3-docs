@@ -1,0 +1,325 @@
+<template>
+  <div class="sb-search2-modal" v-click-outside="onClickOutside">
+    <div class="sb-search-input-box">
+      <input
+        ref="input"
+        aria-label="Search"
+        :value="query"
+        :class="{ focused: focused }"
+        placeholder="minimum 3 characters"
+        autocomplete="off"
+        spellcheck="false"
+        @input="query = $event.target.value"
+        @focus="focused = true"
+        @blur="focused = false"
+        @keyup.enter="go(focusIndex)"
+        @keyup.up="onUp"
+        @keyup.down="onDown"
+      />
+      <br />
+      <label
+        style="
+          display: inline-block;
+          margin-top: 6px;
+          cursor: pointer;
+          user-select: none;
+        "
+      >
+        <input
+          type="checkbox"
+          style="
+            transform: scale(1.5, 1.5);
+            margin-top: 1px;
+            vertical-align: middle;
+            position: relative;
+            bottom: 0px;
+            cursor: pointer;
+          "
+          id="showPath"
+          :checked="showPath"
+          v-on:click="togglePath()"
+        /><span style="font-size: large; margin-left: 8px">Show path</span>
+      </label>
+    </div>
+
+    <!-- start lists-->
+    <div v-if="suggestions">
+      <div v-if="airnode.length != 0">
+        <search-SearchBoxList2
+          docSetTitle="Airnode v0.6"
+          :showPath="showPath"
+          :suggestions="airnode"
+        />
+        <br />
+      </div>
+
+      <div v-if="beacons.length != 0">
+        <search-SearchBoxList2
+          docSetTitle="Beacons v0.1"
+          :showPath="showPath"
+          :suggestions="beacons"
+        />
+        <br />
+      </div>
+
+      <div v-if="ois.length != 0">
+        <search-SearchBoxList2
+          docSetTitle="OIS v1.0.0"
+          :showPath="showPath"
+          :suggestions="ois"
+        />
+        <br />
+      </div>
+
+      <div v-if="qrng.length != 0">
+        <search-SearchBoxList2
+          docSetTitle="QRNG"
+          :showPath="showPath"
+          :suggestions="qrng"
+        />
+        <br />
+      </div>
+
+      <div v-if="api3.length != 0">
+        <search-SearchBoxList2
+          docSetTitle="API3"
+          :showPath="showPath"
+          :suggestions="api3"
+        />
+        <br />
+      </div>
+
+      <div v-if="dao_members.length != 0">
+        <search-SearchBoxList2
+          docSetTitle="DAO Members"
+          :showPath="showPath"
+          :suggestions="dao_members"
+        />
+        <br />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import Vue from 'vue';
+import vClickOutside from 'v-click-outside';
+Vue.use(vClickOutside);
+
+import matchQuery from '../match-query';
+import {
+  latestVersion,
+  latestBeaconVersion,
+  latestOisVersion,
+} from '../../config.js';
+
+/* global SEARCH_MAX_SUGGESTIONS, SEARCH_PATHS, SEARCH_HOTKEYS */
+export default {
+  name: 'SearchBox',
+  data() {
+    return {
+      query: localStorage.getItem('search_query') || '',
+      scrollY: localStorage.getItem('scrollY'),
+      focused: false,
+      focusIndex: 0,
+      latestVersion: latestVersion,
+      latestBeaconVersion: latestBeaconVersion,
+      latestOisVersion: latestOisVersion,
+      usablePaths: [
+        latestVersion,
+        latestBeaconVersion,
+        latestOisVersion,
+        '/qrng/',
+        '/api3/',
+        '/dao-members',
+      ],
+      showPath: true, // managed by the checkbox
+    };
+  },
+
+  computed: {
+    showSuggestions() {
+      return this.focused && this.suggestions && this.suggestions.length;
+    },
+    airnode() {
+      return this.suggestions.filter(
+        (item) => item.path.indexOf(latestVersion) === 0
+      );
+    },
+    beacons() {
+      return this.suggestions.filter(
+        (item) => item.path.indexOf(latestBeaconVersion) === 0
+      );
+    },
+    ois() {
+      return this.suggestions.filter(
+        (item) => item.path.indexOf(latestOisVersion) === 0
+      );
+    },
+    qrng() {
+      return this.suggestions.filter(
+        (item) => item.path.indexOf('/qrng/') === 0
+      );
+    },
+    api3() {
+      return this.suggestions.filter(
+        (item) => item.path.indexOf('/api3/') === 0
+      );
+    },
+    dao_members() {
+      return this.suggestions.filter(
+        (item) => item.path.indexOf('/dao-members/') === 0
+      );
+    },
+    suggestions() {
+      const query = this.query.trim().toLowerCase();
+      if (query.length < 3) {
+        localStorage.setItem('search_query', '');
+        return;
+      }
+      localStorage.setItem('search_query', query);
+
+      const { pages } = this.$site;
+      const max =
+        this.$site.themeConfig.searchMaxSuggestions || SEARCH_MAX_SUGGESTIONS;
+
+      const res = [];
+      for (let i = 0; i < pages.length; i++) {
+        if (res.length >= max) break;
+        const p = pages[i];
+
+        // Filter by the path in "p"
+        if (!this.filterByPath(p)) {
+          continue;
+        }
+
+        if (matchQuery(query, p)) {
+          //console.log(1, p);
+          res.push(p);
+        } else if (p.headers) {
+          //console.log(2, p);
+          for (let j = 0; j < p.headers.length; j++) {
+            if (res.length >= max) break;
+            const h = p.headers[j];
+            if (h.title && matchQuery(query, p, h.title)) {
+              res.push(
+                Object.assign({}, p, {
+                  path: p.path + '#' + h.slug,
+                  header: h,
+                })
+              );
+            }
+          }
+        }
+      }
+      return res;
+    },
+  },
+
+  mounted() {
+    this.placeholder = this.$site.themeConfig.searchPlaceholder || '';
+    document.addEventListener('keydown', this.onHotkey);
+  },
+
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.onHotkey);
+  },
+
+  methods: {
+    onClickOutside(url, event) {
+      console.log('emitted click outside');
+      this.$emit('clicked'); // goes to parent method
+    },
+    togglePath() {
+      this.showPath = !this.showPath;
+    },
+    filterByPath(p) {
+      const arr = this.usablePaths.filter(
+        (path) => p.regularPath.indexOf(path) === 0
+      );
+      if (arr.length > 0) {
+        //p.docSet = 'Doc Sst name here';
+        return true;
+      }
+      return false;
+    },
+    onHotkey(event) {
+      if (
+        event.srcElement === document.body &&
+        SEARCH_HOTKEYS.includes(event.key)
+      ) {
+        this.$refs.input.focus();
+        event.preventDefault();
+      }
+    },
+
+    onUp() {
+      if (this.showSuggestions) {
+        if (this.focusIndex > 0) {
+          this.focusIndex--;
+        } else {
+          this.focusIndex = this.suggestions.length - 1;
+        }
+      }
+    },
+
+    onDown() {
+      if (this.showSuggestions) {
+        if (this.focusIndex < this.suggestions.length - 1) {
+          this.focusIndex++;
+        } else {
+          this.focusIndex = 0;
+        }
+      }
+    },
+  },
+};
+</script>
+
+<style scoped>
+.sb-search2-modal {
+  font-size: medium;
+  padding: 10px;
+  border-radius: 6px;
+  color: gray;
+  position: absolute;
+  left: 0px;
+  top: 30px;
+  width: 300px !important;
+  height: 700px;
+  z-index: 999;
+  background: #ffffff;
+  box-shadow: 2px 2px 20px 1px;
+  overflow-y: auto;
+}
+</style>
+
+<style lang="stylus">
+
+.sb-show-path{
+  font-size x-large
+  height: 2rem
+}
+.sb-search-input-box
+  text-align center
+  width 12rem
+  input
+    cursor text
+    height 1.5rem
+    color lighten($textColor, 25%)
+    display inline-block
+    border 2px solid darken($borderColor, 10%)
+    border-radius 2rem
+    font-size 1.2rem
+    line-height 2rem
+    padding 0.3rem 0.5rem .4rem 2rem
+    outline none
+    transition all .2s ease
+    background #fff url(../search.svg) 0.6rem 0.6rem no-repeat
+    background-size 1.2rem
+
+@media (max-width: $MQMobile)
+  .sb-search2-modal
+    width 300px
+    margin-left calc(100% - 90vw)
+</style>
