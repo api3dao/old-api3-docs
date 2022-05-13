@@ -162,21 +162,21 @@ for some considerations.
 
 #### `options.priorityFee`
 
-(optional) - An object that configures the EIP-1559 Priority Fee (defaults
-to`{"value": 3.12, "value": "gwei"}`)
+(optional) - An object that configures the EIP-1559 Priority Fee. Defaults to:
+`{"value": 3.12, "value": "gwei"}`.
 
 #### `options.baseFeeMultiplier`
 
-(optional) - Configures the EIP-1559 Base Fee to Maximum Fee Multiplier
-(defaults to `2`)
+(optional) - Number multiplied by the Base Fee to yield the Maximum Fee for
+EIP-1559 transactions. Defaults to: `2`.
 
 The resulting Maximum Fee will equal
 `(Base Fee * baseFeeMultiplier) + priorityFee`
 
 #### `options.gasPriceMultiplier`
 
-(optional) - Configures the Legacy Gas Price Multiplier (no multiplier is used
-by default)
+(optional) - Number with a maximum of two decimals that gets multiplied by the
+legacy gas price. No multiplier is used by default.
 
 The resulting Gas Price will equal `Gas Price * gasPriceMultiplier`
 
