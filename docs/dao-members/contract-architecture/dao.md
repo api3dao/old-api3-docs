@@ -1,6 +1,9 @@
 ---
 title: DAO (Api3Template.sol)
+folder: Contract Architecture
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

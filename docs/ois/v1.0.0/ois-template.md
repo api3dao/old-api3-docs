@@ -2,8 +2,6 @@
 title: OIS Template
 ---
 
-<TitleSpan>OIS</TitleSpan>
-
 # {{$frontmatter.title}}
 
 <VersionWarning/>

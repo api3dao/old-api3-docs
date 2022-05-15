@@ -1,15 +1,8 @@
 <template>
   <div class="ls-search-list">
-    <H3
-      style="
-        user-select: none;
-        max-width: 200px;
-        border-bottom: solid lightgrey 1px;
-      "
+    <H3 class="ls-docSet-heading"
       >{{ docSetTitle }}
-      <span style="font-size: small; margin-left: 10px; color: gray"
-        >({{ suggestions.length }})</span
-      >
+      <span class="ls-docSet-cnt">({{ suggestions.length }})</span>
     </H3>
 
     <ul class="ls-suggestions" @mouseleave="unfocus">
@@ -22,13 +15,13 @@
         @mouseenter="focus(i)"
       >
         <a :href="s.path" @click.prevent>
-          <span class="ls-page-title">{{ s.title || s.path }}</span
-          ><br />
-          <span v-if="s.header" class="ls-header">
-            &gt; {{ s.header.title }}</span
-          >
-          <div v-if="showPath" style="font-family: courier; font-size: x-small">
-            {{ s.path }}
+          <div class="ls-page-folder" v-if="s.frontmatter.folder">
+            <span style="font-size: x-small">📂</span>
+            {{ s.frontmatter.folder }}
+          </div>
+          <div class="ls-page-title">{{ s.title }}</div>
+          <div v-if="s.header" class="ls-header">
+            {{ s.header.title }}
           </div>
         </a>
       </li>
@@ -37,10 +30,9 @@
 </template>
 
 <script>
-/* global SEARCH_MAX_SUGGESTIONS, SEARCH_PATHS, SEARCH_HOTKEYS */
 export default {
   name: 'SearchBoxList2',
-  props: ['docSetTitle', 'showPath', 'suggestions'],
+  props: ['docSetTitle', 'suggestions'],
   data() {
     return {
       focused: false,
@@ -68,10 +60,15 @@ export default {
 <style lang="stylus">
 
 .ls-search-list
-
-
+  .ls-docSet-heading
+    max-width 200px
+    border-bottom solid lightgrey 1px
+    .ls-docSet-cnt
+      font-size small
+      margin-left 10px
+      color gray
   .ls-suggestions
-
+    margin-bottom -50px
     margin-top -15px
     background #fff
     max-width 34rem
@@ -88,17 +85,19 @@ export default {
     border-radius 6px
     cursor pointer
     margin .5rem
-
     a
       white-space normal
       color lighten($textColor, 35%)
-      .ls-page-title
+      .ls-page-folder
         font-size 0.9em
         font-weight 600
+      .ls-page-title
+        font-size 0.8em
+        font-weight 500
 
       .ls-header
-        font-size 0.8em
-        user-select none
+        font-size 0.7em
+        font-weight 400
 
 
     &.focused

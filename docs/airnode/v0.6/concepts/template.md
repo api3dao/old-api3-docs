@@ -1,15 +1,16 @@
 ---
 title: Template
+folder: Concepts and Definitions
 ---
 
-<TitleSpan>Concepts and Definitions</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 
 <VersionWarning/>
 
-<!--TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" /-->
+<TocHeader />
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 An oracle request has many parameters. It is very common for
 [requesters](requester.md) (e.g., a data feed) to make repeated requests with

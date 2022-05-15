@@ -1,8 +1,9 @@
 ---
 title: Getting Started
+folder: API Providers > Build an Airnode
 ---
 
-<TitleSpan>Build an Airnode</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

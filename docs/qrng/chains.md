@@ -2,8 +2,6 @@
 title: Chains
 ---
 
-<TitleSpan>QRNG</TitleSpan>
-
 # {{$frontmatter.title}}
 
 Requests will be responded to after `minConfirmations` blocks (see

@@ -3,8 +3,6 @@ title: Specification
 airnodeVersion: v0.5
 ---
 
-<TitleSpan>OIS</TitleSpan>
-
 # {{$frontmatter.title}}
 
 <VersionWarning/>

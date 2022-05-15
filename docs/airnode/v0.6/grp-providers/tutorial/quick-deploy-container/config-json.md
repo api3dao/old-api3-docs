@@ -1,8 +1,9 @@
 ---
 title: config.json
+folder: API Providers > Tutorials > Quick Deploy Container
 ---
 
-<TitleSpan>Quick Deploy Container</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

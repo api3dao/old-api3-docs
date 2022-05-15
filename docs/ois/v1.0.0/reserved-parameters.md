@@ -2,8 +2,6 @@
 title: Reserved parameters
 ---
 
-<TitleSpan>OIS</TitleSpan>
-
 # {{$frontmatter.title}}
 
 <VersionWarning/>

@@ -1,6 +1,9 @@
 ---
 title: Dashboard Attributes
+folder: Contract Architecture
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

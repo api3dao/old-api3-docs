@@ -1,8 +1,9 @@
 ---
 title: readBeacon()
+folder: Functions
 ---
 
-<TitleSpan>Functions</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

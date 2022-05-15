@@ -1,5 +1,9 @@
 <template>
-  <div class="sb-search2-modal" v-click-outside="onClickOutside">
+  <div
+    class="sb-search2-modal"
+    v-click-outside="onClickOutside"
+    style="user-select: none"
+  >
     <div class="sb-search-input-box">
       <input
         ref="input"
@@ -15,39 +19,14 @@
         @keyup.enter="go(focusIndex)"
         @keyup.up="onUp"
         @keyup.down="onDown"
-      />
-      <br />
-      <label
-        style="
-          display: inline-block;
-          margin-top: 6px;
-          cursor: pointer;
-          user-select: none;
-        "
-      >
-        <input
-          type="checkbox"
-          style="
-            transform: scale(1.5, 1.5);
-            margin-top: 1px;
-            vertical-align: middle;
-            position: relative;
-            bottom: 0px;
-            cursor: pointer;
-          "
-          id="showPath"
-          :checked="showPath"
-          v-on:click="togglePath()"
-        /><span style="font-size: large; margin-left: 8px">Show path</span>
-      </label>
+      />&nbsp;&nbsp;<span v-if="suggestions">({{ suggestions.length }})</span>
     </div>
 
     <!-- start lists-->
-    <div v-if="suggestions">
+    <div v-if="suggestions" style="user-select: none">
       <div v-if="airnode.length != 0">
         <search-SearchBoxList2
           docSetTitle="Airnode v0.6"
-          :showPath="showPath"
           :suggestions="airnode"
         />
         <br />
@@ -56,43 +35,29 @@
       <div v-if="beacons.length != 0">
         <search-SearchBoxList2
           docSetTitle="Beacons v0.1"
-          :showPath="showPath"
           :suggestions="beacons"
         />
         <br />
       </div>
 
       <div v-if="ois.length != 0">
-        <search-SearchBoxList2
-          docSetTitle="OIS v1.0.0"
-          :showPath="showPath"
-          :suggestions="ois"
-        />
+        <search-SearchBoxList2 docSetTitle="OIS v1.0.0" :suggestions="ois" />
         <br />
       </div>
 
       <div v-if="qrng.length != 0">
-        <search-SearchBoxList2
-          docSetTitle="QRNG"
-          :showPath="showPath"
-          :suggestions="qrng"
-        />
+        <search-SearchBoxList2 docSetTitle="QRNG" :suggestions="qrng" />
         <br />
       </div>
 
       <div v-if="api3.length != 0">
-        <search-SearchBoxList2
-          docSetTitle="API3"
-          :showPath="showPath"
-          :suggestions="api3"
-        />
+        <search-SearchBoxList2 docSetTitle="API3" :suggestions="api3" />
         <br />
       </div>
 
       <div v-if="dao_members.length != 0">
         <search-SearchBoxList2
           docSetTitle="DAO Members"
-          :showPath="showPath"
           :suggestions="dao_members"
         />
         <br />
@@ -133,7 +98,6 @@ export default {
         '/api3/',
         '/dao-members',
       ],
-      showPath: true, // managed by the checkbox
     };
   },
 
@@ -194,10 +158,8 @@ export default {
         }
 
         if (matchQuery(query, p)) {
-          //console.log(1, p);
           res.push(p);
         } else if (p.headers) {
-          //console.log(2, p);
           for (let j = 0; j < p.headers.length; j++) {
             if (res.length >= max) break;
             const h = p.headers[j];
@@ -205,6 +167,7 @@ export default {
               res.push(
                 Object.assign({}, p, {
                   path: p.path + '#' + h.slug,
+                  folder: p.folder,
                   header: h,
                 })
               );
@@ -230,15 +193,12 @@ export default {
       console.log('emitted click outside');
       this.$emit('clicked'); // goes to parent method
     },
-    togglePath() {
-      this.showPath = !this.showPath;
-    },
     filterByPath(p) {
       const arr = this.usablePaths.filter(
         (path) => p.regularPath.indexOf(path) === 0
       );
       if (arr.length > 0) {
-        //p.docSet = 'Doc Sst name here';
+        //p.docSet = 'Doc Set name here';
         return true;
       }
       return false;
@@ -284,7 +244,7 @@ export default {
   color: gray;
   position: absolute;
   left: 0px;
-  top: 30px;
+  top: 46px;
   width: 300px !important;
   height: 700px;
   z-index: 999;
@@ -301,9 +261,9 @@ export default {
   height: 2rem
 }
 .sb-search-input-box
-  text-align center
-  width 12rem
+
   input
+    width 13rem
     cursor text
     height 1.5rem
     color lighten($textColor, 25%)

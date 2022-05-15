@@ -1,8 +1,9 @@
 ---
 title: Beacon IDs
+folder: Reference
 ---
 
-<TitleSpan>Reference</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

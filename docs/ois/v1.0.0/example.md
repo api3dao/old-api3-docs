@@ -2,8 +2,6 @@
 title: Example OIS Object
 ---
 
-<TitleSpan>OIS</TitleSpan>
-
 # {{$frontmatter.title}}
 
 <VersionWarning/>

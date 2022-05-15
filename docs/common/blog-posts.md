@@ -1,6 +1,9 @@
 ---
 title: Blog Posts
+folder: Introduction
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

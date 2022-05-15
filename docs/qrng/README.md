@@ -2,8 +2,6 @@
 title: What is QRNG?
 ---
 
-<TitleSpan>QRNG</TitleSpan>
-
 # {{$frontmatter.title}}
 
 <VersionWarning/>

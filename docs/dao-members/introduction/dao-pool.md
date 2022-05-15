@@ -1,6 +1,9 @@
 ---
 title: The DAO Pool
+folder: Introduction
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

@@ -1,6 +1,9 @@
 ---
 title: How to Vote
+folder: Dashboard
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

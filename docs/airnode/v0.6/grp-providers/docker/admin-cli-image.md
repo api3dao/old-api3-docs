@@ -1,8 +1,9 @@
 ---
 title: Airnode Admin CLI Image
+folder: API Providers > Docker Images
 ---
 
-<TitleSpan>Docker Images</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 
