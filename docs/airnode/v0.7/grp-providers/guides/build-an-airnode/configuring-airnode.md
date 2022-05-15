@@ -204,7 +204,7 @@ The `nodeSettings` field holds node-specific (Airnode) configuration parameters.
   },
 ```
 
-### Considerations: Cloud Providers
+#### Considerations: Cloud Providers
 
 Currently, Amazon Web Services (AWS) and Google Cloud Platform (GCP) are
 supported cloud providers for hosting Airnode. Note that while many fields
@@ -212,7 +212,7 @@ within `nodeSettings` are required by both, there are some cloud provider
 specific fields. For example, `cloudProvider.projectId` is only required with
 GCP.
 
-### Considerations: Gateways
+#### Considerations: Gateways
 
 Airnode offers two gateways for accessing provider HTTP endpoints without using
 the blockchain: `httpGateway` and `httpSignedDataGateway`. For more information
@@ -296,17 +296,17 @@ and that these endpoints can be triggers for `rrp`, `http`, and/or
 #### triggers Reference
 
 - [rrp](../../../reference/deployment-files/config-json.md#rrp)
-  - [rrp[n].endpointId](../../../reference/deployment-files/config-json.md#rrpn-endpointid)
-  - [rrp[n].oisTitle](../../../reference/deployment-files/config-json.md#rrpn-oistitle)
-  - [rrp[n].endpointName](../../../reference/deployment-files/config-json.md#rrpn-endpointname)
+  - [rrp[n].endpointId](../../../reference/deployment-files/config-json.md#rrp-n-endpointid)
+  - [rrp[n].oisTitle](../../../reference/deployment-files/config-json.md#rrp-n-oistitle)
+  - [rrp[n].endpointName](../../../reference/deployment-files/config-json.md#rrp-n-endpointname)
 - [http](../../../reference/deployment-files/config-json.md#http)
-  - [http[n].endpointId](../../../reference/deployment-files/config-json.md#httpn-endpointid)
-  - [http[n].oisTitle](../../../reference/deployment-files/config-json.md#httpn-oistitle)
-  - [http[n].endpointName](../../../reference/deployment-files/config-json.md#httpn-endpointname)
+  - [http[n].endpointId](../../../reference/deployment-files/config-json.md#http-n-endpointid)
+  - [http[n].oisTitle](../../../reference/deployment-files/config-json.md#http-n-oistitle)
+  - [http[n].endpointName](../../../reference/deployment-files/config-json.md#http-n-endpointname)
 - [httpSignedData](../../../reference/deployment-files/config-json.md#httpsigneddata)
-  - [httpSignedData[n].endpointId](../../../reference/deployment-files/config-json.md#httpsigneddatan-endpointid)
-  - [httpSignedData[n].oisTitle](../../../reference/deployment-files/config-json.md#httpsigneddatan-oistitle)
-  - [httpSignedData[n].endpointName](../../../reference/deployment-files/config-json.md#httpsigneddatan-endpointname)
+  - [httpSignedData[n].endpointId](../../../reference/deployment-files/config-json.md#httpsigneddata-n-endpointid)
+  - [httpSignedData[n].oisTitle](../../../reference/deployment-files/config-json.md#httpsigneddata-n-oistitle)
+  - [httpSignedData[n].endpointName](../../../reference/deployment-files/config-json.md#httpsigneddata-n-endpointname)
 
 ### ois
 
