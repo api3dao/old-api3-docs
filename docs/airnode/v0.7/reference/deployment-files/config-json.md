@@ -296,10 +296,10 @@ under.
 
 (required) - The wallet mnemonic that will be used as the Airnode's BIP 44
 wallet from which the Airnode's
-[address](../../../concepts/airnode.md#airnodeaddress) will be derived. It is
-not required to fund the wallet to run the Airnode but must be funded to
-announce the [xpub](../../../concepts/airnode.md#xpub) of the Airnode on-chain
-which is optional.
+[address](../../concepts/airnode.md#airnodeaddress) will be derived. It is not
+required to fund the wallet to run the Airnode but must be funded to announce
+the [xpub](../../concepts/airnode.md#xpub) of the Airnode on-chain which is
+optional.
 
 ### `heartbeat`
 
@@ -505,8 +505,10 @@ the HTTP Signed Data Gateway.
 
 A list of OIS objects. Since each OIS specifies the integration of an API to an
 oracle, a single Airnode deployment can serve multiple APIs. To avoid
-duplication of content, see the [API Integration](api-integration.md) guide and
-the [Oracle Integration Specifications (OIS)](/ois/v1.0.0/) documentation.
+duplication of content, see the
+[API Integration](../../grp-providers/guides/build-an-airnode/api-integration.md)
+guide and the [Oracle Integration Specifications (OIS)](/ois/v1.0.0/)
+documentation.
 
 ## apiCredentials
 
