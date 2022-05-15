@@ -283,8 +283,7 @@ Therefore, try to choose a region and stick to it for this specific deployment.
 #### `cloudProvider.disableConcurrencyReservations`
 
 (required for AWS and GCP) - Disables concurrency reservations for spawned cloud
-functions. For more information refer to the
-[maxConcurrency](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#maxconcurrency)
+functions. For more information refer to the [maxConcurrency](#maxconcurrency)
 section.
 
 #### `cloudProvider.projectId`
