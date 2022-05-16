@@ -284,7 +284,7 @@ export default {
     padding 0.3rem 0.5rem .4rem 2rem
     outline none
     transition all .2s ease
-    background #fff url(../search.svg) 0.6rem 0.6rem no-repeat
+    background #fff url(./search.svg) 0.6rem 0.6rem no-repeat
     background-size 1.2rem
 
 @media (max-width: $MQMobile)

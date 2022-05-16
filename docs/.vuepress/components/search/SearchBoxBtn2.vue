@@ -13,7 +13,7 @@ Parent of VersionsModal.vue. Opens a modal of user version selections.
       style="margin-top: 3px; user-select: none"
     >
       <img
-        src="../search.svg"
+        src="./search.svg"
         width="24px"
         style="filter: brightness(0) invert(1)"
       />
