@@ -293,14 +293,24 @@ schemes are assign to the entire API.
 (Required) A list of objects, each specifying an Airnode endpoint with the
 following fields:
 
+::: tip Please Note
+
+Fields denoted by \* are for documentation purposes and not used by Airnode
+node.
+
+:::
+
 - 5.1. [name](ois.md#_5-1-name)
 - 5.2. [operation](ois.md#_5-2-operation)
 - 5.3. [fixedOperationParameters](ois.md#_5-3-fixedoperationparameters)
 - 5.4. [reservedParameters](ois.md#_5-4-reservedparameters)
 - 5.5. [parameters](ois.md#_5-5-parameters)
-- 5.6. [summary](ois.md#_5-6-summary)
-- 5.7. [description](ois.md#_5-7-description)
-- 5.8. [externalDocs](ois.md#_5-8-externaldocs)
+- 5.6. [summary \*](ois.md#_5-6-summary)
+- 5.7. [description \*](ois.md#_5-7-description)
+- 5.8. [externalDocs \*](ois.md#_5-8-externaldocs)
+- 5.9. [preProcessingSpecifications](ois.md#_5-9-preprocessingspecifications)
+- 5.10.
+  [postProcessingSpecifications](ois.md#_5-10-postprocessingspecifications)
 
 ```json
 // endpoints
@@ -341,6 +351,25 @@ following fields:
           "name": "from",
           "in": "query"
         }
+      }
+    ],
+    "preProcessingSpecifications": [
+      {
+        "environment": "Node 14",
+        "value": "const output = {...input, from: \"eth\"};",
+        "timeoutMs": "5000"
+      },
+      {
+        "environment": "Node 14",
+        "value": "const output = {...input, from: input.from.toUpperCase()};",
+        "timeoutMs": "5000"
+      }
+    ],
+    "postProcessingSpecifications": [
+      {
+        "environment": "Node 14",
+        "value": "const output = Math.round(input.price * 1000);",
+        "timeoutMs": "5000"
       }
     ]
   }
@@ -446,7 +475,7 @@ elements:
 - `operationParameter`
 - `name`
 - `default`
-- `description`
+- `description *`
 - `require`
 - `example`
 
@@ -521,9 +550,107 @@ corresponding operation parameter.-->
 
 <!--OAS equivalent: `paths.{path}.{method}.externalDocs` of corresponding operation.-->
 
-::: tip Please Note
+### 5.9. `preProcessingSpecifications` \*
 
-Fields denoted by \* are for documentation purposes and not used by Airnode
-node.
+(Optional) Defines the preprocessing code that can be used to modify the
+endpoint parameter before making the API request defined by the endpoint.
+
+See the [processing specification](ois.md#processing-specification) for details.
+
+#### Example
+
+```json
+"preProcessingSpecifications": [
+  {
+    // Execute synchronously in Node.js version 14
+    "environment": "Node 14",
+    // Define a new "from" parameter with value "eth"
+    "value": "const output = {...input, from: \"eth\"};",
+    // Run for 5 seconds maximum
+    "timeoutMs": "5000"
+  },
+  {
+    // Execute synchronously in Node.js version 14
+    "environment": "Node 14",
+    // Uppercase the "from" parameter defined by the previous snippet
+    "value": "const output = {...input, from: input.from.toUpperCase()};",
+    // Run for 5 seconds maximum
+    "timeoutMs": "5000"
+  }
+]
+```
+
+### 5.10. `postProcessingSpecifications` \*
+
+(Optional) Defines the post-processing code that can be used to modify the API
+response from the request defined by this endpoint.
+
+See the [processing specification](ois.md#processing-specification) for details.
+
+#### Example
+
+```json
+"postProcessingSpecifications": [
+  {
+    // Execute synchronously in Node.js version 14
+    "environment": "Node 14",
+    // Multiply the API return value by 1000 and round it to an integer
+    "value": "const output = Math.round(input.price * 1000);",
+    // Run for 5 seconds maximum
+    "timeoutMs": "5000"
+  }
+]
+```
+
+## Processing specification
+
+The processing schema is the same for both
+[pre-processing](ois.html#_5-9-preprocessingspecifications) and
+[post-processing](ois.html#_5-10-postprocessingspecifications).
+
+The processing schema accepts an array of processing snippets which are chained.
+The first snippet receives parameters submitted as part of a template or
+on-chain request. The output of this snippet is passed to the second snippet and
+so on.
+
+Every processing snippet follows this schema:
+
+- `environment` - Currently one of `Node 14` or `Node 14 async`. Both options
+  interpret the code as JavaScript and execute in Node.js version 14. The async
+  version can use asynchronous code. The code snippet is expected to call
+  `resolve(output)` with the output value as an argument. Airnode will use the
+  resolved value as the input to subsequent snippets (if defined).
+- `value` - The processing code written as a string.
+- `timeoutMs` - The maximum timeout that this snippet can run. In case the
+  timeout is exceeded an error is thrown.
+
+The processing snippet receives an `input` value which is either the initial
+value or the output value from the previous processing snippet. The snippet must
+create a variable `output` which will be used for the next processing snippet.
+The processing snippet can use most Node.js built-in modules. Refer to the
+source code of Airnode to understand how processing works and what modules are
+made available to the snippet code. Modules cannot be imported directly in cloud
+environments. Additionally, the following modules are exposed for your
+convenience:
+
+- `ethers` - You can use the [ethers](https://docs.ethers.io/v5/) library to
+  perform the common blockchain functions. Version `5.4.5` is used.
+- `axios` - You can use the [axios](https://axios-http.com/) library to perform
+  asynchronous web requests. Version `0.27.2` is used.
+
+::: warning Error handling and security
+
+Processing code is expected to be trustworthy as it is specified by the Airnode
+operator. Processing is an advanced feature that carries great security risks.
+It is therefore advised that developers using the processing feature familiarise
+themselves with the Airnode sources prior to developing any processing code
+snippets.
+
+Processing code executes in a constrained execution environment resembling
+Node.js. Some resources may not be available, for example the `require`
+statement. Therefore code should be tested thoroughly in the target environment
+(e.g. Lambda and/or Docker client). For example, authentication implemented in
+pre-processing should always be executed at the end of the respective processing
+chain and special care should be taken to avoid leakage of secrets.
 
 :::
