@@ -92,4 +92,4 @@ development mode. They currently are not altered.
 - Added box-shadow to suggestions class (results).
 - Changed top position of suggestions list.
 
-[SearchBox.vue](https://github.com/api3dao/api3-docs/blob/stage/docs/.vuepress/components/SearchBox.vue)
+[SearchBox.vue](https://github.com/api3dao/api3-docs/tree/main/docs/.vuepress/components/search)
