@@ -7,6 +7,7 @@ module.exports = [
       '',
       'ois.md',
       'reserved-parameters',
+      'processing',
       'example.md',
       'ois-template.md',
     ],
