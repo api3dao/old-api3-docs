@@ -1,8 +1,9 @@
 ---
 title: Requesters and Sponsors
+folder: Developers
 ---
 
-<TitleSpan>Developers</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

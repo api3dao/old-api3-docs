@@ -53,15 +53,19 @@
       <!-- Added: wkande: This adds the custom Versions component. -->
       <Versions />
 
-      <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia" />
+      <!-- Added: wkande: Replacement search UI, still uses Vuepress logic. -->
+      <search-SearchBoxBtn2 />
+
+      <!--AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia" /-->
       <!-- Updated: wkande: There are paths where the SearchBox cannot be added. -->
-      <SearchBox
+      <!--SearchBox
         v-else-if="
           $route.path != '/' &&
           $site.themeConfig.search !== false &&
           $page.frontmatter.search !== false
         "
-      />
+      /-->
+
       <!-- Added: wkande: Job posting icon. -->
       <api3-JobsIcon class="can-hide" />
 

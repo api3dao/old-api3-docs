@@ -5,7 +5,7 @@ of every page.
 
 <template>
   <div id="api3-title-span">
-    <slot></slot>
+    <span style="font-size: small">📂&nbsp;</span><slot></slot>
   </div>
 </template>
 

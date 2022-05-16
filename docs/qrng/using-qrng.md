@@ -2,8 +2,6 @@
 title: How to use API3 QRNG
 ---
 
-<TitleSpan>QRNG</TitleSpan>
-
 # {{$frontmatter.title}}
 
 <TocHeader />

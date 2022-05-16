@@ -1,6 +1,9 @@
 ---
 title: Staking Tokens
+folder: Dashboard
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

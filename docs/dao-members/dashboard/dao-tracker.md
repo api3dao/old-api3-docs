@@ -1,6 +1,9 @@
 ---
 title: DAO Tracker
+folder: Dashboard
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

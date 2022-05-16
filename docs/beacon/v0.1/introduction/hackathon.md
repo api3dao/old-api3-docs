@@ -1,8 +1,9 @@
 ---
 title: ETHDenver - Feb 2022
+folder: Introduction
 ---
 
-<TitleSpan>Introduction</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

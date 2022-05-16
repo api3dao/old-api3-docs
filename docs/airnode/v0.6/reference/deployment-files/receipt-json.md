@@ -1,8 +1,9 @@
 ---
 title: receipt.json
+folder: Reference > Deployment Files
 ---
 
-<TitleSpan>Deployment Files</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

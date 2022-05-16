@@ -6,11 +6,12 @@ Parent of VersionsModal.vue. Opens a modal of user version selections.
 -->
 
 <template>
-  <span class="version-list" v-bind:style="{ display: showMenu }">
-    <button class="version-list-btn" @click="openModal">
+  <span v-bind:style="{ display: showMenu }">
+    <button class="version-btn" @click="openModal">
       {{ versionDisplay }}
     </button>
     <VersionsModal
+      class="version-modal"
       v-if="showModal"
       :showModal="showModal"
       @clicked="onChildClick"
@@ -82,7 +83,7 @@ export default {
 </script>
 
 <style scoped>
-button.version-list-btn {
+button.version-btn {
   outline: none;
   color: #7ce3cb;
   background-color: black;
@@ -97,6 +98,6 @@ button.version-list-btn {
 <style lang="stylus">
 
 @media (max-width: $MQMobile)
-  .version-list
-    margin-right -25px
+  .version-modal
+    margin-left -45px
 </style>

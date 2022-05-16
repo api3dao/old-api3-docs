@@ -2,8 +2,6 @@
 title: API Providers
 ---
 
-<TitleSpan>QRNG</TitleSpan>
-
 # {{$frontmatter.title}}
 
 <TocHeader />

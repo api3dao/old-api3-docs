@@ -1,6 +1,9 @@
 ---
 title: Pool (Api3Pool.sol)
+folder: Contract Architecture
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 
