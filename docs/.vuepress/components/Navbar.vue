@@ -53,6 +53,7 @@
       <!-- Added: wkande: This adds the custom Versions component. -->
       <Versions />
 
+      <!-- Added: wkande: Replacement search UI, still uses Vuepress logic. -->
       <search-SearchBoxBtn2 />
 
       <!--AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia" /-->
@@ -64,6 +65,7 @@
           $page.frontmatter.search !== false
         "
       /-->
+
       <!-- Added: wkande: Job posting icon. -->
       <api3-JobsIcon class="can-hide" />
 
