@@ -551,9 +551,9 @@ corresponding operation parameter.-->
 ### 5.9. `preProcessingSpecifications` \*
 
 (Optional) Defines the preprocessing code that can be used to modify the
-endpoint parameter before making the API request defined by the endpoint.
+endpoint parameter before making the API request defined by an Airnode endpoint.
 
-See the [processing specification](ois.md#processing-specification) for details.
+See the [Pre/Post Processing](./processing.md) doc for additional details.
 
 #### Example
 
@@ -581,9 +581,9 @@ See the [processing specification](ois.md#processing-specification) for details.
 ### 5.10. `postProcessingSpecifications` \*
 
 (Optional) Defines the post-processing code that can be used to modify the API
-response from the request defined by this endpoint.
+response from the request defined by an Airnode endpoint.
 
-See the [processing specification](ois.md#processing-specification) for details.
+See the [Pre/Post Processing](./processing.md) doc for additional details.
 
 #### Example
 
@@ -599,56 +599,3 @@ See the [processing specification](ois.md#processing-specification) for details.
   }
 ]
 ```
-
-## Processing specification
-
-The processing schema is the same for both
-[pre-processing](ois.html#_5-9-preprocessingspecifications) and
-[post-processing](ois.html#_5-10-postprocessingspecifications).
-
-The processing schema accepts an array of processing snippets which are chained.
-The first snippet receives parameters submitted as part of a template or
-on-chain request. The output of this snippet is passed to the second snippet and
-so on.
-
-Every processing snippet follows this schema:
-
-- `environment` - Currently one of `Node 14` or `Node 14 async`. Both options
-  interpret the code as JavaScript and execute in Node.js version 14. The async
-  version can use asynchronous code. The code snippet is expected to call
-  `resolve(output)` with the output value as an argument. Airnode will use the
-  resolved value as the input to subsequent snippets (if defined).
-- `value` - The processing code written as a string.
-- `timeoutMs` - The maximum timeout that this snippet can run. In case the
-  timeout is exceeded an error is thrown.
-
-The processing snippet receives an `input` value which is either the initial
-value or the output value from the previous processing snippet. The snippet must
-create a variable `output` which will be used for the next processing snippet.
-The processing snippet can use most Node.js built-in modules. Refer to the
-source code of Airnode to understand how processing works and what modules are
-made available to the snippet code. Modules cannot be imported directly in cloud
-environments. Additionally, the following modules are exposed for your
-convenience:
-
-- `ethers` - You can use the [ethers](https://docs.ethers.io/v5/) library to
-  perform the common blockchain functions. Version `5.4.5` is used.
-- `axios` - You can use the [axios](https://axios-http.com/) library to perform
-  asynchronous web requests. Version `0.27.2` is used.
-
-::: warning Error handling and security
-
-Processing code is expected to be trustworthy as it is specified by the Airnode
-operator. Processing is an advanced feature that carries great security risks.
-It is therefore advised that developers using the processing feature familiarise
-themselves with the Airnode sources prior to developing any processing code
-snippets.
-
-Processing code executes in a constrained execution environment resembling
-Node.js. Some resources may not be available, for example the `require`
-statement. Therefore code should be tested thoroughly in the target environment
-(e.g. Lambda and/or Docker client). For example, authentication implemented in
-pre-processing should always be executed at the end of the respective processing
-chain and special care should be taken to avoid leakage of secrets.
-
-:::
