@@ -111,42 +111,44 @@ respective parameters.
 
 ### `authorizers`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#authorizers)
 (required) - The list of authorizer contract addresses specifying the
 authorization patterns that the Airnode should use. An empty array would
-allow-all.
+allow-all. See the [Authorization](../../concepts/authorization.md) doc for more
+information.
 
 ### `contracts`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#contracts)
 (required) - An object that keeps the addresses of the protocol contracts
 deployed on the respective chain. It must include the `AirnodeRrp` contract
-address.
+address. Although you can deploy these contracts yourself, you are recommended
+to use the ones that were deployed by API3 listed
+[here](../airnode-addresses.md).
 
 ### `id`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#id)
 (required) - The corresponding chain (or network) ID. If this is an
 Ethereum-based chain, `id` should be the chain ID as described in
 [EIP-155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md#list-of-chain-ids).
 Refer to the documentations of the chain you will be using to find its chain ID.
+Supported chains are listed under
+[Airnode Contract Addresses](../airnode-addresses.md).
 
 ### `providers`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#providers)
-(required) - List of chain providers that will be used. Note that multiple of
-them can be used simultaneously. The Airnode deployment will expect to find the
-URLs of each of these chain providers in their respective `url` fields.
+(required) - List of chain providers. Note that multiple can be used
+simultaneously. The Airnode deployment will expect to find the URLs of each of
+these chain providers in their respective `url` fields. It is generally
+recommended to provide `url` via interpolation from the `secrets.env` file.
 
 ### `type`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#type)
 (required) - The type of chain. Currently only `evm` is supported.
 
 ### `options`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#options)
-(required) - An object that configures chain-related options.
+(required) - An object that configures chain-related options. See
+[Configuring an Airnode](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#considerations-transaction-options)
+for some considerations.
 
 #### `options.txType`
 
@@ -158,53 +160,60 @@ URLs of each of these chain providers in their respective `url` fields.
 
 #### `options.priorityFee`
 
-(optional) - An object that configures the EIP-1559 Priority Fee (defaults
-to`{"value": 3.12, "value": "gwei"}`)
+(optional) - An object that configures the EIP-1559 Priority Fee. Defaults to:
+`{"value": 3.12, "value": "gwei"}`.
 
 #### `options.baseFeeMultiplier`
 
-(optional) - Configures the EIP-1559 Base Fee to Maximum Fee Multiplier
-(defaults to `2`)
+(optional) - Number multiplied by the Base Fee to yield the Maximum Fee for
+EIP-1559 transactions. Defaults to: `2`.
 
 The resulting Maximum Fee will equal
 `(Base Fee * baseFeeMultiplier) + priorityFee`
 
 #### `options.gasPriceMultiplier`
 
-(optional) - Configures the Legacy Gas Price Multiplier (no multiplier is used
-by default)
+(optional) - Number with a maximum of two decimals that gets multiplied by the
+legacy gas price. No multiplier is used by default.
 
 The resulting Gas Price will equal `Gas Price * gasPriceMultiplier`
 
 #### `options.fulfillmentGasLimit`
 
-(required) - The maximum gas limit allowed when Airnode responds to a request.
-See
-[chain-related options](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#options)
-for additional details.
+(required) - The maximum gas limit allowed when Airnode responds to a request,
+paid by the requester. If exceeded, the request is marked as failed and will not
+be repeated during Airnode's next run cycle.
 
 ### `maxConcurrency`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#maxconcurrency)
-(required) - The maximum concurrency specifies the maximum number of concurrent
-handler calls per single Airnode invocation.
+(required) - The maximum number of concurrent handler calls per single Airnode
+invocation. Airnode is reserving
+([AWS](https://docs.aws.amazon.com/lambda/latest/operatorguide/reserved-concurrency.html))
+and limiting
+([AWS](https://docs.aws.amazon.com/lambda/latest/operatorguide/reserved-concurrency.html),
+[GCP](https://cloud.google.com/functions/docs/configuring/max-instances)) the
+number of spawned cloud functions based on this field.
+
+If you want to disable this behavior, see
+[`disableConcurrencyReservations`](#cloudprovider-disableconcurrencyreservations).
+
+See
+[Configuring an Airnode](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#considerations-concurrency)
+for additional considerations.
 
 ### `blockHistoryLimit`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#blockhistorylimit)
 (optional) - The number of blocks in the past that the Airnode deployment should
 search for requests. Defaults to `300` (roughly 1 hour for Ethereum).
 
 ### `minConfirmations`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#minconfirmations)
 (optional) - The number of confirmations required for a request to be considered
 valid. Minimum confirmations refers to the number of blocks that have elapsed
 since the current confirmed block. Defaults to `0`.
 
 ### `ignoreBlockedRequestsAfterBlocks`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#ignoreblockedrequestsafterblocks)
 (optional) - The number of blocks that need to pass for the node to start
 ignoring blocked requests. Defaults to `20`. A request is blocked whenever the
 API call cannot be made. For example, endpoint (specified by its id in the
@@ -249,9 +258,9 @@ An object containing general deployment parameters of an Airnode.
 
 ### `cloudProvider`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#cloudprovider)
 (required) - The cloud provider that the node will be deployed at and its
-configuration.
+configuration. Learn more about AWS or GCP resources that Airnode uses in the
+[Cloud Resources](../cloud-resources.md) documentation.
 
 #### `cloudProvider.type`
 
@@ -263,15 +272,18 @@ you want to run Airnode as a docker container locally
 #### `cloudProvider.region`
 
 (required for AWS and GCP) - The cloud provider region that the node will be
-deployed at. See the cloud provider's documentation for possible values. When
-using GCP, make sure to choose a
-[**zone** not a location](https://cloud.google.com/compute/docs/regions-zones)
+deployed at. An example value for AWS would be `us-east-1`. See the cloud
+provider's documentation for possible values. When using GCP, make sure to
+choose a
+[**zone** not a location](https://cloud.google.com/compute/docs/regions-zones).
+Note that transferring a deployment from one region to the other is not trivial
+(i.e., it does not take one command like deployment, but rather three).
+Therefore, try to choose a region and stick to it for this specific deployment.
 
 #### `cloudProvider.disableConcurrencyReservations`
 
 (required for AWS and GCP) - Disables concurrency reservations for spawned cloud
-functions. For more information refer to the
-[maxConcurrency](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#maxconcurrency)
+functions. For more information refer to the [maxConcurrency](#maxconcurrency)
 section.
 
 #### `cloudProvider.projectId`
@@ -281,20 +293,25 @@ under.
 
 ### `airnodeWalletMnemonic`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#airnodewalletmnemonic)
-(required) - The wallet mnemonic that will be used by the Airnode.
+(required) - The wallet mnemonic that will be used as the Airnode's BIP 44
+wallet from which the Airnode's
+[address](../../concepts/airnode.md#airnodeaddress) will be derived. It is not
+required to fund the wallet to run the Airnode but must be funded to announce
+the [xpub](../../concepts/airnode.md#xpub) of the Airnode on-chain which is
+optional.
 
 ### `heartbeat`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#heartbeat)
-(required) - The Airnode's "call home" functionality. Airnode can periodically
-make a request to the specified URL signaling that it's active. There are plans
-in the future to allow the sending of a payload with information for reporting
-purposes.
+(required) - Object configuring Airnode's heartbeat functionality. Airnode can
+periodically make a request to the specified URL signaling that it's active at
+the end of each cycle (every minute). There are plans in the future to allow the
+sending of a payload with information for reporting purposes. See the
+[Heartbeat](../../grp-providers/guides/build-an-airnode/heartbeat.md)
+documentation for more information.
 
 #### `heartbeat.enabled`
 
-(required) - Enable/disable, using true/false, Airnode's heartbeat.
+(required) - Enable or disable, using `true` or `false`, Airnode's heartbeat.
 
 #### `heartbeat.apiKey`
 
@@ -310,19 +327,21 @@ purposes.
 
 ### `httpGateway`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpgateway)
 (required) - The Airnode's HTTP gateway can request endpoints without using the
-blockchain.
+blockchain. See the
+[HTTP Gateways](../../grp-providers/guides/build-an-airnode/http-gateways.md)
+documentation for more info.
 
 #### `httpGateway.enabled`
 
-(required) - Enable/disable, using true/false, Airnode's access to the HTTP
-gateway.
+(required) - Enable or disable, using `true` or `false`, Airnode's access to the
+HTTP gateway.
 
 #### `httpGateway.apiKey`
 
-(only if enabled) - The API key to authenticate against the gateway. Do not use
-the same key for `httpGateway` and `httpSignedDataGateway`.
+(only if enabled) - The API key to authenticate against the gateway. The key
+must have a length of between 30 - 120 characters. Do not use the same key for
+`httpGateway` and `httpSignedDataGateway`.
 
 #### `httpGateway.maxConcurrency`
 
@@ -332,9 +351,10 @@ time. When omitted, there is no maximum concurrency set.
 
 ### `httpSignedDataGateway`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpsigneddatagateway)
 (required) - The Airnode's HTTP gateway can request endpoints without using the
-blockchain.
+blockchain. See the
+[HTTP Gateways](../../grp-providers/guides/build-an-airnode/http-gateways.md)
+documentation for more info.
 
 #### `httpSignedDataGateway.enabled`
 
@@ -343,8 +363,9 @@ gateway.
 
 #### `httpSignedDataGateway.apiKey`
 
-(only if enabled) - The API key to authenticate against the gateway. Do not use
-the same key for `httpGateway` and `httpSignedDataGateway`.
+(only if enabled) - The API key to authenticate against the gateway. The key
+must have a length of between 30 - 120 characters. Do not use the same key for
+`httpGateway` and `httpSignedDataGateway`.
 
 #### `httpSignedDataGateway.maxConcurrency`
 
@@ -354,27 +375,30 @@ time. When omitted, there is no maximum concurrency set.
 
 ### `logFormat`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#logformat)
 (required) - The format that will be used to output logs. Either `json` or
 `plain`.
 
 ### `logLevel`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#loglevel)
 (required) - The highest verbosity level of the logs that will be outputted.
-`DEBUG`, `INFO`, `WARN` or `ERROR`.
+Options: `DEBUG`, `INFO`, `WARN` or `ERROR`.
 
 ### `nodeVersion`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#nodeversion)
 (required) - The version of the node (Airnode) that will be deployed with this
-config object.
+config object, of the form `#.#.#`. Since the `config.json` format may change
+with node versions, always match the `config.json` version with the Airnode
+being deployed. See the
+[Releases page of the Airnode repo](https://github.com/api3dao/airnode/releases)
+for available versions.
 
 ### `stage`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#stage)
 (required) - The label used to distinguish between multiple deployments of the
-same Airnode on a cloud provider.
+same Airnode on a cloud provider. For example, the same Airnode may have
+multiple deployments with `stage` set to a different value (dev, public, prod).
+`stage` cannot be longer than 16 characters and can only include lowercase
+alphanumeric characters (`a–z`, `0–9`) and hyphens (`-`).
 
 ## triggers
 
@@ -422,13 +446,13 @@ default convention for deriving the `endpointId`.
 
 ### `rrp`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#rrp)
-(required) - An array of endpoints from OIS that the Airnode will respond to for
-the RRP protocol.
+(required) - An array of endpoints from OIS that the Airnode will respond to via
+the RRP protocol [AirnodeRrpV0.sol](../../concepts/).
 
 #### `rrp[n].endpointId`
 
-(required) - A identifier derived for an oisTitle/endpointName pair, see
+(required) - A identifier derived for an oisTitle/endpointName pair. For
+derivation see:
 [derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id).
 
 #### `rrp[n].oisTitle`
@@ -441,12 +465,13 @@ the RRP protocol.
 
 ### `http`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#http)
-(required) - An array of endpoints from OIS that the Airnode will respond to.
+(required) - An array of endpoints from OIS that the Airnode will respond to via
+the HTTP gateway.
 
 #### `http[n].endpointId`
 
-(required) - A identifier derived for an oisTitle/endpointName pair, see
+(required) - A identifier derived for an oisTitle/endpointName pair. For
+derivation see:
 [derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id).
 
 #### `http[n].oisTitle`
@@ -459,8 +484,8 @@ the RRP protocol.
 
 ### `httpSignedData`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#httpsigneddata)
-(required) - An array of endpoints from OIS that the Airnode will respond to.
+(required) - An array of endpoints from OIS that the Airnode will respond to via
+the HTTP Signed Data Gateway.
 
 #### `httpSignedData[n].endpointId`
 
@@ -480,8 +505,9 @@ the RRP protocol.
 A list of OIS objects. Since each OIS specifies the integration of an API to an
 oracle, a single Airnode deployment can serve multiple APIs. To avoid
 duplication of content, see the
-[Oracle Integration Specifications (OIS)](/ois/v1.0.0/) for a complete example
-and the explanation of its fields.
+[API Integration](../../grp-providers/guides/build-an-airnode/api-integration.md)
+guide and the [Oracle Integration Specifications (OIS)](/ois/v1.0.0/)
+documentation.
 
 ## apiCredentials
 
@@ -491,12 +517,15 @@ the `title` field of the related OIS, and `securitySchemeName` is the name of
 the respective security scheme. These would be `myOisTitle` and
 `mySecurityScheme` in the example below. `securitySchemeValue` is the value used
 for the authentication with the security scheme (e.g., the API key) which would
-be in `secrets.env` in the example below.
+be in `secrets.env` in the example below. For more implementation details, see
+the [API Security](../../grp-providers/guides/build-an-airnode/api-security.md)
+documentation.
 
 The `security` field in the OIS object must be included and hold the names of
 all security schemes the API operation
 
-Use of apiCredentials is not required, leave its array empty.
+Note that if you do not need a security scheme, leave the `apiCredentials` array
+empty.
 
 ```json
 // apiCredentials
@@ -530,19 +559,16 @@ Use of apiCredentials is not required, leave its array empty.
 
 ### `oisTitle`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#oistitle)
 (required) - The `ois.title` of the OIS where the `securitySchemeName` can be
 found.
 
 ### `securitySchemeName`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#securityschemename)
 (required) - The name of a security scheme from
 `ois[n].components.securitySchemes.{securitySchemeName}`.
 
 ### `securitySchemeValue`
 
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#securityschemevalue)
 (required) - The value of the security scheme used (as defined by
 `ois[n].components.securitySchemes.{securitySchemeName}` for the authentication.
 Usually stored in `secrets.env`.
