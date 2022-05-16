@@ -1,6 +1,7 @@
 module.exports = {
   env: process.env.NODE_ENV,
-  /// Airnode doc set version pick list.
+
+  /// Doc set versioned pick lists.
   versions: [
     { name: 'v0.6', url: '/airnode/v0.6/' },
     { name: 'v0.5', url: '/airnode/v0.5/' },
@@ -9,23 +10,26 @@ module.exports = {
     { name: 'v0.2', url: '/airnode/v0.2/' },
     { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
   ],
+  versionsBeacon: [{ name: 'v0.1', url: '/beacon/v0.1/' }],
+  versionsOis: [{ name: 'v1.0.0', url: '/ois/v1.0.0/' }],
+
   /// Next version of airnode, used by /next route.
   airnodeVersionNext: [{ name: 'v0.7', url: '/airnode/v0.7/' }],
-  /// Beacon doc set version pick list.
-  versionsBeacon: [{ name: 'v0.1', url: '/beacon/v0.1/' }],
-  /// OIS doc set version pick list.
-  versionsOis: [{ name: 'v1.0.0', url: '/ois/v1.0.0/' }],
-  /// Latest/current Airnode doc set version.
-  /// Used by api3dao/airnode CI link checking
+
+  /// Latest/current Airnode doc set versioned paths.
+  /// Used by api3dao/airnode CI link checking.
   latestVersion: '/airnode/v0.6/',
-  /// Latest/current Beacon doc set version.
-  /// Used by api3dao/airnode CI link checking
   latestBeaconVersion: '/beacon/v0.1/',
-  /// Latest/current OIS doc set version.
-  /// Used by api3dao/airnode CI link checking
   latestOisVersion: '/ois/v1.0.0/',
+
+  /// The title of the versioned doc sets, these are used by the search.
+  latestTitle: 'Airnode v0.6',
+  latestBeaconTitle: 'Beacons v0.1',
+  latestOisTitle: 'OIS v1.0.0',
+
   /// Job page revision, incremented when a new job(s) is added
   jobPageRevision: 3,
+
   head: [
     [
       'meta',

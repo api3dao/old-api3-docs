@@ -26,7 +26,7 @@
     <div v-if="suggestions" style="user-select: none">
       <div v-if="airnode.length != 0">
         <search-SearchBoxList2
-          docSetTitle="Airnode v0.6"
+          :docSetTitle="latestTitle"
           :suggestions="airnode"
         />
         <br />
@@ -34,14 +34,17 @@
 
       <div v-if="beacons.length != 0">
         <search-SearchBoxList2
-          docSetTitle="Beacons v0.1"
+          :docSetTitle="latestBeaconTitle"
           :suggestions="beacons"
         />
         <br />
       </div>
 
       <div v-if="ois.length != 0">
-        <search-SearchBoxList2 docSetTitle="OIS v1.0.0" :suggestions="ois" />
+        <search-SearchBoxList2
+          :docSetTitle="latestOisTitle"
+          :suggestions="ois"
+        />
         <br />
       </div>
 
@@ -76,6 +79,9 @@ import {
   latestVersion,
   latestBeaconVersion,
   latestOisVersion,
+  latestTitle,
+  latestBeaconTitle,
+  latestOisTitle,
 } from '../../config.js';
 
 /* global SEARCH_MAX_SUGGESTIONS, SEARCH_PATHS, SEARCH_HOTKEYS */
@@ -90,6 +96,9 @@ export default {
       latestVersion: latestVersion,
       latestBeaconVersion: latestBeaconVersion,
       latestOisVersion: latestOisVersion,
+      latestTitle: latestTitle,
+      latestBeaconTitle: latestBeaconTitle,
+      latestOisTitle: latestOisTitle,
       usablePaths: [
         latestVersion,
         latestBeaconVersion,
