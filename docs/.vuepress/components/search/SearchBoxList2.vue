@@ -14,7 +14,8 @@
         @mousedown="go(i)"
         @mouseenter="focus(i)"
       >
-        <a :href="s.path" @click.prevent>
+        <!-- a href="javascript:void(0)" @click="closeModalOnMobile(s.path)" -->
+        <router-link :to="s.path" @click.native="closeModalOnMobile">
           <div class="ls-page-folder" v-if="s.frontmatter.folder">
             <span style="font-size: x-small">📂</span>
             {{ s.frontmatter.folder }}
@@ -23,7 +24,7 @@
           <div v-if="s.header" class="ls-header">
             {{ s.header.title }}
           </div>
-        </a>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -41,6 +42,11 @@ export default {
   },
   mounted() {},
   methods: {
+    closeModalOnMobile() {
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        this.$parent.onClickOutside();
+      }
+    },
     go(i) {
       this.$router.push(this.suggestions[i].path);
       this.focusIndex = -1;
