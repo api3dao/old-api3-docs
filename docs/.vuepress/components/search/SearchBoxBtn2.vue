@@ -18,11 +18,7 @@ Parent of VersionsModal.vue. Opens a modal of user version selections.
         style="filter: brightness(0) invert(1)"
       />
     </button>
-    <SearchBox2
-      v-if="showModal"
-      :showModal="showModal"
-      @clicked="onChildClick"
-    />
+    <SearchBox2 v-if="showModal" @clicked="onChildClick" />
   </span>
 </template>
 
