@@ -86,7 +86,7 @@ import {
 
 /* global SEARCH_MAX_SUGGESTIONS, SEARCH_PATHS, SEARCH_HOTKEYS */
 export default {
-  name: 'SearchBox',
+  name: 'SearchBox2',
   data() {
     return {
       query: localStorage.getItem('search_query') || '',
@@ -199,7 +199,6 @@ export default {
 
   methods: {
     onClickOutside(url, event) {
-      console.log('emitted click outside');
       this.$emit('clicked'); // goes to parent method
     },
     filterByPath(p) {
