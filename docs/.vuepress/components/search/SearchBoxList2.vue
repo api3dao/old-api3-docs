@@ -11,11 +11,9 @@
         :key="docSetTitle + i"
         class="ls-suggestion"
         :class="{ focused: i === focusIndex }"
-        @mousedown="go(i)"
         @mouseenter="focus(i)"
       >
-        <!-- a href="javascript:void(0)" @click="closeModalOnMobile(s.path)" -->
-        <router-link :to="s.path" @click.native="closeModalOnMobile">
+        <a href="javascript:void(0)" @click="go(s.path)">
           <div class="ls-page-folder" v-if="s.frontmatter.folder">
             <span style="font-size: x-small">📂</span>
             {{ s.frontmatter.folder }}
@@ -24,7 +22,7 @@
           <div v-if="s.header" class="ls-header">
             {{ s.header.title }}
           </div>
-        </router-link>
+        </a>
       </li>
     </ul>
   </div>
@@ -40,16 +38,15 @@ export default {
       focusIndex: undefined,
     };
   },
-  mounted() {},
   methods: {
-    closeModalOnMobile() {
+    go(path) {
+      if (this.$route.fullPath !== path) {
+        this.$router.push(path);
+      }
+      this.focusIndex = -1;
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         this.$parent.onClickOutside();
       }
-    },
-    go(i) {
-      this.$router.push(this.suggestions[i].path);
-      this.focusIndex = -1;
     },
 
     focus(i) {
