@@ -1,8 +1,9 @@
 ---
 title: API Providers - Why power Beacons?
+folder: Introduction
 ---
 
-<TitleSpan>Introduction</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 
