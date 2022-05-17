@@ -1,8 +1,9 @@
 ---
 title: readBeacon()
+folder: dApp Developers
 ---
 
-<TitleSpan>dApp Developers</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

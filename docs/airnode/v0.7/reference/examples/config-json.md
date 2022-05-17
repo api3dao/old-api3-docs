@@ -1,8 +1,9 @@
 ---
 title: config.json
+folder: Reference > Example Files
 ---
 
-<TitleSpan>Example Files</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

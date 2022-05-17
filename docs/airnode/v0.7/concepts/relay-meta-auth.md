@@ -1,8 +1,9 @@
 ---
 title: Relayed Meta Data Authentication
+folder: Reference > Concepts and Definitions
 ---
 
-<TitleSpan>Concepts and Definitions</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

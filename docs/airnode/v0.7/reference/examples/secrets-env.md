@@ -1,8 +1,9 @@
 ---
 title: secrets.env
+folder: Reference > Example Files
 ---
 
-<TitleSpan>Example Files</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

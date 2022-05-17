@@ -1,8 +1,9 @@
 ---
 title: Chains
+folder: Reference
 ---
 
-<TitleSpan left="100">Reference</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

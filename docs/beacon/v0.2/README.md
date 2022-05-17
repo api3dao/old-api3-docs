@@ -1,8 +1,9 @@
 ---
 title: What is a Beacon?
+folder: Introduction
 ---
 
-<TitleSpan>Introduction</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 
