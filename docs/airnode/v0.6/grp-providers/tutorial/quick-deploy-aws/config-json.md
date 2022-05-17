@@ -1,6 +1,9 @@
 ---
 title: config.json
 folder: API Providers > Tutorials > Quick Deploy AWS
+tags:
+  - quick deploy aws
+  - tutorial tutorials
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

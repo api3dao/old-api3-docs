@@ -1,8 +1,9 @@
 ---
 title: Reserved Parameters
+folder: Reference > Specifications
 ---
 
-<TitleSpan>Specifications</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

@@ -1,6 +1,9 @@
 ---
 title: secrets.env
 folder: API Providers > Tutorials > Quick Deploy Container
+tags:
+  - quick deploy container
+  - tutorial tutorials
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
