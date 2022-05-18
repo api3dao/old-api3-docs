@@ -94,8 +94,7 @@ Below is a simple chain array with a single chain provider.
     },
     "type": "evm",
     "blockHistoryLimit": 300,
-    "minConfirmations": 0,
-    "ignoreBlockedRequestsAfterBlocks": 20
+    "minConfirmations": 0
   }
 ],
 ```
@@ -209,12 +208,6 @@ requests. Defaults to `300` (roughly 1 hour for Ethereum).
 [<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#minconfirmations)
 The number of confirmations required for a request to be considered valid.
 Defaults to `0`.
-
-#### ignoreBlockedRequestsAfterBlocks
-
-[<InfoBtnGreen/>](../../../reference/deployment-files/config-json.md#ignoreblockedrequestsafterblocks)
-The number of blocks that need to pass for the node to start ignoring blocked
-requests. Defaults to `20`.
 
 ### nodeSettings
 

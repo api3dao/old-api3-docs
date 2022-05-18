@@ -62,8 +62,7 @@ building a config.json file.
       },
       "maxConcurrency": <FILL_NUMBER>,
       "blockHistoryLimit": "<FILL_*>",
-      "minConfirmations": "<FILL_*>",
-      "ignoreBlockedRequestsAfterBlocks": "<FILL_*>"
+      "minConfirmations": "<FILL_*>"
     }
   ],
   "nodeSettings": {

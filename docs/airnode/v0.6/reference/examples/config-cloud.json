@@ -23,8 +23,7 @@
       },
       "maxConcurrency": 100,
       "blockHistoryLimit": 300,
-      "minConfirmations": 0,
-      "ignoreBlockedRequestsAfterBlocks": 20
+      "minConfirmations": 0
     }
   ],
   "nodeSettings": {
