@@ -27,7 +27,7 @@ subject to whitelisting. Off-chain code is beyond the scope of this doc.
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.3;
 
-import "@api3/airnode-protocol-v1/contracts/dapis/interfaces/IDapiServer";
+import "@api3/airnode-protocol-v1/contracts/dapis/interfaces/IDapiServer.sol";
 contract mySmartContract {
 
 
@@ -40,7 +40,7 @@ contract mySmartContract {
     // Calling the DapiServer for reader status
     // where "this" is the contract address of this contract (myVerifyReadable).
     (canRead) =
-      IDapiServer(_dapiServerContractAddress).readerCanRereaderCanReadDataFeedadBeacon(_datafeedId, this);
+      IDapiServer(_dapiServerContractAddress).readerCanRereaderCanReadDataFeedadBeacon(_datafeedId, address(this));
   }
 }
 

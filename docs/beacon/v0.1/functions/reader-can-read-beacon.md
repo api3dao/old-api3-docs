@@ -40,7 +40,7 @@ contract mySmartContract {
     // Calling the BeaconServer for reader status
     // where "this" is the contract address of this contract (myVerifyReadable).
     (canRead) =
-      RrpBeaconServer(_beaconContractAddress).readerCanReadBeacon(_beaconId, this);
+      RrpBeaconServer(_beaconContractAddress).readerCanReadBeacon(_beaconId, address(this));
   }
 }
 

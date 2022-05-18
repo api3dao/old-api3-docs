@@ -35,10 +35,10 @@ subject to whitelisting. Off-chain code is beyond the scope of this doc.
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.9;
 
-import "@api3/airnode-protocol-v1/contracts/dapis/interfaces/IDapiServer";
+import "@api3/airnode-protocol-v1/contracts/dapis/interfaces/IDapiServer.sol";
 contract mySmartContract {
 
-    function myGetBeaconValue(
+    function myGetDataFeedValue(
         address _dapiServerContractAddress,
         bytes32 _datafeedId
     ) external {

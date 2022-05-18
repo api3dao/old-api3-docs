@@ -41,7 +41,7 @@ pragma solidity ^0.8.3;
 import "@api3/airnode-protocol/contracts/rrp/requesters/interfaces/IRrpBeaconServer.sol";
 contract mySmartContract {
 
-    function myGetBeaconValue(
+    function myGetDataFeedValue(
         address _beaconContractAddress,
         bytes32 _beaconId
     ) external {
