@@ -190,67 +190,6 @@ have been confirmed by the time the next cycle runs. If this happens, the
 transaction is re-submitted with a "faster" transaction fee, overwriting the
 previous transaction.
 
-### Blocked
-
-Airnode is also dependent on the blockchain provider to supply it with the
-onchain data. If the blockchain provider is unavailable for whatever reason, it
-is possible that a request cannot be fully validated, which means that it cannot
-be submitted back to the blockchain. As mentioned above, keeping requests in the
-same order, using the same nonce is critical. Therefore, any request that cannot
-be fully validated due to a blockchain provider error becomes "blocked". This
-means that it and any requests after it are unable to be submitted during the
-current cycle and will be retried during the following cycle. It is important to
-note that this is specific to each requester. e.g. a request sent from requester
-A that becomes "blocked", will not block requests sent from requester B.
-
-The blocked requests get ignored after `ignoreBlockedRequestsAfterBlocks`
-(default value: 20), meaning that they are treated as an Ignored request
-(invalid requests are ignored, e.g., a request whose sponsor and sponsorWallet
-don't match).
-
-#### Blocking cases
-
-In chronological order in the coordinator life-cycle.
-
-1. Airnode RRP has full requests (`makeFullRequest()1`), for which all
-   parameters are specified, or template requests, which specify some of the
-   parameters and specify the ID of a template that contains the rest of the
-   parameters. After fetching templates, if the node can't find the template for
-   a template request, that request gets blocked. This may happen if the
-   blockchain provider is not responding to valid requests (e.g., the node is
-   making too many requests and is being rate-limited).
-
-2. To check authorization for a request, the node needs to know its endpoint ID.
-   Full requests already specify the endpoint ID, and the templates should be
-   fetched for template requests by this point, which specify the endpoint ID.
-   While checking authorizations, if the endpoint ID of a request is not
-   specified, that request gets blocked. This should never happen, because
-   template requests that are missing templates are already blocked in sample #1
-   above.
-
-3. The node makes a static call with some of the request parameters to check if
-   a specific request is authorized (i.e., if it should respond to it). After
-   fetching authorization results, if the node can't find the results for a
-   request, that request gets blocked.This may happen if the blockchain provider
-   is not responding to valid requests (e.g., the node is making too many
-   requests and is being rate-limited).
-
-4. The node invokes a worker for each request with a unique request ID to make
-   the API calls. These workers should return either with a payload or an error
-   (if the call has timed our or the API errored). While mapping the worker
-   responses back (referred to as “disaggregation” in the code), if the node
-   can't find the response for a request, that request gets blocked. In theory
-   this should never happen.
-
-### Ignore
-
-If the Airnode cannot even fail a request (e.g., the requester is not sponsored
-by the sponsor), the request gets ignored.
-
-After X blocks (20 by default for EVM chains), any requests that would become
-"blocked", will instead become "ignored". This means that Airnode will stop
-attempting to process the request in order to process later requests.
-
 ## Check if request is awaiting fulfillment
 
 There is a convenience method in AirnodeRrp.sol called

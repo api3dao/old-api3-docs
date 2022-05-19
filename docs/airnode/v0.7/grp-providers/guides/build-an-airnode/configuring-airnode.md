@@ -96,8 +96,7 @@ Below is a simple chain array with a single chain provider.
     },
     "maxConcurrency": 100,
     "blockHistoryLimit": 300,
-    "minConfirmations": 0,
-    "ignoreBlockedRequestsAfterBlocks": 20
+    "minConfirmations": 0
   }
 ],
 ```
@@ -167,7 +166,6 @@ The below links offer details for each field:
 - [maxConcurrency](../../../reference/deployment-files/config-json.md#maxconcurrency)
 - [blockHistoryLimit](../../../reference/deployment-files/config-json.md#blockhistorylimit)
 - [minConfirmations](../../../reference/deployment-files/config-json.md#minconfirmations)
-- [ignoreBlockedRequestsAfterBlocks](../../../reference/deployment-files/config-json.md#ignoreblockedrequestsafterblocks)
 
 ### nodeSettings
 

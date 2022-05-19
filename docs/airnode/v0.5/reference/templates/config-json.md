@@ -60,8 +60,7 @@ building a config.json file.
         "baseFeeMultiplier": "<FILL_NUMBER>"
       },
       "blockHistoryLimit": "<FILL_*>",
-      "minConfirmations": "<FILL_*>",
-      "ignoreBlockedRequestsAfterBlocks": "<FILL_*>"
+      "minConfirmations": "<FILL_*>"
     }
   ],
   "nodeSettings": {

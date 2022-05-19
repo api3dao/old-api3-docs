@@ -72,8 +72,7 @@ respective parameters.
       "baseFeeMultiplier": 2
     },
     "blockHistoryLimit": 300,
-    "minConfirmations": 0,
-    "ignoreBlockedRequestsAfterBlocks": 20
+    "minConfirmations": 0
   },
   {
     "maxConcurrency": 100,
@@ -178,14 +177,6 @@ search for requests. Defaults to `300` (roughly 1 hour for Ethereum).
 (optional) - The number of confirmations required for a request to be considered
 valid. Minimum confirmations refers to the number of blocks that have elapsed
 since the current confirmed block. Defaults to `0`.
-
-### `ignoreBlockedRequestsAfterBlocks`
-
-[<InfoBtnBlue/>](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#ignoreblockedrequestsafterblocks)
-(optional) - The number of blocks that need to pass for the node to start
-ignoring blocked requests. Defaults to `20`. A request is blocked whenever the
-API call cannot be made. For example, endpoint (specified by its id in the
-request) cannot be found in config.json.
 
 ## nodeSettings
 
