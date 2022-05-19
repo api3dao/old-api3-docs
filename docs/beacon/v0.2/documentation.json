@@ -1,0 +1,71 @@
+{
+  "providers": {
+    "amberdata": {
+      "fullName": "AmberData",
+      "homePage": "http://",
+      "logo": "http://"
+    }
+  },
+  "chains": {
+    "1": {
+      "id": 1,
+      "name": "mainnet",
+      "contracts": {
+        "DapiServer": "0x291a11cbbC441201562A6418Fd11bBeb0675b4e4"
+      },
+      "nativeToken": "AVAX",
+      "blockTime": 19.8,
+      "logoPath": "https//:",
+      "homePage": "http:://"
+    },
+    "30": {
+      "id": 30,
+      "name": "rsk",
+      "contracts": {
+        "DapiServer": "0x291a11cbbC441201562A6418Fd11bBeb0675b4e4"
+      },
+      "nativeToken": "RBTC",
+      "blockTime": 19.8,
+      "logoPath": "https//:",
+      "homePage": "http:://"
+    }
+  },
+  "templates": {
+    "0xb0039a5af9f6c937f3d1c7af36a5dc83c53961d0356a373185e7972d6daf6b5a": {
+      "name": "AmberData AAVE/BTC",
+      "templateId": "0xb0039a5af9f6c937f3d1c7af36a5dc83c53961d0356a373185e7972d6daf6b5a",
+      "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+      "parameters": "0x31737373737300000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000616176655f6274630000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000",
+      "templateUrl": "https://github.com/api3dao/operations/<xyz>",
+      "decodedParameters": [
+        { "name": "pair", "type": "string32", "value": "aave_btc" },
+        { "name": "_path", "type": "string32", "value": "payload.vwap" },
+        { "name": "_type", "type": "string32", "value": "int256" },
+        { "name": "_times", "type": "string32", "value": "1000000" },
+        { "name": "lookbackPeriod", "type": "string32", "value": "5" }
+      ]
+    }
+  },
+  "datafeeds": {
+    "0x33ced632274973f86303f003416dfcb0d0a59aefe7a0f3fef5c42bb890383846": {
+      "name": "AmberData AAVE/BTC",
+      "type": "beacon",
+      "description": "AmberData - AAVE/BTC - Pair",
+      "beaconId": "0x33ced632274973f86303f003416dfcb0d0a59aefe7a0f3fef5c42bb890383846",
+      "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+      "templateId": "0xb0039a5af9f6c937f3d1c7af36a5dc83c53961d0356a373185e7972d6daf6b5a",
+      "chains": {
+        "30": {
+          "name": "rsk",
+          "active": true,
+          "updateConditionPercentage": 2,
+          "airseekerConfig": {
+            "deviationThreshold": 1,
+            "heartbeatInterval": 86400,
+            "updateInterval": 30
+          }
+        }
+      }
+    }
+  }
+}
