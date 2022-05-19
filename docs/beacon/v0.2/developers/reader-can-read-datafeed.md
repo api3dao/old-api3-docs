@@ -1,5 +1,5 @@
 ---
-title: readerCanReadBeacon()
+title: readerCanReadDataFeed()
 folder: dApp Developers
 ---
 
@@ -13,8 +13,8 @@ folder: dApp Developers
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 For on-chain smart contracts, the function
-[readerCanReadBeacon()](https://github.com/api3dao/airnode/blob/v0.6/packages/airnode-protocol/contracts/rrp/requesters/RrpBeaconServerV0.sol#L196-L209)
-returns true if the `reader` parameter can access the `beaconId` parameter
+[readerCanReadDataFeed()](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol#L771-L781)
+returns true if the `reader` parameter can access the `dataFeedId` parameter
 meaning that the reader address has been whitelisted. Please contact the
 [API3 Business Development API Team](https://api3.org) to be whitelisted.
 
@@ -27,20 +27,20 @@ subject to whitelisting. Off-chain code is beyond the scope of this doc.
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.3;
 
-import "@api3/airnode-protocol/contracts/rrp/requesters/interfaces/IRrpBeaconServerV0.sol";
+import "@api3/airnode-protocol-v1/contracts/dapis/interfaces/IDapiServer.sol";
 contract mySmartContract {
 
 
   function myVerifyReadable(
-    address _beaconContractAddress,
-    bytes32 _beaconId
+    address _dapiServerContractAddress,
+    bytes32 _datafeedId
   ) external {
     bool private canRead;
 
-    // Calling the BeaconServer for reader status
+    // Calling the DapiServer for reader status
     // where "this" is the contract address of this contract (myVerifyReadable).
     (canRead) =
-      RrpBeaconServerV0(_beaconContractAddress).readerCanReadBeacon(_beaconId, this);
+      IDapiServer(_dapiServerContractAddress).readerCanRereaderCanReadDataFeedadBeacon(_datafeedId, address(this));
   }
 }
 
@@ -48,13 +48,13 @@ contract mySmartContract {
 
 ## Parameters
 
-`readerCanReadBeacon(bytes32 beaconId, address reader)`
+`readerCanReadDataFeed(bytes32 datafeedId, address reader)`
 
-- `bytes32 beaconId` - The ID of the beacon.
+- `bytes32 datafeedId` - The ID of the dAPI datafeed.
 - `address reader` - The address to verify such as the reader's smart contract
   address or another address.
 
 ## Returns
 
 - `bool` - Whether the address passed is whitelisted and therefore can read the
-  Beacon ID passed.
+  dAPI data feed passed.
