@@ -15,9 +15,12 @@ module.exports = [
     collapsable: false,
     children: [
       'developers/', // README
-      'developers/read-beacon',
-      'developers/reader-can-read-beacon',
-      'developers/beaconid-reader-whiteliststatus',
+      'developers/read-data-feed-with-id',
+      'developers/read-data-feed-with-dapi-name',
+      'developers/read-data-feed-value-with-id',
+      'developers/read-data-feed-value-with-dapi-name',
+      'developers/reader-can-read-datafeed',
+      'developers/data-feed-id-to-reader-to-whitelist-status',
     ],
   },
 
