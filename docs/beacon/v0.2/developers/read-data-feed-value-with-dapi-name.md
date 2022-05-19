@@ -1,5 +1,5 @@
 ---
-title: readDataFeedWithDapiName()
+title: readDataFeedValueWithDapiName()
 folder: dApp Developers
 ---
 
@@ -15,7 +15,7 @@ folder: dApp Developers
 Reading a dAPI Data Feed value and timestamp using the dAPI `name` is simple and
 straight forward. For on-chain smart contracts the `msg.sender` argument
 received by the function
-[readDataFeedWithDapiName()](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol#L749-L765)
+[readDataFeedValueWithDapiName()](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol#L749-L765)
 must be whitelisted.
 
 ::: tip Get Whitelisted
