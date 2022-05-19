@@ -75,8 +75,8 @@
 </template>
 
 <script>
-import AlgoliaSearchBox from '@AlgoliaSearchBox';
-import SearchBox from '@SearchBox';
+//import AlgoliaSearchBox from '@AlgoliaSearchBox';
+//import SearchBox from '@SearchBox';
 import SidebarButton from '@theme/components/SidebarButton.vue';
 import NavLinks from '@theme/components/NavLinks.vue';
 
@@ -86,8 +86,8 @@ export default {
   components: {
     SidebarButton,
     NavLinks,
-    SearchBox,
-    AlgoliaSearchBox,
+    //SearchBox,
+    //AlgoliaSearchBox,
   },
   data() {
     return {

@@ -16,30 +16,12 @@
 
         <!-- Start chain list -->
         <div
-          class="bc-chain-box"
+          class="bc-chains-box"
           v-for="chain in chains"
           v-bind:key="chain.name"
         >
-          <img
-            :src="chain.logoPath"
-            width="33px;"
-            style="float: left; margin-top: -4px; margin-right: 15px"
-          />
-          <span class="bc-chain-name">{{ chain.name }}</span>
-
-          <!-- Start contract list -->
-          <hr style="margin-left: 48px" />
-          <div
-            class="bc-contract-address"
-            v-for="(address, key) in chain.contracts"
-            v-bind:key="address"
-          >
-            {{ key }}: <span>{{ address }}</span
-            ><CopyIcon :text="address" />
-          </div>
-          <!-- End contract list-->
+          <beacons-chains-ChainsItem :chain="chain" />
         </div>
-        <!-- End chain list-->
       </div>
     </div>
     <div v-else style="padding-left: 155px">
@@ -50,6 +32,7 @@
 
 <script>
 import axios from 'axios';
+import { chains, beacons } from './opsexport.json';
 
 export default {
   name: 'ChainsList',
@@ -57,10 +40,11 @@ export default {
     loaded: false,
     showSpinner: true,
     error: null,
-    chains: {},
+    chains: undefined,
     chainsCnt: Number,
   }),
   mounted() {
+    console.log(chains);
     this.$nextTick(function () {
       this.loadChainsFromRepo();
     });
@@ -68,12 +52,16 @@ export default {
   methods: {
     async loadChainsFromRepo() {
       try {
-        const response = await axios.get(
+        /*const response = await axios.get(
           'https://api.api3labs.link/operations/chains'
         );
+
+       
         console.log('chains', response);
 
-        this.chains = response.data.payload;
+        this.chains = response.data.payload;*/
+
+        this.chains = chains;
         this.chains = this.sortByName(this.chains);
         var keys = [];
         for (var k in this.chains) keys.push(k);
@@ -99,21 +87,14 @@ export default {
 .bc-chains-list-error {
   color: red;
 }
-.bc-chain-box {
+.bc-chains-box {
   padding-top: 5px;
   padding-left: 5px;
+  padding-right: 5px;
   padding-bottom: 10px;
   border: solid lightgrey 1px;
   border-radius: 0.5em;
   margin-bottom: 5px;
   max-width: 620px;
-}
-.bc-chain-name {
-  font-size: large;
-}
-.bc-contract-address {
-  font-family: courier;
-  font-size: small;
-  margin-left: 48px;
 }
 </style>
