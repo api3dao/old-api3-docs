@@ -14,9 +14,17 @@ folder: Reference
 
 <!-- See BEC-102 on the Beacon Board. -->
 
+::: danger Update
+
+Developers can now read beacons with ID or NAME. Not sure how the `name` is
+derived and is the `id` still derived as explained below?
+
+:::
+
 A `beaconId` and its `templateId` are identical across chains. When accessing a
-Beacon's value with the [readBeacon()](../developers/read-beacon.md) function
-only the `beaconId` is needed by the caller to access its value. The use of a
+Beacon's value with a function such as
+[readDataFeedWithId()](../developers/read-data-feed-with-id.md) only the
+`beaconId` is needed by the caller to access its value. The use of a
 `templateId` is only required when there is a need to update a Beacon value.
 Usually this is called by the Beacon itself and is **not** a normal operational
 procedure a Beacon consumer needs to concern themselves with.

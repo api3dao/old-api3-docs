@@ -1,6 +1,6 @@
 ---
 title: Request
-folder: Reference > Concepts and Definitions
+folder: Concepts and Definitions
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

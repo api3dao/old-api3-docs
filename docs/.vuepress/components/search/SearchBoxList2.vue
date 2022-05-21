@@ -1,14 +1,9 @@
 <template>
-  <div class="ls-search-list">
-    <H3 class="ls-docSet-heading"
-      >{{ docSetTitle }}
-      <span class="ls-docSet-cnt">({{ suggestions.length }})</span>
-    </H3>
-
+  <div v-if="suggestions" class="ls-search-list">
     <ul class="ls-suggestions" @mouseleave="unfocus">
       <li
         v-for="(s, i) in suggestions"
-        :key="docSetTitle + i"
+        :key="i"
         class="ls-suggestion"
         :class="{ focused: i === focusIndex }"
         @mouseenter="focus(i)"
@@ -31,7 +26,7 @@
 <script>
 export default {
   name: 'SearchBoxList2',
-  props: ['docSetTitle', 'suggestions'],
+  props: ['suggestions'],
   data() {
     return {
       focused: false,
@@ -63,6 +58,8 @@ export default {
 <style lang="stylus">
 
 .ls-search-list
+  user-select none
+  margin-top 15px
   .ls-docSet-heading
     max-width 200px
     border-bottom solid lightgrey 1px

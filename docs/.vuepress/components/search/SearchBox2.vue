@@ -21,51 +21,7 @@
         @keyup.down="onDown"
       />&nbsp;&nbsp;<span v-if="suggestions">({{ suggestions.length }})</span>
     </div>
-
-    <!-- start lists-->
-    <div v-if="suggestions" style="user-select: none">
-      <div v-if="airnode.length != 0">
-        <search-SearchBoxList2
-          :docSetTitle="latestTitle"
-          :suggestions="airnode"
-        />
-        <br />
-      </div>
-
-      <div v-if="beacons.length != 0">
-        <search-SearchBoxList2
-          :docSetTitle="latestBeaconTitle"
-          :suggestions="beacons"
-        />
-        <br />
-      </div>
-
-      <div v-if="ois.length != 0">
-        <search-SearchBoxList2
-          :docSetTitle="latestOisTitle"
-          :suggestions="ois"
-        />
-        <br />
-      </div>
-
-      <div v-if="qrng.length != 0">
-        <search-SearchBoxList2 docSetTitle="QRNG" :suggestions="qrng" />
-        <br />
-      </div>
-
-      <div v-if="api3.length != 0">
-        <search-SearchBoxList2 docSetTitle="API3" :suggestions="api3" />
-        <br />
-      </div>
-
-      <div v-if="dao_members.length != 0">
-        <search-SearchBoxList2
-          docSetTitle="DAO Members"
-          :suggestions="dao_members"
-        />
-        <br />
-      </div>
-    </div>
+    <search-SearchBoxList2 :suggestions="suggestions" />
   </div>
 </template>
 
@@ -75,14 +31,6 @@ import vClickOutside from 'v-click-outside';
 Vue.use(vClickOutside);
 
 import matchQuery from '../match-query';
-import {
-  latestVersion,
-  latestBeaconVersion,
-  latestOisVersion,
-  latestTitle,
-  latestBeaconTitle,
-  latestOisTitle,
-} from '../../config.js';
 
 /* global SEARCH_MAX_SUGGESTIONS, SEARCH_PATHS, SEARCH_HOTKEYS */
 export default {
@@ -93,20 +41,7 @@ export default {
       scrollY: localStorage.getItem('scrollY'),
       focused: false,
       focusIndex: 0,
-      latestVersion: latestVersion,
-      latestBeaconVersion: latestBeaconVersion,
-      latestOisVersion: latestOisVersion,
-      latestTitle: latestTitle,
-      latestBeaconTitle: latestBeaconTitle,
-      latestOisTitle: latestOisTitle,
-      usablePaths: [
-        latestVersion,
-        latestBeaconVersion,
-        latestOisVersion,
-        '/qrng/',
-        '/api3/',
-        '/dao-members',
-      ],
+      currentDocSetWithVersion: undefined, // The doc set the user is reading
     };
   },
 
@@ -114,38 +49,11 @@ export default {
     showSuggestions() {
       return this.focused && this.suggestions && this.suggestions.length;
     },
-    airnode() {
-      return this.suggestions.filter(
-        (item) => item.path.indexOf(latestVersion) === 0
-      );
-    },
-    beacons() {
-      return this.suggestions.filter(
-        (item) => item.path.indexOf(latestBeaconVersion) === 0
-      );
-    },
-    ois() {
-      return this.suggestions.filter(
-        (item) => item.path.indexOf(latestOisVersion) === 0
-      );
-    },
-    qrng() {
-      return this.suggestions.filter(
-        (item) => item.path.indexOf('/qrng/') === 0
-      );
-    },
-    api3() {
-      return this.suggestions.filter(
-        (item) => item.path.indexOf('/api3/') === 0
-      );
-    },
-    dao_members() {
-      return this.suggestions.filter(
-        (item) => item.path.indexOf('/dao-members/') === 0
-      );
-    },
     suggestions() {
       const query = this.query.trim().toLowerCase();
+      if (!this.currentDocSetWithVersion) {
+        this.setCurrentDocSet();
+      }
       if (query.length < 3) {
         localStorage.setItem('search_query', '');
         return;
@@ -201,12 +109,18 @@ export default {
     onClickOutside(url, event) {
       this.$emit('clicked'); // goes to parent method
     },
+    setCurrentDocSet() {
+      const docSet = this.$route.path.split('/');
+
+      if (['airnode', 'beacon', 'ois'].includes(docSet[1])) {
+        this.currentDocSetWithVersion = '/' + docSet[1] + '/' + docSet[2];
+      } else {
+        this.currentDocSetWithVersion = '/' + docSet[1];
+      }
+    },
     filterByPath(p) {
-      const arr = this.usablePaths.filter(
-        (path) => p.regularPath.indexOf(path) === 0
-      );
-      if (arr.length > 0) {
-        //p.docSet = 'Doc Set name here';
+      // Only allow the search to show items found in hte current doc set
+      if (p.regularPath.indexOf(this.currentDocSetWithVersion) === 0) {
         return true;
       }
       return false;
