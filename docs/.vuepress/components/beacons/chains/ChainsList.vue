@@ -44,7 +44,6 @@ export default {
     chainsCnt: Number,
   }),
   mounted() {
-    console.log(chains);
     this.$nextTick(function () {
       this.loadChainsFromRepo();
     });
