@@ -32,7 +32,7 @@
 
 <script>
 import axios from 'axios';
-import chains from './chains.json';
+import chains from '../../../chains.json';
 
 export default {
   name: 'ChainsList',
