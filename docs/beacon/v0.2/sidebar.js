@@ -30,7 +30,6 @@ module.exports = [
     collapsable: false,
     children: [
       'reference/beacon-scheme.md',
-      'reference/contract-addresses.md',
       'reference/beacon-browser.md',
       'reference/chains.md',
       'reference/monitor.md',
