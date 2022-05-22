@@ -1,5 +1,5 @@
 ---
-title: Chains
+title: Chains and Contracts
 folder: Reference
 ---
 
