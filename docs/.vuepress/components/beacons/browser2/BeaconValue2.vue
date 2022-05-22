@@ -19,12 +19,10 @@ Gets the Beacon's on-chain value from an API using ethers.js.
 
     <div>
       <i>Network:</i>
-      <span v-for="chain in beaconParam.chains" v-bind:key="chain.id">
-        <!-- prettier-ignore -->
-        <select class="beacon-value-picklist" @change="setRegion($event)">
-          <option :value="chain.id">{{ chain.name }}</option>
-        </select>
-      </span>
+      <!-- prettier-ignore -->
+      <select class="beacon-value-picklist" @change="setRegion($event)">
+        <option  v-for="chain in beaconParam.chains" v-bind:key="chain.id" :value="chain.id">{{ chain.name }}</option>
+      </select>
     </div>
 
     <div style="margin-top: 15px">
@@ -71,8 +69,6 @@ export default {
     this.$nextTick(async function () {
       this.beacon = this.beaconParam;
       this.setBeaconValue();
-      console.log('beacon value chains >', this.chains);
-      console.log(this.beacon);
     });
   },
   methods: {

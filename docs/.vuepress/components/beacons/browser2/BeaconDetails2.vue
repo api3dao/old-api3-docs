@@ -3,12 +3,7 @@ Component for the ChildPage beacon-child-detail.md
 -->
 
 <template>
-  <!--
-Use v-if="dataLoaded" not v-show. The beacon is loading from localStorage
-with a delay. We do not want to load the DOM until the Beacon is loaded
-or the value block will fail to get its parameter.
--->
-  <div v-if="loaded === true">
+  <div>
     <div class="bcd-flex-container">
       <div class="bcd-flex-left">
         <a href="javascript:void(0)" class="bcd-back-btn" v-on:click="goBack()"
@@ -22,92 +17,82 @@ or the value block will fail to get its parameter.
       </div>
     </div>
 
-    <div class="bcd-error" v-if="error">
-      {{ error }} Please report this error.
+    <div class="bcd-content-box">
+      <i class="bcd-content-box-label">Description:</i>
+      <span class="bcd-content-box-value">{{ beacon.description }}</span>
+    </div>
+    <div class="bcd-content-box">
+      <img
+        style="width: 105px; margin-top: 2px"
+        :src="beacon.provider.logoPath"
+      />
+      <span class="b2-provider-name">
+        {{ beacon.provider.name }}
+      </span>
     </div>
 
-    <div v-show="!error">
-      <div class="bcd-content-box">
-        <i class="bcd-content-box-label">Description:</i>
-        <span class="bcd-content-box-value">{{ beacon.description }}</span>
-      </div>
-      <div class="bcd-content-box">
-        <img style="width: 25px; margin-top: 2px" :src="provider.logoPath" />
-        <div
-          style="
-            margin-top: -26px;
-            margin-left: 34px;
-            padding-bottom: 4px;
-            font-size: large;
-          "
-        >
-          {{ provider.name }}
-        </div>
-      </div>
+    <!-- Value -->
+    <div class="bcd-content-box">
+      <beacons-browser2-BeaconValue2
+        v_bind:chains="beacon.chains"
+        v-bind:beaconParam="beacon"
+        class="bcd-content-box-label"
+      />
+    </div>
 
-      <!-- Value -->
-      <div class="bcd-content-box">
-        <beacons-browser2-BeaconValue2
-          :chains="chains"
-          v-bind:beaconParam="beacon"
-          class="bcd-content-box-label"
-        />
-      </div>
+    <!-- Beacon ID -->
+    <div class="bcd-content-box">
+      <i class="bcd-content-box-label">Beacon ID:</i>
+      <span class="bcd-content-box-value">
+        {{ beacon.beaconId }}<CopyIcon :text="beacon.beaconId" />
+      </span>
+    </div>
 
-      <!-- Beacon ID -->
-      <div class="bcd-content-box">
-        <i class="bcd-content-box-label">Beacon ID:</i>
-        <span class="bcd-content-box-value">
-          {{ beacon.beaconId }}<CopyIcon :text="beacon.beaconId" />
-        </span>
-      </div>
+    <!-- Template ID -->
+    <div class="bcd-content-box">
+      <i class="bcd-content-box-label">Template ID:</i>
+      <span class="bcd-content-box-value">
+        {{ beacon.templateId }}<CopyIcon :text="beacon.templateId" />
+      </span>
+    </div>
 
-      <!-- Template ID -->
-      <div class="bcd-content-box">
-        <i class="bcd-content-box-label">Template ID:</i>
-        <span class="bcd-content-box-value">
-          {{ beacon.templateId }}<CopyIcon :text="beacon.templateId" />
-        </span>
-      </div>
+    <!-- Airnode address -->
+    <div class="bcd-content-box">
+      <i class="bcd-content-box-label">Airnode address:</i>
+      <span class="bcd-content-box-value">
+        {{ beacon.airnodeAddress }}<CopyIcon :text="beacon.airnodeAddress" />
+      </span>
+    </div>
 
-      <!-- Airnode address -->
-      <div class="bcd-content-box">
-        <i class="bcd-content-box-label">Airnode address:</i>
-        <span class="bcd-content-box-value">
-          {{ beacon.airnodeAddress }}<CopyIcon :text="beacon.airnodeAddress" />
-        </span>
+    <!-- Value Chart -->
+    <div>
+      <Grafana
+        v-if="beacon.grafanaURL"
+        :src="beacon.grafanaURL"
+        widthOverride="99%"
+        heightOverride="240"
+      />
+      <div v-else style="padding: 59px">Value graph data not available.</div>
+    </div>
+    <br />
+    <!-- Deviation Chart -->
+    <div>
+      <Grafana
+        v-if="beacon.grafanaDeviationURL"
+        :src="beacon.grafanaDeviationURL"
+        widthOverride="99%"
+        heightOverride="240px"
+      />
+      <div v-else style="padding: 59px">
+        Deviation graph data not available.
       </div>
+    </div>
+    <br />
 
-      <!-- Value Chart -->
-      <div>
-        <Grafana
-          v-if="beacon.grafanaURL"
-          :src="beacon.grafanaURL"
-          widthOverride="99%"
-          heightOverride="240"
-        />
-        <div v-else style="padding: 59px">Value graph data not available.</div>
-      </div>
-      <br />
-      <!-- Deviation Chart -->
-      <div>
-        <Grafana
-          v-if="beacon.grafanaDeviationURL"
-          :src="beacon.grafanaDeviationURL"
-          widthOverride="99%"
-          heightOverride="240px"
-        />
-        <div v-else style="padding: 59px">
-          Deviation graph data not available.
-        </div>
-      </div>
-      <br />
-
-      <!-- Template -->
-      <div class="bcd-content-box">
-        <i class="bcd-content-box-label">Template:</i>
-        <pre><code>{{beacon.template}}</code></pre>
-      </div>
+    <!-- Template -->
+    <div class="bcd-content-box">
+      <i class="bcd-content-box-label">Template:</i>
+      <pre><code>{{beacon.template}}</code></pre>
     </div>
   </div>
 </template>
@@ -116,27 +101,16 @@ or the value block will fail to get its parameter.
 export default {
   name: 'BeaconDetails2',
   props: {
-    dataDetails: {},
-    chains: {},
-  },
-  data: () => ({
     beacon: {},
-    provider: {},
-    loaded: false,
-    error: String,
-  }),
+  },
   mounted() {
     this.$nextTick(async function () {
-      console.log('beacon details chains >', this.chains);
-      this.error = null;
-      this.provider = this.dataDetails.provider;
-      this.beacon = this.dataDetails.beacon;
-      this.loaded = true;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   },
   methods: {
     goBack() {
+      // Do not pass any parameters
       this.$parent.togglePanes();
     },
   },
@@ -144,10 +118,6 @@ export default {
 </script>
 
 <style scoped>
-.bcd-error {
-  color: red;
-}
-
 .bcd-content-box {
   width: 97%;
   box-shadow: 2px 2px 5px lightgrey;
