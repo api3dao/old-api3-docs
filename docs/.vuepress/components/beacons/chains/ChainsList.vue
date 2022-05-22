@@ -32,7 +32,7 @@
 
 <script>
 import axios from 'axios';
-import { chains, beacons } from './opsexport.json';
+import chains from '../../../chains.json';
 
 export default {
   name: 'ChainsList',
@@ -51,17 +51,16 @@ export default {
   methods: {
     async loadChainsFromRepo() {
       try {
-        /*const response = await axios.get(
+        // TODO: need access to the chains via S3 bucket, CORS issue holding this up
+        /*
+        const response = await axios.get(
           'https://api.api3labs.link/operations/chains'
         );
-
-       
-        console.log('chains', response);
-
-        this.chains = response.data.payload;*/
-
+        this.chains = response.data.payload;
+        */
         this.chains = chains;
         this.chains = this.sortByName(this.chains);
+
         var keys = [];
         for (var k in this.chains) keys.push(k);
         this.chainsCnt = keys.length;

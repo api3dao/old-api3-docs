@@ -1,5 +1,5 @@
 <!--
-  This component displays a list of all chains sorted by name.
+  This component displays an individual chain.
 -->
 
 <template>
@@ -12,13 +12,13 @@
 
       <!-- RIGHT column -->
       <div class="bc-chains-column-right">
+        <span style="font-size: x-small"> {{ chain.id }} </span>
         <span class="bc-chains-name"
-          >{{ chain.name }}
-          <span style="font-size: x-small"> ({{ chain.id }}) </span></span
-        >
+          ><a :href="chain.explorerUrl">{{ chain.name }}</a
+          ><ExternalLinkImage />
+        </span>
 
-        <!-- Start contract list -->
-
+        <!-- Contract list -->
         <div
           class="bc-chains-contract-address"
           v-for="(address, key) in chain.contracts"
@@ -29,7 +29,6 @@
         </div>
       </div>
     </div>
-    <!-- End contract list-->
   </div>
 </template>
 
@@ -37,9 +36,6 @@
 export default {
   name: 'ChainsItem',
   props: ['chain'],
-  data: () => ({}),
-
-  methods: {},
 };
 </script>
 
@@ -56,6 +52,7 @@ export default {
   flex: 1;
   max-width: 50px;
   min-width: 50px;
+  margin-right: 10px;
 }
 .bc-chains-column-right {
   display: flex;
@@ -68,6 +65,7 @@ export default {
   font-size: large;
   font-weight: bold;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 .bc-chains-contract-address {
   font-family: courier;
