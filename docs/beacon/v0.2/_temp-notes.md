@@ -54,3 +54,29 @@ contract).
 
 This is their example site if you haven't seen it already:
 http://api3-explorer.s3-website.eu-west-3.amazonaws.com/beacons/rsk/0x33ced632274973f86303f003416dfcb0d0a59aefe7a0f3fef5c42bb890383846
+
+### S3 Bucket
+
+I've added the export process to the operations CI along with an export system
+that follows the example you gave above^ The JSON blobs are stored in both
+https://operations-development.s3.amazonaws.com/latest/*.json and
+https://operations-development.s3.amazonaws.com/commit-hash/*.json So you can
+either always use the latest to be pushed or pin your usage to a specific commit
+hash.
+
+These are the S3 files currently being exposed:
+https://operations-development.s3.amazonaws.com/latest/operations.json (the full
+operations object)
+https://operations-development.s3.amazonaws.com/latest/apis.json (/data/apis)
+https://operations-development.s3.amazonaws.com/latest/chains.json
+(/data/chains) https://operations-development.s3.amazonaws.com/latest/dapis.json
+(/data/dapis)
+https://operations-development.s3.amazonaws.com/latest/documentation.json (the
+old documentation export, copied from the last code used)
+https://operations-development.s3.amazonaws.com/latest/documentation-alternative.json
+(the variation you gave above)
+https://operations-development.s3.amazonaws.com/latest/explorer.json
+(/data/explorer payload) These are currently updated for every new PR commit. An
+example of the commit hash variant (pinned version):
+https://operations-development.s3.amazonaws.com/46139b8f39f0653adee4719fd492e0d75a64d93a/operations.json
+(edited)

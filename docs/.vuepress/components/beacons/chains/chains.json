@@ -1,0 +1,56 @@
+{
+  "avalanche-testnet": {
+    "name": "avalanche-testnet",
+    "id": "43113",
+    "contracts": { "DapiServer": "0xdC91ea613247C0C9438A6F64Cc0E08291198981a" },
+    "nativeToken": "AVAX",
+    "blockTime": 19.8,
+    "logoPath": "https://operations-logos.s3.amazonaws.com/general/Avalanche_white.svg",
+    "explorerUrl": "https://testnet.snowtrace.io"
+  },
+  "avalanche": {
+    "name": "avalanche",
+    "id": "43114",
+    "contracts": { "DapiServer": "0x291a11cbbC441201562A6418Fd11bBeb0675b4e4" },
+    "nativeToken": "AVAX",
+    "blockTime": 19.8,
+    "logoPath": "https://operations-logos.s3.amazonaws.com/general/Avalanche_white.svg",
+    "explorerUrl": "https://snowtrace.io/"
+  },
+  "bsc": {
+    "name": "bsc",
+    "id": "56",
+    "contracts": { "DapiServer": "0x8B0A67D060C86919Ae76Ca3FA69c68Ff98E85c3c" },
+    "nativeToken": "BNB",
+    "blockTime": 3.01,
+    "logoPath": "https://operations-logos.s3.amazonaws.com/general/Binance_white.svg",
+    "explorerUrl": "https://bscscan.com"
+  },
+  "polygon-testnet": {
+    "name": "polygon-testnet",
+    "id": "80001",
+    "contracts": { "DapiServer": "0x71Da7A936fCaEd1Ee364Df106B12deF6D1Bf1f14" },
+    "nativeToken": "MATIC",
+    "blockTime": 2.3,
+    "logoPath": "https://operations-logos.s3.amazonaws.com/polygon/polygon-matic-logo.svg",
+    "explorerUrl": "https://mumbai.polygonscan.com"
+  },
+  "polygon": {
+    "name": "polygon",
+    "id": "137",
+    "contracts": { "DapiServer": "0xd7CA5BD7a45985D271F216Cb1CAD82348464f6d5" },
+    "nativeToken": "MATIC",
+    "blockTime": 2.3,
+    "logoPath": "https://operations-logos.s3.amazonaws.com/general/Polygon_white.svg",
+    "explorerUrl": "https://polygonscan.com"
+  },
+  "rsk": {
+    "name": "rsk",
+    "id": "30",
+    "contracts": { "DapiServer": "0xCC5005Bd08b8882c9A132C0067E7D3f79796C251" },
+    "nativeToken": "RBTC",
+    "blockTime": 30,
+    "logoPath": "https://operations-logos.s3.amazonaws.com/general/RSK_white.svg",
+    "explorerUrl": "https://explorer.rsk.co"
+  }
+}
