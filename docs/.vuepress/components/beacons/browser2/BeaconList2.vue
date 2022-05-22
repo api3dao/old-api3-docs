@@ -6,7 +6,7 @@
 
 <template>
   <div>
-    <div v-show="loaded === true">
+    <div v-show="showBeacons === true">
       <!-- Filter  -->
       <input
         id="searchText"
@@ -14,8 +14,9 @@
         class="b2-beacon-list-filter-input"
         v-on:keyup="void find()"
         placeholder="Filter (must contain all)"
-      />
-      <div style="margin-top: 4px; font-size: small">Beacons: ({{ cnt }})</div>
+      /><span style="margin-top: 4px; color: gray; font-size: medium">
+        ({{ cnt }})</span
+      >
 
       <!-- PANE, beacon list -->
       <div
@@ -29,16 +30,13 @@
           v-show="item.beaconCnt > 0"
           style="border-top: solid 2px lightgrey"
         >
-          <img
-            style="width: 35px; float: left; margin-top: 2px"
-            :src="item.logoPath"
-          />
-          <div class="b2-provider-name">
+          <img style="width: 105px; margin-top: 5px" :src="item.logoPath" />
+          <span class="b2-provider-name">
             {{ item.name }}
             <span style="font-size: x-small; font-weight: 200">
               ({{ item.beaconCnt }})</span
             >
-          </div>
+          </span>
           <!-- Beacons -->
           <div class="flex-container">
             <div v-for="beacon in item.beacons" v-bind:key="beacon.beaconId">
@@ -49,6 +47,10 @@
               >
                 {{ beacon.name }}
                 <div>{{ beacon.description }}</div>
+                <!-- Beacon chains -->
+                <span v-for="(chain, i) in beacon.chains" v-bind:key="i">
+                  <img :src="chain.logo" width="18px" />
+                </span>
               </div>
             </div>
           </div>
@@ -58,10 +60,7 @@
     <!-- PANE, beacon details -->
     <div v-if="showDetails">
       <hr />
-      <beacons-browser2-BeaconDetails2
-        :dataDetails="dataDetails"
-        :chains="chains"
-      />
+      <beacons-browser2-BeaconDetails2 :beacon="beacon" />
     </div>
 
     <div style="padding: 155px" v-show="showSpinner">
@@ -75,17 +74,18 @@
 
 <script>
 import axios from 'axios';
+import providers from '../../../beacons.json';
 
 export default {
   name: 'BeaconList2',
   data: () => ({
-    loaded: false,
+    showBeacons: false,
     showSpinner: false,
     showDetails: false,
     error: null,
     data: [],
-    dataDetails: undefined, // Passes data to child pane BeaconDetails2.vue
-    chains: undefined, // Passed to the detail and then value component
+    beacon: undefined, // Passes data BeaconDetails2.vue
+    //dataPayload: undefined, // Passes data BeaconDetails2.vue
     cnt: 0,
     scrollY: 0, // Remember Y position when going to details pane
   }),
@@ -98,13 +98,13 @@ export default {
   methods: {
     async loadBeacons() {
       try {
-        const response = await axios.get(
+        /*const response = await axios.get(
           'https://api.api3labs.link/operations/beacons'
         );
 
         this.providers = response.data.payload.apis;
-        this.chains = response.data.payload.chains;
-
+        this.chains = response.data.payload.chains;*/
+        this.providers = providers;
         // Providers
         for (var key in this.providers) {
           const providerKey = key;
@@ -136,15 +136,27 @@ export default {
 
             // Start content
             this.providers[key].beacons[beaconKey].content =
+              key +
+              ' ' +
               this.providers[key].beacons[beaconKey].name +
               ' ' +
               this.providers[key].beacons[beaconKey].description;
 
-            // Add chain to content
-            this.providers[key].beacons[beaconKey].chains.forEach((chain) => {
+            /** 
+              1. Add chain name to content
+              2. Add the name to the chain object
+              3. Add the logo to the chain object
+            */
+            for (var chainKey in this.providers[key].beacons[beaconKey]
+              .chains) {
+              this.providers[key].beacons[beaconKey].chains[chainKey].name =
+                chainKey;
+              this.providers[key].beacons[beaconKey].chains[chainKey].logo =
+                '/img/beacon.png';
+
               this.providers[key].beacons[beaconKey].content +=
-                ' ' + chain.name + ' ';
-            });
+                ' ' + chainKey + ' ';
+            }
             beacons.push(this.providers[key].beacons[beaconKey]);
           }
           beacons.sort(this.sortByName);
@@ -156,27 +168,34 @@ export default {
             logoPath: providerLogo,
             beacons: beacons,
           });
-          console.log('\n------------> response', response);
-          console.log('------------> data', this.data);
         }
       } catch (err) {
         console.error(err.toString());
         this.error = err.toString();
       }
       this.showSpinner = false;
-      this.loaded = true;
+      this.showBeacons = true;
     },
-    togglePanes(beacon, provider) {
-      if (beacon) {
+    togglePanes(beaconParam, providerParam) {
+      // If beaconParam is null then this was called by BeaconDetails2.vue
+      if (beaconParam) {
         this.scrollY = window.scrollY;
-        this.dataDetails = { provider: provider, beacon: beacon }; // Pass to BeaconDetails.vue
+        // Data to pass to BeaconDetails.vue
+        this.beacon = beaconParam;
+        this.beacon['provider'] = {
+          name: providerParam.name,
+          logoPath: providerParam.logoPath,
+        };
       } else {
-        this.dataDetails = undefined;
+        this.dataPayload = undefined;
       }
-      this.loaded = !this.loaded;
+
+      // Toggle the panes
+      this.showBeacons = !this.showBeacons;
       this.showDetails = !this.showDetails;
+
+      // Return to last scroll position if beaconList pane active
       if (!this.showDetails) {
-        // Return to last scroll position
         setTimeout(() => {
           window.scrollBy(0, this.scrollY);
         }, 10);
@@ -204,7 +223,7 @@ export default {
               beacon.show = true;
               this.cnt++;
               provider.beaconCnt++;
-            } else if (beacon.content.indexOf(str) > -1) {
+            } else if (beacon.content.toLowerCase().indexOf(str) > -1) {
               beacon.show = true;
               this.cnt++;
               provider.beaconCnt++;
@@ -228,16 +247,16 @@ export default {
   margin-top: 10px;
   font-size: large;
   width: 97%;
-  max-width: 615px;
+  max-width: 275px;
   border: 2px solid lightgrey;
   border-radius: 2px;
   padding: 3px;
 }
 .b2-provider-name {
-  margin-left: 44px;
-  margin-top: 6px;
-  font-size: large;
-  font-weight: bold;
+  margin-left: -60px;
+  vertical-align: super;
+  font-size: x-large;
+  font-weight: 400;
 }
 .flex-container {
   display: flex;

@@ -1,0 +1,2734 @@
+{
+  "api3": {
+    "apiMetadata": {
+      "name": "API3",
+      "active": true,
+      "homepage": "https://api3.org",
+      "airnode": "0x5b1243308f56156553F067D354b162f71E581b28",
+      "xpub": "xpub6C5CenwS58SBaET1q2FhY7jmBystDiBE5LDadX4P6MEAm11XDvnhPWYNXeuYtXBpWDbVZm5xbniiXMzWjur3nVVhms2naF8eEAwkdHnyrzp",
+      "logoPath": "https://api3.org/img/logo.png",
+      "description": "API3 delivers efficient and secure first party oracle solutions.",
+      "maxSubscriptionPeriod": 3
+    },
+    "beacons": {
+      "amberdata aave_btc": {
+        "name": "AmberData AAVE/BTC",
+        "description": "AmberData - AAVE/BTC - Pair",
+        "beaconId": "0x33ced632274973f86303f003416dfcb0d0a59aefe7a0f3fef5c42bb890383846",
+        "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+        "templateId": "0xb0039a5af9f6c937f3d1c7af36a5dc83c53961d0356a373185e7972d6daf6b5a",
+        "chains": {
+          "rsk": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [
+              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
+              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+            ],
+            "updateConditionPercentage": 2,
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          },
+          "polygon-testnet": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          }
+        }
+      },
+      "amberdata aave_usd": {
+        "name": "AmberData AAVE/USD",
+        "description": "AmberData - AAVE/USD - Pair",
+        "beaconId": "0xaa95f479e5eb12e9a175df161063e2e35572e5e39f6140831808c69174dbeb24",
+        "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+        "templateId": "0x4ea5398d313d6b8a70fe8690f884a311de7f0a15d76e44d14b21a7c9ee471e31",
+        "chains": {
+          "polygon": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [
+              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
+              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+            ],
+            "updateConditionPercentage": 2,
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          },
+          "rsk": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [
+              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
+              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+            ],
+            "updateConditionPercentage": 2,
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          },
+          "avalanche": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [
+              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
+              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+            ],
+            "updateConditionPercentage": 2,
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          },
+          "polygon-testnet": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          }
+        }
+      },
+      "amberdata alpaca_usdt": {
+        "name": "AmberData ALPACA/USDT",
+        "description": "AmberData - ALPACA/USDT - Pair",
+        "beaconId": "0xeab45a41346d283d42b6d1f71bcb8fabc3c8f75ee978bf27df1c8e5590e82196",
+        "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+        "templateId": "0x316b55a49ae702580708ba624eb7b82b7e9a03de664f07364e29a950c7b4a554",
+        "chains": {
+          "bsc": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [
+              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
+              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+            ],
+            "updateConditionPercentage": 2,
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          },
+          "polygon-testnet": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          }
+        }
+      },
+      "amberdata avax_usd": {
+        "name": "AmberData AVAX/USD",
+        "description": "AmberData - AVAX/USD - Pair",
+        "beaconId": "0xee0eebdd2c1fa2185fc0d2a46c6557781fbdc7a588a8bbe64e73295c18288c8d",
+        "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+        "templateId": "0x26cb2638f5c9400a6eef7a8b6c13e266c6bd735f692e56bf19f2c911c227cad8",
+        "chains": {
+          "avalanche": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [
+              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
+              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+            ],
+            "updateConditionPercentage": 2,
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          },
+          "polygon-testnet": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          }
+        }
+      },
+      "amberdata bnb_usd": {
+        "name": "AmberData BNB/USD",
+        "description": "AmberData - BNB/USD - Pair",
+        "beaconId": "0xa3ebd22a5633ca53bb74f1ff545d32c6c69254f1b89ae070658bf358cab8a282",
+        "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+        "templateId": "0xa1ee143b874a7c8eba3d1b5095a783a1e5ff67906a1586b6f09556c6b47f06ac",
+        "chains": {
+          "bsc": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [
+              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
+              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+            ],
+            "updateConditionPercentage": 2,
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          },
+          "polygon-testnet": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          }
+        }
+      },
+      "amberdata busd_usd": {
+        "name": "AmberData BUSD/USD",
+        "description": "AmberData - BUSD/USD - Pair",
+        "beaconId": "0x417dd7ea638087ba9b9fdc320c58a83405f9562b699b01152e9f685653968c55",
+        "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+        "templateId": "0x3eccbdf3e97f2ac1faa0833e2546254aaa02aed5d8429f28b0b997858d8fe6cc",
+        "chains": {
+          "bsc": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [
+              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
+              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+            ],
+            "updateConditionPercentage": 0.4,
+            "airseekerConfig": { "deviationThreshold": 0.2, "heartbeatInterval": 86400, "updateInterval": 30 }
+          },
+          "polygon-testnet": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
+            "airseekerConfig": { "deviationThreshold": 0.2, "heartbeatInterval": 86400, "updateInterval": 30 }
+          }
+        }
+      },
+      "amberdata cake_usdt": {
+        "name": "AmberData CAKE/USDT",
+        "description": "AmberData - CAKE/USDT - Pair",
+        "beaconId": "0xc8d512e8db42a1e4fd2f8ad9acbf72d1c8adeabf14562c72b3d64758905b5a9b",
+        "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+        "templateId": "0x68196c5c5af7d35dba17e7b180ae08aa1febe95d487b4eeb3a0e8c8c04c8c4e9",
+        "chains": {
+          "bsc": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [
+              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
+              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+            ],
+            "updateConditionPercentage": 2,
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          },
+          "polygon-testnet": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          }
+        }
+      },
+      "amberdata crv_usd": {
+        "name": "AmberData CRV/USD",
+        "description": "AmberData - CRV/USD - Pair",
+        "beaconId": "0xd304a329cb1c2472c36de0c0aecc1da83f132a8d9d9777338b81d989e9f7d1c8",
+        "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+        "templateId": "0x60a89c316a78d29387cd92eca79702ab0f02f0ab786d92749d5874a919876d3f",
+        "chains": {
+          "avalanche": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [
+              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
+              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+            ],
+            "updateConditionPercentage": 2,
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          },
+          "polygon-testnet": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          }
+        }
+      },
+      "amberdata joe_usd": {
+        "name": "AmberData JOE/USD",
+        "description": "AmberData - JOE/USD - Pair",
+        "beaconId": "0x8616a48c48261b1b03430b61ddbb7df073aa31635b22c1f099f0210504550faf",
+        "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+        "templateId": "0xec22c6ad19d47d245b880c6808a2e3a644e35157992f6a8a0894c6a9e63e34a0",
+        "chains": {
+          "avalanche": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [
+              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
+              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+            ],
+            "updateConditionPercentage": 2,
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          },
+          "polygon-testnet": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          }
+        }
+      },
+      "amberdata matic_usd": {
+        "name": "AmberData MATIC/USD",
+        "description": "AmberData - MATIC/USD - Pair",
+        "beaconId": "0xc06f8abc8ceb254781f12071ceee5c02103580df309d79b6b66fa40edc1ff9e7",
+        "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+        "templateId": "0x84a3a09582fa3e8604e6056584bf61345157d502fd818fff31f355fac3957feb",
+        "chains": {
+          "polygon": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [
+              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
+              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+            ],
+            "updateConditionPercentage": 2,
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          },
+          "polygon-testnet": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          }
+        }
+      },
+      "amberdata ooki_eth": {
+        "name": "AmberData OOKI/ETH",
+        "description": "AmberData - OOKI/ETH - Pair",
+        "beaconId": "0x5b4e1550f636c4e06478d5d8cd2a9ee106ffb2b7c227d0de57284c2952216c97",
+        "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+        "templateId": "0x021e15b08969326858ce157f37765cd0c2d1b97873309134fa2c664474f56d11",
+        "chains": {
+          "polygon": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [
+              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
+              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+            ],
+            "updateConditionPercentage": 2,
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          },
+          "polygon-testnet": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          }
+        }
+      },
+      "amberdata quick_usd": {
+        "name": "AmberData QUICK/USD",
+        "description": "AmberData - QUICK/USD - Pair",
+        "beaconId": "0x08d9d222b7e1e77a93ebbc8c69614af636e47a6c71eb3fcab4708c6455fabfd1",
+        "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+        "templateId": "0x7ca1551b7f36564bd0fb519bc46643c10642c41ce3066f36867a8062a0796896",
+        "chains": {
+          "polygon": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [
+              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
+              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+            ],
+            "updateConditionPercentage": 2,
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          },
+          "polygon-testnet": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          }
+        }
+      },
+      "amberdata rbtc_btc": {
+        "name": "AmberData RBTC/BTC",
+        "description": "AmberData - RBTC/BTC - Pair",
+        "beaconId": "0x0639ffa36d0dd116fddf5dad4559d2dba303b99ab7771bf3d1b7e3af86d89ced",
+        "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+        "templateId": "0xd1c4bd38d88d67c4cc336caf7fd48e7eebc3701cbbc952b3abe5dd5861a98a22",
+        "chains": {
+          "rsk": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [
+              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
+              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+            ],
+            "updateConditionPercentage": 2,
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          },
+          "polygon-testnet": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          }
+        }
+      },
+      "amberdata rbtc_usd": {
+        "name": "AmberData RBTC/USD",
+        "description": "AmberData - RBTC/USD - Pair",
+        "beaconId": "0xc7d143e56da695e6d63f9c408932378e9130486fbb1c2bb8a8a9f74c9bbdf2d2",
+        "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+        "templateId": "0x5f51da1c10f3e3989c462fcb90bbe304206825f98a5239b4f35209078300d09e",
+        "chains": {
+          "rsk": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [
+              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
+              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+            ],
+            "updateConditionPercentage": 2,
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          },
+          "polygon-testnet": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          }
+        }
+      },
+      "amberdata usdc_usd": {
+        "name": "AmberData USDC/USD",
+        "description": "AmberData - USDC/USD - Pair",
+        "beaconId": "0x814e3c84e0e63b8dd483a92f951259e18bfd1e9c2d11e850343fb15d8bd6c245",
+        "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+        "templateId": "0x21fd97d7dc3abd5b788895c61e07c244e6369e39d1139d1626fecfc4042fbf29",
+        "chains": {
+          "polygon": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [
+              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
+              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+            ],
+            "updateConditionPercentage": 0.4,
+            "airseekerConfig": { "deviationThreshold": 0.2, "heartbeatInterval": 86400, "updateInterval": 30 }
+          },
+          "rsk": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [
+              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
+              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+            ],
+            "updateConditionPercentage": 0.4,
+            "airseekerConfig": { "deviationThreshold": 0.2, "heartbeatInterval": 86400, "updateInterval": 30 }
+          },
+          "polygon-testnet": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
+            "airseekerConfig": { "deviationThreshold": 0.2, "heartbeatInterval": 86400, "updateInterval": 30 }
+          }
+        }
+      },
+      "amberdata ust_usd": {
+        "name": "AmberData UST/USD",
+        "description": "AmberData - UST/USD - Pair",
+        "beaconId": "0x472ccf005a6ee77277c6262321c4228aa31eabfb199ccd216ebc486302df0f4d",
+        "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+        "templateId": "0x1bab8014c068e6871bf4043a74c51164d05d482d8cb6f1f66f8edcd7f3b6bb0f",
+        "chains": {
+          "avalanche": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [
+              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
+              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+            ],
+            "updateConditionPercentage": 0.4,
+            "airseekerConfig": { "deviationThreshold": 0.2, "heartbeatInterval": 86400, "updateInterval": 30 }
+          },
+          "polygon-testnet": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
+            "airseekerConfig": { "deviationThreshold": 0.2, "heartbeatInterval": 86400, "updateInterval": 30 }
+          }
+        }
+      },
+      "amberdata xvs_usdt": {
+        "name": "AmberData XVS/USDT",
+        "description": "AmberData - XVS/USDT - Pair",
+        "beaconId": "0x66834ab57b5d8ccdca8366187c971d412706349fc625398dee5a97c89e39e49f",
+        "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+        "templateId": "0x6fe33b9efe33a762f703f4b390af3fbc45296a70361b8f1b6f48fdfaab4fdf66",
+        "chains": {
+          "bsc": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [
+              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
+              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+            ],
+            "updateConditionPercentage": 2,
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          },
+          "polygon-testnet": {
+            "active": true,
+            "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
+            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+          }
+        }
+      }
+    },
+    "deployments": {
+      "2022-04-28": {
+        "airkeeper": {
+          "airkeeper": {
+            "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+            "airnodeXpub": "xpub6C5CenwS58SBaET1q2FhY7jmBystDiBE5LDadX4P6MEAm11XDvnhPWYNXeuYtXBpWDbVZm5xbniiXMzWjur3nVVhms2naF8eEAwkdHnyrzp",
+            "chains": [
+              {
+                "id": "30",
+                "contracts": { "RrpBeaconServer": "", "DapiServer": "0xCC5005Bd08b8882c9A132C0067E7D3f79796C251" }
+              },
+              {
+                "id": "137",
+                "contracts": { "RrpBeaconServer": "", "DapiServer": "0xd7CA5BD7a45985D271F216Cb1CAD82348464f6d5" }
+              },
+              {
+                "id": "43114",
+                "contracts": { "RrpBeaconServer": "", "DapiServer": "0x291a11cbbC441201562A6418Fd11bBeb0675b4e4" }
+              },
+              {
+                "id": "56",
+                "contracts": { "RrpBeaconServer": "", "DapiServer": "0x8B0A67D060C86919Ae76Ca3FA69c68Ff98E85c3c" }
+              }
+            ],
+            "triggers": {
+              "rrpBeaconServerKeeperJobs": [],
+              "protoPsp": [
+                "0xd6c7e11da987c3dd7ae08a4f6cf02d17ce4bdcfc5cc1cb3c76f31d631a7c6411",
+                "0x70108146519b9bc63122e9b338b755b3a16ce9298d5ea96188ebd591b9f36375",
+                "0x0a372e159726c93d085d7e70044162a5ba4bae3a7c17dd4f67c4a209b8801c38",
+                "0xeafefa7736bd9d4669b01c93bdb34594c92af43d62e9261102985ebb726065d2",
+                "0xb97db2af3cd268dc12e4e8a178446a72ede47bbd5ee5cfe2a94a09f3223fa560",
+                "0x05109a34972d5f5f557378573e7c8f77342fcdae1a7655c4cf95695aacf80491",
+                "0x075525067ed676916f31ff2e539db1250db2dd58fec4d462b34606b12fbe20f2",
+                "0x0029a0535b2502ee0da8dc9d680c27a14fc71a306604379853537860ce0dacb9",
+                "0xb487ccd93081fc3505ab4f4955017e58c54a3d89768a45736984bd5599a7880e",
+                "0xab17ec7921594faf1d36f8c3a017613f8d15ce5b9dfe4d3b4998392317b6e5a4",
+                "0x3fff1a848d33d0843578abdaec28496891f1343e91c4c895b480ec5190a5c4b9",
+                "0xb7b589d68b253cf33f7c5a6660fe875606d6c39f6cb6622eefb64af9562b9a0a",
+                "0x044d15b315d854edfe2041ca3cb9d78699f1b44bb8598e4d57999bdfe9f3213c",
+                "0x659d02bbe62f74f15e152c2ac3be2b3e61c0eaf5d31d2b458a0e259e88e00493",
+                "0xd87807dfe50817754de1636dbca490d4a11b715fe95774f0a67967bf347ad4a7",
+                "0x4f802122fcf487979533b6d22f15af14ee049d2fd1e03c2a5aff119661289528",
+                "0xdd70fa60fe73ec061aa8ec252dfec2a6e365b488509fdca93269a9f754d5ed20",
+                "0x115c917c74661fc83d947653e0995642d72403a371090f7b0b07c78c8dfea337",
+                "0x170460d90ed77a6a24b5fbc3a4db4e9c4e7fa0d342ebb8eba5ed110800b6ebe9",
+                "0x26c7252b9dbcbd89221a773310ac4f89dfb0ffd34d1eefb4830170ea9ac0a226"
+              ]
+            },
+            "subscriptions": {
+              "0xd6c7e11da987c3dd7ae08a4f6cf02d17ce4bdcfc5cc1cb3c76f31d631a7c6411": {
+                "chainId": "30",
+                "parameters": "0x",
+                "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "templateId": "0xb0039a5af9f6c937f3d1c7af36a5dc83c53961d0356a373185e7972d6daf6b5a",
+                "conditions": "0x31624200000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e46756e6374696f6e4964000000000000000000000000dc96acc8000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e506172616d657465727300000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000001e8480",
+                "relayer": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+                "requester": "0xCC5005Bd08b8882c9A132C0067E7D3f79796C251",
+                "fulfillFunctionId": "0x206b48f4"
+              },
+              "0x70108146519b9bc63122e9b338b755b3a16ce9298d5ea96188ebd591b9f36375": {
+                "chainId": "137",
+                "parameters": "0x",
+                "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "templateId": "0x4ea5398d313d6b8a70fe8690f884a311de7f0a15d76e44d14b21a7c9ee471e31",
+                "conditions": "0x31624200000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e46756e6374696f6e4964000000000000000000000000dc96acc8000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e506172616d657465727300000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000001e8480",
+                "relayer": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+                "requester": "0xd7CA5BD7a45985D271F216Cb1CAD82348464f6d5",
+                "fulfillFunctionId": "0x206b48f4"
+              },
+              "0x0a372e159726c93d085d7e70044162a5ba4bae3a7c17dd4f67c4a209b8801c38": {
+                "chainId": "30",
+                "parameters": "0x",
+                "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "templateId": "0x4ea5398d313d6b8a70fe8690f884a311de7f0a15d76e44d14b21a7c9ee471e31",
+                "conditions": "0x31624200000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e46756e6374696f6e4964000000000000000000000000dc96acc8000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e506172616d657465727300000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000001e8480",
+                "relayer": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+                "requester": "0xCC5005Bd08b8882c9A132C0067E7D3f79796C251",
+                "fulfillFunctionId": "0x206b48f4"
+              },
+              "0xeafefa7736bd9d4669b01c93bdb34594c92af43d62e9261102985ebb726065d2": {
+                "chainId": "43114",
+                "parameters": "0x",
+                "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "templateId": "0x4ea5398d313d6b8a70fe8690f884a311de7f0a15d76e44d14b21a7c9ee471e31",
+                "conditions": "0x31624200000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e46756e6374696f6e4964000000000000000000000000dc96acc8000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e506172616d657465727300000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000001e8480",
+                "relayer": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+                "requester": "0x291a11cbbC441201562A6418Fd11bBeb0675b4e4",
+                "fulfillFunctionId": "0x206b48f4"
+              },
+              "0xb97db2af3cd268dc12e4e8a178446a72ede47bbd5ee5cfe2a94a09f3223fa560": {
+                "chainId": "56",
+                "parameters": "0x",
+                "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "templateId": "0x316b55a49ae702580708ba624eb7b82b7e9a03de664f07364e29a950c7b4a554",
+                "conditions": "0x31624200000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e46756e6374696f6e4964000000000000000000000000dc96acc8000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e506172616d657465727300000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000001e8480",
+                "relayer": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+                "requester": "0x8B0A67D060C86919Ae76Ca3FA69c68Ff98E85c3c",
+                "fulfillFunctionId": "0x206b48f4"
+              },
+              "0x05109a34972d5f5f557378573e7c8f77342fcdae1a7655c4cf95695aacf80491": {
+                "chainId": "43114",
+                "parameters": "0x",
+                "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "templateId": "0x26cb2638f5c9400a6eef7a8b6c13e266c6bd735f692e56bf19f2c911c227cad8",
+                "conditions": "0x31624200000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e46756e6374696f6e4964000000000000000000000000dc96acc8000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e506172616d657465727300000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000001e8480",
+                "relayer": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+                "requester": "0x291a11cbbC441201562A6418Fd11bBeb0675b4e4",
+                "fulfillFunctionId": "0x206b48f4"
+              },
+              "0x075525067ed676916f31ff2e539db1250db2dd58fec4d462b34606b12fbe20f2": {
+                "chainId": "56",
+                "parameters": "0x",
+                "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "templateId": "0xa1ee143b874a7c8eba3d1b5095a783a1e5ff67906a1586b6f09556c6b47f06ac",
+                "conditions": "0x31624200000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e46756e6374696f6e4964000000000000000000000000dc96acc8000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e506172616d657465727300000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000001e8480",
+                "relayer": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+                "requester": "0x8B0A67D060C86919Ae76Ca3FA69c68Ff98E85c3c",
+                "fulfillFunctionId": "0x206b48f4"
+              },
+              "0x0029a0535b2502ee0da8dc9d680c27a14fc71a306604379853537860ce0dacb9": {
+                "chainId": "56",
+                "parameters": "0x",
+                "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "templateId": "0x3eccbdf3e97f2ac1faa0833e2546254aaa02aed5d8429f28b0b997858d8fe6cc",
+                "conditions": "0x31624200000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e46756e6374696f6e4964000000000000000000000000dc96acc8000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e506172616d657465727300000000000000000000000000000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000061a80",
+                "relayer": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+                "requester": "0x8B0A67D060C86919Ae76Ca3FA69c68Ff98E85c3c",
+                "fulfillFunctionId": "0x206b48f4"
+              },
+              "0xb487ccd93081fc3505ab4f4955017e58c54a3d89768a45736984bd5599a7880e": {
+                "chainId": "56",
+                "parameters": "0x",
+                "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "templateId": "0x68196c5c5af7d35dba17e7b180ae08aa1febe95d487b4eeb3a0e8c8c04c8c4e9",
+                "conditions": "0x31624200000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e46756e6374696f6e4964000000000000000000000000dc96acc8000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e506172616d657465727300000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000001e8480",
+                "relayer": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+                "requester": "0x8B0A67D060C86919Ae76Ca3FA69c68Ff98E85c3c",
+                "fulfillFunctionId": "0x206b48f4"
+              },
+              "0xab17ec7921594faf1d36f8c3a017613f8d15ce5b9dfe4d3b4998392317b6e5a4": {
+                "chainId": "43114",
+                "parameters": "0x",
+                "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "templateId": "0x60a89c316a78d29387cd92eca79702ab0f02f0ab786d92749d5874a919876d3f",
+                "conditions": "0x31624200000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e46756e6374696f6e4964000000000000000000000000dc96acc8000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e506172616d657465727300000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000001e8480",
+                "relayer": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+                "requester": "0x291a11cbbC441201562A6418Fd11bBeb0675b4e4",
+                "fulfillFunctionId": "0x206b48f4"
+              },
+              "0x3fff1a848d33d0843578abdaec28496891f1343e91c4c895b480ec5190a5c4b9": {
+                "chainId": "43114",
+                "parameters": "0x",
+                "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "templateId": "0xec22c6ad19d47d245b880c6808a2e3a644e35157992f6a8a0894c6a9e63e34a0",
+                "conditions": "0x31624200000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e46756e6374696f6e4964000000000000000000000000dc96acc8000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e506172616d657465727300000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000001e8480",
+                "relayer": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+                "requester": "0x291a11cbbC441201562A6418Fd11bBeb0675b4e4",
+                "fulfillFunctionId": "0x206b48f4"
+              },
+              "0xb7b589d68b253cf33f7c5a6660fe875606d6c39f6cb6622eefb64af9562b9a0a": {
+                "chainId": "137",
+                "parameters": "0x",
+                "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "templateId": "0x84a3a09582fa3e8604e6056584bf61345157d502fd818fff31f355fac3957feb",
+                "conditions": "0x31624200000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e46756e6374696f6e4964000000000000000000000000dc96acc8000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e506172616d657465727300000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000001e8480",
+                "relayer": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+                "requester": "0xd7CA5BD7a45985D271F216Cb1CAD82348464f6d5",
+                "fulfillFunctionId": "0x206b48f4"
+              },
+              "0x044d15b315d854edfe2041ca3cb9d78699f1b44bb8598e4d57999bdfe9f3213c": {
+                "chainId": "137",
+                "parameters": "0x",
+                "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "templateId": "0x021e15b08969326858ce157f37765cd0c2d1b97873309134fa2c664474f56d11",
+                "conditions": "0x31624200000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e46756e6374696f6e4964000000000000000000000000dc96acc8000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e506172616d657465727300000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000001e8480",
+                "relayer": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+                "requester": "0xd7CA5BD7a45985D271F216Cb1CAD82348464f6d5",
+                "fulfillFunctionId": "0x206b48f4"
+              },
+              "0x659d02bbe62f74f15e152c2ac3be2b3e61c0eaf5d31d2b458a0e259e88e00493": {
+                "chainId": "137",
+                "parameters": "0x",
+                "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "templateId": "0x7ca1551b7f36564bd0fb519bc46643c10642c41ce3066f36867a8062a0796896",
+                "conditions": "0x31624200000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e46756e6374696f6e4964000000000000000000000000dc96acc8000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e506172616d657465727300000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000001e8480",
+                "relayer": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+                "requester": "0xd7CA5BD7a45985D271F216Cb1CAD82348464f6d5",
+                "fulfillFunctionId": "0x206b48f4"
+              },
+              "0xd87807dfe50817754de1636dbca490d4a11b715fe95774f0a67967bf347ad4a7": {
+                "chainId": "30",
+                "parameters": "0x",
+                "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "templateId": "0xd1c4bd38d88d67c4cc336caf7fd48e7eebc3701cbbc952b3abe5dd5861a98a22",
+                "conditions": "0x31624200000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e46756e6374696f6e4964000000000000000000000000dc96acc8000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e506172616d657465727300000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000001e8480",
+                "relayer": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+                "requester": "0xCC5005Bd08b8882c9A132C0067E7D3f79796C251",
+                "fulfillFunctionId": "0x206b48f4"
+              },
+              "0x4f802122fcf487979533b6d22f15af14ee049d2fd1e03c2a5aff119661289528": {
+                "chainId": "30",
+                "parameters": "0x",
+                "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "templateId": "0x5f51da1c10f3e3989c462fcb90bbe304206825f98a5239b4f35209078300d09e",
+                "conditions": "0x31624200000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e46756e6374696f6e4964000000000000000000000000dc96acc8000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e506172616d657465727300000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000001e8480",
+                "relayer": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+                "requester": "0xCC5005Bd08b8882c9A132C0067E7D3f79796C251",
+                "fulfillFunctionId": "0x206b48f4"
+              },
+              "0xdd70fa60fe73ec061aa8ec252dfec2a6e365b488509fdca93269a9f754d5ed20": {
+                "chainId": "137",
+                "parameters": "0x",
+                "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "templateId": "0x21fd97d7dc3abd5b788895c61e07c244e6369e39d1139d1626fecfc4042fbf29",
+                "conditions": "0x31624200000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e46756e6374696f6e4964000000000000000000000000dc96acc8000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e506172616d657465727300000000000000000000000000000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000061a80",
+                "relayer": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+                "requester": "0xd7CA5BD7a45985D271F216Cb1CAD82348464f6d5",
+                "fulfillFunctionId": "0x206b48f4"
+              },
+              "0x115c917c74661fc83d947653e0995642d72403a371090f7b0b07c78c8dfea337": {
+                "chainId": "30",
+                "parameters": "0x",
+                "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "templateId": "0x21fd97d7dc3abd5b788895c61e07c244e6369e39d1139d1626fecfc4042fbf29",
+                "conditions": "0x31624200000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e46756e6374696f6e4964000000000000000000000000dc96acc8000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e506172616d657465727300000000000000000000000000000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000061a80",
+                "relayer": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+                "requester": "0xCC5005Bd08b8882c9A132C0067E7D3f79796C251",
+                "fulfillFunctionId": "0x206b48f4"
+              },
+              "0x170460d90ed77a6a24b5fbc3a4db4e9c4e7fa0d342ebb8eba5ed110800b6ebe9": {
+                "chainId": "43114",
+                "parameters": "0x",
+                "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "templateId": "0x1bab8014c068e6871bf4043a74c51164d05d482d8cb6f1f66f8edcd7f3b6bb0f",
+                "conditions": "0x31624200000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e46756e6374696f6e4964000000000000000000000000dc96acc8000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e506172616d657465727300000000000000000000000000000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000061a80",
+                "relayer": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+                "requester": "0x291a11cbbC441201562A6418Fd11bBeb0675b4e4",
+                "fulfillFunctionId": "0x206b48f4"
+              },
+              "0x26c7252b9dbcbd89221a773310ac4f89dfb0ffd34d1eefb4830170ea9ac0a226": {
+                "chainId": "56",
+                "parameters": "0x",
+                "airnodeAddress": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "templateId": "0x6fe33b9efe33a762f703f4b390af3fbc45296a70361b8f1b6f48fdfaab4fdf66",
+                "conditions": "0x31624200000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e46756e6374696f6e4964000000000000000000000000dc96acc8000000000000000000000000000000000000000000000000000000005f636f6e646974696f6e506172616d657465727300000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000001e8480",
+                "relayer": "0x5b1243308f56156553F067D354b162f71E581b28",
+                "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
+                "requester": "0x8B0A67D060C86919Ae76Ca3FA69c68Ff98E85c3c",
+                "fulfillFunctionId": "0x206b48f4"
+              }
+            },
+            "templates": {
+              "0xb0039a5af9f6c937f3d1c7af36a5dc83c53961d0356a373185e7972d6daf6b5a": {
+                "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                "templateParameters": "0x31737373737300000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000616176655f6274630000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000"
+              },
+              "0x4ea5398d313d6b8a70fe8690f884a311de7f0a15d76e44d14b21a7c9ee471e31": {
+                "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                "templateParameters": "0x31737373737300000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000616176655f7573640000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000"
+              },
+              "0x316b55a49ae702580708ba624eb7b82b7e9a03de664f07364e29a950c7b4a554": {
+                "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                "templateParameters": "0x31737373737300000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000616c706163615f757364740000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000"
+              },
+              "0x26cb2638f5c9400a6eef7a8b6c13e266c6bd735f692e56bf19f2c911c227cad8": {
+                "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                "templateParameters": "0x31737373737300000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000617661785f7573640000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000"
+              },
+              "0xa1ee143b874a7c8eba3d1b5095a783a1e5ff67906a1586b6f09556c6b47f06ac": {
+                "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                "templateParameters": "0x31737373737300000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000626e625f757364000000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000"
+              },
+              "0x3eccbdf3e97f2ac1faa0833e2546254aaa02aed5d8429f28b0b997858d8fe6cc": {
+                "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                "templateParameters": "0x31737373737300000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000627573645f7573640000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000"
+              },
+              "0x68196c5c5af7d35dba17e7b180ae08aa1febe95d487b4eeb3a0e8c8c04c8c4e9": {
+                "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                "templateParameters": "0x3173737373730000000000000000000000000000000000000000000000000000706169720000000000000000000000000000000000000000000000000000000063616b655f7573647400000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000"
+              },
+              "0x60a89c316a78d29387cd92eca79702ab0f02f0ab786d92749d5874a919876d3f": {
+                "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                "templateParameters": "0x317373737373000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006372765f757364000000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000"
+              },
+              "0xec22c6ad19d47d245b880c6808a2e3a644e35157992f6a8a0894c6a9e63e34a0": {
+                "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                "templateParameters": "0x317373737373000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006a6f655f757364000000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000"
+              },
+              "0x84a3a09582fa3e8604e6056584bf61345157d502fd818fff31f355fac3957feb": {
+                "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                "templateParameters": "0x317373737373000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006d617469635f75736400000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000"
+              },
+              "0x021e15b08969326858ce157f37765cd0c2d1b97873309134fa2c664474f56d11": {
+                "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                "templateParameters": "0x317373737373000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006f6f6b695f6574680000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000"
+              },
+              "0x7ca1551b7f36564bd0fb519bc46643c10642c41ce3066f36867a8062a0796896": {
+                "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                "templateParameters": "0x31737373737300000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000717569636b5f75736400000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000"
+              },
+              "0xd1c4bd38d88d67c4cc336caf7fd48e7eebc3701cbbc952b3abe5dd5861a98a22": {
+                "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                "templateParameters": "0x31737373737300000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000726274635f6274630000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000"
+              },
+              "0x5f51da1c10f3e3989c462fcb90bbe304206825f98a5239b4f35209078300d09e": {
+                "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                "templateParameters": "0x31737373737300000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000726274635f7573640000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000"
+              },
+              "0x21fd97d7dc3abd5b788895c61e07c244e6369e39d1139d1626fecfc4042fbf29": {
+                "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                "templateParameters": "0x31737373737300000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000757364635f7573640000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000"
+              },
+              "0x1bab8014c068e6871bf4043a74c51164d05d482d8cb6f1f66f8edcd7f3b6bb0f": {
+                "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                "templateParameters": "0x317373737373000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000007573745f757364000000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000"
+              },
+              "0x6fe33b9efe33a762f703f4b390af3fbc45296a70361b8f1b6f48fdfaab4fdf66": {
+                "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                "templateParameters": "0x317373737373000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000007876735f757364740000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000"
+              }
+            },
+            "endpoints": {
+              "0xbc42130df8705f5a8261d3f56e456dce2f8e3bb1b8cb0eeba2e60c37c9b0d6b8": {
+                "endpointName": "GET /market/defi/lending/exchanges/information/",
+                "oisTitle": "Amberdata-Lite"
+              },
+              "0x065987956a8757d7be3aaad4d289433583872a4f499b28d4e9ebf2063294eebb": {
+                "endpointName": "GET /market/tokens/prices/{hash}/latest",
+                "oisTitle": "Amberdata-Lite"
+              },
+              "0x70e32408423662a1753cdb56f05c486b2ad9e3236c836f3c88018c29b9506f51": {
+                "endpointName": "GET /market/spot/prices/assets/information/",
+                "oisTitle": "Amberdata-Lite"
+              },
+              "0x1c238369a3a59207b5bcaab8b805fba62c1a27c06d0b3acfd46a10e0cb82da92": {
+                "endpointName": "GET /market/spot/prices/assets/{asset}/latest/",
+                "oisTitle": "Amberdata-Lite"
+              },
+              "0x3234979f15c3c8ea3e929a08fe953293e2169137236457304da7c394acf6a90a": {
+                "endpointName": "GET /market/spot/prices/assets/{asset}/historical/",
+                "oisTitle": "Amberdata-Lite"
+              },
+              "0x9ed95ffc4f81021d624d9723d2128fd65f9afe185c078a4e3b74e6c9c3c919a7": {
+                "endpointName": "GET /market/spot/prices/pairs/information/",
+                "oisTitle": "Amberdata-Lite"
+              },
+              "0xfb06622b49fe57977e0cf9db96b5318f24bbcd28692901b7381b22ef32128e87": {
+                "endpointName": "GET /market/spot/prices/pairs/{pair}/latest/",
+                "oisTitle": "Amberdata-Lite"
+              },
+              "0x8e41f9499ce961269491158c82c621da10b0b74ec648c4de7f5bb07ef21d5125": {
+                "endpointName": "GET /market/spot/prices/pairs/{pair}/historical/",
+                "oisTitle": "Amberdata-Lite"
+              },
+              "0x4e03a708d165d6645487c2b4df7407b33a3edf8e333a5e31ddaf66366e868561": {
+                "endpointName": "GET /market/defi/prices/asset/{asset}/latest",
+                "oisTitle": "Amberdata-Lite"
+              },
+              "0x2331fed97ee0dab449398d69351ddf11ecf4d62e8cb2ca0517c7255b87ef2144": {
+                "endpointName": "GET /market/defi/prices/asset/{asset}/historical",
+                "oisTitle": "Amberdata-Lite"
+              },
+              "0x5eb6afa56c74cdcac3ba1bf0ac4b8711196e33816dac8173286efc79e5ee04c0": {
+                "endpointName": "GET /market/defi/prices/asset/information/",
+                "oisTitle": "Amberdata-Lite"
+              },
+              "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006": {
+                "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
+                "oisTitle": "Amberdata-Lite"
+              },
+              "0x504d861ba3be5792b23a370a33ca63829f9316325e1463101472a1bc414b3a4e": {
+                "endpointName": "GET /transactions/gas/predictions",
+                "oisTitle": "Amberdata-Lite"
+              },
+              "0x3d72b8e380366c5a10a3436dd98131b2b8905244ca5da54641fa0d871fe3913a": {
+                "endpointName": "GET /market/defi/vwap/pairs/bases/{base}/quotes/{quote}/latest",
+                "oisTitle": "Amberdata-Lite"
+              }
+            }
+          },
+          "aws": { "filename": "aws.env", "content": "AWS_ACCESS_KEY_ID=\nAWS_SECRET_ACCESS_KEY=" },
+          "config": {
+            "chains": [
+              {
+                "authorizers": [],
+                "contracts": { "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd" },
+                "id": "30",
+                "providers": { "provider_rsk": { "url": "${RSK_PROVIDER_URL}" } },
+                "type": "evm",
+                "options": { "txType": "legacy" },
+                "maxConcurrency": 100,
+                "blockHistoryLimit": 300,
+                "minConfirmations": 0
+              },
+              {
+                "authorizers": [],
+                "contracts": { "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd" },
+                "id": "137",
+                "providers": { "provider_polygon": { "url": "${POLYGON_PROVIDER_URL}" } },
+                "type": "evm",
+                "options": { "txType": "legacy" },
+                "maxConcurrency": 100,
+                "blockHistoryLimit": 300,
+                "minConfirmations": 0
+              },
+              {
+                "authorizers": [],
+                "contracts": { "AirnodeRrp": "0xC02Ea0f403d5f3D45a4F1d0d817e7A2601346c9E" },
+                "id": "43114",
+                "providers": { "provider_avalanche": { "url": "${AVALANCHE_PROVIDER_URL}" } },
+                "type": "evm",
+                "options": {
+                  "txType": "eip1559",
+                  "priorityFee": { "value": 3.12, "unit": "gwei" },
+                  "baseFeeMultiplier": 2
+                },
+                "maxConcurrency": 100,
+                "blockHistoryLimit": 300,
+                "minConfirmations": 0
+              },
+              {
+                "authorizers": [],
+                "contracts": { "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd" },
+                "id": "56",
+                "providers": { "provider_bsc": { "url": "${BSC_PROVIDER_URL}" } },
+                "type": "evm",
+                "options": { "txType": "legacy" },
+                "maxConcurrency": 100,
+                "blockHistoryLimit": 300,
+                "minConfirmations": 0
+              }
+            ],
+            "nodeSettings": {
+              "nodeVersion": "0.6.2",
+              "cloudProvider": { "type": "aws", "region": "us-east-1", "disableConcurrencyReservations": false },
+              "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
+              "heartbeat": { "enabled": false },
+              "httpGateway": { "enabled": true, "apiKey": "${HTTP_GATEWAY_KEY_AMBERDATA_AWS}", "maxConcurrency": 200 },
+              "httpSignedDataGateway": {
+                "enabled": true,
+                "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_KEY_AMBERDATA_AWS}",
+                "maxConcurrency": 200
+              },
+              "logFormat": "plain",
+              "logLevel": "INFO",
+              "stage": "dev",
+              "skipValidation": true
+            },
+            "triggers": {
+              "rrp": [
+                {
+                  "endpointId": "0xbc42130df8705f5a8261d3f56e456dce2f8e3bb1b8cb0eeba2e60c37c9b0d6b8",
+                  "endpointName": "GET /market/defi/lending/exchanges/information/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x065987956a8757d7be3aaad4d289433583872a4f499b28d4e9ebf2063294eebb",
+                  "endpointName": "GET /market/tokens/prices/{hash}/latest",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x70e32408423662a1753cdb56f05c486b2ad9e3236c836f3c88018c29b9506f51",
+                  "endpointName": "GET /market/spot/prices/assets/information/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x1c238369a3a59207b5bcaab8b805fba62c1a27c06d0b3acfd46a10e0cb82da92",
+                  "endpointName": "GET /market/spot/prices/assets/{asset}/latest/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x3234979f15c3c8ea3e929a08fe953293e2169137236457304da7c394acf6a90a",
+                  "endpointName": "GET /market/spot/prices/assets/{asset}/historical/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x9ed95ffc4f81021d624d9723d2128fd65f9afe185c078a4e3b74e6c9c3c919a7",
+                  "endpointName": "GET /market/spot/prices/pairs/information/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0xfb06622b49fe57977e0cf9db96b5318f24bbcd28692901b7381b22ef32128e87",
+                  "endpointName": "GET /market/spot/prices/pairs/{pair}/latest/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x8e41f9499ce961269491158c82c621da10b0b74ec648c4de7f5bb07ef21d5125",
+                  "endpointName": "GET /market/spot/prices/pairs/{pair}/historical/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x4e03a708d165d6645487c2b4df7407b33a3edf8e333a5e31ddaf66366e868561",
+                  "endpointName": "GET /market/defi/prices/asset/{asset}/latest",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x2331fed97ee0dab449398d69351ddf11ecf4d62e8cb2ca0517c7255b87ef2144",
+                  "endpointName": "GET /market/defi/prices/asset/{asset}/historical",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x5eb6afa56c74cdcac3ba1bf0ac4b8711196e33816dac8173286efc79e5ee04c0",
+                  "endpointName": "GET /market/defi/prices/asset/information/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                  "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x504d861ba3be5792b23a370a33ca63829f9316325e1463101472a1bc414b3a4e",
+                  "endpointName": "GET /transactions/gas/predictions",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x3d72b8e380366c5a10a3436dd98131b2b8905244ca5da54641fa0d871fe3913a",
+                  "endpointName": "GET /market/defi/vwap/pairs/bases/{base}/quotes/{quote}/latest",
+                  "oisTitle": "Amberdata-Lite"
+                }
+              ],
+              "http": [
+                {
+                  "endpointId": "0xbc42130df8705f5a8261d3f56e456dce2f8e3bb1b8cb0eeba2e60c37c9b0d6b8",
+                  "endpointName": "GET /market/defi/lending/exchanges/information/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x065987956a8757d7be3aaad4d289433583872a4f499b28d4e9ebf2063294eebb",
+                  "endpointName": "GET /market/tokens/prices/{hash}/latest",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x70e32408423662a1753cdb56f05c486b2ad9e3236c836f3c88018c29b9506f51",
+                  "endpointName": "GET /market/spot/prices/assets/information/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x1c238369a3a59207b5bcaab8b805fba62c1a27c06d0b3acfd46a10e0cb82da92",
+                  "endpointName": "GET /market/spot/prices/assets/{asset}/latest/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x3234979f15c3c8ea3e929a08fe953293e2169137236457304da7c394acf6a90a",
+                  "endpointName": "GET /market/spot/prices/assets/{asset}/historical/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x9ed95ffc4f81021d624d9723d2128fd65f9afe185c078a4e3b74e6c9c3c919a7",
+                  "endpointName": "GET /market/spot/prices/pairs/information/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0xfb06622b49fe57977e0cf9db96b5318f24bbcd28692901b7381b22ef32128e87",
+                  "endpointName": "GET /market/spot/prices/pairs/{pair}/latest/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x8e41f9499ce961269491158c82c621da10b0b74ec648c4de7f5bb07ef21d5125",
+                  "endpointName": "GET /market/spot/prices/pairs/{pair}/historical/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x4e03a708d165d6645487c2b4df7407b33a3edf8e333a5e31ddaf66366e868561",
+                  "endpointName": "GET /market/defi/prices/asset/{asset}/latest",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x2331fed97ee0dab449398d69351ddf11ecf4d62e8cb2ca0517c7255b87ef2144",
+                  "endpointName": "GET /market/defi/prices/asset/{asset}/historical",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x5eb6afa56c74cdcac3ba1bf0ac4b8711196e33816dac8173286efc79e5ee04c0",
+                  "endpointName": "GET /market/defi/prices/asset/information/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                  "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x504d861ba3be5792b23a370a33ca63829f9316325e1463101472a1bc414b3a4e",
+                  "endpointName": "GET /transactions/gas/predictions",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x3d72b8e380366c5a10a3436dd98131b2b8905244ca5da54641fa0d871fe3913a",
+                  "endpointName": "GET /market/defi/vwap/pairs/bases/{base}/quotes/{quote}/latest",
+                  "oisTitle": "Amberdata-Lite"
+                }
+              ],
+              "httpSignedData": [
+                {
+                  "endpointId": "0xbc42130df8705f5a8261d3f56e456dce2f8e3bb1b8cb0eeba2e60c37c9b0d6b8",
+                  "endpointName": "GET /market/defi/lending/exchanges/information/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x065987956a8757d7be3aaad4d289433583872a4f499b28d4e9ebf2063294eebb",
+                  "endpointName": "GET /market/tokens/prices/{hash}/latest",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x70e32408423662a1753cdb56f05c486b2ad9e3236c836f3c88018c29b9506f51",
+                  "endpointName": "GET /market/spot/prices/assets/information/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x1c238369a3a59207b5bcaab8b805fba62c1a27c06d0b3acfd46a10e0cb82da92",
+                  "endpointName": "GET /market/spot/prices/assets/{asset}/latest/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x3234979f15c3c8ea3e929a08fe953293e2169137236457304da7c394acf6a90a",
+                  "endpointName": "GET /market/spot/prices/assets/{asset}/historical/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x9ed95ffc4f81021d624d9723d2128fd65f9afe185c078a4e3b74e6c9c3c919a7",
+                  "endpointName": "GET /market/spot/prices/pairs/information/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0xfb06622b49fe57977e0cf9db96b5318f24bbcd28692901b7381b22ef32128e87",
+                  "endpointName": "GET /market/spot/prices/pairs/{pair}/latest/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x8e41f9499ce961269491158c82c621da10b0b74ec648c4de7f5bb07ef21d5125",
+                  "endpointName": "GET /market/spot/prices/pairs/{pair}/historical/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x4e03a708d165d6645487c2b4df7407b33a3edf8e333a5e31ddaf66366e868561",
+                  "endpointName": "GET /market/defi/prices/asset/{asset}/latest",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x2331fed97ee0dab449398d69351ddf11ecf4d62e8cb2ca0517c7255b87ef2144",
+                  "endpointName": "GET /market/defi/prices/asset/{asset}/historical",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x5eb6afa56c74cdcac3ba1bf0ac4b8711196e33816dac8173286efc79e5ee04c0",
+                  "endpointName": "GET /market/defi/prices/asset/information/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                  "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x504d861ba3be5792b23a370a33ca63829f9316325e1463101472a1bc414b3a4e",
+                  "endpointName": "GET /transactions/gas/predictions",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x3d72b8e380366c5a10a3436dd98131b2b8905244ca5da54641fa0d871fe3913a",
+                  "endpointName": "GET /market/defi/vwap/pairs/bases/{base}/quotes/{quote}/latest",
+                  "oisTitle": "Amberdata-Lite"
+                }
+              ]
+            },
+            "ois": [
+              {
+                "oisFormat": "1.0.0",
+                "title": "Amberdata-Lite",
+                "version": "2",
+                "apiSpecifications": {
+                  "servers": [{ "url": "https://web3api.io/api/v2" }],
+                  "security": { "Amberdata-Lite_x-api-key": [] },
+                  "components": {
+                    "securitySchemes": {
+                      "Amberdata-Lite_x-api-key": { "type": "apiKey", "in": "header", "name": "x-api-key" }
+                    }
+                  },
+                  "paths": {
+                    "/market/defi/lending/exchanges/information/": {
+                      "get": {
+                        "parameters": [
+                          { "name": "exchange", "in": "query" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "includeDates", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/market/tokens/prices/{hash}/latest": {
+                      "get": {
+                        "parameters": [
+                          { "name": "currency", "in": "query" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "hash", "in": "path" }
+                        ]
+                      }
+                    },
+                    "/market/spot/prices/assets/information/": {
+                      "get": {
+                        "parameters": [
+                          { "name": "asset", "in": "query" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "timeFormat", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/market/spot/prices/assets/{asset}/latest/": {
+                      "get": {
+                        "parameters": [
+                          { "name": "asset", "in": "path" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "timeFormat", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/market/spot/prices/assets/{asset}/historical/": {
+                      "get": {
+                        "parameters": [
+                          { "name": "asset", "in": "path" },
+                          { "name": "endDate", "in": "query" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "startDate", "in": "query" },
+                          { "name": "timeFormat", "in": "query" },
+                          { "name": "timeInterval", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/market/spot/prices/pairs/information/": {
+                      "get": {
+                        "parameters": [
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "pairs", "in": "query" },
+                          { "name": "timeFormat", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/market/spot/prices/pairs/{pair}/latest/": {
+                      "get": {
+                        "parameters": [
+                          { "name": "exchange", "in": "query" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "includeCrossRates", "in": "query" },
+                          { "name": "pair", "in": "path" },
+                          { "name": "timeFormat", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/market/spot/prices/pairs/{pair}/historical/": {
+                      "get": {
+                        "parameters": [
+                          { "name": "endDate", "in": "query" },
+                          { "name": "exchange", "in": "query" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "includeCrossRates", "in": "query" },
+                          { "name": "pair", "in": "path" },
+                          { "name": "startDate", "in": "query" },
+                          { "name": "timeFormat", "in": "query" },
+                          { "name": "timeInterval", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/market/defi/prices/asset/{asset}/latest": {
+                      "get": {
+                        "parameters": [
+                          { "name": "asset", "in": "path" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "lookbackPeriod", "in": "query" },
+                          { "name": "timeFormat", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/market/defi/prices/asset/{asset}/historical": {
+                      "get": {
+                        "parameters": [
+                          { "name": "asset", "in": "path" },
+                          { "name": "endDate", "in": "query" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "lookbackPeriod", "in": "query" },
+                          { "name": "startDate", "in": "query" },
+                          { "name": "timeFormat", "in": "query" },
+                          { "name": "timeInterval", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/market/defi/prices/asset/information/": {
+                      "get": {
+                        "parameters": [
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/market/spot/vwap/pairs/{pair}/latest": {
+                      "get": {
+                        "parameters": [
+                          { "name": "exchange", "in": "query" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "includeCrossRates", "in": "query" },
+                          { "name": "lookbackPeriod", "in": "query" },
+                          { "name": "pair", "in": "path" },
+                          { "name": "timeFormat", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/transactions/gas/predictions": {
+                      "get": {
+                        "parameters": [
+                          { "name": "field", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "x-amberdata-blockchain-id", "in": "header" }
+                        ]
+                      }
+                    },
+                    "/market/defi/vwap/pairs/bases/{base}/quotes/{quote}/latest": {
+                      "get": {
+                        "parameters": [
+                          { "name": "base", "in": "path" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "lookbackPeriod", "in": "query" },
+                          { "name": "quote", "in": "path" },
+                          { "name": "timeFormat", "in": "query" }
+                        ]
+                      }
+                    }
+                  }
+                },
+                "endpoints": [
+                  {
+                    "name": "GET /market/defi/lending/exchanges/information/",
+                    "operation": { "method": "get", "path": "/market/defi/lending/exchanges/information/" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      { "name": "includeDates", "operationParameter": { "name": "includeDates", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/tokens/prices/{hash}/latest",
+                    "operation": { "method": "get", "path": "/market/tokens/prices/{hash}/latest" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "currency", "operationParameter": { "name": "currency", "in": "query" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      { "name": "hash", "operationParameter": { "name": "hash", "in": "path" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/spot/prices/assets/information/",
+                    "operation": { "method": "get", "path": "/market/spot/prices/assets/information/" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "asset", "operationParameter": { "name": "asset", "in": "query" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/spot/prices/assets/{asset}/latest/",
+                    "operation": { "method": "get", "path": "/market/spot/prices/assets/{asset}/latest/" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/spot/prices/assets/{asset}/historical/",
+                    "operation": { "method": "get", "path": "/market/spot/prices/assets/{asset}/historical/" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
+                      { "name": "endDate", "operationParameter": { "name": "endDate", "in": "query" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      { "name": "startDate", "operationParameter": { "name": "startDate", "in": "query" } },
+                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } },
+                      { "name": "timeInterval", "operationParameter": { "name": "timeInterval", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/spot/prices/pairs/information/",
+                    "operation": { "method": "get", "path": "/market/spot/prices/pairs/information/" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      { "name": "pairs", "operationParameter": { "name": "pairs", "in": "query" } },
+                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/spot/prices/pairs/{pair}/latest/",
+                    "operation": { "method": "get", "path": "/market/spot/prices/pairs/{pair}/latest/" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      {
+                        "name": "includeCrossRates",
+                        "operationParameter": { "name": "includeCrossRates", "in": "query" }
+                      },
+                      { "name": "pair", "operationParameter": { "name": "pair", "in": "path" } },
+                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/spot/prices/pairs/{pair}/historical/",
+                    "operation": { "method": "get", "path": "/market/spot/prices/pairs/{pair}/historical/" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "endDate", "operationParameter": { "name": "endDate", "in": "query" } },
+                      { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      {
+                        "name": "includeCrossRates",
+                        "operationParameter": { "name": "includeCrossRates", "in": "query" }
+                      },
+                      { "name": "pair", "operationParameter": { "name": "pair", "in": "path" } },
+                      { "name": "startDate", "operationParameter": { "name": "startDate", "in": "query" } },
+                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } },
+                      { "name": "timeInterval", "operationParameter": { "name": "timeInterval", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/defi/prices/asset/{asset}/latest",
+                    "operation": { "method": "get", "path": "/market/defi/prices/asset/{asset}/latest" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
+                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/defi/prices/asset/{asset}/historical",
+                    "operation": { "method": "get", "path": "/market/defi/prices/asset/{asset}/historical" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
+                      { "name": "endDate", "operationParameter": { "name": "endDate", "in": "query" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
+                      { "name": "startDate", "operationParameter": { "name": "startDate", "in": "query" } },
+                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } },
+                      { "name": "timeInterval", "operationParameter": { "name": "timeInterval", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/defi/prices/asset/information/",
+                    "operation": { "method": "get", "path": "/market/defi/prices/asset/information/" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/spot/vwap/pairs/{pair}/latest",
+                    "operation": { "method": "get", "path": "/market/spot/vwap/pairs/{pair}/latest" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      {
+                        "name": "includeCrossRates",
+                        "operationParameter": { "name": "includeCrossRates", "in": "query" }
+                      },
+                      { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
+                      { "name": "pair", "operationParameter": { "name": "pair", "in": "path" } },
+                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /transactions/gas/predictions",
+                    "operation": { "method": "get", "path": "/transactions/gas/predictions" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "field", "operationParameter": { "name": "field", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      {
+                        "name": "x-amberdata-blockchain-id",
+                        "operationParameter": { "name": "x-amberdata-blockchain-id", "in": "header" }
+                      }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/defi/vwap/pairs/bases/{base}/quotes/{quote}/latest",
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/defi/vwap/pairs/bases/{base}/quotes/{quote}/latest"
+                    },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "base", "operationParameter": { "name": "base", "in": "path" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
+                      { "name": "quote", "operationParameter": { "name": "quote", "in": "path" } },
+                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                    ],
+                    "testable": true
+                  }
+                ]
+              }
+            ],
+            "apiCredentials": [
+              {
+                "oisTitle": "Amberdata-Lite",
+                "securitySchemeName": "Amberdata-Lite_x-api-key",
+                "securitySchemeValue": "${SS_AMBERDATA_LITE_X_API_KEY}"
+              }
+            ]
+          },
+          "secrets": {
+            "filename": "secrets.env",
+            "content": "AIRNODE_WALLET_MNEMONIC=\"\"\nHTTP_GATEWAY_KEY_AMBERDATA_AWS=\"\"\nHTTP_SIGNED_DATA_GATEWAY_KEY_AMBERDATA_AWS=\"\"\nSS_AMBERDATA_LITE_X_API_KEY=\"\"\nRSK_PROVIDER_URL=\"\"\nPOLYGON_PROVIDER_URL=\"\"\nAVALANCHE_PROVIDER_URL=\"\"\nBSC_PROVIDER_URL=\"\"\n"
+          }
+        },
+        "airnode": {
+          "aws": { "filename": "aws.env", "content": "AWS_ACCESS_KEY_ID=\nAWS_SECRET_ACCESS_KEY=" },
+          "config": {
+            "chains": [],
+            "nodeSettings": {
+              "nodeVersion": "0.6.2",
+              "cloudProvider": { "type": "aws", "region": "us-east-1", "disableConcurrencyReservations": false },
+              "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
+              "heartbeat": { "enabled": false },
+              "httpGateway": { "enabled": true, "apiKey": "${HTTP_GATEWAY_KEY_AMBERDATA_AWS}", "maxConcurrency": 200 },
+              "httpSignedDataGateway": {
+                "enabled": true,
+                "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_KEY_AMBERDATA_AWS}",
+                "maxConcurrency": 200
+              },
+              "logFormat": "plain",
+              "logLevel": "INFO",
+              "stage": "dev",
+              "skipValidation": true
+            },
+            "triggers": {
+              "rrp": [],
+              "http": [
+                {
+                  "endpointId": "0xbc42130df8705f5a8261d3f56e456dce2f8e3bb1b8cb0eeba2e60c37c9b0d6b8",
+                  "endpointName": "GET /market/defi/lending/exchanges/information/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x065987956a8757d7be3aaad4d289433583872a4f499b28d4e9ebf2063294eebb",
+                  "endpointName": "GET /market/tokens/prices/{hash}/latest",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x70e32408423662a1753cdb56f05c486b2ad9e3236c836f3c88018c29b9506f51",
+                  "endpointName": "GET /market/spot/prices/assets/information/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x1c238369a3a59207b5bcaab8b805fba62c1a27c06d0b3acfd46a10e0cb82da92",
+                  "endpointName": "GET /market/spot/prices/assets/{asset}/latest/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x3234979f15c3c8ea3e929a08fe953293e2169137236457304da7c394acf6a90a",
+                  "endpointName": "GET /market/spot/prices/assets/{asset}/historical/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x9ed95ffc4f81021d624d9723d2128fd65f9afe185c078a4e3b74e6c9c3c919a7",
+                  "endpointName": "GET /market/spot/prices/pairs/information/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0xfb06622b49fe57977e0cf9db96b5318f24bbcd28692901b7381b22ef32128e87",
+                  "endpointName": "GET /market/spot/prices/pairs/{pair}/latest/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x8e41f9499ce961269491158c82c621da10b0b74ec648c4de7f5bb07ef21d5125",
+                  "endpointName": "GET /market/spot/prices/pairs/{pair}/historical/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x4e03a708d165d6645487c2b4df7407b33a3edf8e333a5e31ddaf66366e868561",
+                  "endpointName": "GET /market/defi/prices/asset/{asset}/latest",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x2331fed97ee0dab449398d69351ddf11ecf4d62e8cb2ca0517c7255b87ef2144",
+                  "endpointName": "GET /market/defi/prices/asset/{asset}/historical",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x5eb6afa56c74cdcac3ba1bf0ac4b8711196e33816dac8173286efc79e5ee04c0",
+                  "endpointName": "GET /market/defi/prices/asset/information/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                  "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x504d861ba3be5792b23a370a33ca63829f9316325e1463101472a1bc414b3a4e",
+                  "endpointName": "GET /transactions/gas/predictions",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x3d72b8e380366c5a10a3436dd98131b2b8905244ca5da54641fa0d871fe3913a",
+                  "endpointName": "GET /market/defi/vwap/pairs/bases/{base}/quotes/{quote}/latest",
+                  "oisTitle": "Amberdata-Lite"
+                }
+              ],
+              "httpSignedData": [
+                {
+                  "endpointId": "0xbc42130df8705f5a8261d3f56e456dce2f8e3bb1b8cb0eeba2e60c37c9b0d6b8",
+                  "endpointName": "GET /market/defi/lending/exchanges/information/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x065987956a8757d7be3aaad4d289433583872a4f499b28d4e9ebf2063294eebb",
+                  "endpointName": "GET /market/tokens/prices/{hash}/latest",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x70e32408423662a1753cdb56f05c486b2ad9e3236c836f3c88018c29b9506f51",
+                  "endpointName": "GET /market/spot/prices/assets/information/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x1c238369a3a59207b5bcaab8b805fba62c1a27c06d0b3acfd46a10e0cb82da92",
+                  "endpointName": "GET /market/spot/prices/assets/{asset}/latest/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x3234979f15c3c8ea3e929a08fe953293e2169137236457304da7c394acf6a90a",
+                  "endpointName": "GET /market/spot/prices/assets/{asset}/historical/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x9ed95ffc4f81021d624d9723d2128fd65f9afe185c078a4e3b74e6c9c3c919a7",
+                  "endpointName": "GET /market/spot/prices/pairs/information/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0xfb06622b49fe57977e0cf9db96b5318f24bbcd28692901b7381b22ef32128e87",
+                  "endpointName": "GET /market/spot/prices/pairs/{pair}/latest/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x8e41f9499ce961269491158c82c621da10b0b74ec648c4de7f5bb07ef21d5125",
+                  "endpointName": "GET /market/spot/prices/pairs/{pair}/historical/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x4e03a708d165d6645487c2b4df7407b33a3edf8e333a5e31ddaf66366e868561",
+                  "endpointName": "GET /market/defi/prices/asset/{asset}/latest",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x2331fed97ee0dab449398d69351ddf11ecf4d62e8cb2ca0517c7255b87ef2144",
+                  "endpointName": "GET /market/defi/prices/asset/{asset}/historical",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x5eb6afa56c74cdcac3ba1bf0ac4b8711196e33816dac8173286efc79e5ee04c0",
+                  "endpointName": "GET /market/defi/prices/asset/information/",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+                  "endpointName": "GET /market/spot/vwap/pairs/{pair}/latest",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x504d861ba3be5792b23a370a33ca63829f9316325e1463101472a1bc414b3a4e",
+                  "endpointName": "GET /transactions/gas/predictions",
+                  "oisTitle": "Amberdata-Lite"
+                },
+                {
+                  "endpointId": "0x3d72b8e380366c5a10a3436dd98131b2b8905244ca5da54641fa0d871fe3913a",
+                  "endpointName": "GET /market/defi/vwap/pairs/bases/{base}/quotes/{quote}/latest",
+                  "oisTitle": "Amberdata-Lite"
+                }
+              ]
+            },
+            "ois": [
+              {
+                "oisFormat": "1.0.0",
+                "title": "Amberdata-Lite",
+                "version": "2",
+                "apiSpecifications": {
+                  "servers": [{ "url": "https://web3api.io/api/v2" }],
+                  "security": { "Amberdata-Lite_x-api-key": [] },
+                  "components": {
+                    "securitySchemes": {
+                      "Amberdata-Lite_x-api-key": { "type": "apiKey", "in": "header", "name": "x-api-key" }
+                    }
+                  },
+                  "paths": {
+                    "/market/defi/lending/exchanges/information/": {
+                      "get": {
+                        "parameters": [
+                          { "name": "exchange", "in": "query" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "includeDates", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/market/tokens/prices/{hash}/latest": {
+                      "get": {
+                        "parameters": [
+                          { "name": "currency", "in": "query" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "hash", "in": "path" }
+                        ]
+                      }
+                    },
+                    "/market/spot/prices/assets/information/": {
+                      "get": {
+                        "parameters": [
+                          { "name": "asset", "in": "query" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "timeFormat", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/market/spot/prices/assets/{asset}/latest/": {
+                      "get": {
+                        "parameters": [
+                          { "name": "asset", "in": "path" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "timeFormat", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/market/spot/prices/assets/{asset}/historical/": {
+                      "get": {
+                        "parameters": [
+                          { "name": "asset", "in": "path" },
+                          { "name": "endDate", "in": "query" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "startDate", "in": "query" },
+                          { "name": "timeFormat", "in": "query" },
+                          { "name": "timeInterval", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/market/spot/prices/pairs/information/": {
+                      "get": {
+                        "parameters": [
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "pairs", "in": "query" },
+                          { "name": "timeFormat", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/market/spot/prices/pairs/{pair}/latest/": {
+                      "get": {
+                        "parameters": [
+                          { "name": "exchange", "in": "query" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "includeCrossRates", "in": "query" },
+                          { "name": "pair", "in": "path" },
+                          { "name": "timeFormat", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/market/spot/prices/pairs/{pair}/historical/": {
+                      "get": {
+                        "parameters": [
+                          { "name": "endDate", "in": "query" },
+                          { "name": "exchange", "in": "query" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "includeCrossRates", "in": "query" },
+                          { "name": "pair", "in": "path" },
+                          { "name": "startDate", "in": "query" },
+                          { "name": "timeFormat", "in": "query" },
+                          { "name": "timeInterval", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/market/defi/prices/asset/{asset}/latest": {
+                      "get": {
+                        "parameters": [
+                          { "name": "asset", "in": "path" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "lookbackPeriod", "in": "query" },
+                          { "name": "timeFormat", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/market/defi/prices/asset/{asset}/historical": {
+                      "get": {
+                        "parameters": [
+                          { "name": "asset", "in": "path" },
+                          { "name": "endDate", "in": "query" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "lookbackPeriod", "in": "query" },
+                          { "name": "startDate", "in": "query" },
+                          { "name": "timeFormat", "in": "query" },
+                          { "name": "timeInterval", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/market/defi/prices/asset/information/": {
+                      "get": {
+                        "parameters": [
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/market/spot/vwap/pairs/{pair}/latest": {
+                      "get": {
+                        "parameters": [
+                          { "name": "exchange", "in": "query" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "includeCrossRates", "in": "query" },
+                          { "name": "lookbackPeriod", "in": "query" },
+                          { "name": "pair", "in": "path" },
+                          { "name": "timeFormat", "in": "query" }
+                        ]
+                      }
+                    },
+                    "/transactions/gas/predictions": {
+                      "get": {
+                        "parameters": [
+                          { "name": "field", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "x-amberdata-blockchain-id", "in": "header" }
+                        ]
+                      }
+                    },
+                    "/market/defi/vwap/pairs/bases/{base}/quotes/{quote}/latest": {
+                      "get": {
+                        "parameters": [
+                          { "name": "base", "in": "path" },
+                          { "name": "fields", "in": "query" },
+                          { "name": "format", "in": "query" },
+                          { "name": "lookbackPeriod", "in": "query" },
+                          { "name": "quote", "in": "path" },
+                          { "name": "timeFormat", "in": "query" }
+                        ]
+                      }
+                    }
+                  }
+                },
+                "endpoints": [
+                  {
+                    "name": "GET /market/defi/lending/exchanges/information/",
+                    "operation": { "method": "get", "path": "/market/defi/lending/exchanges/information/" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      { "name": "includeDates", "operationParameter": { "name": "includeDates", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/tokens/prices/{hash}/latest",
+                    "operation": { "method": "get", "path": "/market/tokens/prices/{hash}/latest" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "currency", "operationParameter": { "name": "currency", "in": "query" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      { "name": "hash", "operationParameter": { "name": "hash", "in": "path" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/spot/prices/assets/information/",
+                    "operation": { "method": "get", "path": "/market/spot/prices/assets/information/" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "asset", "operationParameter": { "name": "asset", "in": "query" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/spot/prices/assets/{asset}/latest/",
+                    "operation": { "method": "get", "path": "/market/spot/prices/assets/{asset}/latest/" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/spot/prices/assets/{asset}/historical/",
+                    "operation": { "method": "get", "path": "/market/spot/prices/assets/{asset}/historical/" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
+                      { "name": "endDate", "operationParameter": { "name": "endDate", "in": "query" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      { "name": "startDate", "operationParameter": { "name": "startDate", "in": "query" } },
+                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } },
+                      { "name": "timeInterval", "operationParameter": { "name": "timeInterval", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/spot/prices/pairs/information/",
+                    "operation": { "method": "get", "path": "/market/spot/prices/pairs/information/" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      { "name": "pairs", "operationParameter": { "name": "pairs", "in": "query" } },
+                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/spot/prices/pairs/{pair}/latest/",
+                    "operation": { "method": "get", "path": "/market/spot/prices/pairs/{pair}/latest/" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      {
+                        "name": "includeCrossRates",
+                        "operationParameter": { "name": "includeCrossRates", "in": "query" }
+                      },
+                      { "name": "pair", "operationParameter": { "name": "pair", "in": "path" } },
+                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/spot/prices/pairs/{pair}/historical/",
+                    "operation": { "method": "get", "path": "/market/spot/prices/pairs/{pair}/historical/" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "endDate", "operationParameter": { "name": "endDate", "in": "query" } },
+                      { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      {
+                        "name": "includeCrossRates",
+                        "operationParameter": { "name": "includeCrossRates", "in": "query" }
+                      },
+                      { "name": "pair", "operationParameter": { "name": "pair", "in": "path" } },
+                      { "name": "startDate", "operationParameter": { "name": "startDate", "in": "query" } },
+                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } },
+                      { "name": "timeInterval", "operationParameter": { "name": "timeInterval", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/defi/prices/asset/{asset}/latest",
+                    "operation": { "method": "get", "path": "/market/defi/prices/asset/{asset}/latest" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
+                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/defi/prices/asset/{asset}/historical",
+                    "operation": { "method": "get", "path": "/market/defi/prices/asset/{asset}/historical" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
+                      { "name": "endDate", "operationParameter": { "name": "endDate", "in": "query" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
+                      { "name": "startDate", "operationParameter": { "name": "startDate", "in": "query" } },
+                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } },
+                      { "name": "timeInterval", "operationParameter": { "name": "timeInterval", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/defi/prices/asset/information/",
+                    "operation": { "method": "get", "path": "/market/defi/prices/asset/information/" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/spot/vwap/pairs/{pair}/latest",
+                    "operation": { "method": "get", "path": "/market/spot/vwap/pairs/{pair}/latest" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      {
+                        "name": "includeCrossRates",
+                        "operationParameter": { "name": "includeCrossRates", "in": "query" }
+                      },
+                      { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
+                      { "name": "pair", "operationParameter": { "name": "pair", "in": "path" } },
+                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /transactions/gas/predictions",
+                    "operation": { "method": "get", "path": "/transactions/gas/predictions" },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "field", "operationParameter": { "name": "field", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      {
+                        "name": "x-amberdata-blockchain-id",
+                        "operationParameter": { "name": "x-amberdata-blockchain-id", "in": "header" }
+                      }
+                    ],
+                    "testable": true
+                  },
+                  {
+                    "name": "GET /market/defi/vwap/pairs/bases/{base}/quotes/{quote}/latest",
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/defi/vwap/pairs/bases/{base}/quotes/{quote}/latest"
+                    },
+                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "fixedOperationParameters": [],
+                    "parameters": [
+                      { "name": "base", "operationParameter": { "name": "base", "in": "path" } },
+                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
+                      { "name": "quote", "operationParameter": { "name": "quote", "in": "path" } },
+                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                    ],
+                    "testable": true
+                  }
+                ]
+              }
+            ],
+            "apiCredentials": [
+              {
+                "oisTitle": "Amberdata-Lite",
+                "securitySchemeName": "Amberdata-Lite_x-api-key",
+                "securitySchemeValue": "${SS_AMBERDATA_LITE_X_API_KEY}"
+              }
+            ]
+          },
+          "secrets": {
+            "filename": "secrets.env",
+            "content": "AIRNODE_WALLET_MNEMONIC=\"\"\nHTTP_GATEWAY_KEY_AMBERDATA_AWS=\"\"\nHTTP_SIGNED_DATA_GATEWAY_KEY_AMBERDATA_AWS=\"\"\nSS_AMBERDATA_LITE_X_API_KEY=\"\"\nRSK_PROVIDER_URL=\"\"\nPOLYGON_PROVIDER_URL=\"\"\nAVALANCHE_PROVIDER_URL=\"\"\nBSC_PROVIDER_URL=\"\"\n"
+          }
+        }
+      }
+    },
+    "ois": {
+      "amberdata-lite-2": {
+        "oisFormat": "1.0.0",
+        "title": "Amberdata-Lite",
+        "version": "2",
+        "apiSpecifications": {
+          "servers": [{ "url": "https://web3api.io/api/v2" }],
+          "security": { "Amberdata-Lite_x-api-key": [] },
+          "components": {
+            "securitySchemes": { "Amberdata-Lite_x-api-key": { "type": "apiKey", "in": "header", "name": "x-api-key" } }
+          },
+          "paths": {
+            "/market/defi/lending/exchanges/information/": {
+              "get": {
+                "parameters": [
+                  { "name": "exchange", "in": "query" },
+                  { "name": "fields", "in": "query" },
+                  { "name": "format", "in": "query" },
+                  { "name": "includeDates", "in": "query" }
+                ]
+              }
+            },
+            "/market/tokens/prices/{hash}/latest": {
+              "get": {
+                "parameters": [
+                  { "name": "currency", "in": "query" },
+                  { "name": "fields", "in": "query" },
+                  { "name": "format", "in": "query" },
+                  { "name": "hash", "in": "path" }
+                ]
+              }
+            },
+            "/market/spot/prices/assets/information/": {
+              "get": {
+                "parameters": [
+                  { "name": "asset", "in": "query" },
+                  { "name": "fields", "in": "query" },
+                  { "name": "format", "in": "query" },
+                  { "name": "timeFormat", "in": "query" }
+                ]
+              }
+            },
+            "/market/spot/prices/assets/{asset}/latest/": {
+              "get": {
+                "parameters": [
+                  { "name": "asset", "in": "path" },
+                  { "name": "fields", "in": "query" },
+                  { "name": "format", "in": "query" },
+                  { "name": "timeFormat", "in": "query" }
+                ]
+              }
+            },
+            "/market/spot/prices/assets/{asset}/historical/": {
+              "get": {
+                "parameters": [
+                  { "name": "asset", "in": "path" },
+                  { "name": "endDate", "in": "query" },
+                  { "name": "fields", "in": "query" },
+                  { "name": "format", "in": "query" },
+                  { "name": "startDate", "in": "query" },
+                  { "name": "timeFormat", "in": "query" },
+                  { "name": "timeInterval", "in": "query" }
+                ]
+              }
+            },
+            "/market/spot/prices/pairs/information/": {
+              "get": {
+                "parameters": [
+                  { "name": "fields", "in": "query" },
+                  { "name": "format", "in": "query" },
+                  { "name": "pairs", "in": "query" },
+                  { "name": "timeFormat", "in": "query" }
+                ]
+              }
+            },
+            "/market/spot/prices/pairs/{pair}/latest/": {
+              "get": {
+                "parameters": [
+                  { "name": "exchange", "in": "query" },
+                  { "name": "fields", "in": "query" },
+                  { "name": "format", "in": "query" },
+                  { "name": "includeCrossRates", "in": "query" },
+                  { "name": "pair", "in": "path" },
+                  { "name": "timeFormat", "in": "query" }
+                ]
+              }
+            },
+            "/market/spot/prices/pairs/{pair}/historical/": {
+              "get": {
+                "parameters": [
+                  { "name": "endDate", "in": "query" },
+                  { "name": "exchange", "in": "query" },
+                  { "name": "fields", "in": "query" },
+                  { "name": "format", "in": "query" },
+                  { "name": "includeCrossRates", "in": "query" },
+                  { "name": "pair", "in": "path" },
+                  { "name": "startDate", "in": "query" },
+                  { "name": "timeFormat", "in": "query" },
+                  { "name": "timeInterval", "in": "query" }
+                ]
+              }
+            },
+            "/market/defi/prices/asset/{asset}/latest": {
+              "get": {
+                "parameters": [
+                  { "name": "asset", "in": "path" },
+                  { "name": "fields", "in": "query" },
+                  { "name": "format", "in": "query" },
+                  { "name": "lookbackPeriod", "in": "query" },
+                  { "name": "timeFormat", "in": "query" }
+                ]
+              }
+            },
+            "/market/defi/prices/asset/{asset}/historical": {
+              "get": {
+                "parameters": [
+                  { "name": "asset", "in": "path" },
+                  { "name": "endDate", "in": "query" },
+                  { "name": "fields", "in": "query" },
+                  { "name": "format", "in": "query" },
+                  { "name": "lookbackPeriod", "in": "query" },
+                  { "name": "startDate", "in": "query" },
+                  { "name": "timeFormat", "in": "query" },
+                  { "name": "timeInterval", "in": "query" }
+                ]
+              }
+            },
+            "/market/defi/prices/asset/information/": {
+              "get": {
+                "parameters": [
+                  { "name": "fields", "in": "query" },
+                  { "name": "format", "in": "query" }
+                ]
+              }
+            },
+            "/market/spot/vwap/pairs/{pair}/latest": {
+              "get": {
+                "parameters": [
+                  { "name": "exchange", "in": "query" },
+                  { "name": "fields", "in": "query" },
+                  { "name": "format", "in": "query" },
+                  { "name": "includeCrossRates", "in": "query" },
+                  { "name": "lookbackPeriod", "in": "query" },
+                  { "name": "pair", "in": "path" },
+                  { "name": "timeFormat", "in": "query" }
+                ]
+              }
+            },
+            "/transactions/gas/predictions": {
+              "get": {
+                "parameters": [
+                  { "name": "field", "in": "query" },
+                  { "name": "format", "in": "query" },
+                  { "name": "x-amberdata-blockchain-id", "in": "header" }
+                ]
+              }
+            },
+            "/market/defi/vwap/pairs/bases/{base}/quotes/{quote}/latest": {
+              "get": {
+                "parameters": [
+                  { "name": "base", "in": "path" },
+                  { "name": "fields", "in": "query" },
+                  { "name": "format", "in": "query" },
+                  { "name": "lookbackPeriod", "in": "query" },
+                  { "name": "quote", "in": "path" },
+                  { "name": "timeFormat", "in": "query" }
+                ]
+              }
+            }
+          }
+        },
+        "endpoints": [
+          {
+            "name": "GET /market/defi/lending/exchanges/information/",
+            "operation": { "method": "get", "path": "/market/defi/lending/exchanges/information/" },
+            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "fixedOperationParameters": [],
+            "parameters": [
+              { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
+              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+              { "name": "includeDates", "operationParameter": { "name": "includeDates", "in": "query" } }
+            ],
+            "testable": true
+          },
+          {
+            "name": "GET /market/tokens/prices/{hash}/latest",
+            "operation": { "method": "get", "path": "/market/tokens/prices/{hash}/latest" },
+            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "fixedOperationParameters": [],
+            "parameters": [
+              { "name": "currency", "operationParameter": { "name": "currency", "in": "query" } },
+              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+              { "name": "hash", "operationParameter": { "name": "hash", "in": "path" } }
+            ],
+            "testable": true
+          },
+          {
+            "name": "GET /market/spot/prices/assets/information/",
+            "operation": { "method": "get", "path": "/market/spot/prices/assets/information/" },
+            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "fixedOperationParameters": [],
+            "parameters": [
+              { "name": "asset", "operationParameter": { "name": "asset", "in": "query" } },
+              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+              { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+            ],
+            "testable": true
+          },
+          {
+            "name": "GET /market/spot/prices/assets/{asset}/latest/",
+            "operation": { "method": "get", "path": "/market/spot/prices/assets/{asset}/latest/" },
+            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "fixedOperationParameters": [],
+            "parameters": [
+              { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
+              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+              { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+            ],
+            "testable": true
+          },
+          {
+            "name": "GET /market/spot/prices/assets/{asset}/historical/",
+            "operation": { "method": "get", "path": "/market/spot/prices/assets/{asset}/historical/" },
+            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "fixedOperationParameters": [],
+            "parameters": [
+              { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
+              { "name": "endDate", "operationParameter": { "name": "endDate", "in": "query" } },
+              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+              { "name": "startDate", "operationParameter": { "name": "startDate", "in": "query" } },
+              { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } },
+              { "name": "timeInterval", "operationParameter": { "name": "timeInterval", "in": "query" } }
+            ],
+            "testable": true
+          },
+          {
+            "name": "GET /market/spot/prices/pairs/information/",
+            "operation": { "method": "get", "path": "/market/spot/prices/pairs/information/" },
+            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "fixedOperationParameters": [],
+            "parameters": [
+              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+              { "name": "pairs", "operationParameter": { "name": "pairs", "in": "query" } },
+              { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+            ],
+            "testable": true
+          },
+          {
+            "name": "GET /market/spot/prices/pairs/{pair}/latest/",
+            "operation": { "method": "get", "path": "/market/spot/prices/pairs/{pair}/latest/" },
+            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "fixedOperationParameters": [],
+            "parameters": [
+              { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
+              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+              { "name": "includeCrossRates", "operationParameter": { "name": "includeCrossRates", "in": "query" } },
+              { "name": "pair", "operationParameter": { "name": "pair", "in": "path" } },
+              { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+            ],
+            "testable": true
+          },
+          {
+            "name": "GET /market/spot/prices/pairs/{pair}/historical/",
+            "operation": { "method": "get", "path": "/market/spot/prices/pairs/{pair}/historical/" },
+            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "fixedOperationParameters": [],
+            "parameters": [
+              { "name": "endDate", "operationParameter": { "name": "endDate", "in": "query" } },
+              { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
+              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+              { "name": "includeCrossRates", "operationParameter": { "name": "includeCrossRates", "in": "query" } },
+              { "name": "pair", "operationParameter": { "name": "pair", "in": "path" } },
+              { "name": "startDate", "operationParameter": { "name": "startDate", "in": "query" } },
+              { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } },
+              { "name": "timeInterval", "operationParameter": { "name": "timeInterval", "in": "query" } }
+            ],
+            "testable": true
+          },
+          {
+            "name": "GET /market/defi/prices/asset/{asset}/latest",
+            "operation": { "method": "get", "path": "/market/defi/prices/asset/{asset}/latest" },
+            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "fixedOperationParameters": [],
+            "parameters": [
+              { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
+              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+              { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
+              { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+            ],
+            "testable": true
+          },
+          {
+            "name": "GET /market/defi/prices/asset/{asset}/historical",
+            "operation": { "method": "get", "path": "/market/defi/prices/asset/{asset}/historical" },
+            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "fixedOperationParameters": [],
+            "parameters": [
+              { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
+              { "name": "endDate", "operationParameter": { "name": "endDate", "in": "query" } },
+              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+              { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
+              { "name": "startDate", "operationParameter": { "name": "startDate", "in": "query" } },
+              { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } },
+              { "name": "timeInterval", "operationParameter": { "name": "timeInterval", "in": "query" } }
+            ],
+            "testable": true
+          },
+          {
+            "name": "GET /market/defi/prices/asset/information/",
+            "operation": { "method": "get", "path": "/market/defi/prices/asset/information/" },
+            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "fixedOperationParameters": [],
+            "parameters": [
+              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+              { "name": "format", "operationParameter": { "name": "format", "in": "query" } }
+            ],
+            "testable": true
+          },
+          {
+            "name": "GET /market/spot/vwap/pairs/{pair}/latest",
+            "operation": { "method": "get", "path": "/market/spot/vwap/pairs/{pair}/latest" },
+            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "fixedOperationParameters": [],
+            "parameters": [
+              { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
+              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+              { "name": "includeCrossRates", "operationParameter": { "name": "includeCrossRates", "in": "query" } },
+              { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
+              { "name": "pair", "operationParameter": { "name": "pair", "in": "path" } },
+              { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+            ],
+            "testable": true
+          },
+          {
+            "name": "GET /transactions/gas/predictions",
+            "operation": { "method": "get", "path": "/transactions/gas/predictions" },
+            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "fixedOperationParameters": [],
+            "parameters": [
+              { "name": "field", "operationParameter": { "name": "field", "in": "query" } },
+              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+              {
+                "name": "x-amberdata-blockchain-id",
+                "operationParameter": { "name": "x-amberdata-blockchain-id", "in": "header" }
+              }
+            ],
+            "testable": true
+          },
+          {
+            "name": "GET /market/defi/vwap/pairs/bases/{base}/quotes/{quote}/latest",
+            "operation": { "method": "get", "path": "/market/defi/vwap/pairs/bases/{base}/quotes/{quote}/latest" },
+            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "fixedOperationParameters": [],
+            "parameters": [
+              { "name": "base", "operationParameter": { "name": "base", "in": "path" } },
+              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
+              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+              { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
+              { "name": "quote", "operationParameter": { "name": "quote", "in": "path" } },
+              { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+            ],
+            "testable": true
+          }
+        ]
+      }
+    },
+    "templates": {
+      "amberdata aave_btc": {
+        "name": "AmberData AAVE/BTC",
+        "templateId": "0xb0039a5af9f6c937f3d1c7af36a5dc83c53961d0356a373185e7972d6daf6b5a",
+        "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+        "parameters": "0x31737373737300000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000616176655f6274630000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000",
+        "decodedParameters": [
+          { "name": "pair", "type": "string32", "value": "aave_btc" },
+          { "name": "_path", "type": "string32", "value": "payload.vwap" },
+          { "name": "_type", "type": "string32", "value": "int256" },
+          { "name": "_times", "type": "string32", "value": "1000000" },
+          { "name": "lookbackPeriod", "type": "string32", "value": "5" }
+        ]
+      },
+      "amberdata aave_usd": {
+        "name": "AmberData AAVE/USD",
+        "templateId": "0x4ea5398d313d6b8a70fe8690f884a311de7f0a15d76e44d14b21a7c9ee471e31",
+        "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+        "parameters": "0x31737373737300000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000616176655f7573640000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000",
+        "decodedParameters": [
+          { "name": "pair", "type": "string32", "value": "aave_usd" },
+          { "name": "_path", "type": "string32", "value": "payload.vwap" },
+          { "name": "_type", "type": "string32", "value": "int256" },
+          { "name": "_times", "type": "string32", "value": "1000000" },
+          { "name": "lookbackPeriod", "type": "string32", "value": "5" }
+        ]
+      },
+      "amberdata alpaca_usdt": {
+        "name": "AmberData ALPACA/USDT",
+        "templateId": "0x316b55a49ae702580708ba624eb7b82b7e9a03de664f07364e29a950c7b4a554",
+        "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+        "parameters": "0x31737373737300000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000616c706163615f757364740000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000",
+        "decodedParameters": [
+          { "name": "pair", "type": "string32", "value": "alpaca_usdt" },
+          { "name": "_path", "type": "string32", "value": "payload.vwap" },
+          { "name": "_type", "type": "string32", "value": "int256" },
+          { "name": "_times", "type": "string32", "value": "1000000" },
+          { "name": "lookbackPeriod", "type": "string32", "value": "5" }
+        ]
+      },
+      "amberdata avax_usd": {
+        "name": "AmberData AVAX/USD",
+        "templateId": "0x26cb2638f5c9400a6eef7a8b6c13e266c6bd735f692e56bf19f2c911c227cad8",
+        "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+        "parameters": "0x31737373737300000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000617661785f7573640000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000",
+        "decodedParameters": [
+          { "name": "pair", "type": "string32", "value": "avax_usd" },
+          { "name": "_path", "type": "string32", "value": "payload.vwap" },
+          { "name": "_type", "type": "string32", "value": "int256" },
+          { "name": "_times", "type": "string32", "value": "1000000" },
+          { "name": "lookbackPeriod", "type": "string32", "value": "5" }
+        ]
+      },
+      "amberdata bnb_usd": {
+        "name": "AmberData BNB/USD",
+        "templateId": "0xa1ee143b874a7c8eba3d1b5095a783a1e5ff67906a1586b6f09556c6b47f06ac",
+        "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+        "parameters": "0x31737373737300000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000626e625f757364000000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000",
+        "decodedParameters": [
+          { "name": "pair", "type": "string32", "value": "bnb_usd" },
+          { "name": "_path", "type": "string32", "value": "payload.vwap" },
+          { "name": "_type", "type": "string32", "value": "int256" },
+          { "name": "_times", "type": "string32", "value": "1000000" },
+          { "name": "lookbackPeriod", "type": "string32", "value": "5" }
+        ]
+      },
+      "amberdata busd_usd": {
+        "name": "AmberData BUSD/USD",
+        "templateId": "0x3eccbdf3e97f2ac1faa0833e2546254aaa02aed5d8429f28b0b997858d8fe6cc",
+        "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+        "parameters": "0x31737373737300000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000627573645f7573640000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000",
+        "decodedParameters": [
+          { "name": "pair", "type": "string32", "value": "busd_usd" },
+          { "name": "_path", "type": "string32", "value": "payload.vwap" },
+          { "name": "_type", "type": "string32", "value": "int256" },
+          { "name": "_times", "type": "string32", "value": "1000000" },
+          { "name": "lookbackPeriod", "type": "string32", "value": "5" }
+        ]
+      },
+      "amberdata cake_usdt": {
+        "name": "AmberData CAKE/USDT",
+        "templateId": "0x68196c5c5af7d35dba17e7b180ae08aa1febe95d487b4eeb3a0e8c8c04c8c4e9",
+        "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+        "parameters": "0x3173737373730000000000000000000000000000000000000000000000000000706169720000000000000000000000000000000000000000000000000000000063616b655f7573647400000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000",
+        "decodedParameters": [
+          { "name": "pair", "type": "string32", "value": "cake_usdt" },
+          { "name": "_path", "type": "string32", "value": "payload.vwap" },
+          { "name": "_type", "type": "string32", "value": "int256" },
+          { "name": "_times", "type": "string32", "value": "1000000" },
+          { "name": "lookbackPeriod", "type": "string32", "value": "5" }
+        ]
+      },
+      "amberdata crv_usd": {
+        "name": "AmberData CRV/USD",
+        "templateId": "0x60a89c316a78d29387cd92eca79702ab0f02f0ab786d92749d5874a919876d3f",
+        "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+        "parameters": "0x317373737373000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006372765f757364000000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000",
+        "decodedParameters": [
+          { "name": "pair", "type": "string32", "value": "crv_usd" },
+          { "name": "_path", "type": "string32", "value": "payload.vwap" },
+          { "name": "_type", "type": "string32", "value": "int256" },
+          { "name": "_times", "type": "string32", "value": "1000000" },
+          { "name": "lookbackPeriod", "type": "string32", "value": "5" }
+        ]
+      },
+      "amberdata joe_usd": {
+        "name": "AmberData JOE/USD",
+        "templateId": "0xec22c6ad19d47d245b880c6808a2e3a644e35157992f6a8a0894c6a9e63e34a0",
+        "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+        "parameters": "0x317373737373000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006a6f655f757364000000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000",
+        "decodedParameters": [
+          { "name": "pair", "type": "string32", "value": "joe_usd" },
+          { "name": "_path", "type": "string32", "value": "payload.vwap" },
+          { "name": "_type", "type": "string32", "value": "int256" },
+          { "name": "_times", "type": "string32", "value": "1000000" },
+          { "name": "lookbackPeriod", "type": "string32", "value": "5" }
+        ]
+      },
+      "amberdata matic_usd": {
+        "name": "AmberData MATIC/USD",
+        "templateId": "0x84a3a09582fa3e8604e6056584bf61345157d502fd818fff31f355fac3957feb",
+        "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+        "parameters": "0x317373737373000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006d617469635f75736400000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000",
+        "decodedParameters": [
+          { "name": "pair", "type": "string32", "value": "matic_usd" },
+          { "name": "_path", "type": "string32", "value": "payload.vwap" },
+          { "name": "_type", "type": "string32", "value": "int256" },
+          { "name": "_times", "type": "string32", "value": "1000000" },
+          { "name": "lookbackPeriod", "type": "string32", "value": "5" }
+        ]
+      },
+      "amberdata ooki_eth": {
+        "name": "AmberData OOKI/ETH",
+        "templateId": "0x021e15b08969326858ce157f37765cd0c2d1b97873309134fa2c664474f56d11",
+        "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+        "parameters": "0x317373737373000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000006f6f6b695f6574680000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000",
+        "decodedParameters": [
+          { "name": "pair", "type": "string32", "value": "ooki_eth" },
+          { "name": "_path", "type": "string32", "value": "payload.vwap" },
+          { "name": "_type", "type": "string32", "value": "int256" },
+          { "name": "_times", "type": "string32", "value": "1000000" },
+          { "name": "lookbackPeriod", "type": "string32", "value": "5" }
+        ]
+      },
+      "amberdata quick_usd": {
+        "name": "AmberData QUICK/USD",
+        "templateId": "0x7ca1551b7f36564bd0fb519bc46643c10642c41ce3066f36867a8062a0796896",
+        "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+        "parameters": "0x31737373737300000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000717569636b5f75736400000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000",
+        "decodedParameters": [
+          { "name": "pair", "type": "string32", "value": "quick_usd" },
+          { "name": "_path", "type": "string32", "value": "payload.vwap" },
+          { "name": "_type", "type": "string32", "value": "int256" },
+          { "name": "_times", "type": "string32", "value": "1000000" },
+          { "name": "lookbackPeriod", "type": "string32", "value": "5" }
+        ]
+      },
+      "amberdata rbtc_btc": {
+        "name": "AmberData RBTC/BTC",
+        "templateId": "0xd1c4bd38d88d67c4cc336caf7fd48e7eebc3701cbbc952b3abe5dd5861a98a22",
+        "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+        "parameters": "0x31737373737300000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000726274635f6274630000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000",
+        "decodedParameters": [
+          { "name": "pair", "type": "string32", "value": "rbtc_btc" },
+          { "name": "_path", "type": "string32", "value": "payload.vwap" },
+          { "name": "_type", "type": "string32", "value": "int256" },
+          { "name": "_times", "type": "string32", "value": "1000000" },
+          { "name": "lookbackPeriod", "type": "string32", "value": "5" }
+        ]
+      },
+      "amberdata rbtc_usd": {
+        "name": "AmberData RBTC/USD",
+        "templateId": "0x5f51da1c10f3e3989c462fcb90bbe304206825f98a5239b4f35209078300d09e",
+        "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+        "parameters": "0x31737373737300000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000726274635f7573640000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000",
+        "decodedParameters": [
+          { "name": "pair", "type": "string32", "value": "rbtc_usd" },
+          { "name": "_path", "type": "string32", "value": "payload.vwap" },
+          { "name": "_type", "type": "string32", "value": "int256" },
+          { "name": "_times", "type": "string32", "value": "1000000" },
+          { "name": "lookbackPeriod", "type": "string32", "value": "5" }
+        ]
+      },
+      "amberdata usdc_usd": {
+        "name": "AmberData USDC/USD",
+        "templateId": "0x21fd97d7dc3abd5b788895c61e07c244e6369e39d1139d1626fecfc4042fbf29",
+        "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+        "parameters": "0x31737373737300000000000000000000000000000000000000000000000000007061697200000000000000000000000000000000000000000000000000000000757364635f7573640000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000",
+        "decodedParameters": [
+          { "name": "pair", "type": "string32", "value": "usdc_usd" },
+          { "name": "_path", "type": "string32", "value": "payload.vwap" },
+          { "name": "_type", "type": "string32", "value": "int256" },
+          { "name": "_times", "type": "string32", "value": "1000000" },
+          { "name": "lookbackPeriod", "type": "string32", "value": "5" }
+        ]
+      },
+      "amberdata ust_usd": {
+        "name": "AmberData UST/USD",
+        "templateId": "0x1bab8014c068e6871bf4043a74c51164d05d482d8cb6f1f66f8edcd7f3b6bb0f",
+        "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+        "parameters": "0x317373737373000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000007573745f757364000000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000",
+        "decodedParameters": [
+          { "name": "pair", "type": "string32", "value": "ust_usd" },
+          { "name": "_path", "type": "string32", "value": "payload.vwap" },
+          { "name": "_type", "type": "string32", "value": "int256" },
+          { "name": "_times", "type": "string32", "value": "1000000" },
+          { "name": "lookbackPeriod", "type": "string32", "value": "5" }
+        ]
+      },
+      "amberdata xvs_usdt": {
+        "name": "AmberData XVS/USDT",
+        "templateId": "0x6fe33b9efe33a762f703f4b390af3fbc45296a70361b8f1b6f48fdfaab4fdf66",
+        "endpointId": "0x592da7070110dc650c34b31f2b0ec1d45456ed8bca4ccdc28ef879f41655f006",
+        "parameters": "0x317373737373000000000000000000000000000000000000000000000000000070616972000000000000000000000000000000000000000000000000000000007876735f757364740000000000000000000000000000000000000000000000005f706174680000000000000000000000000000000000000000000000000000007061796c6f61642e7677617000000000000000000000000000000000000000005f74797065000000000000000000000000000000000000000000000000000000696e7432353600000000000000000000000000000000000000000000000000005f74696d6573000000000000000000000000000000000000000000000000000031303030303030000000000000000000000000000000000000000000000000006c6f6f6b6261636b506572696f640000000000000000000000000000000000003500000000000000000000000000000000000000000000000000000000000000",
+        "decodedParameters": [
+          { "name": "pair", "type": "string32", "value": "xvs_usdt" },
+          { "name": "_path", "type": "string32", "value": "payload.vwap" },
+          { "name": "_type", "type": "string32", "value": "int256" },
+          { "name": "_times", "type": "string32", "value": "1000000" },
+          { "name": "lookbackPeriod", "type": "string32", "value": "5" }
+        ]
+      }
+    }
+  }
+}

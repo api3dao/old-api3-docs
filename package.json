@@ -12,7 +12,8 @@
     "sync:sidebar": "cp docs/.vuepress/components/Sidebar.vue node_modules/@vuepress/theme-default/components/Sidebar.vue",
     "docs:dev": "yarn sync:404; yarn sync:navbar; yarn sync:sidebar; vuepress dev docs",
     "docs:build": "yarn sync:404; yarn sync:navbar; yarn sync:sidebar; vuepress build docs;",
-    "chains:build": "curl https://operations-development.s3.amazonaws.com/latest/chains.json >> ./docs/.vuepress/chains.json",
+    "chains:build": "curl https://operations-development.s3.amazonaws.com/latest/chains.json -o ./docs/.vuepress/chains.json",
+    "beacons:build": "curl https://operations-development.s3.amazonaws.com/latest/apis.json -o ./docs/.vuepress/beacons.json",
     "format": "prettier --write \"./**/*.{js,vue,md,json,yaml}\" --loglevel silent",
     "format:check": "prettier --check \"./**/*.{js,vue,md,json,yaml}\"",
     "prepare": "husky install"
