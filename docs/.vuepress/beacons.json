@@ -22,17 +22,36 @@
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
             "topUpWallets": [
-              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
-              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+              {
+                "walletType": "Provider-Sponsor",
+                "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE"
+              },
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
             ],
             "updateConditionPercentage": 2,
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           },
           "polygon-testnet": {
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
-            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "topUpWallets": [
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
+            ],
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           }
         }
       },
@@ -47,37 +66,76 @@
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
             "topUpWallets": [
-              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
-              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+              {
+                "walletType": "Provider-Sponsor",
+                "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE"
+              },
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
             ],
             "updateConditionPercentage": 2,
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           },
           "rsk": {
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
             "topUpWallets": [
-              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
-              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+              {
+                "walletType": "Provider-Sponsor",
+                "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE"
+              },
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
             ],
             "updateConditionPercentage": 2,
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           },
           "avalanche": {
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
             "topUpWallets": [
-              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
-              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+              {
+                "walletType": "Provider-Sponsor",
+                "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE"
+              },
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
             ],
             "updateConditionPercentage": 2,
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           },
           "polygon-testnet": {
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
-            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "topUpWallets": [
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
+            ],
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           }
         }
       },
@@ -92,17 +150,36 @@
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
             "topUpWallets": [
-              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
-              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+              {
+                "walletType": "Provider-Sponsor",
+                "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE"
+              },
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
             ],
             "updateConditionPercentage": 2,
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           },
           "polygon-testnet": {
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
-            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "topUpWallets": [
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
+            ],
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           }
         }
       },
@@ -117,17 +194,36 @@
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
             "topUpWallets": [
-              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
-              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+              {
+                "walletType": "Provider-Sponsor",
+                "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE"
+              },
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
             ],
             "updateConditionPercentage": 2,
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           },
           "polygon-testnet": {
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
-            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "topUpWallets": [
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
+            ],
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           }
         }
       },
@@ -142,17 +238,36 @@
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
             "topUpWallets": [
-              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
-              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+              {
+                "walletType": "Provider-Sponsor",
+                "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE"
+              },
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
             ],
             "updateConditionPercentage": 2,
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           },
           "polygon-testnet": {
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
-            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "topUpWallets": [
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
+            ],
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           }
         }
       },
@@ -167,17 +282,36 @@
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
             "topUpWallets": [
-              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
-              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+              {
+                "walletType": "Provider-Sponsor",
+                "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE"
+              },
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
             ],
             "updateConditionPercentage": 0.4,
-            "airseekerConfig": { "deviationThreshold": 0.2, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "airseekerConfig": {
+              "deviationThreshold": 0.2,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           },
           "polygon-testnet": {
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
-            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
-            "airseekerConfig": { "deviationThreshold": 0.2, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "topUpWallets": [
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
+            ],
+            "airseekerConfig": {
+              "deviationThreshold": 0.2,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           }
         }
       },
@@ -192,17 +326,36 @@
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
             "topUpWallets": [
-              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
-              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+              {
+                "walletType": "Provider-Sponsor",
+                "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE"
+              },
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
             ],
             "updateConditionPercentage": 2,
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           },
           "polygon-testnet": {
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
-            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "topUpWallets": [
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
+            ],
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           }
         }
       },
@@ -217,17 +370,36 @@
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
             "topUpWallets": [
-              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
-              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+              {
+                "walletType": "Provider-Sponsor",
+                "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE"
+              },
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
             ],
             "updateConditionPercentage": 2,
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           },
           "polygon-testnet": {
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
-            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "topUpWallets": [
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
+            ],
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           }
         }
       },
@@ -242,17 +414,36 @@
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
             "topUpWallets": [
-              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
-              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+              {
+                "walletType": "Provider-Sponsor",
+                "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE"
+              },
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
             ],
             "updateConditionPercentage": 2,
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           },
           "polygon-testnet": {
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
-            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "topUpWallets": [
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
+            ],
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           }
         }
       },
@@ -267,17 +458,36 @@
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
             "topUpWallets": [
-              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
-              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+              {
+                "walletType": "Provider-Sponsor",
+                "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE"
+              },
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
             ],
             "updateConditionPercentage": 2,
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           },
           "polygon-testnet": {
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
-            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "topUpWallets": [
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
+            ],
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           }
         }
       },
@@ -292,17 +502,36 @@
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
             "topUpWallets": [
-              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
-              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+              {
+                "walletType": "Provider-Sponsor",
+                "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE"
+              },
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
             ],
             "updateConditionPercentage": 2,
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           },
           "polygon-testnet": {
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
-            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "topUpWallets": [
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
+            ],
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           }
         }
       },
@@ -317,17 +546,36 @@
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
             "topUpWallets": [
-              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
-              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+              {
+                "walletType": "Provider-Sponsor",
+                "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE"
+              },
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
             ],
             "updateConditionPercentage": 2,
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           },
           "polygon-testnet": {
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
-            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "topUpWallets": [
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
+            ],
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           }
         }
       },
@@ -342,17 +590,36 @@
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
             "topUpWallets": [
-              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
-              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+              {
+                "walletType": "Provider-Sponsor",
+                "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE"
+              },
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
             ],
             "updateConditionPercentage": 2,
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           },
           "polygon-testnet": {
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
-            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "topUpWallets": [
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
+            ],
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           }
         }
       },
@@ -367,17 +634,36 @@
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
             "topUpWallets": [
-              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
-              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+              {
+                "walletType": "Provider-Sponsor",
+                "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE"
+              },
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
             ],
             "updateConditionPercentage": 2,
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           },
           "polygon-testnet": {
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
-            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "topUpWallets": [
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
+            ],
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           }
         }
       },
@@ -392,27 +678,56 @@
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
             "topUpWallets": [
-              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
-              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+              {
+                "walletType": "Provider-Sponsor",
+                "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE"
+              },
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
             ],
             "updateConditionPercentage": 0.4,
-            "airseekerConfig": { "deviationThreshold": 0.2, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "airseekerConfig": {
+              "deviationThreshold": 0.2,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           },
           "rsk": {
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
             "topUpWallets": [
-              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
-              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+              {
+                "walletType": "Provider-Sponsor",
+                "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE"
+              },
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
             ],
             "updateConditionPercentage": 0.4,
-            "airseekerConfig": { "deviationThreshold": 0.2, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "airseekerConfig": {
+              "deviationThreshold": 0.2,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           },
           "polygon-testnet": {
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
-            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
-            "airseekerConfig": { "deviationThreshold": 0.2, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "topUpWallets": [
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
+            ],
+            "airseekerConfig": {
+              "deviationThreshold": 0.2,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           }
         }
       },
@@ -427,17 +742,36 @@
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
             "topUpWallets": [
-              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
-              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+              {
+                "walletType": "Provider-Sponsor",
+                "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE"
+              },
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
             ],
             "updateConditionPercentage": 0.4,
-            "airseekerConfig": { "deviationThreshold": 0.2, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "airseekerConfig": {
+              "deviationThreshold": 0.2,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           },
           "polygon-testnet": {
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
-            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
-            "airseekerConfig": { "deviationThreshold": 0.2, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "topUpWallets": [
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
+            ],
+            "airseekerConfig": {
+              "deviationThreshold": 0.2,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           }
         }
       },
@@ -452,17 +786,36 @@
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
             "topUpWallets": [
-              { "walletType": "Provider-Sponsor", "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE" },
-              { "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }
+              {
+                "walletType": "Provider-Sponsor",
+                "address": "0x1a2633190693307d47145098fFd1d4669D3aE9eE"
+              },
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
             ],
             "updateConditionPercentage": 2,
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           },
           "polygon-testnet": {
             "active": true,
             "sponsor": "0xAb770D6E94e26E9388db8d6D10a2458973a7Ff8f",
-            "topUpWallets": [{ "walletType": "API3", "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719" }],
-            "airseekerConfig": { "deviationThreshold": 1, "heartbeatInterval": 86400, "updateInterval": 30 }
+            "topUpWallets": [
+              {
+                "walletType": "API3",
+                "address": "0x25B246C3bA7B7353e286859FaE8913600b96B719"
+              }
+            ],
+            "airseekerConfig": {
+              "deviationThreshold": 1,
+              "heartbeatInterval": 86400,
+              "updateInterval": 30
+            }
           }
         }
       }
@@ -476,19 +829,31 @@
             "chains": [
               {
                 "id": "30",
-                "contracts": { "RrpBeaconServer": "", "DapiServer": "0xCC5005Bd08b8882c9A132C0067E7D3f79796C251" }
+                "contracts": {
+                  "RrpBeaconServer": "",
+                  "DapiServer": "0xCC5005Bd08b8882c9A132C0067E7D3f79796C251"
+                }
               },
               {
                 "id": "137",
-                "contracts": { "RrpBeaconServer": "", "DapiServer": "0xd7CA5BD7a45985D271F216Cb1CAD82348464f6d5" }
+                "contracts": {
+                  "RrpBeaconServer": "",
+                  "DapiServer": "0xd7CA5BD7a45985D271F216Cb1CAD82348464f6d5"
+                }
               },
               {
                 "id": "43114",
-                "contracts": { "RrpBeaconServer": "", "DapiServer": "0x291a11cbbC441201562A6418Fd11bBeb0675b4e4" }
+                "contracts": {
+                  "RrpBeaconServer": "",
+                  "DapiServer": "0x291a11cbbC441201562A6418Fd11bBeb0675b4e4"
+                }
               },
               {
                 "id": "56",
-                "contracts": { "RrpBeaconServer": "", "DapiServer": "0x8B0A67D060C86919Ae76Ca3FA69c68Ff98E85c3c" }
+                "contracts": {
+                  "RrpBeaconServer": "",
+                  "DapiServer": "0x8B0A67D060C86919Ae76Ca3FA69c68Ff98E85c3c"
+                }
               }
             ],
             "triggers": {
@@ -867,14 +1232,21 @@
               }
             }
           },
-          "aws": { "filename": "aws.env", "content": "AWS_ACCESS_KEY_ID=\nAWS_SECRET_ACCESS_KEY=" },
+          "aws": {
+            "filename": "aws.env",
+            "content": "AWS_ACCESS_KEY_ID=\nAWS_SECRET_ACCESS_KEY="
+          },
           "config": {
             "chains": [
               {
                 "authorizers": [],
-                "contracts": { "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd" },
+                "contracts": {
+                  "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
+                },
                 "id": "30",
-                "providers": { "provider_rsk": { "url": "${RSK_PROVIDER_URL}" } },
+                "providers": {
+                  "provider_rsk": { "url": "${RSK_PROVIDER_URL}" }
+                },
                 "type": "evm",
                 "options": { "txType": "legacy" },
                 "maxConcurrency": 100,
@@ -883,9 +1255,13 @@
               },
               {
                 "authorizers": [],
-                "contracts": { "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd" },
+                "contracts": {
+                  "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
+                },
                 "id": "137",
-                "providers": { "provider_polygon": { "url": "${POLYGON_PROVIDER_URL}" } },
+                "providers": {
+                  "provider_polygon": { "url": "${POLYGON_PROVIDER_URL}" }
+                },
                 "type": "evm",
                 "options": { "txType": "legacy" },
                 "maxConcurrency": 100,
@@ -894,9 +1270,13 @@
               },
               {
                 "authorizers": [],
-                "contracts": { "AirnodeRrp": "0xC02Ea0f403d5f3D45a4F1d0d817e7A2601346c9E" },
+                "contracts": {
+                  "AirnodeRrp": "0xC02Ea0f403d5f3D45a4F1d0d817e7A2601346c9E"
+                },
                 "id": "43114",
-                "providers": { "provider_avalanche": { "url": "${AVALANCHE_PROVIDER_URL}" } },
+                "providers": {
+                  "provider_avalanche": { "url": "${AVALANCHE_PROVIDER_URL}" }
+                },
                 "type": "evm",
                 "options": {
                   "txType": "eip1559",
@@ -909,9 +1289,13 @@
               },
               {
                 "authorizers": [],
-                "contracts": { "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd" },
+                "contracts": {
+                  "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
+                },
                 "id": "56",
-                "providers": { "provider_bsc": { "url": "${BSC_PROVIDER_URL}" } },
+                "providers": {
+                  "provider_bsc": { "url": "${BSC_PROVIDER_URL}" }
+                },
                 "type": "evm",
                 "options": { "txType": "legacy" },
                 "maxConcurrency": 100,
@@ -921,10 +1305,18 @@
             ],
             "nodeSettings": {
               "nodeVersion": "0.6.2",
-              "cloudProvider": { "type": "aws", "region": "us-east-1", "disableConcurrencyReservations": false },
+              "cloudProvider": {
+                "type": "aws",
+                "region": "us-east-1",
+                "disableConcurrencyReservations": false
+              },
               "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
               "heartbeat": { "enabled": false },
-              "httpGateway": { "enabled": true, "apiKey": "${HTTP_GATEWAY_KEY_AMBERDATA_AWS}", "maxConcurrency": 200 },
+              "httpGateway": {
+                "enabled": true,
+                "apiKey": "${HTTP_GATEWAY_KEY_AMBERDATA_AWS}",
+                "maxConcurrency": 200
+              },
               "httpSignedDataGateway": {
                 "enabled": true,
                 "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_KEY_AMBERDATA_AWS}",
@@ -1163,7 +1555,11 @@
                   "security": { "Amberdata-Lite_x-api-key": [] },
                   "components": {
                     "securitySchemes": {
-                      "Amberdata-Lite_x-api-key": { "type": "apiKey", "in": "header", "name": "x-api-key" }
+                      "Amberdata-Lite_x-api-key": {
+                        "type": "apiKey",
+                        "in": "header",
+                        "name": "x-api-key"
+                      }
                     }
                   },
                   "paths": {
@@ -1308,7 +1704,10 @@
                         "parameters": [
                           { "name": "field", "in": "query" },
                           { "name": "format", "in": "query" },
-                          { "name": "x-amberdata-blockchain-id", "in": "header" }
+                          {
+                            "name": "x-amberdata-blockchain-id",
+                            "in": "header"
+                          }
                         ]
                       }
                     },
@@ -1329,196 +1728,644 @@
                 "endpoints": [
                   {
                     "name": "GET /market/defi/lending/exchanges/information/",
-                    "operation": { "method": "get", "path": "/market/defi/lending/exchanges/information/" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/defi/lending/exchanges/information/"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-                      { "name": "includeDates", "operationParameter": { "name": "includeDates", "in": "query" } }
+                      {
+                        "name": "exchange",
+                        "operationParameter": {
+                          "name": "exchange",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "includeDates",
+                        "operationParameter": {
+                          "name": "includeDates",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/tokens/prices/{hash}/latest",
-                    "operation": { "method": "get", "path": "/market/tokens/prices/{hash}/latest" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/tokens/prices/{hash}/latest"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "currency", "operationParameter": { "name": "currency", "in": "query" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-                      { "name": "hash", "operationParameter": { "name": "hash", "in": "path" } }
+                      {
+                        "name": "currency",
+                        "operationParameter": {
+                          "name": "currency",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "hash",
+                        "operationParameter": { "name": "hash", "in": "path" }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/spot/prices/assets/information/",
-                    "operation": { "method": "get", "path": "/market/spot/prices/assets/information/" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/spot/prices/assets/information/"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "asset", "operationParameter": { "name": "asset", "in": "query" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                      {
+                        "name": "asset",
+                        "operationParameter": { "name": "asset", "in": "query" }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "timeFormat",
+                        "operationParameter": {
+                          "name": "timeFormat",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/spot/prices/assets/{asset}/latest/",
-                    "operation": { "method": "get", "path": "/market/spot/prices/assets/{asset}/latest/" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/spot/prices/assets/{asset}/latest/"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                      {
+                        "name": "asset",
+                        "operationParameter": { "name": "asset", "in": "path" }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "timeFormat",
+                        "operationParameter": {
+                          "name": "timeFormat",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/spot/prices/assets/{asset}/historical/",
-                    "operation": { "method": "get", "path": "/market/spot/prices/assets/{asset}/historical/" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/spot/prices/assets/{asset}/historical/"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
-                      { "name": "endDate", "operationParameter": { "name": "endDate", "in": "query" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-                      { "name": "startDate", "operationParameter": { "name": "startDate", "in": "query" } },
-                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } },
-                      { "name": "timeInterval", "operationParameter": { "name": "timeInterval", "in": "query" } }
+                      {
+                        "name": "asset",
+                        "operationParameter": { "name": "asset", "in": "path" }
+                      },
+                      {
+                        "name": "endDate",
+                        "operationParameter": {
+                          "name": "endDate",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "startDate",
+                        "operationParameter": {
+                          "name": "startDate",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "timeFormat",
+                        "operationParameter": {
+                          "name": "timeFormat",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "timeInterval",
+                        "operationParameter": {
+                          "name": "timeInterval",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/spot/prices/pairs/information/",
-                    "operation": { "method": "get", "path": "/market/spot/prices/pairs/information/" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/spot/prices/pairs/information/"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-                      { "name": "pairs", "operationParameter": { "name": "pairs", "in": "query" } },
-                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "pairs",
+                        "operationParameter": { "name": "pairs", "in": "query" }
+                      },
+                      {
+                        "name": "timeFormat",
+                        "operationParameter": {
+                          "name": "timeFormat",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/spot/prices/pairs/{pair}/latest/",
-                    "operation": { "method": "get", "path": "/market/spot/prices/pairs/{pair}/latest/" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/spot/prices/pairs/{pair}/latest/"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      {
+                        "name": "exchange",
+                        "operationParameter": {
+                          "name": "exchange",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
                       {
                         "name": "includeCrossRates",
-                        "operationParameter": { "name": "includeCrossRates", "in": "query" }
+                        "operationParameter": {
+                          "name": "includeCrossRates",
+                          "in": "query"
+                        }
                       },
-                      { "name": "pair", "operationParameter": { "name": "pair", "in": "path" } },
-                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                      {
+                        "name": "pair",
+                        "operationParameter": { "name": "pair", "in": "path" }
+                      },
+                      {
+                        "name": "timeFormat",
+                        "operationParameter": {
+                          "name": "timeFormat",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/spot/prices/pairs/{pair}/historical/",
-                    "operation": { "method": "get", "path": "/market/spot/prices/pairs/{pair}/historical/" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/spot/prices/pairs/{pair}/historical/"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "endDate", "operationParameter": { "name": "endDate", "in": "query" } },
-                      { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      {
+                        "name": "endDate",
+                        "operationParameter": {
+                          "name": "endDate",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "exchange",
+                        "operationParameter": {
+                          "name": "exchange",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
                       {
                         "name": "includeCrossRates",
-                        "operationParameter": { "name": "includeCrossRates", "in": "query" }
+                        "operationParameter": {
+                          "name": "includeCrossRates",
+                          "in": "query"
+                        }
                       },
-                      { "name": "pair", "operationParameter": { "name": "pair", "in": "path" } },
-                      { "name": "startDate", "operationParameter": { "name": "startDate", "in": "query" } },
-                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } },
-                      { "name": "timeInterval", "operationParameter": { "name": "timeInterval", "in": "query" } }
+                      {
+                        "name": "pair",
+                        "operationParameter": { "name": "pair", "in": "path" }
+                      },
+                      {
+                        "name": "startDate",
+                        "operationParameter": {
+                          "name": "startDate",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "timeFormat",
+                        "operationParameter": {
+                          "name": "timeFormat",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "timeInterval",
+                        "operationParameter": {
+                          "name": "timeInterval",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/defi/prices/asset/{asset}/latest",
-                    "operation": { "method": "get", "path": "/market/defi/prices/asset/{asset}/latest" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/defi/prices/asset/{asset}/latest"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-                      { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
-                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                      {
+                        "name": "asset",
+                        "operationParameter": { "name": "asset", "in": "path" }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "lookbackPeriod",
+                        "operationParameter": {
+                          "name": "lookbackPeriod",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "timeFormat",
+                        "operationParameter": {
+                          "name": "timeFormat",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/defi/prices/asset/{asset}/historical",
-                    "operation": { "method": "get", "path": "/market/defi/prices/asset/{asset}/historical" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/defi/prices/asset/{asset}/historical"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
-                      { "name": "endDate", "operationParameter": { "name": "endDate", "in": "query" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-                      { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
-                      { "name": "startDate", "operationParameter": { "name": "startDate", "in": "query" } },
-                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } },
-                      { "name": "timeInterval", "operationParameter": { "name": "timeInterval", "in": "query" } }
+                      {
+                        "name": "asset",
+                        "operationParameter": { "name": "asset", "in": "path" }
+                      },
+                      {
+                        "name": "endDate",
+                        "operationParameter": {
+                          "name": "endDate",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "lookbackPeriod",
+                        "operationParameter": {
+                          "name": "lookbackPeriod",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "startDate",
+                        "operationParameter": {
+                          "name": "startDate",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "timeFormat",
+                        "operationParameter": {
+                          "name": "timeFormat",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "timeInterval",
+                        "operationParameter": {
+                          "name": "timeInterval",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/defi/prices/asset/information/",
-                    "operation": { "method": "get", "path": "/market/defi/prices/asset/information/" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/defi/prices/asset/information/"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } }
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/spot/vwap/pairs/{pair}/latest",
-                    "operation": { "method": "get", "path": "/market/spot/vwap/pairs/{pair}/latest" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/spot/vwap/pairs/{pair}/latest"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      {
+                        "name": "exchange",
+                        "operationParameter": {
+                          "name": "exchange",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
                       {
                         "name": "includeCrossRates",
-                        "operationParameter": { "name": "includeCrossRates", "in": "query" }
+                        "operationParameter": {
+                          "name": "includeCrossRates",
+                          "in": "query"
+                        }
                       },
-                      { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
-                      { "name": "pair", "operationParameter": { "name": "pair", "in": "path" } },
-                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                      {
+                        "name": "lookbackPeriod",
+                        "operationParameter": {
+                          "name": "lookbackPeriod",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "pair",
+                        "operationParameter": { "name": "pair", "in": "path" }
+                      },
+                      {
+                        "name": "timeFormat",
+                        "operationParameter": {
+                          "name": "timeFormat",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /transactions/gas/predictions",
-                    "operation": { "method": "get", "path": "/transactions/gas/predictions" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/transactions/gas/predictions"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "field", "operationParameter": { "name": "field", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      {
+                        "name": "field",
+                        "operationParameter": { "name": "field", "in": "query" }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
                       {
                         "name": "x-amberdata-blockchain-id",
-                        "operationParameter": { "name": "x-amberdata-blockchain-id", "in": "header" }
+                        "operationParameter": {
+                          "name": "x-amberdata-blockchain-id",
+                          "in": "header"
+                        }
                       }
                     ],
                     "testable": true
@@ -1529,15 +2376,49 @@
                       "method": "get",
                       "path": "/market/defi/vwap/pairs/bases/{base}/quotes/{quote}/latest"
                     },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "base", "operationParameter": { "name": "base", "in": "path" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-                      { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
-                      { "name": "quote", "operationParameter": { "name": "quote", "in": "path" } },
-                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                      {
+                        "name": "base",
+                        "operationParameter": { "name": "base", "in": "path" }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "lookbackPeriod",
+                        "operationParameter": {
+                          "name": "lookbackPeriod",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "quote",
+                        "operationParameter": { "name": "quote", "in": "path" }
+                      },
+                      {
+                        "name": "timeFormat",
+                        "operationParameter": {
+                          "name": "timeFormat",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   }
@@ -1558,15 +2439,26 @@
           }
         },
         "airnode": {
-          "aws": { "filename": "aws.env", "content": "AWS_ACCESS_KEY_ID=\nAWS_SECRET_ACCESS_KEY=" },
+          "aws": {
+            "filename": "aws.env",
+            "content": "AWS_ACCESS_KEY_ID=\nAWS_SECRET_ACCESS_KEY="
+          },
           "config": {
             "chains": [],
             "nodeSettings": {
               "nodeVersion": "0.6.2",
-              "cloudProvider": { "type": "aws", "region": "us-east-1", "disableConcurrencyReservations": false },
+              "cloudProvider": {
+                "type": "aws",
+                "region": "us-east-1",
+                "disableConcurrencyReservations": false
+              },
               "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
               "heartbeat": { "enabled": false },
-              "httpGateway": { "enabled": true, "apiKey": "${HTTP_GATEWAY_KEY_AMBERDATA_AWS}", "maxConcurrency": 200 },
+              "httpGateway": {
+                "enabled": true,
+                "apiKey": "${HTTP_GATEWAY_KEY_AMBERDATA_AWS}",
+                "maxConcurrency": 200
+              },
               "httpSignedDataGateway": {
                 "enabled": true,
                 "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_KEY_AMBERDATA_AWS}",
@@ -1734,7 +2626,11 @@
                   "security": { "Amberdata-Lite_x-api-key": [] },
                   "components": {
                     "securitySchemes": {
-                      "Amberdata-Lite_x-api-key": { "type": "apiKey", "in": "header", "name": "x-api-key" }
+                      "Amberdata-Lite_x-api-key": {
+                        "type": "apiKey",
+                        "in": "header",
+                        "name": "x-api-key"
+                      }
                     }
                   },
                   "paths": {
@@ -1879,7 +2775,10 @@
                         "parameters": [
                           { "name": "field", "in": "query" },
                           { "name": "format", "in": "query" },
-                          { "name": "x-amberdata-blockchain-id", "in": "header" }
+                          {
+                            "name": "x-amberdata-blockchain-id",
+                            "in": "header"
+                          }
                         ]
                       }
                     },
@@ -1900,196 +2799,644 @@
                 "endpoints": [
                   {
                     "name": "GET /market/defi/lending/exchanges/information/",
-                    "operation": { "method": "get", "path": "/market/defi/lending/exchanges/information/" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/defi/lending/exchanges/information/"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-                      { "name": "includeDates", "operationParameter": { "name": "includeDates", "in": "query" } }
+                      {
+                        "name": "exchange",
+                        "operationParameter": {
+                          "name": "exchange",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "includeDates",
+                        "operationParameter": {
+                          "name": "includeDates",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/tokens/prices/{hash}/latest",
-                    "operation": { "method": "get", "path": "/market/tokens/prices/{hash}/latest" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/tokens/prices/{hash}/latest"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "currency", "operationParameter": { "name": "currency", "in": "query" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-                      { "name": "hash", "operationParameter": { "name": "hash", "in": "path" } }
+                      {
+                        "name": "currency",
+                        "operationParameter": {
+                          "name": "currency",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "hash",
+                        "operationParameter": { "name": "hash", "in": "path" }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/spot/prices/assets/information/",
-                    "operation": { "method": "get", "path": "/market/spot/prices/assets/information/" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/spot/prices/assets/information/"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "asset", "operationParameter": { "name": "asset", "in": "query" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                      {
+                        "name": "asset",
+                        "operationParameter": { "name": "asset", "in": "query" }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "timeFormat",
+                        "operationParameter": {
+                          "name": "timeFormat",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/spot/prices/assets/{asset}/latest/",
-                    "operation": { "method": "get", "path": "/market/spot/prices/assets/{asset}/latest/" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/spot/prices/assets/{asset}/latest/"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                      {
+                        "name": "asset",
+                        "operationParameter": { "name": "asset", "in": "path" }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "timeFormat",
+                        "operationParameter": {
+                          "name": "timeFormat",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/spot/prices/assets/{asset}/historical/",
-                    "operation": { "method": "get", "path": "/market/spot/prices/assets/{asset}/historical/" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/spot/prices/assets/{asset}/historical/"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
-                      { "name": "endDate", "operationParameter": { "name": "endDate", "in": "query" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-                      { "name": "startDate", "operationParameter": { "name": "startDate", "in": "query" } },
-                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } },
-                      { "name": "timeInterval", "operationParameter": { "name": "timeInterval", "in": "query" } }
+                      {
+                        "name": "asset",
+                        "operationParameter": { "name": "asset", "in": "path" }
+                      },
+                      {
+                        "name": "endDate",
+                        "operationParameter": {
+                          "name": "endDate",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "startDate",
+                        "operationParameter": {
+                          "name": "startDate",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "timeFormat",
+                        "operationParameter": {
+                          "name": "timeFormat",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "timeInterval",
+                        "operationParameter": {
+                          "name": "timeInterval",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/spot/prices/pairs/information/",
-                    "operation": { "method": "get", "path": "/market/spot/prices/pairs/information/" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/spot/prices/pairs/information/"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-                      { "name": "pairs", "operationParameter": { "name": "pairs", "in": "query" } },
-                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "pairs",
+                        "operationParameter": { "name": "pairs", "in": "query" }
+                      },
+                      {
+                        "name": "timeFormat",
+                        "operationParameter": {
+                          "name": "timeFormat",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/spot/prices/pairs/{pair}/latest/",
-                    "operation": { "method": "get", "path": "/market/spot/prices/pairs/{pair}/latest/" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/spot/prices/pairs/{pair}/latest/"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      {
+                        "name": "exchange",
+                        "operationParameter": {
+                          "name": "exchange",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
                       {
                         "name": "includeCrossRates",
-                        "operationParameter": { "name": "includeCrossRates", "in": "query" }
+                        "operationParameter": {
+                          "name": "includeCrossRates",
+                          "in": "query"
+                        }
                       },
-                      { "name": "pair", "operationParameter": { "name": "pair", "in": "path" } },
-                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                      {
+                        "name": "pair",
+                        "operationParameter": { "name": "pair", "in": "path" }
+                      },
+                      {
+                        "name": "timeFormat",
+                        "operationParameter": {
+                          "name": "timeFormat",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/spot/prices/pairs/{pair}/historical/",
-                    "operation": { "method": "get", "path": "/market/spot/prices/pairs/{pair}/historical/" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/spot/prices/pairs/{pair}/historical/"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "endDate", "operationParameter": { "name": "endDate", "in": "query" } },
-                      { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      {
+                        "name": "endDate",
+                        "operationParameter": {
+                          "name": "endDate",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "exchange",
+                        "operationParameter": {
+                          "name": "exchange",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
                       {
                         "name": "includeCrossRates",
-                        "operationParameter": { "name": "includeCrossRates", "in": "query" }
+                        "operationParameter": {
+                          "name": "includeCrossRates",
+                          "in": "query"
+                        }
                       },
-                      { "name": "pair", "operationParameter": { "name": "pair", "in": "path" } },
-                      { "name": "startDate", "operationParameter": { "name": "startDate", "in": "query" } },
-                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } },
-                      { "name": "timeInterval", "operationParameter": { "name": "timeInterval", "in": "query" } }
+                      {
+                        "name": "pair",
+                        "operationParameter": { "name": "pair", "in": "path" }
+                      },
+                      {
+                        "name": "startDate",
+                        "operationParameter": {
+                          "name": "startDate",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "timeFormat",
+                        "operationParameter": {
+                          "name": "timeFormat",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "timeInterval",
+                        "operationParameter": {
+                          "name": "timeInterval",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/defi/prices/asset/{asset}/latest",
-                    "operation": { "method": "get", "path": "/market/defi/prices/asset/{asset}/latest" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/defi/prices/asset/{asset}/latest"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-                      { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
-                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                      {
+                        "name": "asset",
+                        "operationParameter": { "name": "asset", "in": "path" }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "lookbackPeriod",
+                        "operationParameter": {
+                          "name": "lookbackPeriod",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "timeFormat",
+                        "operationParameter": {
+                          "name": "timeFormat",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/defi/prices/asset/{asset}/historical",
-                    "operation": { "method": "get", "path": "/market/defi/prices/asset/{asset}/historical" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/defi/prices/asset/{asset}/historical"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
-                      { "name": "endDate", "operationParameter": { "name": "endDate", "in": "query" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-                      { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
-                      { "name": "startDate", "operationParameter": { "name": "startDate", "in": "query" } },
-                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } },
-                      { "name": "timeInterval", "operationParameter": { "name": "timeInterval", "in": "query" } }
+                      {
+                        "name": "asset",
+                        "operationParameter": { "name": "asset", "in": "path" }
+                      },
+                      {
+                        "name": "endDate",
+                        "operationParameter": {
+                          "name": "endDate",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "lookbackPeriod",
+                        "operationParameter": {
+                          "name": "lookbackPeriod",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "startDate",
+                        "operationParameter": {
+                          "name": "startDate",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "timeFormat",
+                        "operationParameter": {
+                          "name": "timeFormat",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "timeInterval",
+                        "operationParameter": {
+                          "name": "timeInterval",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/defi/prices/asset/information/",
-                    "operation": { "method": "get", "path": "/market/defi/prices/asset/information/" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/defi/prices/asset/information/"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } }
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /market/spot/vwap/pairs/{pair}/latest",
-                    "operation": { "method": "get", "path": "/market/spot/vwap/pairs/{pair}/latest" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/market/spot/vwap/pairs/{pair}/latest"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      {
+                        "name": "exchange",
+                        "operationParameter": {
+                          "name": "exchange",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
                       {
                         "name": "includeCrossRates",
-                        "operationParameter": { "name": "includeCrossRates", "in": "query" }
+                        "operationParameter": {
+                          "name": "includeCrossRates",
+                          "in": "query"
+                        }
                       },
-                      { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
-                      { "name": "pair", "operationParameter": { "name": "pair", "in": "path" } },
-                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                      {
+                        "name": "lookbackPeriod",
+                        "operationParameter": {
+                          "name": "lookbackPeriod",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "pair",
+                        "operationParameter": { "name": "pair", "in": "path" }
+                      },
+                      {
+                        "name": "timeFormat",
+                        "operationParameter": {
+                          "name": "timeFormat",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   },
                   {
                     "name": "GET /transactions/gas/predictions",
-                    "operation": { "method": "get", "path": "/transactions/gas/predictions" },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "operation": {
+                      "method": "get",
+                      "path": "/transactions/gas/predictions"
+                    },
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "field", "operationParameter": { "name": "field", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+                      {
+                        "name": "field",
+                        "operationParameter": { "name": "field", "in": "query" }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
                       {
                         "name": "x-amberdata-blockchain-id",
-                        "operationParameter": { "name": "x-amberdata-blockchain-id", "in": "header" }
+                        "operationParameter": {
+                          "name": "x-amberdata-blockchain-id",
+                          "in": "header"
+                        }
                       }
                     ],
                     "testable": true
@@ -2100,15 +3447,49 @@
                       "method": "get",
                       "path": "/market/defi/vwap/pairs/bases/{base}/quotes/{quote}/latest"
                     },
-                    "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+                    "reservedParameters": [
+                      { "name": "_type" },
+                      { "name": "_path" },
+                      { "name": "_times" }
+                    ],
                     "fixedOperationParameters": [],
                     "parameters": [
-                      { "name": "base", "operationParameter": { "name": "base", "in": "path" } },
-                      { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-                      { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-                      { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
-                      { "name": "quote", "operationParameter": { "name": "quote", "in": "path" } },
-                      { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+                      {
+                        "name": "base",
+                        "operationParameter": { "name": "base", "in": "path" }
+                      },
+                      {
+                        "name": "fields",
+                        "operationParameter": {
+                          "name": "fields",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "format",
+                        "operationParameter": {
+                          "name": "format",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "lookbackPeriod",
+                        "operationParameter": {
+                          "name": "lookbackPeriod",
+                          "in": "query"
+                        }
+                      },
+                      {
+                        "name": "quote",
+                        "operationParameter": { "name": "quote", "in": "path" }
+                      },
+                      {
+                        "name": "timeFormat",
+                        "operationParameter": {
+                          "name": "timeFormat",
+                          "in": "query"
+                        }
+                      }
                     ],
                     "testable": true
                   }
@@ -2139,7 +3520,13 @@
           "servers": [{ "url": "https://web3api.io/api/v2" }],
           "security": { "Amberdata-Lite_x-api-key": [] },
           "components": {
-            "securitySchemes": { "Amberdata-Lite_x-api-key": { "type": "apiKey", "in": "header", "name": "x-api-key" } }
+            "securitySchemes": {
+              "Amberdata-Lite_x-api-key": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "x-api-key"
+              }
+            }
           },
           "paths": {
             "/market/defi/lending/exchanges/information/": {
@@ -2304,203 +3691,541 @@
         "endpoints": [
           {
             "name": "GET /market/defi/lending/exchanges/information/",
-            "operation": { "method": "get", "path": "/market/defi/lending/exchanges/information/" },
-            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "operation": {
+              "method": "get",
+              "path": "/market/defi/lending/exchanges/information/"
+            },
+            "reservedParameters": [
+              { "name": "_type" },
+              { "name": "_path" },
+              { "name": "_times" }
+            ],
             "fixedOperationParameters": [],
             "parameters": [
-              { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
-              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-              { "name": "includeDates", "operationParameter": { "name": "includeDates", "in": "query" } }
+              {
+                "name": "exchange",
+                "operationParameter": { "name": "exchange", "in": "query" }
+              },
+              {
+                "name": "fields",
+                "operationParameter": { "name": "fields", "in": "query" }
+              },
+              {
+                "name": "format",
+                "operationParameter": { "name": "format", "in": "query" }
+              },
+              {
+                "name": "includeDates",
+                "operationParameter": { "name": "includeDates", "in": "query" }
+              }
             ],
             "testable": true
           },
           {
             "name": "GET /market/tokens/prices/{hash}/latest",
-            "operation": { "method": "get", "path": "/market/tokens/prices/{hash}/latest" },
-            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "operation": {
+              "method": "get",
+              "path": "/market/tokens/prices/{hash}/latest"
+            },
+            "reservedParameters": [
+              { "name": "_type" },
+              { "name": "_path" },
+              { "name": "_times" }
+            ],
             "fixedOperationParameters": [],
             "parameters": [
-              { "name": "currency", "operationParameter": { "name": "currency", "in": "query" } },
-              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-              { "name": "hash", "operationParameter": { "name": "hash", "in": "path" } }
+              {
+                "name": "currency",
+                "operationParameter": { "name": "currency", "in": "query" }
+              },
+              {
+                "name": "fields",
+                "operationParameter": { "name": "fields", "in": "query" }
+              },
+              {
+                "name": "format",
+                "operationParameter": { "name": "format", "in": "query" }
+              },
+              {
+                "name": "hash",
+                "operationParameter": { "name": "hash", "in": "path" }
+              }
             ],
             "testable": true
           },
           {
             "name": "GET /market/spot/prices/assets/information/",
-            "operation": { "method": "get", "path": "/market/spot/prices/assets/information/" },
-            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "operation": {
+              "method": "get",
+              "path": "/market/spot/prices/assets/information/"
+            },
+            "reservedParameters": [
+              { "name": "_type" },
+              { "name": "_path" },
+              { "name": "_times" }
+            ],
             "fixedOperationParameters": [],
             "parameters": [
-              { "name": "asset", "operationParameter": { "name": "asset", "in": "query" } },
-              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-              { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+              {
+                "name": "asset",
+                "operationParameter": { "name": "asset", "in": "query" }
+              },
+              {
+                "name": "fields",
+                "operationParameter": { "name": "fields", "in": "query" }
+              },
+              {
+                "name": "format",
+                "operationParameter": { "name": "format", "in": "query" }
+              },
+              {
+                "name": "timeFormat",
+                "operationParameter": { "name": "timeFormat", "in": "query" }
+              }
             ],
             "testable": true
           },
           {
             "name": "GET /market/spot/prices/assets/{asset}/latest/",
-            "operation": { "method": "get", "path": "/market/spot/prices/assets/{asset}/latest/" },
-            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "operation": {
+              "method": "get",
+              "path": "/market/spot/prices/assets/{asset}/latest/"
+            },
+            "reservedParameters": [
+              { "name": "_type" },
+              { "name": "_path" },
+              { "name": "_times" }
+            ],
             "fixedOperationParameters": [],
             "parameters": [
-              { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
-              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-              { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+              {
+                "name": "asset",
+                "operationParameter": { "name": "asset", "in": "path" }
+              },
+              {
+                "name": "fields",
+                "operationParameter": { "name": "fields", "in": "query" }
+              },
+              {
+                "name": "format",
+                "operationParameter": { "name": "format", "in": "query" }
+              },
+              {
+                "name": "timeFormat",
+                "operationParameter": { "name": "timeFormat", "in": "query" }
+              }
             ],
             "testable": true
           },
           {
             "name": "GET /market/spot/prices/assets/{asset}/historical/",
-            "operation": { "method": "get", "path": "/market/spot/prices/assets/{asset}/historical/" },
-            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "operation": {
+              "method": "get",
+              "path": "/market/spot/prices/assets/{asset}/historical/"
+            },
+            "reservedParameters": [
+              { "name": "_type" },
+              { "name": "_path" },
+              { "name": "_times" }
+            ],
             "fixedOperationParameters": [],
             "parameters": [
-              { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
-              { "name": "endDate", "operationParameter": { "name": "endDate", "in": "query" } },
-              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-              { "name": "startDate", "operationParameter": { "name": "startDate", "in": "query" } },
-              { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } },
-              { "name": "timeInterval", "operationParameter": { "name": "timeInterval", "in": "query" } }
+              {
+                "name": "asset",
+                "operationParameter": { "name": "asset", "in": "path" }
+              },
+              {
+                "name": "endDate",
+                "operationParameter": { "name": "endDate", "in": "query" }
+              },
+              {
+                "name": "fields",
+                "operationParameter": { "name": "fields", "in": "query" }
+              },
+              {
+                "name": "format",
+                "operationParameter": { "name": "format", "in": "query" }
+              },
+              {
+                "name": "startDate",
+                "operationParameter": { "name": "startDate", "in": "query" }
+              },
+              {
+                "name": "timeFormat",
+                "operationParameter": { "name": "timeFormat", "in": "query" }
+              },
+              {
+                "name": "timeInterval",
+                "operationParameter": { "name": "timeInterval", "in": "query" }
+              }
             ],
             "testable": true
           },
           {
             "name": "GET /market/spot/prices/pairs/information/",
-            "operation": { "method": "get", "path": "/market/spot/prices/pairs/information/" },
-            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "operation": {
+              "method": "get",
+              "path": "/market/spot/prices/pairs/information/"
+            },
+            "reservedParameters": [
+              { "name": "_type" },
+              { "name": "_path" },
+              { "name": "_times" }
+            ],
             "fixedOperationParameters": [],
             "parameters": [
-              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-              { "name": "pairs", "operationParameter": { "name": "pairs", "in": "query" } },
-              { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+              {
+                "name": "fields",
+                "operationParameter": { "name": "fields", "in": "query" }
+              },
+              {
+                "name": "format",
+                "operationParameter": { "name": "format", "in": "query" }
+              },
+              {
+                "name": "pairs",
+                "operationParameter": { "name": "pairs", "in": "query" }
+              },
+              {
+                "name": "timeFormat",
+                "operationParameter": { "name": "timeFormat", "in": "query" }
+              }
             ],
             "testable": true
           },
           {
             "name": "GET /market/spot/prices/pairs/{pair}/latest/",
-            "operation": { "method": "get", "path": "/market/spot/prices/pairs/{pair}/latest/" },
-            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "operation": {
+              "method": "get",
+              "path": "/market/spot/prices/pairs/{pair}/latest/"
+            },
+            "reservedParameters": [
+              { "name": "_type" },
+              { "name": "_path" },
+              { "name": "_times" }
+            ],
             "fixedOperationParameters": [],
             "parameters": [
-              { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
-              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-              { "name": "includeCrossRates", "operationParameter": { "name": "includeCrossRates", "in": "query" } },
-              { "name": "pair", "operationParameter": { "name": "pair", "in": "path" } },
-              { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+              {
+                "name": "exchange",
+                "operationParameter": { "name": "exchange", "in": "query" }
+              },
+              {
+                "name": "fields",
+                "operationParameter": { "name": "fields", "in": "query" }
+              },
+              {
+                "name": "format",
+                "operationParameter": { "name": "format", "in": "query" }
+              },
+              {
+                "name": "includeCrossRates",
+                "operationParameter": {
+                  "name": "includeCrossRates",
+                  "in": "query"
+                }
+              },
+              {
+                "name": "pair",
+                "operationParameter": { "name": "pair", "in": "path" }
+              },
+              {
+                "name": "timeFormat",
+                "operationParameter": { "name": "timeFormat", "in": "query" }
+              }
             ],
             "testable": true
           },
           {
             "name": "GET /market/spot/prices/pairs/{pair}/historical/",
-            "operation": { "method": "get", "path": "/market/spot/prices/pairs/{pair}/historical/" },
-            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "operation": {
+              "method": "get",
+              "path": "/market/spot/prices/pairs/{pair}/historical/"
+            },
+            "reservedParameters": [
+              { "name": "_type" },
+              { "name": "_path" },
+              { "name": "_times" }
+            ],
             "fixedOperationParameters": [],
             "parameters": [
-              { "name": "endDate", "operationParameter": { "name": "endDate", "in": "query" } },
-              { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
-              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-              { "name": "includeCrossRates", "operationParameter": { "name": "includeCrossRates", "in": "query" } },
-              { "name": "pair", "operationParameter": { "name": "pair", "in": "path" } },
-              { "name": "startDate", "operationParameter": { "name": "startDate", "in": "query" } },
-              { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } },
-              { "name": "timeInterval", "operationParameter": { "name": "timeInterval", "in": "query" } }
+              {
+                "name": "endDate",
+                "operationParameter": { "name": "endDate", "in": "query" }
+              },
+              {
+                "name": "exchange",
+                "operationParameter": { "name": "exchange", "in": "query" }
+              },
+              {
+                "name": "fields",
+                "operationParameter": { "name": "fields", "in": "query" }
+              },
+              {
+                "name": "format",
+                "operationParameter": { "name": "format", "in": "query" }
+              },
+              {
+                "name": "includeCrossRates",
+                "operationParameter": {
+                  "name": "includeCrossRates",
+                  "in": "query"
+                }
+              },
+              {
+                "name": "pair",
+                "operationParameter": { "name": "pair", "in": "path" }
+              },
+              {
+                "name": "startDate",
+                "operationParameter": { "name": "startDate", "in": "query" }
+              },
+              {
+                "name": "timeFormat",
+                "operationParameter": { "name": "timeFormat", "in": "query" }
+              },
+              {
+                "name": "timeInterval",
+                "operationParameter": { "name": "timeInterval", "in": "query" }
+              }
             ],
             "testable": true
           },
           {
             "name": "GET /market/defi/prices/asset/{asset}/latest",
-            "operation": { "method": "get", "path": "/market/defi/prices/asset/{asset}/latest" },
-            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "operation": {
+              "method": "get",
+              "path": "/market/defi/prices/asset/{asset}/latest"
+            },
+            "reservedParameters": [
+              { "name": "_type" },
+              { "name": "_path" },
+              { "name": "_times" }
+            ],
             "fixedOperationParameters": [],
             "parameters": [
-              { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
-              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-              { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
-              { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+              {
+                "name": "asset",
+                "operationParameter": { "name": "asset", "in": "path" }
+              },
+              {
+                "name": "fields",
+                "operationParameter": { "name": "fields", "in": "query" }
+              },
+              {
+                "name": "format",
+                "operationParameter": { "name": "format", "in": "query" }
+              },
+              {
+                "name": "lookbackPeriod",
+                "operationParameter": {
+                  "name": "lookbackPeriod",
+                  "in": "query"
+                }
+              },
+              {
+                "name": "timeFormat",
+                "operationParameter": { "name": "timeFormat", "in": "query" }
+              }
             ],
             "testable": true
           },
           {
             "name": "GET /market/defi/prices/asset/{asset}/historical",
-            "operation": { "method": "get", "path": "/market/defi/prices/asset/{asset}/historical" },
-            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "operation": {
+              "method": "get",
+              "path": "/market/defi/prices/asset/{asset}/historical"
+            },
+            "reservedParameters": [
+              { "name": "_type" },
+              { "name": "_path" },
+              { "name": "_times" }
+            ],
             "fixedOperationParameters": [],
             "parameters": [
-              { "name": "asset", "operationParameter": { "name": "asset", "in": "path" } },
-              { "name": "endDate", "operationParameter": { "name": "endDate", "in": "query" } },
-              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-              { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
-              { "name": "startDate", "operationParameter": { "name": "startDate", "in": "query" } },
-              { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } },
-              { "name": "timeInterval", "operationParameter": { "name": "timeInterval", "in": "query" } }
+              {
+                "name": "asset",
+                "operationParameter": { "name": "asset", "in": "path" }
+              },
+              {
+                "name": "endDate",
+                "operationParameter": { "name": "endDate", "in": "query" }
+              },
+              {
+                "name": "fields",
+                "operationParameter": { "name": "fields", "in": "query" }
+              },
+              {
+                "name": "format",
+                "operationParameter": { "name": "format", "in": "query" }
+              },
+              {
+                "name": "lookbackPeriod",
+                "operationParameter": {
+                  "name": "lookbackPeriod",
+                  "in": "query"
+                }
+              },
+              {
+                "name": "startDate",
+                "operationParameter": { "name": "startDate", "in": "query" }
+              },
+              {
+                "name": "timeFormat",
+                "operationParameter": { "name": "timeFormat", "in": "query" }
+              },
+              {
+                "name": "timeInterval",
+                "operationParameter": { "name": "timeInterval", "in": "query" }
+              }
             ],
             "testable": true
           },
           {
             "name": "GET /market/defi/prices/asset/information/",
-            "operation": { "method": "get", "path": "/market/defi/prices/asset/information/" },
-            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "operation": {
+              "method": "get",
+              "path": "/market/defi/prices/asset/information/"
+            },
+            "reservedParameters": [
+              { "name": "_type" },
+              { "name": "_path" },
+              { "name": "_times" }
+            ],
             "fixedOperationParameters": [],
             "parameters": [
-              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-              { "name": "format", "operationParameter": { "name": "format", "in": "query" } }
+              {
+                "name": "fields",
+                "operationParameter": { "name": "fields", "in": "query" }
+              },
+              {
+                "name": "format",
+                "operationParameter": { "name": "format", "in": "query" }
+              }
             ],
             "testable": true
           },
           {
             "name": "GET /market/spot/vwap/pairs/{pair}/latest",
-            "operation": { "method": "get", "path": "/market/spot/vwap/pairs/{pair}/latest" },
-            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "operation": {
+              "method": "get",
+              "path": "/market/spot/vwap/pairs/{pair}/latest"
+            },
+            "reservedParameters": [
+              { "name": "_type" },
+              { "name": "_path" },
+              { "name": "_times" }
+            ],
             "fixedOperationParameters": [],
             "parameters": [
-              { "name": "exchange", "operationParameter": { "name": "exchange", "in": "query" } },
-              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-              { "name": "includeCrossRates", "operationParameter": { "name": "includeCrossRates", "in": "query" } },
-              { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
-              { "name": "pair", "operationParameter": { "name": "pair", "in": "path" } },
-              { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+              {
+                "name": "exchange",
+                "operationParameter": { "name": "exchange", "in": "query" }
+              },
+              {
+                "name": "fields",
+                "operationParameter": { "name": "fields", "in": "query" }
+              },
+              {
+                "name": "format",
+                "operationParameter": { "name": "format", "in": "query" }
+              },
+              {
+                "name": "includeCrossRates",
+                "operationParameter": {
+                  "name": "includeCrossRates",
+                  "in": "query"
+                }
+              },
+              {
+                "name": "lookbackPeriod",
+                "operationParameter": {
+                  "name": "lookbackPeriod",
+                  "in": "query"
+                }
+              },
+              {
+                "name": "pair",
+                "operationParameter": { "name": "pair", "in": "path" }
+              },
+              {
+                "name": "timeFormat",
+                "operationParameter": { "name": "timeFormat", "in": "query" }
+              }
             ],
             "testable": true
           },
           {
             "name": "GET /transactions/gas/predictions",
-            "operation": { "method": "get", "path": "/transactions/gas/predictions" },
-            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "operation": {
+              "method": "get",
+              "path": "/transactions/gas/predictions"
+            },
+            "reservedParameters": [
+              { "name": "_type" },
+              { "name": "_path" },
+              { "name": "_times" }
+            ],
             "fixedOperationParameters": [],
             "parameters": [
-              { "name": "field", "operationParameter": { "name": "field", "in": "query" } },
-              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
+              {
+                "name": "field",
+                "operationParameter": { "name": "field", "in": "query" }
+              },
+              {
+                "name": "format",
+                "operationParameter": { "name": "format", "in": "query" }
+              },
               {
                 "name": "x-amberdata-blockchain-id",
-                "operationParameter": { "name": "x-amberdata-blockchain-id", "in": "header" }
+                "operationParameter": {
+                  "name": "x-amberdata-blockchain-id",
+                  "in": "header"
+                }
               }
             ],
             "testable": true
           },
           {
             "name": "GET /market/defi/vwap/pairs/bases/{base}/quotes/{quote}/latest",
-            "operation": { "method": "get", "path": "/market/defi/vwap/pairs/bases/{base}/quotes/{quote}/latest" },
-            "reservedParameters": [{ "name": "_type" }, { "name": "_path" }, { "name": "_times" }],
+            "operation": {
+              "method": "get",
+              "path": "/market/defi/vwap/pairs/bases/{base}/quotes/{quote}/latest"
+            },
+            "reservedParameters": [
+              { "name": "_type" },
+              { "name": "_path" },
+              { "name": "_times" }
+            ],
             "fixedOperationParameters": [],
             "parameters": [
-              { "name": "base", "operationParameter": { "name": "base", "in": "path" } },
-              { "name": "fields", "operationParameter": { "name": "fields", "in": "query" } },
-              { "name": "format", "operationParameter": { "name": "format", "in": "query" } },
-              { "name": "lookbackPeriod", "operationParameter": { "name": "lookbackPeriod", "in": "query" } },
-              { "name": "quote", "operationParameter": { "name": "quote", "in": "path" } },
-              { "name": "timeFormat", "operationParameter": { "name": "timeFormat", "in": "query" } }
+              {
+                "name": "base",
+                "operationParameter": { "name": "base", "in": "path" }
+              },
+              {
+                "name": "fields",
+                "operationParameter": { "name": "fields", "in": "query" }
+              },
+              {
+                "name": "format",
+                "operationParameter": { "name": "format", "in": "query" }
+              },
+              {
+                "name": "lookbackPeriod",
+                "operationParameter": {
+                  "name": "lookbackPeriod",
+                  "in": "query"
+                }
+              },
+              {
+                "name": "quote",
+                "operationParameter": { "name": "quote", "in": "path" }
+              },
+              {
+                "name": "timeFormat",
+                "operationParameter": { "name": "timeFormat", "in": "query" }
+              }
             ],
             "testable": true
           }
