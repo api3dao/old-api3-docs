@@ -10,7 +10,7 @@
     "sync:404": "cp docs/.vuepress/components/Replacement404.vue node_modules/@vuepress/theme-default/layouts/404.vue",
     "sync:navbar": "cp docs/.vuepress/components/Navbar.vue node_modules/@vuepress/theme-default/components/Navbar.vue",
     "sync:sidebar": "cp docs/.vuepress/components/Sidebar.vue node_modules/@vuepress/theme-default/components/Sidebar.vue",
-    "docs:dev": "yarn chains:build; yarn sync:404; yarn sync:navbar; yarn sync:sidebar; vuepress dev docs",
+    "docs:dev": "yarn sync:404; yarn sync:navbar; yarn sync:sidebar; vuepress dev docs",
     "docs:build": "yarn sync:404; yarn sync:navbar; yarn sync:sidebar; vuepress build docs;",
     "chains:build": "curl https://operations-development.s3.amazonaws.com/latest/chains.json >> ./docs/.vuepress/chains.json",
     "format": "prettier --write \"./**/*.{js,vue,md,json,yaml}\" --loglevel silent",
