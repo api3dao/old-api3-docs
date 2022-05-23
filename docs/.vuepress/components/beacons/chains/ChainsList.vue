@@ -52,12 +52,15 @@ export default {
     async loadChainsFromRepo() {
       try {
         // TODO: need access to the chains via S3 bucket, CORS issue holding this up
-        /*
-        const response = await axios.get(
-          'https://api.api3labs.link/operations/chains'
-        );
-        this.chains = response.data.payload;
-        */
+        try {
+          const response = await axios.get(
+            'https://api.api3labs.link/operations/chains'
+          );
+          console.log('CORs FIXED', response.data.payload);
+        } catch (err) {
+          console.log(err);
+        }
+
         this.chains = chains;
         this.chains = this.sortByName(this.chains);
 
