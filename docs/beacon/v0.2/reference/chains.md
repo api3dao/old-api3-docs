@@ -11,15 +11,13 @@ folder: Reference
 
 ::: danger Blocked
 
-- Additional contracts
+- Additional contracts - if any
 - Icons
-- CORS - https://operations-development.s3.amazonaws.com/latest/chains.json
-  (/data/chains)
 
 :::
 
-Beacons can be found on the following chains. Use the
-[Beacon Browser](./beacon-browser.md) to find Beacons and the networks they are
-available on.
+Beacons can be read on the following chains using the noted `DapiServer`
+contract address. Use the [Beacon Browser](./beacon-browser.md) to find the
+desired Beacon addresses and the networks they are available on.
 
 <beacons-chains-ChainsList/>
