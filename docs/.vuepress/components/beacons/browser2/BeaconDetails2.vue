@@ -1,5 +1,6 @@
 <!--
-Component for the ChildPage beacon-child-detail.md
+displays an individual Beacon's detail, hosts the component to
+display the Beacons's value.
 -->
 
 <template>
@@ -34,8 +35,7 @@ Component for the ChildPage beacon-child-detail.md
     <!-- Value -->
     <div class="bcd-content-box">
       <beacons-browser2-BeaconValue2
-        v_bind:chains="beacon.chains"
-        v-bind:beaconParam="beacon"
+        v-bind:beacon="beacon"
         class="bcd-content-box-label"
       />
     </div>

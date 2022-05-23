@@ -37,13 +37,15 @@ combined to build decentralized data feeds.
 
 ## Starter Project
 
+::: danger TODO:
+
+When BEC-183 (Beacon Reader Example) is ready this section requires updating.
+
+:::
+
 ## Resources
 
-- [Contract Addresses](../reference/contract-addresses.md): A list of contract
-  addresses available on specific networks.
-- [Chains](../reference/chains.md): A list of chains that Beacon contracts have
-  been deployed to.
+- [Chains and Contracts](../reference/chains.md): A list of chains, and
+  supporting contracts, that Beacons are available on.
 - [Beacon Browser](../reference/beacon-browser.md): A list of functioning
   Beacons that have been deployed.
-
-## Solidity Videos

@@ -1,6 +1,6 @@
 <!--
   This component displays a list of all Beacons sorted by name.
-  It loads from: https://api.api3labs.link/operations/beacons
+  It loads from the S3 bucket.
   The API payload is parse and loaded into the data array. 
 -->
 
@@ -74,6 +74,7 @@
 
 <script>
 import axios from 'axios';
+import chains from '../../../chains.json';
 import providers from '../../../beacons.json';
 
 export default {
@@ -84,8 +85,7 @@ export default {
     showDetails: false,
     error: null,
     data: [],
-    beacon: undefined, // Passes data BeaconDetails2.vue
-    //dataPayload: undefined, // Passes data BeaconDetails2.vue
+    beacon: undefined, // Passes data BeaconDetails2.vue via togglePanes()
     cnt: 0,
     scrollY: 0, // Remember Y position when going to details pane
   }),
@@ -105,6 +105,7 @@ export default {
         this.providers = response.data.payload.apis;
         this.chains = response.data.payload.chains;*/
         this.providers = providers;
+
         // Providers
         for (var key in this.providers) {
           const providerKey = key;
@@ -146,6 +147,7 @@ export default {
               1. Add chain name to content
               2. Add the name to the chain object
               3. Add the logo to the chain object
+              4. Add the chainId to the chain object
             */
             for (var chainKey in this.providers[key].beacons[beaconKey]
               .chains) {
@@ -153,12 +155,15 @@ export default {
                 chainKey;
               this.providers[key].beacons[beaconKey].chains[chainKey].logo =
                 '/img/beacon.png';
+              this.providers[key].beacons[beaconKey].chains[chainKey].id =
+                chains[chainKey].id;
 
               this.providers[key].beacons[beaconKey].content +=
                 ' ' + chainKey + ' ';
             }
             beacons.push(this.providers[key].beacons[beaconKey]);
           }
+          //
           beacons.sort(this.sortByName);
           this.cnt += beacons.length;
           this.data.push({
@@ -169,6 +174,8 @@ export default {
             beacons: beacons,
           });
         }
+        console.log(1, this.providers);
+        console.log(2, chains);
       } catch (err) {
         console.error(err.toString());
         this.error = err.toString();
@@ -176,12 +183,12 @@ export default {
       this.showSpinner = false;
       this.showBeacons = true;
     },
-    togglePanes(beaconParam, providerParam) {
-      // If beaconParam is null then this was called by BeaconDetails2.vue
-      if (beaconParam) {
+    togglePanes(beacon, providerParam) {
+      // If beacon (param) is null then this was called by BeaconDetails2.vue
+      if (beacon) {
         this.scrollY = window.scrollY;
         // Data to pass to BeaconDetails.vue
-        this.beacon = beaconParam;
+        this.beacon = beacon;
         this.beacon['provider'] = {
           name: providerParam.name,
           logoPath: providerParam.logoPath,
