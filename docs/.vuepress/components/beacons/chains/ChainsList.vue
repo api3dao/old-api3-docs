@@ -32,7 +32,6 @@
 
 <script>
 import axios from 'axios';
-import chains from '../../../chains.json';
 
 export default {
   name: 'ChainsList',
@@ -51,18 +50,10 @@ export default {
   methods: {
     async loadChainsFromRepo() {
       try {
-        // TODO: need access to the chains via S3 bucket, CORS issue holding this up
-        try {
-          const response = await axios.get(
-            'https://api.api3labs.link/operations/chains'
-          );
-          console.log('CORs FIXED', response.data.payload);
-        } catch (err) {
-          console.log(err);
-        }
-
-        this.chains = chains;
-        this.chains = this.sortByName(this.chains);
+        const response = await axios.get(
+          'https://operations-development.s3.amazonaws.com/latest/chains.json '
+        );
+        this.chains = this.sortByName(response.data);
 
         var keys = [];
         for (var k in this.chains) keys.push(k);
