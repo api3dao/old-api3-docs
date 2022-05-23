@@ -12,8 +12,7 @@ folder: Reference
 ::: danger TODO:
 
 - Icons from S3 bucket, will they change?
-- CORs issue
-- Value needs network pick list
+- Beacon value API operation has CORs issue
 - Value needs data translated by `_times` if any
 
 :::

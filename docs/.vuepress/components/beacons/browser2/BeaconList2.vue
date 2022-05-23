@@ -48,8 +48,12 @@
                 {{ beacon.name }}
                 <div>{{ beacon.description }}</div>
                 <!-- Beacon chains -->
-                <span v-for="(chain, i) in beacon.chains" v-bind:key="i">
-                  <img :src="chain.logo" width="18px" />
+                <span
+                  style="background-color: black; margin-right: 1px"
+                  v-for="(chain, i) in beacon.chains"
+                  v-bind:key="i"
+                >
+                  <img :src="chain.logoPath" width="18px" />
                 </span>
               </div>
             </div>
@@ -74,15 +78,13 @@
 
 <script>
 import axios from 'axios';
-import chains from '../../../chains.json';
-import providers from '../../../beacons.json';
 
 export default {
   name: 'BeaconList2',
   data: () => ({
     showBeacons: false,
-    showSpinner: false,
     showDetails: false,
+    showSpinner: true,
     error: null,
     data: [],
     beacon: undefined, // Passes data BeaconDetails2.vue via togglePanes()
@@ -91,77 +93,71 @@ export default {
   }),
   mounted() {
     this.$nextTick(function () {
-      this.showSpinner = true;
       this.loadBeacons();
     });
   },
   methods: {
     async loadBeacons() {
       try {
-        /*const response = await axios.get(
-          'https://api.api3labs.link/operations/beacons'
+        const response = await axios.get(
+          'https://operations-development.s3.amazonaws.com/latest/apis.json'
         );
-
-        this.providers = response.data.payload.apis;
-        this.chains = response.data.payload.chains;*/
-        this.providers = providers;
+        const responseChains = await axios.get(
+          'https://operations-development.s3.amazonaws.com/latest/chains.json '
+        );
+        const providers = response.data;
+        const chains = responseChains.data;
 
         // Providers
-        for (var key in this.providers) {
+        for (var key in providers) {
           const providerKey = key;
-          const providerName = this.providers[key].apiMetadata.name;
-          const providerLogo = this.providers[key].apiMetadata.logoPath;
+          const providerName = providers[key].apiMetadata.name;
+          const providerLogo = providers[key].apiMetadata.logoPath;
           let beacons = [];
 
           // Beacons
-          for (var beaconKey in this.providers[key].beacons) {
-            this.providers[key].beacons[beaconKey].show = true;
+          for (var beaconKey in providers[key].beacons) {
+            providers[key].beacons[beaconKey].show = true;
 
             // Get the beacon's template
-            const id = this.providers[key].beacons[beaconKey].templateId;
+            const id = providers[key].beacons[beaconKey].templateId;
             // Convert templates json obj to an array
-            const templates = Object.values(this.providers[key].templates);
-            this.providers[key].beacons[beaconKey].template = templates.find(
+            const templates = Object.values(providers[key].templates);
+            providers[key].beacons[beaconKey].template = templates.find(
               (template) => template.templateId === id
             );
 
-            // Build the grafana URLs
-            let beaconId = this.providers[key].beacons[beaconKey].beaconId;
-            this.providers[key].beacons[beaconKey].grafanaURL =
-              'https://monitor.api3.org/d-solo/SDapXdy7z/documentation-dashboard?orgId=1&var-chainId=4&var-beaconId=' +
-              beaconId +
-              '&theme=light&panelId=2';
-            this.providers[key].beacons[beaconKey].grafanaDeviationURL =
-              'https://monitor.api3.org/d-solo/SDapXdy7z/documentation-dashboard?var-chainId=4&orgId=1&theme=light&panelId=3&var-beaconId=' +
-              beaconId;
+            // GRAFANA URLs
+            let beaconId = providers[key].beacons[beaconKey].beaconId;
+            providers[key].beacons[beaconKey].grafanaURL =
+              this.getGrafanaUrl(beaconId);
+            providers[key].beacons[beaconKey].grafanaDeviationURL =
+              this.getGrafanaDeviationUrl(beaconId);
 
             // Start content
-            this.providers[key].beacons[beaconKey].content =
+            providers[key].beacons[beaconKey].content =
               key +
               ' ' +
-              this.providers[key].beacons[beaconKey].name +
+              providers[key].beacons[beaconKey].name +
               ' ' +
-              this.providers[key].beacons[beaconKey].description;
+              providers[key].beacons[beaconKey].description;
 
-            /** 
+            /**
               1. Add chain name to content
               2. Add the name to the chain object
               3. Add the logo to the chain object
               4. Add the chainId to the chain object
             */
-            for (var chainKey in this.providers[key].beacons[beaconKey]
-              .chains) {
-              this.providers[key].beacons[beaconKey].chains[chainKey].name =
+            for (var chainKey in providers[key].beacons[beaconKey].chains) {
+              providers[key].beacons[beaconKey].content += ' ' + chainKey + ' ';
+              providers[key].beacons[beaconKey].chains[chainKey].name =
                 chainKey;
-              this.providers[key].beacons[beaconKey].chains[chainKey].logo =
-                '/img/beacon.png';
-              this.providers[key].beacons[beaconKey].chains[chainKey].id =
+              providers[key].beacons[beaconKey].chains[chainKey].logoPath =
+                chains[chainKey].logoPath;
+              providers[key].beacons[beaconKey].chains[chainKey].id =
                 chains[chainKey].id;
-
-              this.providers[key].beacons[beaconKey].content +=
-                ' ' + chainKey + ' ';
             }
-            beacons.push(this.providers[key].beacons[beaconKey]);
+            beacons.push(providers[key].beacons[beaconKey]);
           }
           //
           beacons.sort(this.sortByName);
@@ -174,8 +170,7 @@ export default {
             beacons: beacons,
           });
         }
-        console.log(1, this.providers);
-        console.log(2, chains);
+        console.log('data > ', this.data);
       } catch (err) {
         console.error(err.toString());
         this.error = err.toString();
@@ -241,6 +236,19 @@ export default {
         });
       });
     },
+    getGrafanaUrl(id) {
+      return (
+        'https://monitor.api3.org/d-solo/SDapXdy7z/documentation-dashboard?orgId=1&var-chainId=4&var-beaconId=' +
+        id +
+        '&theme=light&panelId=2'
+      );
+    },
+    getGrafanaDeviationUrl(id) {
+      return (
+        'https://monitor.api3.org/d-solo/SDapXdy7z/documentation-dashboard?var-chainId=4&orgId=1&theme=light&panelId=3&var-beaconId=' +
+        id
+      );
+    },
   },
 };
 </script>
@@ -253,9 +261,9 @@ export default {
 .b2-beacon-list-filter-input {
   margin-top: 10px;
   font-size: large;
-  width: 97%;
-  max-width: 275px;
-  border: 2px solid lightgrey;
+  width: 265px;
+  max-width: 265px;
+  border: 2px s6lid lightgrey;
   border-radius: 2px;
   padding: 3px;
 }
@@ -273,9 +281,9 @@ export default {
 }
 
 .flex-container > div > div {
-  min-width: 185px;
-  max-width: 185px;
-  width: 185px;
+  min-width: 300px;
+  max-width: 300px;
+  width: 300px;
   height: 74px;
   border: 1px solid lightgrey;
   border-radius: 0.3em;
