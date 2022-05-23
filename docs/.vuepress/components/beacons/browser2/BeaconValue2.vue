@@ -1,5 +1,5 @@
 <!--
-Gets the Beacon's on-chain value from an API using ethers.js.
+Gets the Beacon's on-chain value from https://api.api3labs.link/operations.
 -->
 
 <template>
@@ -20,8 +20,8 @@ Gets the Beacon's on-chain value from an API using ethers.js.
     <div>
       <i>Network:</i>
       <!-- prettier-ignore -->
-      <select class="beacon-value-picklist" @change="setRegion($event)">
-        <option  v-for="chain in beaconParam.chains" v-bind:key="chain.id" :value="chain.id">{{ chain.name }}</option>
+      <select id="networkPickList" class="beacon-value-picklist" @change="setBeaconValue()">
+        <option  v-for="chain in beacon.chains" v-bind:key="chain.id" :value="chain.id">{{ chain.name }} - ({{ chain.id }})</option>
       </select>
     </div>
 
@@ -54,9 +54,8 @@ const axios = require('axios');
 
 export default {
   name: 'BeaconValue2',
-  props: ['beaconParam', 'chains'],
+  props: ['beacon'],
   data: () => ({
-    beacon: undefined,
     loading: true,
     value: null,
     date: null,
@@ -67,8 +66,8 @@ export default {
   }),
   mounted() {
     this.$nextTick(async function () {
-      this.beacon = this.beaconParam;
       this.setBeaconValue();
+      console.log(8, this.beacon);
     });
   },
   methods: {
@@ -80,21 +79,26 @@ export default {
         this.time = undefined;
         this.timestamp = undefined;
         this.error = undefined;
+        // Network chainId
+        var e = document.getElementById('networkPickList');
+        var chainId = e.options[e.selectedIndex].value;
         /*const res = await axios.get(
           'https://api-ethers.herokuapp.com/beacons/' + this.beacon.beaconId
         );*/
         //console.log(1, res);
 
         const res2 = await axios.get(
-          'https://api.api3labs.link/operations/chainValue/dataPoint?chainId=3&dataFeedId=' +
+          'https://api.api3labs.link/operations/chainValue/dataPoint?chainId=' +
+            chainId +
+            '&dataFeedId=' +
             this.beacon.beaconId
         );
-        console.log(2, res2);
+        console.log(7, res2);
         this.raw = res2.data;
 
         // Look for a embedded response error
         if (res2.data.err) {
-          this.err = res2.data.err;
+          this.err = res2.data.err.toString();
         } else {
           // The response should now contain valid data
           const arr = res2.data.beaconResponse; //res2.data.beaconResponse.split(',');
@@ -154,6 +158,6 @@ export default {
      of the viewport, excluding margin-top.
   */
   margin-left: 0px;
-  max-width: 220px;
+  max-width: 250px;
 }
 </style>
