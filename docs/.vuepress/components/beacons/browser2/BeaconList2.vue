@@ -47,14 +47,6 @@
               >
                 {{ beacon.name }}
                 <div>{{ beacon.description }}</div>
-                <!-- Beacon chains -->
-                <span
-                  style="background-color: black; margin-right: 1px"
-                  v-for="(chain, i) in beacon.chains"
-                  v-bind:key="i"
-                >
-                  <img :src="chain.logoPath" width="18px" />
-                </span>
               </div>
             </div>
           </div>
@@ -152,11 +144,13 @@ export default {
               providers[key].beacons[beaconKey].content += ' ' + chainKey + ' ';
               providers[key].beacons[beaconKey].chains[chainKey].name =
                 chainKey;
-              providers[key].beacons[beaconKey].chains[chainKey].logoPath =
-                chains[chainKey].logoPath;
               providers[key].beacons[beaconKey].chains[chainKey].id =
                 chains[chainKey].id;
             }
+            // Sort the chains by name
+            providers[key].beacons[beaconKey].chains = this.sortChainsByName(
+              providers[key].beacons[beaconKey].chains
+            );
             beacons.push(providers[key].beacons[beaconKey]);
           }
           //
@@ -170,7 +164,6 @@ export default {
             beacons: beacons,
           });
         }
-        console.log('data > ', this.data);
       } catch (err) {
         console.error(err.toString());
         this.error = err.toString();
@@ -211,6 +204,12 @@ export default {
         return 1;
       }
       return 0;
+    },
+    /// Sorts the chains json object by its root keys which is the chain names.
+    sortChainsByName(o) {
+      return Object.keys(o)
+        .sort()
+        .reduce((r, k) => ((r[k] = o[k]), r), {});
     },
     find() {
       this.cnt = 0;
@@ -281,10 +280,10 @@ export default {
 }
 
 .flex-container > div > div {
-  min-width: 300px;
-  max-width: 300px;
-  width: 300px;
-  height: 74px;
+  min-width: 205px;
+  max-width: 205px;
+  width: 205px;
+  height: 54px;
   border: 1px solid lightgrey;
   border-radius: 0.3em;
   margin: 8px 8px 8px 5px;

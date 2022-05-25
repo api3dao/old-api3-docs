@@ -7,7 +7,7 @@ Gets the Beacon's on-chain value from https://api.api3labs.link/operations.
     <div style="float: right">
       <a
         href="javascript:void(0);"
-        v-on:click="setBeaconValue()"
+        v-on:click="getBeaconValue()"
         v-show="!loading"
       >
         <img
@@ -20,31 +20,64 @@ Gets the Beacon's on-chain value from https://api.api3labs.link/operations.
     <div>
       <i>Network:</i>
       <!-- prettier-ignore -->
-      <select id="networkPickList" class="beacon-value-picklist" @change="setBeaconValue()">
+      <select id="networkPickList" class="beacon-value-picklist" @change="getBeaconValue()">
         <option  v-for="chain in beacon.chains" v-bind:key="chain.id" :value="chain.id">{{ chain.name }} - ({{ chain.id }})</option>
       </select>
     </div>
 
+    <!-- Error -->
+    <div v-show="err" class="beacon-value-err">{{ err }}</div>
+
+    <!-- Current value -->
     <div style="margin-top: 15px">
-      <i>Value:</i> {{ value }}
+      <i>Current value:</i> <b>{{ value }}</b>
       <img
         v-show="loading"
         width="68px"
         style="opacity: 0.7"
         src="/img/marching-balls.gif"
       />
-      <div style="margin-left: 51px; font-family: courier; font-size: small">
-        Date: {{ date }} <br />Time: {{ time }} <br /><!--ISO: {{ iso }}-->
+      <div
+        style="
+          font-family: courier;
+          margin-left: 17px;
+          margin-top: 4px;
+          font-size: small;
+        "
+      >
+        Date: {{ date }} <br />Time: {{ time }} <br />
       </div>
     </div>
 
+    <!-- Raw value -->
     <div style="margin-top: 15px"><i>Raw value:</i></div>
     <pre
-      style="background-color: white; margin-left: 30px; margin-top: -15px"
+      style="background-color: white; margin-left: -9px; margin-top: -15px"
     ><code style="color:gray;font-size: small;">{{raw}}</code></pre>
 
-    <div v-show="err" class="beacon-value-err">
-      {{ err }}
+    <!-- Previous values-->
+    <div style="margin-top: -25px">
+      <div style="margin-bottom: 5px">
+        <i>Previous values:</i>
+        <img
+          v-show="loadingPrevious"
+          width="68px"
+          style="opacity: 0.7"
+          src="/img/marching-balls.gif"
+        />
+      </div>
+      <ul
+        style="
+          margin-left: 17px;
+          margin-bottom: 5px;
+          font-size: small;
+          font-family: courier;
+        "
+        v-for="(item, i) in previousValues"
+        v-bind:key="i"
+      >
+        <li>{{ item.value }} {{ item.date }} @{{ item.time }}</li>
+      </ul>
     </div>
   </div>
 </template>
@@ -57,82 +90,119 @@ export default {
   props: ['beacon'],
   data: () => ({
     loading: true,
-    value: null,
-    date: null,
-    time: null,
-    timestamp: null,
+    loadingPrevious: true,
+    value: undefined,
+    date: undefined,
+    time: undefined,
+    _times: undefined,
+    previousValues: [],
     raw: {},
     err: null,
   }),
   mounted() {
     this.$nextTick(async function () {
-      this.setBeaconValue();
-      console.log(8, this.beacon);
+      this.getBeaconValue();
     });
   },
   methods: {
-    async setBeaconValue() {
+    convertToDate(str) {
+      // Multiply by 1000 since JS timestamps need milliseconds and UNIX delivers in seconds.
+      return new Date(str * 1000).toDateString();
+    },
+    convertToTime(str) {
+      // Multiply by 1000 since JS timestamps need milliseconds and UNIX delivers in seconds.
+      return new Date(str * 1000).toTimeString();
+    },
+    computeValue(str) {
+      if (this._times) return str / this._times;
+      return str;
+    },
+    async getBeaconValue() {
       try {
         this.loading = true;
+        this.loadingPrevious = true;
         this.value = undefined;
         this.date = undefined;
         this.time = undefined;
-        this.timestamp = undefined;
-        this.error = undefined;
+        this._times = undefined;
+        this.err = undefined;
+        this.previousValues = [];
+
         // Network chainId
         var e = document.getElementById('networkPickList');
         var chainId = e.options[e.selectedIndex].value;
-        /*const res = await axios.get(
-          'https://api-ethers.herokuapp.com/beacons/' + this.beacon.beaconId
-        );*/
-        //console.log(1, res);
 
+        // Current value
         const res2 = await axios.get(
-          'https://api.api3labs.link/operations/chainValue/dataPoint?chainId=' +
-            chainId +
-            '&dataFeedId=' +
-            this.beacon.beaconId
+          'https://api.api3data.link/beacons/on_chain_value/',
+          {
+            params: {
+              chainId: chainId,
+              dataFeedId: this.beacon.beaconId,
+            },
+          }
         );
-        console.log(7, res2);
+        // Displayed in the HTML
         this.raw = res2.data;
 
         // Look for a embedded response error
         if (res2.data.err) {
           this.err = res2.data.err.toString();
-        } else {
-          // The response should now contain valid data
-          const arr = res2.data.beaconResponse; //res2.data.beaconResponse.split(',');
-          console.log('arr', arr);
-          console.log('template', this.beacon.template.decodedParameters);
-
-          // Look for _times in the decoded parameters
-          /*const _timesArr = this.beacon.template.decodedParameters.filter(
-            (character) => character.name === '_times'
-          );*/
-
-          // Get _times pair if available
-          const _timesArr = this.beacon.template.decodedParameters._times;
-          console.log('_times', _timesArr);
-
-          /*if (_timesArr.length !== 0) {
-            // The _timesArr[0].value field contains a pair
-            let pairArr = _timesArr[0].value.split(',');
-            this.value = arr[0] / pairArr[0];
-          } else {
-            this.value = arr[0];
-          }*/
-          this.value = arr[0];
-          // DTTM
-          this.timestamp = arr[1];
-          // Multiply by 1000 since JS timestamps need milliseconds and UNIX delivers in seconds.
-          const dttm = new Date(arr[1] * 1000);
-          this.date = dttm.toDateString();
-          this.time = dttm.toTimeString();
         }
-        this.loading = false;
+        // The response should now contain valid data
+        else {
+          // Convert the hex value
+          // Get the decimal value by trimming off the '0x' and then parsing the
+          // remaining portion using parseInt(something, 16):
+          this.value = parseInt(
+            res2.data.beaconResponse[0].hex.substring(2),
+            16
+          );
+
+          // Update this.value based on the reserved parameter _times, if any
+          // Look for _times in the decoded parameters
+          const decodedParametersArr =
+            this.beacon.template.decodedParameters.filter(
+              (character) => character.name === '_times'
+            );
+          if (decodedParametersArr.length !== 0) {
+            // The decodedParametersArr field contains the value of _times
+            this._times = decodedParametersArr[0].value;
+            this.value = this.computeValue(this.value);
+          }
+
+          // Current DTTM
+          const timestamp = res2.data.beaconResponse[1];
+          this.date = this.convertToDate(timestamp);
+          this.time = this.convertToTime(timestamp);
+          this.loading = false; // Current value ready for display
+
+          // Last 5 transactions ///
+          const resTx = await axios.get(
+            'https://api.api3data.link/beacons/last_transactions',
+            {
+              params: {
+                chainId: chainId,
+                beaconId: this.beacon.beaconId,
+              },
+            }
+          );
+          resTx.data.forEach((element) => {
+            const v = parseInt(element.parsedLog.args[1].hex.substring(2), 16);
+            const d = parseInt(element.parsedLog.args[2].hex.substring(2), 16);
+            this.previousValues.push({
+              value: this.computeValue(v),
+              date: this.convertToDate(d),
+              time: this.convertToTime(d),
+            });
+          });
+        }
+
+        this.loadingPrevious = false;
       } catch (error) {
         this.err = error;
         this.loading = false;
+        this.loadingPrevious = false;
       }
     },
   },
@@ -143,6 +213,7 @@ export default {
 .beacon-value-err {
   font-family: courier;
   margin-left: 11px;
+  margin-top: 10px;
   color: red;
   font-size: small;
 }

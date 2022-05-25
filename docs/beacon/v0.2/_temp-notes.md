@@ -80,3 +80,43 @@ https://operations-development.s3.amazonaws.com/latest/explorer.json
 example of the commit hash variant (pinned version):
 https://operations-development.s3.amazonaws.com/46139b8f39f0653adee4719fd492e0d75a64d93a/operations.json
 (edited)
+
+## Value
+
+That value is not abi encoded. You can get the decimal value by trimming off the
+'0x' and then parsing the remaining portion of it using parseInt(something, 16):
+
+````
+ let obj =
+{"error":false,"beaconResponse":[{"type":"BigNumber","hex":"0x0d18"},1653383678]};
+parseInt(obj.beaconResponse[0].hex.substring(2), 16);
+// outputs in node prompt:
+3352
+```
+
+That value needs to be divided by the `_times` parameter in the template to get
+the float value (if applicable).
+
+You can also alternatively use ethers to parse
+the value (but ethers adds more overhead, hence the first example):
+
+````
+
+ethers.BigNumber.from(obj.beaconResponse[0]) (edited)
+
+```
+
+
+```
+
+## Production document
+
+https://docs.google.com/document/d/1R7UYJnoRmsXtVADW4Ny3WOv5A53MhBdaDKQB_G-cv7k/edit?usp=sharing
+
+{ pricingCoverage.fee === 0 && <div>free beacons</div> }
+
+## polygon-testnet Only
+
+Add this cotract (hardcoded) for polygon-testnet, chains list.
+
+https://github.com/api3dao/utility-contracts/blob/main/SelfServeDapiServerWhitelister/deployments/polygon-testnet/SelfServeDapiServerWhitelister.json

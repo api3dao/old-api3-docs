@@ -32,14 +32,6 @@ display the Beacons's value.
       </span>
     </div>
 
-    <!-- Value -->
-    <div class="bcd-content-box">
-      <beacons-browser2-BeaconValue2
-        v-bind:beacon="beacon"
-        class="bcd-content-box-label"
-      />
-    </div>
-
     <!-- Beacon ID -->
     <div class="bcd-content-box">
       <i class="bcd-content-box-label">Beacon ID:</i>
@@ -62,6 +54,14 @@ display the Beacons's value.
       <span class="bcd-content-box-value">
         {{ beacon.airnodeAddress }}<CopyIcon :text="beacon.airnodeAddress" />
       </span>
+    </div>
+
+    <!-- Value -->
+    <div class="bcd-content-box">
+      <beacons-browser2-BeaconValue2
+        v-bind:beacon="beacon"
+        class="bcd-content-box-label"
+      />
     </div>
 
     <!-- Value Chart -->
