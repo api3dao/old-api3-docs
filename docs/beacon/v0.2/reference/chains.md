@@ -9,13 +9,6 @@ folder: Reference
 
 <VersionWarning/>
 
-::: danger Blocked
-
-- Additional contracts - if any
-- Icons
-
-:::
-
 Beacons can be read on the following chains using the noted `DapiServer`
 contract address. Use the [Beacon Browser](./beacon-browser.md) to find the
 desired Beacon addresses and the networks they are available on.
