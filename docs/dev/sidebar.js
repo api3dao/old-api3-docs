@@ -7,6 +7,7 @@ module.exports = [
       '/dev/theme',
       '/dev/plugins',
       '/dev/override-components',
+      '/dev/replacement-components',
       '/dev/custom-components',
       '/dev/common-directory',
       '/dev/vuepress-server',
