@@ -14,7 +14,6 @@ node_modules/@vuepress/themeConfig/components or node_modules/@vuepress/plugins
 when running or building the project locally.
 
 - Navbar.vue > @vuepress/themeConfig/components
-- Search.vue > @vuepress/plugin-search
 - Sidebar.vue > @vuepress/themeConfig/components
 - Home.vue > is not moved to @vuepress, it is defined as a layout page inside
   the root/README.md frontmatter definitions
@@ -78,18 +77,3 @@ Sidebar.vue. The custom component
 - Adds a pick list of document sets on top of the sidebar.
 
 [Sidebar.vue](https://github.com/api3dao/api3-docs/blob/stage/docs/.vuepress/components/Sidebar.vue)
-
-## SearchBox.vue
-
-The override component SearchBar.vue is a replacement for the VuePress
-SearchBox.vue. The files **match-query.js** and **search.svg** are located in
-.vuepress/components only for the purpose of running SearchBox.vue in
-development mode. They currently are not altered.
-
-#### Changes\*\*
-
-- Filters out results that are not part of the current version.
-- Added box-shadow to suggestions class (results).
-- Changed top position of suggestions list.
-
-[SearchBox.vue](https://github.com/api3dao/api3-docs/tree/main/docs/.vuepress/components/search)

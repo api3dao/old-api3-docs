@@ -218,7 +218,9 @@ command.
   mnemonic's default account unless a `derivation-path` is specified.
 - `requester-address`: The contract address of the requester to sponsor.
 - `airnode-rrp-address (optional)`: The public address of the AirnodeRrpV0.sol
-  protocol contract.
+  protocol contract. If this parameter is not provided, it will be deduced from
+  the current chain. If there is no RRP address found for the given chain an
+  error is thrown.
 - `derivation-path (optional)`: Selects an alternate account to use from the
   mnemonic rather than the default.
 - `gas-limit` (optional): The gas limit to use for the transaction.
