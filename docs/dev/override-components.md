@@ -10,11 +10,12 @@ title: Override Components
 There are a few changes made to some default @vuepress components. See the code
 comments within each component for execution details. These components, located
 in .vuepress/components, are copied to
-node_modules/@vuepress/themeConfig/components or node_modules/@vuepress/plugins
+`node_modules/@vuepress/themeConfig/components or node_modules/@vuepress/plugins`
 when running or building the project locally.
 
 - Navbar.vue > @vuepress/themeConfig/components
 - Sidebar.vue > @vuepress/themeConfig/components
+- Replacement404.vue > @vuepress/themeConfig/components (as 404.vue)
 - Home.vue > is not moved to @vuepress, it is defined as a layout page inside
   the root/README.md frontmatter definitions
 
@@ -51,7 +52,7 @@ actionLink () {
 
 ## Navbar.vue
 
-The override component Navbar.vue is a replacement for the VuePress Navbar.vue.
+The override component Navbar.vue is a substitute for the VuePress Navbar.vue.
 The custom component
 [Versions.vue](./custom-components.md#versions-vue-and-versionsmodal-vue) has
 been added to **Navbar.vue**.
@@ -67,13 +68,23 @@ been added to **Navbar.vue**.
 
 ## Sidebar.vue
 
-The override component Sidebar.vue is a replacement for the VuePress
-Sidebar.vue. The custom component
-[DocumentSets.vue](./custom-components.md#documentsets-vue) has been added to
-**Sidebar.vue**.
+The override component Sidebar.vue is a substitute for the VuePress Sidebar.vue.
+The custom component [DocumentSets.vue](./custom-components.md#documentsets-vue)
+has been added to **Sidebar.vue**.
 
 #### Changes
 
 - Adds a pick list of document sets on top of the sidebar.
 
 [Sidebar.vue](https://github.com/api3dao/api3-docs/blob/stage/docs/.vuepress/components/Sidebar.vue)
+
+## Replacement404.vue
+
+The override component Replacement404.vue is a substitute for the VuePress
+404.vue component.
+
+#### Changes
+
+- Interacts with the [Redirects](./redirects.md).
+
+[Replacement404.vue](https://github.com/api3dao/api3-docs/blob/stage/docs/.vuepress/components/Replacement404.vue)
