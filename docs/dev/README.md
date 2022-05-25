@@ -33,18 +33,23 @@ yarn install
 ## Run Locally
 
 Execute the **docs:dev** script in package.json to run the project locally. The
-script performs three steps.
+script performs three steps to substitute three VuePress components that have
+been customized .
+
+```
+"docs:dev": "yarn sync:404; yarn sync:navbar; yarn sync:sidebar; vuepress dev docs",
+```
 
 1. Copies an updated [Navbar.vue](./override-components.md#navbar-vue) to
    node_modules/@vuepress.
 2. Copies an updated [Sidebar.vue](./override-components.md#sidebar-vue) to
    node_modules/@vuepress.
-3. Copies an updated [SearchBox.vue](./override-components.md#searchbox-vue) to
-   node_modules/@vuepress.
-4. Runs a local development server (hot reload) at localhost:8080.
+3. Copies an updated
+   [Replacement404.vue](./override-components.md#replacement404-vue) to
+   node_modules/@vuepress as `404.vue`.
 
 ```bash
-# run locally
+#  Runs a local development server (hot reload) at localhost:8080.
 yarn docs:dev
 ```
 
