@@ -3,30 +3,28 @@
 -->
 
 <template>
-  <div>
-    <div v-if="loaded === true">
-      <p v-show="error !== null" class="bc-chains-list-error">
-        The chain list failed to load: ({{ error }})
-      </p>
-      <div v-show="!error">
-        <div style="margin-top: 4px; font-size: small">
-          Chains: ({{ chainsCnt }})
-        </div>
-        <hr />
+  <div v-if="loaded === true">
+    <p v-show="error !== null" class="bc-chains-list-error">
+      The chain list failed to load: ({{ error }})
+    </p>
+    <div v-show="!error">
+      <div style="margin-top: 4px; font-size: small">
+        Chains: ({{ chainsCnt }})
+      </div>
+      <hr />
 
-        <!-- Start chain list -->
-        <div
-          class="bc-chains-box"
-          v-for="chain in chains"
-          v-bind:key="chain.name"
-        >
-          <beacons-chains-ChainsItem :chain="chain" />
-        </div>
+      <!-- Start chain list -->
+      <div
+        class="bc-chains-box"
+        v-for="chain in chains"
+        v-bind:key="chain.name"
+      >
+        <beacons-chains-ChainsItem :chain="chain" />
       </div>
     </div>
-    <div v-else style="padding-left: 155px">
-      <img src="/img/spinner.gif" v-show="showSpinner" />
-    </div>
+  </div>
+  <div v-else style="padding-left: 155px">
+    <img src="/img/spinner.gif" v-show="showSpinner" />
   </div>
 </template>
 
@@ -55,6 +53,11 @@ export default {
         );
         this.chains = this.sortByName(response.data);
 
+        // Hardcode contract for polygon-testnet
+        this.chains['polygon-testnet'].contracts[
+          'SelfServeDapiServerWhitelister'
+        ] = '0x78D95f27B068F36Bd4c3f29e424D7072D149DDF3';
+
         var keys = [];
         for (var k in this.chains) keys.push(k);
         this.chainsCnt = keys.length;
@@ -80,13 +83,15 @@ export default {
   color: red;
 }
 .bc-chains-box {
+  overflow-wrap: anywhere;
   padding-top: 5px;
-  padding-left: 5px;
+  padding-left: 16px;
   padding-right: 5px;
   padding-bottom: 10px;
   border: solid lightgrey 1px;
   border-radius: 0.5em;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   max-width: 620px;
+  box-shadow: 2px 2px 4px lightgrey;
 }
 </style>
