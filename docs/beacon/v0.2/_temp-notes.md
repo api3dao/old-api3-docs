@@ -114,9 +114,3 @@ ethers.BigNumber.from(obj.beaconResponse[0]) (edited)
 https://docs.google.com/document/d/1R7UYJnoRmsXtVADW4Ny3WOv5A53MhBdaDKQB_G-cv7k/edit?usp=sharing
 
 { pricingCoverage.fee === 0 && <div>free beacons</div> }
-
-## polygon-testnet Only
-
-Add this cotract (hardcoded) for polygon-testnet, chains list.
-
-https://github.com/api3dao/utility-contracts/blob/main/SelfServeDapiServerWhitelister/deployments/polygon-testnet/SelfServeDapiServerWhitelister.json

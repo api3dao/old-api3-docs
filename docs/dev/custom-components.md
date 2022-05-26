@@ -7,10 +7,9 @@ title: Custom Components
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-There are custom Vue Components located in .vuepress/components. See the code
-comments within each component for execution details. These components are
-copied to node_modules/@vuepress/themeConfig/components or
-node_modules/@vuepress/plugins when running or building the project locally.
+There are custom Vue Components located in .vuepress/components. Not all custom
+components are discussed in this doc, only the complex ones. See the code
+comments within each component for execution details.
 
 ## TocHeader.vue
 
@@ -25,8 +24,8 @@ in index.styl, look for the .toc-label class.
 
 VersionsModal.vue is a child component of Versions.vue. Versions.vue has been
 added to the navbar to allow users to switch between versions of the docs. It
-has been added to the [Navbar.vue](override-components.md#navbar-vue) VuePress
-component which api3-docs overrides.
+has been added to the [Navbar.vue](substitution-components.md#navbar-vue)
+VuePress component which api3-docs overrides.
 
 [Versions.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/Versions.vue)
 
@@ -43,8 +42,8 @@ version.
 ## DocumentSets.vue
 
 DocumentSets.vue is placed on the top of
-[Sidebar.vue](override-components.md#sidebar-vue). It contains a pick list to
-the different document sets of which some are versioned.
+[Sidebar.vue](substitution-components.md#sidebar-vue). It contains a pick list
+to the different document sets of which some are versioned.
 
 [DocumentSets.vue](https://github.com/api3dao/api3-docs/blob/main/docs/.vuepress/components/DocumentSets.vue)
 

@@ -40,12 +40,11 @@ been customized .
 "docs:dev": "yarn sync:404; yarn sync:navbar; yarn sync:sidebar; vuepress dev docs",
 ```
 
-1. Copies an updated [Navbar.vue](./override-components.md#navbar-vue) to
+1. Copies an updated [Navbar.vue](./substitution-components.md#navbar-vue) to
    node_modules/@vuepress.
-2. Copies an updated [Sidebar.vue](./override-components.md#sidebar-vue) to
+2. Copies an updated [Sidebar.vue](./substitution-components.md#sidebar-vue) to
    node_modules/@vuepress.
-3. Copies an updated
-   [Replacement404.vue](./override-components.md#replacement404-vue) to
+3. Copies an updated [Sub404.vue](./substitution-components.md#sub404-vue) to
    node_modules/@vuepress as `404.vue`.
 
 ```bash
