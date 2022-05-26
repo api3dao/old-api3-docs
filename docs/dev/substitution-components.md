@@ -15,7 +15,7 @@ when running or building the project locally.
 
 - Navbar.vue > @vuepress/themeConfig/components
 - Sidebar.vue > @vuepress/themeConfig/components
-- Replacement404.vue > @vuepress/themeConfig/components (as 404.vue)
+- Sub404.vue > @vuepress/themeConfig/components (as 404.vue)
 - Home.vue > is not moved to @vuepress, it is defined as a layout page inside
   the root/README.md frontmatter definitions.
 - SearchBoxBtn2.vue > is not moved to @vuepress, it is added to `NavBar.vue`
@@ -81,16 +81,15 @@ component. The custom component
 
 [Sidebar.vue](https://github.com/api3dao/api3-docs/blob/stage/docs/.vuepress/components/Sidebar.vue)
 
-## Replacement404.vue
+## Sub404.vue
 
-The component Replacement404.vue is a substitute for the VuePress 404.vue
-component.
+The component Sub404.vue is a substitute for the VuePress 404.vue component.
 
 #### Changes
 
 - Interacts with the [Redirects](./redirects.md).
 
-[Replacement404.vue](https://github.com/api3dao/api3-docs/blob/stage/docs/.vuepress/components/Replacement404.vue)
+[Sub404.vue](https://github.com/api3dao/api3-docs/blob/stage/docs/.vuepress/components/Sub404.vue)
 
 ## SearchBoxBtn2.vue
 

@@ -44,8 +44,7 @@ been customized .
    node_modules/@vuepress.
 2. Copies an updated [Sidebar.vue](./substitution-components.md#sidebar-vue) to
    node_modules/@vuepress.
-3. Copies an updated
-   [Replacement404.vue](./substitution-components.md#replacement404-vue) to
+3. Copies an updated [Sub404.vue](./substitution-components.md#sub404-vue) to
    node_modules/@vuepress as `404.vue`.
 
 ```bash
