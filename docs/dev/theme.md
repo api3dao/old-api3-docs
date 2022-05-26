@@ -16,7 +16,7 @@ settings and overrides used by this project.
 The **sidebarDepth** is set to a depth of _0_ so that only **Heading 1**
 elements are listed in the sidebar. **Headings 2-3** will appear in the TOC
 (Table of Contents) to the right of the page content as defined in
-[config.markdown](#config.themeConfig).
+[config.markdown](./theme.md#config-markdown).
 
 ## config.themeConfig.sidebar
 
