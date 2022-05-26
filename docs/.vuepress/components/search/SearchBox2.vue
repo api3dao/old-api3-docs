@@ -30,7 +30,7 @@ import Vue from 'vue';
 import vClickOutside from 'v-click-outside';
 Vue.use(vClickOutside);
 
-import matchQuery from '../match-query';
+import matchQuery from './match-query';
 
 /* global SEARCH_MAX_SUGGESTIONS, SEARCH_PATHS, SEARCH_HOTKEYS */
 export default {
