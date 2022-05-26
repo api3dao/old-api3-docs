@@ -7,10 +7,9 @@ title: Custom Components
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-There are custom Vue Components located in .vuepress/components. See the code
-comments within each component for execution details. These components are
-copied to node_modules/@vuepress/themeConfig/components or
-node_modules/@vuepress/plugins when running or building the project locally.
+There are custom Vue Components located in .vuepress/components. Not all custom
+components are discussed in this doc, only the complex ones. See the code
+comments within each component for execution details.
 
 ## TocHeader.vue
 
