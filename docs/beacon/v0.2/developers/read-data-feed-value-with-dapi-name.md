@@ -73,8 +73,5 @@ this is an issue, consider casting the timestamps to a larger type.
 
 :::
 
-If the `value` of a dAPI Data Feed is zero, this may mean that it was never
-written to. This may be the case for new dAPI Data Feeds. The dAPI Data Feed
-value may be 0 if the timestamp is non-zero which can be fetched with
-`readDataFeedWithDapiName` instead since it returns both the value and
-timestamp.
+if the timestamp is `0` then the function will revert with
+`Data feed does not exist`
