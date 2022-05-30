@@ -73,5 +73,5 @@ this is an issue, consider casting the timestamps to a larger type.
 
 :::
 
-if the timestamp is `0` then the function will revert with
-`Data feed does not exist`
+If the timestamp is `0` then the function will revert with "_Data feed does not
+exist_".

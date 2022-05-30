@@ -21,8 +21,10 @@ to using `npx`.
 
 To use these images first install [Docker](https://docs.docker.com/get-docker/)
 if it is not present on your system.
- 
-If using a Linux distribution that enforces Selinux policies, make sure allow the Docker images access to the host directory by [creating an appropriate rule](https://stackoverflow.com/questions/24288616/permission-denied-on-accessing-host-directory-in-docker). 
+
+If using a Linux distribution that enforces Selinux policies, allow the Docker
+images access to the host directory by
+[creating an appropriate rule](https://stackoverflow.com/questions/24288616/permission-denied-on-accessing-host-directory-in-docker).
 
 - The [Airnode deployer image](./deployer-image.md) deploys the node in the form
   of serverless functions to a serverless cloud provider (e.g. AWS Lambda).
