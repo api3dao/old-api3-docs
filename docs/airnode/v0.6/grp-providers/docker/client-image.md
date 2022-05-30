@@ -97,7 +97,7 @@ parameter, but you may run the it without it as well.
 docker run --detach \
   --volume $(pwd)/config:/app/config \
   --name airnode \
-  api3/airnode-client:0.6.2
+  api3/airnode-client:0.6.3
 ```
 
 :::
@@ -108,7 +108,7 @@ docker run --detach \
 docker run --detach \
   --volume $(pwd)/config:/app/config \
   --name airnode \
-  api3/airnode-client:0.6.2
+  api3/airnode-client:0.6.3
 ```
 
 :::
@@ -119,7 +119,7 @@ docker run --detach \
 docker run --detach ^
   --volume %cd%/config:/app/config ^
   --name airnode ^
-  api3/airnode-client:0.6.2
+  api3/airnode-client:0.6.3
 ```
 
 :::
