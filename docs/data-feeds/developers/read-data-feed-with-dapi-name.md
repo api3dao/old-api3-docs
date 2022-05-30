@@ -12,8 +12,8 @@ folder: dApp Developers
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Reading a dAPI Data Feed value and timestamp using the dAPI `name` is simple and
-straight forward. For on-chain smart contracts the `msg.sender` argument
+Reading a dAPI Data Feed value and timestamp using a dAPI `_dapiName` is simple
+and straight forward. For on-chain smart contracts the `msg.sender` argument
 received by the function
 [readDataFeedWithDapiName()](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol#L729-L744)
 must be whitelisted.

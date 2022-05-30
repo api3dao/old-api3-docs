@@ -12,7 +12,7 @@ folder: dApp Developers
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Reading a dAPI Data Feed value and timestamp using the dAPI `datafeedId` is
+Reading a dAPI Data Feed value and timestamp using the dAPI `_datafeedId` is
 simple and straight forward. For on-chain smart contracts the `msg.sender`
 argument received by the function
 [readDataFeedWithId()](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol#L691-L703)

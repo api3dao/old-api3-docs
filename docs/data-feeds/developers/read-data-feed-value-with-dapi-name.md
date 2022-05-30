@@ -1,5 +1,5 @@
 ---
-title: readDataFeedValueWithId()
+title: readDataFeedValueWithDapiName()
 folder: dApp Developers
 ---
 
@@ -12,10 +12,10 @@ folder: dApp Developers
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Reading a dAPI Data Feed value using the dAPI `datafeedId` is simple and
-straight forward. For on-chain smart contracts the `msg.sender` argument
+Reading a dAPI Data Feed value and timestamp using a dAPI `_dapiName` is simple
+and straight forward. For on-chain smart contracts the `msg.sender` argument
 received by the function
-[readDataFeedValueWithId()](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol#L708-L721)
+[readDataFeedValueWithDapiName()](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol#L749-L765)
 must be whitelisted.
 
 ::: tip Get Whitelisted
@@ -40,23 +40,23 @@ contract mySmartContract {
 
     function myGetDataFeedValue(
         address _dapiServerContractAddress,
-        bytes32 _datafeedId
+        bytes32 _dapiName
     ) external {
         int224 private value;
 
         // Calling the DapiServer for a Beacon value.
         value =
-            IDapiServer(_dapiServerContractAddress).readDataFeedValueWithId(_datafeedId);
+            IDapiServer(_dapiServerContractAddress).readDataFeedValueWithDapiName(_dapiName);
     }
 }
 ```
 
 ## Parameters
 
-`readDataFeedValueWithId(bytes32 _datafeedId)`
+`readDataFeedValueWithDapiName(bytes32 _dapiName)`
 
-- `bytes32 datafeedId` - The ID of the dAPI Data Feed to retrieve a value and
-  timestamp for.
+- `bytes32 datafeedId` - The name of the dAPI to retrieve a value and timestamp
+  for.
 
 ## Returns
 

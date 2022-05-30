@@ -1,5 +1,5 @@
 ---
-title: Developers - Why use Beacons?
+title: Developers - Why API3 Data Feeds?
 folder: Introduction
 ---
 
