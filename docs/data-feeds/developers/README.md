@@ -20,6 +20,15 @@ derived from a `templateId` and `airnode` address) or a `name`. This is suitable
 where the more recent data point is always more favorable, e.g., in the context
 of an asset price data feed.
 
+::: danger TODO:
+
+The paragraph above and below just do not make sense. The text is "engineer
+speak'.
+
+- Do dAPIs have IDs? This was not mentioned before.
+
+:::
+
 dAPI Data feeds are single-Airnode data feeds that can be used individually or
 combined to build decentralized data feeds.
 
