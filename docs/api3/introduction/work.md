@@ -18,174 +18,109 @@ applications.
 The Core Development Team is focused on delivering optimized solutions to
 securely, efficiently, and transparently access off-chain data. We are pioneers
 in first-party oracle technology that underlies a growing ecosystem of
-institutions participating in the Web3 API economy. In addition to working in
-public and releasing open source software, the Core Development Team embraces
-automation, experimentation, multi-hat roles, high standards, and supporting one
-another.
+institutions participating in the Web3 API economy.
+
+In addition to working in public and releasing open source software, the Core
+Development Team embraces automation, experimentation, multi-hat roles, high
+standards, and supporting one another.
+
+Our compensation is competitive, based on your skills and experience, and paid
+in stablecoins. We are fully remote and hire globally.
 
 ## Openings
 
 <!-- prettier-ignore-->
-Here are some great roles we need help with. Then again, maybe you can define one for us. <api3-JobsEmailAddress/>
+Here are some great roles we need help with.
 
-1. [Senior Quality Assurance/Quality Control Engineer](./work.md#senior-quality-assurance-quality-control-engineer-job-description)
-2. [Blockchain Technical Project Manager](./work.md#blockchain-technical-project-manager-job-description)
-3. [Full Stack Developer](./work.md#full-stack-developer-job-description)
-4. [Elixir Backend Developer](./work.md#elixir-backend-developer-job-description)
-5. [Senior Blockchain Engineer](./work.md#senior-blockchain-engineer-job-description)
+1. [Senior Quality Assurance Engineer](./work.md#senior-quality-assurance-engineer-job-description)
+2. [Senior Back-end Engineer](./work.md#senior-back-end-engineer-job-description)
 
-<hr/>
-
-### Senior Quality Assurance/Quality Control Engineer Job Description
-
-**Responsibilities:**
-
-- Hands-on manual investigation and reproduction of functional backend software
-  issues.
-- Root cause analysis of existing test script failures.
-- Identification of current test script deficiencies and candidates for
-  additional scripted coverage.
-- Investigatory testing of unreleased features including defining requirements,
-  behavior and impact.
-- Documentation and design of candidate test scenarios for the above.
-
-**Requirements:**
-
-- 5 years+ of backend QA engineering experience, frontend manual/auto testing
-  experience is a great bonus.
-- 1 year+ of Smart contract security auditing/testing.
-- Full cycle testing from designing manual tests, developing scripts and
-  execution.
-- Strong experience with Blockchain Ethereum technologies.
-- Scripting ability using NodeJs, bash, Python.
-- Experience testing backend services such as APIs, Databases, distributed
-  services (non-monolithic), solidity smart contract.
-- Enjoys breaking things and solving problems - not just able to find out the
-  'what', but also the 'why'.
-- Very good English and good communication skills.
+We're always interested in hearing from great candidates, even if we don't have
+an opening that matches. Get in touch and let's have a conversation.
 
 <api3-JobsEmailAddress/>
 
 <hr/>
 
-### Blockchain Technical Project Manager Job Description
+### Senior Quality Assurance Engineer Job Description
 
-**Key Job Responsibilities:**
+We're looking for a Senior QA Engineer to join the API3 Core team. You'll play a
+key role in ensuring our software is robust and well optimised. You'll have
+ownership over the testing process, so this is a great role if you're a
+self-starter.
 
-- Have a strong track record of shaping business strategy for technical products
-  or services.
-- A strong understanding of the API connectivity problem is desirable.
-- Understand how to design scalable software.
-- Be conversant with emerging technologies.
-- Communicate effectively with both business and technical partners.
-- Have an entrepreneurial spirit.
+**What you'll be doing:**
 
-**Basic Qualifications:**
+- Full cycle testing: designing, documenting and executing manual tests, and
+  scripting automated tests
+- Root cause analysis of bugs, test failures and regression testing thereof
+- Continuous improvement of the testing tools, test coverage, and automated
+  testing environment
+- Performing investigatory tests of unreleased features and experiments to
+  define requirements, behavior and impact
+- Recommending system improvements based on the testing experience
+- Working closely with the engineers and product owners
 
-- 5+ years of experience managing complex technology projects.
-- Experience with agile development methodologies (i.e. Scrum, XP, Kanban, etc).
-- Experience with project delivery for large, cross-functional projects.
-- Experience and proficiency with web technologies and tools.
-- Track record of authoring forward looking technology roadmap/ yearly planning
-  docs to enable trade-off and decision at leadership level.
-- Strong analytical and problem solving skills.
+**What skills we need you to have:**
 
-**Preferred Qualifications:**
+- Senior-level professional QA engineering experience testing back-end services
+  such as APIs, databases, distributed services (non-monolithic) and Solidity
+  smart contracts
+- Good understanding of modern testing tools, frameworks and strategies
+- Enjoy breaking things and solving problems - not just able to find out the
+  'what', but also the 'why'
+- A technical scripting ability
+- Thoroughness and attention to detail
+- Professional working proficiency in English
 
-- Master's degree in a business or technology discipline or related field.
-- Superior project management and organizational skills.
-- Strong customer focus and ability to demonstrate pragmatic decision-making.
-- Exceptional verbal and written communication skills.
-- Experience delivering large-scale systems with world-class availability,
-  scalability, and performance requirements.
-- Experience in non-technical aspects including idea generation, business
-  analysis, financial understanding, and process optimization.
+**You'll be very well qualified for the role if you have some of the
+following:**
 
-<api3-JobsEmailAddress/>
-
-<hr/>
-
-### Full Stack Developer Job Description
-
-**Required Skills:**
-
-- 5 years of experience delivering enterprise class JavaScript web applications.
-- 3 years of experience building single page applications with React or similar.
-- Experience with Typescript ES6/ES7 JavaScript.
-- Solid fundamental understanding of unit, integration, and e2e testing.
-- Practical experience building and consuming RESTful APIs in node.js.
-- Solid understanding of the full web technology stack (e.g. HTTP, cookies,
-  asset loading, caching, REST).
-- Experience using CI/CD tools and systems such as Jenkins, GitHub, GitLab,
-  Bitbucket, etc.
-- Experience with HTML, CSS, Sass, Bootstrap or similar.
-- Solid understanding of object-oriented design and functional programming
-  concepts, core JavaScript concepts like scope/closures, the event loop,
-  asynchronous callbacks and promises.
-- Have a passion for quality and writing clean, solid, readable code that scales
-  and performs well.
-- Strong desire to learn, communicate, and share knowledge with others.
-- Strong critical thinking and problem solving skills.
-- Experience architecting and implementing complex solutions from infrastructure
-  to application level.
-
-**Preferred Qualifications:**
-
-- Experience with cloud infrastructure (AWS, Azure, or similar) and/or
-  containerization (Docker, Kubernetes).
-- Experience with SQL, RMDBS, and NoSQL.
-- UI/UX Design experience is a plus.
-- Experience working in an Agile environment.
-- Experience with Unix/Linux.
-
-**Experience:**
-
-Seeking eight (8) years of overall experience performing web development
-activities with a Bachelor’s Degree.
+- Scripting proficiency with NodeJS, Bash and/or Python
+- Experience with Blockchain and Ethereum technologies
+- Experience with smart contract security auditing and testing
 
 <api3-JobsEmailAddress/>
 
 <hr/>
 
-### Elixir Backend Developer Job Description
+### Senior Back-end Engineer Job Description
 
-**Required Skills:**
+We are building ChainAPI, a platform for API Providers to integrate and monetize
+their services to blockchains and for blockchain developers to integrate API
+services to their decentralized applications. ChainAPI is therefore a
+combination of a traditional Web platform and a decentralized application.
 
-- 7+ years of experience is a professional development environment.
-- 4+ years of experience with Functional programming (Ideally Elixir).
-- 1+ years of experience working with AWS or other cloud environments (GCP,
-  Azure).
-- The ability to improve everyday and take ownership of your work.
-- The ability to collaborate with team members and be coachable.
+We're looking for a Senior Back-end Engineer to join the ChainAPI team to help
+us build out the future of decentralized data. If you're interested in working
+with blockchain technologies using your experience from traditional web
+development, this is a good fit for you.
 
-**Preferred Qualifications:**
+**What you'll be doing:**
 
-- 7+ years working as a full stack engineer.
-- Passionate about Elixir and filling in any gaps of knowledge of the cutting
-  edge language.
-- Experience with React/NextJs Framework.
-- Passionate about growing on a daily basis.
-- Disciplined approach to testing and quality assurance.
+- Building out the back-end for ChainAPI - REST API, integrations, background
+  jobs, the database and more
+- Play an active role in the design and architecture of our solutions
+- Review and provide feedback for code written by the team
+- Learn and suggest new technologies as needed
+- Coach and mentor team members
 
-<api3-JobsEmailAddress/>
+**What skills we need you to have:**
 
-<hr/>
+- Senior-level professional experience with back-end solutions in a web
+  environment
+- Proficiency in at least one web development language and framework
+- Good grasp of modern software development tools and processes (testing
+  frameworks, CI/CD, version control, etc.)
+- A track record of delivering high quality solutions
+- Professional working proficiency in English
 
-### Senior Blockchain Engineer Job Description
+**You'll be very well qualified for the role if you have some of the
+following:**
 
-**Required Skills:**
-
-- 2+ years of smart contract development experience in Solidity (experience in
-  other smart contract languages is an asset).
-- Strong knowledge of design principles both specific to smart contract (like
-  factory pattern, proxy design) or more generic like OOP, functional
-  programming, REST.
-- Experience in Solidity, Typescript, OpenZeppelin standards, Web3,
-  Truffle/Hardhat, the Graph, NodeJS, AWS, MySQL/Postgres, MongoDB/NoSQL.
-- Experience in smart contract auditing is a strong asset.
-- Familiar with cryptography and encryption methods. Experience with enterprise
-  level key management solutions or projects is a strong asset.
-- Ability to grow yourself and other engineers through code reviews, design
-  reviews, and screenshare/peer debugging.
+- Proficiency in Elixir and Phoenix
+- Understanding of blockchain technologies
+- Experience with relational databases like PostgreSQL
+- Experience with AWS or Render
 
 <api3-JobsEmailAddress/>
