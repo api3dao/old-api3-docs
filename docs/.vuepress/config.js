@@ -28,7 +28,7 @@ module.exports = {
   latestOisTitle: 'OIS v1.0.0',
 
   /// Job page revision, incremented when a new job(s) is added
-  jobPageRevision: 3,
+  jobPageRevision: 4,
 
   head: [
     [
