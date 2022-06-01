@@ -37,24 +37,25 @@ API3 serves three kinds of data feeds:
   set. A dAPI is addressed by its human-readable name which is used to easily
   acquire a single Beacon or Beacon set on-chain.
 
+<!--
 ::: tip Coverage Policies
 
 <span style="color:red;font-weight:bold">TODO: Need link to policies.</span>
 Each type of data feed shown above has different [coverage policies]() with
 different security guarantees.
 
-:::
+:::-->
 
 Use the [DapiServer.sol](./#dapiserver-sol) contract to access each of the three
 data feeds.
 
 ## Beacons
 
-Behind all Beacons are first-party oracles run by the API data providers
-themselves. This means that when calling a data feed for the latest price of an
-asset, a smart contract receives a value directly from the Web3-enabled API data
-providers behind a Beacon or Beacon set - not a third-party or a network of
-third party middlemen.
+Beacons are the foundation for all data feeds. Behind all Beacons are
+first-party oracles run by the API data providers themselves. This means that
+when calling a data feed for the latest price of an asset, a smart contract
+receives a value directly from the Web3-enabled API data providers - not a
+third-party or a network of third party middlemen.
 
 Updating a Beacon is a simple and efficient system that leverages first-party
 Airnodes to keep individual Beacon values up-to-date. When a Beacon's value
@@ -94,9 +95,9 @@ Binance ETH/USD value (1FeexV6A) and so on.
 
 To exploit the benefit of Beacons and Beacon sets, dAPIs enable dApp developers
 a powerful tool to quickly acquire single or aggregated Beacon values on-chain.
-A dAPI is a virtual definition (alias) that points to a Beacon or Beacon set,
-the latter returning an aggregated value from a set of Beacons that utilize a
-common data schema.
+dAPI data feeds add a simplicity layer atop Beacons and Beacons sets by
+providing an "ENS like" name that points to either. Think of a dAPI as a virtual
+definition (alias) that points to a Beacon or Beacon set.
 
 All data feeds that API3 serves on-chain can be read from a single
 [DapiServer.sol](https://github.com/api3dao/airnode-protocol-v1/blob/main/contracts/dapis/DapiServer.sol)

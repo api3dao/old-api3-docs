@@ -5,7 +5,7 @@ module.exports = [
     collapsable: false,
     children: [
       '', //README
-      'introduction/why-use-beacons',
+      'introduction/why-use-data-feeds',
       'introduction/why-power',
     ],
   },
