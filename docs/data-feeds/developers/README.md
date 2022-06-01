@@ -12,25 +12,54 @@ folder: dApp Developers
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-[DapiServer.sol](hhttps://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol)
-serves Beacon values sourced from a Beacon's underlying Airnode. dAPI
-definitions can return a single Beacon value or the value of a Beacon set. A
-dAPI data feed is a live data point associated with a `datafeedId` (which is
-derived from a `templateId` and `airnode` address) or a `name`. This is suitable
-where the more recent data point is always more favorable, e.g., in the context
-of an asset price data feed.
+The
+[DapiServer.sol](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol)
+contract serves data feed values to any dApp with the appropriate permissions.
+The contract is simple to use and returns immediate data feed values.
 
-::: danger TODO:
+::: tip Data feed preview access
 
-The paragraph above and below just do not make sense. The text is "engineer
-speak'.
-
-- Do dAPIs have IDs? This was not mentioned before.
+Currently access to data feeds does not require a subscription during the
+current preview period.
 
 :::
 
-dAPI Data feeds are single-Airnode data feeds that can be used individually or
-combined to build decentralized data feeds.
+## IDs and Names
+
+When calling the reader functions of the `DapiServer.sol` contract, use either a
+Beacon ID, Beacon set ID, or a dAPI name.
+
+- Beacon ID: The hash of a Beacon's parameters.
+- Beacon set ID: The hash of the Beacon IDs in the Beacon set.
+- dAPI name: A human readable name that represents a Beacon or Beacon set.
+
+Pass an ID or dAPI name to the appropriate `DapiServer` reader function using
+the following parameter names.
+
+- `_datafeedId`: Use a Beacon ID or Beacon set ID.
+- `_dapiName`: Use a dAPI name.
+
+### Why use a dAPI `name`?
+
+To simplify access, dAPI definitions can return a single Beacon value or the
+value of a Beacon set. A dAPI data feed is a live data point associated with
+`name`. This is suitable where the more recent data point (meaning its set of
+Beacons could change as needed) is always more favorable, e.g., in the context
+of an asset price data feed.
+
+## Starter Project
+
+This
+[data-feed-reader-example](https://github.com/api3dao/data-feed-reader-example)
+starter is an example project for reading API3 data feeds on the Polygon
+testnet. Be sure to read through the
+[README.md](https://github.com/api3dao/data-feed-reader-example/blob/main/README.md)
+and some of the example code such as the
+[DataFeedReaderExample.sol](https://github.com/api3dao/data-feed-reader-example/blob/main/contracts/DataFeedReaderExample.sol)
+smart contract. Finally follow the instruction in the README to get acquainted
+with reading data feeds.
+
+## DapiServer Functions
 
 - [readDataFeedWithId()](./read-data-feed-with-id.md) - Returns a value and
   timestamp using the `_datafeedId`.
@@ -44,14 +73,6 @@ combined to build decentralized data feeds.
   can read a data feed.
 - [dataFeedIdToReaderToWhitelistStatus()](./data-feed-id-to-reader-to-whitelist-status.md) -
   Details about the whitelist status of a reader address.
-
-## Starter Project
-
-::: danger TODO:
-
-When BEC-183 (Beacon Reader Example) is ready this section requires updating.
-
-:::
 
 ## Resources
 
