@@ -15,11 +15,8 @@ folder: dApp Developers
 For on-chain smart contracts, the function
 [readerCanReadDataFeed()](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol#L771-L781)
 returns true if the `reader` parameter can access the `dataFeedId` parameter
-meaning that the reader address has been whitelisted. Please contact the
-[API3 Business Development API Team](https://api3.org) to be whitelisted.
-
-Calling from off-chain code (_using a library such as `ether.js`_) is not
-subject to whitelisting. Off-chain code is beyond the scope of this doc.
+meaning that the reader address has the appropriate data feed subscription. See
+[Subscriptions](./#subscriptions) for more information about data feed access.
 
 ## Example Code
 

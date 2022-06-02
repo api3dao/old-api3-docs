@@ -17,12 +17,40 @@ The
 contract serves data feed values to any dApp with the appropriate permissions.
 The contract is simple to use and returns immediate data feed values.
 
-::: tip Data feed preview access
+## Starter Project
 
-Currently access to data feeds does not require a subscription during the
-current preview period.
+The
+[data-feed-reader-example](https://github.com/api3dao/data-feed-reader-example)
+starter is an example project for reading API3 data feeds on the Polygon
+testnet. Be sure to read through the
+[README.md](https://github.com/api3dao/data-feed-reader-example/blob/main/README.md)
+and some of the example code such as the
+[DataFeedReaderExample.sol](https://github.com/api3dao/data-feed-reader-example/blob/main/contracts/DataFeedReaderExample.sol)
+contract. Read through this entire page before running the starter project to
+better understand some of the terms and concepts mentioned. Finally follow the
+instruction in the README to get acquainted with reading data feeds.
 
-:::
+## Subscriptions
+
+`DapiServer.sol` will check that the requester has a subscription for each data
+feed it may attempt to read. During the _preview period_, all data feeds on
+production networks are accessible with a free (limited time offer)
+subscription. Please go to the
+[Data Feed Subscription](https://forms.monday.com/forms/embed/f44d0ed9dfd0154885f48fdb3b87a489?r=use1)
+inquiry page to request data feed access on production networks. See
+[Chains and Contracts](../reference/chains.md) which includes supported
+production networks as well as testnets.
+
+### Testnets
+
+For testnets like polygon-testnet, developers can self-subscribe to use any data
+feed. During the deployment flow of your smart contract that reads a data feed,
+add code that self-subscribes to the desired data feed. The following scripts
+from the [Starter Project](./#starter-project) detail how this is done. Please
+be sure to explore the starter project in its entirety.
+
+- [allow-to-read-with-id.js](https://github.com/api3dao/data-feed-reader-example/blob/main/scripts/allow-to-read-with-id.js)
+- [allow-to-read-with-name.js](https://github.com/api3dao/data-feed-reader-example/blob/main/scripts/allow-to-read-with-name.js)
 
 ## IDs and Names
 
@@ -47,18 +75,6 @@ value of a Beacon set. A dAPI data feed is a live data point associated with
 Beacons could change as needed) is always more favorable, e.g., in the context
 of an asset price data feed.
 
-## Starter Project
-
-This
-[data-feed-reader-example](https://github.com/api3dao/data-feed-reader-example)
-starter is an example project for reading API3 data feeds on the Polygon
-testnet. Be sure to read through the
-[README.md](https://github.com/api3dao/data-feed-reader-example/blob/main/README.md)
-and some of the example code such as the
-[DataFeedReaderExample.sol](https://github.com/api3dao/data-feed-reader-example/blob/main/contracts/DataFeedReaderExample.sol)
-smart contract. Finally follow the instruction in the README to get acquainted
-with reading data feeds.
-
 ## DapiServer Functions
 
 - [readDataFeedWithId()](./read-data-feed-with-id.md) - Returns a value and
@@ -72,7 +88,7 @@ with reading data feeds.
 - [readerCanReadDataFeed()](./reader-can-read-datafeed.md) - Whether a reader
   can read a data feed.
 - [dataFeedIdToReaderToWhitelistStatus()](./data-feed-id-to-reader-to-whitelist-status.md) -
-  Details about the whitelist status of a reader address.
+  Details about the subscription status of a reader address.
 
 ## Resources
 
