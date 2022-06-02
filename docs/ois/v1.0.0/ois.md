@@ -439,10 +439,11 @@ that cannot be overridden by the requester.
 ### 5.4. `reservedParameters`
 
 [<InfoBtnBlue/>](/airnode/v0.6/grp-providers/guides/build-an-airnode/api-integration.md#reservedparameters)
-(Optional) A list of objects that specify reserved Airnode endpoint parameters
-that do not map to any API operation parameters, but are used for special
-purposes by the Airnode. See the [Reserved Parameters](./reserved-parameters.md)
-doc for an in-depth explanation. Each object has the following elements:
+
+A list of objects that specify reserved Airnode endpoint parameters that do not
+map to any API operation parameters, but are used for special purposes by the
+Airnode. See the [Reserved Parameters](./reserved-parameters.md) doc for an
+in-depth explanation. Each object has the following elements:
 
 - `name`
 - `fixed`
@@ -457,11 +458,13 @@ Allowed values: `_type`, `_path` or `_times`
 #### 5.4.2. `fixed`
 
 (Optional) The fixed (i.e., non-overridable) value for the reserved parameter.
+If `fixed` is used, the `default` has no effect and should not be used.
 
 #### 5.4.3. `default`
 
 (Optional) The default value for the reserved parameter. Used when no value is
-provided.
+provided. If `default` is used, the `fixed` must not be used because it would
+override the default value.
 
 ### 5.5. `parameters`
 
@@ -523,7 +526,7 @@ corresponding operation parameter.-->
 <!--OAS equivalent: `paths.{path}.{method}.parameters.{#}.required` of the
 corresponding operation parameter.-->
 
-#### 5.5.6. `example`
+#### 5.5.6. `example` \*
 
 (Optional) The example value to be used in test calls.
 
