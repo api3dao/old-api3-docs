@@ -16,15 +16,7 @@ Reading a dAPI Data Feed value and timestamp using a dAPI `_dapiName` is simple
 and straight forward. For on-chain smart contracts the `msg.sender` argument
 received by the function
 [readDataFeedValueWithDapiName()](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol#L749-L765)
-must be whitelisted.
-
-::: tip Get Whitelisted
-
-Please contact the
-[API3 Business Development API Team](https://api3dao.typeform.com/to/O1Uvxc8m)
-about dAPI Data Feed whitelisting.
-
-:::
+must have a [subscription](./#subscriptions) for the data feed requested.
 
 Calling from off-chain code (_using a library such as `ether.js`_) is not
 subject to whitelisting. Off-chain code is beyond the scope of this doc.
