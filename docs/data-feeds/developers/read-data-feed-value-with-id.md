@@ -12,9 +12,9 @@ folder: dApp Developers
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Reading a dAPI Data Feed value using the dAPI `_datafeedId` is simple and
-straight forward. For on-chain smart contracts the `msg.sender` argument
-received by the function
+Reading a data feed value with an ID is simple and straight forward. In the code
+example below, `_datafeedId` is a Beacon or Beacon set ID. For on-chain smart
+contracts the `msg.sender` argument received by the function
 [readDataFeedValueWithId()](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol#L708-L721)
 must have a [subscription](./#subscriptions) for the data feed requested.
 
@@ -36,7 +36,7 @@ contract mySmartContract {
     ) external {
         int224 private value;
 
-        // Calling the DapiServer for a Beacon value.
+        // Calling the DapiServer for a data feed value.
         value =
             IDapiServer(_dapiServerContractAddress).readDataFeedValueWithId(_datafeedId);
     }
@@ -50,12 +50,11 @@ See another code example of `readDataFeedValueWithId()` in the
 
 `readDataFeedValueWithId(bytes32 _datafeedId)`
 
-- `bytes32 datafeedId` - The ID of the dAPI Data Feed to retrieve a value and
-  timestamp for.
+- `bytes32 datafeedId` - The ID of the dAPI Data Feed to retrieve a value for.
 
 ## Returns
 
-- `int224 value` - The value of the dAPI Data Feed.
+- `int224 value` - The value of the data feed.
 
 ::: tip Please note:
 

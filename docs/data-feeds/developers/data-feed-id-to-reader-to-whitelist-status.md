@@ -49,11 +49,23 @@ contract mySmartContract {
 
 ```
 
+::: tip dAPI name
+
+If you want to check the status for a dAPI `name`, you first need to calculate
+the hash off-chain of `name`. Then pass `dapiNameHash` as `_datafeedId` in the
+example above.
+
+```solidity
+dapiNameHash = ethers.utils.solidityKeccak256(['string'], [dapiName]);
+```
+
+:::
+
 ## Parameters
 
 `readerCanReadDataFeed(bytes32 datafeedId, address reader)`
 
-- `bytes32 datafeedId` - The ID of the dAPI datafeed.
+- `bytes32 datafeedId` - The ID of the datafeed.
 - `address reader` - The address to verify such as the reader's smart contract
   address or another address.
 
