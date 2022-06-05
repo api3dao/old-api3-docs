@@ -12,6 +12,16 @@ folder: dApp Developers
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
+::: warning Using IDs
+
+TODO: This is tough to explain.
+
+Using Beacon IDs to access a Beacon or Beacons set value through the
+`DapiServer.sol` contract is not the preferred method of using dAPIs which is to
+use the dAPI name.
+
+:::
+
 Reading a data feed value with an ID is simple and straight forward. In the code
 example below, `_datafeedId` is a Beacon or Beacon set ID. For on-chain smart
 contracts the `msg.sender` argument received by the function

@@ -122,10 +122,10 @@ export default {
         path: '/chainapi/',
       },
       {
-        name: 'Data Feeds',
+        name: 'dAPIs',
         iconActive: '/img/Beacons-active.png',
         iconInactive: '/img/Beacons-default.png',
-        path: '/data-feeds/',
+        path: '/dapis/',
       },
       {
         name: 'DAO Members',
@@ -175,12 +175,12 @@ export default {
           path: '/chainapi/',
         });
       }
-      if (!flag2 && path.indexOf('/data-feeds') > -1) {
+      if (!flag2 && path.indexOf('/dapis') > -1) {
         this.docSets.push({
-          name: 'Data Feeds',
+          name: 'dAPIs',
           iconActive: '/img/Beacons-active.png',
           iconInactive: '/img/Beacons-default.png',
-          path: '/data-feeds/',
+          path: '/dapis/',
         });
       }
       /// END TEMPORARY
