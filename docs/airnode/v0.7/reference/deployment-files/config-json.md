@@ -160,7 +160,7 @@ for some considerations.
 #### `options.priorityFee`
 
 (optional) - An object that configures the EIP-1559 Priority Fee. Defaults to:
-`{"value": 3.12, "value": "gwei"}`.
+`{"value": 3.12, "unit": "gwei"}`.
 
 #### `options.baseFeeMultiplier`
 

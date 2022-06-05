@@ -158,7 +158,7 @@ URLs of each of these chain providers in their respective `url` fields.
 #### `options.priorityFee`
 
 (optional) - An object that configures the EIP-1559 Priority Fee (defaults
-to`{"value": 3.12, "value": "gwei"}`)
+to`{"value": 3.12, "unit": "gwei"}`)
 
 #### `options.baseFeeMultiplier`
 
