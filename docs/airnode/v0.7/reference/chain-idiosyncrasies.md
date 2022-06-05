@@ -19,10 +19,10 @@ be comprehensive and we are interested in hearing if you encounter others.
 ## config.json - chains field
 
 The idiosyncrasies below relate to the `chains` field of `config.json`. For the
-corresponding guide section
+corresponding Airnode configuration guide section
 [see here](../grp-providers/guides/build-an-airnode/configuring-airnode.md#chains)
 and for the corresponding reference section
-[see here](../reference/deployment-files/config-json.md)
+[see here](../reference/deployment-files/config-json.md#chains).
 
 ### Avalanche
 
