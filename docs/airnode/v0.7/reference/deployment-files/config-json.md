@@ -164,7 +164,7 @@ for some considerations.
 
 ##### `options.priorityFee.value`
 
-(required) - The EIP-1559 priority fee value.
+(required) - A number specifying the EIP-1559 priority fee value.
 
 ##### `options.priorityFee.unit`
 
