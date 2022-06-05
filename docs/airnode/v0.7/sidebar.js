@@ -190,6 +190,7 @@ module.exports = [
       },
       'reference/airnode-addresses',
       'reference/cloud-resources',
+      'reference/chain-idiosyncrasies',
     ],
   },
 ];
