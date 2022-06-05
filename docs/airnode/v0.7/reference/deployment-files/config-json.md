@@ -99,7 +99,11 @@ respective parameters.
         "unit": "gwei"
       },
       "baseFeeMultiplier": 2,
-      "fulfillmentGasLimit": 500000
+      "fulfillmentGasLimit": 500000,
+      "withdrawalRemainder": {
+        "value": 0,
+        "unit": "wei"
+      }
     },
     "maxConcurrency": 100,
     "blockHistoryLimit": 300,
@@ -182,6 +186,31 @@ The resulting Gas Price will equal `Gas Price * gasPriceMultiplier`
 (required) - The maximum gas limit allowed when Airnode responds to a request,
 paid by the requester. If exceeded, the request is marked as failed and will not
 be repeated during Airnode's next run cycle.
+
+#### `options.withdrawalRemainder`
+
+(optional) - An object of the form `{"value": 0, "unit": "wei"}` that configures
+the amount to subtract from the funds returned to the sponsor when making a
+[withdrawal](../../concepts/sponsor.md#withdrawals). Defaults to zero and is
+relevant only for some chains e.g.
+[Optimism](../chain-idiosyncrasies.md#optimism).
+
+##### `options.withdrawalRemainder.value`
+
+(required) - A number specifying the `withdrawalRemainder` value.
+
+##### `options.withdrawalRemainder.unit`
+
+(required) - The unit of the `withdrawalRemainder` value. It can be one of the
+following:
+
+- `wei`
+- `kwei`
+- `mwei`
+- `gwei`
+- `szabo`
+- `finney`
+- `ether`
 
 ### `maxConcurrency`
 

@@ -163,6 +163,7 @@ The below links offer details for each field:
   - [options.baseFeeMultiplier](../../../reference/deployment-files/config-json.md#options-basefeemultiplier)
   - [options.gasPriceMultiplier](../../../reference/deployment-files/config-json.md#options-gaspricemultiplier)
   - [options.fulfillmentGasLimit](../../../reference/deployment-files/config-json.md#options-fulfillmentgaslimit)
+  - [options.withdrawalRemainder](../../../reference/deployment-files/config-json.md#options-withdrawalremainder)
 - [maxConcurrency](../../../reference/deployment-files/config-json.md#maxconcurrency)
 - [blockHistoryLimit](../../../reference/deployment-files/config-json.md#blockhistorylimit)
 - [minConfirmations](../../../reference/deployment-files/config-json.md#minconfirmations)
