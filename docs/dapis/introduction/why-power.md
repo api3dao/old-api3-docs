@@ -1,5 +1,5 @@
 ---
-title: API Providers - Why power Beacons?
+title: API Providers - Why power dAPIs?
 folder: Introduction
 ---
 
@@ -12,39 +12,40 @@ folder: Introduction
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Beacons are lightweight, first-party data feeds that increase transparency,
-reduce cost, and scale data access for Web3. They allow smart contract
-developers to connect Web3 applications to continuously updated streams of
-off-chain data, such as the latest cryptocurrency, stock, and commodities
-prices.
+dAPIs are lightweight, first-party data feeds that increase transparency, reduce
+cost, and scale data access for Web3. They allow smart contract developers to
+connect Web3 applications to continuously updated streams of off-chain data,
+such as the latest cryptocurrency, stock, and commodities prices. dAPIs are
+hosted on a growing number of networks.
 
 > <img src="../assets/images/why-power-beacons.png" width="350px"/>
->
-> Provider operated. Data source transparent.
 
-Why should API providers power Beacons? Beacons unlock a novel data monetization
-channel targeting the growing market of smart contract developers building the
-next generation of games, applications, and services.
+dAPIs read underlying on-chain Beacons whose value are updated by API provider
+owned and operated Airnodes. Beacons unlock a novel data monetization channel
+targeting the growing market of smart contract developers building the next
+generation of games, applications, and services.
 
-## Reasons to power Beacons
+> <img src="../assets/images/dapp-beacon.png" width="450px"/>
 
-Beacons enable API providers of all sizes the ability to transparently,
-securely, and cost-efficiently monetize their data on Web3.
+## Reasons to power dAPIS with API provider Beacons!
+
+dAPIs need Beacon values! Beacons enable API providers of all sizes the ability
+to transparently, securely, and cost-efficiently monetize their data on Web3.
 
 ### Monetization
 
 Innovative decentralized applications (dApps) are increasingly demanding access
-to off-chain data. API providers that utilize Beacons to satisfy this need will
-tap into a novel and growing revenue stream.
+to off-chain data. API providers that utilize Beacons to power dAPIs can satisfy
+this need and tap into a novel and growing revenue stream.
 
 ### Security
 
 Other oracle implementations that provide Web3 data rely on networks of
 3rd-party oracle nodes acting as middlemen. Beacons, on the other hand, feed
-data from API provider directly to the blockchain and thereby avoid security
-risks and fees introduced by third parties. Moreover, developers leveraging
-Beacons for their dApps are provided with security guarantees associated with
-knowing exactly where their data comes from.
+data from API providers directly to the dAPIs on-chain and thereby avoid
+security risks and fees introduced by third parties. Moreover, developers
+leveraging dAPIs for their dApps are provided with security guarantees
+associated with knowing exactly where their data comes from.
 
 ### Pricing
 
@@ -54,9 +55,10 @@ charged by middlemen.
 
 ### Exposure
 
-By engaging the emerging Web3 market for Beacons, API providers gain exposure
-for their organizations. API providers that power Beacons on multiple
-blockchains will further establish a reputation as premier data providers.
+By engaging the emerging Web3 market for dAPIs, API providers gain exposure for
+their organizations. API providers that power dAPIs with their Beacons on
+multiple blockchains will further establish a reputation as premier data
+providers.
 
 ### Reputation
 
