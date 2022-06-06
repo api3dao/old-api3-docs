@@ -113,6 +113,14 @@ slowly, either `baseFeeMultiplier`, for legacy transactions, or
 [reference section below](#chains-reference) has links to these and other
 relevant fields.
 
+::: warning Idiosyncrasies
+
+See the dedicated
+[Chain Idiosyncrasies](../../../reference/chain-idiosyncrasies.md) page for
+chain-specific configuration considerations.
+
+:::
+
 #### Considerations: Concurrency
 
 If you set the `maxConcurrency` field to value X, then Airnode will guarantee
