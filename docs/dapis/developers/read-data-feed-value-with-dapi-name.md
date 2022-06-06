@@ -16,7 +16,7 @@ Reading a dAPI value with an dAPI `name` is simple and straight forward. In the
 code example below, `_dapiName` is a dAPI `name`. For on-chain smart contracts
 the `msg.sender` argument received by the function
 [readDataFeedValueWithDapiName()](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol#L749-L765)
-must have a [Coverage Policy](./#coverage-policies) for the dAPI requested.
+must have a [Coverage Plans](./#coverage-plans) for the dAPI requested.
 
 Calling from off-chain code (_using a library such as `ether.js`_) is not
 subject to coverage policies. Off-chain code is beyond the scope of this doc.
