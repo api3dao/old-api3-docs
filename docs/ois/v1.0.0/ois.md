@@ -458,12 +458,12 @@ Allowed values: `_type`, `_path` or `_times`
 #### 5.4.2. `fixed`
 
 (Optional) The fixed (i.e., non-overridable) value for the reserved parameter.
-If `fixed` is used, the `default` has no effect and should not be used.
+If `fixed` is used, `default` has no effect and should not be used.
 
 #### 5.4.3. `default`
 
 (Optional) The default value for the reserved parameter. Used when no value is
-provided. If `default` is used, the `fixed` must not be used because it would
+provided. If `default` is used, `fixed` must not be used because it would
 override the default value.
 
 ### 5.5. `parameters`
