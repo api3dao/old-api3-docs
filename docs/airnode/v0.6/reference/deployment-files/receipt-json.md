@@ -48,7 +48,7 @@ not generated for client deployments (deploying to a Docker container).
       "disableConcurrencyReservations": false
     },
     "stage": "starter-example",
-    "nodeVersion": "0.6.3",
+    "nodeVersion": "0.6.4",
     "timestamp": "2022-03-26T02:37:55.506Z"
   },
   "api": {
@@ -79,7 +79,7 @@ not generated for client deployments (deploying to a Docker container).
       "projectId": "api3-753118"
     },
     "stage": "dev",
-    "nodeVersion": "0.6.3",
+    "nodeVersion": "0.6.4",
     "timestamp": "2022-03-26T02:37:55.506Z"
   },
   "api": {}
