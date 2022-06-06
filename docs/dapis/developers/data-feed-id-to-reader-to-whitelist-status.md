@@ -14,9 +14,9 @@ folder: dApp Developers
 
 For on-chain smart contracts, the function
 [dataFeedIdToReaderToWhitelistStatus()](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol#L791-L806)
-returns [subscription](./#subscriptions) information with the
+returns [Coverage Policy](./#coverage-policies) information with the
 `expirationTimestamp` and `indefiniteWhitelistCount` of a reader for the
-specified data feed.
+specified dAPI.
 
 The reader will not be able to read the dAPI data feed past the
 expirationTimestamp (assuming their `indefiniteWhitelistCount` is 0 ). If the
@@ -65,14 +65,14 @@ dapiNameHash = ethers.utils.solidityKeccak256(['string'], [dapiName]);
 
 `readerCanReadDataFeed(bytes32 datafeedId, address reader)`
 
-- `bytes32 datafeedId` - The ID of the datafeed.
+- `bytes32 datafeedId` - The ID of a dAPI, Beacon, or Beacon set.
 - `address reader` - The address to verify such as the reader's smart contract
   address or another address.
 
 ## Returns
 
 - `expirationTimestamp` - Timestamp at which the whitelisting of the reader will
-  expire
+  expire.
 
 - `indefiniteWhitelistCount` - Number of times `reader` was whitelisted
-  indefinitely for `dataFeedId`
+  indefinitely for `dataFeedId`.

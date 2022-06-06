@@ -12,14 +12,14 @@ folder: dApp Developers
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Reading a data feed value and timestamp with an dAPI name is simple and straight
-forward. In the code example below, `_dapiName` is a dAPI name. For on-chain
+Reading a dAPI value and timestamp with an dAPI `name` is simple and straight
+forward. In the code example below, `_dapiName` is a dAPI `name`. For on-chain
 smart contracts the `msg.sender` argument received by the function
 [readDataFeedWithDapiName()](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol#L729-L744)
-must have a [subscription](./#subscriptions) for the data feed requested.
+must have a [Coverage Policy](./#coverage-policies) for the dAPI requested.
 
 Calling from off-chain code (_using a library such as `ether.js`_) is not
-subject to whitelisting. Off-chain code is beyond the scope of this doc.
+subject to coverage policies. Off-chain code is beyond the scope of this doc.
 
 ## Example Code
 
@@ -51,13 +51,13 @@ See another code example of `readDataFeedWithDapiName()` in the
 
 `readDataFeedWithDapiName(bytes32 _dapiName)`
 
-- `bytes32 datafeedId` - The name of the data feed to retrieve a value and
-  timestamp for.
+- `bytes32 dapiName` - The name of the dAPI to retrieve a value and timestamp
+  for.
 
 ## Returns
 
-- `int224 value` - The value of the data feed.
-- `uint32 timestamp` - The timestamp associated with the data feed value.
+- `int224 value` - The value of the dAPI.
+- `uint32 timestamp` - The timestamp associated with the value.
 
 ::: tip Please note:
 
