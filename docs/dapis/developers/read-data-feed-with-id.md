@@ -12,24 +12,22 @@ folder: dApp Developers
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-::: warning Using IDs
+::: tip Please note
 
-TODO: This is tough to explain.
-
-Using Beacon IDs to access a Beacon or Beacons set value through the
-`DapiServer.sol` contract is not the preferred method of using dAPIs which is to
-use the dAPI name.
+As an alternative to calling a dAPI by it name, it is possible to use a Beacon
+or Beacon set ID known as a `datafeedId`. However the preferred method is to use
+a dAPI `name`.
 
 :::
 
-Reading a data feed value and timestamp with an ID is simple and straight
-forward. In the code example below, `_datafeedId` is a Beacon or Beacon set ID.
-For on-chain smart contracts the `msg.sender` argument received by the function
+Reading a dAPI value and timestamp with an ID is simple and straight forward. In
+the code example below, `_datafeedId` is a Beacon or Beacon set ID. For on-chain
+smart contracts the `msg.sender` argument received by the function
 [readDataFeedWithId()](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol#L691-L703)
-must have a [subscription](./#subscriptions) for the data feed requested.
+must have a [Coverage Plans](./#coverage-plans) for the dAPI requested.
 
 Calling from off-chain code (_using a library such as `ether.js`_) is not
-subject to whitelisting. Off-chain code is beyond the scope of this doc.
+subject to coverage plans. Off-chain code is beyond the scope of this doc.
 
 ## Example Code
 
@@ -61,13 +59,13 @@ See another code example of `readDataFeedWithId()` in the
 
 `readDataFeedWithId(bytes32 _datafeedId)`
 
-- `bytes32 datafeedId` - The ID of the data feed to retrieve a value and
-  timestamp for.
+- `bytes32 datafeedId` - The ID of a Beacon or Beacon set to retrieve a value
+  and timestamp for.
 
 ## Returns
 
-- `int224 value` - The value of the data feed.
-- `uint32 timestamp` - The timestamp associated with the data feed value.
+- `int224 value` - The value of the Beacon or Beacon set.
+- `uint32 timestamp` - The timestamp associated with the value.
 
 ::: tip Please note:
 

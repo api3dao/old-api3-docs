@@ -12,24 +12,22 @@ folder: dApp Developers
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-::: warning Using IDs
+::: tip Please note
 
-TODO: This is tough to explain.
-
-Using Beacon IDs to access a Beacon or Beacons set value through the
-`DapiServer.sol` contract is not the preferred method of using dAPIs which is to
-use the dAPI name.
+As an alternative to calling a dAPI by it name, it is possible to use a Beacon
+or Beacon set ID known as a `datafeedId`. However the preferred method is to use
+a dAPI `name`.
 
 :::
 
-Reading a data feed value with an ID is simple and straight forward. In the code
+Reading a dAPI value with an ID is simple and straight forward. In the code
 example below, `_datafeedId` is a Beacon or Beacon set ID. For on-chain smart
 contracts the `msg.sender` argument received by the function
 [readDataFeedValueWithId()](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol#L708-L721)
-must have a [subscription](./#subscriptions) for the data feed requested.
+must have a [Coverage Plans](./#coverage-plans) for the dAPI requested.
 
 Calling from off-chain code (_using a library such as `ether.js`_) is not
-subject to whitelisting. Off-chain code is beyond the scope of this doc.
+subject to coverage plans. Off-chain code is beyond the scope of this doc.
 
 ## Example Code
 
@@ -60,11 +58,12 @@ See another code example of `readDataFeedValueWithId()` in the
 
 `readDataFeedValueWithId(bytes32 _datafeedId)`
 
-- `bytes32 datafeedId` - The ID of the dAPI Data Feed to retrieve a value for.
+- `bytes32 datafeedId` - The ID of a Beacon or Beacon set to retrieve a value
+  for.
 
 ## Returns
 
-- `int224 value` - The value of the data feed.
+- `int224 value` - The value of the Beacon or Beacon set.
 
 ::: tip Please note:
 

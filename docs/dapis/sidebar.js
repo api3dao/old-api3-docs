@@ -29,7 +29,7 @@ module.exports = [
     initialOpenGroupIndex: 1,
     collapsable: false,
     children: [
-      'reference/beacon-scheme.md',
+      'reference/schemes.md',
       'reference/beacon-browser.md',
       'reference/chains.md',
       'reference/monitor.md',

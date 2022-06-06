@@ -14,15 +14,16 @@ folder: dApp Developers
 
 The
 [DapiServer.sol](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol)
-contract serves data feed values to any dApp with the appropriate permissions.
-The contract is simple to use and returns immediate data feed values.
+contract serves dAPI values to any dApp with the appropriate
+[coverage policy](). The contract is simple to use and returns immediate data
+feed values.
 
 ## Starter Project
 
 The
 [data-feed-reader-example](https://github.com/api3dao/data-feed-reader-example)
-starter is an example project for reading API3 data feeds on the Polygon
-testnet. Be sure to read through the
+starter is an example project for reading from dAPI a on the Polygon testnet. Be
+sure to read through the
 [README.md](https://github.com/api3dao/data-feed-reader-example/blob/main/README.md)
 and some of the example code such as the
 [DataFeedReaderExample.sol](https://github.com/api3dao/data-feed-reader-example/blob/main/contracts/DataFeedReaderExample.sol)
@@ -30,65 +31,74 @@ contract. Read through this entire page before running the starter project to
 better understand some of the terms and concepts mentioned. Finally follow the
 instruction in the README to get acquainted with reading data feeds.
 
-## Subscriptions
+## Coverage Plans
 
-`DapiServer.sol` will check that the requester has a subscription for each data
-feed it may attempt to read. During the _preview period_, all data feeds on
-production networks are accessible with a free (limited time offer)
-subscription. Please go to the
-[Data Feed Subscription](https://forms.monday.com/forms/embed/f44d0ed9dfd0154885f48fdb3b87a489?r=use1)
-inquiry page to request data feed access on production networks. See
+`DapiServer.sol` will check that the requester has a cover plan for each dAPI it
+may attempt to read. During the _preview period_, all dAPIs on production
+networks are accessible with free access (limited time offer). Please go to the
+[Inquiry Page](https://forms.monday.com/forms/embed/f44d0ed9dfd0154885f48fdb3b87a489?r=use1)
+to request dAPI access on production networks. See
 [Chains and Contracts](../reference/chains.md) which includes supported
 production networks as well as testnets.
 
 ### Testnets
 
-For testnets like polygon-testnet, developers can self-subscribe to use any data
-feed. During the deployment flow of your smart contract that reads a data feed,
-add code that self-subscribes to the desired data feed. The following scripts
-from the [Starter Project](./#starter-project) detail how this is done. Please
-be sure to explore the starter project in its entirety.
+For testnets like polygon-testnet, developers can self-subscribe to use any
+dAPI. During the deployment flow of your smart contract that reads a data feed,
+add code that self-subscribes to the desired dAPI. The following scripts from
+the [Starter Project](./#starter-project) detail how this is done. Please be
+sure to explore the starter project in its entirety.
 
-- [allow-to-read-with-id.js](https://github.com/api3dao/data-feed-reader-example/blob/main/scripts/allow-to-read-with-id.js)
 - [allow-to-read-with-name.js](https://github.com/api3dao/data-feed-reader-example/blob/main/scripts/allow-to-read-with-name.js)
+- [allow-to-read-with-id.js](https://github.com/api3dao/data-feed-reader-example/blob/main/scripts/allow-to-read-with-id.js)
 
-## IDs and Names
+## dAPI `names`
 
-When calling the reader functions of the `DapiServer.sol` contract, use either a
-Beacon ID, Beacon set ID, or a dAPI name.
+A dAPI is a live data point associated with human readable `name`. dAPI
+definitions simplify access and can return aggregated Beacon values or a single
+Beacon value. This is suitable where the more recent data point (meaning its set
+of Beacons could change as needed) is always more favorable, e.g., in the
+context of an asset price data feed.
 
-- Beacon ID: The hash of a Beacon's parameters.
-- Beacon set ID: The hash of the Beacon IDs in the Beacon set.
-- dAPI name: A human readable name that represents a Beacon or Beacon set.
+Pass a dAPI `name` to the appropriate `DapiServer.sol` reader function.
 
-Pass an ID or dAPI name to the appropriate `DapiServer` reader function using
-the following parameter names.
+- [readDataFeedWithDapiName(\_dapiName)](./read-data-feed-with-dapi-name.md) -
+  returns a value and timestamp
+- [readDataFeedValueWithDapiName(\_dapiName)](./read-data-feed-value-with-dapi-name.md) -
+  returns a value
 
-- `_datafeedId`: Use a Beacon ID or Beacon set ID.
-- `_dapiName`: Use a dAPI name.
+```solidity
+// Calling a dAPI, such as AVAX/USD, using the DapiServer contract.
+(value, timestamp) =
+  IDapiServer(_dapiServerContractAddress).readDataFeedWithDapiName('AVAX/USD');
+```
 
-### Why use a dAPI `name`?
+::: tip Optionally use Beacon and Beacon set IDs
 
-To simplify access, dAPI definitions can return a single Beacon value or the
-value of a Beacon set. A dAPI data feed is a live data point associated with
-`name`. This is suitable where the more recent data point (meaning its set of
-Beacons could change as needed) is always more favorable, e.g., in the context
-of an asset price data feed.
+As an alternative to calling a dAPI by it name, it is possible to use a Beacon
+or Beacon set ID known as a `datafeedId`. See
+[readDataFeedId()](./read-data-feed-with-id.md) and
+[readDataFeedValueById()](./read-data-feed-value-with-id.md). However the
+preferred method is to use a dAPI `name'.
+
+:::
 
 ## DapiServer Functions
 
-- [readDataFeedWithId()](./read-data-feed-with-id.md) - Returns a value and
-  timestamp using the `_datafeedId`.
 - [readDataFeedWithDapiName()](./read-data-feed-with-dapi-name.md) - Returns a
   value and timestamp using the `_dapiName`.
-- [readDataFeedValueWithId()](./read-data-feed-value-with-id.md) - Returns a
-  value using the `_datafeedId`.
 - [readDataFeedValueWithDapiName()](./read-data-feed-value-with-dapi-name.md) -
   Returns a value using the `_dapiName`.
 - [readerCanReadDataFeed()](./reader-can-read-datafeed.md) - Whether a reader
   can read a data feed.
 - [dataFeedIdToReaderToWhitelistStatus()](./data-feed-id-to-reader-to-whitelist-status.md) -
-  Details about the subscription status of a reader address.
+  Details about the coverage policy status of a reader address.
+- [readDataFeedWithId()](./read-data-feed-with-id.md) - Returns a value and
+  timestamp using a Beacon or Beacon set ID . Use as an option to reading a
+  value using the dAPI `name` which is the preferred method.
+- [readDataFeedValueWithId()](./read-data-feed-value-with-id.md) - Returns a
+  value using a Beacon or Beacon set ID . Use as an option to reading a value
+  using the dAPI `name` which is the preferred method.
 
 ## Resources
 
