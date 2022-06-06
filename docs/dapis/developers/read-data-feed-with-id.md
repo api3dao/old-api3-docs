@@ -27,7 +27,7 @@ smart contracts the `msg.sender` argument received by the function
 must have a [Coverage Plans](./#coverage-plans) for the dAPI requested.
 
 Calling from off-chain code (_using a library such as `ether.js`_) is not
-subject to coverage policies. Off-chain code is beyond the scope of this doc.
+subject to coverage plans. Off-chain code is beyond the scope of this doc.
 
 ## Example Code
 

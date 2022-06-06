@@ -31,12 +31,11 @@ contract. Read through this entire page before running the starter project to
 better understand some of the terms and concepts mentioned. Finally follow the
 instruction in the README to get acquainted with reading data feeds.
 
-## Coverage Policies
+## Coverage Plans
 
-`DapiServer.sol` will check that the requester has a cover policy for each dAPI
-it may attempt to read. During the _preview period_, all dAPIs on production
-networks are accessible with a free (limited time offer) subscription. Please go
-to the
+`DapiServer.sol` will check that the requester has a cover plan for each dAPI it
+may attempt to read. During the _preview period_, all dAPIs on production
+networks are accessible with free access (limited time offer). Please go to the
 [Inquiry Page](https://forms.monday.com/forms/embed/f44d0ed9dfd0154885f48fdb3b87a489?r=use1)
 to request dAPI access on production networks. See
 [Chains and Contracts](../reference/chains.md) which includes supported
