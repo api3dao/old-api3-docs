@@ -35,7 +35,7 @@ instruction in the README to get acquainted with reading data feeds.
 
 `DapiServer.sol` will check that the requester has a cover plan for each dAPI it
 may attempt to read. During the _preview period_, all dAPIs on production
-networks are accessible with free access (limited time offer). Please go to the
+networks have free access (limited time offer). Please go to the
 [Inquiry Page](https://forms.monday.com/forms/embed/f44d0ed9dfd0154885f48fdb3b87a489?r=use1)
 to request dAPI access on production networks. See
 [Chains and Contracts](../reference/chains.md) which includes supported
