@@ -192,6 +192,7 @@ protocol contract where the signer is sponsor account.
 - [get-sponsor-status](admin-cli.md#get-sponsor-status)
 - [derive-sponsor-wallet-address](admin-cli.md#derive-sponsor-wallet-address)
 - [create-template](admin-cli.md#create-template)
+- [create-inline-template](admin-cli.md#create-inline-template)
 - [get-template](admin-cli.md#get-template)
 - [request-withdrawal](admin-cli.md#request-withdrawal)
 - [check-withdrawal-request](admin-cli.md#check-withdrawal-request)
@@ -431,6 +432,47 @@ npx @api3/airnode-admin create-template \
 npx @api3/airnode-admin create-template ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
   --mnemonic "nature about salad..." ^
+  --template-file-path ./template.json
+```
+
+:::
+
+::::
+
+### `create-inline-template`
+
+It is possible to inline Airnode templates inside config.json in a `templates`
+section. These templates need to be published on chain, but inlining them inside
+config provides more clarity which templates can be used for template requests
+and also saves a blockchain call .
+
+The command reads a template file, uses its contents to create a
+[template](../../concepts/template.md) and returns the data necessary to inline
+the template inside config. See
+[Using Templates](../../grp-developers/using-templates.md) for an example
+template file.
+
+This command does **not** create a template on chain. Be sure to use the
+[create-template](admin-cli.md#create-template) command on chain before making
+template requests.
+
+- `template-file-path`: Path to the template file to create on-chain.
+
+:::: tabs
+
+::: tab Linux/Mac/WSL2
+
+```sh
+npx @api3/airnode-admin create-inline-template \
+  --template-file-path ./template.json
+```
+
+:::
+
+::: tab Windows
+
+```sh
+npx @api3/airnode-admin create-inline-template ^
   --template-file-path ./template.json
 ```
 
