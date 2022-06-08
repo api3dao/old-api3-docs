@@ -90,9 +90,10 @@ preferred method is to use a dAPI `name'.
 - [readDataFeedValueWithDapiName()](./read-data-feed-value-with-dapi-name.md) -
   Returns a value using the `_dapiName`.
 - [readerCanReadDataFeed()](./reader-can-read-datafeed.md) - Whether a reader
-  can read a data feed.
+  can read a dAPI, Beacon, or Beacon set.
 - [dataFeedIdToReaderToWhitelistStatus()](./data-feed-id-to-reader-to-whitelist-status.md) -
-  Details about the coverage policy status of a reader address.
+  Details about the coverage policy status of a reader address for a dAPI,
+  Beacon, or Beacon set.
 - [readDataFeedWithId()](./read-data-feed-with-id.md) - Returns a value and
   timestamp using a Beacon or Beacon set ID . Use as an option to reading a
   value using the dAPI `name` which is the preferred method.
