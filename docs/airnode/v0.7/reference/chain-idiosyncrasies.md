@@ -46,6 +46,8 @@ recommend a `fulfillmentGasLimit` of at least `2000000`.
 
 ### Optimism
 
+Use `legacy` as the `txType` rather than `eip1559`.
+
 As a L2 scaling solution, Optimism has an L1 data fee and an L2 execution fee,
 which are
 [accounted for separately](https://community.optimism.io/docs/developers/build/transaction-fees/#displaying-fees-to-users).
@@ -54,3 +56,7 @@ To cover the L1 data fee when a sponsor requests a
 from the funds returned to the sponsor. The `withdrawalRemainder` parameter has
 been introduced specifically for this reason, though the value required will
 differ between Optimism mainnet and testnet due to differences in L1 gas fees.
+For Optimism testnet, a `withdrawalRemainder` of `1 gwei` should suffice, while
+for Optimism mainnet, a value as high as `2.4 finney` (`2400000 gwei`) may be
+required in order to cover an L1 gas price of `300 gwei` and `8000` L1 gas used
+by the transaction.
