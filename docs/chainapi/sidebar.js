@@ -9,12 +9,21 @@ module.exports = [
     ],
   },
   {
-    title: 'More',
+    title: 'How to Guide',
     initialOpenGroupIndex: 1,
     collapsable: false,
     children: [
-      'more/', // README
-      { title: 'More Stuff about ChainAPI', path: 'more/more-stuff' },
+      'how-to-guide/', // README
+      'how-to-guide/integrations',
+      'how-to-guide/deployments',
+    ],
+  },
+  {
+    title: 'Reference',
+    initialOpenGroupIndex: 1,
+    collapsable: false,
+    children: [
+      'reference/', // README
     ],
   },
 ];
