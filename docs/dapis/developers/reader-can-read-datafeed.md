@@ -16,7 +16,8 @@ For on-chain smart contracts, the function
 [readerCanReadDataFeed()](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol#L771-L781)
 returns true if the `reader` parameter can access the `dataFeedId` parameter
 meaning that the reader address has the appropriate data feed subscription. See
-[Coverage Plans](./#coverage-plans) for more information about dAPI access.
+[Coverage Policies](./#coverage-policies) for more information about dAPI
+access.
 
 ## Example Code
 

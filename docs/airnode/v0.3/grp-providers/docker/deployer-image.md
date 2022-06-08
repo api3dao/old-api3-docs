@@ -184,7 +184,7 @@ system you use.
 docker run -it --rm \
   -v "${HOME}/.config/gcloud:/app/gcloud"
   -v "$(pwd)/output:/app/output" \
-  api3/airnode=deployer:0.3.1 remove -r output/receipt.json
+  api3/airnode-deployer:0.3.1 remove -r output/receipt.json
 ```
 
 :::

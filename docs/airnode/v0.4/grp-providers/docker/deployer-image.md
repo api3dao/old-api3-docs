@@ -181,7 +181,7 @@ docker run -it --rm ^
 docker run -it --rm \
   -v "$(pwd)/gcp.json:/app/gcp.json" \
   -v "$(pwd)/output:/app/output" \
-  api3/airnode=deployer:0.4.1 remove -r output/receipt.json
+  api3/airnode-deployer:0.4.1 remove -r output/receipt.json
 ```
 
 :::
