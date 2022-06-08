@@ -43,11 +43,11 @@ production networks as well as testnets.
 
 ### Testnets
 
-For testnets like polygon-testnet, developers can self-subscribe to use any
+For testnets like polygon-testnet, developers can _self-enable_ the use of any
 dAPI. During the deployment flow of your smart contract that reads a data feed,
-add code that self-subscribes to the desired dAPI. The following scripts from
-the [Starter Project](./#starter-project) detail how this is done. Please be
-sure to explore the starter project in its entirety.
+add code that self-enables the desired dAPI. The following scripts from the
+[Starter Project](./#starter-project) detail how this is done. Please be sure to
+explore the starter project in its entirety.
 
 - [allow-to-read-with-name.js](https://github.com/api3dao/data-feed-reader-example/blob/main/scripts/allow-to-read-with-name.js)
 - [allow-to-read-with-id.js](https://github.com/api3dao/data-feed-reader-example/blob/main/scripts/allow-to-read-with-id.js)
