@@ -32,13 +32,33 @@ create a variable `output` which will be used for the next processing snippet.
 The processing snippet can use most Node.js built-in modules. Refer to the
 source code of Airnode to understand how processing works and what modules are
 made available to the snippet code. Modules cannot be imported directly in cloud
-environments. Additionally, the following modules are exposed for your
-convenience:
+environments.
 
-- `ethers` - You can use the [ethers](https://docs.ethers.io/v5/) library to
-  perform the common blockchain functions. Version `5.4.5` is used.
-- `axios` - You can use the [axios](https://axios-http.com/) library to perform
-  asynchronous web requests. Version `0.27.2` is used.
+::: tip Using JavaScript interpolation in the processing snippets
+
+Note, that config.json supports interpolation of secrets via the JavaScript
+string interpolation pattern (e.g `${SECRET_NAME}`). This syntax conflicts with
+the string interpolation inside the processing snippets. In order to use the
+interpolation in snippets, you need to escape the interpolation.
+
+For example, the following code:
+
+```js
+console.log(`Received input \\${input}`);
+const output = input;
+```
+
+should be escaped inside the `config.json` like this:
+
+```json
+{
+  "environment": "Node 14",
+  "timeoutMs": 5000,
+  "value": "console.log(`Received input \\${input}`);\nconst output = input;"
+}
+```
+
+:::
 
 ::: warning Error handling and security
 
