@@ -15,8 +15,8 @@ folder: dApp Developers
 The
 [DapiServer.sol](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol)
 contract serves dAPI values to any dApp with the appropriate
-[coverage policy](). The contract is simple to use and returns immediate data
-feed values.
+[coverage policy](https://forms.monday.com/forms/embed/f44d0ed9dfd0154885f48fdb3b87a489?r=use1).
+The contract is simple to use and returns immediate data feed values.
 
 ## Starter Project
 
@@ -31,13 +31,13 @@ contract. Read through this entire page before running the starter project to
 better understand some of the terms and concepts mentioned. Finally follow the
 instruction in the README to get acquainted with reading data feeds.
 
-## Coverage Plans
+## Coverage Policies
 
-`DapiServer.sol` will check that the requester has a cover plan for each dAPI it
-may attempt to read. During the _preview period_, all dAPIs on production
+`DapiServer.sol` will check that the requester has a cover policy for each dAPI
+it may attempt to read. During the _preview period_, all dAPIs on production
 networks have free access (limited time offer). Please go to the
-[Inquiry Page](https://forms.monday.com/forms/embed/f44d0ed9dfd0154885f48fdb3b87a489?r=use1)
-to request dAPI access on production networks. See
+[dAPI Coverage Policy](https://forms.monday.com/forms/embed/f44d0ed9dfd0154885f48fdb3b87a489?r=use1)
+page to request dAPI access on production networks. See
 [Chains and Contracts](../reference/chains.md) which includes supported
 production networks as well as testnets.
 

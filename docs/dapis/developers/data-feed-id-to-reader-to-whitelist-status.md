@@ -14,7 +14,7 @@ folder: dApp Developers
 
 For on-chain smart contracts, the function
 [dataFeedIdToReaderToWhitelistStatus()](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol#L791-L806)
-returns [Coverage Plans](./#coverage-plans) information with the
+returns [coverage policy](./#coverage-policies) information with the
 `expirationTimestamp` and `indefiniteWhitelistCount` of a reader for the
 specified dAPI.
 

@@ -50,7 +50,7 @@ integrate dAPI data by accessing on-chain contract storage.
 
 Lastly, dAPIs composed of curated sets of Beacons will power new applications
 demanding specific security guarantees. These guarantees will be provided by
-API3 in the form of coverage plans, payable in the case of data feed
+API3 in the form of coverage policies, payable in the case of data feed
 malfunction.
 
 Altogether, dAPIs offer developers an improved solution for accessing off-chain
