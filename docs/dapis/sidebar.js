@@ -31,7 +31,7 @@ module.exports = [
     children: [
       'reference/schemes.md',
       'reference/dapi-browser.md',
-      'reference/beacon-browser.md',
+      //'reference/beacon-browser.md',
       'reference/chains.md',
       'reference/monitor.md',
     ],

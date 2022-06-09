@@ -24,7 +24,7 @@
       </select>
     </span>
 
-    <div v-show="showBeacons === true">
+    <div v-show="showDapis === true">
       <!-- Filter  -->
       <i>Filter by:</i>
       <input
@@ -37,36 +37,22 @@
         ({{ cnt }})</span
       >
 
-      <!-- PANE, beacon list -->
-      <div
-        v-for="(item, index) in data"
-        v-bind:key="index"
-        style="margin-top: 17px"
-      >
-        <!-- If the provider has no beacons that match the search criteria 
-        then the provider is not shown.  -->
-        <div
-          v-show="item.beaconCnt > 0"
-          style="border-top: solid 2px lightgrey"
-        >
-          <img style="width: 105px; margin-top: 5px" :src="item.logoPath" />
-          <span class="b2-provider-name">
+      <!-- dAPIs -->
+      <div class="flex-container">
+        <div v-for="(item, index) in dAPIs" v-bind:key="index">
+          <div
+            v-show="item.show"
+            class="b2-beacon-box"
+            v-on:click="togglePanes(beacon, item)"
+          >
             {{ item.name }}
-            <span style="font-size: x-small; font-weight: 200">
-              ({{ item.beaconCnt }})</span
-            >
-          </span>
-          <!-- Beacons -->
-          <div class="flex-container">
-            <div v-for="beacon in item.beacons" v-bind:key="beacon.beaconId">
-              <div
-                v-show="beacon.show"
-                class="b2-beacon-box"
-                v-on:click="togglePanes(beacon, item)"
-              >
-                {{ beacon.name }}
-                <div>{{ beacon.description }}</div>
-              </div>
+            <div style="float: right; margin-top: 35px">
+              {{ item.beacons.length }}
+              <img
+                src="/img/Beacons-active.png"
+                width="17px"
+                style="opacity: 40%; float: right"
+              />
             </div>
           </div>
         </div>
@@ -93,11 +79,13 @@ import axios from 'axios';
 export default {
   name: 'DapiList',
   data: () => ({
-    showBeacons: false,
+    showDapis: false,
     showDetails: false,
     showSpinner: true,
     error: null,
     chains: undefined,
+    dAPIs: [],
+    beacons: {},
     data: [],
     beacon: undefined, // Passes data BeaconDetails2.vue via togglePanes()
     cnt: 0,
@@ -117,33 +105,77 @@ export default {
       // Need delay to set network picklist into DOM
       setTimeout(async () => {
         let element = document.getElementById('networkPickList');
-        element.value = localStorage.getItem('dapi-network') || 'polygon';
+        element.value =
+          localStorage.getItem('dapi-network') || 'polygon-testnet';
         await this.loadBeacons();
         await this.loadBeaconSets();
         this.loadDapis();
       }, 1);
     },
     async loadBeacons() {
-      console.log('loadBeacons');
+      const response = await axios.get(
+        'https://operations-development.s3.amazonaws.com/latest/apis.json'
+      );
+      for (var provider in response.data) {
+        for (var beacon in response.data[provider].beacons) {
+          const id = response.data[provider].beacons[beacon].beaconId;
+          this.beacons[id] = response.data[provider].beacons[beacon];
+        }
+      }
     },
     async loadBeaconSets() {
       console.log('loadBeaconSets');
     },
     async loadDapis() {
       this.showSpinner = true;
-      localStorage.setItem(
-        'dapi-network',
-        document.getElementById('networkPickList').value
-      );
-      console.log('loadDapis');
+      this.showDapis = false;
+      this.dAPIs = [];
+      const network = document.getElementById('networkPickList').value;
+      localStorage.setItem('dapi-network', network);
+      console.log('loadDapis for >', network);
       try {
-        /*const responseDapis = await axios.get(
-          'https://operations-development.s3.amazonaws.com/latest/dapis/polygon-testnet.json'
+        const responseDapis = await axios.get(
+          'https://operations-development.s3.amazonaws.com/latest/dapis/' +
+            network +
+            '.json'
         );
-        console.log(responseDapis);*/
+        console.log('dAPIs', responseDapis.data);
+        // Construct a dAPI complex object
+        for (var dAPI in responseDapis.data) {
+          const datafeedId = responseDapis.data[dAPI];
+          console.log(dAPI, datafeedId);
+          const beacon = this.beacons[datafeedId];
+          console.log(beacon);
+          let content = dAPI + ' ';
+
+          // Not sure how to determine NOT a beacon set yet
+          let beacons = [];
+          // Single beacon
+          if (!beacon.beacons) {
+            beacons.push(beacon);
+            content += beacon.beaconId + '' + beacon.description;
+          }
+          // Beacon set
+          else {
+          }
+
+          let obj = {
+            name: dAPI,
+            show: true,
+            beacons: beacons,
+            content: content,
+          };
+          this.dAPIs.push(obj);
+        }
+        console.log(this.dAPIs);
+        this.showSpinner = false;
+        this.showDapis = true;
+        if (1 === 1) return;
+
         const response = await axios.get(
           'https://operations-development.s3.amazonaws.com/latest/apis.json'
         );
+        console.log('Beacons', response.data);
 
         const providers = response.data;
 
@@ -216,7 +248,7 @@ export default {
         this.error = err.toString();
       }
       this.showSpinner = false;
-      this.showBeacons = true;
+      this.showDapis = true;
     },
     togglePanes(beacon, providerParam) {
       // If beacon (param) is null then this was called by BeaconDetails2.vue
