@@ -19,6 +19,7 @@ A `beaconId` and its `templateId` are identical across chains. Only the
 
 <beacons-browser-BeaconList tag="v0.1"/>
 
+<!--
 ## Monitor
 
 View the status of Beacons on the
@@ -26,3 +27,4 @@ View the status of Beacons on the
 
 <Grafana src="https://monitor.api3.org/d-solo/tmjpV3xnk/amberdata-beacons-on-goerli-ethdenver?orgId=1&refresh=1m&theme=light&panelId=31"/>
 > Goerli network:  [Enlarge (ETH / USD)](https://monitor.api3.org/d-solo/tmjpV3xnk/amberdata-beacons-on-goerli-ethdenver?orgId=1&refresh=1m&from=1644967134768&to=1645010334768&theme=light&panelId=31)
+-->

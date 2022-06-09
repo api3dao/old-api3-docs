@@ -57,15 +57,35 @@ At this point your project should resemble the following. The `config.json`,
 GCP) files should be ready to go. Other files you may have added are expected
 but not used by the deployer image.
 
+:::: tabs
+
+::: tab AWS
+
 ```
 my-airnode
 ├── aws.env
+├── config
+│   ├── config.json
+│   └── secrets.env
+└── output
+```
+
+:::
+
+::: tab GCP
+
+```
+my-airnode
 ├── gcp.json
 ├── config
 │   ├── config.json
 │   └── secrets.env
 └── output
 ```
+
+:::
+
+::::
 
 From the root of the project directory run the Docker
 [deployer image](../../docker/deployer-image.md) which will deploy the Airnode.
