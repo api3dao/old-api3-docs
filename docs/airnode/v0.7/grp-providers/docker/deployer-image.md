@@ -30,6 +30,22 @@ preconfigured Airnode using the deployer image.
 
 :::
 
+## Configuration Files
+
+The files `config.json` and `secrets.env` are used to configure the Airnode. The
+`aws.env` and `gcp.json` files are used to define environment information the
+deployer uses to connect to these cloud providers.
+
+```
+my-airnode
+├── aws.env     <- Used for AWS deployment
+├── gcp.json    <- Used for GCP deployment
+├── config
+│   ├── config.json
+│   └── secrets.env
+└── output
+```
+
 ## Cloud Provider Credentials
 
 In order to deploy Airnode to a serverless cloud provider, you need to provide
