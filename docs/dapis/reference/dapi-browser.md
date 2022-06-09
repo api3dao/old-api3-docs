@@ -9,10 +9,4 @@ folder: Reference
 
 <VersionWarning/>
 
-::: danger TODO:
-
-Convert to dAPIs.
-
-:::
-
 <dapis-browsers-DapiList/>

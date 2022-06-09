@@ -5,14 +5,34 @@
 
 <template>
   <div>
+    <hr />
+    <span>
+      <!-- prettier-ignore -->
+      <i>Network:</i>
+      <select
+        id="networkPickList"
+        class="dapis-network-picklist"
+        @change="loadDapis()"
+      >
+        <option
+          v-for="chain in chains"
+          v-bind:key="chain.name"
+          :value="chain.name"
+        >
+          {{ chain.name }} - ({{ chain.id }})
+        </option>
+      </select>
+    </span>
+
     <div v-show="showBeacons === true">
       <!-- Filter  -->
+      <i>Filter by:</i>
       <input
         id="searchText"
         spellcheck="false"
-        class="b2-beacon-list-filter-input"
+        class="dapis-list-filter-input"
         v-on:keyup="void find()"
-        placeholder="Filter (must contain all)"
+        placeholder="contain all, min 3 characters"
       /><span style="margin-top: 4px; color: gray; font-size: medium">
         ({{ cnt }})</span
       >
@@ -71,12 +91,13 @@
 import axios from 'axios';
 
 export default {
-  name: 'DapiLisr',
+  name: 'DapiList',
   data: () => ({
     showBeacons: false,
     showDetails: false,
     showSpinner: true,
     error: null,
+    chains: undefined,
     data: [],
     beacon: undefined, // Passes data BeaconDetails2.vue via togglePanes()
     cnt: 0,
@@ -84,20 +105,47 @@ export default {
   }),
   mounted() {
     this.$nextTick(function () {
-      this.loadDapis();
+      this.init();
     });
   },
   methods: {
+    async init() {
+      const responseChains = await axios.get(
+        'https://operations-development.s3.amazonaws.com/latest/chains.json '
+      );
+      this.chains = responseChains.data;
+      // Need delay to set network picklist into DOM
+      setTimeout(async () => {
+        let element = document.getElementById('networkPickList');
+        element.value = localStorage.getItem('dapi-network') || 'polygon';
+        await this.loadBeacons();
+        await this.loadBeaconSets();
+        this.loadDapis();
+      }, 1);
+    },
+    async loadBeacons() {
+      console.log('loadBeacons');
+    },
+    async loadBeaconSets() {
+      console.log('loadBeaconSets');
+    },
     async loadDapis() {
+      this.showSpinner = true;
+      localStorage.setItem(
+        'dapi-network',
+        document.getElementById('networkPickList').value
+      );
+      console.log('loadDapis');
       try {
+        /*const responseDapis = await axios.get(
+          'https://operations-development.s3.amazonaws.com/latest/dapis/polygon-testnet.json'
+        );
+        console.log(responseDapis);*/
         const response = await axios.get(
           'https://operations-development.s3.amazonaws.com/latest/apis.json'
         );
-        const responseChains = await axios.get(
-          'https://operations-development.s3.amazonaws.com/latest/chains.json '
-        );
+
         const providers = response.data;
-        const chains = responseChains.data;
 
         // Providers
         for (var key in providers) {
@@ -144,7 +192,7 @@ export default {
               providers[key].beacons[beaconKey].chains[chainKey].name =
                 chainKey;
               providers[key].beacons[beaconKey].chains[chainKey].id =
-                chains[chainKey].id;
+                this.chains[chainKey].id;
             }
             // Sort the chains by name
             providers[key].beacons[beaconKey].chains = this.sortChainsByName(
@@ -256,8 +304,9 @@ export default {
   padding: 55px;
   color: red;
 }
-.b2-beacon-list-filter-input {
+.dapis-list-filter-input {
   margin-top: 10px;
+  margin-left: 3px;
   font-size: large;
   width: 265px;
   max-width: 265px;
@@ -304,5 +353,17 @@ export default {
   font-weight: 500;
   font-family: courier;
   color: gray;
+}
+.dapis-network-picklist {
+  font-size: medium;
+  color: gray;
+  border: 1.5px solid gray;
+  border-radius: 5px;
+  /* Do not change the below settings. These are needed
+     for mobile devices to prevent horizontal scrolling
+     of the viewport, excluding margin-top.
+  */
+  margin-left: 0px;
+  max-width: 250px;
 }
 </style>
