@@ -6,6 +6,8 @@ title: Pre/Post Processing
 
 <VersionWarning/>
 
+<TocHeader /> <TOC class="table-of-contents" :include-level="[2,5]" />
+
 The processing schema is the same for both
 [pre-processing](./ois.md#_5-9-preprocessingspecifications) and
 [post-processing](./ois.md#_5-10-postprocessingspecifications).
@@ -26,6 +28,8 @@ Every processing snippet follows this schema:
 - `timeoutMs` - The maximum timeout that this snippet can run. In case the
   timeout is exceeded an error is thrown.
 
+## Inputs
+
 The processing snippet receives an `input` value which is either the initial
 value or the output value from the previous processing snippet. The snippet must
 create a variable `output` which will be used for the next processing snippet.
@@ -34,7 +38,7 @@ source code of Airnode to understand how processing works and what modules are
 made available to the snippet code. Modules cannot be imported directly in cloud
 environments.
 
-::: tip Using JavaScript interpolation in the processing snippets
+## Interpolation
 
 Note, that config.json supports interpolation of secrets via the JavaScript
 string interpolation pattern (e.g `${SECRET_NAME}`). This syntax conflicts with
@@ -58,9 +62,7 @@ should be escaped inside the `config.json` like this:
 }
 ```
 
-:::
-
-::: warning Error handling and security
+## Error Handling and Security
 
 Processing code is expected to be trustworthy as it is specified by the Airnode
 operator. Processing is an advanced feature that carries great security risks.
@@ -74,5 +76,3 @@ statement. Therefore code should be tested thoroughly in the target environment
 (e.g. Lambda and/or Docker client). For example, authentication implemented in
 pre-processing should always be executed at the end of the respective processing
 chain and special care should be taken to avoid leakage of secrets.
-
-:::
