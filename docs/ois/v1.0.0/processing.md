@@ -48,7 +48,7 @@ interpolation in snippets, you need to escape the interpolation.
 For example, the following code:
 
 ```js
-console.log(`Received input \\${input}`);
+console.log(`Received input ${input}`);
 const output = input;
 ```
 
