@@ -6,25 +6,27 @@
 <template>
   <div>
     <hr />
-    <span>
-      <!-- prettier-ignore -->
-      <i>Network:</i>
-      <select
-        id="networkPickList"
-        class="dapis-network-picklist"
-        @change="loadDapis()"
-      >
-        <option
-          v-for="chain in chains"
-          v-bind:key="chain.name"
-          :value="chain.name"
+    <!-- PANE: list -->
+    <div v-show="showList">
+      <span>
+        <!-- prettier-ignore -->
+        <i>Network:</i>
+        <select
+          id="networkPickList"
+          class="dapis-network-picklist"
+          @change="loadDapis()"
+          v-if="chains"
         >
-          {{ chain.name }} - ({{ chain.id }})
-        </option>
-      </select>
-    </span>
-
-    <div v-show="showDapis === true">
+          <option
+            v-for="chain in chains"
+            v-bind:key="chain.name"
+            :value="chain.name"
+          >
+            {{ chain.name }} - ({{ chain.id }})
+          </option>
+        </select>
+      </span>
+      <br />
       <!-- Filter  -->
       <i>Filter by:</i>
       <input
@@ -32,21 +34,17 @@
         spellcheck="false"
         class="dapis-list-filter-input"
         v-on:keyup="void find()"
-        placeholder="contain all, min 3 characters"
+        placeholder="must contain all"
       /><span style="margin-top: 4px; color: gray; font-size: medium">
         ({{ cnt }})</span
       >
 
       <!-- dAPIs -->
-      <div class="flex-container">
+      <div class="dapi-flex-container">
         <div v-for="(item, index) in dAPIs" v-bind:key="index">
-          <div
-            v-show="item.show"
-            class="b2-beacon-box"
-            v-on:click="togglePanes(beacon, item)"
-          >
+          <div v-show="item.show" v-on:click="togglePanes(item)">
             {{ item.name }}
-            <div style="float: right; margin-top: 35px">
+            <div style="">
               {{ item.beacons.length }}
               <img
                 src="/img/Beacons-active.png"
@@ -58,17 +56,16 @@
         </div>
       </div>
     </div>
-    <!-- PANE, beacon details -->
+    <!-- PANE: details -->
     <div v-if="showDetails">
-      <hr />
-      <beacons-browser2-BeaconDetails2 :beacon="beacon" />
+      <dapis-browsers-DapiDetails :dapi="dAPI" />
     </div>
 
     <div style="padding: 155px" v-show="showSpinner">
       <img src="/img/spinner.gif" />
     </div>
-    <div v-show="error !== null" class="b2-beacon-list-error">
-      The Beacon list failed to load: ({{ error }})
+    <div v-show="error" class="b2-beacon-list-error">
+      {{ error }}
     </div>
   </div>
 </template>
@@ -79,15 +76,15 @@ import axios from 'axios';
 export default {
   name: 'DapiList',
   data: () => ({
-    showDapis: false,
+    showList: false,
     showDetails: false,
     showSpinner: true,
-    error: null,
+    error: undefined,
     chains: undefined,
     dAPIs: [],
     beacons: {},
     data: [],
-    beacon: undefined, // Passes data BeaconDetails2.vue via togglePanes()
+    dAPI: undefined, // Carries data to DapiDetails.vue via togglePanes()
     cnt: 0,
     scrollY: 0, // Remember Y position when going to details pane
   }),
@@ -102,6 +99,7 @@ export default {
         'https://operations-development.s3.amazonaws.com/latest/chains.json '
       );
       this.chains = responseChains.data;
+      this.chains = this.sortChainsByName(this.chains);
       // Need delay to set network picklist into DOM
       setTimeout(async () => {
         let element = document.getElementById('networkPickList');
@@ -123,29 +121,24 @@ export default {
         }
       }
     },
-    async loadBeaconSets() {
-      console.log('loadBeaconSets');
-    },
+    async loadBeaconSets() {},
     async loadDapis() {
+      this.showList = false;
+      this.error = undefined;
       this.showSpinner = true;
-      this.showDapis = false;
       this.dAPIs = [];
       const network = document.getElementById('networkPickList').value;
       localStorage.setItem('dapi-network', network);
-      console.log('loadDapis for >', network);
       try {
         const responseDapis = await axios.get(
           'https://operations-development.s3.amazonaws.com/latest/dapis/' +
             network +
             '.json'
         );
-        console.log('dAPIs', responseDapis.data);
         // Construct a dAPI complex object
         for (var dAPI in responseDapis.data) {
-          const datafeedId = responseDapis.data[dAPI];
-          console.log(dAPI, datafeedId);
+          const datafeedId = responseDapis.data[dAPI]; // Get the dAPI's beacon/setId
           const beacon = this.beacons[datafeedId];
-          console.log(beacon);
           let content = dAPI + ' ';
 
           // Not sure how to determine NOT a beacon set yet
@@ -153,7 +146,7 @@ export default {
           // Single beacon
           if (!beacon.beacons) {
             beacons.push(beacon);
-            content += beacon.beaconId + '' + beacon.description;
+            //content += beacon.beaconId + '' + beacon.description;
           }
           // Beacon set
           else {
@@ -167,12 +160,13 @@ export default {
           };
           this.dAPIs.push(obj);
         }
+        this.dAPIs.sort(this.sortByName);
+        this.cnt = this.dAPIs.length;
         console.log(this.dAPIs);
         this.showSpinner = false;
-        this.showDapis = true;
-        if (1 === 1) return;
+        this.showList = true;
 
-        const response = await axios.get(
+        /*const response = await axios.get(
           'https://operations-development.s3.amazonaws.com/latest/apis.json'
         );
         console.log('Beacons', response.data);
@@ -213,12 +207,7 @@ export default {
               ' ' +
               providers[key].beacons[beaconKey].description;
 
-            /**
-              1. Add chain name to content
-              2. Add the name to the chain object
-              3. Add the logo to the chain object
-              4. Add the chainId to the chain object
-            */
+
             for (var chainKey in providers[key].beacons[beaconKey].chains) {
               providers[key].beacons[beaconKey].content += ' ' + chainKey + ' ';
               providers[key].beacons[beaconKey].chains[chainKey].name =
@@ -242,33 +231,31 @@ export default {
             logoPath: providerLogo,
             beacons: beacons,
           });
-        }
+        }*/
       } catch (err) {
         console.error(err.toString());
-        this.error = err.toString();
+        if (err.toString().indexOf('403') > -1) {
+          this.error = 'There are currently no dAPIs on this network.';
+        } else {
+          this.error = err.toString();
+        }
       }
       this.showSpinner = false;
-      this.showDapis = true;
+      this.showList = true;
     },
-    togglePanes(beacon, providerParam) {
-      // If beacon (param) is null then this was called by BeaconDetails2.vue
-      if (beacon) {
+    togglePanes(dapi) {
+      // If beacon (param) is undefined then this was called by BeaconDetails2.vue
+      if (dapi) {
         this.scrollY = window.scrollY;
-        // Data to pass to BeaconDetails.vue
-        this.beacon = beacon;
-        this.beacon['provider'] = {
-          name: providerParam.name,
-          logoPath: providerParam.logoPath,
-        };
-      } else {
-        this.dataPayload = undefined;
+        // Data to pass to DapiDetails.vue
+        this.dAPI = dapi;
       }
 
       // Toggle the panes
-      this.showBeacons = !this.showBeacons;
+      this.showList = !this.showList;
       this.showDetails = !this.showDetails;
 
-      // Return to last scroll position if beaconList pane active
+      // Return to last scroll position if dapiList pane active
       if (!this.showDetails) {
         setTimeout(() => {
           window.scrollBy(0, this.scrollY);
@@ -295,22 +282,17 @@ export default {
       let text = this.$el.querySelector('#searchText').value.toLowerCase();
       const arr = text.split(' ');
 
-      this.data.forEach((provider) => {
-        provider.beaconCnt = 0;
-        provider.beacons.forEach((beacon) => {
-          arr.forEach((str) => {
-            if (str.length === 0) {
-              beacon.show = true;
-              this.cnt++;
-              provider.beaconCnt++;
-            } else if (beacon.content.toLowerCase().indexOf(str) > -1) {
-              beacon.show = true;
-              this.cnt++;
-              provider.beaconCnt++;
-            } else {
-              beacon.show = false;
-            }
-          });
+      this.dAPIs.forEach((dapi) => {
+        arr.forEach((str) => {
+          if (str.length === 0) {
+            dapi.show = true;
+            this.cnt++;
+          } else if (dapi.content.toLowerCase().indexOf(str) > -1) {
+            dapi.show = true;
+            this.cnt++;
+          } else {
+            dapi.show = false;
+          }
         });
       });
     },
@@ -352,18 +334,18 @@ export default {
   font-size: x-large;
   font-weight: 400;
 }
-.flex-container {
+.dapi-flex-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 5px;
 }
 
-.flex-container > div > div {
+.dapi-flex-container > div > div {
   min-width: 205px;
   max-width: 205px;
   width: 205px;
-  height: 54px;
+  height: 23px;
   border: 1px solid lightgrey;
   border-radius: 0.3em;
   margin: 8px 8px 8px 5px;
@@ -376,10 +358,13 @@ export default {
   text-overflow: ellipsis;
   box-shadow: 2px 2px 4px lightgrey;
 }
-.flex-container > div > div:hover {
+.dapi-flex-container > div > div:hover {
   cursor: pointer;
 }
-.flex-container > div > div > div {
+/** The beacon cnt and image */
+.dapi-flex-container > div > div > div {
+  float: right;
+  margin-top: -5px;
   font-size: small;
   padding: 5px 5px 5px 10px;
   font-weight: 500;
