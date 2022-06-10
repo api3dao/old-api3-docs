@@ -486,7 +486,7 @@ interpolation.
 },
 
 // Sample variable in secrets.env
-// Variable names cannot contain dashes (-).
+// Variable names cannot contain dashes (-) or start with a number.
 HTTP_GATEWAY_API_KEY="FRACZKMH4F32BZ8X5uTd"
 ```
 
@@ -510,7 +510,7 @@ in the `aws.env` file as shown below. See an
 section.
 
 - Do not place double quotes (") around the value of each variable.
-- Variable names cannot contain dashes (-).
+- Variable names cannot contain dashes (-) or start with a number.
 
 ```bash
 AWS_ACCESS_KEY_ID=XYZ...123
