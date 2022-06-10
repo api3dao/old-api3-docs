@@ -15,7 +15,7 @@ Airnode to AWS. For more details, see the full description of the
 [aws.env](../deployment-files/aws-env.md) file.
 
 - Do not place double quotes (") around the value of each variable.
-- Variable names cannot contain dashes (-).
+- Variable names cannot contain dashes (-) or start with a number.
 
 ```sh
 AWS_ACCESS_KEY_ID=<FILL_*>

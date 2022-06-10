@@ -8,7 +8,7 @@ title: secrets.env
 
 <VersionWarning/>
 
-- Variable names cannot contain dashes (-).
+- Variable names cannot contain dashes (-) or start with a number.
 
 :::: tabs
 
