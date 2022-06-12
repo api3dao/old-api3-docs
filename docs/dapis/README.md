@@ -26,10 +26,9 @@ dAPIs are composed of **Beacons**, which are _first-party data feeds_. A Beacon
 is a first-party data feed because it is directly powered by the owner of the
 data, the API provider. Compared to third-party oracle solutions, which involve
 middlemen node operators, this approach is secure, transparent, cost-efficient
-and scalable. See the section below about the
-[advantages of dAPIs](#advantages-of-dapis) for more information. API3
-[composes](#dapi-management) dAPIs out of individual Beacons or Beacon sets, and
-provides them as turn-key data feed solutions on many chains.
+and scalable. API3 [composes](#dapi-management) dAPIs out of individual Beacons
+or Beacon sets, and provides them as turn-key data feed solutions on many
+chains.
 
 ## DapiServer.sol
 
@@ -59,34 +58,6 @@ within the storage of `DapiServer.sol`. A dAPI can be configured to read an
 individual Beacon or an aggregation of multiple Beacons.
 
 > <img src="./assets/images/dapi-beacons.png" width="550px"/>
-
-## Advantages of dAPIs
-
-**Security**: Data used to update a first-party data feed is cryptographically
-signed by the owner of the data. This means that the data that will update a
-feed cannot be tampered with once it leaves the source. Furthermore, the API
-providers host our first-party oracle node, [Airnode](../airnode/), to push the
-data to the chain themselves. This makes denial of service attacks by third
-parties impossible.
-
-**Transparency**: The cryptographic signatures can be used to verify that the
-data that updates a feed comes directly from a specific API provider.
-Furthermore, Beacons that underlie dAPIs allow the user to inspect what exact
-API endpoints are being called, and with which parameters. This provides
-complete transparency to the dApp developer, which is a big step from depending
-on a pseudonymous selection of third parties that intentionally obscure their
-data sources.
-
-**Cost-efficiency**: dAPIs are cost efficient compared to third-party data
-feeds, as the user does not need to pay middlemen node operators for their
-services. Furthermore, first-party data feeds do not require redundancy against
-middlemen attacks. This makes single Beacon dAPIs feasible, and allows API3 to
-provide a wide variety of data feeds in a cost-efficient way.
-
-**Scalability**: An inherently secure and cost-efficient data feed design allows
-API3 to build a large number of them, across many chains. This is supplemented
-by purpose-designed Airnode protocols and relayer schemes to improve efficiency
-while not degrading the security guarantees of a first-party data feed.
 
 ## dAPI management
 
