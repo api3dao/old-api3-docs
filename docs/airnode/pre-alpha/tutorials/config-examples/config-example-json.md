@@ -143,7 +143,7 @@ title: config.example.json
   "triggers": {
     "request": [
       {
-        "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
+        "endpointId": "0xe811f1a71c3f0d159472ec8bfa281483d74920e26a9d116de667858e12d1943e",
         "oisTitle": "CoinGecko-starter-example",
         "endpointName": "coinMarketData"
       }

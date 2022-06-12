@@ -270,21 +270,21 @@ trigger for each endpoint in your OIS object.
 "triggers": {
     "rrp": [
       {
-        "endpointId": "0xf10f067e716dd8b9c91b818e3a933b880ecb3929c04a6cd234c171aa27c6eefe",
+        "endpointId": "0xd4b0718c9a3316dbd831e6d01058202e5dde20a116304419f0d79e07a82b46bf",
         "oisTitle": "CoinGecko Requests",
         "endpointName": "coinGeckoMarketData"
       }
     ],
     "http": [
       {
-        "endpointId": "0xf10f067e716dd8b9c91b818e3a933b880ecb3929c04a6cd234c171aa27c6eefe",
+        "endpointId": "0xd4b0718c9a3316dbd831e6d01058202e5dde20a116304419f0d79e07a82b46bf",
         "oisTitle": "CoinGecko Requests",
         "endpointName": "coinGeckoMarketData"
       }
     ],
     "httpSignedData": [
       {
-        "endpointId": "0xf10f067e716dd8b9c91b818e3a933b880ecb3929c04a6cd234c171aa27c6eefe",
+        "endpointId": "0xd4b0718c9a3316dbd831e6d01058202e5dde20a116304419f0d79e07a82b46bf",
         "oisTitle": "CoinGecko Requests",
         "endpointName": "coinGeckoMarketData"
       }

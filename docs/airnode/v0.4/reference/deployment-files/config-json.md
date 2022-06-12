@@ -343,14 +343,14 @@ defined in an OIS.
 {
   "rrp": [
     {
-      "endpointId": "0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5",
+      "endpointId": "0xd7ddc8ee64d6e540682ec844a5dd9737663ec3afe5751102eb4f966744751838",
       "oisTitle": "myOisTitle",
       "endpointName": "myEndpointName"
     }
   ],
   "rrp": [
     {
-      "endpointId": "0xe1da7948e4dd95c04b2aaa10f4de115e67d9e109ce618750a3d8111b855a5ee5",
+      "endpointId": "0xd7ddc8ee64d6e540682ec844a5dd9737663ec3afe5751102eb4f966744751838",
       "oisTitle": "myOisTitle",
       "endpointName": "myEndpointName"
     }

@@ -214,7 +214,7 @@ Breaking down the URL in the CURL command below:
 
 - `<httpGatewayUrl>`: The base URL to the gateway, found in the `receipts.json`
   file. Update the placeholder in the CURL example below with its value.
-- `0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c`: Passed
+- `0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6`: Passed
   as a path parameter, the endpointId to call, see `triggers.rrp[0].endpointId`
   in the `config.json` file.
 
@@ -227,7 +227,7 @@ Request:
 ```sh
 curl -v -H 'x-api-key: 123-my-key-must-be-30-characters-min' \
 -d '{"parameters": {"coinId": "api3"}}' \
-'<httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c'
+'<httpGatewayUrl>/0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6'
 ```
 
 :::
