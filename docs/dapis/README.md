@@ -23,27 +23,32 @@ applications such as DeFi lending, synthetic assets, stable coins, derivatives,
 NFTs and more.
 
 dAPIs are composed of **Beacons**, which are _first-party data feeds_. A Beacon
-is a first-party data feed because it is directly powered by the owner of the
-data, the API provider. Compared to third-party oracle solutions, which involve
-middlemen node operators, this approach is secure, transparent, cost-efficient
-and scalable. API3 [composes](#dapi-management) dAPIs out of individual Beacons
-or Beacon sets, and provides them as turn-key data feed solutions on many
+is directly powered by the owner of the data, the API provider. Compared to
+third-party oracle solutions, which involve middlemen node operators, this
+approach is secure, transparent, cost-efficient and scalable. API3 composes
+dAPIs out of Beacons, and provides them as turn-key data feed solutions on many
 chains.
 
-## DapiServer.sol
+## `DapiServer.sol`
 
 Developers use the
-[DapiServer.sol](https://github.com/api3dao/airnode-protocol-v1/blob/main/contracts/dapis/DapiServer.sol)
+[`DapiServer.sol`](https://github.com/api3dao/airnode-protocol-v1/blob/main/contracts/dapis/DapiServer.sol)
 contract to access dAPIs. `DapiServer.sol` reads directly from its data store of
-Beacons, which are powered by API provider-owned and operated Airnodes.
+Beacons, which are powered by API provider-owned and operated
+[Airnodes](../airnode/).
 
 > <img src="./assets/images/dapp-beacon.png" width="550px"/>
+
+A dAPI can be configured to read an individual Beacon or an aggregation of
+multiple Beacons.
+
+> <img src="./assets/images/dapi-beacons.png" width="550px"/>
 
 Each dAPI has a human-readable name (e.g., `ETH/USD`) that makes them easily
 accessible using `DapiServer.sol`.
 
 ```solidity
-// Calling a dAPI, such as ETH/USD, using the DapiServer contract
+// Reading the ETH/USD dAPI using the DapiServer contract
 (value, timestamp) =
   IDapiServer(_dapiServerContractAddress).readDataFeedWithDapiName("ETH/USD");
 ```
@@ -51,20 +56,12 @@ accessible using `DapiServer.sol`.
 See the [dApp Developers](./developers/) section to learn more about accessing
 dAPIs.
 
-## Aggregated dAPIs
+## dAPI composition
 
-dAPIs return aggregated values from underlying Beacons that live on-chain,
-within the storage of `DapiServer.sol`. A dAPI can be configured to read an
-individual Beacon or an aggregation of multiple Beacons.
-
-> <img src="./assets/images/dapi-beacons.png" width="550px"/>
-
-## dAPI management
-
-API3 composes dAPIs out of Beacons or Beacon sets, and provides them as a
-turn-key data feed service. This allows the user to not have worry about the
-exact API provider to be used, the endpoint to be called or the parameters to be
-used. This process is managed by API3 core technical team multisigs deployed on
-the chains that API3 serves on. API3 also provides access to individual Beacons
-or Beacon sets for the users that require full control over the curation of the
-data feeds they use.
+API3 composes dAPIs out of individual Beacons and Beacon sets, and provides them
+as turn-key data feed services. This allows the user to not have to worry about
+the exact API provider to be used, the endpoint to be called or the parameters
+to be used. This process is managed by the API3 core technical team multisigs
+deployed on the chains that dAPIs are provided on. API3 also provides access to
+individual Beacons or Beacon sets for the users that require full control over
+the curation of the data feeds they use.
