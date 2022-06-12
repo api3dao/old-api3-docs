@@ -30,6 +30,27 @@ cost-efficient and scalable. API3 composes dAPIs out of individual Beacons or
 Beacon sets, and provides tham as turn-key data feed solutions to projects
 across many chains.
 
+## DapiServer.sol
+
+Developers use the
+[DapiServer.sol](https://github.com/api3dao/airnode-protocol-v1/blob/main/contracts/dapis/DapiServer.sol)
+contract to access dAPIs. The `DapiServer.sol` reads directly from its data
+store of Beacons, which are powered by API provider-owned and operated Airnodes.
+
+> <img src="./assets/images/dapp-beacon.png" width="550px"/>
+
+Each dAPI has a human-readable name (e.g., `ETH/USD`) that makes them easily
+accessible using the `DapiServer.sol` contract.
+
+```solidity
+// Calling a dAPI, such as ETH/USD, using the DapiServer contract
+(value, timestamp) =
+  IDapiServer(_dapiServerContractAddress).readDataFeedWithDapiName("ETH/USD");
+```
+
+See the [dApp Developers](./developers/) section to learn more about accessing
+dAPIs.
+
 ## Advantages of dAPIs
 
 **Security**: Data used to update a first-party data feed is cryptographically
@@ -78,24 +99,3 @@ outside a pre-defined tolerance it self-updates by calling its associated
 Airnode. To do so, the Airnode's owner (an API provider) configures the
 pre-defined tolerance of a Beacon's value as well as the frequency to check for
 tolerance deviation.
-
-## DapiServer.sol
-
-Developers use the
-[DapiServer.sol](https://github.com/api3dao/airnode-protocol-v1/blob/main/contracts/dapis/DapiServer.sol)
-contract to access dAPIs. The `DapiServer.sol` reads directly from its data
-store of Beacons which are powered by API providers owned and operated Airnodes.
-
-> <img src="./assets/images/dapp-beacon.png" width="550px"/>
-
-Each dAPI has a human readable name (e.g. AVAX/USD) that makes access easy using
-the `DapiServer.sol` contract.
-
-```solidity
-// Calling a dAPI, such as AVAX/USD, using the DapiServer contract.
-(value, timestamp) =
-  IDapiServer(_dapiServerContractAddress).readDataFeedWithDapiName('AVAX/USD');
-```
-
-See the [dApp Developers](./developers/) section to learn more about accessing
-dAPIs.
