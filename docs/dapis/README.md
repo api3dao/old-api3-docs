@@ -30,13 +30,32 @@ cost-efficient and scalable. API3 composes dAPIs out of individual Beacons or
 Beacon sets, and provides tham as turn-key data feed solutions to projects
 across many chains.
 
-## Transparency
+## Advantages of dAPIs
 
-The implementation of dAPIs was designed to be both transparent and secure and
-allow any dApp to consider the off-chain reputation of the data provider and
-their suitability for any use case. Bringing this level of transparency to the
-source of data in smart contracts gives dApp developers confidence rather than
-relying on a pseudonymous selection of third parties.
+**Security**: Data used to update a first-party data feed is cryptographically
+signed by the owner of the data. This means that the data that will update a
+feed cannot be tampered with once it leaves the source. Furthermore, the API
+providers host our first-party oracle node, [Airnode](../airnode/), to push the
+data to the chain themselves. This makes denial of service attacks by relayers
+impossible.
+
+**Transparency**: The cryptographic signatures can be used to verify that the
+data that updates a feed comes directly comes from a specific API provider.
+Furthermore, Beacons that underlie dAPIs allow the user to inspect what exact
+API endpoint is being called, and with which parameters. Bringing this level of
+transparency to the source of data in smart contracts gives dApp developers
+confidence rather than relying on a pseudonymous selection of third parties.
+
+**Cost-efficiency**: dAPIs are cost efficient compared to third-party data
+feeds, as the user does not need to pay middlemen node operators for their
+services. Furthermore, first-party data feeds do not require redundancy against
+middlemen attacks. This makes single Beacon dAPIs feasible, and allow API3 to
+provide a wide variety of data feeds in a cost-efficient way.
+
+**Scalability**: An inherently secure and cost-efficient data feed design allows
+API3 to build a lot of them, across many chains. This is supplemented by
+purpose-designed Airnode protocols and relayer schemes to improve efficiency
+while not degrading the security guarantees of a first-party data feed.
 
 ## Aggregated Values
 
