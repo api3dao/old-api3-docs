@@ -1,5 +1,5 @@
 ---
-title: API Providers - Why power dAPIs?
+title: API Providers—Why power dAPIs?
 folder: Introduction
 ---
 
