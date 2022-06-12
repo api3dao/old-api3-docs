@@ -51,6 +51,14 @@ accessible using the `DapiServer.sol` contract.
 See the [dApp Developers](./developers/) section to learn more about accessing
 dAPIs.
 
+## Aggregated dAPIs
+
+dAPIs return aggregated values from underlying Beacons that live on-chain within
+the storage of the `DapiSever.sol` contract. A dAPI can be configured to read
+from one or more Beacons.
+
+> <img src="./assets/images/dapi-beacons.png" width="550px"/>
+
 ## Advantages of dAPIs
 
 **Security**: Data used to update a first-party data feed is cryptographically
@@ -77,25 +85,3 @@ provide a wide variety of data feeds in a cost-efficient way.
 API3 to build a lot of them, across many chains. This is supplemented by
 purpose-designed Airnode protocols and relayer schemes to improve efficiency
 while not degrading the security guarantees of a first-party data feed.
-
-## Aggregated Values
-
-dAPIs return aggregated values from underlying Beacons that live on-chain within
-the storage of the `DapiSever.sol` contract. A dAPI can read from one or more
-Beacons.
-
-> <img src="./assets/images/dapi-beacons.png" width="550px"/>
-
-dAPIs source Beacons in response to all dAPI requests. Beacons are stored
-on-chain by API provider owned and operated Airnodes within the storage of the
-`DapiServer.sol` contract. Beacon values are updated by first-party Airnodes run
-by the API data providers themselves. This means that when calling a dAPI for
-the latest price of an asset, a smart contract receives a value directly from
-the Web3-enabled API data provider - not a third-party or a network of third
-party middlemen.
-
-Updating a Beacon is a simple and efficient system. When a Beacon's value falls
-outside a pre-defined tolerance it self-updates by calling its associated
-Airnode. To do so, the Airnode's owner (an API provider) configures the
-pre-defined tolerance of a Beacon's value as well as the frequency to check for
-tolerance deviation.
