@@ -26,9 +26,10 @@ dAPIs are composed out of **Beacons**, which are _first-party data feeds_. A
 Beacon is a first-party data feed because it is directly powered by the owner of
 the data, the API provider. Compared to third-party oracle solutions, which
 involve middlemen node operators, this approach is secure, transparent,
-cost-efficient and scalable. API3 composes dAPIs out of individual Beacons or
-Beacon sets, and provides tham as turn-key data feed solutions to projects
-across many chains.
+cost-efficient and scalable. See the section below about the
+[advantages of dAPIs](#advantages-of-dapis) for more information. API3
+[composes](#dapi-management) dAPIs out of individual Beacons or Beacon sets, and
+provides tham as turn-key data feed solutions to projects across many chains.
 
 ## DapiServer.sol
 
@@ -85,3 +86,13 @@ provide a wide variety of data feeds in a cost-efficient way.
 API3 to build a lot of them, across many chains. This is supplemented by
 purpose-designed Airnode protocols and relayer schemes to improve efficiency
 while not degrading the security guarantees of a first-party data feed.
+
+## dAPI management
+
+API3 composes dAPIs out of Beacons or Beacon sets, and provides them as a
+turn-key data feed service. This allows the user to not have worry about the
+exact API provider to be used, the endpoint to be called or the parameters to be
+used. This process is managed by API3 core technical team multisigs deployed on
+the chains that API3 serves on. API3 also provides access to individual Beacons
+or Beacon sets for the users that require full control over the curation of the
+data feeds they use.
