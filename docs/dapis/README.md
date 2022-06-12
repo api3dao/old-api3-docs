@@ -12,6 +12,11 @@ folder: Introduction
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
+_See our article,
+[dAPIs: APIs for dApps](https://medium.com/api3/dapis-apis-for-dapps-53b83f8d2493)
+for an overview of dAPIs, and how they relate to
+[Beacons](https://medium.com/api3/beacons-building-blocks-for-web3-data-connectivity-df6ad3eb5763)._
+
 **dAPIs** are continuously updated streams of off-chain data, such as the latest
 cryptocurrency, stock and commodities prices. They can power various
 decentralized applications, such as DeFi lending, synthetic assets, stable
