@@ -20,9 +20,15 @@ for an overview of dAPIs, and how they relate to
 **dAPIs** are continuously updated streams of off-chain data, such as the latest
 cryptocurrency, stock and commodities prices. They can power various
 decentralized applications, such as DeFi lending, synthetic assets, stable
-coins, derivatives, quality assurance, NFTs and more. Operated by the market’s
-most trusted and reliable data providers, dAPIs are a transparent, cost
-efficient and scalable way for smart contracts to connect to the data they need.
+coins, derivatives, quality assurance, NFTs and more.
+
+dAPIs are composed out of **Beacons**, which are _first-party data feeds_. A
+Beacon is a first-party data feed because it is directly powered by the owner of
+the data, the API provider. Compared to third-party oracle solutions, which
+involve middlemen node operators, this approach is secure, transparent,
+cost-efficient and scalable. API3 composes dAPIs out of individual Beacons or
+Beacon sets, and provides tham as turn-key data feed solutions to projects
+across many chains.
 
 ## Transparency
 
