@@ -140,15 +140,15 @@ export default {
            */
           // Update this.value based on the reserved parameter _times, if any
           // Look for _times in the decoded parameters
-          /*const decodedParametersArr =
-            this.beacon.template.decodedParameters.filter(
+          const decodedParametersArr =
+            this.dapi.beacons[0].template.decodedParameters.filter(
               (character) => character.name === '_times'
             );
           if (decodedParametersArr.length !== 0) {
             // The decodedParametersArr field contains the value of _times
             this._times = decodedParametersArr[0].value;
             this.value = this.computeValue(this.value);
-          }*/
+          }
 
           // Current DTTM
           const timestamp = res2.data.beaconResponse[1];
