@@ -94,7 +94,7 @@ use
 | parameter         | in     | CURL options                                             |
 | ----------------- | ------ | -------------------------------------------------------- |
 | x-api-key         | header | `-H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e'`   |
-| endpointId        | path   | `0xf466b8feec...99e9f9f90453c`                           |
+| endpointId        | path   | `0x6db9e3e3d...c7025f5c27af6`                            |
 | &lt;user-defined> | body   | `-d '{"parameters": {"param1": "string", "param2": 5}}'` |
 
 Replace `<httpGatewayUrl>` in the example below with your gateway URL from the

@@ -156,7 +156,7 @@ Your deployed Airnode will use these funds to make the transaction that will cre
 
 ### Make your endpoint publicly accessible
 
-`config.json`defines an [endpoint](../protocols/request-response/endpoint.md) named`coinMarketData`, whose [endpoint ID](../protocols/request-response/endpoint.md#endpointid) is `0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c`. Endpoints are not publicly accessible by default, so you will have to make a transaction for this. Run the following to set your endpoint's [authorizers](../protocols/request-response/authorizer.md) to `[0x0000000000000000000000000000000000000000]`, which makes it [publicly accessible](../guides/provider/setting-authorizers.md#allow-all):
+`config.json`defines an [endpoint](../protocols/request-response/endpoint.md) named`coinMarketData`, whose [endpoint ID](../protocols/request-response/endpoint.md#endpointid) is `0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6`. Endpoints are not publicly accessible by default, so you will have to make a transaction for this. Run the following to set your endpoint's [authorizers](../protocols/request-response/authorizer.md) to `[0x0000000000000000000000000000000000000000]`, which makes it [publicly accessible](../guides/provider/setting-authorizers.md#allow-all):
 ```sh
 npm run update-authorizers
 ```

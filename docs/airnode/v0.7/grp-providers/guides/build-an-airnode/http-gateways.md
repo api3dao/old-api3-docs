@@ -82,21 +82,21 @@ using the HTTP signed data gateway or via RRP.
 "triggers": {
   "rrp": [
     {
-      "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
+      "endpointId": "0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6",
       "oisTitle": "CoinGecko Basic Request",
       "endpointName": "coinMarketData",
     }
   ],
   "http": [
     {
-      "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
+      "endpointId": "0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6",
       "oisTitle": "CoinGecko Basic Request",
       "endpointName": "coinMarketData",
     }
   ],
   "httpSignedData": [
     {
-      "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
+      "endpointId": "0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6",
       "oisTitle": "CoinGecko Basic Request",
       "endpointName": "coinMarketData",
     }
@@ -135,7 +135,7 @@ required as part of the CURL call.
 | ---------------------------------------------------------------------- | ------ | --------------------------------------------------------- |
 | Content-Type                                                           | header | `-H 'Content-Type: application/json'`                     |
 | x-api-key                                                              | header | `-H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e'`    |
-| endpointId                                                             | path   | `<gatewayUrl>/0xf466b8feec...99e9f9f90453c`               |
+| endpointId                                                             | path   | `<gatewayUrl>/0x6db9e3e3d0...c7025f5c27af6`               |
 | \* parameters<div class="tSmall">HTTP Gateway</div>                    | body   | `-d '{"parameters": {"param1": "myValue", "param2": 5}}'` |
 | \* encodedParameters<div class="tSmall">HTTP Signed Data Gateway</div> | body   | `-d '{"encodedParameters": "0x3173737300....000"}'`       |
 
@@ -160,7 +160,7 @@ curl \
 -H 'Content-Type: application/json' \
 -H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e' \
 -d '{"parameters": {"param1": "myValue", "param2": 5}}' \
-'<gatewayUrl>/0xf466b8feec...99e9f9f90453c'
+'<gatewayUrl>/0x6db9e3e3d0...c7025f5c27af6'
 ```
 
 :::
@@ -173,7 +173,7 @@ curl \
 -H 'Content-Type: application/json' \
 -H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e' \
 -d '{"encodedParameters": "0x3173737300....000"}' \
-'<gatewayUrl>/0xf466b8feec...99e9f9f90453c'
+'<gatewayUrl>/0x6db9e3e3d0...c7025f5c27af6'
 ```
 
 :::
