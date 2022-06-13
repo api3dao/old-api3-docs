@@ -1,6 +1,6 @@
 <!--
-displays an individual Beacon's detail, hosts the component to
-display the Beacons's value.
+Displays an individual dAPI's details, hosts the component to
+display the dAPI's value.
 -->
 
 <template>
@@ -18,13 +18,16 @@ display the Beacons's value.
 
     <div class="dapi-content-box">
       <i class="dapi-content-box-label">Network:</i>
-      <span class="bcd-content-box-value">{{ chain }}</span>
+      <span class="bcd-content-box-value"
+        >{{ chain.fullName }} - ({{ chain.id }})</span
+      >
     </div>
 
     <!-- Value -->
     <div class="dapi-content-box">
       <dapis-browsers-DapiValue
         v-bind:dapi="dapi"
+        v-bind:chain="chain"
         class="dapi-content-box-label"
       />
     </div>
@@ -66,9 +69,9 @@ export default {
   name: 'DapiDetails',
   props: {
     dapi: {},
+    chain: {},
   },
   data: () => ({
-    chain: localStorage.getItem('dapi-network'),
     templatesLoaded: undefined,
   }),
   mounted() {
