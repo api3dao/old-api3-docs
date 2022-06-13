@@ -60,6 +60,7 @@
     ],
     "httpSignedData": []
   },
+  "templates": [],
   "ois": [
     {
       "oisFormat": "1.0.0",

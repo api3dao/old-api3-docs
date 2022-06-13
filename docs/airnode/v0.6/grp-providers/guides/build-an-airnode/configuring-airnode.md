@@ -473,6 +473,17 @@ data.
   [derive-endpoint-id](../../../reference/packages/admin-cli.md#derive-endpoint-id)
   to derive endpoint IDs using the `oisTitle` and `endpointName`.
 
+### templates
+
+The templates field allows you to specify templates to be used to make template
+requests. The array can be left empty if no templates will be used.
+
+#### templates Reference
+
+- [templateId](../../../reference/deployment-files/config-json.md#templateid)
+- [endpointId](../../../reference/deployment-files/config-json.md#endpointid)
+- [encodedParameters](../../../reference/deployment-files/config-json.md#encodedparameters)
+
 ### ois
 
 The `ois` field is a list OIS objects that Airnode will be serving. This means
