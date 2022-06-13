@@ -1,12 +1,11 @@
 <!--
   This component displays a list of all dAPIs sorted by name.
-  It loads from GitHub.
 -->
 
 <template>
   <div>
     <hr />
-    <!-- PANE: list -->
+    <!-- PANE: dAPI list -->
     <div v-show="showList">
       <span>
         <!-- prettier-ignore -->
@@ -22,7 +21,7 @@
             v-bind:key="chain.name"
             :value="chain.name"
           >
-            {{ chain.name }} - ({{ chain.id }})
+            {{ chain.fullName }} - ({{ chain.id }})
           </option>
         </select>
       </span>
@@ -44,7 +43,7 @@
         <div v-for="(item, index) in dAPIs" v-bind:key="index">
           <div v-show="item.show" v-on:click="togglePanes(item)">
             {{ item.name }}
-            <div style="">
+            <div>
               {{ item.beacons.length }}
               <img
                 src="/img/Beacons-active.png"
@@ -58,13 +57,13 @@
     </div>
     <!-- PANE: details -->
     <div v-if="showDetails">
-      <dapis-browsers-DapiDetails :dapi="dAPI" />
+      <dapis-browsers-DapiDetails :dapi="dAPI" :chain="chain" />
     </div>
 
     <div style="padding: 155px" v-show="showSpinner">
       <img src="/img/spinner.gif" />
     </div>
-    <div v-show="error" class="b2-beacon-list-error">
+    <div v-show="error" class="dapi-beacon-list-error">
       {{ error }}
     </div>
   </div>
@@ -84,7 +83,8 @@ export default {
     dAPIs: [],
     beacons: {},
     data: [],
-    dAPI: undefined, // Carries data to DapiDetails.vue via togglePanes()
+    dAPI: undefined, // Sets data for DapiDetails.vue via togglePanes()
+    chain: undefined, // Sets data for DapiDetails.vue via togglePanes()
     cnt: 0,
     scrollY: 0, // Remember Y position when going to details pane
   }),
@@ -121,7 +121,9 @@ export default {
         }
       }
     },
-    async loadBeaconSets() {},
+    async loadBeaconSets() {
+      // Beacon sets are not available as of June 6th, 2022
+    },
     async loadDapis() {
       this.showList = false;
       this.error = undefined;
@@ -141,7 +143,7 @@ export default {
           const beacon = this.beacons[datafeedId];
           let content = dAPI + ' ';
 
-          // Not sure how to determine NOT a beacon set yet
+          // Future use: not sure how to determine NOT a beacon set.
           let beacons = [];
           // Single beacon
           if (!beacon.beacons) {
@@ -162,76 +164,8 @@ export default {
         }
         this.dAPIs.sort(this.sortByName);
         this.cnt = this.dAPIs.length;
-        console.log(this.dAPIs);
         this.showSpinner = false;
         this.showList = true;
-
-        /*const response = await axios.get(
-          'https://operations-development.s3.amazonaws.com/latest/apis.json'
-        );
-        console.log('Beacons', response.data);
-
-        const providers = response.data;
-
-        // Providers
-        for (var key in providers) {
-          const providerKey = key;
-          const providerName = providers[key].apiMetadata.name;
-          const providerLogo = providers[key].apiMetadata.logoPath;
-          let beacons = [];
-
-          // Beacons
-          for (var beaconKey in providers[key].beacons) {
-            providers[key].beacons[beaconKey].show = true;
-
-            // Get the beacon's template
-            const id = providers[key].beacons[beaconKey].templateId;
-            // Convert templates json obj to an array
-            const templates = Object.values(providers[key].templates);
-            providers[key].beacons[beaconKey].template = templates.find(
-              (template) => template.templateId === id
-            );
-
-            // GRAFANA URLs
-            let beaconId = providers[key].beacons[beaconKey].beaconId;
-            providers[key].beacons[beaconKey].grafanaURL =
-              this.getGrafanaUrl(beaconId);
-            providers[key].beacons[beaconKey].grafanaDeviationURL =
-              this.getGrafanaDeviationUrl(beaconId);
-
-            // Start content
-            providers[key].beacons[beaconKey].content =
-              key +
-              ' ' +
-              providers[key].beacons[beaconKey].name +
-              ' ' +
-              providers[key].beacons[beaconKey].description;
-
-
-            for (var chainKey in providers[key].beacons[beaconKey].chains) {
-              providers[key].beacons[beaconKey].content += ' ' + chainKey + ' ';
-              providers[key].beacons[beaconKey].chains[chainKey].name =
-                chainKey;
-              providers[key].beacons[beaconKey].chains[chainKey].id =
-                this.chains[chainKey].id;
-            }
-            // Sort the chains by name
-            providers[key].beacons[beaconKey].chains = this.sortChainsByName(
-              providers[key].beacons[beaconKey].chains
-            );
-            beacons.push(providers[key].beacons[beaconKey]);
-          }
-          //
-          beacons.sort(this.sortByName);
-          this.cnt += beacons.length;
-          this.data.push({
-            provider: providerKey,
-            name: providerName,
-            beaconCnt: beacons.length,
-            logoPath: providerLogo,
-            beacons: beacons,
-          });
-        }*/
       } catch (err) {
         console.error(err.toString());
         if (err.toString().indexOf('403') > -1) {
@@ -244,11 +178,13 @@ export default {
       this.showList = true;
     },
     togglePanes(dapi) {
-      // If beacon (param) is undefined then this was called by BeaconDetails2.vue
+      // If dapi (param) is undefined then this was called by DapiDetails.vue component
       if (dapi) {
         this.scrollY = window.scrollY;
-        // Data to pass to DapiDetails.vue
+        // Set data for detail pane (dAPI and Chain)
         this.dAPI = dapi;
+        const network = localStorage.getItem('dapi-network');
+        this.chain = this.chains[network];
       }
 
       // Toggle the panes
@@ -296,7 +232,7 @@ export default {
         });
       });
     },
-    getGrafanaUrl(id) {
+    /*getGrafanaUrl(id) {
       return (
         'https://monitor.api3.org/d-solo/SDapXdy7z/documentation-dashboard?orgId=1&var-chainId=4&var-beaconId=' +
         id +
@@ -308,13 +244,13 @@ export default {
         'https://monitor.api3.org/d-solo/SDapXdy7z/documentation-dashboard?var-chainId=4&orgId=1&theme=light&panelId=3&var-beaconId=' +
         id
       );
-    },
+    },*/
   },
 };
 </script>
 
 <style>
-.b2-beacon-list-error {
+.dapi-beacon-list-error {
   padding: 55px;
   color: red;
 }
@@ -327,12 +263,6 @@ export default {
   border: 2px s6lid lightgrey;
   border-radius: 2px;
   padding: 3px;
-}
-.b2-provider-name {
-  margin-left: -60px;
-  vertical-align: super;
-  font-size: x-large;
-  font-weight: 400;
 }
 .dapi-flex-container {
   display: flex;
