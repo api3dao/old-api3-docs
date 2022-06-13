@@ -21,6 +21,7 @@ database of an Airnode deployment. It contains five fields as show below.
   "chains": [],
   "nodeSettings": {},
   "triggers": {},
+  "templates": [],
   "ois": [],
   "apiCredentials": []
 }
@@ -33,6 +34,7 @@ database of an Airnode deployment. It contains five fields as show below.
 - [triggers](./config-json.md#triggers): Which on-chain endpoints will be usable
   by which an available protocol (currently only RRP) and under what endpoint
   ID.
+- [templates](./config-json.md#templates):
 - [ois](./config-json.md#ois): API specifications and the corresponding on-chain
   endpoints, kept as [OIS](/ois/v1.0.0/ois.md) objects.
 - [apiCredentials](./config-json.md#apicredentials): Which API credentials will
@@ -536,6 +538,45 @@ the HTTP Signed Data Gateway.
 #### `httpSignedData[n].endpointName`
 
 (required) - The endpoint name of an OIS endpoint.
+
+## templates
+
+An array that includes the necessary information to make
+[template requests](../../concepts/request.md#template-request)
+
+```json
+// templates
+[
+  {
+    "templateId": "0x02834eb43d56133982b7d6e5aa8b466c7ea4ba0fadf697698c1fee0996bba0fc",
+    "endpointId": "0xd9e8c9bcc8960df5f954c0817757d2f7f9601bd638ea2f94e890ae5481681153",
+    "encodedParameters": "0x3173000000000000000000000000000000000000000000000000000000000000636f696e49640000000000000000000000000000000000000000000000000000657468657265756d000000000000000000000000000000000000000000000000"
+  }
+]
+```
+
+### `templates`
+
+(required) - An array of templates which can be left empty if no templates are
+used. Valid templates will be used to make template requests without calling the
+contract to fetch the template from the chain. For details see:
+[using templates](../../grp-developers/using-templates.md)
+
+#### `templateId`
+
+(required) - An identifier derived by hashing the Airnode address, the
+endpointId and the encoded parameters of the template. For derivation see:
+[templates](../../concepts/template.md#templateid).
+
+#### `endpointId`
+
+(required) - An identifier derived for an oisTitle/endpointName pair. For
+derivation see:
+[derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id).
+
+#### `encodedParameters`
+
+(required) - The encoded request parameters.
 
 ## ois
 

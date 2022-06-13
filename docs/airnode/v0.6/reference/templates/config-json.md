@@ -117,6 +117,13 @@ building a config.json file.
       }
     ]
   },
+  "templates": [
+    {
+      "templateId": "<FILL_*>",
+      "endpointId": "<FILL_*>",
+      "encodedParameters": "<FILL_*>",
+    }
+  ],
   "ois": [
     {
       "oisFormat": "1.0.0",

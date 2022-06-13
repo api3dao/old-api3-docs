@@ -52,6 +52,7 @@ are five root level fields in `config.json`.
 - [chains](./configuring-airnode.md#chains)
 - [nodeSettings](./configuring-airnode.md#nodesettings)
 - [triggers](./configuring-airnode.md#triggers)
+- [templates](./configuring-airnode.md#templates)
 - [ois](./configuring-airnode.md#ois)
 - [apiCredentials](./configuring-airnode.md#apicredentials)
 
@@ -315,6 +316,17 @@ and that these endpoints can be triggers for `rrp`, `http`, and/or
   - [httpSignedData[n].endpointId](../../../reference/deployment-files/config-json.md#httpsigneddata-n-endpointid)
   - [httpSignedData[n].oisTitle](../../../reference/deployment-files/config-json.md#httpsigneddata-n-oistitle)
   - [httpSignedData[n].endpointName](../../../reference/deployment-files/config-json.md#httpsigneddata-n-endpointname)
+
+### templates
+
+The templates field allows you to specify templates to be used to make template
+requests. The array can be left empty if no templates will be used.
+
+#### templates Reference
+
+- [templateId](../../../reference/deployment-files/config-json.md#templateid)
+- [endpointId](../../../reference/deployment-files/config-json.md#endpointid)
+- [encodedParameters](../../../reference/deployment-files/config-json.md#encodedparameters)
 
 ### ois
 
