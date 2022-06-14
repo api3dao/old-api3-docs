@@ -80,7 +80,6 @@ export default {
   }),
   mounted() {
     this.$nextTick(async function () {
-      console.log(this.dapi);
       this.getDapiValue();
     });
   },
