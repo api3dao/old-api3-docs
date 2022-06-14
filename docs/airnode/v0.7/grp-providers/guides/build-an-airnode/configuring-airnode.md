@@ -157,7 +157,7 @@ chains are unrelated to each other.
 
 :::
 
-#### chains Reference
+#### References: `chains`
 
 The below links offer details for each field:
 
@@ -228,7 +228,7 @@ the blockchain: `httpGateway` and `httpSignedDataGateway`. For more information
 on each of these see the [HTTP Gateways](./http-gateways.md) documentation. Also
 note that that distinct API keys must be used for each.
 
-#### nodeSettings Reference
+#### References: `nodeSettings`
 
 - [cloudProvider](../../../reference/deployment-files/config-json.md#cloudprovider)
   - [cloudProvider.type](../../../reference/deployment-files/config-json.md#cloudprovider-type)
@@ -302,7 +302,7 @@ Remember that an Airnode's config.json file can have more than one OIS object
 and that these endpoints can be triggers for `rrp`, `http`, and/or
 `httpSignedData` as desired.
 
-#### triggers Reference
+#### References: `triggers`
 
 - [rrp](../../../reference/deployment-files/config-json.md#rrp)
   - [rrp[n].endpointId](../../../reference/deployment-files/config-json.md#rrp-n-endpointid)
@@ -322,7 +322,7 @@ and that these endpoints can be triggers for `rrp`, `http`, and/or
 The templates field allows you to specify templates to be used to make template
 requests. The array can be left empty if no templates will be used.
 
-#### templates Reference
+#### References: templates
 
 - [templateId](../../../reference/deployment-files/config-json.md#templateid)
 - [endpointId](../../../reference/deployment-files/config-json.md#endpointid)
@@ -387,7 +387,7 @@ Currently Airnode supports the following security scheme types when making API
 calls: `apiKey` and `http`. For more detail, visit the previous section on
 [API Security](./api-security.md).
 
-#### apiCredentials Reference
+#### References: `apiCredentials`
 
 - [oisTitle](../../../reference/deployment-files/config-json.md#oistitle)
 - [securitySchemeName](../../../reference/deployment-files/config-json.md#securityschemename)
