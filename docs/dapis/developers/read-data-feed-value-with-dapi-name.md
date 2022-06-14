@@ -12,9 +12,9 @@ folder: dApp Developers
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Reading a dAPI value with an dAPI `name` is simple and straight forward. In the
-code example below, `_dapiName` is a dAPI `name`. For on-chain smart contracts
-the `msg.sender` argument received by the function
+This function reads a value from a dAPI using its name. In the code example
+below, `\_dapiName`is a dAPI name. For on-chain smart contracts the `msg.sender`
+argument received by the function
 [readDataFeedValueWithDapiName()](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol#L749-L765)
 must have a [coverage policy](./#coverage-policies) for the dAPI requested.
 
