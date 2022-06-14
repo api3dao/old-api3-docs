@@ -82,9 +82,9 @@ It is possible to use a Beacon or Beacon set ID by calling
 considered an advanced user flow. In practice reading with a name and reading
 with an ID are very different things. When you read with a name, you benefit
 from what the name maps to and how its value is aggregated from sourced Beacons.
-API3 dynamically manages dAPI names to provide the best possible responses. When
-you read with an ID, you will always read a value directly from a Beacon or
-Beacon set.
+API3 manages dAPI name mappings to provide the best possible responses. When you
+read with an ID, you will always read a value directly from a Beacon or Beacon
+set.
 
 :::
 
