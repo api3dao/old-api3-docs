@@ -1,5 +1,5 @@
 ---
-title: Developers - Why use dAPIs?
+title: Developers—Why use dAPIs?
 folder: Introduction
 ---
 
@@ -12,48 +12,41 @@ folder: Introduction
 <!--TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" /-->
 
-As on-chain first-party data feeds, dAPIs offer a simple and trusted
-composability layer for building more transparent, reliable, and cost-efficient
-dApps.
+Due to being composed out of first-party data feeds, dAPIs offer security,
+transparency, cost-efficiency and scalability in a turn-key package.
 
-One major advantage of dAPIs is data source transparency: the underlying Beacons
-that are sourced by dAPIs, are operated by a singular first-party oracle and
-therefore carries the reputation and trustworthiness of that data provider.
+**Security**: Data used to update a first-party data feed is cryptographically
+signed by the owner of the data. This means that the data that will update a
+feed cannot be tampered with once it leaves the source. Furthermore, the API
+providers host our first-party oracle node, [Airnode](../../airnode/), to push
+the data to the chain themselves. This renders denial of service attacks by
+third parties ineffective.
 
-By aggregating the values of multiple Beacons, dAPIs can gain resiliency and
-reliability without sacrificing the trustworthiness and transparency of a single
-Beacon value. This is a compelling alternative to the obscurity of other
-"decentralized" oracles that do not report the number nor identities of the APIs
-powering their data feeds. One only has to look at the numerous instances of
-mis-reported cryptocurrency prices by third-party oracles for evidence that
-greater transparency in data feed composition will enable more resilient data
-feeds, fewer catastrophic failures, and an overall better user experience.
+**Transparency**: The cryptographic signatures prove that the data that updates
+a feed comes directly from a specific API provider. Furthermore, Beacons that
+underlie dAPIs allow the user to inspect what exact API endpoints are being
+called, and with which parameters. This provides complete transparency to the
+dApp developer, which is a big step from depending on a pseudonymous selection
+of third parties that intentionally obscure their data sources.
 
-::: tip dAPI Transparency
+::: tip dAPI Browser
 
-dAPIs source data from identifiable Beacons meaning that developers can see the
-number of Beacons used and what API provider powers each Beacon. See the
-[dAPI Browser](../reference/beacon-browser.md).
+dAPIs source data from Beacons, whose parameters you can examine in detail. See
+the [dAPI Browser](../reference/beacon-browser.md).
 
 :::
 
-dAPIs are also a cost-efficient mechanism for obtaining trustworthy off-chain
-data. In situations where a dAPI uses a single Beacon, the dAPI iis reliable
-enough and further decentralization would create unnecessary overhead. Costs can
-be minimized by leveraging this singular source of data. For situations
-requiring an aggregate of Beacon values, dAPIs that leverage multiple Beacon
-values enable the transparent composition of the appropriate number of data
-sources for the specific use-case.
+**Cost-efficiency**: dAPIs are cost efficient compared to third-party data
+feeds, as the user does not need to pay middlemen node operators for their
+services. Furthermore, first-party data feeds do not require redundancy against
+middlemen layer attacks. This makes single-Beacon dAPIs feasible, and allows
+API3 to provide a wide variety of data feeds in a cost-efficient way.
 
-Another major advantage of dAPIs is their simplicity. Developers can quickly
-integrate dAPI data by accessing on-chain contract storage.
-
-Lastly, dAPIs composed of curated sets of Beacons will power new applications
-demanding specific security guarantees. These guarantees will be provided by
-API3 in the form of coverage policies, payable in the case of data feed
-malfunction.
-
-Altogether, dAPIs offer developers an improved solution for accessing off-chain
-data in a simple, transparent, reliable, and cost-efficient manner. This new
-primitive is appealing both for traditional oracle use-cases and for novel,
-previously infeasible blockchain applications.
+**Scalability**: An inherently secure and cost-efficient data feed design allows
+API3 to build a large number of them, on many chains. This is supplemented by
+purpose-designed Airnode protocols and relayer schemes to improve efficiency
+while not degrading the security guarantees of a first-party data feed. The
+improved scalability of dAPIs also factors into building aggregated data feeds.
+Since first-party data feeds do not require redundancy at the middlemen layer,
+the aggregation costs less gas and source-level decentralization becomes more
+affordable.
