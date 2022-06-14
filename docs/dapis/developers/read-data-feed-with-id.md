@@ -12,19 +12,19 @@ folder: dApp Developers
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-::: tip Please note
+::: warning This function uses IDs.
 
-As an alternative to calling a dAPI by it name, it is possible to use a Beacon
-or Beacon set ID known as a `datafeedId`. However the preferred method is to use
-a dAPI `name`.
+Be sure to understand the difference between using a name or ID. See
+[dAPI names](./#dapi-names).
 
 :::
 
-Reading a dAPI value and timestamp with an ID is simple and straight forward. In
-the code example below, `_datafeedId` is a Beacon or Beacon set ID. For on-chain
-smart contracts the `msg.sender` argument received by the function
+This function reads a value and timestamp directly from a Beacon or Beacon set
+using its ID. In the code example below, `_datafeedId` is a Beacon or Beacon set
+ID. For on-chain smart contracts the `msg.sender` argument received by the
+function
 [readDataFeedWithId()](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol#L691-L703)
-must have a [coverage policy](./#coverage-policies) for the dAPI requested.
+must have [read access](./#coverage-policies) for the dAPI requested.
 
 Calling from off-chain code (_using a library such as `ether.js`_) is not
 subject to coverage policies. Off-chain code is beyond the scope of this doc.

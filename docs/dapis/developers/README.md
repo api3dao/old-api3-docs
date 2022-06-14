@@ -76,11 +76,15 @@ Pass a dAPI `name` to the appropriate `DapiServer.sol` reader function.
 
 ::: tip Optionally, use Beacon and Beacon set IDs
 
-As an alternative to calling a dAPI by it name, it is possible to use a Beacon
-or Beacon set ID known as a `datafeedId`. See
+It is possible to use a Beacon or Beacon set ID by calling
 [readDataFeedId()](./read-data-feed-with-id.md) and
-[readDataFeedValueById()](./read-data-feed-value-with-id.md). However, this is
-considered to be an advanced user flow.
+[readDataFeedValueById()](./read-data-feed-value-with-id.md). Doing so is
+considered an advanced user flow. In practice reading with a name and reading
+with an ID are very different things. When you read with a name, you benefit
+from what the name maps to and how its value is aggregated from sourced Beacons.
+API3 manages dAPI name mappings to provide the best possible responses. When you
+read with an ID, you will always read a value directly from a Beacon or Beacon
+set.
 
 :::
 
@@ -96,11 +100,9 @@ considered to be an advanced user flow.
   Details about the coverage policy status of a reader address for a dAPI,
   Beacon, or Beacon set.
 - [readDataFeedWithId()](./read-data-feed-with-id.md) - Returns a value and
-  timestamp using a Beacon or Beacon set ID . Use as an option to reading a
-  value using the dAPI name.
+  timestamp using a Beacon or Beacon set ID.
 - [readDataFeedValueWithId()](./read-data-feed-value-with-id.md) - Returns a
-  value using a Beacon or Beacon set ID . Use as an option to reading a value
-  using the dAPI name.
+  value using a Beacon or Beacon set ID.
 
 ## Resources
 

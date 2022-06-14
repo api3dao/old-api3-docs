@@ -14,9 +14,9 @@ folder: dApp Developers
 
 For on-chain smart contracts, the function
 [dataFeedIdToReaderToWhitelistStatus()](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.0/contracts/dapis/DapiServer.sol#L791-L806)
-returns [coverage policy](./#coverage-policies) information with the
+returns [read access](./#coverage-policies) information with the
 `expirationTimestamp` and `indefiniteWhitelistCount` of a reader for the
-specified dAPI.
+specified dAPI data feed.
 
 The reader will not be able to read the dAPI data feed past the
 expirationTimestamp (assuming their `indefiniteWhitelistCount` is 0 ). If the
@@ -52,8 +52,8 @@ contract mySmartContract {
 ::: tip dAPI name
 
 If you want to check the status for a dAPI `name`, you first need to calculate
-the hash off-chain of `name`. Then pass `dapiNameHash` as `_datafeedId` in the
-example above.
+the hash off-chain of `name` as shown below. Then pass the value of
+`dapiNameHash` as `_datafeedId` in the example above.
 
 ```solidity
 dapiNameHash = ethers.utils.solidityKeccak256(['string'], [dapiName]);
