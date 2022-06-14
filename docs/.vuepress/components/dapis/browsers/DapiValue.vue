@@ -18,7 +18,7 @@ Gets the dAPI's's on-chain value from https://api.api3labs.link/operations.
     </div>
 
     <!-- Current value -->
-    <div style="margin-top: 0px">
+    <div>
       <!-- Error -->
       <div v-show="err" class="dapi-value-err">{{ err }}</div>
       <i>Current value:</i> <b>{{ value }}</b>
@@ -40,7 +40,7 @@ Gets the dAPI's's on-chain value from https://api.api3labs.link/operations.
     ><code style="color:gray;font-size: small;">{{raw}}</code></pre>
 
     <!-- Last 5 values-->
-    <div style="margin-top: -25px">
+    <!--div style="margin-top: -25px">
       <div style="margin-bottom: 5px">
         <i>Last five values:</i>
         <img
@@ -57,7 +57,7 @@ Gets the dAPI's's on-chain value from https://api.api3labs.link/operations.
       >
         <li>{{ item.value }} {{ item.date }} @{{ item.time }}</li>
       </ul>
-    </div>
+    </div-->
   </div>
 </template>
 
@@ -156,8 +156,10 @@ export default {
           this.time = this.convertToTime(timestamp);
           this.loadingSpinner = false; // Current value ready for display
 
-          // Last 5 transactions ///
-          const resTx = await axios.get(
+          /** Last 5 transactions
+           * This needs to be added when the API operation works.
+           */
+          /*const resTx = await axios.get(
             'https://api.api3data.link/beacons/last_transactions',
             {
               params: {
@@ -174,7 +176,7 @@ export default {
               date: this.convertToDate(d),
               time: this.convertToTime(d),
             });
-          });
+          });*/
         }
 
         this.loadingLastFiveSpinner = false;
