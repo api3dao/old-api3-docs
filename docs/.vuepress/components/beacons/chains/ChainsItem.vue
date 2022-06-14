@@ -5,9 +5,10 @@
 <template>
   <div>
     <div class="bc-chains-name">
-      <a :href="chain.explorerUrl">{{ chain.name }}</a
+      <a :href="chain.explorerUrl">{{ chain.fullName }}</a
       ><ExternalLinkImage />
     </div>
+    <div class="bc-chains-short-name">({{ chain.name }})</div>
     <div class="bc-chains-id">Id: {{ chain.id }}</div>
 
     <!-- Contract list -->
@@ -35,6 +36,10 @@ export default {
   font-weight: bold;
   margin-bottom: 5px;
   cursor: pointer;
+}
+.bc-chains-short-name {
+  font-size: small;
+  margin-bottom: 3px;
 }
 .bc-chains-id {
   font-size: small;
