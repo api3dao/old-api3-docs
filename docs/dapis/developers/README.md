@@ -23,8 +23,8 @@ npm package.
 
 The
 [data-feed-reader-example](https://github.com/api3dao/data-feed-reader-example)
-starter is an example project for reading from dAPI a on the Polygon testnet. Be
-sure to read through the
+starter is an example project for reading from dAPI a on the Polygon Mumbai
+testnet. Be sure to read through the
 [README.md](https://github.com/api3dao/data-feed-reader-example/blob/main/README.md)
 and some of the example code such as the
 [DataFeedReaderExample.sol](https://github.com/api3dao/data-feed-reader-example/blob/main/contracts/DataFeedReaderExample.sol)
