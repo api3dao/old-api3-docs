@@ -11,7 +11,7 @@ folder: Reference
 
 dAPIs can be read on the following chains using the
 [DapiServer](../#dapiserver-sol) contract addresses listed below. Use the
-[dAPI Browser](./beacon-browser.md) to find the desired dAPI names and the
+[dAPI Browser](./dapi-browser.md) to find the desired dAPI names and the
 networks they are available on.
 
 <dapis-chains-ChainsList/>
