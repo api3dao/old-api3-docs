@@ -108,5 +108,5 @@ set. Also see [dAPI Composition](../#dapi-composition).
 
 - [Chains and Contracts](../reference/chains.md): A list of chains, and
   supporting contracts that dAPIs are available on.
-- [Beacon Browser](../reference/beacon-browser.md): A list of functioning
-  Beacons that have been deployed.
+- [dAPI Browser](../reference/dapi-browser.md): A list of dAPIs that have been
+  deployed.
