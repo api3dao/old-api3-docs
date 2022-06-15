@@ -22,9 +22,13 @@ display the dAPI's value.
         >{{ chain.fullName }} - ({{ chain.id }})</span
       >
     </div>
+    <!-- Error -->
+    <div v-if="error" class="dapi-list-error">{{ error }}</div>
 
-    <!-- Value -->
-    <div class="dapi-content-box">
+    <!-- Value 
+    Do not add to the DOM until the template is loaded. 
+    The template _times param needs to be available. -->
+    <div class="dapi-content-box" v-if="templatesLoaded">
       <dapis-browsers-DapiValue
         v-bind:dapi="dapi"
         v-bind:chain="chain"
@@ -33,7 +37,7 @@ display the dAPI's value.
     </div>
 
     <!-- BEACONS -->
-    <div class="dapi-content-box">
+    <div class="dapi-content-box" v-if="templatesLoaded">
       <i class="dapi-content-box-label">Sourced Beacons:</i> ({{
         dapi.beacons.length
       }})
@@ -51,7 +55,7 @@ display the dAPI's value.
         <div class="dapi-content-box-value">
           Template ID: {{ item.templateId }}<CopyIcon :text="item.templateId" />
         </div>
-        <div v-if="templatesLoaded" class="dapi-content-box-value">
+        <div class="dapi-content-box-value">
           Template:
           <pre><code>{{ item.template }}</code></pre>
         </div>
@@ -73,6 +77,7 @@ export default {
   },
   data: () => ({
     templatesLoaded: undefined,
+    error: undefined,
   }),
   mounted() {
     this.$nextTick(async function () {
@@ -81,19 +86,23 @@ export default {
     });
   },
   methods: {
-    // Add the template to each Beacon in hte dAPI
+    // Add the template to each Beacon in the dAPI.
     async getTemplates() {
       for (let i = 0; i < this.dapi.beacons.length; i++) {
-        const beacon = this.dapi.beacons[i];
-        let response = await axios.get(
-          'https://operations-development.s3.amazonaws.com/latest/templates/' +
-            beacon.templateId +
-            '.json'
-        );
-
-        beacon.template = response.data;
+        try {
+          const beacon = this.dapi.beacons[i];
+          let response = await axios.get(
+            'https://operations-development.s3.amazonaws.com/latest/templates/' +
+              beacon.templateId +
+              '.json'
+          );
+          beacon.template = response.data;
+        } catch (err) {
+          this.error = 'Failed to load templates: ' + err.toString();
+        }
       }
-      this.templatesLoaded = true;
+      // If the templates fail then the value will not be displayed.
+      if (!this.error) this.templatesLoaded = true;
     },
     goBack() {
       // Do not pass any parameters

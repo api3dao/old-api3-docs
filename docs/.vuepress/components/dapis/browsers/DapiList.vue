@@ -63,7 +63,7 @@
     <div style="padding: 155px" v-show="showSpinner">
       <img src="/img/spinner.gif" />
     </div>
-    <div v-show="error" class="dapi-beacon-list-error">
+    <div v-show="error" class="dapi-list-error">
       {{ error }}
     </div>
   </div>
@@ -250,7 +250,7 @@ export default {
 </script>
 
 <style>
-.dapi-beacon-list-error {
+.dapi-list-error {
   padding: 55px;
   color: red;
 }

@@ -137,16 +137,21 @@ export default {
           /**  TODO:
            *    Apply the reserved parameter _times.
            */
-          // Update this.value based on the reserved parameter _times, if any
-          // Look for _times in the decoded parameters
-          const decodedParametersArr =
-            this.dapi.beacons[0].template.decodedParameters.filter(
-              (character) => character.name === '_times'
-            );
-          if (decodedParametersArr.length !== 0) {
-            // The decodedParametersArr field contains the value of _times
-            this._times = decodedParametersArr[0].value;
-            this.value = this.computeValue(this.value);
+          // Update this.value based on the reserved parameter _times, if any.
+          // First be sure there is a template loaded.
+          if (!this.dapi.beacons[0].template) {
+            throw new Error('The template was not present.');
+          } else {
+            // Look for _times in the decoded parameters
+            const decodedParametersArr =
+              this.dapi.beacons[0].template.decodedParameters.filter(
+                (character) => character.name === '_times'
+              );
+            if (decodedParametersArr.length !== 0) {
+              // The decodedParametersArr field contains the value of _times
+              this._times = decodedParametersArr[0].value;
+              this.value = this.computeValue(this.value);
+            }
           }
 
           // Current DTTM
