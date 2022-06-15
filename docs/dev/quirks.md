@@ -73,3 +73,8 @@ Studio Code to redraw the legends correctly to the right of the filename.
 It may be time to clear Chrome's cached files during development if there is a
 console error referencing the fact that `app.js` cannot be found. This seems
 very rare.
+
+## Vue Language Features (Volar)
+
+This VS Code plugin is used for Vue 3 support. Using it with VuePress (and
+Vue 2) will cause issues where the markdown files get checked as being js code.

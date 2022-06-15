@@ -56,12 +56,12 @@ accessible using `DapiServer.sol`.
 See the [dApp Developers](./developers/) section to learn more about accessing
 dAPIs.
 
-## dAPI composition
+## dAPI Composition
 
 API3 composes dAPIs out of individual Beacons and Beacon sets, and provides them
-as turn-key data feed services. This allows the user to not have to worry about
-the exact API provider to be used, the endpoint to be called or the parameters
-to be used. This process is managed by the API3 core technical team multisigs
-deployed on the chains that dAPIs are provided on. API3 also provides access to
-individual Beacons or Beacon sets for the users that require full control over
-the curation of the data feeds they use.
+as turn-key data feed services. Users need not worry about the exact API
+provider used, the endpoint called, or the parameters used. This process is
+managed by the API3 core technical team multisigs deployed on the chains that
+dAPIs are provided on. API3 also provides access to individual Beacons or Beacon
+sets for the users that require full control over the curation of the data feeds
+they use.

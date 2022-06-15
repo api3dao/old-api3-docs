@@ -260,8 +260,8 @@ export default {
   font-size: large;
   width: 265px;
   max-width: 265px;
-  border: 2px s6lid lightgrey;
-  border-radius: 2px;
+  border: 1.5px solid lightgrey;
+  border-radius: 5px;
   padding: 3px;
 }
 .dapi-flex-container {
