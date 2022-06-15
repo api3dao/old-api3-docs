@@ -19,7 +19,7 @@
         v-for="chain in chains"
         v-bind:key="chain.name"
       >
-        <beacons-chains-ChainsItem :chain="chain" />
+        <dapis-chains-ChainsItem :chain="chain" />
       </div>
     </div>
   </div>
