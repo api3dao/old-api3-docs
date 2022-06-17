@@ -2,7 +2,7 @@
 title: Create an Integration
 ---
 
-<TitleSpan>How to Guide</TitleSpan>
+<TitleSpan>User Guides</TitleSpan>
 
 # {{$frontmatter.title}}
 
