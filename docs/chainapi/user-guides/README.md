@@ -2,7 +2,7 @@
 title: Getting Started
 ---
 
-<TitleSpan>How to Guide</TitleSpan>
+<TitleSpan>User Guides</TitleSpan>
 
 # {{$frontmatter.title}}
 

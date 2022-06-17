@@ -13,9 +13,9 @@ module.exports = [
     initialOpenGroupIndex: 1,
     collapsable: false,
     children: [
-      'how-to-guide/', // README
-      'how-to-guide/integrations',
-      'how-to-guide/deployments',
+      'user-guides/', // README
+      'user-guides/integrations',
+      'user-guides/deployments',
     ],
   },
   {
