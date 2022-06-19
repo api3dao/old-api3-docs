@@ -9,7 +9,7 @@ title: What is ChainAPI?
 <!--TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" /-->
 
-[ChainAPI](https://qa.chainapi.com) enables you to integrate and deploy the open
+[ChainAPI](https://chainapi.com) enables you to integrate and deploy the open
 source [Airnode](../airnode/v0.6/) for free with ChainAPI’s intuitive
 step-by-step integration and deployment tools.
 
