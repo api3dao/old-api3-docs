@@ -33,7 +33,7 @@ You can also use the package programmatically. The SDK exports respective functi
 well as helper functions for obtaining the contract instance on the targeted chain.
 
 ```js
-import { createRequester, getAirnodeRrpWithSigner } from '@api3/admin';
+import { createRequester, getAirnodeRrpWithSigner } from '@api3/airnode-admin';
 
 // First obtain the contract instance on target chain
 const airnodeRrp = await getAirnodeRrpWithSigner(mnemonic, derivationPath, providerUrl, airnodeRrpAddress);
@@ -44,7 +44,7 @@ const requesterIndex = await createRequester(airnodeRrp, requesterAdmin);
 If you plan to use multiple commands it might be tedious to pass the contract instance to every function call. For this reason there is also class based `AdminSdk` which you initialize with `AirnodeRrp` contract only once.
 
 ```js
-import { AdminSdk } from '@api3/admin';
+import { AdminSdk } from '@api3/airnode-admin';
 
 // First initialize the SDK with AirnodeRrp contract instance.
 // You can use static AdminSdk functions or provide your own instance.
