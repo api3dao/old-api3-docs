@@ -1,0 +1,362 @@
+{
+  "apiCredentials": [
+    {
+      "oisTitle": "Example Petstore API",
+      "securitySchemeName": "ExamplePetstoreAPISecurityScheme1ApiKey",
+      "securitySchemeValue": "${EXAMPLE_PETSTORE_API_SECURITY_SCHEME_1_APIKEY_BASIC_VALUE}"
+    }
+  ],
+  "chains": [
+    {
+      "authorizers": [
+        "0xf18c105D0375E80980e4EED829a4A68A539E6178"
+      ],
+      "blockHistoryLimit": 300,
+      "contracts": {
+        "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
+      },
+      "id": "1",
+      "ignoreBlockedRequestsAfterBlocks": 20,
+      "maxConcurrency": 50,
+      "minConfirmations": 0,
+      "options": {
+        "baseFeeMultiplier": 2,
+        "fulfillmentGasLimit": 500000,
+        "priorityFee": {
+          "unit": "gwei",
+          "value": 3.12
+        },
+        "txType": "eip1559"
+      },
+      "providers": {
+        "mainnet1": {
+          "url": "${MAINNET_1_PROVIDER_URL}"
+        }
+      },
+      "type": "evm"
+    }
+  ],
+  "nodeSettings": {
+    "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
+    "cloudProvider": {
+      "disableConcurrencyReservations": true,
+      "region": "af-south-1",
+      "type": "aws"
+    },
+    "heartbeat": {
+      "apiKey": "${HEARTBEAT_API_KEY}",
+      "enabled": true,
+      "id": "${HEARTBEAT_ID}",
+      "url": "${HEARTBEAT_URL}"
+    },
+    "httpGateway": {
+      "apiKey": "${HTTP_GATEWAY_API_KEY_BETWEEN_30_TO_120_CHARACTERS}",
+      "enabled": true,
+      "maxConcurrency": 20
+    },
+    "httpSignedDataGateway": {
+      "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_API_KEY}",
+      "enabled": true,
+      "maxConcurrency": 20
+    },
+    "logFormat": "plain",
+    "logLevel": "INFO",
+    "nodeVersion": "0.6.4",
+    "stage": "green-reindeer"
+  },
+  "ois": [
+    {
+      "apiSpecifications": {
+        "components": {
+          "securitySchemes": {
+            "ExamplePetstoreAPISecurityScheme1ApiKey": {
+              "in": "header",
+              "name": "example-petstore-api-key",
+              "type": "apiKey"
+            }
+          }
+        },
+        "paths": {
+          "/example/v1/petstore/pets": {
+            "get": {
+              "parameters": []
+            },
+            "post": {
+              "parameters": [
+                {
+                  "in": "query",
+                  "name": "usd_price"
+                },
+                {
+                  "in": "query",
+                  "name": "available"
+                },
+                {
+                  "in": "query",
+                  "name": "name"
+                },
+                {
+                  "in": "query",
+                  "name": "id"
+                }
+              ]
+            }
+          },
+          "/example/v1/petstore/pets/{id}": {
+            "get": {
+              "parameters": [
+                {
+                  "in": "path",
+                  "name": "id"
+                }
+              ]
+            }
+          },
+          "/example/v1/petstore/pets/{id}/price": {
+            "get": {
+              "parameters": [
+                {
+                  "in": "query",
+                  "name": "currency"
+                },
+                {
+                  "in": "path",
+                  "name": "id"
+                }
+              ]
+            }
+          }
+        },
+        "security": {
+          "ExamplePetstoreAPISecurityScheme1ApiKey": []
+        },
+        "servers": [
+          {
+            "url": "https://qa-api.chainapi.com"
+          }
+        ]
+      },
+      "endpoints": [
+        {
+          "externalDocs": "https://qa-api.chainapi.com/api/example/petstore/index.html#/Petstore/ChainapiWeb_Example_V1_PetstoreController_index",
+          "fixedOperationParameters": [],
+          "name": "GET_/example/v1/petstore/pets",
+          "operation": {
+            "method": "get",
+            "path": "/example/v1/petstore/pets"
+          },
+          "parameters": [],
+          "reservedParameters": [
+            {
+              "name": "_path"
+            },
+            {
+              "name": "_type"
+            },
+            {
+              "name": "_times"
+            }
+          ],
+          "summary": "Returns the list of all pets"
+        },
+        {
+          "externalDocs": "https://qa-api.chainapi.com/api/example/petstore/index.html#/Petstore/ChainapiWeb_Example_V1_PetstoreController_show",
+          "fixedOperationParameters": [],
+          "name": "GET_/example/v1/petstore/pets/{id}",
+          "operation": {
+            "method": "get",
+            "path": "/example/v1/petstore/pets/{id}"
+          },
+          "parameters": [
+            {
+              "default": "5",
+              "name": "id",
+              "operationParameter": {
+                "in": "path",
+                "name": "id"
+              }
+            }
+          ],
+          "reservedParameters": [
+            {
+              "name": "_type"
+            },
+            {
+              "name": "_times"
+            },
+            {
+              "name": "_path"
+            }
+          ],
+          "summary": "Return a single pet by ID"
+        },
+        {
+          "description": "Creates a new pet with the given parameters",
+          "externalDocs": "https://qa-api.chainapi.com/api/example/petstore/index.html#/Petstore/ChainapiWeb_Example_V1_PetstoreController_create",
+          "fixedOperationParameters": [],
+          "name": "POST_/example/v1/petstore/pets",
+          "operation": {
+            "method": "post",
+            "path": "/example/v1/petstore/pets"
+          },
+          "parameters": [
+            {
+              "default": "100",
+              "name": "usd_price",
+              "operationParameter": {
+                "in": "query",
+                "name": "usd_price"
+              }
+            },
+            {
+              "default": "true",
+              "name": "available",
+              "operationParameter": {
+                "in": "query",
+                "name": "available"
+              }
+            },
+            {
+              "default": "Doggie",
+              "name": "name",
+              "operationParameter": {
+                "in": "query",
+                "name": "name"
+              }
+            },
+            {
+              "default": "11",
+              "name": "id",
+              "operationParameter": {
+                "in": "query",
+                "name": "id"
+              }
+            }
+          ],
+          "reservedParameters": [
+            {
+              "name": "_type"
+            },
+            {
+              "name": "_times"
+            },
+            {
+              "name": "_path"
+            }
+          ],
+          "summary": "Create a new pet"
+        },
+        {
+          "externalDocs": "https://qa-api.chainapi.com/api/example/petstore/index.html#/Petstore/ChainapiWeb_Example_V1_PetstoreController_price",
+          "fixedOperationParameters": [],
+          "name": "GET_/example/v1/petstore/pets/{id}/price",
+          "operation": {
+            "method": "get",
+            "path": "/example/v1/petstore/pets/{id}/price"
+          },
+          "parameters": [
+            {
+              "default": "ETH",
+              "name": "currency",
+              "operationParameter": {
+                "in": "query",
+                "name": "currency"
+              }
+            },
+            {
+              "default": "5",
+              "name": "id",
+              "operationParameter": {
+                "in": "path",
+                "name": "id"
+              }
+            }
+          ],
+          "reservedParameters": [
+            {
+              "name": "_path"
+            },
+            {
+              "name": "_type"
+            },
+            {
+              "name": "_times"
+            }
+          ],
+          "summary": "Returns the price of a given pet by ID"
+        }
+      ],
+      "oisFormat": "1.0.0",
+      "title": "Example Petstore API",
+      "version": "0.2.0"
+    }
+  ],
+  "triggers": {
+    "http": [
+      {
+        "endpointId": "0xc571f7fc3018121c3fdefc488118aaf15e1cde5550a001f956cd3e55511492b3",
+        "endpointName": "GET_/example/v1/petstore/pets",
+        "oisTitle": "Example Petstore API"
+      },
+      {
+        "endpointId": "0x18f7081bebdf8904baf477d859e434382fd13669169a099b66978768be4901a5",
+        "endpointName": "GET_/example/v1/petstore/pets/{id}",
+        "oisTitle": "Example Petstore API"
+      },
+      {
+        "endpointId": "0xcfe68649350add63bc8651131351cc59bb947bb8112baf03da70be62f39257b9",
+        "endpointName": "POST_/example/v1/petstore/pets",
+        "oisTitle": "Example Petstore API"
+      },
+      {
+        "endpointId": "0x04cad203f3776f1c1b68d3d073995140cbc78991c2fc1502e4eedf0d77a01c50",
+        "endpointName": "GET_/example/v1/petstore/pets/{id}/price",
+        "oisTitle": "Example Petstore API"
+      }
+    ],
+    "httpSignedData": [
+      {
+        "endpointId": "0xc571f7fc3018121c3fdefc488118aaf15e1cde5550a001f956cd3e55511492b3",
+        "endpointName": "GET_/example/v1/petstore/pets",
+        "oisTitle": "Example Petstore API"
+      },
+      {
+        "endpointId": "0x18f7081bebdf8904baf477d859e434382fd13669169a099b66978768be4901a5",
+        "endpointName": "GET_/example/v1/petstore/pets/{id}",
+        "oisTitle": "Example Petstore API"
+      },
+      {
+        "endpointId": "0xcfe68649350add63bc8651131351cc59bb947bb8112baf03da70be62f39257b9",
+        "endpointName": "POST_/example/v1/petstore/pets",
+        "oisTitle": "Example Petstore API"
+      },
+      {
+        "endpointId": "0x04cad203f3776f1c1b68d3d073995140cbc78991c2fc1502e4eedf0d77a01c50",
+        "endpointName": "GET_/example/v1/petstore/pets/{id}/price",
+        "oisTitle": "Example Petstore API"
+      }
+    ],
+    "rrp": [
+      {
+        "endpointId": "0xc571f7fc3018121c3fdefc488118aaf15e1cde5550a001f956cd3e55511492b3",
+        "endpointName": "GET_/example/v1/petstore/pets",
+        "oisTitle": "Example Petstore API"
+      },
+      {
+        "endpointId": "0x18f7081bebdf8904baf477d859e434382fd13669169a099b66978768be4901a5",
+        "endpointName": "GET_/example/v1/petstore/pets/{id}",
+        "oisTitle": "Example Petstore API"
+      },
+      {
+        "endpointId": "0xcfe68649350add63bc8651131351cc59bb947bb8112baf03da70be62f39257b9",
+        "endpointName": "POST_/example/v1/petstore/pets",
+        "oisTitle": "Example Petstore API"
+      },
+      {
+        "endpointId": "0x04cad203f3776f1c1b68d3d073995140cbc78991c2fc1502e4eedf0d77a01c50",
+        "endpointName": "GET_/example/v1/petstore/pets/{id}/price",
+        "oisTitle": "Example Petstore API"
+      }
+    ]
+  }
+}

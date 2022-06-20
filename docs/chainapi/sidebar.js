@@ -6,24 +6,27 @@ module.exports = [
     children: [
       '', //README
       'introduction/why-use-chainapi',
+      'introduction/concepts',
     ],
   },
   {
-    title: 'How to Guide',
+    title: 'How to Guides',
     initialOpenGroupIndex: 1,
     collapsable: false,
     children: [
-      'user-guides/', // README
+      'user-guides/signup',
       'user-guides/integrations',
       'user-guides/deployments',
     ],
   },
   {
-    title: 'Reference',
+    title: 'Example Files',
     initialOpenGroupIndex: 1,
     collapsable: false,
     children: [
-      'reference/', // README
+      'example-files/config',
+      'example-files/aws',
+      'example-files/secrets',
     ],
   },
 ];
