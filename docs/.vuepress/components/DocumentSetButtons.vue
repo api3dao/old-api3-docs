@@ -38,6 +38,16 @@ it will always default to the startPath in config.json.
       </p>
     </li>
     <li>
+      <router-link to="/chainapi">
+        <img src="/img/chainapi-active.png" />
+        ChainAPI</router-link
+      >
+      <p>
+        Enable your API to be called by smart contracts and applications running
+        on the decentralized web.
+      </p>
+    </li>
+    <li>
       <router-link to="/qrng">
         <img src="/img/Quantum-State=Active@2x.png" />
         QRNG</router-link
