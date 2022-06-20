@@ -111,7 +111,7 @@ functions for all CLI commands as well as helper functions for obtaining the
 contract instance on the targeted chain.
 
 ```js
-import { sponsorRequester, getAirnodeRrpWithSigner } from '@api3/admin';
+import { sponsorRequester, getAirnodeRrpWithSigner } from '@api3/airnode-admin';
 
 // First obtain the contract instance on target chain
 const airnodeRrp = await getAirnodeRrpWithSigner(
@@ -129,7 +129,7 @@ instance to every function call. For this reason there is also class based
 `AdminSdk` which you initialize with `AirnodeRrp` contract only once.
 
 ```js
-import { AdminSdk } from '@api3/admin';
+import { AdminSdk } from '@api3/airnode-admin';
 
 // First initialize the SDK with AirnodeRrpV0 contract instance.
 // You can use static AdminSdk functions or provide your own instance.
