@@ -11,7 +11,7 @@ title: Concepts and Definitions
 <TOC class="table-of-contents" :include-level="[3,4]" />
 
 The general terms used by ChainAPI follow standard blockchain definitions. Other
-related Airnode [Concepts and Definitions](../../airnode/v0.6/concepts/) may be
+related Airnode [Concepts and Definitions](../../airnode/v0.7/concepts/) may be
 useful to better understand how Airnode works.
 
 ### API Card
@@ -26,7 +26,7 @@ The top-level domain name of a data source (e.g. domain.com).
 
 ### Blockchain Providers
 
-Also see [Chain Providers](../../airnode/v0.6/concepts/chain-providers.md) in
+Also see [Chain Providers](../../airnode/v0.7/concepts/chain-providers.md) in
 the Airnode documentation set.
 
 ### Cloud Provider

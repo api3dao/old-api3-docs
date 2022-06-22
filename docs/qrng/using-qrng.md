@@ -22,7 +22,7 @@ on-chain in response to a request, which the requester needs to pay for.
 
 ## How it Works
 
-Upon request, [Airnode](/airnode/v0.6/) calls a designated API operation and
+Upon request, [Airnode](/airnode/v0.7/) calls a designated API operation and
 acquires a random number and then delivers it on-chain, via the `AirnodeRrpV0`
 protocol contract, to a requester.
 
@@ -36,7 +36,7 @@ requester with the random number.
 
 Calling `AirnodeRrpV0` for a random number is the same as any other Airnode
 request. Read more about how a requester
-[accesses an Airnode](/airnode/v0.6/grp-developers/) to acquire data from API
+[accesses an Airnode](/airnode/v0.7/grp-developers/) to acquire data from API
 operations.
 
 ## QRNG Example Project
@@ -63,7 +63,7 @@ Preparing to use the QRNG service involves three steps.
 
 Call the QRNG service using the _request–response protocol (RRP)_ implemented by
 the on-chain `AirnodeRrpV0` contract. Refer to the
-[Calling an Airnode](/airnode/v0.6/grp-developers/call-an-airnode.md) doc for a
+[Calling an Airnode](/airnode/v0.7/grp-developers/call-an-airnode.md) doc for a
 detailed explanation and instructions to make a `AirnodeRrpV0` request. The
 [@api3/airnode-protocol](https://www.npmjs.com/package/@api3/airnode-protocol)
 package is distributed via npm.
@@ -193,10 +193,10 @@ detailed in the following section, _Step 3: Sponsor the Requester_.
 The requester must be sponsored to pay for the gas costs when Airnode places the
 random number on-chain in response to a request. Requesters can be sponsored
 using a script or, as an alternate method, using the
-[airnode-admin CLI](/airnode/v0.6/reference/packages/admin-cli.md#sponsor-requester).
+[airnode-admin CLI](/airnode/v0.7/reference/packages/admin-cli.md#sponsor-requester).
 
 Refer to the
-[Sponsor a Requester](/airnode/v0.6/grp-developers/requesters-sponsors.md#how-to-sponsor-a-requester)
+[Sponsor a Requester](/airnode/v0.7/grp-developers/requesters-sponsors.md#how-to-sponsor-a-requester)
 doc for a detailed explanation and other instructions to create a sponsor wallet
 for a requester. The sponsor wallet is applied to a requester using the
 `airnode-admin` CLI as shown below.
@@ -212,7 +212,7 @@ Requester 0x2c...gDER7 sponsored using sponsorAddress 0xF4...dDyu9
 ```
 
 See the
-[airnode-admin CLI](/airnode/v0.6/reference/packages/admin-cli.md#sponsor-requester)
+[airnode-admin CLI](/airnode/v0.7/reference/packages/admin-cli.md#sponsor-requester)
 for additional options to sponsor a requester.
 
 - `provider-url` - A chain provider such as Infura pointing to the desired

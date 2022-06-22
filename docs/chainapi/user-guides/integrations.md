@@ -12,7 +12,7 @@ title: Create an Integration
 Setting up an integration is the first step that is required to deploy an
 Airnode. Here you will capture the required details for your existing API, which
 will be used to populate the files for deploying an Airnode. See
-[Deployment Files](../../airnode/v0.6/reference/deployment-files/) in hte
+[Deployment Files](../../airnode/v0.7/reference/deployment-files/) in hte
 Airnode document set for more information.
 
 Select the **Integrate** menu in the navigation bar on the left side of the

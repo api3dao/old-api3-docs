@@ -10,7 +10,7 @@ title: What is ChainAPI?
 <TOC class="table-of-contents" :include-level="[2,3]" /-->
 
 [ChainAPI](https://chainapi.com) enables you to integrate and deploy the open
-source [Airnode](../airnode/v0.6/) for free with ChainAPI’s intuitive
+source [Airnode](../airnode/v0.7/) for free with ChainAPI’s intuitive
 step-by-step integration and deployment tools.
 
 The ChainAPI platform streamlines "API provider data to blockchain" integrations

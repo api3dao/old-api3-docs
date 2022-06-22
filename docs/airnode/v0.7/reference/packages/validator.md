@@ -13,7 +13,7 @@ folder: Reference > Packages
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 The
-[airnode-validator](https://github.com/api3dao/airnode/tree/v0.6/packages/airnode-validator)
+[airnode-validator](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-validator)
 is used internally by the [Docker Images](../../grp-providers/docker/) to
 validate the
 [configuration files](../../grp-providers/guides/build-an-airnode/configuring-airnode.md)
@@ -139,4 +139,4 @@ if (parseResult.success) {
 ## Build Manually
 
 See the build instruction in the package developer documentation:
-https://github.com/api3dao/airnode/tree/v0.6/packages/airnode-validator
+https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-validator

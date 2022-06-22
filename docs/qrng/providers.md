@@ -7,7 +7,7 @@ title: API Providers
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-API3 QRNG is built on [Airnode RRP](/airnode/v0.6/concepts/), and as a result is
+API3 QRNG is built on [Airnode RRP](/airnode/v0.7/concepts/), and as a result is
 provider-agnostic. See below for the providers that are currently available.
 
 ## ANU Quantum Random Numbers
