@@ -121,7 +121,7 @@ file.
 docker run --detach \
   --volume "$(pwd)/config:/app/config" \
   --name quick-deploy-container-airnode \
-  api3/airnode-client:0.6.0
+  api3/airnode-client:0.7.2
 ```
 
 :::
@@ -134,7 +134,7 @@ For Windows, use CMD (and not PowerShell).
 docker run --detach ^
   --volume "%cd%/config:/app/config" ^
   --name quick-deploy-container-airnode ^
-  api3/airnode-client:0.6.0
+  api3/airnode-client:0.7.2
 ```
 
 :::
@@ -166,7 +166,7 @@ docker logs --follow quick-deploy-container-airnode
 ## Test the Airnode
 
 After a successful deployment the Airnode can be tested using the
-[test-api.js](https://github.com/api3dao/airnode/tree/v0.6/packages/airnode-node#testing-api)
+[test-api.js](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-node#testing-api)
 script which allows you to execute an Airnode endpoint without accessing the
 blockchain.
 

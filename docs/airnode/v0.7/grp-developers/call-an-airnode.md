@@ -28,7 +28,7 @@ mechanics of the entire process.
 
 The AirnodeRrpV0 protocol is designed to be flexible and is meant to serve a
 variety of use cases. See the Airnode
-[requester examples](https://github.com/api3dao/airnode/tree/v0.6/packages/airnode-examples/contracts)
+[requester examples](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-examples/contracts)
 for potential design patterns.
 
 Ignoring the mechanics of the overall process, the requester calling an Airnode
@@ -50,7 +50,7 @@ its deployment and sponsoring.
 ## Step #1: Inherit RrpRequesterV0.sol
 
 A requester inherits from the
-[RrpRequesterV0.sol](https://github.com/api3dao/airnode/blob/v0.6/packages/airnode-protocol/contracts/rrp/requesters/RrpRequesterV0.sol)
+[RrpRequesterV0.sol](https://github.com/api3dao/airnode/blob/v0.7/packages/airnode-protocol/contracts/rrp/requesters/RrpRequesterV0.sol)
 contract. This will expose the AirnodeRrpV0.sol protocol contract to the
 requester allowing it to make Airnode requests.
 

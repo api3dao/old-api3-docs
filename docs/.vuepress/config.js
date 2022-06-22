@@ -3,6 +3,7 @@ module.exports = {
 
   /// Doc set versioned pick lists.
   versions: [
+    { name: 'v0.7', url: '/airnode/v0.7/' },
     { name: 'v0.6', url: '/airnode/v0.6/' },
     { name: 'v0.5', url: '/airnode/v0.5/' },
     { name: 'v0.4', url: '/airnode/v0.4/' },
@@ -14,16 +15,16 @@ module.exports = {
   versionsOis: [{ name: 'v1.0.0', url: '/ois/v1.0.0/' }],
 
   /// Next version of airnode, used by /next route.
-  airnodeVersionNext: [{ name: 'v0.7', url: '/airnode/v0.7/' }],
+  airnodeVersionNext: [{ name: 'v0.8', url: '/airnode/v0.8/' }],
 
   /// Latest/current Airnode doc set versioned paths.
   /// Used by api3dao/airnode CI link checking.
-  latestVersion: '/airnode/v0.6/',
+  latestVersion: '/airnode/v0.7/',
   latestBeaconVersion: '/beacon/v0.1/',
   latestOisVersion: '/ois/v1.0.0/',
 
   /// The title of the versioned doc sets, these are used by the search.
-  latestTitle: 'Airnode v0.6',
+  latestTitle: 'Airnode v0.7',
   latestBeaconTitle: 'Beacons v0.1',
   latestOisTitle: 'OIS v1.0.0',
 
@@ -49,7 +50,7 @@ module.exports = {
     extractHeaders: ['h2', 'h3', 'h4', 'h5'],
   },
   themeConfig: {
-    startPath: '/airnode/v0.6/',
+    startPath: '/airnode/v0.7/',
     sidebarDepth: 0,
     displayAllHeaders: false,
     logo: '/img/logo.png',
