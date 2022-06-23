@@ -37,6 +37,11 @@ jobs:
         run: >
           find docs/
           -not -path "*/.vuepress/*"
+          -not -path "docs/airnode/pre-alpha/*"
+          -not -path "docs/airnode/v0.2/*"
+          -not -path "docs/airnode/v0.3/*"
+          -not -path "docs/airnode/v0.4/*"
+          -not -path "docs/airnode/v0.5/*"
           -not -path "docs/airnode/v0.8/*"
           -not -path "docs/beacon/v0.2/*"
           -type f -name "*.md" | xargs lychee - -c .github/workflows/lychee.toml

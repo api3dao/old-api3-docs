@@ -72,4 +72,4 @@ commands.
   </li>
 </ul>
 
-<DockerImageVersions/>
+<airnode-DockerImageVersions/>
