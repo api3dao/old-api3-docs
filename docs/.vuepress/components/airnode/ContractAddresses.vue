@@ -125,6 +125,9 @@ export default {
         // Pull the chainNames from resp
         this.buildChainsObj(response.data.chainNames);
         delete response.data['chainNames'];
+        // Jun 2022, networks was add to the payload, not needed.
+        // See GitHub issue 833
+        delete response.data['networks'];
 
         // Create a list of contracts with addresses
         for (const key in response.data) {
