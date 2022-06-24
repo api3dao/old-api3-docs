@@ -34,7 +34,7 @@ will be used to populate the files for deploying an Airnode. See
 [Deployment Files](../../airnode/v0.7/reference/deployment-files/) in the
 Airnode document set for more information.
 
-## [Create a Deployment](./dployments.md)
+## [Create a Deployment](./deployments.md)
 
 <!-- If you change the following paragraph, change it in the associated doc. -->
 
