@@ -9,12 +9,14 @@ title: Sign Up to use ChainAPI
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
+<!-- If you change the following paragraph, change it in the README. -->
+
 ChainAPI identifies you through a wallet you own by way of
 [MetaMask](https://metamask.io). Other wallets will be supported in the future.
 ChainAPI will ask you to sign a message (from within MetaMask) for a particular
 wallet account proving your ownership of the account. For the first time you
-connect, you will be prompted for your email address which will be linked to
-account. Each time you return to ChainAPI you will connect again, using
+connect, you will be prompted for your email address which will be linked to a
+ChainAPI account. Each time you return to ChainAPI you will connect again, using
 MetaMask, to identify yourself by signing a message for the same account.
 
 ## Connecting

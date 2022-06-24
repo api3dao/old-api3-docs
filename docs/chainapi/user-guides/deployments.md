@@ -9,6 +9,12 @@ title: Create a Deployment
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3,4]" />
 
+<!-- If you change the following paragraph, change it in the README. -->
+
+This section will step you through deploying an Airnode using a configuration
+that was built when creating an integration. An integration can be used for
+multiple deployments if desired. Deployments can be made on ASW or GCP.
+
 There are a few things needed before creating a deployment:
 
 - Acquire cloud provider account such as AWS or GCP.
