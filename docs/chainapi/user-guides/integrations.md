@@ -103,7 +103,7 @@ The name of the parameter as it is accepted by the API operation request.
 
 ### In
 
-Choose where that parameter will be set in hte request.
+Choose where that parameter will be set in the request.
 
 - header
 - path
