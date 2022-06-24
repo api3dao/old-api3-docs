@@ -14,6 +14,7 @@ module.exports = [
     initialOpenGroupIndex: 1,
     collapsable: false,
     children: [
+      'user-guides/',
       'user-guides/signup',
       'user-guides/integrations',
       'user-guides/deployments',
