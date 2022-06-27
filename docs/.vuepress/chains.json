@@ -22,7 +22,7 @@
   "2001": { "fullname": "Milkomeda", "type": "mainnet" },
   "4002": { "fullname": "Fantom Testnet", "type": "testnet" },
   "42161": { "fullname": "Arbitrum One", "type": "mainnet" },
-  "43113": { "fullname": "Avalanche Fuji Testnet", "type": "testnet" },
+  "43113": { "fullname": "Avalanche Fuji testnet", "type": "testnet" },
   "43114": { "fullname": "Avalanche C-Chain", "type": "mainnet" },
   "80001": { "fullname": "Mumbai", "type": "mainnet" },
   "200101": { "fullname": "Milkomeda Testnet", "type": "testnet" },
