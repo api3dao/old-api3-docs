@@ -209,14 +209,14 @@ the `chains` field.
 
 #### Allow All
 
-A `chains.authorizers` list of [] means "let everyone through". In the example
-below chain 2 would allow access to any requester.
+A `chains.authorizers.[authorizerType]` list of [] means "let everyone through".
+In the example below chain 2 would allow access to any requester.
 
 ```json
   chains:[
     {
       id:2,
-      authorizers:[]
+      authorizers:{requesterEndpointAuthorizers:[]}
       ...
     },
     ...
@@ -233,7 +233,7 @@ authorizers.
 ```json
  chains:[
    id:2,
-   authorizers:['0xcd...cd8d','0xff...d19c]
+   authorizers:{requesterEndpointAuthorizers:['0xcd...cd8d','0xff...d19c]}
    ...
  ]
 ```

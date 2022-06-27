@@ -32,9 +32,11 @@ Airnode. It then applies an arbitrary name for the blockchain provider
 ```json
 "chains": [
   {
-    "authorizers": [
-      "0xf18c105D0375E80980e4EED829a4A68A539E6178"
-    ],
+    "authorizers": {
+      "requesterEndpointAuthorizers": [
+        "0xf18c105D0375E80980e4EED829a4A68A539E6178"
+      ]
+    },
     "contracts": {
       "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
     },
@@ -68,9 +70,11 @@ Multiple providers can be used per chain. Simply add another object to
 ```json
 "chains": [
   {
-    "authorizers": [
-      "0xf18c105D0375E80980e4EED829a4A68A539E6178"
-    ],
+    "authorizers": {
+      "requesterEndpointAuthorizers": [
+        "0xf18c105D0375E80980e4EED829a4A68A539E6178"
+      ]
+    },
     "contracts": {
       "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
     },
@@ -106,9 +110,11 @@ each has a unique `id` and `type` and a list of `providers` for each.
 ```json
 "chains": [
   {
-    "authorizers": [
-      "0xf18c105D0375E80980e4EED829a4A68A539E6178"
-    ],
+    "authorizers": {
+      "requesterEndpointAuthorizers": [
+        "0xf18c105D0375E80980e4EED829a4A68A539E6178"
+      ]
+    },
     "contracts": {
       "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
     },
@@ -134,9 +140,11 @@ each has a unique `id` and `type` and a list of `providers` for each.
     "maxConcurrency": 100
   },
   {
-    "authorizers": [
-      "0xf18c105D0375E80980e4EED829a4A68A539E6178"
-    ],
+    "authorizers": {
+      "requesterEndpointAuthorizers": [
+        "0xf18c105D0375E80980e4EED829a4A68A539E6178"
+      ]
+    },
     "contracts": {
       "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
     },
