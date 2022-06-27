@@ -85,3 +85,5 @@ _relayed meta data security schemes_ that can be incorporated into any Airnode.
   funded by a sponsor to pay on-chain gas costs.
 - [relayRequesterAddress](../grp-providers/guides/build-an-airnode/api-security.md#relayrequesteraddress) -
   The on-chain address of the requester (smart contract).
+- [relayRequestId](../grp-providers/guides/build-an-airnode/api-security.md#relayrequestid) -
+  The id of the request.
