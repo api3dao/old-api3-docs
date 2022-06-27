@@ -4,7 +4,7 @@
   "4": { "fullname": "Rinkeby", "type": "testnet" },
   "5": { "fullname": "Goerli", "type": "testnet" },
   "10": { "fullname": "Optimism", "type": "mainnet" },
-  "30": { "fullname": "RSK Mainnet", "type": "mainnet" },
+  "30": { "fullname": "RSK", "type": "mainnet" },
   "31": { "fullname": "RSK Testnet", "type": "testnet" },
   "42": { "fullname": "Kovan", "type": "testnet" },
   "56": { "fullname": "Binance Smart Chain Mainnet", "type": "mainnet" },
