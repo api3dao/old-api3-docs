@@ -1,5 +1,5 @@
 {
-  "1": { "fullname": "Ethereum Mainnet", "type": "mainnet" },
+  "1": { "fullname": "Ethereum", "type": "mainnet" },
   "3": { "fullname": "Ropsten", "type": "testnet" },
   "4": { "fullname": "Rinkeby", "type": "testnet" },
   "5": { "fullname": "Goerli", "type": "testnet" },
