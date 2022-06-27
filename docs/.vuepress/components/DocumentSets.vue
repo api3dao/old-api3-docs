@@ -155,27 +155,16 @@ export default {
       this.showDocSets = false;
 
       // START TEMPORARY
-      // This is a temp fix until ChainAPI and Data Feeds go into prod. If the user discovers
+      // This is a temp fix until dAPIs go into prod. If the user discovers
       // (via url) then add into the pick list.
-      let flag2 = false;
+      let flag = false;
       for (var i = 0; i < this.docSets.length; i++) {
-        if (
-          //this.docSets[i].name === 'ChainAPI' ||
-          this.docSets[i].name === 'Data Feeds'
-        ) {
-          flag2 = true;
+        if (this.docSets[i].name === 'dAPIs') {
+          flag = true;
           break;
         }
       }
-      /*if (!flag2 && path.indexOf('/chainapi') > -1) {
-        this.docSets.push({
-          name: 'ChainAPI',
-          iconActive: '/img/chainapi-active.png',
-          iconInactive: '/img/chainapi-inactive.png',
-          path: '/chainapi/',
-        });
-      }*/
-      if (!flag2 && path.indexOf('/dapis') > -1) {
+      if (!flag && path.indexOf('/dapis') > -1) {
         this.docSets.push({
           name: 'dAPIs',
           iconActive: '/img/Beacons-active.png',
@@ -237,11 +226,8 @@ export default {
   mounted() {
     // Code that will run only after the entire view has been rendered
     this.$nextTick(function () {
-      // TEMP remove ChainApi and Data Feeds for now
-      if (this.env != 'development') {
-        //this.docSets.splice(4, 1); // Removes ChainApi
-        this.docSets.splice(5, 1); // Removes Data Feeds
-      }
+      // TEMP removed dAPIs for now
+      this.docSets.splice(5, 1); // Removes dAPIs
 
       this.selectIcon(this.$route.path);
       this.isMounted = true;
