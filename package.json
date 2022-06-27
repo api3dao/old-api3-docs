@@ -29,6 +29,7 @@
     "prettier": "^2.5.1",
     "v-click-outside": "^3.1.2",
     "vuepress": "^1.9.7",
+    "vuepress-plugin-dehydrate": "^1.1.5",
     "vuepress-plugin-element-tabs": "^0.2.8",
     "vuepress-plugin-table-of-contents": "^1.1.7"
   }
