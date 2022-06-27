@@ -26,5 +26,5 @@
   "43114": { "fullname": "Avalanche C-Chain", "type": "mainnet" },
   "80001": { "fullname": "Polygon Mumbai testnet", "type": "testnet" },
   "200101": { "fullname": "Milkomeda C1 testnet", "type": "testnet" },
-  "421611": { "fullname": "Arbitrum Testnet", "type": "testnet" }
+  "421611": { "fullname": "Arbitrum testnet", "type": "testnet" }
 }
