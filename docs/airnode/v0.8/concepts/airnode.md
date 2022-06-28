@@ -79,7 +79,11 @@ npx @api3/airnode-admin generate-mnemonic
 This mnemonic is created locally on your machine using "ethers.Wallet.createRandom" under the hood.
 Make sure to back it up securely, e.g., by writing it down on a piece of paper:
 
+############################## MNEMONIC ###############################
+
 cricket elephant ...
+
+############################## MNEMONIC ###############################
 
 The Airnode address for this mnemonic is: 0xaBd9...
 The Airnode xpub for this mnemonic is: xpub6CUGRUo...
