@@ -30,7 +30,7 @@
             }"
           >
             <td>
-              {{ item.chain.name }}
+              {{ item.chain.fullname }}
             </td>
             <td>
               {{ item.chainId }}
@@ -67,6 +67,7 @@
 
 <script>
 import axios from 'axios';
+import chainsRef from '../../chains.json';
 export default {
   name: 'ContractAddresses',
   props: ['type'],
@@ -86,21 +87,21 @@ export default {
       for (const chainId in repoChains) {
         let chain = {};
         this.chains[chainId] = { name: repoChains[chainId] };
+
         // Set the network type (mainnet or testnet).
-        const testnets = ['ropsten', 'kovan', 'goerli', 'rinkeby'];
-        if (
-          this.chains[chainId].name.indexOf('-testnet') > 0 ||
-          testnets.includes(this.chains[chainId].name)
-        ) {
-          this.chains[chainId].type = 'testnet';
-        } else {
-          this.chains[chainId].type = 'mainnet';
-        }
-        // Set (1, ropsten, kovan, goerli, rinkeby) as
-        // important for display purpose.
+        this.chains[chainId].type = chainsRef[chainId].type;
+
+        // Set (mainnet, ropsten, kovan, goerli, rinkeby) as important for display purpose.
         // Note: chainId is a string
-        if (chainId == 1 || testnets.includes(this.chains[chainId].name)) {
+        const important = ['1', '3', '4', '5', '42'];
+        if (important.includes(chainId)) {
           this.chains[chainId].important = true;
+        }
+        // Add fullname
+        if (chainsRef[chainId]) {
+          this.chains[chainId].fullname = chainsRef[chainId].fullname;
+        } else {
+          this.chains[chainId].fullname = this.chains[chainId].name + '*';
         }
       }
     },
@@ -147,10 +148,10 @@ export default {
             else addresses.push(add);
           }
           addresses = addresses.filter((item) => item.chain.type === this.type);
-          // Sort addresses by  chain name
+          // Sort addresses by chain name
           addresses.sort((a, b) => (a.chain.name > b.chain.name ? 1 : -1));
 
-          // Move mainnet to top, then testnets
+          // Move mainnet to top, then  special testnets
           addresses.unshift(kovanObj);
           addresses.unshift(goerliObj);
           addresses.unshift(rinkebyObj);
@@ -163,7 +164,7 @@ export default {
         }
 
         // Need to reorder the response.data by contract
-        // AirnodeRrp, RequesterAuthorizerWithAirnode, AccessControlRegistry first
+        // AirnodeRrp (first), RequesterAuthorizerWithAirnode, AccessControlRegistry,
         // then any "other" contracts that might be present
 
         // AccessControlRegistry
