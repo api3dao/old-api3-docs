@@ -191,7 +191,7 @@ Airnode should you choose.
     "timestamp": "2022-03-26T02:37:55.506Z"
   },
   "api": {
-    "httpGatewayUrl": "https://6vmx3xp8tj.execute-api.us-east-1.amazonaws.com/v1"
+    "heartbeatId": "caccf290-e683-11ec-8fea-0242ac120002"
   }
 }
 ```
