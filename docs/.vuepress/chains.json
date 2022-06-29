@@ -10,7 +10,7 @@
   "56": { "fullname": "BNB Chain", "type": "mainnet" },
   "69": { "fullname": "Optimism testnet", "type": "testnet" },
   "77": { "fullname": "POA Network Sokol testnet", "type": "testnet" },
-  "97": { "fullname": "Binance Smart Chain testnet", "type": "testnet" },
+  "97": { "fullname": "BNB Chain testnet", "type": "testnet" },
   "100": { "fullname": "Gnosis Chain", "type": "mainnet" },
   "137": { "fullname": "Polygon", "type": "mainnet" },
   "250": { "fullname": "Fantom Opera", "type": "mainnet" },
