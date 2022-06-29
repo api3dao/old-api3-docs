@@ -19,7 +19,7 @@ display the dAPI's value.
     <div class="dapi-content-box">
       <i class="dapi-content-box-label">Network:</i>
       <span class="bcd-content-box-value"
-        >{{ chain.fullName }} - ({{ chain.id }})</span
+        >{{ chain.fullname }} - ({{ chain.id }})</span
       >
     </div>
     <!-- Error -->

@@ -14,11 +14,7 @@
       <hr />
 
       <!-- Start chain list -->
-      <div
-        class="bc-chains-box"
-        v-for="chain in chains"
-        v-bind:key="chain.name"
-      >
+      <div class="bc-chains-box" v-for="chain in chains" v-bind:key="chain.id">
         <dapis-chains-ChainsItem :chain="chain" />
       </div>
     </div>
@@ -30,6 +26,7 @@
 
 <script>
 import axios from 'axios';
+import chainsRef from '../../../chains.json';
 
 export default {
   name: 'ChainsList',
@@ -52,6 +49,22 @@ export default {
           'https://operations-development.s3.amazonaws.com/latest/chains.json '
         );
         this.chains = this.sortByName(response.data);
+
+        // Add local chains reference data
+        for (const chain in this.chains) {
+          const id = this.chains[chain].id;
+          this.chains[chain].type = chainsRef[id].type;
+          this.chains[chain].name = chain;
+          if (chainsRef[id].fullname) {
+            this.chains[chain].fullname = chainsRef[id].fullname;
+          } else {
+            this.chains[chain].fullname = chain + '*';
+          }
+          delete this.chains[chain].fullName; // Replaced by fullname
+        }
+
+        // Sort by fullname
+        this.chains = this.sortByName(this.chains);
 
         // Hardcode contract for polygon-testnet
         this.chains['polygon-testnet'].contracts[

@@ -21,7 +21,7 @@
             v-bind:key="chain.name"
             :value="chain.name"
           >
-            {{ chain.fullName }} - ({{ chain.id }})
+            {{ chain.fullname }} - ({{ chain.id }})
           </option>
         </select>
       </span>
@@ -71,6 +71,7 @@
 
 <script>
 import axios from 'axios';
+import chainsRef from '../../../chains.json';
 
 export default {
   name: 'DapiList',
@@ -100,6 +101,20 @@ export default {
       );
       this.chains = responseChains.data;
       this.chains = this.sortChainsByName(this.chains);
+
+      // Add local chains reference data
+      for (const chain in this.chains) {
+        const id = this.chains[chain].id;
+        this.chains[chain].type = chainsRef[id].type;
+        this.chains[chain].name = chain;
+        if (chainsRef[id].fullname) {
+          this.chains[chain].fullname = chainsRef[id].fullname;
+        } else {
+          this.chains[chain].fullname = chain + '*';
+        }
+        delete this.chains[chain].fullName; // Replaced by fullname
+      }
+
       // Need delay to set network picklist into DOM
       setTimeout(async () => {
         let element = document.getElementById('networkPickList');
