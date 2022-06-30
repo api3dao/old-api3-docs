@@ -192,7 +192,8 @@ Airnode should you choose.
   },
   "api": {
     "httpGatewayUrl": "https://6vmx3xp8tj.execute-api.us-east-1.amazonaws.com/v1"
-  }
+  },
+  "success": true
 }
 ```
 
