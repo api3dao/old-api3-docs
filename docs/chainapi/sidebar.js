@@ -6,7 +6,6 @@ module.exports = [
     children: [
       '', //README
       'introduction/why-use-chainapi',
-      'introduction/concepts',
     ],
   },
   {
@@ -21,13 +20,21 @@ module.exports = [
     ],
   },
   {
-    title: 'Example Files',
+    title: 'Reference',
     initialOpenGroupIndex: 1,
     collapsable: false,
     children: [
-      'example-files/config',
-      'example-files/aws',
-      'example-files/secrets',
+      'reference/terms',
+      {
+        title: 'Example Files',
+        initialOpenGroupIndex: 1,
+        collapsable: false,
+        children: [
+          'reference/example-files/config',
+          'reference/example-files/aws',
+          'reference/example-files/secrets',
+        ],
+      },
     ],
   },
 ];
