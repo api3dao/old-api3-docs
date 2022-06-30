@@ -6,4 +6,4 @@ title: config.json
 
 # {{$frontmatter.title}}
 
-<<< @/docs/chainapi/example-files/config.json
+<<< @/docs/chainapi/reference/example-files/config.json
