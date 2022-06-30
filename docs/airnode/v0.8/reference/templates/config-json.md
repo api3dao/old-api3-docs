@@ -126,7 +126,7 @@ building a config.json file.
   ],
   "ois": [
     {
-      "oisFormat": "1.0.0",
+      "oisFormat": "1.1.1",
       "version": "<FILL_*>",
       "title": "<FILL_OIS_TITLE>",
       "apiSpecifications": {
