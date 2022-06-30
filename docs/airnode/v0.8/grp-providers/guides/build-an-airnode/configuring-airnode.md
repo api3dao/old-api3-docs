@@ -78,6 +78,9 @@ Below is a simple chain array with a single chain provider.
         "0xf18c105D0375E80980e4EED829a4A68A539E6178"
       ]
     },
+    "authorizations": {
+        "requesterEndpointAuthorizations": {}
+      },
     "contracts": {
       "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
     },

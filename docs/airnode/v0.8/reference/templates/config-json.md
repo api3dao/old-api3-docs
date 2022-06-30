@@ -43,6 +43,11 @@ building a config.json file.
       "authorizers": {
         "requesterEndpointAuthorizers": ["<FILL_*>"]
       },
+      "authorizations": {
+        "requesterEndpointAuthorizations": {
+          "<FILL_ENDPOINT_ID_1>" : ["<FILL_*>"]
+        }
+      },
       "contracts": {
         "AirnodeRrp": "<FILL_*>"
       },
