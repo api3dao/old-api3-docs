@@ -6,4 +6,4 @@ title: aws.env
 
 # {{$frontmatter.title}}
 
-<<< @/docs/chainapi/example-files/aws.env
+<<< @/docs/chainapi/reference/example-files/aws.env

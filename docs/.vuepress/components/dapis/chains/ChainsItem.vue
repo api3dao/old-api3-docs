@@ -5,11 +5,13 @@
 <template>
   <div>
     <div class="bc-chains-name">
-      <a :href="chain.explorerUrl">{{ chain.fullName }}</a
+      <a :href="chain.explorerUrl">{{ chain.fullname }}</a
       ><ExternalLinkImage />
     </div>
-    <div class="bc-chains-short-name">({{ chain.name }})</div>
-    <div class="bc-chains-id">Id: {{ chain.id }}</div>
+    <!--div class="bc-chains-short-name">({{ chain.name }})</div-->
+    <div class="bc-chains-id">
+      Id: <b>{{ chain.id }}</b>
+    </div>
 
     <!-- Contract list -->
     <div

@@ -6,4 +6,4 @@ title: secrets.env
 
 # {{$frontmatter.title}}
 
-<<< @/docs/chainapi/example-files/secrets.env
+<<< @/docs/chainapi/reference/example-files/secrets.env

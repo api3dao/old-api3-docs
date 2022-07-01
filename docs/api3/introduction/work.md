@@ -33,7 +33,6 @@ in stablecoins. We are fully remote and hire globally.
 Here are some great roles we need help with.
 
 1. [Senior Quality Assurance Engineer](./work.md#senior-quality-assurance-engineer-job-description)
-2. [Senior Back-end Engineer](./work.md#senior-back-end-engineer-job-description)
 
 We're always interested in hearing from great candidates, even if we don't have
 an opening that matches. Get in touch and let's have a conversation.
@@ -79,48 +78,5 @@ following:**
 - Scripting proficiency with NodeJS, Bash and/or Python
 - Experience with Blockchain and Ethereum technologies
 - Experience with smart contract security auditing and testing
-
-<api3-JobsEmailAddress/>
-
-<hr/>
-
-### Senior Back-end Engineer Job Description
-
-We are building ChainAPI, a platform for API Providers to integrate and monetize
-their services to blockchains and for blockchain developers to integrate API
-services to their decentralized applications. ChainAPI is therefore a
-combination of a traditional Web platform and a decentralized application.
-
-We're looking for a Senior Back-end Engineer to join the ChainAPI team to help
-us build out the future of decentralized data. If you're interested in working
-with blockchain technologies using your experience from traditional web
-development, this is a good fit for you.
-
-**What you'll be doing:**
-
-- Building out the back-end for ChainAPI - REST API, integrations, background
-  jobs, the database and more
-- Play an active role in the design and architecture of our solutions
-- Review and provide feedback for code written by the team
-- Learn and suggest new technologies as needed
-- Coach and mentor team members
-
-**What skills we need you to have:**
-
-- Senior-level professional experience with back-end solutions in a web
-  environment
-- Proficiency in at least one web development language and framework
-- Good grasp of modern software development tools and processes (testing
-  frameworks, CI/CD, version control, etc.)
-- A track record of delivering high quality solutions
-- Professional working proficiency in English
-
-**You'll be very well qualified for the role if you have some of the
-following:**
-
-- Proficiency in Elixir and Phoenix
-- Understanding of blockchain technologies
-- Experience with relational databases like PostgreSQL
-- Experience with AWS or Render
 
 <api3-JobsEmailAddress/>

@@ -23,7 +23,9 @@ fulfill each request made by the requester contracts.
 - `airnodeWallet`: address and xpub information
 - `deployment`: Airnode configuration and timestamp of deployment
 - `api`: contains the details of the Airnode API (e.g.
-  [heartbeat](../../grp-providers/guides/build-an-airnode/heartbeat.md)
+  [heartbeat](../../grp-providers/guides/build-an-airnode/heartbeat.md) or
+  [testing gateways](../../grp-providers/guides/build-an-airnode/http-gateways.md))
+- `success`: specifies whether the deployment was successfull or not
 
 A `receipt.json` file is created for both a AWS or GCP deployment. A receipt is
 not generated for client deployments (deploying to a Docker container).
@@ -52,7 +54,8 @@ not generated for client deployments (deploying to a Docker container).
   },
   "api": {
     "heartbeatId": "74dc44a1ee65"
-  }
+  },
+  "success": true
 }
 ```
 
@@ -79,7 +82,8 @@ not generated for client deployments (deploying to a Docker container).
     "nodeVersion": "0.7.2",
     "timestamp": "2022-03-26T02:37:55.506Z"
   },
-  "api": {}
+  "api": {},
+  "success": true
 }
 ```
 
