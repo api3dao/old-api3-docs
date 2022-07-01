@@ -66,6 +66,7 @@ let ignore = [
   'https://faucet.goerli.mudit.blog/',
   'https://www.rinkebyfaucet.com/',
   'https://dx.doi.org/10.1063/1.3597793',
+  'https://developer.offchainlabs.com/docs/arbgas',
 ];
 
 async function testLink(url, filePath) {
