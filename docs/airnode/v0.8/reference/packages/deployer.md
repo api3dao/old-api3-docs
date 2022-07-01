@@ -147,6 +147,10 @@ When completed the `deploy` command creates a receipt using the path and name
 from the `--receipt` argument. The receipt contains metadata about the
 deployment and can be used to remove the Airnode.
 
+In case the deployment is not successfull, the command will try to automatically
+remove deployed resources. You can disable this by running the deploy command
+with a `--disable-auto-remove true` argument.
+
 ```bash
 # Deploys an Airnode instance using the `config.json` and `secrets.env` files.
 # This can be used for a new deployment or to update an existing deployment.
@@ -158,6 +162,8 @@ Options:
   -c, --configuration, --config, --conf  Path to configuration file             [string] [default: "config/config.json"]
   -s, --secrets                          Path to secrets file                   [string] [default: "config/secrets.env"]
   -r, --receipt                          Output path for receipt file          [string] [default: "output/receipt.json"]
+      --disable-auto-remove              Disable automatic removal of deployed resources for failed deployments
+                                                                                              [boolean] [default: false]
 
 # Example
 airnode-deployer deploy --config pathTo/config.json --secrets pathTo/secrets.env --receipt myOutput/receipt.json
