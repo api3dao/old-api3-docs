@@ -33,11 +33,15 @@ block base fee, resulting in unfulfilled requests. A solution to this is to set
 
 ### Arbitrum
 
+<!-- markdown-link-check-disable -->
+
 Execution costs on Arbitrum are calculated slightly differently than Ethereum,
 which impacts the gas required to fulfill requests. To account for this, we
 recommend a minimum value of `2000000` for `fulfillmentGasLimit` when using both
 Arbitrum mainnet and testnet. For more on ArbGas
 [see here](https://developer.offchainlabs.com/docs/arbgas).
+
+<!-- markdown-link-check-enable -->
 
 ### Metis
 
