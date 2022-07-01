@@ -2,7 +2,7 @@
 title: secrets.env
 ---
 
-<TitleSpan>Example Files</TitleSpan>
+<TitleSpan>Example Deployment Files</TitleSpan>
 
 # {{$frontmatter.title}}
 

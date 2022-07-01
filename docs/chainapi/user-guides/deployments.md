@@ -24,14 +24,12 @@ There are a few things needed before creating a deployment:
 Select the **Deploy** menu in the navigation bar on the left side of the page.
 Then select the **New Deployment** button. ChainAPI will step-you-through the
 deployment process. <br/> <img src="../assets/images/new-deployment.png"
-  width="17%"/>
+  width="22%"/>
 
 ## New Deployment
 
 The deployment will use an [integration](./integrations.md) you have already
 created to define and deploy an Airnode to a cloud provider of your choice.
-
-<div style="margin-left:30px;">
 
 ### Name
 
@@ -42,14 +40,10 @@ Name the deployment. You won’t able to change this after saving the deployment
 Select the desired cloud provider and the region the Airnode should be deployed
 to. Additionally, decide which Airnode version to use.
 
-</div>
-
 ## Add APIs and Networks
 
 Here you will define the integration to use and which networks (chains) the
 Airnode will respond to.
-
-<div style="margin-left:30px;">
 
 ### APIs
 
@@ -63,8 +57,6 @@ Select the desired network (chain) that the Airnode will respond to.
 
 How many blockchain providers does the integration use.
 
-</div>
-
 ## Review Configuration
 
 Review the deployment configuration before continuing. Go back to make changes.
@@ -74,15 +66,13 @@ Review the deployment configuration before continuing. Go back to make changes.
 Here you will download the required deployment files to perform final editing of
 the required secrets.
 
-<div style="margin-left:30px;">
-
 ### Download files
 
 These files are needed to deploy your Airnode. Inside the zip file, you will
 find a README, a file based on your cloud provider selection, config folder, and
 output folder.
 
-### Edit files
+### Edit Files
 
 Use the instruction in the README and comments in the other files to add secrets
 that the `config.json` file will read.
@@ -142,8 +132,6 @@ docker for any errors during deployment.
 <!--If successfully completed, your deployment’s status will become Active within 1
 minute. If your deployment is not active after clicking "Finish deployment",
 check your cloud provider logs and configuration details before redeploying.-->
-
-</div>
 
 ## Finish Deployment
 
