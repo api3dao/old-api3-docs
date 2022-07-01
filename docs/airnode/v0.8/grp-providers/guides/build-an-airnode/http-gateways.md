@@ -141,8 +141,8 @@ required as part of the CURL call.
 gateway requires that the `encodedParameters` be encoded using
 [Airnode ABI](../../../reference/specifications/airnode-abi-specifications.md).
 
-Replace `<gatewayUrl>` in the examples below with a URL display at the end of
-your deployment.
+Replace `<gatewayUrl>` in the examples below with the URL displayed in the terminal at the end of an 
+Airnode deployment using a [Docker image](../../docker/).
 
 ### Request
 
