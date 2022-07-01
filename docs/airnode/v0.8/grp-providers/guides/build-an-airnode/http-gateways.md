@@ -107,8 +107,8 @@ using the HTTP signed data gateway or via RRP.
 ## Gateway URLs
 
 A gateway URL is generated for each gateway (when enabled) when Airnode is
-deployed. You can see the URLs displayed on your terminal at the end of the
-deployment. They are also available as part of the payload sent from Airnode's
+deployed. You can see the URLs displayed on your terminal at the end of an 
+Airnode deployment using a [Docker image](../../docker/). They are also available as part of the payload sent from Airnode's
 [heartbeat](./heartbeat.md) to your specified heartbeat URL.
 
 ## Using CURL
