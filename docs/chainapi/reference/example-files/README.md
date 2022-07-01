@@ -1,24 +1,10 @@
 ---
-title: Indigo-Locust README
-folder: Reference
+title: README.md
 ---
 
-<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
+<TitleSpan>Example Deployment Files</TitleSpan>
 
 # {{$frontmatter.title}}
-
-<TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
-
-::: danger TODO:
-
-This is the original file sent by Tamera. It is an example instruction page
-added to the final output when ChainAPI finishes an integration and downloads a
-zip file to the a user.
-
-There may be a need to explain what to do with this file.
-
-:::
 
 Welcome to the ChainAPI deployment README! This guide will explain the various
 files contained in the zip file that are required for deploying an Airnode
@@ -85,7 +71,7 @@ You will need the following tools installed locally
 
 Create the relevant account and project resources through your preferred cloud
 provider(s) web interface. ChainAPI recommends following the
-[API3 guides](https://docs.api3.org/airnode/v0.7/grp-providers/docker/deployer-image.html#cloud-provider-credentials).
+[API3 guides](https://docs.api3.org/airnode/v0.6/grp-providers/docker/deployer-image.html#cloud-provider-credentials).
 
 ### Step 2: Populate .env files with secrets
 
@@ -115,7 +101,7 @@ Run the following Docker command based on your current operating system. Follow
 any prompts or instructions.
 
 You can more detailed information in the
-[API3 Deployment Tutorial](https://docs.api3.org/airnode/v0.7/grp-providers/tutorial/)
+[API3 Deployment Tutorial](https://docs.api3.org/airnode/v0.6/grp-providers/tutorial/)
 
 #### Windows
 
@@ -124,7 +110,7 @@ docker run -it --rm ^
       --env-file aws.env ^
       -v "%cd%/config:/app/config" ^
       -v "%cd%/output:/app/output" ^
-      api3/airnode-deployer:0.6.2 deploy
+      api3/airnode-deployer:0.6.4 deploy
 ```
 
 #### OSX
@@ -135,7 +121,7 @@ docker run -it --rm \
       -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
       -v "$(pwd)/config:/app/config" \
       -v "$(pwd)/output:/app/output" \
-      api3/airnode-deployer:0.6.2 deploy
+      api3/airnode-deployer:0.6.4 deploy
 ```
 
 #### Linux
@@ -146,7 +132,7 @@ docker run -it --rm \
       -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
       -v "$(pwd)/config:/app/config" \
       -v "$(pwd)/output:/app/output" \
-      api3/airnode-deployer:0.6.2 deploy
+      api3/airnode-deployer:0.6.4 deploy
 ```
 
 ### Step 5: Inspect your Airnode
@@ -195,7 +181,7 @@ them securely on your preferred cloud provider(s) such as Amazon Web Services
 (AWS) and Google Cloud Platform (GCP).
 
 Read more:
-https://docs.api3.org/airnode/v0.7/reference/deployment-files/config-json.html
+https://docs.api3.org/airnode/v0.6/reference/deployment-files/config-json.html
 
 ### config/secrets.env
 
@@ -228,7 +214,7 @@ comments for each group of secrets.
 required secret values**
 
 Read more:
-https://docs.api3.org/airnode/v0.7/reference/deployment-files/secrets-env.html
+https://docs.api3.org/airnode/v0.6/reference/deployment-files/secrets-env.html
 
 ### aws.env
 
@@ -240,4 +226,4 @@ selected to deploy to AWS through the ChainAPI deployment wizard, you will need
 to fill out this file in a similar way to secrets.env
 
 Read more:
-https://docs.api3.org/airnode/v0.7/reference/deployment-files/aws-env.html
+https://docs.api3.org/airnode/v0.6/reference/deployment-files/aws-env.html

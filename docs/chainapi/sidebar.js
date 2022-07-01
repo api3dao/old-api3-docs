@@ -26,10 +26,12 @@ module.exports = [
     children: [
       'reference/terms',
       {
-        title: 'Example Files',
+        title: 'Example Deployment Files',
         initialOpenGroupIndex: 1,
         collapsable: false,
         children: [
+          'reference/example-files/overview',
+          'reference/example-files/',
           'reference/example-files/config',
           'reference/example-files/aws',
           'reference/example-files/secrets',
