@@ -53,9 +53,7 @@ not generated for client deployments (deploying to a Docker container).
     "timestamp": "2022-03-26T02:37:55.506Z"
   },
   "api": {
-    "heartbeatId": "74dc44a1ee65",
-    "httpGatewayUrl": "https://some.http.api.gateway.url/v1",
-    "httpSignedDataGatewayUrl": "https://some.httpSignedData.api.gateway.url/v1"
+    "heartbeatId": "74dc44a1ee65"
   },
   "success": true
 }
