@@ -51,10 +51,15 @@ respective parameters.
 // chains
 [
   {
-    "authorizers": [
-      "0xf18c105D0375E80980e4EED829a4A68A539E6178",
-      "0xCE5e...1abc"
-    ],
+    "authorizers": {
+      "requesterEndpointAuthorizers": [
+        "0xf18c105D0375E80980e4EED829a4A68A539E6178",
+        "0xCE5e...1abc"
+      ]
+    },
+    "authorizations": {
+      "requesterEndpointAuthorizations": {}
+    },
     "contracts": {
       "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
     },
@@ -83,7 +88,12 @@ respective parameters.
     "minConfirmations": 0
   },
   {
-    "authorizers": [],
+    "authorizers": {
+      "requesterEndpointAuthorizers": []
+    },
+    "authorizations": {
+      "requesterEndpointAuthorizations": {}
+    },
     "contracts": {
       "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
     },
@@ -116,10 +126,17 @@ respective parameters.
 
 ### `authorizers`
 
-(required) - The list of authorizer contract addresses specifying the
-authorization patterns that the Airnode should use. An empty array would
-allow-all. See the [Authorization](../../concepts/authorization.md) doc for more
-information.
+(required) - An object containing authorizer types that list authorizer contract
+addresses specifying the authorization patterns that the Airnode should use. An
+empty array would allow-all. See the
+[Authorization](../../concepts/authorization.md) doc for more information.
+
+### `authorizations`
+
+(required) - An object containing authorization types that list authorized
+requester addresses for specific endpoints. If an authorization for a requester
+address and `endpointId` is found in the `config.json`, the on-chain
+authorization check is skipped.
 
 ### `contracts`
 

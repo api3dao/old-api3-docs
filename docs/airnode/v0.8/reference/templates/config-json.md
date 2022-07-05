@@ -40,7 +40,14 @@ building a config.json file.
 {
   "chains": [
     {
-      "authorizers": ["<FILL_*>"],
+      "authorizers": {
+        "requesterEndpointAuthorizers": ["<FILL_*>"]
+      },
+      "authorizations": {
+        "requesterEndpointAuthorizations": {
+          "<FILL_ENDPOINT_ID_1>" : ["<FILL_*>"]
+        }
+      },
       "contracts": {
         "AirnodeRrp": "<FILL_*>"
       },

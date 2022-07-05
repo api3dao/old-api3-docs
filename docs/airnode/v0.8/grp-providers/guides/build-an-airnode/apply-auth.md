@@ -44,11 +44,12 @@ endpoints. However, you probably do not want to serve them publicly.
 - Only serve sponsors who have gone through KYC.
 
 You can use different authorizers contracts for your Airnode deployment per
-chain by declaring them in the `config.json` file under `chains[n].authorizers`.
-Add a list of authorizer contracts addresses for each chain. If the
-`chains[n].authorizers` array is left empty then all requests will be accepted
-by the Airnode but still could be filtered by the second method of
-authorization, [relay security schemes](./apply-auth.md#relay-security-schemes).
+chain by declaring them in the `config.json` file under
+`chains[n].authorizers.[authorizerType]`. Add a list of authorizer contracts
+addresses for each chain. If the `chains[n].authorizers.[authorizerType]` array
+is left empty then all requests will be accepted by the Airnode but still could
+be filtered by the second method of authorization,
+[relay security schemes](./apply-auth.md#relay-security-schemes).
 
 ```json
 {
@@ -57,22 +58,28 @@ authorization, [relay security schemes](./apply-auth.md#relay-security-schemes).
     {
       "id": "1",
       ...
-      "authorizers": [  // Requests must satisfy at least one contract
-        "0xeabb...C123",
-        "0xCE5e...1abc"
-      ]
+      "authorizers": {
+        "requesterEndpointAuthorizers": [  // Requests must satisfy at least one contract
+          "0xeabb...C123",
+          "0xCE5e...1abc"
+        ]
+      }
     },
     {
       "id": "2",
       ...
-      "authorizers": [], // All requests will be processed
+      "authorizers": {
+        "requesterEndpointAuthorizers": [] // All requests will be processed
+      },
     },
     {
       "id": "3",
       ...
-      "authorizers": [   // Requests must satisfy one contract
-        "0xeabb...C123"
-      ]
+      "authorizers": {
+        "requesterEndpointAuthorizers": [   // Requests must satisfy one contract
+          "0xeabb...C123"
+        ]
+      }
     },
    ]
  }
@@ -97,7 +104,8 @@ this authorizer in the
 
 To use the RequesterAuthorizerWithAirnode authorizer:
 
-1. Add the authorizer contract address to the `chains[n].authorizers[]` array.
+1. Add the authorizer contract address to the
+   `chains[n].authorizers.[authorizerType][]` array.
 2. After your Airnode is deployed, call the Admin CLI command
    [set-whitelist-expiration](../../../reference/packages/admin-cli.md#set-whitelist-expiration)
    to add the desired requester contract addresses to the whitelist maintained
