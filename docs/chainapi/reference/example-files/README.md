@@ -197,8 +197,8 @@ with underscores. Secret values can be in any format and are surrounded by
 double quotes when the value contains spaces. Examples:
 
 ```
-AIRNODE_WALLET_MNEMONIC="achieve climb couple wait accident symbol spy blouse reduce foil echo label"
-MY_API_KEY=bba353e9-f9b2-44cb-857b-101537e7ee74
+AIRNODE_WALLET_MNEMONIC="achieve climb ... echo label"
+MY_API_KEY=bba353...57b-101537e7ee74
 ```
 
 This file can also contain comments, using "#". Everything after "#" on the same
