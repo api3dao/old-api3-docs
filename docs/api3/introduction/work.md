@@ -82,20 +82,28 @@ following:**
 
 ### Oracle Developer Job Description
 
-We're looking for an Oracle Developer to join the API3 Core Technical team. You'll play a key role in scoping our data feed requirements as well as their implementation. You'll have ownership over the scoping, implementation as well as maintainance of the Oracle Integrations of our partners.
+We're looking for an Oracle Developer to join the API3 Core Technical team.
+You'll play a key role in scoping our data feed requirements as well as their
+implementation. You'll have ownership over the scoping, implementation as well
+as maintainance of the Oracle Integrations of our partners.
 
 **What you'll be doing:**
 
-- Maintaining regular integrations calls with our partners to keep their oracle specs up to date
-- Onboarding new partners: analysis of API endpoints, backtesting of oracle parameters through historical data, preparation of deployment files and maintaining a call schedule for implementations
+- Maintaining regular integrations calls with our partners to keep their oracle
+  specs up to date
+- Onboarding new partners: analysis of API endpoints, backtesting of oracle
+  parameters through historical data, preparation of deployment files and
+  maintaining a call schedule for implementations
 - Designing the Oracle Integrations Process and documenting it from start to end
-- Work closely together with other members of the Core Tech Team (from engineers to product owners) to manage the relationship with our partners
+- Work closely together with other members of the Core Tech Team (from engineers
+  to product owners) to manage the relationship with our partners
 
 **What skills we need you to have:**
 
 - Solid understanding of APIs, Solidity smart contracts and Oracles
 - Experience with Serverless functions (AWS & GCP)
-- Self-starter: In most cases there won't be anybody telling you what needs to be done each and every single day. You own this process entirely.
+- Self-starter: In most cases there won't be anybody telling you what needs to
+  be done each and every single day. You own this process entirely.
 - Professional working proficiency in English
 
 <api3-JobsEmailAddress/>
