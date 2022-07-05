@@ -149,7 +149,7 @@ deployment and can be used to remove the Airnode.
 
 In case the deployment is not successfull, the command will try to automatically
 remove deployed resources. You can disable this by running the deploy command
-with a `--disable-auto-remove true` argument.
+with a `--no-auto-remove` argument.
 
 ```bash
 # Deploys an Airnode instance using the `config.json` and `secrets.env` files.
@@ -162,8 +162,8 @@ Options:
   -c, --configuration, --config, --conf  Path to configuration file             [string] [default: "config/config.json"]
   -s, --secrets                          Path to secrets file                   [string] [default: "config/secrets.env"]
   -r, --receipt                          Output path for receipt file          [string] [default: "output/receipt.json"]
-      --disable-auto-remove              Disable automatic removal of deployed resources for failed deployments
-                                                                                              [boolean] [default: false]
+      --auto-remove                      Disable automatic removal of deployed resources for failed deployments
+                                                                                               [boolean] [default: true]
 
 # Example
 airnode-deployer deploy --config pathTo/config.json --secrets pathTo/secrets.env --receipt myOutput/receipt.json
