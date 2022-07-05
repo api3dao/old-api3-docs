@@ -85,7 +85,7 @@ json object.
 
 ```json
 {
-  "oisFormat": "1.0.0",
+  "oisFormat": "1.1.1",
   "title": "myOisTitle",
   "version": "0.1.0",
   ...
@@ -94,7 +94,7 @@ json object.
 
 ### oisFormat
 
-Leave this as `1.0.0`, which is the current OIS format version.
+Leave this as `1.1.1`, which is the current OIS format version.
 
 ### title
 
