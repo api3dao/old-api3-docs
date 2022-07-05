@@ -38,6 +38,7 @@
     "dapis",
     "avax",
     "jszip",
+    "fullname",
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true

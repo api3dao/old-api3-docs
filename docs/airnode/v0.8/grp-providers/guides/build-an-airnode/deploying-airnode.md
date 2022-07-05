@@ -169,9 +169,10 @@ When the deployment is complete a `receipt.json` file is placed into the
 
 ### receipt.json
 
-The `receipt.json` file is a product of a successful deployment. It contains
+The `receipt.json` file is a product of a deployment attempt. It contains
 Airnode configuration and deployment information and is used to remove the
-Airnode should you choose.
+Airnode. The field `success` is importance in that it specifies whether the
+deployment was successfull or not.
 
 ```json
 {
@@ -191,8 +192,9 @@ Airnode should you choose.
     "timestamp": "2022-03-26T02:37:55.506Z"
   },
   "api": {
-    "httpGatewayUrl": "https://6vmx3xp8tj.execute-api.us-east-1.amazonaws.com/v1"
-  }
+    "heartbeatId": "caccf290-e683-11ec-8fea-0242ac120002"
+  },
+  "success": true
 }
 ```
 

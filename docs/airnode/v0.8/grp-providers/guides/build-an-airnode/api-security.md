@@ -38,6 +38,7 @@ security scheme definition. The following security scheme types are supported.
   - relayChainType
   - relaySponsorAddress
   - relaySponsorWalletAddress
+  - relayRequestId
 
 ## Airnode Authentication Security Schemes
 
@@ -126,6 +127,7 @@ about a request to an API operation. This is different then
 - [relayChainType](./api-security.md#relaychaintype)
 - [relaySponsorAddress](./api-security.md#relaysponsoraddress)
 - [relaySponsorWalletAddress](./api-security.md#relaysponsorwalletaddress)
+- [relayRequestId](./api-security.md#relayrequestid)
 
 For relayed meta data security schemes you do not provide any values in
 [apiCredentials](../../../reference/deployment-files/config-json.md#apicredentials)
@@ -204,6 +206,19 @@ forward the
   "in": "query",
   "type": "relaySponsorWalletAddress",
   "name": "sponsorWalletAddress"
+}
+```
+
+### relayRequestId
+
+The `relayRequestId` security scheme type instructs Airnode to forward the
+[id of the request](../../../concepts/request.md#requestid).
+
+```json
+{
+  "in": "query",
+  "type": "relayRequestId",
+  "name": "requestId"
 }
 ```
 

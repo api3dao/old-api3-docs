@@ -18,7 +18,7 @@ Airnode document set for more information.
 Select the **Integrate** menu in the navigation bar on the left side of the
 page. Then select the **Integrate API** button. ChainAPI will step-you-through
 the integration creation. <br/> <img src="../assets/images/integrate-api.png"
-width="17%"/>
+width="22%"/>
 
 ## New API
 
@@ -26,8 +26,6 @@ This section captures high-level details around your API. These details should
 be helpful to anyone viewing your API and will play a role in the future
 discovery of your API on ChainAPI. After completing this section click on the
 **Next** button.
-
-<div style="margin-left:20px;">
 
 ### Name
 
@@ -48,14 +46,10 @@ What does your API do?
 If you have an existing and public documentation, you can enter that link here
 and this’ll be helpful to developers when they try to connect to your API.
 
-</div>
-
 ## Enter your API Specifications
 
 The base URL to your API operations and the necessary security that Airnode must
 use when calling the any API operations.
-
-<div style="margin-left:20px;">
 
 ### Base URL
 
@@ -75,11 +69,7 @@ wants to handle your sensitive data. You will be asked to enter your apiKey when
 you deploy your Airnode, but that's just between you and your cloud provider.
 ChainAPI will never see that key.
 
-</div>
-
 ## New Endpoint
-
-<div style="margin-left:20px;">
 
 ### Path/Method
 
@@ -107,9 +97,9 @@ Choose where that parameter will be set in the request.
 
 - header
 - path
-- query.
+- query
 
-### Value Source:
+### Value Source
 
 This can be either user defined, which means that the caller can specify
 whatever value they would like, or it can be fixed. For fixed parameters, we
@@ -129,14 +119,12 @@ that in int256 or uint256 which are the types on the Ethereum blockchain.
 Similarly if you had a string value, you would set that to bytes32. Like the
 value source in your other parameters, these can also be fixed or user defined.
 
-The \_path defines how the values to be sent back to the blockchain should be
+The `_path` defines how the values to be sent back to the blockchain should be
 selected.
 
-The \_times parameter is useful when you’re dealing with numbers. Many
+The `_times` parameter is useful when you’re dealing with numbers. Many
 blockchains don’t support decimal values, so using this parameter multiplies the
 api value by the value specified
-
-</div>
 
 ---
 

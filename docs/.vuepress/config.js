@@ -130,5 +130,13 @@ module.exports = {
         */
       },
     ],
+    [
+      // https://github.com/vuejs/vuepress/issues/160#issuecomment-479847087
+      'vuepress-plugin-dehydrate',
+      {
+        noSSR: '404.html',
+        noScript: [],
+      },
+    ],
   ],
 };

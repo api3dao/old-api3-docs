@@ -62,6 +62,18 @@
           "dt": "2022-03-31",
           "title": "dAPIs: APIs for dApps",
           "url": "https://medium.com/api3/dapis-apis-for-dapps-53b83f8d2493"
+        },
+        {
+          "date": "Jun 11, 2022",
+          "dt": "2022-06-11",
+          "title": "API monetization on Web3",
+          "url": "https://medium.com/api3/api-monetization-on-web3-7d5fe855a8e3"
+        },
+        {
+          "date": "Jul 1, 2022",
+          "dt": "2022-07-01",
+          "title": "Redefining Trust: Truly Random Gaming",
+          "url": "https://medium.com/api3/redefining-trust-truly-random-gaming-8da641ec66eb"
         }
       ]
     },
@@ -290,6 +302,18 @@
           "dt": "2022-04-30",
           "title": "API3 Core Technical Team Report, April 2022",
           "url": "https://bbenligiray.medium.com/api3-core-technical-team-report-april-2022-24173b2f9978"
+        },
+        {
+          "date": "May 31, 2022",
+          "dt": "2022-05-31",
+          "title": "API3 Core Technical Team Report, May 2022",
+          "url": "https://medium.com/@bbenligiray/api3-core-technical-team-report-may-2022-7f9e6d7960a4"
+        },
+        {
+          "date": "Jun 29, 2022",
+          "dt": "2022-06-29",
+          "title": "API3 Core Technical Team Report, June 2022",
+          "url": "https://bbenligiray.medium.com/api3-core-technical-team-report-june-2022-b736359e1a4f"
         }
       ]
     },
@@ -437,6 +461,12 @@
           "dt": "2022-05-03",
           "title": "API3 QRNG — Web3 Quantum Random Numbers",
           "url": "https://medium.com/api3/api3-qrng-web3-quantum-random-numbers-4ca7517fc5bc"
+        },
+        {
+          "date": "Jun 01, 2022",
+          "dt": "2022-06-01",
+          "title": "AccuWeather Launches First-Party Airnode",
+          "url": "https://medium.com/api3/accuweather-launches-first-party-airnode-d3b2e9eee9a5"
         }
       ]
     }
