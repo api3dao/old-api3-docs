@@ -70,7 +70,7 @@ module.exports = {
       '/airnode/pre-alpha/': require(`../airnode/pre-alpha/sidebar.js`),
       '/dapis/': require(`../dapis/sidebar.js`),
       '/beacon/v0.1/': require(`../beacon/v0.1/sidebar.js`),
-      //'/ois/v1.1/': require(`../ois/v1.1/sidebar.js`),
+      '/ois/v1.1/': require(`../ois/v1.1/sidebar.js`),
       '/ois/v1.0/': require(`../ois/v1.0/sidebar.js`),
       '/qrng/': require(`../qrng/sidebar.js`),
       '/chainapi/': require(`../chainapi/sidebar.js`),
