@@ -6,4 +6,4 @@ title: Example OIS Object
 
 <VersionWarning/>
 
-<<< @/docs/ois/v1.0/example.json
+<<< @/docs/ois/v1.1/example.json
