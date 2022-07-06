@@ -14,7 +14,7 @@ folder: API Providers > Build an Airnode
 
 A successful integration of an API with an Airnode requires the mapping of each
 other's interface. This is accomplished using an OIS
-([Oracle Integration Specifications](/ois/v1.0.0/ois.md)) json object, found in
+([Oracle Integration Specifications](/ois/v1.0/ois.md)) json object, found in
 the config.json file, that is designed to follow three basic steps.
 
 - API operations are specified
@@ -94,9 +94,9 @@ json object.
 
 ### oisFormat
 
-A specific version of the [OIS Specification](/ois/v1.0.0/ois.md#_1-oisformat)
-to be used. For this guide, which uses Airnode `v0.8.x`, the proper OIS version
-is `1.1.1`.
+A specific version of the [OIS Specification](/ois/v1.0/ois.md#_1-oisformat) to
+be used. For this guide, which uses Airnode `v0.8.x`, the proper OIS version is
+`1.1.1`.
 
 ### title
 
@@ -389,14 +389,14 @@ and `endpoints[n].parameters`.
 The requester can provide some parameters that are not mapped to API operation
 parameters. These parameters are called "reserved parameters", and their names
 start with an underscore. See the
-[related OIS docs](/ois/v1.0.0/ois.md#_5-4-reservedparameters) for more
+[related OIS docs](/ois/v1.0/ois.md#_5-4-reservedparameters) for more
 information.
 
 The current list of reserved parameters are `_type`, `_path` and `_times`. See
-[Reserved Parameters](/ois/v1.0.0/reserved-parameters.md) in the OIS document
-set to understand what each of these parameters are for. In most cases, all
-three should be defined as reserved parameters with no fixed/default values, as
-doing so provides the requester with the most flexibility.
+[Reserved Parameters](/ois/v1.0/reserved-parameters.md) in the OIS document set
+to understand what each of these parameters are for. In most cases, all three
+should be defined as reserved parameters with no fixed/default values, as doing
+so provides the requester with the most flexibility.
 
 #### parameters
 

@@ -17,5 +17,5 @@ endpoints. OIS provide a description of API endpoints and maps Airnode endpoints
 to them. There can be more than one OIS object in the `config.json` file as
 Airnode can serve endpoints from more than one API.
 
-Learn more about [Oracle Integration Specifications (OIS)](/ois/v1.0.0/) in its
+Learn more about [Oracle Integration Specifications (OIS)](/ois/v1.0/) in its
 versioned document set.

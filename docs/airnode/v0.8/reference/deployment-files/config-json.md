@@ -36,7 +36,7 @@ database of an Airnode deployment. It contains five fields as show below.
   ID.
 - [templates](./config-json.md#templates):
 - [ois](./config-json.md#ois): API specifications and the corresponding on-chain
-  endpoints, kept as [OIS](/ois/v1.0.0/ois.md) objects.
+  endpoints, kept as [OIS](/ois/v1.0/ois.md) objects.
 - [apiCredentials](./config-json.md#apicredentials): Which API credentials will
   be usable by which OIS and security scheme.
 
@@ -601,7 +601,7 @@ A list of OIS objects. Since each OIS specifies the integration of an API to an
 oracle, a single Airnode deployment can serve multiple APIs. To avoid
 duplication of content, see the
 [API Integration](../../grp-providers/guides/build-an-airnode/api-integration.md)
-guide and the [Oracle Integration Specifications (OIS)](/ois/v1.0.0/)
+guide and the [Oracle Integration Specifications (OIS)](/ois/v1.0/)
 documentation.
 
 ## apiCredentials
