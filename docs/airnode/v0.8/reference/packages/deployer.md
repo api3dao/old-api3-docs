@@ -162,7 +162,7 @@ Options:
   -c, --configuration, --config, --conf  Path to configuration file             [string] [default: "config/config.json"]
   -s, --secrets                          Path to secrets file                   [string] [default: "config/secrets.env"]
   -r, --receipt                          Output path for receipt file          [string] [default: "output/receipt.json"]
-      --auto-remove                      Disable automatic removal of deployed resources for failed deployments
+      --auto-remove                      Enable automatic removal of deployed resources for failed deployments
                                                                                                [boolean] [default: true]
 
 # Example
