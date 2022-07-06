@@ -1,6 +1,5 @@
 ---
 title: Specification
-airnodeVersion: v0.5
 ---
 
 # {{$frontmatter.title}}
