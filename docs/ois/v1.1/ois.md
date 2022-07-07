@@ -21,7 +21,7 @@ object is in these docs.
 
 :::
 
-See the article,
+See the article
 [Setting Oracle Integration Standards](https://medium.com/api3/setting-oracle-integration-standards-ac9104c38f9e)
 for an overview of OIS.
 
