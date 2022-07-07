@@ -12,7 +12,7 @@ module.exports = {
     { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
   ],
   versionsBeacon: [{ name: 'v0.1', url: '/beacon/v0.1/' }],
-  versionsOis: [{ name: 'v1.0.0', url: '/ois/v1.0.0/' }],
+  versionsOis: [{ name: 'v1.0', url: '/ois/v1.0/' }],
 
   /// Next version of airnode, used by /next route.
   airnodeVersionNext: [{ name: 'v0.8', url: '/airnode/v0.8/' }],
@@ -21,12 +21,12 @@ module.exports = {
   /// Used by api3dao/airnode CI link checking.
   latestVersion: '/airnode/v0.7/',
   latestBeaconVersion: '/beacon/v0.1/',
-  latestOisVersion: '/ois/v1.0.0/',
+  latestOisVersion: '/ois/v1.0/',
 
   /// The title of the versioned doc sets, these are used by the search.
   latestTitle: 'Airnode v0.7',
   latestBeaconTitle: 'Beacons v0.1',
-  latestOisTitle: 'OIS v1.0.0',
+  latestOisTitle: 'OIS v1.0',
 
   /// Job page revision, incremented when a new job(s) is added
   jobPageRevision: 4,
@@ -70,7 +70,8 @@ module.exports = {
       '/airnode/pre-alpha/': require(`../airnode/pre-alpha/sidebar.js`),
       '/dapis/': require(`../dapis/sidebar.js`),
       '/beacon/v0.1/': require(`../beacon/v0.1/sidebar.js`),
-      '/ois/v1.0.0/': require(`../ois/v1.0.0/sidebar.js`),
+      '/ois/v1.1/': require(`../ois/v1.1/sidebar.js`),
+      '/ois/v1.0/': require(`../ois/v1.0/sidebar.js`),
       '/qrng/': require(`../qrng/sidebar.js`),
       '/chainapi/': require(`../chainapi/sidebar.js`),
       '/dao-members/': require(`../dao-members/sidebar.js`),

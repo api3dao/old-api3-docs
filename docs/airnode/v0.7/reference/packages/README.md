@@ -55,7 +55,7 @@ The node part of Airnode that allows for connecting multiple blockchains to the
 rest of the world.
 
 [**airnode-ois**:](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-ois)
-Types for [Oracle Integration Specification (OIS)](/ois/v1.0.0/ois.md).
+Types for [Oracle Integration Specification (OIS)](/ois/v1.0/ois.md).
 
 [**airnode-operation**:](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-operation)
 Development and testing utilities for the core parts of Airnode.

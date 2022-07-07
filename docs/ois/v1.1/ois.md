@@ -1,6 +1,5 @@
 ---
 title: Specification
-airnodeVersion: v0.5
 ---
 
 # {{$frontmatter.title}}
@@ -22,7 +21,7 @@ object is in these docs.
 
 :::
 
-See the article,
+See the article
 [Setting Oracle Integration Standards](https://medium.com/api3/setting-oracle-integration-standards-ac9104c38f9e)
 for an overview of OIS.
 
@@ -50,7 +49,7 @@ An OIS has five root fields (keys).
 
 ```json
 {
-  "oisFormat": "1.0.0",
+  "oisFormat": "1.1.1",
   "title": "myOisTitle",
   "version": "1.2.3",
   "apiSpecifications": {
@@ -189,6 +188,7 @@ Allowed values:
   - `relaySponsorWalletAddress`
   - `relayChainId`
   - `relayChainType`
+  - `relayRequestId`
 
 <!--OAS equivalent: `components.securitySchemes.{securitySchemeName}.type`.-->
 

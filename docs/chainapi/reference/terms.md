@@ -149,7 +149,7 @@ API endpoint parameters. They are used by Airnode for special purposes.
   response before fulfilling the request. Reserved parameter names start with
   `_`.
 
-See [Reserved Parameters](../../ois/v1.0.0/reserved-parameters.md) in the OIS
+See [Reserved Parameters](../../ois/v1.0/reserved-parameters.md) in the OIS
 documentation set.
 
 ### Security Schemes

@@ -42,7 +42,7 @@
 export default {
   name: 'TutorialResponse',
   data: () => ({
-    reservedURL: '/ois/v1.0.0/reserved-parameters.html#path',
+    reservedURL: '../../../reference/specifications/reserved-parameters.html',
     encodeURL: '../../../reference/packages/adapter.html#conversion',
   }),
 };

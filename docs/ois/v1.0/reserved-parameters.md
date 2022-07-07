@@ -19,14 +19,13 @@ argument of the request-making methods of
 [AirnodeRrpV0.sol](/airnode/v0.7/concepts/#airnoderrpv0-sol). In either case,
 these parameters are encoded using the
 [AirnodeRrpV0 ABI](/airnode/v0.7/reference/specifications/airnode-abi-specifications.md).
-There are two types of parameters which are part of the [OIS](/ois/v1.0.0/)
-object:
+There are two types of parameters which are part of the OIS object:
 
-1. [Endpoint parameters](/ois/v1.0.0/ois.md#_5-5-parameters) - Airnode endpoint
-   parameters are mapped to API operation parameters.
-2. [Reserved parameters](/ois/v1.0.0/ois.md#_5-4-reservedparameters) - Reserved
-   parameters perform a specific operation on the response before fulfilling the
-   request. Reserved parameter names start with `_`.
+1. [Endpoint parameters](./ois.md#_5-5-parameters) - Airnode endpoint parameters
+   are mapped to API operation parameters.
+2. [Reserved parameters](./ois.md#_5-4-reservedparameters) - Reserved parameters
+   perform a specific operation on the response before fulfilling the request.
+   Reserved parameter names start with `_`.
 
 ## `_type`
 
