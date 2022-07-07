@@ -40,4 +40,4 @@ Airnode document set for more information.
 
 This section will step you through deploying an Airnode using a configuration
 that was built when creating an integration. An integration can be used for
-multiple deployments if desired. Deployments can be made on ASW or GCP.
+multiple deployments if desired. Deployments can be made on AWS or GCP.
