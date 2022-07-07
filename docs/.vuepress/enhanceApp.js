@@ -41,6 +41,7 @@ export default ({ Vue, router, options, siteData }) => {
       // redirect process again on each internal link. Internal links
       // will never use redirects. If you did then change it (the internal link).
       spaLoaded = true;
+
       const redirect = getRedirectRoute(to);
 
       if (redirect) {
