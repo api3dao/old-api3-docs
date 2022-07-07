@@ -188,6 +188,7 @@ Allowed values:
   - `relaySponsorWalletAddress`
   - `relayChainId`
   - `relayChainType`
+  - `relayRequestId`
 
 <!--OAS equivalent: `components.securitySchemes.{securitySchemeName}.type`.-->
 
