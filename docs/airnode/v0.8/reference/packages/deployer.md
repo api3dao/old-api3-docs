@@ -147,7 +147,7 @@ When completed the `deploy` command creates a receipt using the path and name
 from the `--receipt` argument. The receipt contains metadata about the
 deployment and can be used to remove the Airnode.
 
-In case the deployment is not successfull, the command will try to automatically
+If the deployment isn't successful, the command will try to automatically
 remove deployed resources. You can disable this by running the deploy command
 with a `--no-auto-remove` argument.
 

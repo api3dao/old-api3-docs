@@ -25,7 +25,7 @@ fulfill each request made by the requester contracts.
 - `api`: contains the details of the Airnode API (e.g.
   [heartbeat](../../grp-providers/guides/build-an-airnode/heartbeat.md) or
   [testing gateways](../../grp-providers/guides/build-an-airnode/http-gateways.md))
-- `success`: specifies whether the deployment was successfull or not
+- `success`: specifies whether the deployment was successful or not
 
 A `receipt.json` file is created for both a AWS or GCP deployment. A receipt is
 not generated for client deployments (deploying to a Docker container).
