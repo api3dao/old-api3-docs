@@ -8,8 +8,8 @@
     Be sure to use the correct OIS version for the Airnode version you are
     deploying.
     <table>
-      <th>OIS version</th>
-      <th>OIS latest</th>
+      <th>OIS</th>
+      <th>OIS releases</th>
       <th>Compatible Airnode versions</th>
       <tr>
         <td>1.0.x</td>
