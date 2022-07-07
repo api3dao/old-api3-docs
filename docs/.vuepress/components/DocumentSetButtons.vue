@@ -18,16 +18,6 @@ it will always default to the startPath in config.json.
       </p>
     </li>
     <li>
-      <router-link :to="latestBeaconVersion">
-        <img src="/img/Beacons-active.png" />
-        Beacons</router-link
-      >
-      <p>
-        First-party Web3 data feeds powering transparent, reliable, and
-        cost-efficient dAPIs, dApps, and more.
-      </p>
-    </li>
-    <li>
       <router-link :to="latestOisVersion">
         <img src="/img/ois-active.png" />
         OIS</router-link
@@ -72,17 +62,12 @@ it will always default to the startPath in config.json.
 </template>
 
 <script>
-import {
-  latestVersion,
-  latestBeaconVersion,
-  latestOisVersion,
-} from '../config.js';
+import { latestVersion, latestOisVersion } from '../config.js';
 
 export default {
   name: 'document-set-buttons',
   data: () => ({
     latestVersion: latestVersion,
-    latestBeaconVersion: latestBeaconVersion,
     latestOisVersion: latestOisVersion,
   }),
 };

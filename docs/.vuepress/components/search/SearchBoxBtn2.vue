@@ -23,7 +23,7 @@ Parent of VersionsModal.vue. Opens a modal of user version selections.
 </template>
 
 <script>
-import { env, versions, versionsBeacon, versionsOis } from '../../config.js';
+import { env, versions, versionsOis } from '../../config.js';
 import SearchBox2 from './SearchBox2';
 
 export default {
@@ -35,7 +35,6 @@ export default {
     environment: env,
     showModal: false,
     versions: versions,
-    versionsBeacon: versionsBeacon,
     versionsOis: versionsOis,
     workingVersion: null,
     showMenu: 'none',

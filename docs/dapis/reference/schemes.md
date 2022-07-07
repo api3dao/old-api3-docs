@@ -27,8 +27,8 @@ are fixed.
 - Beacon ID: The hash of a Beacon's parameters.
 - Beacon set ID: The hash of the Beacon IDs in the Beacon set.
 
-A dAPI's name is identical accross all chains. When accessing a dAPI value with
-a function such as
+A dAPI's name is identical across all chains. When accessing a dAPI value with a
+function such as
 [readDataFeedWithName()](../developers/read-data-feed-with-dapi-name.md), only
 the dAPI `name` is needed.
 

@@ -4,17 +4,11 @@
  * The JSON object contains 2 types of object, exact and fuzzy. enhanceApp.js
  * will route to the first one is finds checking exact types first.
  */
-const {
-  versions,
-  versionsBeacon,
-  versionsOis,
-  airnodeVersionNext,
-} = require('./config');
+const { versions, versionsOis, airnodeVersionNext } = require('./config');
 
 const oisLatest = versionsOis[0].name;
 const airnodeLatest = versions[0].name;
 const airnodeNext = airnodeVersionNext[0].name;
-const beaconLatest = versionsBeacon[0].name;
 
 const unsortedRedirects = [
   {
@@ -91,10 +85,7 @@ const unsortedRedirects = [
   { from: `/airnode/latest`, to: `/airnode/${airnodeLatest}/`, fuzzy: true },
   { from: `/airnode/next`, to: `/airnode/${airnodeNext}/`, fuzzy: true },
   { from: `/next`, to: `/airnode/${airnodeNext}/`, fuzzy: true },
-  { from: `/beacons`, to: `/beacon/${beaconLatest}/`, fuzzy: true },
-  { from: `/beacons/latest`, to: `/beacon/${beaconLatest}/`, fuzzy: true },
-  { from: `/beacon`, to: `/beacon/${beaconLatest}/`, fuzzy: true },
-  { from: `/beacon/latest`, to: `/beacon/${beaconLatest}/`, fuzzy: true },
+
   { from: `/ois/v1.0.0`, to: `/ois/v1.0/`, fuzzy: true },
   { from: `/ois/latest`, to: `/ois/${oisLatest}/`, fuzzy: true },
   { from: `/ois`, to: `/ois/${oisLatest}/`, fuzzy: true },

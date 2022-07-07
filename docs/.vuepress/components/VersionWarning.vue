@@ -21,13 +21,12 @@ WARNING: Do not place HTML comment lines inside paragraph elements.
 </template>
 
 <script>
-import { versions, versionsBeacon, versionsOis } from '../config.js';
+import { versions, versionsOis } from '../config.js';
 
 export default {
   name: 'version-warning',
   data: () => ({
     versions: versions,
-    versionsBeacon: versionsBeacon,
     versionsOis: versionsOis,
     show: false,
     docSet: undefined,
@@ -44,14 +43,6 @@ export default {
         this.docSet = 'Airnode';
         this.docSetVersionDisplay = versions[0].name;
         this.docSetVersionURL = versions[0].url;
-        this.show = true;
-      } else if (
-        arr[1] === 'beacon' &&
-        versionsBeacon.map((x) => x.url).indexOf('/beacon/' + arr[2] + '/') > 0
-      ) {
-        this.docSet = 'Beacons';
-        this.docSetVersionDisplay = versionsBeacon[0].name;
-        this.docSetVersionURL = versionsBeacon[0].url;
         this.show = true;
       } else if (
         arr[1] === 'ois' &&

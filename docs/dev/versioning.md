@@ -12,7 +12,6 @@ Airnode (`airnode/v0.6/`);
 
 - Airnode (versioned)
 - API3
-- Beacon (versioned)
 - DAO Members
 - OIS (versioned)
 
