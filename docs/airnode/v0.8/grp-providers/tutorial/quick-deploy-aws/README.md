@@ -1,6 +1,6 @@
 ---
 title: Instructions
-folder: API Providers > Tutorials > Quick Deploy ASW
+folder: API Providers > Tutorials > Quick Deploy AWS
 tags:
   - quick deploy aws
   - tutorial tutorials
