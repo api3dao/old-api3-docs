@@ -77,6 +77,12 @@ const unsortedRedirects = [
     exact: true,
     // comment: 'legacy',
   },
+  {
+    from: `/ois/v1.0.0/reserved-parameters.html`,
+    to: `/ois/v1.0/reserved-parameters.html`,
+    exact: true,
+    // comment: 'legacy',
+  },
   // fuzzy
   { from: `/pre-alpha`, to: `/airnode/pre-alpha/`, fuzzy: true }, // comment: 'legacy'
   { from: `/latest/members`, to: `/dao-members/`, fuzzy: true },
@@ -89,6 +95,7 @@ const unsortedRedirects = [
   { from: `/beacons/latest`, to: `/beacon/${beaconLatest}/`, fuzzy: true },
   { from: `/beacon`, to: `/beacon/${beaconLatest}/`, fuzzy: true },
   { from: `/beacon/latest`, to: `/beacon/${beaconLatest}/`, fuzzy: true },
+  { from: `/ois/v1.0.0`, to: `/ois/v1.0/`, fuzzy: true },
   { from: `/ois/latest`, to: `/ois/${oisLatest}/`, fuzzy: true },
   { from: `/ois`, to: `/ois/${oisLatest}/`, fuzzy: true },
 ];
