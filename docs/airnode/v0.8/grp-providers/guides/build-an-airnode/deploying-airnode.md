@@ -172,7 +172,7 @@ When the deployment is complete a `receipt.json` file is placed into the
 The `receipt.json` file is a product of a deployment attempt. It contains
 Airnode configuration and deployment information and is used to remove the
 Airnode. The field `success` is importance in that it specifies whether the
-deployment was successfull or not.
+deployment was successful or not.
 
 ```json
 {
