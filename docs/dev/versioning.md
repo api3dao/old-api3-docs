@@ -73,13 +73,13 @@ for each document set.
   /// Beacon doc set version pick list.
   versionsBeacon: [{ name: 'v0.1', url: '/beacon/v0.1/' }],
   /// OIS doc set version pick list.
-  versionsOis: [{ name: 'v1.0.0', url: '/ois/v1.0.0/' }],
+  versionsOis: [{ name: 'v1.0.0', url: '/ois/v1.0/' }],
   /// Latest/current Airnode doc set version.
   latestVersion: '/airnode/v0.4/',
   /// Latest/current Beacon doc set version.
   latestBeaconVersion: '/beacon/v0.1/',
   /// Latest/current OIS doc set version.
-  latestOisVersion: '/ois/v1.0.0/',
+  latestOisVersion: '/ois/v1.0/',
 ```
 
 Set the `themeConfig.startPath` to the start path of the latest Airnode version.
@@ -114,7 +114,7 @@ the config.js file.
          ...
          '/airnode/pre-alpha/': require(`../airnode/pre-alpha/sidebar.js`),
          '/beacon/v0.1/': require(`../beacon/v0.1/sidebar.js`),
-         '/ois/v1.0.0/': require(`../ois/v1.0.0/sidebar.js`),
+         '/ois/v1.0/': require(`../ois/v1.0/sidebar.js`),
          '/chainapi/': require(`../chainapi/sidebar.js`),
          '/dao-members/': require(`../dao-members/sidebar.js`),
          '/api3/': require(`../api3/sidebar.js`),
