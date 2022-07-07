@@ -4,17 +4,11 @@
  * The JSON object contains 2 types of object, exact and fuzzy. enhanceApp.js
  * will route to the first one is finds checking exact types first.
  */
-const {
-  versions,
-  versionsBeacon,
-  versionsOis,
-  airnodeVersionNext,
-} = require('./config');
+const { versions, versionsOis, airnodeVersionNext } = require('./config');
 
 const oisLatest = versionsOis[0].name;
 const airnodeLatest = versions[0].name;
 const airnodeNext = airnodeVersionNext[0].name;
-const beaconLatest = versionsBeacon[0].name;
 
 const unsortedRedirects = [
   {

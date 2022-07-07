@@ -112,7 +112,7 @@ export default {
     setCurrentDocSet() {
       const docSet = this.$route.path.split('/');
 
-      if (['airnode', 'beacon', 'ois'].includes(docSet[1])) {
+      if (['airnode', 'ois'].includes(docSet[1])) {
         this.currentDocSetWithVersion = '/' + docSet[1] + '/' + docSet[2];
       } else {
         this.currentDocSetWithVersion = '/' + docSet[1];

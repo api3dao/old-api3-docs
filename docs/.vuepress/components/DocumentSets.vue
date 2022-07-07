@@ -80,12 +80,7 @@ it will always default to the startPath in config.json.
 </template>
 
 <script>
-import {
-  env,
-  latestVersion,
-  latestBeaconVersion,
-  latestOisVersion,
-} from '../config.js';
+import { env, latestVersion, latestOisVersion } from '../config.js';
 
 export default {
   name: 'document-sets',
@@ -183,14 +178,6 @@ export default {
         if (
           path.indexOf('/airnode/v') > -1 &&
           this.docSets[i].path.indexOf('/airnode/v') > -1
-        ) {
-          let arr = path.split('/');
-          this.docSets[i].path = '/' + arr[1] + '/' + arr[2] + '/';
-        }
-        // Beacon (versioned)
-        else if (
-          path.indexOf('/beacon/v') > -1 &&
-          this.docSets[i].path.indexOf('/beacon/v') > -1
         ) {
           let arr = path.split('/');
           this.docSets[i].path = '/' + arr[1] + '/' + arr[2] + '/';
