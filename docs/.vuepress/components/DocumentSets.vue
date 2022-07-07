@@ -208,7 +208,7 @@ export default {
     // Code that will run only after the entire view has been rendered
     this.$nextTick(function () {
       // TEMP removed dAPIs for now
-      this.docSets.splice(5, 1); // Removes dAPIs
+      this.docSets.splice(4, 1); // Removes dAPIs
 
       this.selectIcon(this.$route.path);
       this.isMounted = true;
