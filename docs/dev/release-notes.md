@@ -46,16 +46,8 @@ match a tag at the repo.
   `v0.4` and update as needed. There is at least one link to the Airnode repo as
   well that uses a tag (such as `v0.4`).
 
-- The Beacons document set has links back to Airnode. Look for an older tag such
+- The dAPIs document set has links back to Airnode. Look for an older tag such
   as `v0.4` and update as needed.
-
-## Beacons
-
-::: warning To-Be-Update
-
-This section will get updated when the next release of Beacons is ready.
-
-:::
 
 ## OIS
 

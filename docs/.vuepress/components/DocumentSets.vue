@@ -98,12 +98,6 @@ export default {
         path: latestVersion,
       },
       {
-        name: 'Beacons',
-        iconActive: '/img/Beacons-active.png',
-        iconInactive: '/img/Beacons-default.png',
-        path: latestBeaconVersion,
-      },
-      {
         name: 'OIS',
         iconActive: '/img/ois-active.png',
         iconInactive: '/img/ois-inactive.png',
