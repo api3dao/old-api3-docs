@@ -66,6 +66,26 @@ building a config.json file.
         },
         "baseFeeMultiplier": <FILL_NUMBER>,
         "fulfillmentGasLimit": <FILL_NUMBER>,
+        "gasPriceOracle": [
+        {
+              "gasPriceStrategy": "latestBlockPercentileGasPrice",
+              "percentile": <FILL_NUMBER>,
+              "minTransactionCount": <FILL_NUMBER>,
+              "pastToCompareInBlocks": <FILL_NUMBER>,
+              "maxDeviationMultiplier": <FILL_NUMBER>,
+            },
+            {
+              "gasPriceStrategy": "providerRecommendedGasPrice",
+              "recommendedGasPriceMultiplier": <FILL_NUMBER>,
+            },
+          {
+            "gasPriceStrategy": "constantGasPrice",
+            "gasPrice": {
+              "value": <FILL_NUMBER>,
+              "unit": "gwei"
+            }
+          }
+        ]
       },
       "maxConcurrency": <FILL_NUMBER>,
       "blockHistoryLimit": "<FILL_*>",

@@ -80,7 +80,27 @@ respective parameters.
         "unit": "gwei"
       },
       "baseFeeMultiplier": 2,
-      "fulfillmentGasLimit": 500000
+      "fulfillmentGasLimit": 500000,
+      "gasPriceOracle": [
+        {
+          "gasPriceStrategy": "latestBlockPercentileGasPrice",
+          "percentile": 60,
+          "minTransactionCount": 20,
+          "pastToCompareInBlocks": 20,
+          "maxDeviationMultiplier": 2
+        },
+        {
+          "gasPriceStrategy": "providerRecommendedGasPrice",
+          "recommendedGasPriceMultiplier": 1.2
+        },
+        {
+          "gasPriceStrategy": "constantGasPrice",
+          "gasPrice": {
+            "value": 10,
+            "unit": "gwei"
+          }
+        }
+      ]
     },
     "maxConcurrency": 100,
 
@@ -112,6 +132,26 @@ respective parameters.
       },
       "baseFeeMultiplier": 2,
       "fulfillmentGasLimit": 500000,
+      "gasPriceOracle": [
+        {
+              "gasPriceStrategy": "latestBlockPercentileGasPrice",
+              "percentile": 60,
+              "minTransactionCount": 20,
+              "pastToCompareInBlocks": 20,
+              "maxDeviationMultiplier": 2,
+            },
+            {
+              "gasPriceStrategy": "providerRecommendedGasPrice",
+              "recommendedGasPriceMultiplier": 1.2,
+            },
+          {
+            "gasPriceStrategy": "constantGasPrice",
+            "gasPrice": {
+              "value": 10,
+              "unit": "gwei"
+            }
+          }
+        ]
       "withdrawalRemainder": {
         "value": 0,
         "unit": "wei"
@@ -211,7 +251,7 @@ The resulting Maximum Fee will equal
 
 #### `options.gasPriceMultiplier`
 
-(optional) - Number with a maximum of two decimals that gets multiplied by the
+(optional) - A number with a maximum of two decimals that gets multiplied by the
 legacy gas price. No multiplier is used by default.
 
 The resulting Gas Price will equal `Gas Price * gasPriceMultiplier`
@@ -246,6 +286,72 @@ following:
 - `szabo`
 - `finney`
 - `ether`
+
+#### `options.gasPriceOracle[n]`
+
+(required) - A list of gas price oracle strategies that the Airnode will use in
+the specified order.
+
+##### `options.gasPriceOracle[n].gasPriceStrategy`
+
+(required) - The name of the gas price strategy. The supported strategies are:
+
+- `"latestBlockPercentileGasPrice"`
+- `"providerRecommendedGasPrice"`
+- `"constantGasPrice"`
+
+#### Strategy: `"latestBlockPercentileGasPrice"`
+
+##### `percentile`
+
+(required) - The percentile of gas prices to return from a block.
+
+##### `minTransactionCount`
+
+(required) - The minimum amount of transactions required in a block to use for
+calculating a gas price percentile
+
+##### `pastToCompareInBlocks`
+
+(required) - The number of blocks to look back for the reference block.
+
+##### `maxDeviationMultiplier`
+
+(required) - The maximum deviation multiplier of the latest block gas price
+percentile compared to the reference block gas price percentile. Used to protect
+against large gas price spikes.
+
+#### Strategy: `"providerRecommendedGasPrice"`
+
+##### `recommendedGasPriceMultiplier`
+
+(required) - A number with a maximum of two decimals that gets multiplied by the
+provider reported gas price. The resulting Gas Price will equal
+`Gas Price * providerRecommendedGasPrice`
+
+#### Strategy: `"constantGasPrice"`
+
+##### `gasPrice`
+
+(required) - An object of the form `{"value": 0, "unit": "wei"}` that configures
+the amount to use as gas price.
+
+##### `gasPrice.value`
+
+(required) - A number specifying the `gasPrice` value.
+
+##### `gasPrice.unit`
+
+(required) The unit of the `gasPrice` value. It can be one
+
+    of the following:
+    - `wei`
+    - `kwei`
+    - `mwei`
+    - `gwei`
+    - `szabo`
+    - `finney`
+    - `ether`
 
 ### `maxConcurrency`
 

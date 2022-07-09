@@ -57,7 +57,27 @@ Airnode. It then applies an arbitrary name for the blockchain provider
         "unit": "gwei"
       },
       "baseFeeMultiplier": 2,
-      "fulfillmentGasLimit": 500000
+      "fulfillmentGasLimit": 500000,
+      "gasPriceOracle": [
+        {
+              "gasPriceStrategy": "latestBlockPercentileGasPrice",
+              "percentile": 60,
+              "minTransactionCount": 20,
+              "pastToCompareInBlocks": 20,
+              "maxDeviationMultiplier": 2,
+            },
+            {
+              "gasPriceStrategy": "providerRecommendedGasPrice",
+              "recommendedGasPriceMultiplier": 1.2,
+            },
+          {
+            "gasPriceStrategy": "constantGasPrice",
+            "gasPrice": {
+              "value": 10,
+              "unit": "gwei"
+            }
+          }
+        ]
     },
     "maxConcurrency": 100
   }
@@ -101,7 +121,27 @@ Multiple providers can be used per chain. Simply add another object to
         "unit": "gwei"
       },
       "baseFeeMultiplier": 2,
-      "fulfillmentGasLimit": 500000
+      "fulfillmentGasLimit": 500000,
+      "gasPriceOracle": [
+        {
+              "gasPriceStrategy": "latestBlockPercentileGasPrice",
+              "percentile": 60,
+              "minTransactionCount": 20,
+              "pastToCompareInBlocks": 20,
+              "maxDeviationMultiplier": 2,
+            },
+            {
+              "gasPriceStrategy": "providerRecommendedGasPrice",
+              "recommendedGasPriceMultiplier": 1.2,
+            },
+          {
+            "gasPriceStrategy": "constantGasPrice",
+            "gasPrice": {
+              "value": 10,
+              "unit": "gwei"
+            }
+          }
+        ]
     },
     "maxConcurrency": 100
   }
@@ -144,7 +184,27 @@ each has a unique `id` and `type` and a list of `providers` for each.
         "unit": "gwei"
       },
       "baseFeeMultiplier": 2,
-      "fulfillmentGasLimit": 500000
+      "fulfillmentGasLimit": 500000,
+      "gasPriceOracle": [
+        {
+              "gasPriceStrategy": "latestBlockPercentileGasPrice",
+              "percentile": 60,
+              "minTransactionCount": 20,
+              "pastToCompareInBlocks": 20,
+              "maxDeviationMultiplier": 2,
+            },
+            {
+              "gasPriceStrategy": "providerRecommendedGasPrice",
+              "recommendedGasPriceMultiplier": 1.2,
+            },
+          {
+            "gasPriceStrategy": "constantGasPrice",
+            "gasPrice": {
+              "value": 10,
+              "unit": "gwei"
+            }
+          }
+        ]
     },
     "maxConcurrency": 100
   },
@@ -174,7 +234,27 @@ each has a unique `id` and `type` and a list of `providers` for each.
         "unit": "gwei"
       },
       "baseFeeMultiplier": 2,
-      "fulfillmentGasLimit": 500000
+      "fulfillmentGasLimit": 500000,
+      "gasPriceOracle": [
+        {
+              "gasPriceStrategy": "latestBlockPercentileGasPrice",
+              "percentile": 60,
+              "minTransactionCount": 20,
+              "pastToCompareInBlocks": 20,
+              "maxDeviationMultiplier": 2,
+            },
+            {
+              "gasPriceStrategy": "providerRecommendedGasPrice",
+              "recommendedGasPriceMultiplier": 1.2,
+            },
+          {
+            "gasPriceStrategy": "constantGasPrice",
+            "gasPrice": {
+              "value": 10,
+              "unit": "gwei"
+            }
+          }
+        ]
     },
     "maxConcurrency": 100
   }
