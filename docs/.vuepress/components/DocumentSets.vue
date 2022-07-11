@@ -13,23 +13,23 @@ it will always default to the startPath in config.json.
       v-show="isMounted && !hidePickList"
     >
       <!-- Current Route -->
-      <div class="list-line">
+      <div class="ds-list-line">
         <div
-          class="route-link"
+          class="ds-route-link"
           style="cursor: pointer"
           v-on:click="showDocSets = !(showDocSets != false)"
         >
           <img
             v-show="docSets[0].name !== 'ChainAPI'"
             :src="docSets[0].iconActive"
-            class="icon-shrink"
+            class="ds-icon-shrink"
           />
           <!-- This is temp for ChainAPI. Remove the v-show in hte directive above
           when ChainAPI is removed. -->
           <img
             v-show="docSets[0].name === 'ChainAPI'"
             :src="docSets[0].iconActive"
-            class="icon-shrink-chainapi"
+            class="ds-icon-shrink-chainapi"
             style="
               width: 35px;
               height: 35px;
@@ -37,49 +37,48 @@ it will always default to the startPath in config.json.
               margin-bottom: 2px;
             "
           />
-          <span class="list-line-name" style="margin-top: 12px; color: black">{{
-            docSets[0].name
-          }}</span>
+          <span
+            class="ds-list-line-name"
+            style="margin-top: 12px; color: black"
+            >{{ docSets[0].name }}</span
+          >
           <img
             :src="getArrowSrc()"
             v-bind:alt="getArrowSrc()"
-            class="route-link"
-            style="
-              cursor: pointer;
-              height: 16px;
-              margin-top: 15px;
-              color: gray;
-              margin-left: 5px;
-            "
+            class="ds-route-link ds-arrow"
           />
         </div>
       </div>
       <!-- LOOP -->
       <ul id="doc-sets" v-if="showDocSets" style="border-top: 1px solid gray">
-        <li class="list-line" v-for="(item, index) in docSets" :key="item.name">
+        <li
+          class="ds-list-line"
+          v-for="(item, index) in docSets"
+          :key="item.name"
+        >
           <router-link
-            class="route-link"
+            class="ds-route-link"
             :to="{ path: item.path }"
             v-if="index > 0"
           >
             <!-- Temp until ChainAPI moves out of the docs -->
             <img
               :src="item.iconInactive"
-              class="icon-shrink-chainapi"
+              class="ds-icon-shrink-chainapi"
               v-if="!item.active && item.name === 'ChainAPI'"
             />
             <!-- For ChainAPI update the v-if statement -->
             <img
               :src="item.iconInactive"
-              class="icon-shrink"
+              class="ds-icon-shrink"
               v-if="!item.active && item.name !== 'ChainAPI'"
             />
-            <span class="list-line-name">{{ item.name }}</span>
+            <span class="ds-list-line-name">{{ item.name }}</span>
           </router-link>
         </li>
       </ul>
     </div>
-    <div class="divider"></div>
+    <div class="ds-divider"></div>
   </div>
 </template>
 
@@ -233,29 +232,37 @@ export default {
 </script>
 
 <style scoped>
-.list-line {
+.ds-list-line {
   font-size: x-large;
   font-weight: 500;
 }
-.list-line-name {
+.ds-list-line-name {
   margin-top: 5px;
   color: gray;
   margin-left: 10px;
 }
 
-.icon-shrink {
+.ds-icon-shrink {
   width: 45px;
   height: 39px;
   margin-top: 8px;
 }
-.icon-shrink-chainapi {
+.ds-icon-shrink-chainapi {
   width: 39px;
   height: 39px;
   margin-top: 8px;
   margin-right: 7px;
 }
 
-.route-link {
+.ds-arrow {
+  margin-left: 5px;
+  height: 16px;
+  width: 16px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.ds-route-link {
   display: flex;
   flex-flow: row;
   align-items: left;
@@ -264,7 +271,7 @@ export default {
   color: #a0a0a0;
 }
 
-.divider {
+.ds-divider {
   border-top: solid 2px lightgrey;
   margin-top: -5px;
   margin-bottom: -12px;
