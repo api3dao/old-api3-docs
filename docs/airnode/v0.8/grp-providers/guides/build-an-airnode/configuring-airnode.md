@@ -147,7 +147,7 @@ chain-specific configuration considerations.
 
 :::
 
-### Considerations: Gas Price Oracle
+#### Considerations: Gas Price Oracle
 
 The gas price oracle strategies are applied in the order that they are listed.
 Airnode supports three strategies: `latestBlockPercentileGasPrice`,
