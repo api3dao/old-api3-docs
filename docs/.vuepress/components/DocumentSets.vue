@@ -1,13 +1,17 @@
 <!--
 This component places document sets in the header of the sidebar. 
 
-NOTE: When this component is MOUNTED (as it is mounted from a landing page click),
+NOTE: When this component is MOUNTED (as it is mounted from a landing page click
+or an SPA load/reload),
 it will always default to the startPath in config.json.
 -->
 
 <template>
   <div>
-    <div style="padding-left: 12px; margin-top: -4px" v-if="isMounted">
+    <div
+      style="padding-left: 12px; margin-top: -4px"
+      v-show="isMounted && !hidePickList"
+    >
       <!-- Current Route -->
       <div class="list-line">
         <div
@@ -131,14 +135,25 @@ export default {
     ],
     env: env,
     showDocSets: false,
+    hidePickList: false, // Hiding pick list when route path is /dev or /operations
     isMounted: false, // When the page is mounted show icons to avoid flickering
   }),
   watch: {
     $route(event) {
+      this.unpublishedDocSet();
       this.selectIcon(event.path);
     },
   },
   methods: {
+    /**
+     * Checks if the doc set is not published in the pick list.
+     * /operations and /dev
+     */
+    unpublishedDocSet() {
+      const paths = ['/operations', '/dev'];
+      const pathArr = this.$route.path.split('/');
+      this.hidePickList = paths.includes('/' + pathArr[1]);
+    },
     selectIcon(path) {
       // Close the mobile list
       this.showDocSets = false;
@@ -209,7 +224,7 @@ export default {
     this.$nextTick(function () {
       // TEMP removed dAPIs for now
       this.docSets.splice(4, 1); // Removes dAPIs
-
+      this.unpublishedDocSet();
       this.selectIcon(this.$route.path);
       this.isMounted = true;
     });
