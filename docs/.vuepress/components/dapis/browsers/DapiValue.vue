@@ -108,8 +108,9 @@ export default {
         this.lastFiveValues = [];
 
         // Current value
+        // https://explorer-api.api3.org/beacons/on_chain_value?chainId=137&dapiName=ADA%2FUSD
         const res2 = await axios.get(
-          'https://api.api3data.link/beacons/on_chain_value/',
+          'https://explorer-api.api3.org/beacons/on_chain_value/',
           {
             params: {
               chainId: this.chain.id,
@@ -160,11 +161,9 @@ export default {
           this.time = this.convertToTime(timestamp);
           this.loadingSpinner = false; // Current value ready for display
 
-          /** Last 5 transactions
-           * This needs to be added when the API operation works.
-           */
+          // Last 5 transactions
           const resTx = await axios.get(
-            'https://api.api3data.link/beacons/last_transactions',
+            'https://explorer-api.api3.org/beacons/last_transactions',
             {
               params: {
                 chainId: this.chain.id,
@@ -172,7 +171,7 @@ export default {
               },
             }
           );
-          resTx.data.forEach((element) => {
+          resTx.data.every((element) => {
             const v = parseInt(element.parsedLog.args[1].hex.substring(2), 16);
             const d = parseInt(element.parsedLog.args[2].hex.substring(2), 16);
             this.lastFiveValues.push({
@@ -180,6 +179,10 @@ export default {
               date: this.convertToDate(d),
               time: this.convertToTime(d),
             });
+            if (this.lastFiveValues.length > 4) {
+              return false;
+            }
+            return true;
           });
         }
 
