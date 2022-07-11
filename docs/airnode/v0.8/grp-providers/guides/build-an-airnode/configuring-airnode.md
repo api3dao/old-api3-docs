@@ -98,7 +98,27 @@ Below is a simple chain array with a single chain provider.
         "unit": "gwei"
       },
       "baseFeeMultiplier": 2,
-      "fulfillmentGasLimit": 500000
+      "fulfillmentGasLimit": 500000,
+      "gasPriceOracle": [
+        {
+              "gasPriceStrategy": "latestBlockPercentileGasPrice",
+              "percentile": 60,
+              "minTransactionCount": 20,
+              "pastToCompareInBlocks": 20,
+              "maxDeviationMultiplier": 2,
+            },
+            {
+              "gasPriceStrategy": "providerRecommendedGasPrice",
+              "recommendedGasPriceMultiplier": 1.2,
+            },
+          {
+            "gasPriceStrategy": "constantGasPrice",
+            "gasPrice": {
+              "value": 10,
+              "unit": "gwei"
+            }
+          }
+        ]
     },
     "maxConcurrency": 100,
     "blockHistoryLimit": 300,
@@ -126,6 +146,15 @@ See the dedicated
 chain-specific configuration considerations.
 
 :::
+
+#### Considerations: Gas Price Oracle
+
+The gas price oracle strategies are applied in the order that they are listed.
+Airnode supports three strategies: `latestBlockPercentileGasPrice`,
+`providerRecommendedGasPrice` and `constantGasPrice`. The only required strategy
+is `constantGasPrice` and it is recommended to place it as the last strategy in
+the list as it should be the final fallback for the Airnode to use if all other
+strategies fail.
 
 #### Considerations: Concurrency
 
@@ -177,6 +206,7 @@ The below links offer details for each field:
   - [options.baseFeeMultiplier](../../../reference/deployment-files/config-json.md#options-basefeemultiplier)
   - [options.gasPriceMultiplier](../../../reference/deployment-files/config-json.md#options-gaspricemultiplier)
   - [options.fulfillmentGasLimit](../../../reference/deployment-files/config-json.md#options-fulfillmentgaslimit)
+  - [options.gasPriceOracle](../../../reference/deployment-files/config-json.md#options-withdrawalremainder)
   - [options.withdrawalRemainder](../../../reference/deployment-files/config-json.md#options-withdrawalremainder)
 - [maxConcurrency](../../../reference/deployment-files/config-json.md#maxconcurrency)
 - [blockHistoryLimit](../../../reference/deployment-files/config-json.md#blockhistorylimit)
