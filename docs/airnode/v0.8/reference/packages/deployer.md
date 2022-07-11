@@ -10,7 +10,7 @@ folder: Reference > Packages
 <VersionWarning/>
 
 <TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TOC class="table-of-contents" :include-level="[2,4]" />
 
 The
 [airnode-deployer](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-deployer)
