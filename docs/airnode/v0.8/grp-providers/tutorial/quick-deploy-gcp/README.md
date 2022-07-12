@@ -164,7 +164,7 @@ docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
   -v "$(pwd)/gcp.json:/app/gcp.json" \
   -v "$(pwd)/config:/app/config" \
-  api3/airnode-deployer:0.7.2 deploy
+  api3/airnode-deployer:0.8.0 deploy
 ```
 
 :::
@@ -177,7 +177,7 @@ For Windows, use CMD (and not PowerShell).
 docker run -it --rm ^
   -v "%cd%/gcp.json:/app/gcp.json" ^
   -v "%cd%/config:/app/config" ^
-  api3/airnode-deployer:0.7.2 deploy
+  api3/airnode-deployer:0.8.0 deploy
 ```
 
 :::
@@ -323,7 +323,7 @@ needed to remove an Airnode.
 docker run -it --rm \
   -v "$(pwd)/gcp.json:/app/gcp.json" \
   -v "$(pwd)/config:/app/config" \
-  api3/airnode-deployer:0.7.2 remove-with-receipt
+  api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
 
 :::
@@ -336,7 +336,7 @@ For Windows, use CMD (and not PowerShell).
 docker run -it --rm ^
   -v "%cd%/gcp.json:/app/gcp.json" ^
   -v "%cd%/config:/app/config" ^
-  api3/airnode-deployer:0.7.2 remove-with-receipt
+  api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
 
 :::
