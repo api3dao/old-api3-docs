@@ -18,14 +18,9 @@ build the images yourself see the
 [README](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-deployer/docker)
 in the deployer package.
 
-The deployer image has two commands.
-
-- `deploy`: Deploys or updates an Airnode using configuration files.
-- `remove`: Removes an Airnode using its `receipt.json` file.
-
 ::: tip Quick Deploy Demos
 
-See the [Quick Deploy Demos](../tutorial/) to quickly `deploy` and `remove` a
+See the [Quick Deploy Demos](../tutorial/) to quickly deploy and remove a
 preconfigured Airnode using the deployer image.
 
 :::
@@ -41,9 +36,8 @@ my-airnode
 ├── aws.env     <- Used for AWS deployment
 ├── gcp.json    <- Used for GCP deployment
 ├── config
-│   ├── config.json
-│   └── secrets.env
-└── output
+    ├── config.json
+    └── secrets.env
 ```
 
 ## Cloud Provider Credentials
@@ -100,8 +94,7 @@ docker run -it --rm \
   --env-file aws.env \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
   -v "$(pwd)/config:/app/config" \
-  -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.7.2 deploy
+  api3/airnode-deployer:0.8.0 deploy
 ```
 
 :::
@@ -114,8 +107,7 @@ For Windows, use CMD (and not PowerShell).
 docker run -it --rm ^
   --env-file aws.env ^
   -v "%cd%/config:/app/config" ^
-  -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.7.2 deploy
+  api3/airnode-deployer:0.8.0 deploy
 ```
 
 :::
@@ -133,8 +125,7 @@ docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
   -v "$(pwd)/gcp.json:/app/gcp.json" \
   -v "$(pwd)/config:/app/config" \
-  -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.7.2 deploy
+  api3/airnode-deployer:0.8.0 deploy
 ```
 
 :::
@@ -145,18 +136,18 @@ docker run -it --rm \
 docker run -it --rm ^
   -v "%cd%/gcp.json:/app/gcp.json" ^
   -v "%cd%/config:/app/config" ^
-  -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.7.2 deploy
+  api3/airnode-deployer:0.8.0 deploy
 ```
 
 :::
 
 ::::
 
-## remove
+## remove-with-receipt
 
-When an Airnode was deployed using the `deploy` command a `receipt.json` file
-was created. Use this file to remove an Airnode.
+When an Airnode was deployed using the `deploy` command, a `receipt.json` file
+was created. This file, which is by default expected to be in the `config/`
+directory, is used to remove the Airnode.
 
 ### AWS
 
@@ -167,8 +158,8 @@ was created. Use this file to remove an Airnode.
 ```sh
 docker run -it --rm \
   --env-file aws.env \
-  -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.7.2 remove -r output/receipt.json
+  -v "$(pwd)/config:/app/config" \
+  api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
 
 :::
@@ -180,8 +171,8 @@ For Windows, use CMD (and not PowerShell).
 ```sh
 docker run -it --rm ^
   --env-file aws.env ^
-  -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.7.2 remove -r output/receipt.json
+  -v "%cd%/config:/app/config" ^
+  api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
 
 :::
@@ -197,8 +188,8 @@ docker run -it --rm ^
 ```sh
 docker run -it --rm \
   -v "$(pwd)/gcp.json:/app/gcp.json" \
-  -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.7.2 remove -r output/receipt.json
+  -v "$(pwd)/config:/app/config" \
+  api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
 
 :::
@@ -210,8 +201,8 @@ For Windows, use CMD (and not PowerShell).
 ```sh
 docker run -it --rm ^
   -v "%cd%/gcp.json:/app/gcp.json" ^
-  -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.7.2 remove -r output/receipt.json
+  -v "%cd%/config:/app/config" ^
+  api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
 
 :::
@@ -221,8 +212,8 @@ docker run -it --rm ^
 ## Manual Removal
 
 Optionally you can remove an Airnode manually though it is highly recommended
-that you do so using the deployer image's `remove` command. Airnode has a
-presence in several areas of both AWS and GCP. An Airnode has a
+that you do so using the deployer image's `remove-with-receipt` command. Airnode
+has a presence in several areas of both AWS and GCP. An Airnode has a
 `airnodeAddressShort` (e.g., `0ab830c`) that is included in the element name of
 AWS and GCP deployed features.
 

@@ -52,17 +52,16 @@ a zip file ready to go.
 
 ::: tab Create Manually
 
-Create a folder called `/quick-deploy-gcp` with two more internal folders named
-`/config` and `/output`. Place the contents of the files provided
+Create a folder called `/quick-deploy-gcp` with one more internal folder named
+`/config`. Place the contents of the files provided
 ([config.json](./config-json.md) and [secrets.env](./secrets-env.md)) into the
 locations show below.
 
 ```
 quick-deploy-gcp
 ├── config
-│   ├── config.json
-│   └── secrets.env
-└── output
+    ├── config.json
+    └── secrets.env
 ```
 
 :::
@@ -80,7 +79,7 @@ quick-deploy-gcp</a> project folder.
 
 Prepare the configuration files, setup a GCP project and obtain credentials. By
 default, the Airnode deployer image looks for `config.json` and `secrets.env` in
-`/config` and writes `receipt.json` to the `/output` folder.
+`/config` and writes `receipt.json` to the `/config` folder.
 
 ### config.json
 
@@ -165,8 +164,7 @@ docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
   -v "$(pwd)/gcp.json:/app/gcp.json" \
   -v "$(pwd)/config:/app/config" \
-  -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.7.2 deploy
+  api3/airnode-deployer:0.8.0 deploy
 ```
 
 :::
@@ -179,8 +177,7 @@ For Windows, use CMD (and not PowerShell).
 docker run -it --rm ^
   -v "%cd%/gcp.json:/app/gcp.json" ^
   -v "%cd%/config:/app/config" ^
-  -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.7.2 deploy
+  api3/airnode-deployer:0.8.0 deploy
 ```
 
 :::
@@ -315,7 +312,7 @@ curl -v ^
 ## Remove the Airnode
 
 When you are done with this demo you can remove it. When the Airnode was
-deployed a `receipt.json` file was created in the `/output` folder. This file is
+deployed a `receipt.json` file was created in the `/config` folder. This file is
 needed to remove an Airnode.
 
 :::: tabs
@@ -325,8 +322,8 @@ needed to remove an Airnode.
 ```sh
 docker run -it --rm \
   -v "$(pwd)/gcp.json:/app/gcp.json" \
-  -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.7.2 remove -r output/receipt.json
+  -v "$(pwd)/config:/app/config" \
+  api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
 
 :::
@@ -338,8 +335,8 @@ For Windows, use CMD (and not PowerShell).
 ```sh
 docker run -it --rm ^
   -v "%cd%/gcp.json:/app/gcp.json" ^
-  -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.7.2 remove -r output/receipt.json
+  -v "%cd%/config:/app/config" ^
+  api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
 
 :::
