@@ -466,7 +466,6 @@ in the `aws.env` file as shown below. See an
 [example file](../../../reference/templates/aws-env.md) in the reference
 section.
 
-- Do not place double quotes (") around the value of each variable.
 - Variable names cannot contain dashes (-) or start with a number.
 
 ```bash

@@ -97,8 +97,8 @@ deployment information and is used to remove the Airnode.
 
 ```sh
 docker run -it --rm \
-  --env-file aws.env \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
+  -v "$(pwd)/aws.env:/app/aws.env" \
   -v "$(pwd)/config:/app/config" \
   -v "$(pwd)/output:/app/output" \
   api3/airnode-deployer:0.7.2 deploy
@@ -112,7 +112,7 @@ For Windows, use CMD (and not PowerShell).
 
 ```sh
 docker run -it --rm ^
-  --env-file aws.env ^
+  -v "%cd%/aws.env:/app/aws.env" ^
   -v "%cd%/config:/app/config" ^
   -v "%cd%/output:/app/output" ^
   api3/airnode-deployer:0.7.2 deploy
@@ -166,7 +166,7 @@ was created. Use this file to remove an Airnode.
 
 ```sh
 docker run -it --rm \
-  --env-file aws.env \
+  -v "$(pwd)/aws.env:/app/aws.env" \
   -v "$(pwd)/output:/app/output" \
   api3/airnode-deployer:0.7.2 remove -r output/receipt.json
 ```
@@ -179,7 +179,7 @@ For Windows, use CMD (and not PowerShell).
 
 ```sh
 docker run -it --rm ^
-  --env-file aws.env ^
+  -v "%cd%/aws.env:/app/aws.env" ^
   -v "%cd%/output:/app/output" ^
   api3/airnode-deployer:0.7.2 remove -r output/receipt.json
 ```
