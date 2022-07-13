@@ -315,7 +315,6 @@ Airnode.
 ```sh
 docker run -it --rm \
   -v "$(pwd)/aws.env:/app/aws.env" \
-  -v "$(pwd)/output:/app/output" \
   -v "$(pwd)/config:/app/config" \
   api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
@@ -329,7 +328,6 @@ For Windows, use CMD (and not PowerShell).
 ```sh
 docker run -it --rm ^
   -v "%cd%/aws.env:/app/aws.env" ^
-  -v "%cd%/output:/app/output" ^
   -v "%cd%/config:/app/config" ^
   api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
