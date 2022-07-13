@@ -10,7 +10,7 @@ folder: Reference > Packages
 <VersionWarning/>
 
 <TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" />
+<TOC class="table-of-contents" :include-level="[2,4]" />
 
 The
 [airnode-deployer](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-deployer)
@@ -45,7 +45,7 @@ you to run deployer commands without installing the deployer npm package or
 having to manually build the airnode-deployer package yourself.
 
 ```sh
-npx @api3/airnode-deployer deploy --config pathTo/config.json --secrets pathTo/secrets.env --receipt myOutput/receipt.json
+npx @api3/airnode-deployer deploy --config config/config.json --secrets config/secrets.env --receipt config/receipt.json
 ```
 
 ### Global Package
@@ -59,7 +59,7 @@ yarn global add @api3/airnode-deployer
 npm install @api3/airnode-deployer -g
 
 # Executing the deployer.
-airnode-deployer deploy --config pathTo/config.json --secrets pathTo/secrets.env --receipt myOutput/receipt.json
+airnode-deployer deploy --config config/config.json --secrets config/secrets.env --receipt config/receipt.json
 ```
 
 <!--  HOLD THIS UNTIL THE REPO README IS UPDATED
@@ -108,26 +108,9 @@ cp config/secrets.env.example config/secrets.env
 ```
 -->
 
-## Examples
+## Commands
 
-The deployer has two commands. To re-deploy an existing Airnode run the `deploy`
-command again.
-
-- [deploy](./deployer.md#deploy)
-- [remove](./deployer.md#remove)
-
-### Workflows
-
-1. Make sure you have `config.json` and `secrets.env` ready. Then, use the
-   `deploy` command to trigger your first deployment.
-2. In order to update the Airnode configuration:
-   - Update the `config.json` and `secrets.env` files as needed.
-   - Run the `deploy` command again.
-3. Use the `remove` command to remove the Airnode deployment. Use the `-r`
-   option to provide the receipt file from the latest deployment or manually add
-   the required arguments.
-
-### deploy
+### Airnode Deployment
 
 When creating or updating an Airnode the `config.json` and `secrets.env` files
 are needed. You can use the provided example
@@ -143,9 +126,12 @@ API details and secrets.
 Make sure `config.json` and `secrets.env` are available in the path for the
 `--configuration` argument.
 
-When completed the `deploy` command creates a receipt using the path and name
-from the `--receipt` argument. The receipt contains metadata about the
-deployment and can be used to remove the Airnode.
+#### deploy
+
+When executed, the `deploy` command defaults to creating a `receipt.json` file
+in the `config/` directory, although a different path can be specified using the
+path and name with the `--receipt` argument. The receipt contains metadata about
+the deployment and can be used to remove the Airnode.
 
 If the deployment isn't successful, the command will try to automatically remove
 deployed resources. You can disable this by running the deploy command with a
@@ -161,28 +147,34 @@ Options:
       --help                             Show help                                                             [boolean]
   -c, --configuration, --config, --conf  Path to configuration file             [string] [default: "config/config.json"]
   -s, --secrets                          Path to secrets file                   [string] [default: "config/secrets.env"]
-  -r, --receipt                          Output path for receipt file          [string] [default: "output/receipt.json"]
+  -r, --receipt                          Output path for receipt file          [string] [default: "config/receipt.json"]
       --auto-remove                      Enable automatic removal of deployed resources for failed deployments
                                                                                                [boolean] [default: true]
 
-# Example
-airnode-deployer deploy --config pathTo/config.json --secrets pathTo/secrets.env --receipt myOutput/receipt.json
+# Basic example
+airnode-deployer deploy
+
+# Advanced example
+airnode-deployer deploy --config config/config.json --secrets config/secrets.env --receipt config/receipt.json
 ```
 
-### remove
+### Airnode Removal
 
-An Airnode can be removed using the remove command two different ways.
+An Airnode can be removed in two different ways:
 
-- **Best:** With a deployment receipt created when the Airnode was deployed.
-- **Alternate:** With the Airnode short address and cloud provider
-  specifications. The `airnodeShortAddress` is used in the cloud console within
-  the names of the serverless functions. The other values can be found in
-  `config.json`.
+- **Best:** With `remove-with-receipt`, which uses the deployment receipt
+  created when the Airnode was deployed.
+- **Alternate:** With `remove-with-deployment-details`, which uses the Airnode
+  short address and cloud provider specifications. The `airnodeShortAddress` is
+  used in the cloud console within the names of the serverless functions. The
+  other values can be found in `config.json`.
   - `nodeSetting.cloudProvider.type`
   - `nodeSetting.cloudProvider.region`
   - <code style="overflow-wrap: break-word;">nodeSetting.cloudProvider.projectId</code>
     (GCP only)
   - `nodeSetting.stage`
+
+#### remove-with-receipt
 
 ```bash
 # Removes a deployed Airnode instance.
@@ -191,14 +183,30 @@ Options:
       --version                Show version number                                                             [boolean]
       --debug                  Run in debug mode                                              [boolean] [default: false]
       --help                   Show help                                                                       [boolean]
-  -r, --receipt                Path to receipt file                                                             [string]
+  -r, --receipt                Path to receipt file                            [string] [default: "config/receipt.json"]
+
+# Basic example
+airnode-deployer remove-with-receipt
+
+# Advanced example specifying the receipt file location
+airnode-deployer remove-with-receipt --receipt config/receipt.json
+```
+
+#### remove-with-deployment-details
+
+```bash
+# Removes a deployed Airnode instance.
+
+Options:
+      --version                Show version number                                                             [boolean]
+      --debug                  Run in debug mode                                              [boolean] [default: false]
+      --help                   Show help                                                                       [boolean]
   -a, --airnode-address-short  Airnode Address (short version)                                                  [string]
   -s, --stage                  Stage (environment)                                                              [string]
   -c, --cloud-provider         Cloud provider                                                    [choices: "aws", "gcp"]
   -e, --region                 Region                                                                           [string]
   -p, --project-id             Project ID (GCP only)                                                            [string]
 
-# Examples
-airnode-deployer remove --receipt myOutput/receipt.json
-airnode-deployer remove --airnode-address-short abd9eaa --stage dev --cloud-provider aws --region us-east-1
+# Example
+airnode-deployer remove-with-deployment-details --airnode-address-short abd9eaa --stage dev --cloud-provider aws --region us-east-1
 ```

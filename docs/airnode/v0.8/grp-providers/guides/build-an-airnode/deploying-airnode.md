@@ -65,9 +65,8 @@ but not used by the deployer image.
 my-airnode
 ├── aws.env
 ├── config
-│   ├── config.json
-│   └── secrets.env
-└── output
+    ├── config.json
+    └── secrets.env
 ```
 
 :::
@@ -78,9 +77,8 @@ my-airnode
 my-airnode
 ├── gcp.json
 ├── config
-│   ├── config.json
-│   └── secrets.env
-└── output
+    ├── config.json
+    └── secrets.env
 ```
 
 :::
@@ -90,7 +88,7 @@ my-airnode
 From the root of the project directory run the Docker
 [deployer image](../../docker/deployer-image.md) which will deploy the Airnode.
 When the deployment has completed a `receipt.json` file will be written to the
-`/output` folder. This file contains important configuration information about
+`/config` folder. This file contains important configuration information about
 the Airnode and is needed to remove the Airnode should the need arise.
 
 <!-- Use of .html below is intended. -->
@@ -109,8 +107,7 @@ docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
   -v "$(pwd)/aws.env:/app/aws.env" \
   -v "$(pwd)/config:/app/config" \
-  -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.7.2 deploy
+  api3/airnode-deployer:0.8.0 deploy
 ```
 
 :::
@@ -123,8 +120,7 @@ For Windows, use CMD (and not PowerShell).
 docker run -it --rm ^
   -v "%cd%/aws.env:/app/aws.env" ^
   -v "%cd%/config:/app/config" ^
-  -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.7.2 deploy
+  api3/airnode-deployer:0.8.0 deploy
 ```
 
 :::
@@ -142,8 +138,7 @@ docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
   -v "$(pwd)/gcp.json:/app/gcp.json" \
   -v "$(pwd)/config:/app/config" \
-  -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.7.2 deploy
+  api3/airnode-deployer:0.8.0 deploy
 ```
 
 :::
@@ -156,8 +151,7 @@ For Windows, use CMD (and not PowerShell).
 docker run -it --rm ^
   -v "%cd%/gcp.json:/app/gcp.json" ^
   -v "%cd%/config:/app/config" ^
-  -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.7.2 deploy
+  api3/airnode-deployer:0.8.0 deploy
 ```
 
 :::
@@ -165,7 +159,7 @@ docker run -it --rm ^
 ::::
 
 When the deployment is complete a `receipt.json` file is placed into the
-`/output` folder.
+`/config` folder.
 
 ### receipt.json
 
@@ -188,7 +182,7 @@ deployment was successful or not.
       "region": "us-east-1"
     },
     "stage": "dev",
-    "nodeVersion": "0.7.2",
+    "nodeVersion": "0.8.0",
     "timestamp": "2022-03-26T02:37:55.506Z"
   },
   "api": {
@@ -210,8 +204,9 @@ that detail how to do this.
 
 ## Removing the Airnode
 
-When the Airnode was deployed a `receipt.json` file was created in the `/output`
-folder. This file is needed to remove an Airnode.
+When an Airnode was deployed using the `deploy` command, a `receipt.json` file
+was created. This file, which is by default expected to be in the `config/`
+directory, is used to remove the Airnode.
 
 ### AWS
 
@@ -223,7 +218,8 @@ folder. This file is needed to remove an Airnode.
 docker run -it --rm \
   -v "$(pwd)/aws.env:/app/aws.env" \
   -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.7.2 remove -r output/receipt.json
+  -v "$(pwd)/config:/app/config" \
+  api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
 
 :::
@@ -236,7 +232,8 @@ For Windows, use CMD (and not PowerShell).
 docker run -it --rm ^
   -v "%cd%/aws.env:/app/aws.env" ^
   -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.7.2 remove -r output/receipt.json
+  -v "%cd%/config:/app/config" ^
+  api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
 
 :::
@@ -252,8 +249,8 @@ docker run -it --rm ^
 ```sh
 docker run -it --rm \
   -v "$(pwd)/gcp.json:/app/gcp.json" \
-  -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.7.2 remove -r output/receipt.json
+  -v "$(pwd)/config:/app/config" \
+  api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
 
 :::
@@ -265,8 +262,8 @@ For Windows, use CMD (and not PowerShell).
 ```sh
 docker run -it --rm ^
   -v "%cd%/gcp.json:/app/gcp.json" ^
-  -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.7.2 remove -r output/receipt.json
+  -v "%cd%/config:/app/config" ^
+  api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
 
 :::

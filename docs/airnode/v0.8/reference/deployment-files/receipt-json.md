@@ -11,9 +11,8 @@ folder: Reference > Deployment Files
 
 A `receipt.json` file is outputted after each deployment and contains
 non-sensitive information about the deployment. The main use of a receipt file
-is to remove an Airnode deployment when no longer needed. Use the
-[docker image](../../grp-providers/docker/deployer-image.md#remove) to execute
-the remove command.
+is to remove an Airnode deployment when no longer needed. See the
+[Airnode Removal documentation](../packages/deployer.md) for usage and commands.
 
 It also provides the Airnode xpub for the hardened derivation path
 `m/44'/60'/0'` that must be announced off-chain in order for sponsors to derive
@@ -49,7 +48,7 @@ not generated for client deployments (deploying to a Docker container).
       "disableConcurrencyReservations": false
     },
     "stage": "starter-example",
-    "nodeVersion": "0.7.2",
+    "nodeVersion": "0.8.0",
     "timestamp": "2022-03-26T02:37:55.506Z"
   },
   "api": {
@@ -79,7 +78,7 @@ not generated for client deployments (deploying to a Docker container).
       "projectId": "api3-753118"
     },
     "stage": "dev",
-    "nodeVersion": "0.7.2",
+    "nodeVersion": "0.8.0",
     "timestamp": "2022-03-26T02:37:55.506Z"
   },
   "api": {},
