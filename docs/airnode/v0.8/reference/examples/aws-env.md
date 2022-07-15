@@ -9,7 +9,6 @@ folder: Reference > Example Files
 
 <VersionWarning/>
 
-- Do not place double quotes (") around the value of each variable.
 - Variable names cannot contain dashes (-) or start with a number.
 
 ```sh

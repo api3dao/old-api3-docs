@@ -104,8 +104,8 @@ the Airnode and is needed to remove the Airnode should the need arise.
 
 ```
 docker run -it --rm \
-  --env-file aws.env \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
+  -v "$(pwd)/aws.env:/app/aws.env" \
   -v "$(pwd)/config:/app/config" \
   api3/airnode-deployer:0.8.0 deploy
 ```
@@ -118,7 +118,7 @@ For Windows, use CMD (and not PowerShell).
 
 ```sh
 docker run -it --rm ^
-  --env-file aws.env ^
+  -v "%cd%/aws.env:/app/aws.env" ^
   -v "%cd%/config:/app/config" ^
   api3/airnode-deployer:0.8.0 deploy
 ```
@@ -216,7 +216,7 @@ directory, is used to remove the Airnode.
 
 ```sh
 docker run -it --rm \
-  --env-file aws.env \
+  -v "$(pwd)/aws.env:/app/aws.env" \
   -v "$(pwd)/config:/app/config" \
   api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
@@ -229,7 +229,7 @@ For Windows, use CMD (and not PowerShell).
 
 ```sh
 docker run -it --rm ^
-  --env-file aws.env ^
+  -v "%cd%/aws.env:/app/aws.env" ^
   -v "%cd%/config:/app/config" ^
   api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
