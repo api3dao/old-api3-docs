@@ -102,7 +102,7 @@ the Airnode and is needed to remove the Airnode should the need arise.
 
 ::: tab Linux/Mac/WSL2
 
-```
+```sh
 docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
   -v "$(pwd)/aws.env:/app/aws.env" \
@@ -202,74 +202,13 @@ that detail how to do this.
 - [Quick Deploy AWS](../../tutorial/quick-deploy-aws/#test-the-airnode)
 - [Quick Deploy GCP](../../tutorial/quick-deploy-gcp/#test-the-airnode)
 
-## Removing the Airnode
-
-When an Airnode was deployed using the `deploy` command, a `receipt.json` file
-was created. This file, which is by default expected to be in the `config/`
-directory, is used to remove the Airnode.
-
-### AWS
-
-:::: tabs
-
-::: tab Linux/Mac/WSL2
-
-```sh
-docker run -it --rm \
-  -v "$(pwd)/aws.env:/app/aws.env" \
-  -v "$(pwd)/config:/app/config" \
-  api3/airnode-deployer:0.8.0 remove-with-receipt
-```
-
-:::
-
-::: tab Windows
-
-For Windows, use CMD (and not PowerShell).
-
-```sh
-docker run -it --rm ^
-  -v "%cd%/aws.env:/app/aws.env" ^
-  -v "%cd%/config:/app/config" ^
-  api3/airnode-deployer:0.8.0 remove-with-receipt
-```
-
-:::
-
-::::
-
-### GCP
-
-:::: tabs
-
-::: tab Linux/Mac/WSL2
-
-```sh
-docker run -it --rm \
-  -v "$(pwd)/gcp.json:/app/gcp.json" \
-  -v "$(pwd)/config:/app/config" \
-  api3/airnode-deployer:0.8.0 remove-with-receipt
-```
-
-:::
-
-::: tab Windows
-
-For Windows, use CMD (and not PowerShell).
-
-```sh
-docker run -it --rm ^
-  -v "%cd%/gcp.json:/app/gcp.json" ^
-  -v "%cd%/config:/app/config" ^
-  api3/airnode-deployer:0.8.0 remove-with-receipt
-```
-
-:::
-
-::::
-
 ## Calling the Airnode
 
 Once the Airnode is deployed, see
 [Calling an Airnode](../../../grp-developers/call-an-airnode.md) to learn how
 requests are made to it.
+
+## Removing the Airnode
+
+If you would like to remove a deployed Airnode, see the
+[Airnode Removal](../../docker/deployer-image.md#airnode-removal) instructions.
