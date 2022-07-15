@@ -46,26 +46,14 @@ In order to deploy Airnode to a serverless cloud provider, you need to provide
 could provider credentials to the Airnode deployer image. The deployer image
 currently supports deploying to AWS and GCP.
 
-### AWS
+For AWS deployment, see the
+[AWS Setup](../guides/build-an-airnode/configuring-airnode.md#aws-setup-aws-deployment-only)
+and for GCP deployment, see the
+[GCP Setup](../guides/build-an-airnode/configuring-airnode.md#gcp-setup-gcp-deployment-only).
 
-If you are new to AWS watch this
-[video](https://www.youtube.com/watch?v=KngM5bfpttA) to set up an AWS account
-and create cloud provider credentials.
+## Airnode Deployment
 
-### GCP
-
-- Create a
-  [Google Cloud project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
-- Enable
-  [App Engine Admin API](https://console.cloud.google.com/apis/library/appengine.googleapis.com)
-  for your project
-- Create a new
-  [service account](https://console.cloud.google.com/iam-admin/serviceaccounts)
-  with the `Owner` role
-- Add a new access key of type JSON for the service account and download it as
-  `gcp.json`
-
-## deploy
+### deploy
 
 The `deploy` command will create the Airnode with a cloud provider or update it
 if it already exists. Three files are needed to run the deploy command.
@@ -75,7 +63,12 @@ if it already exists. Three files are needed to run the deploy command.
 - aws.env (AWS only)
 - gcp.json (GCP only)
 
-A `receipt.json` file will be created upon completion. It contains some
+See
+[Deploying an Airnode](../guides/build-an-airnode/deploying-airnode.md#deploy-with-docker)
+for deployment commands specific to various operating systems and cloud
+providers.
+
+Note a `receipt.json` file will be created upon completion. It contains some
 deployment information and is used to remove the Airnode.
 
 <!-- Use of .html below is intended. -->
@@ -83,73 +76,16 @@ deployment information and is used to remove the Airnode.
 
 <p><airnode-DeployerPermissionsWarning/></p>
 
-### AWS
+## Airnode Removal
 
-:::: tabs
-
-::: tab Linux/Mac/WSL2
-
-```sh
-docker run -it --rm \
-  -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
-  -v "$(pwd)/aws.env:/app/aws.env" \
-  -v "$(pwd)/config:/app/config" \
-  api3/airnode-deployer:0.8.0 deploy
-```
-
-:::
-
-::: tab Windows
-
-For Windows, use CMD (and not PowerShell).
-
-```sh
-docker run -it --rm ^
-  -v "%cd%/aws.env:/app/aws.env" ^
-  -v "%cd%/config:/app/config" ^
-  api3/airnode-deployer:0.8.0 deploy
-```
-
-:::
-
-::::
-
-### GCP
-
-:::: tabs
-
-::: tab Linux/Mac/WSL2
-
-```sh
-docker run -it --rm \
-  -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
-  -v "$(pwd)/gcp.json:/app/gcp.json" \
-  -v "$(pwd)/config:/app/config" \
-  api3/airnode-deployer:0.8.0 deploy
-```
-
-:::
-
-::: tab Windows
-
-```sh
-docker run -it --rm ^
-  -v "%cd%/gcp.json:/app/gcp.json" ^
-  -v "%cd%/config:/app/config" ^
-  api3/airnode-deployer:0.8.0 deploy
-```
-
-:::
-
-::::
-
-## remove-with-receipt
+### remove-with-receipt
 
 When an Airnode was deployed using the `deploy` command, a `receipt.json` file
 was created. This file, which is by default expected to be in the `config/`
-directory, is used to remove the Airnode.
+directory, is used to remove the Airnode. The `remove-with-receipt` command is
+the recommended way to remove a deployment.
 
-### AWS
+#### AWS
 
 :::: tabs
 
@@ -179,7 +115,7 @@ docker run -it --rm ^
 
 ::::
 
-### GCP
+#### GCP
 
 :::: tabs
 
@@ -209,13 +145,90 @@ docker run -it --rm ^
 
 ::::
 
-## Manual Removal
+### remove-with-deployment-details
+
+- The `remove-with-deployment-details` command is available as an alternative to
+  `remove-with-receipt` and uses the Airnode short address and cloud provider
+  specifications. The `airnodeShortAddress` is used in the cloud console within
+  the names of the serverless functions. The other values can be found in
+  `config.json`.
+  - `nodeSetting.cloudProvider.type`
+  - `nodeSetting.cloudProvider.region`
+  - <code style="overflow-wrap: break-word;">nodeSetting.cloudProvider.projectId</code>
+    (GCP only)
+  - `nodeSetting.stage`
+
+Note that the example commands below use placeholder values that should be
+replaced.
+
+#### AWS
+
+:::: tabs
+
+::: tab Linux/Mac/WSL2
+
+```sh
+docker run -it --rm \
+  -v "$(pwd)/aws.env:/app/aws.env" \
+  -v "$(pwd)/config:/app/config" \
+  api3/airnode-deployer:0.8.0 remove-with-deployment-details --airnode-address-short abd9eaa --stage dev --cloud-provider aws --region us-east-1
+```
+
+:::
+
+::: tab Windows
+
+For Windows, use CMD (and not PowerShell).
+
+```sh
+docker run -it --rm ^
+  -v "%cd%/aws.env:/app/aws.env" ^
+  -v "%cd%/config:/app/config" ^
+  api3/airnode-deployer:0.8.0 remove-with-deployment-details --airnode-address-short abd9eaa --stage dev --cloud-provider aws --region us-east-1
+```
+
+:::
+
+::::
+
+#### GCP
+
+:::: tabs
+
+::: tab Linux/Mac/WSL2
+
+```sh
+docker run -it --rm \
+  -v "$(pwd)/gcp.json:/app/gcp.json" \
+  -v "$(pwd)/config:/app/config" \
+  api3/airnode-deployer:0.8.0 remove-with-deployment-details --airnode-address-short abd9eaa --stage dev --cloud-provider gcp --region us-east1
+```
+
+:::
+
+::: tab Windows
+
+For Windows, use CMD (and not PowerShell).
+
+```sh
+docker run -it --rm ^
+  -v "%cd%/gcp.json:/app/gcp.json" ^
+  -v "%cd%/config:/app/config" ^
+  api3/airnode-deployer:0.8.0 remove-with-deployment-details --airnode-address-short abd9eaa --stage dev --cloud-provider gcp --region us-east1
+```
+
+:::
+
+::::
+
+### Manual Removal
 
 Optionally you can remove an Airnode manually though it is highly recommended
-that you do so using the deployer image's `remove-with-receipt` command. Airnode
-has a presence in several areas of both AWS and GCP. An Airnode has a
-`airnodeAddressShort` (e.g., `0ab830c`) that is included in the element name of
-AWS and GCP deployed features.
+that you do so using the deployer image's `remove-with-receipt` or
+`remove-with-deployment-details` commands. Airnode has a presence in several
+areas of both AWS and GCP. An Airnode has a `airnodeAddressShort` (e.g.,
+`0ab830c`) that is included in the element name of AWS and GCP deployed
+features.
 
 ::: danger Remember
 
