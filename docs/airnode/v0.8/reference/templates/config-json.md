@@ -59,30 +59,32 @@ building a config.json file.
       },
       "type": "<FILL_*>",
       "options": {
-        "txType": "<FILL_*>",
-        "priorityFee": {
-          "value": <FILL_NUMBER>,
-          "unit": "<FILL_*>"
-        },
-        "baseFeeMultiplier": <FILL_NUMBER>,
         "fulfillmentGasLimit": <FILL_NUMBER>,
         "gasPriceOracle": [
-        {
-              "gasPriceStrategy": "latestBlockPercentileGasPrice",
-              "percentile": <FILL_NUMBER>,
-              "minTransactionCount": <FILL_NUMBER>,
-              "pastToCompareInBlocks": <FILL_NUMBER>,
-              "maxDeviationMultiplier": <FILL_NUMBER>,
-            },
-            {
-              "gasPriceStrategy": "providerRecommendedGasPrice",
-              "recommendedGasPriceMultiplier": <FILL_NUMBER>,
-            },
+          {
+            "gasPriceStrategy": "latestBlockPercentileGasPrice",
+            "percentile": <FILL_NUMBER>,
+            "minTransactionCount": <FILL_NUMBER>,
+            "pastToCompareInBlocks": <FILL_NUMBER>,
+            "maxDeviationMultiplier": <FILL_NUMBER>,
+          },
+          {
+            "gasPriceStrategy": "providerRecommendedGasPrice",
+            "recommendedGasPriceMultiplier": <FILL_NUMBER>,
+          },
+          {
+            "gasPriceStrategy": "providerRecommendedEip1559GasPrice",
+            "baseFeeMultiplier": <FILL_NUMBER>,
+            "priorityFee": {
+              "value": <FILL_NUMBER>,
+              "unit": "<FILL_*>"
+            }
+          },
           {
             "gasPriceStrategy": "constantGasPrice",
             "gasPrice": {
               "value": <FILL_NUMBER>,
-              "unit": "gwei"
+              "unit": "<FILL_*>"
             }
           }
         ]

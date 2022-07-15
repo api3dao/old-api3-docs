@@ -92,33 +92,35 @@ Below is a simple chain array with a single chain provider.
     },
     "type": "evm",
     "options": {
-      "txType": "eip1559",
-      "priorityFee": {
-        "value": 3.12,
-        "unit": "gwei"
-      },
-      "baseFeeMultiplier": 2,
       "fulfillmentGasLimit": 500000,
       "gasPriceOracle": [
         {
-              "gasPriceStrategy": "latestBlockPercentileGasPrice",
-              "percentile": 60,
-              "minTransactionCount": 20,
-              "pastToCompareInBlocks": 20,
-              "maxDeviationMultiplier": 2,
-            },
-            {
-              "gasPriceStrategy": "providerRecommendedGasPrice",
-              "recommendedGasPriceMultiplier": 1.2,
-            },
-          {
-            "gasPriceStrategy": "constantGasPrice",
-            "gasPrice": {
-              "value": 10,
-              "unit": "gwei"
-            }
+          "gasPriceStrategy": "latestBlockPercentileGasPrice",
+          "percentile": 60,
+          "minTransactionCount": 20,
+          "pastToCompareInBlocks": 20,
+          "maxDeviationMultiplier": 2,
+        },
+        {
+          "gasPriceStrategy": "providerRecommendedGasPrice",
+          "recommendedGasPriceMultiplier": 1.2,
+        },
+        {
+          "gasPriceStrategy": "providerRecommendedEip1559GasPrice",
+          "baseFeeMultiplier": 2,
+          "priorityFee": {
+            "value": 3.12,
+            "unit": "gwei",
           }
-        ]
+        },
+        {
+          "gasPriceStrategy": "constantGasPrice",
+          "gasPrice": {
+            "value": 10,
+            "unit": "gwei"
+          }
+        }
+      ],
     },
     "maxConcurrency": 100,
     "blockHistoryLimit": 300,
@@ -201,10 +203,6 @@ The below links offer details for each field:
 - [providers](../../../reference/deployment-files/config-json.md#providers)
 - [type](../../../reference/deployment-files/config-json.md#type)
 - [options](../../../reference/deployment-files/config-json.md#options)
-  - [options.txType](../../../reference/deployment-files/config-json.md#options-txtype)
-  - [options.priorityFee](../../../reference/deployment-files/config-json.md#options-priorityfee)
-  - [options.baseFeeMultiplier](../../../reference/deployment-files/config-json.md#options-basefeemultiplier)
-  - [options.gasPriceMultiplier](../../../reference/deployment-files/config-json.md#options-gaspricemultiplier)
   - [options.fulfillmentGasLimit](../../../reference/deployment-files/config-json.md#options-fulfillmentgaslimit)
   - [options.gasPriceOracle](../../../reference/deployment-files/config-json.md#options-withdrawalremainder)
   - [options.withdrawalRemainder](../../../reference/deployment-files/config-json.md#options-withdrawalremainder)

@@ -51,33 +51,35 @@ Airnode. It then applies an arbitrary name for the blockchain provider
     },
     "type": "evm",
     "options": {
-      "txType": "eip1559",
-      "priorityFee": {
-        "value": 3.12,
-        "unit": "gwei"
-      },
-      "baseFeeMultiplier": 2,
       "fulfillmentGasLimit": 500000,
       "gasPriceOracle": [
         {
-              "gasPriceStrategy": "latestBlockPercentileGasPrice",
-              "percentile": 60,
-              "minTransactionCount": 20,
-              "pastToCompareInBlocks": 20,
-              "maxDeviationMultiplier": 2,
-            },
-            {
-              "gasPriceStrategy": "providerRecommendedGasPrice",
-              "recommendedGasPriceMultiplier": 1.2,
-            },
-          {
-            "gasPriceStrategy": "constantGasPrice",
-            "gasPrice": {
-              "value": 10,
-              "unit": "gwei"
-            }
+          "gasPriceStrategy": "latestBlockPercentileGasPrice",
+          "percentile": 60,
+          "minTransactionCount": 20,
+          "pastToCompareInBlocks": 20,
+          "maxDeviationMultiplier": 2,
+        },
+        {
+          "gasPriceStrategy": "providerRecommendedGasPrice",
+          "recommendedGasPriceMultiplier": 1.2,
+        },
+        {
+          "gasPriceStrategy": "providerRecommendedEip1559GasPrice",
+          "baseFeeMultiplier": 2,
+          "priorityFee": {
+            "value": 3.12,
+            "unit": "gwei",
           }
-        ]
+        },
+        {
+          "gasPriceStrategy": "constantGasPrice",
+          "gasPrice": {
+            "value": 10,
+            "unit": "gwei"
+          }
+        }
+      ],
     },
     "maxConcurrency": 100
   }
@@ -115,33 +117,35 @@ Multiple providers can be used per chain. Simply add another object to
     },
     "type": "evm",
     "options": {
-      "txType": "eip1559",
-      "priorityFee": {
-        "value": 3.12,
-        "unit": "gwei"
-      },
-      "baseFeeMultiplier": 2,
       "fulfillmentGasLimit": 500000,
       "gasPriceOracle": [
         {
-              "gasPriceStrategy": "latestBlockPercentileGasPrice",
-              "percentile": 60,
-              "minTransactionCount": 20,
-              "pastToCompareInBlocks": 20,
-              "maxDeviationMultiplier": 2,
-            },
-            {
-              "gasPriceStrategy": "providerRecommendedGasPrice",
-              "recommendedGasPriceMultiplier": 1.2,
-            },
-          {
-            "gasPriceStrategy": "constantGasPrice",
-            "gasPrice": {
-              "value": 10,
-              "unit": "gwei"
-            }
+          "gasPriceStrategy": "latestBlockPercentileGasPrice",
+          "percentile": 60,
+          "minTransactionCount": 20,
+          "pastToCompareInBlocks": 20,
+          "maxDeviationMultiplier": 2,
+        },
+        {
+          "gasPriceStrategy": "providerRecommendedGasPrice",
+          "recommendedGasPriceMultiplier": 1.2,
+        },
+        {
+          "gasPriceStrategy": "providerRecommendedEip1559GasPrice",
+          "baseFeeMultiplier": 2,
+          "priorityFee": {
+            "value": 3.12,
+            "unit": "gwei",
           }
-        ]
+        },
+        {
+          "gasPriceStrategy": "constantGasPrice",
+          "gasPrice": {
+            "value": 10,
+            "unit": "gwei"
+          }
+        }
+      ],
     },
     "maxConcurrency": 100
   }
@@ -178,33 +182,35 @@ each has a unique `id` and `type` and a list of `providers` for each.
     },
     "type": "evm",
     "options": {
-      "txType": "eip1559",
-      "priorityFee": {
-        "value": 3.12,
-        "unit": "gwei"
-      },
-      "baseFeeMultiplier": 2,
       "fulfillmentGasLimit": 500000,
       "gasPriceOracle": [
         {
-              "gasPriceStrategy": "latestBlockPercentileGasPrice",
-              "percentile": 60,
-              "minTransactionCount": 20,
-              "pastToCompareInBlocks": 20,
-              "maxDeviationMultiplier": 2,
-            },
-            {
-              "gasPriceStrategy": "providerRecommendedGasPrice",
-              "recommendedGasPriceMultiplier": 1.2,
-            },
-          {
-            "gasPriceStrategy": "constantGasPrice",
-            "gasPrice": {
-              "value": 10,
-              "unit": "gwei"
-            }
+          "gasPriceStrategy": "latestBlockPercentileGasPrice",
+          "percentile": 60,
+          "minTransactionCount": 20,
+          "pastToCompareInBlocks": 20,
+          "maxDeviationMultiplier": 2,
+        },
+        {
+          "gasPriceStrategy": "providerRecommendedGasPrice",
+          "recommendedGasPriceMultiplier": 1.2,
+        },
+        {
+          "gasPriceStrategy": "providerRecommendedEip1559GasPrice",
+          "baseFeeMultiplier": 2,
+          "priorityFee": {
+            "value": 3.12,
+            "unit": "gwei",
           }
-        ]
+        },
+        {
+          "gasPriceStrategy": "constantGasPrice",
+          "gasPrice": {
+            "value": 10,
+            "unit": "gwei"
+          }
+        }
+      ],
     },
     "maxConcurrency": 100
   },
@@ -228,33 +234,35 @@ each has a unique `id` and `type` and a list of `providers` for each.
     },
     "type": "evm",
     "options": {
-      "txType": "eip1559",
-      "priorityFee": {
-        "value": 3.12,
-        "unit": "gwei"
-      },
-      "baseFeeMultiplier": 2,
       "fulfillmentGasLimit": 500000,
       "gasPriceOracle": [
         {
-              "gasPriceStrategy": "latestBlockPercentileGasPrice",
-              "percentile": 60,
-              "minTransactionCount": 20,
-              "pastToCompareInBlocks": 20,
-              "maxDeviationMultiplier": 2,
-            },
-            {
-              "gasPriceStrategy": "providerRecommendedGasPrice",
-              "recommendedGasPriceMultiplier": 1.2,
-            },
-          {
-            "gasPriceStrategy": "constantGasPrice",
-            "gasPrice": {
-              "value": 10,
-              "unit": "gwei"
-            }
+          "gasPriceStrategy": "latestBlockPercentileGasPrice",
+          "percentile": 60,
+          "minTransactionCount": 20,
+          "pastToCompareInBlocks": 20,
+          "maxDeviationMultiplier": 2,
+        },
+        {
+          "gasPriceStrategy": "providerRecommendedGasPrice",
+          "recommendedGasPriceMultiplier": 1.2,
+        },
+        {
+          "gasPriceStrategy": "providerRecommendedEip1559GasPrice",
+          "baseFeeMultiplier": 2,
+          "priorityFee": {
+            "value": 3.12,
+            "unit": "gwei",
           }
-        ]
+        },
+        {
+          "gasPriceStrategy": "constantGasPrice",
+          "gasPrice": {
+            "value": 10,
+            "unit": "gwei"
+          }
+        }
+      ],
     },
     "maxConcurrency": 100
   }
