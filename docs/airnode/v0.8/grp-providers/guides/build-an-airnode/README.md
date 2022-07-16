@@ -23,17 +23,16 @@ for GCP deployments when encountered.
 
 ## Project Folder
 
-Create a folder called `/my-airnode` with one more internal folder named
-`/config`. Add the files `config.json`, `secrets.env`, and `aws.env` as shown
-below. Optionally add `gcp.json` if you intend to deploy to GCP as well.
+Create a folder called `/my-airnode`. Add the files `config.json`,
+`secrets.env`, and `aws.env` to this folder as shown below. Optionally add
+`gcp.json` if you intend to deploy to GCP as well.
 
 ```
 my-airnode
 ├── aws.env     <- For AWS deployment
 ├── gcp.json    <- Optional for GCP deployment
-├── config
-    ├── config.json
-    └── secrets.env
+├── config.json
+└── secrets.env
 ```
 
 This guide will explain the content of the configuration files and run the

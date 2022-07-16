@@ -35,9 +35,8 @@ deployer uses to connect to these cloud providers.
 my-airnode
 ├── aws.env     <- Used for AWS deployment
 ├── gcp.json    <- Used for GCP deployment
-├── config
-    ├── config.json
-    └── secrets.env
+├── config.json
+└── secrets.env
 ```
 
 ## Cloud Provider Credentials
@@ -81,9 +80,9 @@ deployment information and is used to remove the Airnode.
 ### remove-with-receipt
 
 When an Airnode was deployed using the `deploy` command, a `receipt.json` file
-was created. This file, which is by default expected to be in the `config/`
-directory, is used to remove the Airnode. The `remove-with-receipt` command is
-the recommended way to remove a deployment.
+was created. This file is used to remove the Airnode. The `remove-with-receipt`
+command is the recommended way to remove a deployment, but there are
+alternatives as described below.
 
 #### AWS
 
@@ -93,8 +92,7 @@ the recommended way to remove a deployment.
 
 ```sh
 docker run -it --rm \
-  -v "$(pwd)/aws.env:/app/aws.env" \
-  -v "$(pwd)/config:/app/config" \
+  -v "$(pwd):/app/config" \
   api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
 
@@ -106,8 +104,7 @@ For Windows, use CMD (and not PowerShell).
 
 ```sh
 docker run -it --rm ^
-  -v "%cd%/aws.env:/app/aws.env" ^
-  -v "%cd%/config:/app/config" ^
+  -v "%cd%:/app/config" ^
   api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
 
@@ -123,8 +120,7 @@ docker run -it --rm ^
 
 ```sh
 docker run -it --rm \
-  -v "$(pwd)/gcp.json:/app/gcp.json" \
-  -v "$(pwd)/config:/app/config" \
+  -v "$(pwd):/app/config" \
   api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
 
@@ -136,8 +132,7 @@ For Windows, use CMD (and not PowerShell).
 
 ```sh
 docker run -it --rm ^
-  -v "%cd%/gcp.json:/app/gcp.json" ^
-  -v "%cd%/config:/app/config" ^
+  -v "%cd%:/app/config" ^
   api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
 
@@ -169,8 +164,7 @@ replaced.
 
 ```sh
 docker run -it --rm \
-  -v "$(pwd)/aws.env:/app/aws.env" \
-  -v "$(pwd)/config:/app/config" \
+  -v "$(pwd):/app/config" \
   api3/airnode-deployer:0.8.0 remove-with-deployment-details --airnode-address-short abd9eaa --stage dev --cloud-provider aws --region us-east-1
 ```
 
@@ -182,8 +176,7 @@ For Windows, use CMD (and not PowerShell).
 
 ```sh
 docker run -it --rm ^
-  -v "%cd%/aws.env:/app/aws.env" ^
-  -v "%cd%/config:/app/config" ^
+  -v "%cd%:/app/config" ^
   api3/airnode-deployer:0.8.0 remove-with-deployment-details --airnode-address-short abd9eaa --stage dev --cloud-provider aws --region us-east-1
 ```
 
@@ -199,8 +192,7 @@ docker run -it --rm ^
 
 ```sh
 docker run -it --rm \
-  -v "$(pwd)/gcp.json:/app/gcp.json" \
-  -v "$(pwd)/config:/app/config" \
+  -v "$(pwd):/app/config" \
   api3/airnode-deployer:0.8.0 remove-with-deployment-details --airnode-address-short abd9eaa --stage dev --cloud-provider gcp --region us-east1
 ```
 
@@ -212,8 +204,7 @@ For Windows, use CMD (and not PowerShell).
 
 ```sh
 docker run -it --rm ^
-  -v "%cd%/gcp.json:/app/gcp.json" ^
-  -v "%cd%/config:/app/config" ^
+  -v "%cd%:/app/config" ^
   api3/airnode-deployer:0.8.0 remove-with-deployment-details --airnode-address-short abd9eaa --stage dev --cloud-provider gcp --region us-east1
 ```
 
