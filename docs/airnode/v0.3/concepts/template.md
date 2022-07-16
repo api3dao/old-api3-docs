@@ -36,7 +36,7 @@ contents. This allows Airnode to fetch templates with a static call, and verify
 that the received parameters are not tampered with.
 
 ```solidity
-templateId = keccak256(abi.encode(
+templateId = keccak256(abi.encodePacked(
   airnode,
   endpointId,
   parameters
