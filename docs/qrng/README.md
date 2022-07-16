@@ -22,7 +22,9 @@ are different methods of implementing QRNG with varying levels of practicality,
 yet the common point is that the resulting numbers will be truly random because
 the outcome of a quantum event is theoretically uncertain with well-defined
 characteristics. Therefore, QRNG is the gold standard for random number
-generation.
+generation. Read more about QRNG and randomness in the
+[Web3 Quantum Random Numbers](https://medium.com/api3/api3-qrng-web3-quantum-random-numbers-4ca7517fc5bc)
+medium post.
 
 ## QRNG as an oracle service
 
