@@ -8,8 +8,8 @@ title: QrngExample.sol
 <TOC class="table-of-contents" :include-level="[2,3]" /-->
 
 This contract is the one included in the
-[QRNG Example Project](<[../guides/remix.md](https://github.com/api3dao/qrng-example)>)
-guide. Be sure to run visit and run the project.
+[QRNG Example Project](https://github.com/api3dao/qrng-example) guide. Be sure
+to run visit and run the project.
 
 <!-- prettier-ignore -->
 <<< @/docs/qrng/reference/QrngExample.sol
