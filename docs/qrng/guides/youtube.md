@@ -1,6 +1,9 @@
 ---
 title: Youtube QRNG Access Guide
+folder: How to Guides
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

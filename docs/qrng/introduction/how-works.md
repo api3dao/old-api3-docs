@@ -1,6 +1,9 @@
 ---
 title: How it Works!
+folder: Introduction
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

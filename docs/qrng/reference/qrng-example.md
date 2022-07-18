@@ -1,6 +1,9 @@
 ---
 title: QrngExample.sol
+folder: Reference
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

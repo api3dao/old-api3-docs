@@ -1,6 +1,9 @@
 ---
 title: Remix Example
+folder: How to Guides
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

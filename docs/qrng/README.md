@@ -1,6 +1,9 @@
 ---
 title: What is QRNG?
+folder: Introduction
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

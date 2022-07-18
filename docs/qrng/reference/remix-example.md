@@ -1,6 +1,9 @@
 ---
 title: RemixQrngExample.sol
+folder: Reference
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

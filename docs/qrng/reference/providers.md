@@ -1,6 +1,9 @@
 ---
 title: API Providers
+folder: Reference
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 
