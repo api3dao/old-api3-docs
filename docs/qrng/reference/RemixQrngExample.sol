@@ -12,11 +12,11 @@ contract RemixQrngExample is RrpRequesterV0 {
     mapping(bytes32 => bool) public waitingFulfillment;
 
     // These are for Remix demonstration purposes, their use is not practical.
-    struct LastRequest { 
+    struct LatestRequest { 
       bytes32 requestId;
       uint256 randomNumber;
     }
-    LastRequest public lastRequest;
+    LatestRequest public latestRequest;
 
     constructor(address _airnodeRrp) RrpRequesterV0(_airnodeRrp) {}
 
@@ -43,8 +43,8 @@ contract RemixQrngExample is RrpRequesterV0 {
             ""
         );
         waitingFulfillment[requestId] = true;
-        lastRequest.requestId = requestId;
-        lastRequest.randomNumber = 0;
+        latestRequest.requestId = requestId;
+        latestRequest.randomNumber = 0;
         emit RequestedUint256(requestId);
     }
 
@@ -59,7 +59,7 @@ contract RemixQrngExample is RrpRequesterV0 {
         waitingFulfillment[requestId] = false;
         uint256 qrngUint256 = abi.decode(data, (uint256));
         // Do what you want with `qrngUint256` here...
-        lastRequest.randomNumber = qrngUint256;
+        latestRequest.randomNumber = qrngUint256;
         emit ReceivedUint256(requestId, qrngUint256);
     }
 }
