@@ -67,8 +67,7 @@ with MetaMask.
 
 Before making a request, parameters must be set. They determine which Airnode
 endpoint will be called and define the wallet used to pay the gas costs for the
-response. Note that the function `setRequestParameters()` should be protected to
-prevent unauthorized callers.
+response.
 
 Under <ElementSelect text="Deployed
 Contracts"/> expand and expose the functions and variables of the contract. Note
