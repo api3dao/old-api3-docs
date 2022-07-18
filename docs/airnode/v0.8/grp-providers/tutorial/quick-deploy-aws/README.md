@@ -50,17 +50,15 @@ a zip file ready to go.
 
 ::: tab Create Manually
 
-Create a folder called `/quick-deploy-aws` with one more internal folder named
-`/config`. Place the contents of the files provided
-([config.json](./config-json.md), [secrets.env](./secrets-env.md) and
-[aws.env](./aws-env.md)) into the locations show below.
+Create a folder called `/quick-deploy-aws`. Place the contents of the files
+provided ([config.json](./config-json.md), [secrets.env](./secrets-env.md) and
+[aws.env](./aws-env.md)) into this folder as shown below.
 
 ```
 quick-deploy-aws
 ├── aws.env
-├── config
-    ├── config.json
-    └── secrets.env
+├── config.json
+└── secrets.env
 ```
 
 :::
@@ -77,8 +75,8 @@ quick-deploy-aws</a> project folder.
 ## Configuration
 
 Prepare the three configuration files. By default, the Airnode deployer image
-looks for `config.json` and `secrets.env` in `/config`, for `aws.env` in the
-project root and writes `receipt.json` to the `/config` folder.
+looks for `config.json`, `secrets.env`, and `aws.env` in the project root
+directory and writes `receipt.json` to the project root directory.
 
 ### config.json
 
@@ -151,8 +149,7 @@ Run the following command to deploy the demo Airnode. Note that the version of
 ```sh
 docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
-  -v "$(pwd)/aws.env:/app/aws.env" \
-  -v "$(pwd)/config:/app/config" \
+  -v "$(pwd):/app/config" \
   api3/airnode-deployer:0.8.0 deploy
 ```
 
@@ -164,8 +161,7 @@ For Windows, use CMD (and not PowerShell).
 
 ```sh
 docker run -it --rm ^
-  -v "%cd%/aws.env:/app/aws.env" ^
-  -v "%cd%/config:/app/config" ^
+  -v "%cd%:/app/config" ^
   api3/airnode-deployer:0.8.0 deploy
 ```
 
@@ -300,13 +296,9 @@ curl -v ^
 
 ## Remove the Airnode
 
-When you are done with this demo you can remove it. When an Airnode was deployed
-using the `deploy` command, a `receipt.json` file was created. This file, which
-is by default expected to be in the `config/` directory, is used to remove the
-Airnode.
-
-- `-v`: Location of the `aws.env` file.
-- `-v`: Location of the `receipt.json` file.
+When you are done with this demo you can remove the deployed Airnode. The
+following command uses the `receipt.json` file that was created when the Airnode
+was deployed.
 
 :::: tabs
 
@@ -314,8 +306,7 @@ Airnode.
 
 ```sh
 docker run -it --rm \
-  -v "$(pwd)/aws.env:/app/aws.env" \
-  -v "$(pwd)/config:/app/config" \
+  -v "$(pwd):/app/config" \
   api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
 
@@ -327,8 +318,7 @@ For Windows, use CMD (and not PowerShell).
 
 ```sh
 docker run -it --rm ^
-  -v "%cd%/aws.env:/app/aws.env" ^
-  -v "%cd%/config:/app/config" ^
+  -v "%cd%:/app/config" ^
   api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
 

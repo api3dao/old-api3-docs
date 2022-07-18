@@ -31,7 +31,7 @@ The simplest way to run the CLI is using
 you can install the validator package as a dependency in your project.
 
 ```sh
-npx @api3/airnode-validator --config "pathTo/config.json" --secrets "pathTo/secrets.env"
+npx @api3/airnode-validator --config "config.json" --secrets "secrets.env"
 ```
 
 alternatively
@@ -43,16 +43,16 @@ npm install @api3/airnode-validator
 yarn add @api3/airnode-validator
 
 # Run the validator CLI
-npx airnode-validator --config "pathTo/config.json" --secrets "pathTo/secrets.env"
+npx airnode-validator --config "config.json" --secrets "secrets.env"
 ```
 
 ### Examples
 
-Assuming the configurations files inside the `config` directory are valid,
+Assuming the configurations files inside current working directory are valid,
 executing:
 
 ```sh
-npx @api3/airnode-validator --config "config/valid-config.json" --secrets "config/valid-secrets.env"
+npx @api3/airnode-validator --config "valid-config.json" --secrets "valid-secrets.env"
 ```
 
 yields:
@@ -65,13 +65,13 @@ When there is an error during validation, the command prints out the error and
 fails with a non zero status code.
 
 ```sh
-npx @api3/airnode-validator --config "config/valid-config.json" --secrets "config/non-existent-secrets.env"
+npx @api3/airnode-validator --config "valid-config.json" --secrets "non-existent-secrets.env"
 ```
 
 yields:
 
 ```plain
-✖ Unable to read secrets file at "config/non-existent-secrets.env". Reason: Error: ENOENT: no such file or directory, open (...omitted for brevity)
+✖ Unable to read secrets file at "non-existent-secrets.env". Reason: Error: ENOENT: no such file or directory, open (...omitted for brevity)
 ```
 
 ## SDK Usage
@@ -104,8 +104,8 @@ const validator = require('@api3/airnode-validator');
 const dotenv = require('dotenv');
 const fs = require('fs');
 
-const config = JSON.parse(fs.readFileSync('pathTo/config.json', 'utf-8'));
-const secrets = dotenv.parse(fs.readFileSync('pathTo/secrets.env', 'utf-8'));
+const config = JSON.parse(fs.readFileSync('config.json', 'utf-8'));
+const secrets = dotenv.parse(fs.readFileSync('secrets.env', 'utf-8'));
 
 const parseResult = validator.parseConfigWithSecrets(config, secrets);
 if (parseResult.success) {
@@ -124,8 +124,8 @@ import { join } from 'path';
 import dotenv from 'dotenv';
 import { readFileSync } from 'fs';
 
-const config = JSON.parse(readFileSync('pathTo/config.json', 'utf-8'));
-const secrets = dotenv.parse(readFileSync('pathTo/secrets.env', 'utf-8'));
+const config = JSON.parse(readFileSync('config.json', 'utf-8'));
+const secrets = dotenv.parse(readFileSync('secrets.env', 'utf-8'));
 
 const parseResult = validator.parseConfigWithSecrets(config, secrets);
 if (parseResult.success) {

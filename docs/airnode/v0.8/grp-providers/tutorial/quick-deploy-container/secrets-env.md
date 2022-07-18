@@ -16,4 +16,4 @@ The secrets.env file contents shown below is for the
 [Quick Deploy Container](./) demo.
 
 <!-- prettier-ignore -->
-<<< @/docs/airnode/v0.7/grp-providers/tutorial/quick-deploy-container/src/quick-deploy-container/config/secrets.env
+<<< @/docs/airnode/v0.8/grp-providers/tutorial/quick-deploy-container/src/quick-deploy-container/secrets.env

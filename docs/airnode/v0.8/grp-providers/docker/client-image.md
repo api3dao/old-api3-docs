@@ -32,9 +32,9 @@ volumes.
 The Docker container looks for configuration files mounted internally in the
 `/app/config` directory.
 
-Your current working directory should contain the `config` folder with the
-configuration files above and you bind it to the `/app/config` directory for the
-docker using the `--volume` parameter.
+Your current working directory should contain the configuration files above and
+you bind it to the `/app/config` directory for the docker using the `--volume`
+parameter.
 
 :::: tabs
 
@@ -43,10 +43,9 @@ docker using the `--volume` parameter.
 ```sh
 $ tree
 .
-└── config
-    ├── config.json
-    └── secrets.env
-$ docker run --volume $(pwd)/config:/app/config ...
+├── config.json
+└── secrets.env
+$ docker run --volume $(pwd):/app/config ...
 ```
 
 :::
@@ -56,10 +55,9 @@ $ docker run --volume $(pwd)/config:/app/config ...
 ```sh
 $ tree
 .
-└── config
-    ├── config.json
-    └── secrets.env
-$ docker run --volume $(pwd)/config:/app/config ...
+├── config.json
+└── secrets.env
+$ docker run --volume $(pwd):/app/config ...
 ```
 
 :::
@@ -69,9 +67,8 @@ $ docker run --volume $(pwd)/config:/app/config ...
 ```sh
 $ tree
 .
-└── config
-    ├── config.json
-    └── secrets.env
+├── config.json
+└── secrets.env
 $ docker run --volume %cd%:/config:/app/config ...
 ```
 
@@ -95,7 +92,7 @@ parameter, but you may run the it without it as well.
 
 ```sh
 docker run --detach \
-  --volume $(pwd)/config:/app/config \
+  --volume $(pwd):/app/config \
   --name airnode \
   api3/airnode-client:0.7.2
 ```
@@ -106,7 +103,7 @@ docker run --detach \
 
 ```sh
 docker run --detach \
-  --volume $(pwd)/config:/app/config \
+  --volume $(pwd):/app/config \
   --name airnode \
   api3/airnode-client:0.7.2
 ```
@@ -117,7 +114,7 @@ docker run --detach \
 
 ```sh
 docker run --detach ^
-  --volume %cd%/config:/app/config ^
+  --volume %cd%:/app/config ^
   --name airnode ^
   api3/airnode-client:0.7.2
 ```

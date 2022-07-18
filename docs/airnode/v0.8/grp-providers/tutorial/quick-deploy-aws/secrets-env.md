@@ -16,4 +16,4 @@ The secrets.env file contents shown below is for the [Quick Deploy AWS](./)
 demo.
 
 <!-- prettier-ignore -->
-<<< @/docs/airnode/v0.7/grp-providers/tutorial/quick-deploy-aws/src/quick-deploy-aws/config/secrets.env
+<<< @/docs/airnode/v0.8/grp-providers/tutorial/quick-deploy-aws/src/quick-deploy-aws/secrets.env

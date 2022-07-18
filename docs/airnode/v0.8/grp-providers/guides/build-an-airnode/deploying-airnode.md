@@ -64,9 +64,8 @@ but not used by the deployer image.
 ```
 my-airnode
 ├── aws.env
-├── config
-    ├── config.json
-    └── secrets.env
+├── config.json
+└── secrets.env
 ```
 
 :::
@@ -76,9 +75,8 @@ my-airnode
 ```
 my-airnode
 ├── gcp.json
-├── config
-    ├── config.json
-    └── secrets.env
+├── config.json
+└── secrets.env
 ```
 
 :::
@@ -86,10 +84,12 @@ my-airnode
 ::::
 
 From the root of the project directory run the Docker
-[deployer image](../../docker/deployer-image.md) which will deploy the Airnode.
-When the deployment has completed a `receipt.json` file will be written to the
-`/config` folder. This file contains important configuration information about
-the Airnode and is needed to remove the Airnode should the need arise.
+[deployer image](../../docker/deployer-image.md) using the commands below to
+deploy the Airnode. When the deployment has completed a `receipt.json` file will
+be written to your current working directory, which is mounted to the
+`/app/config` directory within the container. This file contains important
+configuration information about the Airnode and is needed to remove the Airnode
+should the need arise.
 
 <!-- Use of .html below is intended. -->
 <airnode-WarningSimultaneousDeployments removeLink="../../docker/deployer-image.html#manual-removal"/>
@@ -105,8 +105,7 @@ the Airnode and is needed to remove the Airnode should the need arise.
 ```sh
 docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
-  -v "$(pwd)/aws.env:/app/aws.env" \
-  -v "$(pwd)/config:/app/config" \
+  -v "$(pwd):/app/config" \
   api3/airnode-deployer:0.8.0 deploy
 ```
 
@@ -118,8 +117,7 @@ For Windows, use CMD (and not PowerShell).
 
 ```sh
 docker run -it --rm ^
-  -v "%cd%/aws.env:/app/aws.env" ^
-  -v "%cd%/config:/app/config" ^
+  -v "%cd%:/app/config" ^
   api3/airnode-deployer:0.8.0 deploy
 ```
 
@@ -136,8 +134,7 @@ docker run -it --rm ^
 ```sh
 docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
-  -v "$(pwd)/gcp.json:/app/gcp.json" \
-  -v "$(pwd)/config:/app/config" \
+  -v "$(pwd):/app/config" \
   api3/airnode-deployer:0.8.0 deploy
 ```
 
@@ -149,17 +146,13 @@ For Windows, use CMD (and not PowerShell).
 
 ```sh
 docker run -it --rm ^
-  -v "%cd%/gcp.json:/app/gcp.json" ^
-  -v "%cd%/config:/app/config" ^
+  -v "%cd%:/app/config" ^
   api3/airnode-deployer:0.8.0 deploy
 ```
 
 :::
 
 ::::
-
-When the deployment is complete a `receipt.json` file is placed into the
-`/config` folder.
 
 ### receipt.json
 
