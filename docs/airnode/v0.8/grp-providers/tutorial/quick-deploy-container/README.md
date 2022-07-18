@@ -64,7 +64,7 @@ quick-deploy-container
 
 ::: tab Download
 
-Download the <a href="/zip-files/quick-deploy-container-v0.7.zip" download>
+Download the <a href="/zip-files/quick-deploy-container-v0.8.zip" download>
 quick-deploy-container</a> project folder.
 
 :::
