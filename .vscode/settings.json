@@ -39,6 +39,7 @@
     "avax",
     "jszip",
     "fullname",
+    "struct",
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true
