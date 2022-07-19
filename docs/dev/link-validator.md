@@ -50,7 +50,7 @@ failures as it steps through each file and its links. There will be a summary of
 all link failures at the end of the script output.
 
 You can run the Link Validator against the entire `/dist` folder which will
-validate everything (`/pre-alpha, v0.5, /common, /beacon, etc.`) but this can be
+validate everything (`/pre-alpha, v0.5, /common, /dapis, etc.`) but this can be
 time consuming. Narrowing the scope of the validation to a particular folder can
 hasten the validation process as shown in the code example below. Be sure to use
 the correct port displayed by http-server.
@@ -74,7 +74,6 @@ This script contains its own rewrite mechanism when it encounters the following
 patterns found in the links.
 
 - `/airnode/latest`
-- `/beacon/latest`
 - `/ois/latest`
 
 ### Execution

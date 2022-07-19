@@ -26,16 +26,23 @@ is located in the route's root folder.
 
 ```json
 sidebar: {
+  '/airnode/v0.8/': require(`../airnode/v0.8/sidebar.js`),
+  '/airnode/v0.7/': require(`../airnode/v0.7/sidebar.js`),
+  '/airnode/v0.6/': require(`../airnode/v0.6/sidebar.js`),
+  '/airnode/v0.5/': require(`../airnode/v0.5/sidebar.js`),
   '/airnode/v0.4/': require(`../airnode/v0.4/sidebar.js`),
   '/airnode/v0.3/': require(`../airnode/v0.3/sidebar.js`),
   '/airnode/v0.2/': require(`../airnode/v0.2/sidebar.js`),
   '/airnode/pre-alpha/': require(`../airnode/pre-alpha/sidebar.js`),
-  '/beacon/v0.1/': require(`../beacon/v0.1/sidebar.js`),
+  '/dapis/': require(`../dapis/sidebar.js`),
+  '/ois/v1.1/': require(`../ois/v1.1/sidebar.js`),
   '/ois/v1.0/': require(`../ois/v1.0/sidebar.js`),
+  '/qrng/': require(`../qrng/sidebar.js`),
+  '/chainapi/': require(`../chainapi/sidebar.js`),
   '/dao-members/': require(`../dao-members/sidebar.js`),
   '/api3/': require(`../api3/sidebar.js`),
   '/dev/': require(`../dev/sidebar.js`),
-  '/dev-airnode/': require(`../dev-airnode/sidebar.js`),
+  '/operations/': require(`../operations/sidebar.js`),
 },
 ```
 

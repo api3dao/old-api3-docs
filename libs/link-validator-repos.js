@@ -17,11 +17,7 @@
 const colors = require('colors');
 const oust = require('oust');
 const axios = require('axios');
-const {
-  latestVersion,
-  latestBeaconVersion,
-  latestOisVersion,
-} = require('../docs/.vuepress/config');
+const { latestVersion, latestOisVersion } = require('../docs/.vuepress/config');
 const { token } = require('./myGitHubToken.json');
 
 console.log;
@@ -154,9 +150,8 @@ async function loadLinks() {
           continue;
         }
 
-        // Re-write /airnode/latest, /beacon/latest, /ois/latest
+        // Re-write /airnode/latest,  /ois/latest
         href = href.replace('/airnode/latest/', latestVersion);
-        href = href.replace('/beacon/latest/', latestBeaconVersion);
         href = href.replace('/ois/latest/', latestOisVersion);
         /** Add URL to links object */
         links[href] = 'src > ' + url;
