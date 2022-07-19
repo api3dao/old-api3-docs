@@ -7,12 +7,14 @@ title: Versioning
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-The docs are group into documents sets. Some of these sets are versioned such as
-Airnode (`airnode/v0.6/`);
+The docs are group into documents sets, two of which are versioned.
 
 - Airnode (versioned)
 - API3
+- ChainAPI
 - DAO Members
+- dAPIs
+- QRNG
 - OIS (versioned)
 
 All versions of a particular document set are maintained in the api3-docs repo.
@@ -24,77 +26,81 @@ version.
 ## Base Routes
 
 All sub-folders in `/docs` are base routes except for `/.vuepress`. Each
-represents a logical group called a _document set_. The
-`/airnode, /beacon & /ois` folders contain versions of their respective document
-set.
+represents a logical group called a _document set_. The `/airnode & /ois`
+folders contain versions of their respective document set.
 
 ```text
 docs/
- ├── airnode/
-    ├── pre-alpha/
-    ├── v0.2/
+ ├── airnode
+    ├── pre-alpha
+    ├── v0.2
     ├── ...
-    └── v0.6/
- ├── api3/
- ├── beacon
-    └── v0.1/
- ├── common/
- ├── dev/
- └── dao-members
+    └── v0.8
+ ├── api3
+ ├── chainapi
+ ├── common
+ ├── dev
+ ├── dao-members
  ├── ois
-    └── v1.0.0/
+    ├── v1.0.0
+    └── v1.1.1
+ ├── operations
+ └── qrng
 ```
 
 ## config.js
 
-Sub folders for `/airnode, /beacon and /ois` can become their respective
-versions. A corresponding versions array is declared in _.vuepress/config.json_
-for each document set.
+The folders for `/airnode, and /ois` are versioned. A corresponding versions
+array is declared in _.vuepress/config.json_ for each.
 
-- Update the `versions, versionBeacon, versionOis` key in
-  `/doc/.vuepress/config.json`. Provide the version name and url.
+- Update the `versions & versionOis` key in `/doc/.vuepress/config.json`.
+  Provide the version name and url.
   - **name:** The name of the version to display in the pick-list. A url without
     a file will load the root README.md file of the base route by default.
   - **url:** The entry path to the version, its current route in the navbar.
-- Set the `latestVersion, latestBeaconVersion & latestOisVersion` to the start
-  path of the latest versions for each.
+- Set the `latestVersion & latestOisVersion` to the start path of the latest
+  versions for each.
 - Set `airnodeVersionNext`.
 
+::: tip latestVersion
+
+`latestVersion` is a legacy key name and is associated to Airnode.
+
+:::
+
 ```json
-   /// Airnode doc set version pick list.
-  versions: [
-    { name: 'v0.6', url: '/airnode/v0.6/' },
-    ...
-    { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
-  ],
-  /// Next version of airnode, used by /next route.
-  airnodeVersionNext: [{ name: 'v0.5', url: '/airnode/v0.5/' }],
-  /// Beacon doc set version pick list.
-  versionsBeacon: [{ name: 'v0.1', url: '/beacon/v0.1/' }],
-  /// OIS doc set version pick list.
-  versionsOis: [{ name: 'v1.0.0', url: '/ois/v1.0/' }],
-  /// Latest/current Airnode doc set version.
-  latestVersion: '/airnode/v0.4/',
-  /// Latest/current Beacon doc set version.
-  latestBeaconVersion: '/beacon/v0.1/',
-  /// Latest/current OIS doc set version.
-  latestOisVersion: '/ois/v1.0/',
+/// Doc set versioned pick lists.
+versions: [
+   { name: 'v0.7', url: '/airnode/v0.7/' },
+   { name: 'v0.6', url: '/airnode/v0.6/' },
+   { name: 'v0.5', url: '/airnode/v0.5/' },
+   { name: 'v0.4', url: '/airnode/v0.4/' },
+   { name: 'v0.3', url: '/airnode/v0.3/' },
+   { name: 'v0.2', url: '/airnode/v0.2/' },
+   { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
+],
+versionsOis: [{ name: 'v1.0', url: '/ois/v1.0/' }],
+
+/// Next version of airnode, used by /next route.
+airnodeVersionNext: [{ name: 'v0.8', url: '/airnode/v0.8/' }],
+
+/// Latest/current Airnode doc set versioned paths.
+/// Used by api3dao/airnode CI link checking.
+latestVersion: '/airnode/v0.7/',
+latestOisVersion: '/ois/v1.0/',
+
+/// The title of the versioned doc sets, these are used by the search.
+latestTitle: 'Airnode v0.7',
+latestOisTitle: 'OIS v1.0',
 ```
 
 Set the `themeConfig.startPath` to the start path of the latest Airnode version.
 
 ```json
 themeConfig:{
-   startPath:'/airnode/v0.4/',
+   startPath:'/airnode/v0.7/',
 }
 ```
-
-::: warning Development Versions
-
-Do not include versions (except for `airnodeVersionNext`) under development in
-the config.js file.
-
-:::
 
 ## Create a Version
 
@@ -109,17 +115,24 @@ the config.js file.
 
    ```json
    sidebar: {
-         '/airnode/v0.7/': require(`../airnode/v0.7/sidebar.js`),
-         ...
-         '/airnode/pre-alpha/': require(`../airnode/pre-alpha/sidebar.js`),
-         '/beacon/v0.1/': require(`../beacon/v0.1/sidebar.js`),
-         '/ois/v1.0/': require(`../ois/v1.0/sidebar.js`),
-         '/chainapi/': require(`../chainapi/sidebar.js`),
-         '/dao-members/': require(`../dao-members/sidebar.js`),
-         '/api3/': require(`../api3/sidebar.js`),
-         '/dev/': require(`../dev/sidebar.js`),
-         '/dev-airnode/': require(`../dev-airnode/sidebar.js`),
-      },
+      '/airnode/v0.8/': require(`../airnode/v0.8/sidebar.js`),
+      '/airnode/v0.7/': require(`../airnode/v0.7/sidebar.js`),
+      '/airnode/v0.6/': require(`../airnode/v0.6/sidebar.js`),
+      '/airnode/v0.5/': require(`../airnode/v0.5/sidebar.js`),
+      '/airnode/v0.4/': require(`../airnode/v0.4/sidebar.js`),
+      '/airnode/v0.3/': require(`../airnode/v0.3/sidebar.js`),
+      '/airnode/v0.2/': require(`../airnode/v0.2/sidebar.js`),
+      '/airnode/pre-alpha/': require(`../airnode/pre-alpha/sidebar.js`),
+      '/dapis/': require(`../dapis/sidebar.js`),
+      '/ois/v1.1/': require(`../ois/v1.1/sidebar.js`),
+      '/ois/v1.0/': require(`../ois/v1.0/sidebar.js`),
+      '/qrng/': require(`../qrng/sidebar.js`),
+      '/chainapi/': require(`../chainapi/sidebar.js`),
+      '/dao-members/': require(`../dao-members/sidebar.js`),
+      '/api3/': require(`../api3/sidebar.js`),
+      '/dev/': require(`../dev/sidebar.js`),
+      '/operations/': require(`../operations/sidebar.js`),
+   },
    ```
 
 4. Change the version in `package.json` to the new version. This version
@@ -131,8 +144,8 @@ the config.js file.
    run: >
       find docs/
       -not -path "*/.vuepress/*"
-      -not -path "docs/airnode/v0.7/*"
-      -not -path "docs/beacon/v0.2/*"
+      -not -path "docs/airnode/v0.8/*"
+      -not -path "docs/ois/v2.0/*"
       -type f -name "*.md" | xargs lychee - -c .github/workflows/lychee.toml
    ```
 
