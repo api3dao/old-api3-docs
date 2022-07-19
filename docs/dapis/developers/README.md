@@ -16,7 +16,7 @@ The
 [DapiServer.sol](https://github.com/api3dao/airnode-protocol-v1/blob/v0.5.1/contracts/dapis/DapiServer.sol)
 contract serves data feeds to contracts with read access. All the related
 contracts can be imported from the
-[`@api3/airnode-protocol-v1`](https://www.npmjs.com/package/@api3/airnode-protocol-v1)
+[@api3/airnode-protocol-v1](https://www.npmjs.com/package/@api3/airnode-protocol-v1)
 npm package.
 
 ## Starter Project
@@ -35,14 +35,13 @@ instruction in the README to get acquainted with reading data feeds.
 ## Coverage Policies
 
 `DapiServer.sol` will check that the requester has a coverage policy for each
-dAPI it may attempt to read. During the _preview period_, all dAPIs on
-production networks have free access (limited time offer). Please go to the
-[dAPI Coverage Policy](https://forms.monday.com/forms/embed/f44d0ed9dfd0154885f48fdb3b87a489?r=use1)
+dAPI it may attempt to read. See available dAPIs on the
+[API3 Market](https://market.api3.org). During the _preview period_, all dAPIs
+on production networks have free access (limited time offer). Please go to the
+[Request Data](https://forms.monday.com/forms/embed/f44d0ed9dfd0154885f48fdb3b87a489?r=use1)
 page to request dAPI access on production networks. See
 [Chains and Contracts](../reference/chains.md), which includes supported
 networks.
-
-### Testnets
 
 On the Polygon Mumbai testnet, developers can _self-enable_ the use of any dAPI.
 During the deployment flow of your smart contract that reads a data feed, add
@@ -53,7 +52,7 @@ explore the starter project in its entirety.
 - [allow-to-read-with-name.js](https://github.com/api3dao/data-feed-reader-example/blob/main/scripts/allow-to-read-with-name.js)
 - [allow-to-read-with-id.js](https://github.com/api3dao/data-feed-reader-example/blob/main/scripts/allow-to-read-with-id.js)
 
-## dAPI names
+## dAPI Names
 
 A dAPI is a live data point associated with human readable `name`. dAPI
 definitions simplify access and can return aggregated Beacon values or a single
