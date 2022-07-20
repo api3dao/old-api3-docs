@@ -26,10 +26,11 @@ and for the corresponding reference section
 
 ### Avalanche
 
-Gas fees on Avalanche mainnet are often underestimated when using `legacy` as a
-`txType`. The error manifests as the max fee per gas being set to less than the
-block base fee, resulting in unfulfilled requests. A solution to this is to set
-`gasPriceMultiplier` to slightly greater than `1` e.g. `1.1`.
+Gas prices on Avalanche mainnet are often underestimated when using getting
+`type 0` estimates (e.g. for the `providerRecommendedGasPrice` strategy). The
+error manifests as the `maxFeePerGas` being set to less than the block
+`baseFeePerGas`, resulting in unfulfilled requests. A solution to this is to set
+`recommendedGasPriceMultiplier` to slightly greater than `1` e.g. `1.1`.
 
 ### Arbitrum
 
@@ -46,7 +47,8 @@ recommend a `fulfillmentGasLimit` of at least `2000000`.
 
 ### Optimism
 
-Use `legacy` as the `txType` rather than `eip1559`.
+Using `type 0` transaction types is recommended over `type 2` so the use of
+`providerRecommendedEip1559GasPrice` is discouraged.
 
 As a L2 scaling solution, Optimism has an L1 data fee and an L2 execution fee,
 which are
