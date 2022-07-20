@@ -26,9 +26,9 @@ and for the corresponding reference section
 
 ### Avalanche
 
-Gas prices on Avalanche mainnet are often underestimated when using getting
-`type 0` estimates (e.g. for the `providerRecommendedGasPrice` strategy). The
-error manifests as the `maxFeePerGas` being set to less than the block
+Gas prices on Avalanche mainnet are often underestimated when getting `type 0`
+estimates (e.g. for the `providerRecommendedGasPrice` strategy). The error
+manifests as the `maxFeePerGas` being set to less than the block
 `baseFeePerGas`, resulting in unfulfilled requests. A solution to this is to set
 `recommendedGasPriceMultiplier` to slightly greater than `1` e.g. `1.1`.
 
