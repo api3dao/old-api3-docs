@@ -1,5 +1,5 @@
 ---
-title: Create an Integration
+title: Integrations
 ---
 
 <TitleSpan>How to Guides</TitleSpan>

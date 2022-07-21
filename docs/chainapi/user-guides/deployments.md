@@ -1,5 +1,5 @@
 ---
-title: Create a Deployment
+title: Deployments
 ---
 
 <TitleSpan>How to Guides</TitleSpan>
@@ -148,3 +148,21 @@ Managing an existing deployment How adding / removing / changing APIs version
 will impact your Airnode How will adding or changing your network impact your
 Airnode How to delete a deployment (use docker) Deployment ReadMe (generalized
 readme)-->
+
+## Troubleshooting
+
+Please check if you have met all these prerequisites for your deployment:
+
+1.  You have [Docker](https://docs.docker.com/get-started/overview/) installed
+2.  You have a cloud provider account ([AWS](https://aws.amazon.com/account/) or
+    [GCP](https://cloud.google.com/)) with the provider you selected under the
+    Cloud Provider Settings on the Settings and Networks page
+3.  You have
+    [blockchain provider account(s)](../../airnode/v0.7/concepts/chain-providers.md)
+    for each of the number of providers you selected under the Networks section
+    on the Settings and Networks page
+4.  You have populated the secrets.env file with all the requested variables
+
+If you have met all the above, and you still have problems, please reach out to 
+[support@chainapi.com](mailto:support@chainapi.com) with a description of the problem you are facing and any
+error messages you are seeing in the command.
