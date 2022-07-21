@@ -163,6 +163,6 @@ Please check if you have met all these prerequisites for your deployment:
     on the Settings and Networks page
 4.  You have populated the secrets.env file with all the requested variables
 
-If you have met all the above, and you still have problems, please reach out to
-support@chainapi.com with a description of the problem you are facing and any
+If you have met all the above, and you still have problems, please reach out to 
+[support@chainapi.com](mailto:support@chainapi.com) with a description of the problem you are facing and any
 error messages you are seeing in the command.
