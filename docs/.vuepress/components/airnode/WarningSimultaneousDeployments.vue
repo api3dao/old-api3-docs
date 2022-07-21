@@ -13,7 +13,7 @@ WARNING: Do not place HTML comment lines inside paragraph elements.
       Avoid running multiple deployments simultaneously. Doing so might result
       in a broken deployment without the option to either fix or remove it. If a
       deployment fails to remove with the <code>remove</code> command try a
-      <router-link :to="removeLink">Manual Removal</router-link>
+      <router-link :to="removeLink">Manual Removal</router-link>.
     </p>
   </div>
 </template>

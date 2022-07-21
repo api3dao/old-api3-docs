@@ -6,9 +6,9 @@ be wrapped inside a paragraph element.
 
 <template>
   <span>
-    Normally the deployer image is run by the user root. This may cause
-    permission issues when the <code>receipt.json</code> file is generated.
-    Optionally you can specify the
+    Normally (for Linux/Mac/WSL2) the deployer image <code>deploy</code> command
+    is run by the user root. This may cause permission issues when the
+    <code>receipt.json</code> file is generated. Optionally you can specify the
     <a href="https://en.wikipedia.org/wiki/User_identifier" target="_blank"
       >UID (user identifier)</a
     >
