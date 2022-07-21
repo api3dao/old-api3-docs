@@ -94,7 +94,7 @@ interface.
 
 ::: tab Linux/Mac/WSL2
 
-```
+```sh
 docker run -it --rm \
       --env-file aws.env \
       -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
@@ -107,7 +107,7 @@ docker run -it --rm \
 
 ::: tab Windows
 
-```
+```sh
 docker run -it --rm ^
       --env-file aws.env ^
       -v "%cd%/config:/app/config" ^
