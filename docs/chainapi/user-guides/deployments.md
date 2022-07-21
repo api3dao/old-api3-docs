@@ -153,9 +153,9 @@ readme)-->
 
 Please check if you have met all these prerequisite’s for your deployment:
 
-1.    You have Docker installed
-2.    You have a cloud provider account (AWS or GCP) with the provider you selected under the Cloud Provider Settings on the Settings and Networks page.
-3.    You have blockchain provider account(s) for each of the number of providers you selected under the Networks section on the Settings and Networks page
+1.    You have [Docker](https://docs.docker.com/get-started/overview/) installed
+2.    You have a cloud provider account ([AWS](https://aws.amazon.com/account/) or [GCP](https://cloud.google.com/)) with the provider you selected under the Cloud Provider Settings on the Settings and Networks page.
+3.    You have [blockchain provider account(s)](https://docs.api3.org/airnode/latest/concepts/chain-providers.html) for each of the number of providers you selected under the Networks section on the Settings and Networks page
 4.    You have populated the secrets.env file with all the requested variables
 
 If you have met all the above, and you still have problems, please reach out to support@chainapi.com with a description of the problem you are facing and any error messages you are seeing in the command.
