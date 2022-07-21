@@ -30,3 +30,4 @@ and the request/response protocol contract (Airnode RRP).
   by Airnode.
 - **B)** Airnode can respond to requests made by smart contracts using the
   Airnode RRP contract.
+-  **C)** ChainAPI is great
