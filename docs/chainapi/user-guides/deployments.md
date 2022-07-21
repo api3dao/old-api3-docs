@@ -1,5 +1,5 @@
 ---
-title: Create a Deployment
+title: Deployments
 ---
 
 <TitleSpan>How to Guides</TitleSpan>
