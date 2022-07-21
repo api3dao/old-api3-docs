@@ -169,8 +169,8 @@ that:
 
 When doing this, Airnode will calculate the total number of requests reported by
 all blockchain providers. If this number exceeds the maximum concurrency limit
-it will start dropping the latest requests from the blockchain provider with the
-maximum number of requests until the number of them is under the limit.
+it will start dropping the latest requests from the blockchain provider(s) with
+the maximum number of requests until the number of them is under the limit.
 
 For example, if `maxConcurrency` set to 5 and there are three providers (A, B
 and C) and they reported the following requests:
@@ -179,9 +179,7 @@ and C) and they reported the following requests:
 - B1, B2 and B3
 - C1 and C2
 
-The above example results in the following requests: A1, A2, B1, B2 and C2. Note
-that neither of the providers has more than 2 requests, but this is still not
-enough to meet the limit so request C2 is dropped as well.
+The above example results in the following requests: A1, A2, B1, B2, and C1.
 
 ::: warning
 
