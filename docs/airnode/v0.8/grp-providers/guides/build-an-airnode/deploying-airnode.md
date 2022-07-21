@@ -83,21 +83,19 @@ my-airnode
 
 ::::
 
-From the root of the project directory run the Docker
-[deployer image](../../docker/deployer-image.md) using the commands below to
-deploy the Airnode. When the deployment has completed a `receipt.json` file will
-be written to your current working directory, which is mounted to the
-`/app/config` directory within the container. This file contains important
-configuration information about the Airnode and is needed to remove the Airnode
-should the need arise.
-
 <!-- Use of .html below is intended. -->
 <airnode-WarningSimultaneousDeployments removeLink="../../docker/deployer-image.html#manual-removal"/>
 
+From the root of the project directory run the Docker image command
+[deploy](../../docker/deployer-image.md#deploy) as shown below to deploy the
+Airnode. When the deployment has completed a `receipt.json` file will be written
+to your current working directory, which is mounted to the `/app/config`
+directory within the container. This file contains important configuration
+information about the Airnode and is needed to remove the Airnode should the
+need arise.
+
 <p><airnode-DeployerPermissionsWarning/></p>
 
-### AWS
-
 :::: tabs
 
 ::: tab Linux/Mac/WSL2
@@ -113,38 +111,8 @@ docker run -it --rm \
 
 ::: tab Windows
 
-For Windows, use CMD (and not PowerShell).
-
 ```sh
-docker run -it --rm ^
-  -v "%cd%:/app/config" ^
-  api3/airnode-deployer:0.8.0 deploy
-```
-
-:::
-
-::::
-
-### GCP
-
-:::: tabs
-
-::: tab Linux/Mac/WSL2
-
-```sh
-docker run -it --rm \
-  -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
-  -v "$(pwd):/app/config" \
-  api3/airnode-deployer:0.8.0 deploy
-```
-
-:::
-
-::: tab Windows
-
-For Windows, use CMD (and not PowerShell).
-
-```sh
+# For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
   api3/airnode-deployer:0.8.0 deploy
@@ -203,5 +171,7 @@ requests are made to it.
 
 ## Removing the Airnode
 
-If you would like to remove a deployed Airnode, see the
-[Airnode Removal](../../docker/deployer-image.md#airnode-removal) instructions.
+If you would like to remove a deployed Airnode, see the Docker image commands
+for [remove-with-receipt](../../docker/deployer-image.md#remove-with-receipt) or
+[remove-with-deployment-details](../../docker/deployer-image.md#remove-with-deployment-details)
+instructions.
