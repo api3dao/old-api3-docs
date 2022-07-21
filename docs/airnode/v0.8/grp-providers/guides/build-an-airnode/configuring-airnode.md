@@ -152,11 +152,13 @@ chain-specific configuration considerations.
 #### Considerations: Gas Price Oracle
 
 The gas price oracle strategies are applied in the order that they are listed.
-Airnode supports three strategies: `latestBlockPercentileGasPrice`,
-`providerRecommendedGasPrice` and `constantGasPrice`. The only required strategy
-is `constantGasPrice` and it is recommended to place it as the last strategy in
-the list as it should be the final fallback for the Airnode to use if all other
-strategies fail.
+Airnode supports four strategies: `latestBlockPercentileGasPrice`,
+`providerRecommendedGasPrice`, `providerRecommendedEip1559GasPrice` and
+`constantGasPrice`. The only required strategy is `constantGasPrice` and it is
+recommended to place it as the last strategy in the list as it should be the
+final fallback for the Airnode to use if all other strategies fail. For more
+detail on these strategies, see the
+[Gas Prices](../../../concepts/gas-prices.md) page.
 
 #### Considerations: Concurrency
 
@@ -204,7 +206,7 @@ The below links offer details for each field:
 - [type](../../../reference/deployment-files/config-json.md#type)
 - [options](../../../reference/deployment-files/config-json.md#options)
   - [options.fulfillmentGasLimit](../../../reference/deployment-files/config-json.md#options-fulfillmentgaslimit)
-  - [options.gasPriceOracle](../../../reference/deployment-files/config-json.md#options-withdrawalremainder)
+  - [options.gasPriceOracle](../../../reference/deployment-files/config-json.md#options-gaspriceoracle-n)
   - [options.withdrawalRemainder](../../../reference/deployment-files/config-json.md#options-withdrawalremainder)
 - [maxConcurrency](../../../reference/deployment-files/config-json.md#maxconcurrency)
 - [blockHistoryLimit](../../../reference/deployment-files/config-json.md#blockhistorylimit)
