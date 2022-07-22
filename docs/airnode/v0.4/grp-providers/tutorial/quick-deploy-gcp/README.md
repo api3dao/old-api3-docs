@@ -33,11 +33,10 @@ few minor changes on your part to make the deployment of the demo Airnode
 successful. These changes are needed to supply a GCP project ID, chain provider
 url, and a mnemonic.
 
-## Install Prerequisites
+## Launch Docker Desktop
 
-- Install the [Docker Desktop](https://docs.docker.com/get-docker/) and launch
-  it.
-- Install [Google Cloud SDK](https://cloud.google.com/sdk/docs/install).
+Launch the Docker Desktop app. You can install it from the
+[Docker docs](https://docs.docker.com/get-docker/) website.
 
 ## Project Folder
 
