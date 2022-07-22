@@ -124,7 +124,7 @@ dropped and will be processed in the next Airnode run.
 
 Note that this request dropping happens for each **chain** separately.
 
-For example, if `maxConcurrency` set to 5 and there are three providers (A, B
+For example, if `maxConcurrency` is set to 5 and there are three providers (A, B
 and C) and they reported the following requests:
 
 - A1, A2, A3, A4 and A5
