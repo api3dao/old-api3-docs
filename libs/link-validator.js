@@ -10,18 +10,11 @@ const oust = require('oust');
 const axios = require('axios');
 
 /**
- * node ./libs/link-validator.js  http://127.0.0.1:8082  ./docs/.vuepress/dist/airnode/v0.3
+ * node ./libs/link-validator.js  http://127.0.0.1:8082  ./docs/.vuepress/dist/airnode/
  * Gather args
  * [2] (baseURL) the target URL (http://localhost:8080) for link verification.
  * [3] (distDir) is the sub-directory (usually dist) with the html docs. If /dist is
  *     used then all folders are validated. Suggest narrowing the scope.
- *     The following (partial list) are suggested folders to check.
- *
- *     /dist/dao-members
- *     /dist/common
- *     /dist/airnode/v0.3
- *     /dist/airnode/next
- *     /dist/dev
  */
 const baseURL = process.argv[2];
 const distDir = process.argv[3];
@@ -32,7 +25,7 @@ console.log('|++++++++++++++++++++++++');
 console.log('| Link Validator');
 console.log('| baseURL:', baseURL);
 console.log('| distDir:', distDir);
-console.log('|++++++++++++++++++++++++\n');
+console.log('|++++++++++++++++++++++++');
 
 // Array of dir objects and their files {dir,files}
 let arr = [];
@@ -54,31 +47,34 @@ function tempCB(dirPath, dirs, files) {
   arr.push({ dir: dirPath, files: files });
 }
 
-// TODO: This needs to move to an ignore file.
-/*
-var fs = require("fs");
-var text = fs.readFileSync("./link-validator-ignore.txt");
-var textByLine = text.split("\n")
-*/
-let ignore = [
-  'https://staging.api3.eth.link/#/',
-  'https://www.coingecko.com/en/api/documentation',
-  'https://faucet.goerli.mudit.blog/',
-  'https://www.rinkebyfaucet.com/',
-  'https://dx.doi.org/10.1063/1.3597793',
-  'https://developer.offchainlabs.com/docs/arbgas',
-];
+// Ignore list
+var fs = require('fs');
+const { forEach } = require('jszip');
+var ignore = JSON.parse(
+  fs.readFileSync('./libs/link-validator-ignore.json', 'utf8')
+);
+console.log('| > Ignore list');
+ignore.forEach((element) => {
+  console.log('|', element);
+});
+console.log('|++++++++++++++++++++++++\n');
 
-async function testLink(url, filePath) {
+/**
+ * Test a URL with Axois
+ * @param {string} url: the URL to be tested
+ * @param {string} filePath the file
+ * @param {boolean} ignoreTimeout: if false a timeout cases a retry
+ * @returns
+ */
+async function testLink(url, filePath, ignoreTimeout) {
   try {
-    // IGNORE
-    // Some a tags may have javascript:void(0) in href
+    // IGNORE: from ignore list AND
+    // some a tags may have javascript:void(0) in href
     if (ignore.indexOf(url) > -1 || url.indexOf('javascript:void(0)') > -1) {
       return;
     }
-    // END: ignore section
 
-    axios.defaults.timeout = 10000;
+    axios.defaults.timeout = 10000; // 10000ms
     const response = await axios.get(url);
 
     // If the urlAnchor is missing/typo in the response.data, throw an error.
@@ -107,9 +103,18 @@ async function testLink(url, filePath) {
     process.stdout.write('.');
     return 0;
   } catch (error) {
-    process.stdout.write(colors.bold.red('X'));
-    failuresArr.push({ file: filePath, url: url, error: error.toString() });
-    return 1;
+    // If a timeout try one more time
+    if (
+      !ignoreTimeout &&
+      error.code == 'ECONNABORTED' &&
+      error.toString().indexOf('Error: timeout') > -1
+    ) {
+      testLink(url, filePath, true);
+    } else {
+      process.stdout.write(colors.bold.red('X'));
+      failuresArr.push({ file: filePath, url: url, error: error.toString() });
+      return 1;
+    }
   }
 }
 
@@ -124,7 +129,7 @@ async function run(task) {
     'links.';
   for (var key in linksObj) {
     if (linksObj.hasOwnProperty(key)) {
-      let fail = await testLink(key, linksObj[key]);
+      let fail = await testLink(key, linksObj[key], false);
       if (fail === 1) {
         totalFailedCnt++;
       } else {
