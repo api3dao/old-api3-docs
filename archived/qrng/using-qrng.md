@@ -42,27 +42,40 @@ operations.
 ## QRNG Example Project
 
 The [qrng-example](https://github.com/api3dao/qrng-example) project (GitHub
-repo) demonstrates using the Airnode request–response protocol to receive QRNG
-services. It is recommended to run the example project to learn how it uses the
-QRNG service on a testnet, and read the associated README file. It also contains
-example code that will be useful when creating a requester (smart contract) that
-requests a random number, and is referenced frequently within this doc.
+repo) demonstrates how to build a smart contract (known as a requester) using
+the Airnode request–response protocol to receive QRNG services. It is
+recommended to run the example project to learn how it uses the QRNG service on
+a testnet, and read the associated README file. It also contains example code
+that will be useful when creating a requester (smart contract) that requests a
+random number, and is referenced frequently within this doc.
 
-## Using the QRNG Service
+- [qrng-example/contracts/](https://github.com/api3dao/qrng-example/tree/main/contracts)
+  - `QrngExamples.sol`: A sample requester (smart contract) used to call the
+    QRNG service.
+- [qrng-example/deploy/](https://github.com/api3dao/qrng-example/tree/main/deploy)
+  - `deploy.js`: Script that deploys a requester to a chain.
+  - `setup.js`: Script that sets the parameters on the requester contract. These
+    parameters are used when calling the QRNG service.
+  - `fund.js`: Script that funds the wallet the requester uses to pay the gas
+    costs.
 
+## Using a QRNG Service
+
+This section is an overview of the
+[QRNG Example Project](./using-qrng.md#qrng-example-project) mentioned above.
 Preparing to use the QRNG service involves three steps.
 
 - **Create a Requester**: Create a requester (smart contract) to make a request
   and add a callback function to accept the response.
 - **Set the Parameters**: After the requester is added to the desired chain, set
-  its parameters used to make a request.
-- **Sponsor the Requester**: The requester needs to be sponsored to cover gas
-  costs for the on-chain response.
+  the parameters it uses to make requests.
+- **Make a Request**: Make a request and understand the request/response flow.
 
-### Step 1: Create a Requester
+### Create a Requester
 
-Call the QRNG service using the _request–response protocol (RRP)_ implemented by
-the on-chain `AirnodeRrpV0` contract. Refer to the
+Create a requester (smart contract) that will call the QRNG service using the
+_request–response protocol (RRP)_ implemented by the on-chain `AirnodeRrpV0`
+contract. Refer to the
 [Calling an Airnode](/airnode/v0.7/grp-developers/call-an-airnode.md) doc for a
 detailed explanation and instructions to make a `AirnodeRrpV0` request. The
 [@api3/airnode-protocol](https://www.npmjs.com/package/@api3/airnode-protocol)
@@ -72,7 +85,7 @@ The code example below is what a requester might look like when requesting a
 single random number. The code is extracted from the
 [QrngExample.sol](https://github.com/api3dao/qrng-example/blob/main/contracts/QrngExample.sol)
 contract and has been simplified to only request a single random number with
-each call.
+each call to the QRNG service.
 
 ```js
 //SPDX-License-Identifier: MIT
@@ -83,7 +96,7 @@ contract QrngExample is RrpRequesterV0 {
     event RequestedUint256(bytes32 indexed requestId);
     event ReceivedUint256(bytes32 indexed requestId, uint256 response);
 
-    // These can be set using setRequestParameters())
+    // These are set using setRequestParameters() below.
     address public airnode;
     bytes32 public endpointIdUint256;
     address public sponsorWallet;
@@ -93,7 +106,7 @@ contract QrngExample is RrpRequesterV0 {
     constructor(address _airnodeRrp) RrpRequesterV0(_airnodeRrp) {}
 
     // Set parameters used by airnodeRrp.makeFullRequest(...)
-    // See makeRequestUint256()
+    // See makeRequestUint256() below.
     function setRequestParameters(
         address _airnode,
         bytes32 _endpointIdUint256,
@@ -106,8 +119,9 @@ contract QrngExample is RrpRequesterV0 {
         sponsorWallet = _sponsorWallet;
     }
 
-    // Calls the AirnodeRrp contract with a request
+    // Calls the AirnodeRrp contract with a request.
     // airnodeRrp.makeFullRequest() returns a requestId to hold onto.
+    // The response will be delivered to fulfillUint256() shown below.
     function makeRequestUint256() external {
         bytes32 requestId = airnodeRrp.makeFullRequest(
             airnode,
@@ -151,16 +165,22 @@ following flow to understand how to call for a random number.
    in the callback function.
 
 2. The function `fulfillUint256` is the callback to receive the random number
-   from `AirnodeRrp`. The callback contains the `requestId` returned by the
+   from the QRNG service. The callback contains the `requestId` returned by the
    initial request and the `data`, which contains the random number. The
    `requestId` is verified and removed from the mapping
    `expectingRequestWithIdToBeFulfilled`.
 
-### Step 2: Set the Parameters
+An additional pair of functions
+([makeRequestUint256Array()](https://github.com/api3dao/qrng-example/blob/main/contracts/QrngExample.sol#L98-L113)
+and
+[fulfillUint256Array()](https://github.com/api3dao/qrng-example/blob/main/contracts/QrngExample.sol#L115-L131))
+can be used to acquire an array of random numbers.
+
+### Set the Parameters
 
 The function `makeRequestUint256()` calls `airnodeRrp.makeFullRequest()` which
-requires seven parameters, four of which self-populate. The other three need to
-be set as a best practice.
+requires several parameters, three of which must be set prior to calling
+`airnodeRrp.makeFullRequest()`.
 
 ```solidity
 address public airnode;
@@ -168,16 +188,28 @@ bytes32 public endpointIdUint256;
 address public sponsorWallet;
 ```
 
-Set the value of these parameters prior to using the requester. The most common
-method is a script that calls `setRequestParameters()`. Once set, the requester
-can make a request to get a random number as often as needed without passing any
-parameters. The parameters can be altered later to access other QRNG sources in
-the future. See the following examples in the QRNG example project.
+- `airnode`: The airnode address of the desired QRNG service provider.
+- `endpointIdUint256`: The Airnode endpoint ID that will return a single random
+  number.
+- `sponsorWallet`: A wallet derived from the requester' contract address, the
+  Airnode address, and the Airnode xpub. Used to pay gas costs to acquire a
+  random number.
 
-- [script](https://github.com/api3dao/qrng-example/blob/main/deploy/2_setup.js) -
+Set the value of the `airnode` and `endpointIdUint256` prior to using the
+requester. The most common method is a script that calls
+`setRequestParameters()`. The parameter `sponsorWallet` is created by the
+aforementioned script automatically.
+
+- [2_setup.js](https://github.com/api3dao/qrng-example/blob/main/deploy/2_setup.js) -
   Script to update the parameters in a requester.
-- [script data](https://github.com/api3dao/qrng-example/blob/main/data/apis.json) -
-  Values used by the script for the parameters.
+- [apis.json](https://github.com/api3dao/qrng-example/blob/main/data/apis.json) -
+  Values used by the script for some of the parameters. Also see
+  [Providers](./providers.md) for a list of Airnode addresses and their
+  associated endpoint IDs.
+
+Once parameters are set, the requester can make a request to get a random number
+as often as needed without passing any parameters. The parameters can be altered
+later to access other QRNG service providers in the future.
 
 ::: tip Sponsor Wallet
 
@@ -188,7 +220,7 @@ detailed in the following section, _Step 3: Sponsor the Requester_.
 
 :::
 
-### Step 3: Sponsor the Requester
+### Sponsor the Requester
 
 The requester must be sponsored to pay for the gas costs when Airnode places the
 random number on-chain in response to a request. Requesters can be sponsored

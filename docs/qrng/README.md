@@ -1,6 +1,9 @@
 ---
 title: What is QRNG?
+folder: Introduction
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -22,7 +25,9 @@ are different methods of implementing QRNG with varying levels of practicality,
 yet the common point is that the resulting numbers will be truly random because
 the outcome of a quantum event is theoretically uncertain with well-defined
 characteristics. Therefore, QRNG is the gold standard for random number
-generation.
+generation. Read more about QRNG and randomness in the
+[Web3 Quantum Random Numbers](https://medium.com/api3/api3-qrng-web3-quantum-random-numbers-4ca7517fc5bc)
+medium post.
 
 ## QRNG as an oracle service
 
@@ -75,10 +80,10 @@ described below:
 API3 QRNG is a public utility we provide with the courtesy of Australian
 National University (ANU). It is powered by an Airnode hosted by ANU Quantum
 Random Numbers, meaning that it is a first-party service. It is free of charge
-(apart from the gas costs), [easy to use](./using-qrng.md), and will be made
-available on as many [chains](./chains.md) as possible. Please consider
-providing feedback and contributing to the open source components of this public
-utility at the
+(apart from the gas costs), [easy to use](./guides/qrng-example.md), and will be
+made available on as many [chains](./reference/chains.md) as possible. Please
+consider providing feedback and contributing to the open source components of
+this public utility at the
 [Discord api3-dev channel](https://discord.com/channels/758003776174030948/765618225144266793).
 
 ## What to expect next?
