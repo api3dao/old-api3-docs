@@ -132,6 +132,7 @@ export default {
         path: '/api3/',
       },
     ],
+    unpublishedDocSets: ['/operations', '/dev'],
     env: env,
     showDocSets: false,
     hidePickList: false, // Hiding pick list when route path is /dev or /operations
@@ -145,37 +146,18 @@ export default {
   },
   methods: {
     /**
-     * Checks if the doc set is not published in the pick list.
+     * Checks if the current doc set is unpublished in the pick list. Then
+     * hides the sidebar picklist if it is unpublished.
      * /operations and /dev
      */
     unpublishedDocSet() {
-      const paths = ['/operations', '/dev'];
+      const paths = this.unpublishedDocSets;
       const pathArr = this.$route.path.split('/');
       this.hidePickList = paths.includes('/' + pathArr[1]);
     },
     selectIcon(path) {
       // Close the mobile list
       this.showDocSets = false;
-
-      // START TEMPORARY
-      // This is a temp fix until dAPIs go into prod. If the user discovers
-      // (via url) then add into the pick list.
-      let flag = false;
-      for (var i = 0; i < this.docSets.length; i++) {
-        if (this.docSets[i].name === 'dAPIs') {
-          flag = true;
-          break;
-        }
-      }
-      if (!flag && path.indexOf('/dapis') > -1) {
-        this.docSets.push({
-          name: 'dAPIs',
-          iconActive: '/img/Beacons-active.png',
-          iconInactive: '/img/Beacons-default.png',
-          path: '/dapis/',
-        });
-      }
-      /// END TEMPORARY
 
       // Sort the docSets array
       this.docSets.sort((a, b) =>
@@ -221,8 +203,6 @@ export default {
   mounted() {
     // Code that will run only after the entire view has been rendered
     this.$nextTick(function () {
-      // TEMP removed dAPIs for now
-      this.docSets.splice(4, 1); // Removes dAPIs
       this.unpublishedDocSet();
       this.selectIcon(this.$route.path);
       this.isMounted = true;

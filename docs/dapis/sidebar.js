@@ -7,6 +7,7 @@ module.exports = [
       '', //README
       'introduction/why-use-dapis',
       'introduction/why-power',
+      'introduction/api3-market',
     ],
   },
   {

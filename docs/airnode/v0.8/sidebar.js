@@ -121,6 +121,7 @@ module.exports = [
       'concepts/template',
       'concepts/request',
       'concepts/chain-providers',
+      'concepts/gas-prices',
     ],
   },
   {

@@ -28,6 +28,16 @@ it will always default to the startPath in config.json.
       </p>
     </li>
     <li>
+      <router-link to="/dapis">
+        <img src="/img/Beacons-active.png" />
+        dAPIs</router-link
+      >
+      <p>
+        Power your dAPP with quantifiably secure data feeds from curated
+        sources.
+      </p>
+    </li>
+    <li>
       <router-link to="/chainapi">
         <img src="/img/chainapi-active.png" />
         ChainAPI</router-link

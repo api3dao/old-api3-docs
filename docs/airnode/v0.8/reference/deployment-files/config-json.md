@@ -10,7 +10,7 @@ folder: Reference > Deployment Files
 <VersionWarning/>
 
 <TocHeader />
-<TOC class="table-of-contents" :include-level="[2, 4]" />
+<TOC class="table-of-contents" :include-level="[2, 5]" />
 
 The `config.json` defines a single Airnode deployment. The file contents are a
 single JSON object. Each config object can be thought of as the static NoSQL
@@ -74,12 +74,6 @@ respective parameters.
     },
     "type": "evm",
     "options": {
-      "txType": "eip1559",
-      "priorityFee": {
-        "value": 3.12,
-        "unit": "gwei"
-      },
-      "baseFeeMultiplier": 2,
       "fulfillmentGasLimit": 500000,
       "gasPriceOracle": [
         {
@@ -92,6 +86,14 @@ respective parameters.
         {
           "gasPriceStrategy": "providerRecommendedGasPrice",
           "recommendedGasPriceMultiplier": 1.2
+        },
+        {
+          "gasPriceStrategy": "providerRecommendedEip1559GasPrice",
+          "baseFeeMultiplier": 2,
+          "priorityFee": {
+            "value": 3.12,
+            "unit": "gwei"
+          }
         },
         {
           "gasPriceStrategy": "constantGasPrice",
@@ -125,33 +127,35 @@ respective parameters.
     },
     "type": "evm",
     "options": {
-      "txType": "eip1559",
-      "priorityFee": {
-        "value": 3.12,
-        "unit": "gwei"
-      },
-      "baseFeeMultiplier": 2,
       "fulfillmentGasLimit": 500000,
       "gasPriceOracle": [
         {
-              "gasPriceStrategy": "latestBlockPercentileGasPrice",
-              "percentile": 60,
-              "minTransactionCount": 20,
-              "pastToCompareInBlocks": 20,
-              "maxDeviationMultiplier": 2,
-            },
-            {
-              "gasPriceStrategy": "providerRecommendedGasPrice",
-              "recommendedGasPriceMultiplier": 1.2,
-            },
-          {
-            "gasPriceStrategy": "constantGasPrice",
-            "gasPrice": {
-              "value": 10,
-              "unit": "gwei"
-            }
+          "gasPriceStrategy": "latestBlockPercentileGasPrice",
+          "percentile": 60,
+          "minTransactionCount": 20,
+          "pastToCompareInBlocks": 20,
+          "maxDeviationMultiplier": 2
+        },
+        {
+          "gasPriceStrategy": "providerRecommendedGasPrice",
+          "recommendedGasPriceMultiplier": 1.2
+        },
+        {
+          "gasPriceStrategy": "providerRecommendedEip1559GasPrice",
+          "baseFeeMultiplier": 2,
+          "priorityFee": {
+            "value": 3.12,
+            "unit": "gwei"
           }
-        ]
+        },
+        {
+          "gasPriceStrategy": "constantGasPrice",
+          "gasPrice": {
+            "value": 10,
+            "unit": "gwei"
+          }
+        }
+      ],
       "withdrawalRemainder": {
         "value": 0,
         "unit": "wei"
@@ -212,50 +216,6 @@ recommended to provide `url` via interpolation from the `secrets.env` file.
 [Configuring an Airnode](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#considerations-transaction-options)
 for some considerations.
 
-#### `options.txType`
-
-(required) - The transaction type to use:
-
-- `"legacy"` - Legacy Transaction Type
-- `"eip1559"` -
-  [EIP-1559 Transaction Type](https://eips.ethereum.org/EIPS/eip-1559)
-
-#### `options.priorityFee`
-
-(optional) - An object that configures the EIP-1559 Priority Fee. Defaults:
-`{"value": 3.12, "unit": "gwei"}`.
-
-##### `options.priorityFee.value`
-
-(required) - A number specifying the EIP-1559 priority fee value.
-
-##### `options.priorityFee.unit`
-
-(required) - The unit of the priority fee value. It can be one of the following:
-
-- `wei`
-- `kwei`
-- `mwei`
-- `gwei`
-- `szabo`
-- `finney`
-- `ether`
-
-#### `options.baseFeeMultiplier`
-
-(optional) - Number multiplied by the Base Fee to yield the Maximum Fee for
-EIP-1559 transactions. Defaults to: `2`.
-
-The resulting Maximum Fee will equal
-`(Base Fee * baseFeeMultiplier) + priorityFee`
-
-#### `options.gasPriceMultiplier`
-
-(optional) - A number with a maximum of two decimals that gets multiplied by the
-legacy gas price. No multiplier is used by default.
-
-The resulting Gas Price will equal `Gas Price * gasPriceMultiplier`
-
 #### `options.fulfillmentGasLimit`
 
 (required) - The maximum gas limit allowed when Airnode responds to a request,
@@ -294,53 +254,87 @@ the specified order.
 
 ##### `options.gasPriceOracle[n].gasPriceStrategy`
 
-(required) - The name of the gas price strategy. The supported strategies are:
+(required) - The name of the gas price strategy. The supported strategies are
+below. For more detail on each, see the
+[Gas Prices](../../concepts/gas-prices.md) page.
 
 - `"latestBlockPercentileGasPrice"`
 - `"providerRecommendedGasPrice"`
+- `"providerRecommendedEip1559GasPrice"`
 - `"constantGasPrice"`
 
-#### Strategy: `"latestBlockPercentileGasPrice"`
+##### Strategy: `"latestBlockPercentileGasPrice"`
 
-##### `percentile`
+###### `percentile`
 
 (required) - The percentile of gas prices to return from a block.
 
-##### `minTransactionCount`
+###### `minTransactionCount`
 
 (required) - The minimum amount of transactions required in a block to use for
 calculating a gas price percentile
 
-##### `pastToCompareInBlocks`
+###### `pastToCompareInBlocks`
 
 (required) - The number of blocks to look back for the reference block.
 
-##### `maxDeviationMultiplier`
+###### `maxDeviationMultiplier`
 
 (required) - The maximum deviation multiplier of the latest block gas price
 percentile compared to the reference block gas price percentile. Used to protect
 against large gas price spikes.
 
-#### Strategy: `"providerRecommendedGasPrice"`
+##### Strategy: `"providerRecommendedGasPrice"`
 
-##### `recommendedGasPriceMultiplier`
+###### `recommendedGasPriceMultiplier`
 
 (required) - A number with a maximum of two decimals that gets multiplied by the
 provider reported gas price. The resulting Gas Price will equal
 `Gas Price * providerRecommendedGasPrice`
 
-#### Strategy: `"constantGasPrice"`
+##### Strategy: `"providerRecommendedEip1559GasPrice"`
 
-##### `gasPrice`
+###### `priorityFee`
+
+(required) - An object that configures the EIP-1559 Priority Fee. Defaults:
+`{"value": 3.12, "unit": "gwei"}`.
+
+###### `priorityFee.value`
+
+(required) - A number specifying the EIP-1559 priority fee value.
+
+###### `priorityFee.unit`
+
+(required) - The unit of the priority fee value. It can be one of the following:
+
+- `wei`
+- `kwei`
+- `mwei`
+- `gwei`
+- `szabo`
+- `finney`
+- `ether`
+
+###### `baseFeeMultiplier`
+
+(required) - Number multiplied by the Base Fee to yield the Maximum Fee for
+EIP-1559 transactions. Defaults to: `2`.
+
+The resulting Maximum Fee will equal
+`(Base Fee * baseFeeMultiplier) + priorityFee`
+
+##### Strategy: `"constantGasPrice"`
+
+###### `gasPrice`
 
 (required) - An object of the form `{"value": 0, "unit": "wei"}` that configures
 the amount to use as gas price.
 
-##### `gasPrice.value`
+###### `gasPrice.value`
 
 (required) - A number specifying the `gasPrice` value.
 
-##### `gasPrice.unit`
+###### `gasPrice.unit`
 
 (required) The unit of the `gasPrice` value. It can be one
 

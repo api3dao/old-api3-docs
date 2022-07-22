@@ -40,6 +40,9 @@
     "jszip",
     "fullname",
     "struct",
+    "quantifiably",
+    "redeployment",
+    "redeployments",
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true

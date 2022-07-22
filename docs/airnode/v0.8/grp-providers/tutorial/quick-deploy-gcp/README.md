@@ -52,23 +52,21 @@ a zip file ready to go.
 
 ::: tab Create Manually
 
-Create a folder called `/quick-deploy-gcp` with one more internal folder named
-`/config`. Place the contents of the files provided
-([config.json](./config-json.md) and [secrets.env](./secrets-env.md)) into the
-locations show below.
+Create a folder called `/quick-deploy-gcp`. Place the contents of the files
+provided ([config.json](./config-json.md) and [secrets.env](./secrets-env.md))
+into the folder as shown below.
 
 ```
 quick-deploy-gcp
-├── config
-    ├── config.json
-    └── secrets.env
+├── config.json
+└── secrets.env
 ```
 
 :::
 
 ::: tab Download
 
-Download the <a href="/zip-files/quick-deploy-gcp-v0.7.zip" download>
+Download the <a href="/zip-files/quick-deploy-gcp-v0.8.zip" download>
 quick-deploy-gcp</a> project folder.
 
 :::
@@ -79,7 +77,8 @@ quick-deploy-gcp</a> project folder.
 
 Prepare the configuration files, setup a GCP project and obtain credentials. By
 default, the Airnode deployer image looks for `config.json` and `secrets.env` in
-`/config` and writes `receipt.json` to the `/config` folder.
+in the project root directory and writes `receipt.json` to the project root
+directory.
 
 ### config.json
 
@@ -162,8 +161,7 @@ Run the following command to deploy the demo Airnode. Note that the version of
 ```sh
 docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
-  -v "$(pwd)/gcp.json:/app/gcp.json" \
-  -v "$(pwd)/config:/app/config" \
+  -v "$(pwd):/app/config" \
   api3/airnode-deployer:0.8.0 deploy
 ```
 
@@ -175,8 +173,7 @@ For Windows, use CMD (and not PowerShell).
 
 ```sh
 docker run -it --rm ^
-  -v "%cd%/gcp.json:/app/gcp.json" ^
-  -v "%cd%/config:/app/config" ^
+  -v "%cd%:/app/config" ^
   api3/airnode-deployer:0.8.0 deploy
 ```
 
@@ -312,8 +309,8 @@ curl -v ^
 ## Remove the Airnode
 
 When you are done with this demo you can remove it. When the Airnode was
-deployed a `receipt.json` file was created in the `/config` folder. This file is
-needed to remove an Airnode.
+deployed a `receipt.json` file was created in the project root directory. This
+file is needed to remove an Airnode.
 
 :::: tabs
 
@@ -321,8 +318,7 @@ needed to remove an Airnode.
 
 ```sh
 docker run -it --rm \
-  -v "$(pwd)/gcp.json:/app/gcp.json" \
-  -v "$(pwd)/config:/app/config" \
+  -v "$(pwd):/app/config" \
   api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
 
@@ -334,8 +330,7 @@ For Windows, use CMD (and not PowerShell).
 
 ```sh
 docker run -it --rm ^
-  -v "%cd%/gcp.json:/app/gcp.json" ^
-  -v "%cd%/config:/app/config" ^
+  -v "%cd%:/app/config" ^
   api3/airnode-deployer:0.8.0 remove-with-receipt
 ```
 

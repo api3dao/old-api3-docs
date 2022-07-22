@@ -50,23 +50,21 @@ a zip file ready to go.
 
 ::: tab Create Manually
 
-Create a folder called `quick-deploy-container` with an internal folder named
-`/config`. Place the contents of the files provided
-([config.json](./config-json.md) and [secrets.env](./secrets-env.md)) into the
-locations show below.
+Create a folder called `quick-deploy-container`. Place the contents of the files
+provided ([config.json](./config-json.md) and [secrets.env](./secrets-env.md))
+into the folder as shown below.
 
 ```
 quick-deploy-container
-├── config
-    ├── config.json
-    └── secrets.env
+├── config.json
+└── secrets.env
 ```
 
 :::
 
 ::: tab Download
 
-Download the <a href="/zip-files/quick-deploy-container-v0.7.zip" download>
+Download the <a href="/zip-files/quick-deploy-container-v0.8.zip" download>
 quick-deploy-container</a> project folder.
 
 :::
@@ -76,7 +74,7 @@ quick-deploy-container</a> project folder.
 ## Configuration
 
 Prepare the two configuration files, `config.json` and `secrets.env`. By
-default, the Airnode client image looks for them in the `/config` folder.
+default, the Airnode client image looks for them in the project root directory.
 
 ### config.json
 
@@ -119,7 +117,7 @@ file.
 
 ```sh
 docker run --detach \
-  --volume "$(pwd)/config:/app/config" \
+  --volume "$(pwd):/app/config" \
   --name quick-deploy-container-airnode \
   api3/airnode-client:0.7.2
 ```
@@ -132,7 +130,7 @@ For Windows, use CMD (and not PowerShell).
 
 ```sh
 docker run --detach ^
-  --volume "%cd%/config:/app/config" ^
+  --volume "%cd%:/app/config" ^
   --name quick-deploy-container-airnode ^
   api3/airnode-client:0.7.2
 ```

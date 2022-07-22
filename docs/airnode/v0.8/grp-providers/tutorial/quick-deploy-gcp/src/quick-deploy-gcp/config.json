@@ -18,12 +18,6 @@
       },
       "type": "evm",
       "options": {
-        "txType": "eip1559",
-        "priorityFee": {
-          "value": 3.12,
-          "unit": "gwei"
-        },
-        "baseFeeMultiplier": 2,
         "fulfillmentGasLimit": 500000,
         "gasPriceOracle": [
           {
@@ -36,6 +30,14 @@
           {
             "gasPriceStrategy": "providerRecommendedGasPrice",
             "recommendedGasPriceMultiplier": 1.2
+          },
+          {
+            "gasPriceStrategy": "providerRecommendedEip1559GasPrice",
+            "baseFeeMultiplier": 2,
+            "priorityFee": {
+              "value": 3.12,
+              "unit": "gwei"
+            }
           },
           {
             "gasPriceStrategy": "constantGasPrice",
@@ -70,7 +72,7 @@
     },
     "logFormat": "plain",
     "logLevel": "INFO",
-    "nodeVersion": "0.7.2",
+    "nodeVersion": "0.8.0",
     "stage": "dev"
   },
   "triggers": {

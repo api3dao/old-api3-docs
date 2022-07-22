@@ -15,7 +15,7 @@ folder: dApp Developers
 ::: warning This function uses IDs.
 
 Be sure to understand the difference between using a name or ID. See
-[dAPI names](./#dapi-names).
+[dAPI Names](./#dapi-names).
 
 :::
 

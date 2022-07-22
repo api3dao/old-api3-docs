@@ -181,20 +181,21 @@ If you set this field to value X, then Airnode will guarantee that:
   blockchain providers of the respective chain
 
 When doing this, Airnode will calculate the total number of requests reported by
-all blockchain providers. If this number exceeds the maximum concurrency limit
-it will start dropping the latest requests from the blockchain provider with the
-maximum number of requests until the number of them is under the limit.
+all blockchain providers. If this number exceeds the maximum concurrency limit,
+Airnode will start processing the oldest request from the blockchain providers
+until the number of processed requests reaches the limit. All other requests are
+dropped and will be processed in the next Airnode run.
 
-For example, if `maxConcurrency` set to 5 and there are three providers (A, B
+Note that this request dropping happens for each **chain** separately.
+
+For example, if `maxConcurrency` is set to 5 and there are three providers (A, B
 and C) and they reported the following requests:
 
 - A1, A2, A3, A4 and A5
 - B1, B2 and B3
 - C1 and C2
 
-The above example results in the following requests: A1, A2, B1, B2 and C2. Note
-that neither of the providers has more than 2 requests, but this is still not
-enough to meet the limit so request C2 is dropped as well.
+The above example results in the following requests: A1, A2, B1, B2, and C1.
 
 ::: warning
 

@@ -92,33 +92,35 @@ Below is a simple chain array with a single chain provider.
     },
     "type": "evm",
     "options": {
-      "txType": "eip1559",
-      "priorityFee": {
-        "value": 3.12,
-        "unit": "gwei"
-      },
-      "baseFeeMultiplier": 2,
       "fulfillmentGasLimit": 500000,
       "gasPriceOracle": [
         {
-              "gasPriceStrategy": "latestBlockPercentileGasPrice",
-              "percentile": 60,
-              "minTransactionCount": 20,
-              "pastToCompareInBlocks": 20,
-              "maxDeviationMultiplier": 2,
-            },
-            {
-              "gasPriceStrategy": "providerRecommendedGasPrice",
-              "recommendedGasPriceMultiplier": 1.2,
-            },
-          {
-            "gasPriceStrategy": "constantGasPrice",
-            "gasPrice": {
-              "value": 10,
-              "unit": "gwei"
-            }
+          "gasPriceStrategy": "latestBlockPercentileGasPrice",
+          "percentile": 60,
+          "minTransactionCount": 20,
+          "pastToCompareInBlocks": 20,
+          "maxDeviationMultiplier": 2,
+        },
+        {
+          "gasPriceStrategy": "providerRecommendedGasPrice",
+          "recommendedGasPriceMultiplier": 1.2,
+        },
+        {
+          "gasPriceStrategy": "providerRecommendedEip1559GasPrice",
+          "baseFeeMultiplier": 2,
+          "priorityFee": {
+            "value": 3.12,
+            "unit": "gwei",
           }
-        ]
+        },
+        {
+          "gasPriceStrategy": "constantGasPrice",
+          "gasPrice": {
+            "value": 10,
+            "unit": "gwei"
+          }
+        }
+      ],
     },
     "maxConcurrency": 100,
     "blockHistoryLimit": 300,
@@ -150,11 +152,13 @@ chain-specific configuration considerations.
 #### Considerations: Gas Price Oracle
 
 The gas price oracle strategies are applied in the order that they are listed.
-Airnode supports three strategies: `latestBlockPercentileGasPrice`,
-`providerRecommendedGasPrice` and `constantGasPrice`. The only required strategy
-is `constantGasPrice` and it is recommended to place it as the last strategy in
-the list as it should be the final fallback for the Airnode to use if all other
-strategies fail.
+Airnode supports four strategies: `latestBlockPercentileGasPrice`,
+`providerRecommendedGasPrice`, `providerRecommendedEip1559GasPrice` and
+`constantGasPrice`. The only required strategy is `constantGasPrice` and it is
+recommended to place it as the last strategy in the list as it should be the
+final fallback for the Airnode to use if all other strategies fail. For more
+detail on these strategies, see the
+[Gas Prices](../../../concepts/gas-prices.md) page.
 
 #### Considerations: Concurrency
 
@@ -166,20 +170,21 @@ that:
   blockchain providers of the respective chain
 
 When doing this, Airnode will calculate the total number of requests reported by
-all blockchain providers. If this number exceeds the maximum concurrency limit
-it will start dropping the latest requests from the blockchain provider with the
-maximum number of requests until the number of them is under the limit.
+all blockchain providers. If this number exceeds the maximum concurrency limit,
+Airnode will start processing the oldest request from the blockchain providers
+until the number of processed requests reaches the limit. All other requests are
+dropped and will be processed in the next Airnode run.
 
-For example, if `maxConcurrency` set to 5 and there are three providers (A, B
+Note that this request dropping happens for each **chain** separately.
+
+For example, if `maxConcurrency` is set to 5 and there are three providers (A, B
 and C) and they reported the following requests:
 
 - A1, A2, A3, A4 and A5
 - B1, B2 and B3
 - C1 and C2
 
-The above example results in the following requests: A1, A2, B1, B2 and C2. Note
-that neither of the providers has more than 2 requests, but this is still not
-enough to meet the limit so request C2 is dropped as well.
+The above example results in the following requests: A1, A2, B1, B2, and C1.
 
 ::: warning
 
@@ -201,12 +206,8 @@ The below links offer details for each field:
 - [providers](../../../reference/deployment-files/config-json.md#providers)
 - [type](../../../reference/deployment-files/config-json.md#type)
 - [options](../../../reference/deployment-files/config-json.md#options)
-  - [options.txType](../../../reference/deployment-files/config-json.md#options-txtype)
-  - [options.priorityFee](../../../reference/deployment-files/config-json.md#options-priorityfee)
-  - [options.baseFeeMultiplier](../../../reference/deployment-files/config-json.md#options-basefeemultiplier)
-  - [options.gasPriceMultiplier](../../../reference/deployment-files/config-json.md#options-gaspricemultiplier)
   - [options.fulfillmentGasLimit](../../../reference/deployment-files/config-json.md#options-fulfillmentgaslimit)
-  - [options.gasPriceOracle](../../../reference/deployment-files/config-json.md#options-withdrawalremainder)
+  - [options.gasPriceOracle](../../../reference/deployment-files/config-json.md#options-gaspriceoracle-n)
   - [options.withdrawalRemainder](../../../reference/deployment-files/config-json.md#options-withdrawalremainder)
 - [maxConcurrency](../../../reference/deployment-files/config-json.md#maxconcurrency)
 - [blockHistoryLimit](../../../reference/deployment-files/config-json.md#blockhistorylimit)
@@ -466,7 +467,6 @@ in the `aws.env` file as shown below. See an
 [example file](../../../reference/templates/aws-env.md) in the reference
 section.
 
-- Do not place double quotes (") around the value of each variable.
 - Variable names cannot contain dashes (-) or start with a number.
 
 ```bash
