@@ -38,20 +38,20 @@ contract mySmartContract {
     // Calling the DapiServer for reader status
     // where "this" is the contract address of this contract (myVerifyReadable).
     (canRead) =
-      IDapiServer(_dapiServerContractAddress).readerCanRereaderCanReadDataFeedadBeacon(_datafeedId, address(this));
+      IDapiServer(_dapiServerContractAddress).readerCanReadDataFeed(_datafeedId, address(this));
   }
 }
 
 ```
 
-::: tip dAPI name
+::: tip Using dapiName
 
-If you want to check the status for a dAPI `name`, you first need to calculate
-the hash off-chain of `name`. Then pass `dapiNameHash` as `_datafeedId` in the
-example above.
+If you want to check the status using a `dapiName`, you first need to calculate
+its off-chain hash. Then pass `dapiNameHash` as `_datafeedId` in the example
+code above.
 
 ```solidity
-dapiNameHash = ethers.utils.solidityKeccak256(['string'], [dapiName]);
+dapiNameHash = ethers.utils.solidityKeccak256(['bytes32'], [ethers.utils.formatBytes32String(dapiName)]);
 ```
 
 :::
