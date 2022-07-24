@@ -18,6 +18,7 @@ module.exports = [
       '/dev/prettier',
       '/dev/deployment',
       '/dev/release-notes.md',
+      '/dev/system-variables.md',
       '/dev/quirks',
     ],
   },

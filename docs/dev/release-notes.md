@@ -12,22 +12,6 @@ Use this page as a checklist when creating a new release for any versioned
 documentation set. It may be necessary to reference other pages in the `/dev`
 document set.
 
-::: danger TODO:
-
-It is possible to use a $themeConfig variable such as `airnodeLatest` to use in
-the path of a link. However they canot be used in markdown links, only with
-`router-link`.
-
-Example: <router-link :to="'/airnode/'+$frontmatter.path">Link</router-link>
-
-This could be used when a document set sends the user to another versioned doc
-set where the latest version is desired.
-
-It is not useful when links go to a GitHub repo README since the versions must
-match a tag at the repo.
-
-:::
-
 ## Airnode
 
 - Be sure all links to Github use the proper tag. Look for use of `master`,
