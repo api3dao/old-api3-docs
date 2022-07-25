@@ -17,6 +17,7 @@ module.exports = [
       'user-guides/signup',
       'user-guides/integrations',
       'user-guides/deployments',
+      'user-guides/workspaces',
     ],
   },
   {
