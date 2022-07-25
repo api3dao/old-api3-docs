@@ -27,7 +27,7 @@ the data feed indefinitely (regardless of the value of `expirationTimestamp`).
 
 ```solidity
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.9;
+pragma solidity 0.8.9;
 
 import "@api3/airnode-protocol-v1/contracts/dapis/interfaces/IDapiServer.sol";
 contract mySmartContract {
