@@ -50,7 +50,12 @@ async function testLink(url, filePath) {
     }
     // END: ignore section
 
-    axios.defaults.timeout = 10000;
+    axios.defaults.timeout = 10000; // 10000ms
+    let config = {
+      headers: {
+        Accept: '*/*',
+      },
+    };
     const response = await axios.get(url);
 
     // If the urlAnchor is missing/typo in the response.data, throw an error.
