@@ -16,14 +16,15 @@ over your integrations and deployments.
 
 ## Creating a Workspace
 
-Your workspace is created automatically and you will by default be the
-“owner”, which is also tied to your ChainAPI account.
+Your workspace is created automatically and you will by default be the “owner”,
+which is also tied to your ChainAPI account.
 
 ## Navigating to Workspace Settings
 
-You can navigate to your workspace through your account settings or by clicking on your workspace name on the left-hand navigation panel. If you are
-part of more than one workspace, you can also use the left-hand vertical
-navigation to switch between workspaces.
+You can navigate to your workspace through your account settings or by clicking
+on your workspace name on the left-hand navigation panel. If you are part of
+more than one workspace, you can also use the left-hand vertical navigation to
+switch between workspaces.
 
 ## Managing your Workspace
 
@@ -77,9 +78,9 @@ workspace, and edit workspace settings. Admins can not delete a workspace.
 ### Owner
 
 As a Workspace owner, your workspace is linked to your ChainAPI account. If you
-deactivate your ChainAPI account the workspace will also be deactivated and
-your workspace users will be removed. You cannot transfer workspace ownership at
-this time.
+deactivate your ChainAPI account the workspace will also be deactivated and your
+workspace users will be removed. You cannot transfer workspace ownership at this
+time.
 
 ## Workspace Notifications
 
