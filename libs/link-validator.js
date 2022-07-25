@@ -60,7 +60,7 @@ ignore.forEach((element) => {
 console.log('|++++++++++++++++++++++++\n');
 
 /**
- * Test a URL with Axois
+ * Test a URL with Axios
  * @param {string} url: the URL to be tested
  * @param {string} filePath the file
  * @param {boolean} ignoreTimeout: if false a timeout cases a retry
@@ -75,7 +75,12 @@ async function testLink(url, filePath, ignoreTimeout) {
     }
 
     axios.defaults.timeout = 10000; // 10000ms
-    const response = await axios.get(url);
+    let config = {
+      headers: {
+        Accept: '*/*',
+      },
+    };
+    const response = await axios.get(url, config);
 
     // If the urlAnchor is missing/typo in the response.data, throw an error.
     let arr = url.split('.html#');
