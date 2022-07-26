@@ -26,7 +26,7 @@ Then select the **New Deployment** button. ChainAPI will step-you-through the
 deployment process. <br/> <img src="../assets/images/new-deployment.png"
   width="22%"/>
 
-## New Deployment
+## New Deployments
 
 The deployment will use an [integration](./integrations.md) you have already
 created to define and deploy an Airnode to a cloud provider of your choice.
