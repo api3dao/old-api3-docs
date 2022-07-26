@@ -227,62 +227,125 @@ be repeated during Airnode's next run cycle.
 (optional) - An object of the form `{"value": 0, "unit": "wei"}` that configures
 the amount to subtract from the funds returned to the sponsor when making a
 [withdrawal](../../concepts/sponsor.md#withdrawals). Defaults to zero and is
-relevant only for some chains (e.g.
-[Optimism](../chain-idiosyncrasies.md#optimism)).
+relevant only for some chains e.g.
+[Optimism](../chain-idiosyncrasies.md#optimism).
 
 ##### `options.withdrawalRemainder.value`
 
-<p style="margin-left:35px;">(required) - A number specifying the <code>withdrawalRemainder</code> value.</p>
+(required) - A number specifying the `withdrawalRemainder` value.
 
 ##### `options.withdrawalRemainder.unit`
 
-<p style="margin-left:35px;">(required) - The unit of the <code>withdrawalRemainder</code> value. It can be one of the following:
-(wei, kwei, mwei, gwei, szabo, finney, ether).</p>
+(required) - The unit of the `withdrawalRemainder` value. It can be one of the
+following:
+
+- `wei`
+- `kwei`
+- `mwei`
+- `gwei`
+- `szabo`
+- `finney`
+- `ether`
 
 #### `options.gasPriceOracle[n]`
 
 (required) - A list of gas price oracle strategies that the Airnode will use in
-the specified order. Each strategy has its own unique set of associated fields
-that describes it. See [Gas Price Strategies](../../concepts/gas-prices.md) for
-an in-depth understanding.
+the specified order.
 
-<!-- ##### `options.gasPriceOracle[n].gasPriceStrategy`
+##### `options.gasPriceOracle[n].gasPriceStrategy`
 
 (required) - The name of the gas price strategy. The supported strategies are
 below. For more detail on each, see the
-[Gas Prices](../../concepts/gas-prices.md) page.-->
+[Gas Prices](../../concepts/gas-prices.md) page.
 
-- [latestBlockPercentileGasPrice](../../concepts/gas-prices.md#latestblockpercentilegasprice)
-  - `percentile`: (required) - The percentile of gas prices to return from a
-    block.
-  - `minTransactionCount`: (required) - The minimum amount of transactions
-    required in a block to use for calculating a gas price percentile.
-  - `pastToCompareInBlocks`: (required) - The number of blocks to look back for
-    the reference block.
-  - `maxDeviationMultiplier`: (required) - The maximum deviation multiplier of
-    the latest block gas price percentile compared to the reference block gas
-    price percentile. Used to protect against large gas price spikes.
-- [providerRecommendedGasPrice](../../concepts/gas-prices.md#providerrecommendedgasprice)
-  - `recommendedGasPriceMultiplier`: (required) - A number with a maximum of two
-    decimals that gets multiplied by the provider reported gas price. The
-    resulting Gas Price will equal `Gas Price * providerRecommendedGasPrice`.
-- [providerRecommendedEip1559GasPrice](../../concepts/gas-prices.md#providerrecommendedeip1559gasprice)
-  - `baseFeeMultiplier`: (required) - Number multiplied by the Base Fee to yield
-    the Maximum Fee for EIP-1559 transactions. Defaults to: `2`. The resulting
-    Maximum Fee will equal `(Base Fee * baseFeeMultiplier) + priorityFee`.
-  - `priorityFee`: (required) - An object that configures the EIP-1559 Priority
-    Fee. Defaults: `{"value": 3.12, "unit": "gwei"}`.
-    - `priorityFee.value`: (required) - A number specifying the EIP-1559
-      priority fee value.
-    - `priorityFee.unit`: (required) - The unit of the priority fee value. It
-      can be one of the following: (wei, kwei, mwei, gwei, szabo, finney,
-      ether).
-- [constantGasPrice](../../concepts/gas-prices.md#constantgasprice)
-  - `gasPrice`: (required) - An object of the form `{"value": 0, "unit": "wei"}`
-    that configures the amount to use as gas price.
-    - gasPrice.value: (required) - A number specifying the gasPrice value.
-    - gasPrice.unit: (required) The unit of the gasPrice value. It can be one of
-      the following: (wei, kwei, mwei, gwei, szabo, finney, ether).
+- `"latestBlockPercentileGasPrice"`
+- `"providerRecommendedGasPrice"`
+- `"providerRecommendedEip1559GasPrice"`
+- `"constantGasPrice"`
+
+##### Strategy: `"latestBlockPercentileGasPrice"`
+
+###### `percentile`
+
+(required) - The percentile of gas prices to return from a block.
+
+###### `minTransactionCount`
+
+(required) - The minimum amount of transactions required in a block to use for
+calculating a gas price percentile
+
+###### `pastToCompareInBlocks`
+
+(required) - The number of blocks to look back for the reference block.
+
+###### `maxDeviationMultiplier`
+
+(required) - The maximum deviation multiplier of the latest block gas price
+percentile compared to the reference block gas price percentile. Used to protect
+against large gas price spikes.
+
+##### Strategy: `"providerRecommendedGasPrice"`
+
+###### `recommendedGasPriceMultiplier`
+
+(required) - A number with a maximum of two decimals that gets multiplied by the
+provider reported gas price. The resulting Gas Price will equal
+`Gas Price * providerRecommendedGasPrice`
+
+##### Strategy: `"providerRecommendedEip1559GasPrice"`
+
+###### `priorityFee`
+
+(required) - An object that configures the EIP-1559 Priority Fee. Defaults:
+`{"value": 3.12, "unit": "gwei"}`.
+
+###### `priorityFee.value`
+
+(required) - A number specifying the EIP-1559 priority fee value.
+
+###### `priorityFee.unit`
+
+(required) - The unit of the priority fee value. It can be one of the following:
+
+- `wei`
+- `kwei`
+- `mwei`
+- `gwei`
+- `szabo`
+- `finney`
+- `ether`
+
+###### `baseFeeMultiplier`
+
+(required) - Number multiplied by the Base Fee to yield the Maximum Fee for
+EIP-1559 transactions. Defaults to: `2`.
+
+The resulting Maximum Fee will equal
+`(Base Fee * baseFeeMultiplier) + priorityFee`
+
+##### Strategy: `"constantGasPrice"`
+
+###### `gasPrice`
+
+(required) - An object of the form `{"value": 0, "unit": "wei"}` that configures
+the amount to use as gas price.
+
+###### `gasPrice.value`
+
+(required) - A number specifying the `gasPrice` value.
+
+###### `gasPrice.unit`
+
+(required) The unit of the `gasPrice` value. It can be one
+
+    of the following:
+    - `wei`
+    - `kwei`
+    - `mwei`
+    - `gwei`
+    - `szabo`
+    - `finney`
+    - `ether`
 
 ### `maxConcurrency`
 
