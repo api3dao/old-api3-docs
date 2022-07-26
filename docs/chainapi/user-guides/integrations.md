@@ -129,3 +129,17 @@ api value by the value specified
 ---
 
 Complete the integration by selecting the **Finish** button.
+
+### Testing Prettier
+
+**bold** 
+
+REGULAR TEXT
+
+More **bold**
+
+### Another heading
+
+- Bullet point 1
+- Bullet point 2
+- Bullet point 3
