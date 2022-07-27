@@ -39,9 +39,8 @@ its ease of implementation.
 ::: tip
 
 If you want to learn more about the Airnode experience, read Section 4 of the
-<a href="/api3-whitepaper-v1.0.2.pdf#Airnode:%20A%20Node%20Designed%20for%20First-Party%20Oracles" 
-target="_api3-whitepaper">API3 Whitepaper</a>, _Airnode: A Node Designed for
-First-Party Oracles_.
+<a href="/api3-whitepaper-v1.0.3.pdf#Airnode:%20A%20Node%20Designed%20for%20First-Party%20Oracles" target="_api3-whitepaper">API3
+Whitepaper</a>, _Airnode: A Node Designed for First-Party Oracles_.
 
 :::
 
@@ -137,7 +136,7 @@ observed the following barriers to oracle onboarding and operation:
    This disqualifies the vast majority of API providers for compliance-related,
    legal and accounting reasons. In addition, any scheme that requires API
    providers to stake funds is categorically rejected for similar reasons
-   related to financia risks.
+   related to financial risks.
 
 ## Airnode Features
 

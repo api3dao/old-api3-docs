@@ -25,7 +25,7 @@ sure to ask any questions you have on
   know about superficially.
 
 - To get a general grasp of the project, read the
-  <a href="/api3-whitepaper-v1.0.2.pdf" target="_api3-whitepaper">API3
+  <a href="/api3-whitepaper-v1.0.3.pdf" target="_api3-whitepaper">API3
   Whitepaper</a> and our [blog posts](./symlink-blog-posts.md) on Medium.
 
 - Read the entirety of these docs. Take notes and cross-reference, but do not
