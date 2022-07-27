@@ -1,5 +1,5 @@
 ---
-title: Gas Prices Strategies
+title: Gas Price Strategies
 folder: Concepts and Definitions
 ---
 
