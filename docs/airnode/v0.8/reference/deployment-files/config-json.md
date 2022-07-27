@@ -280,9 +280,9 @@ below. For more detail on each, see the
 - [constantGasPrice](../../concepts/gas-prices.md#constantgasprice)
   - `gasPrice`: (required) - An object of the form `{"value": 0, "unit": "wei"}`
     that configures the amount to use as gas price.
-    - gasPrice.value: (required) - A number specifying the gasPrice value.
-    - gasPrice.unit: (required) The unit of the gasPrice value. It can be one of
-      the following: (wei, kwei, mwei, gwei, szabo, finney, ether).
+    - `gasPrice.value`: (required) - A number specifying the gasPrice value.
+    - `gasPrice.unit`: (required) The unit of the gasPrice value. It can be one
+      of the following: (wei, kwei, mwei, gwei, szabo, finney, ether).
 
 ### `maxConcurrency`
 
