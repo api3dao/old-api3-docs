@@ -71,8 +71,7 @@ revenue. All governing entities must have their funds used as collateral for
 them to govern in a way that minimizes **_security_** risks. "_Security_" refers
 to a "guarantee or reliability of dAPI service"
 
-Reference
-<a href="/api3-whitepaper-v1.0.3.pdf#API3%20tokenomics" target="_api3-whitepaper">section
+Reference <a href="/api3-whitepaper-v1.0.3.pdf#page=25" target="_blank">section
 5.4 _"API3 Tokenomics"_</a> of the API3 whitepaper.
 
 ### Staking
@@ -128,8 +127,7 @@ pool as collateral, which means that when a dAPI malfunction is confirmed
 through the dispute resolution protocol, user damages will be covered from the
 pool's staked tokens.
 
-Reference
-<a href="/api3-whitepaper-v1.0.3.pdf#Collateral" target="_api3-whitepaper">section
+Reference <a href="/api3-whitepaper-v1.0.3.pdf#page=27" target="_blank">section
 5.4.2 _"Collateral"_</a> of the API3 whitepaper.
 
 ### Governance
@@ -352,6 +350,5 @@ To insure against potential system failures, the DAO pool can empower special
 `payOutClaim(address recipient, uint256 amount)` in the DAO pool contract, which
 transfers tokens from the DAO pool to the recipient. When this occurs, the total
 number of staked tokens goes down, and pool share value goes down in turn.
-Reference
-<a href="/api3-whitepaper-v1.0.3.pdf#Service%20coverage%20process" target="_api3-whitepaper">section
+Reference <a href="/api3-whitepaper-v1.0.3.pdf#page=31" target="_blank">section
 6.3 _"Service coverage process"_</a> of the API3 whitepaper.

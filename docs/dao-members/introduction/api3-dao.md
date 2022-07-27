@@ -22,8 +22,9 @@ privileges in the DAO and thus participate in the governance of the project
 directly. In addition, stakers receive
 [Inflationary Rewards](dao-pool.md#inflationary-rewards) and any additional
 benefits that the DAO may decide on in the future. The staked API3 tokens will
-back an on-chain [Coverage Service](dao-pool.md#coverage-service) as collateral
-to provide dAPI users with quantifiable and trustless security guarantees.
+back an on-chain [Service Coverage](./dao-pool.md#service-coverage) as
+collateral to provide dAPI users with quantifiable and trustless security
+guarantees.
 
 The DAO votes on high-level matters such as staking incentives and
 collateralization, as well as grant proposals that provide DAO treasury funds to
@@ -56,8 +57,8 @@ based on expert opinion. As API3 operations expand, this governance hierarchy
 may demand additional layers in the form of subDAOs.
 
 To learn more about hierarchical team structures
-<a href="/api3-whitepaper-v1.0.3.pdf#API3%20DAO" target="_api3-whitepaper"> see
-Section 5.3 of the API3 Whitepaper</a>.
+<a href="/api3-whitepaper-v1.0.3.pdf#page=21" target="_blank"> see Section 5.3
+of the API3 Whitepaper</a>.
 
 ### subDAO
 
