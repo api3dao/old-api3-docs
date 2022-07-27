@@ -151,29 +151,7 @@ you need to change the port via
 [gatewayServerPort](../../../reference/deployment-files/config-json.md#cloudprovider-gatewayserverport)
 property inside config.json.
 
-## Start and Stop
-
-You can start and stop the Airnode with the Docker desktop application or via
-terminal commands.
-
-```sh
-docker stop quick-deploy-container-airnode
-
-docker start quick-deploy-container-airnode
-```
-
-## Logs
-
-You can view the Airnode's logs with the Docker desktop application or via
-terminal commands.
-
-```sh
-docker logs quick-deploy-container-airnode
-
-docker logs --follow quick-deploy-container-airnode
-```
-
-## Test the Airnode using HTTP gateway
+## Test the Airnode
 
 ### Request
 
@@ -200,6 +178,28 @@ curl -X POST \
 ```
 
 <airnode-tutorials-TutorialResponse/>
+
+## Start and Stop
+
+You can start and stop the Airnode with the Docker desktop application or via
+terminal commands.
+
+```sh
+docker stop quick-deploy-container-airnode
+
+docker start quick-deploy-container-airnode
+```
+
+## Logs
+
+You can view the Airnode's logs with the Docker desktop application or via
+terminal commands.
+
+```sh
+docker logs quick-deploy-container-airnode
+
+docker logs --follow quick-deploy-container-airnode
+```
 
 ## Remove the Airnode
 
