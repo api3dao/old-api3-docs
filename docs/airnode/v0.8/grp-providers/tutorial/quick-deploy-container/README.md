@@ -143,6 +143,14 @@ docker run --detach ^
 
 ::::
 
+Note that `--publish HOST_PORT:CONTAINER_PORT` parameter can have different
+values for the `HOST_PORT` and `CONTAINER_PORT`. E.g. parameter
+`--publish 8000:3000` would expose the web server on port 8000 on the host
+machine. If run using [host networking](https://docs.docker.com/network/host/)
+you need to change the port via
+[gatewayServerPort](../../../reference/deployment-files/config-json.md#cloudprovider-gatewayserverport)
+property inside config.json.
+
 ## Start and Stop
 
 You can start and stop the Airnode with the Docker desktop application or via
