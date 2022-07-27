@@ -57,7 +57,7 @@ implementation.
 ::: tip
 
 Learn more about Airnode Read Section 4 of the
-<a href="/api3-whitepaper-v1.0.3.pdf#Airnode:%20A%20Node%20Designed%20for%20First-Party%20Oracles" target="_api3-whitepaper">API3
+<a href="/api3-whitepaper-v1.0.3.pdf#page=14" target="_blank">API3
 Whitepaper</a> _Airnode: A Node Designed for First-Party Oracles_
 
 :::
