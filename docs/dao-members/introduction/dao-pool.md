@@ -91,8 +91,6 @@ inflationary rewards and exposes you to the risk of service coverage claims.
 
 **Benefits:**
 
-- Generate shares (tokens) in the DAO through revenue sharing from service
-  coverage fees.
 - Generates inflationary rewards by decreasing the circulating supply of API3
   tokens through revenue burn from service coverage fees.
 - Improved token inflation protection compared to unstaked tokens.
