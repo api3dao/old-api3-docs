@@ -24,7 +24,16 @@ module.exports = [
       'developers/data-feed-id-to-reader-to-whitelist-status',
     ],
   },
-
+  {
+    title: 'Operations Repository',
+    initialOpenGroupIndex: 1,
+    collapsable: false,
+    children: [
+      'operations/operations-repository.md',
+      'operations/structure.md',
+      'operations/reference.md',
+    ],
+  },
   {
     title: 'Reference',
     initialOpenGroupIndex: 1,
