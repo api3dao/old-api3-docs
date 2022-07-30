@@ -1,8 +1,9 @@
 ---
 title: Using Authorizers (optional)
+folder: API Providers > Build an Airnode
 ---
 
-<TitleSpan>Build an Airnode</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

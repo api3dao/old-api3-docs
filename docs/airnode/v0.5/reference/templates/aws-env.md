@@ -1,8 +1,9 @@
 ---
 title: aws.env
+folder: Reference > Templates
 ---
 
-<TitleSpan>Templates</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 
