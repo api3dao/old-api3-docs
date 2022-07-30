@@ -53,7 +53,7 @@
       <!-- Added: wkande: This adds the custom Versions component. -->
       <Versions />
 
-      <!-- Added: wkande: Replacement search UI, still uses Vuepress logic. -->
+      <!-- Added: wkande: Replacement search UI. -->
       <search-SearchBoxBtn2 />
 
       <!--AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia" /-->
