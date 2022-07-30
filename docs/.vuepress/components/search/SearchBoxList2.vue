@@ -9,13 +9,24 @@
         @mouseenter="focus(i)"
       >
         <a href="javascript:void(0)" @click="go(s.path)">
-          <div class="ls-page-folder" v-if="s.frontmatter.folder">
-            <span style="font-size: x-small">📂</span>
-            {{ s.frontmatter.folder }}
+          <!-- Has folder -->
+          <div v-if="s.folder">
+            <div class="ls-page-folder">
+              <span style="font-size: x-small">📂</span>
+              {{ s.folder }}
+            </div>
+            <div class="ls-page-title">└&nbsp;{{ s.pageTitle }}</div>
+            <div v-if="s.headerTitle" class="ls-header">
+              └&nbsp;#&nbsp;{{ s.headerTitle }}
+            </div>
           </div>
-          <div class="ls-page-title">{{ s.title }}</div>
-          <div v-if="s.header" class="ls-header">
-            {{ s.header.title }}
+
+          <!-- No folder -->
+          <div v-if="!s.folder">
+            <div class="ls-page-title">{{ s.pageTitle }}</div>
+            <div v-if="s.headerTitle" class="ls-header-no-folder">
+              └&nbsp;#&nbsp;{{ s.headerTitle }}
+            </div>
           </div>
         </a>
       </li>
@@ -93,12 +104,18 @@ export default {
         font-weight 600
       .ls-page-title
         font-size 0.8em
-        font-weight 500
+        font-weight 600
+        margin-left:2px
 
       .ls-header
         font-size 0.7em
         font-weight 400
+        margin-left:17px
 
+      .ls-header-no-folder
+        font-size 0.7em
+        font-weight 400
+        margin-left:1px
 
     &.focused
       background-color #f3f4f5

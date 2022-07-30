@@ -1,3 +1,7 @@
+<!--
+Possible text highlighting: https://x-team.com/blog/highlight-text-vue-regex/
+-->
+
 <template>
   <div
     class="sb-search2-modal"
@@ -29,8 +33,6 @@
 import Vue from 'vue';
 import vClickOutside from 'v-click-outside';
 Vue.use(vClickOutside);
-
-import matchQuery from './match-query';
 
 /* global SEARCH_MAX_SUGGESTIONS, SEARCH_PATHS, SEARCH_HOTKEYS */
 export default {
@@ -65,30 +67,45 @@ export default {
         this.$site.themeConfig.searchMaxSuggestions || SEARCH_MAX_SUGGESTIONS;
 
       const res = [];
+      const words = query.split(' ');
+
       for (let i = 0; i < pages.length; i++) {
         if (res.length >= max) break;
         const p = pages[i];
-
-        // Filter by the path in "p"
+        // Filters by the path in "p", current doc set only
         if (!this.filterByPath(p)) {
           continue;
         }
 
-        if (matchQuery(query, p)) {
-          res.push(p);
-        } else if (p.headers) {
-          for (let j = 0; j < p.headers.length; j++) {
-            if (res.length >= max) break;
-            const h = p.headers[j];
-            if (h.title && matchQuery(query, p, h.title)) {
-              res.push(
-                Object.assign({}, p, {
+        words.some(checkTitle);
+        words.some(checkHeaders);
+
+        // Does the title contain any words (OR)
+        function checkTitle(word) {
+          if (p.title.toLowerCase().indexOf(word.toLowerCase()) > -1) {
+            res.push({
+              level: 0,
+              path: p.path,
+              folder: p.frontmatter.folder,
+              pageTitle: p.title,
+            });
+          }
+        }
+
+        // Do the headers contain any words (OR)
+        function checkHeaders(word) {
+          if (p.headers) {
+            p.headers.forEach((h) => {
+              if (h.title.toLowerCase().indexOf(word.toLowerCase()) > -1) {
+                res.push({
+                  level: h.level,
                   path: p.path + '#' + h.slug,
-                  folder: p.folder,
-                  header: h,
-                })
-              );
-            }
+                  folder: p.frontmatter.folder,
+                  headerTitle: h.title,
+                  pageTitle: p.title,
+                });
+              }
+            });
           }
         }
       }
@@ -119,7 +136,7 @@ export default {
       }
     },
     filterByPath(p) {
-      // Only allow the search to show items found in hte current doc set
+      // Only allow the search to show items found in the current doc set
       if (p.regularPath.indexOf(this.currentDocSetWithVersion) === 0) {
         return true;
       }

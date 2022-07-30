@@ -1,12 +1,12 @@
 <!--
-Parent of VersionsModal.vue. Opens a modal of user version selections.
+Parent of SearchBox2.vue. Opens a search modal.
 
-- Opens a modal passing versions list to modal and env (development or production)
+- Opens a modal passing.
 - Receives emit message from child component to close modal (@clicked="onChildClick")
 -->
 
 <template>
-  <span>
+  <span v-show="showSearchIcon">
     <button
       class="search2-btn"
       @click="openModal"
@@ -23,7 +23,6 @@ Parent of VersionsModal.vue. Opens a modal of user version selections.
 </template>
 
 <script>
-import { env, versions, versionsOis } from '../../config.js';
 import SearchBox2 from './SearchBox2';
 
 export default {
@@ -32,13 +31,8 @@ export default {
     SearchBox2,
   },
   data: () => ({
-    environment: env,
     showModal: false,
-    versions: versions,
-    versionsOis: versionsOis,
-    workingVersion: null,
-    showMenu: 'none',
-    versionDisplay: '',
+    showSearchIcon: false,
   }),
   methods: {
     openModal() {
@@ -53,7 +47,10 @@ export default {
     $route($event) {},
   },
   mounted() {
-    this.$nextTick(function () {});
+    this.$nextTick(function () {
+      // If not the landing page show the search icon.
+      if (this.$route.path !== '/') this.showSearchIcon = true;
+    });
   },
 };
 </script>
