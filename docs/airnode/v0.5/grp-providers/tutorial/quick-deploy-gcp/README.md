@@ -1,8 +1,9 @@
 ---
 title: Instructions
+folder: API Providers > Tutorials > Quick Deploy GCP
 ---
 
-<TitleSpan>Quick Deploy GCP</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

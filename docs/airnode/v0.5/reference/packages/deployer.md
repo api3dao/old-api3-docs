@@ -1,8 +1,9 @@
 ---
 title: Deployer
+folder: Reference > Packages
 ---
 
-<TitleSpan>Packages</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

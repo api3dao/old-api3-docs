@@ -1,8 +1,9 @@
 ---
 title: aws.env
+folder: API Providers > Tutorials > Quick Deploy AWS
 ---
 
-<TitleSpan>Quick Deploy AWS</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

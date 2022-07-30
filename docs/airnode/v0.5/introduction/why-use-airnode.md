@@ -1,8 +1,9 @@
 ---
 title: Why use Airnode?
+folder: Introduction
 ---
 
-<TitleSpan>Introduction</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

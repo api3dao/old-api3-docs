@@ -1,8 +1,9 @@
 ---
 title: Airnode Contract Addresses
+folder: Reference
 ---
 
-<TitleSpan>Reference</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 
