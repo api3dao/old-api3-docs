@@ -53,7 +53,7 @@ $ docker run --volume $(pwd)/config:/app/config ...
 
 ::: tab Windows PowerShell
 
-```sh
+```powershell
 $ tree
 .
 └── config
@@ -66,7 +66,7 @@ $ docker run --volume $(pwd)/config:/app/config ...
 
 ::: tab Windows CMD
 
-```sh
+```batch
 $ tree
 .
 └── config
@@ -104,7 +104,7 @@ docker run --detach \
 
 ::: tab Windows PowerShell
 
-```sh
+```powershell
 docker run --detach \
   --volume $(pwd)/config:/app/config \
   --name airnode \
@@ -115,7 +115,7 @@ docker run --detach \
 
 ::: tab Windows
 
-```sh
+```batch
 docker run --detach ^
   --volume %cd%/config:/app/config ^
   --name airnode ^

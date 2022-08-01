@@ -128,7 +128,7 @@ docker run --detach \
 
 For Windows, use CMD (and not PowerShell).
 
-```sh
+```batch
 docker run --detach ^
   --volume "%cd%:/app/config" ^
   --name quick-deploy-container-airnode ^
