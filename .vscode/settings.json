@@ -46,6 +46,8 @@
     "incentivizes",
     "tokenomics",
     "collateralized",
+    "Sokol",
+    "Moonbase",
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true
