@@ -99,3 +99,23 @@ selecting the workspace from there.
 Any integrations or deployments that are setup are stored at a workspace level.
 This means that if a user creates an integration or a deployment and then
 leaves, the integration or deployment will remain.
+
+## Activity Log
+
+Owners and admins can access the activity log through the workspace settings.
+
+The following actions are tracked and viewable in the activity log:
+
+Integrations
+
+- An integration is created
+- An integration's details are edited
+- A new version is created
+- An integration is deleted
+
+Deployments
+
+- A deployment is created
+- A deployment is edited
+- A deployment is deactivated
+- A deployment is deleted
