@@ -40,6 +40,30 @@
           "url": "https://medium.com/api3/on-daos-decentralized-autonomous-organizations-84c00abb89bc"
         },
         {
+          "date": "Jan 5, 2021",
+          "dt": "2021-01-05",
+          "title": "Hello ChainAPI!",
+          "url": "https://medium.com/api3/hello-chainapi-e1b386a74f1d"
+        },
+        {
+          "date": "Jan 5, 2021",
+          "dt": "2021-01-05",
+          "title": "Sunsetting Honeycomb, and a Retrospective",
+          "url": "https://medium.com/clc-group/sunsetting-honeycomb-and-a-retrospective-ba3f58268024"
+        },
+        {
+          "date": "Jun 30, 2021",
+          "dt": "2021-06-30",
+          "title": "Story of the Authoritative DAO",
+          "url": "https://bbenligiray.medium.com/story-of-the-authoritative-dao-1153990a3eff"
+        },
+        {
+          "date": "Jul 16, 2021",
+          "dt": "2021-07-16",
+          "title": "What is API3?",
+          "url": "https://bbenligiray.medium.com/what-is-api3-d97fdfe94e19"
+        },
+        {
           "date": "Dec 17, 2021",
           "dt": "2021-12-17",
           "title": "Beacons: Building blocks for Web3 data connectivity",
@@ -64,16 +88,16 @@
           "url": "https://medium.com/api3/dapis-apis-for-dapps-53b83f8d2493"
         },
         {
+          "date": "Apr 17, 2022",
+          "dt": "2022-04-017",
+          "title": "Commercial building blocks",
+          "url": "https://bbenligiray.medium.com/business-building-blocks-24143433672f"
+        },
+        {
           "date": "Jun 11, 2022",
           "dt": "2022-06-11",
           "title": "API monetization on Web3",
           "url": "https://medium.com/api3/api-monetization-on-web3-7d5fe855a8e3"
-        },
-        {
-          "date": "Jul 1, 2022",
-          "dt": "2022-07-01",
-          "title": "Redefining Trust: Truly Random Gaming",
-          "url": "https://medium.com/api3/redefining-trust-truly-random-gaming-8da641ec66eb"
         }
       ]
     },
@@ -122,18 +146,6 @@
           "dt": "2020-11-16",
           "title": "Announcing Monolith #1: Authoritative API3 DAO",
           "url": "https://medium.com/api3/announcing-monolith-1-authoritative-api3-dao-ec9ca6d044f8"
-        },
-        {
-          "date": "Dec 10, 2020",
-          "dt": "2020-12-10",
-          "title": "API3 Operations",
-          "url": "https://medium.com/api3/api3-operations-a35c93a3a9d"
-        },
-        {
-          "date": "Jan 5, 2021",
-          "dt": "2021-01-05",
-          "title": "Hello ChainAPI!",
-          "url": "https://medium.com/api3/hello-chainapi-e1b386a74f1d"
         }
       ]
     },
@@ -188,6 +200,12 @@
           "dt": "2021-11-05",
           "title": "Weaknesses in Modern Voting Systems",
           "url": "https://medium.com/api3/weaknesses-in-modern-voting-systems-b680d25aaafb"
+        },
+        {
+          "date": "Jul 1, 2022",
+          "dt": "2022-07-01",
+          "title": "Redefining Trust: Truly Random Gaming",
+          "url": "https://medium.com/api3/redefining-trust-truly-random-gaming-8da641ec66eb"
         }
       ]
     },
@@ -314,6 +332,12 @@
           "dt": "2022-06-29",
           "title": "API3 Core Technical Team Report, June 2022",
           "url": "https://bbenligiray.medium.com/api3-core-technical-team-report-june-2022-b736359e1a4f"
+        },
+        {
+          "date": "Jul 31, 2022",
+          "dt": "2022-07-31",
+          "title": "API3 Core Technical Team Report, July 2022",
+          "url": "https://bbenligiray.medium.com/api3-core-technical-team-report-july-2022-4b04630704d9"
         }
       ]
     },
@@ -344,6 +368,12 @@
     {
       "tag": "Operations Team",
       "posts": [
+        {
+          "date": "Dec 10, 2020",
+          "dt": "2020-12-10",
+          "title": "API3 Operations",
+          "url": "https://medium.com/api3/api3-operations-a35c93a3a9d"
+        },
         {
           "date": "Jan 11, 2022",
           "dt": "2022-01-11",
