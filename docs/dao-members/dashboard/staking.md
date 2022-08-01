@@ -15,7 +15,7 @@ eligible for rewards and governance rights.
 
 ## Getting Started
 
-1. Access the [DAO Dashboard](https://api3.eth.link/)
+1. Access the [DAO Dashboard](https://dao.api3.org)
 2. Select **Staking** page from the navigation bar in the upper left hand
    corner.
 3. Proceed to [Staking Overview](staking.md#staking-overview) section below and
