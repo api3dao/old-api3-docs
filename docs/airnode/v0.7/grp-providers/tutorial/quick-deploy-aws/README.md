@@ -164,7 +164,7 @@ docker run -it --rm \
 
 For Windows, use CMD (and not PowerShell).
 
-```sh
+```batch
 docker run -it --rm ^
   --env-file aws.env ^
   -v "%cd%/config:/app/config" ^
@@ -271,7 +271,7 @@ curl -v \
 
 ::: tab Windows
 
-```sh
+```batch
 curl -v ^
 -X POST ^
 -H "Content-Type: application/json" ^
@@ -326,7 +326,7 @@ docker run -it --rm \
 
 For Windows, use CMD (and not PowerShell).
 
-```sh
+```batch
 docker run -it --rm ^
   --env-file aws.env ^
   -v "%cd%/output:/app/output" ^

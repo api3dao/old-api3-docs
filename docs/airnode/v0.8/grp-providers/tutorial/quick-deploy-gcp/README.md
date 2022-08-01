@@ -170,7 +170,7 @@ docker run -it --rm \
 
 For Windows, use CMD (and not PowerShell).
 
-```sh
+```batch
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
   api3/airnode-deployer:0.8.0 deploy
@@ -276,7 +276,7 @@ curl -v \
 
 ::: tab Windows
 
-```sh
+```batch
 curl -v ^
 -X POST ^
 -H 'Content-Type: application/json' ^
@@ -327,7 +327,7 @@ docker run -it --rm \
 
 For Windows, use CMD (and not PowerShell).
 
-```sh
+```batch
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
   api3/airnode-deployer:0.8.0 remove-with-receipt

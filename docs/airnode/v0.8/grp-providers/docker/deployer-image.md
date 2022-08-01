@@ -97,7 +97,7 @@ docker run -it --rm \
 
 ::: tab Windows
 
-```sh
+```batch
 # For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
@@ -149,7 +149,7 @@ docker run -it --rm \
 
 ::: tab Windows
 
-```sh
+```batch
 # For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
@@ -206,7 +206,7 @@ docker run -it --rm \
 
 ::: tab Windows
 
-```sh
+```batch
 #For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "$(pwd):/app/config" ^
