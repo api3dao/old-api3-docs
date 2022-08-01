@@ -1,7 +1,11 @@
 <!--
-  This component displays a list of all protocol contracts and their chain. If the chain
+  This component displays a protocol contracts and their chains with addresses. If the chain
   is not listed in /docs/.vuepress/chains.json then any address related to it will not 
   appear in this component.
+
+  Parameters:
+  type: mainnet, testnet
+  contractName: AirnodeRrpV0, RequesterAuthorizerWithAirnode, AccessControlRegistry
 -->
 
 <template>
@@ -13,49 +17,36 @@
       The Contract list failed to load: ({{ error }})
     </p>
 
-    <!-- OUTER CONTRACT LIST -->
+    <!-- CONTRACT LIST -->
     <div v-show="error == null">
-      <div v-for="(contract, index) in contracts" :key="index">
-        <h3>{{ contract.contractName }}</h3>
-        <table>
-          <th class="contract-addresses-heading">Chain</th>
-          <th class="contract-addresses-heading">Chain ID</th>
-          <th class="contract-addresses-heading">Contract Address</th>
-          <tr
-            v-for="(item, index) in contract.addresses"
-            v-bind:key="index"
-            v-show="type === item.chain.type"
-            v-bind:class="{
-              contract_tr_highlight: item.chain.important,
-            }"
-          >
-            <td>
-              {{ item.chain.fullname }}
-            </td>
-            <td>
-              {{ item.chainId }}
-            </td>
-            <td NOWRAP>
-              <!--a
-                target="_etherscan"
-                :href="'https://etherscan.io/address/' + item.address"
-                :id="contract.contractName + index"
-                class="contract-addresses-address"
-                >{{ item.address }}</a
-              ><ExternalLinkImage /-->
-
-              <span
-                :id="
-                  item.chain.type + '-' + contract.contractName + '-' + index
-                "
-                class="contract-addresses-address"
-                >{{ item.address }}</span
-              >
-              <CopyIcon :text="item.address" />
-            </td>
-          </tr>
-        </table>
-      </div>
+      <table>
+        <th class="contract-addresses-heading">Chain</th>
+        <th class="contract-addresses-heading">Chain ID</th>
+        <th class="contract-addresses-heading">Contract Address</th>
+        <tr
+          v-for="(item, index) in items"
+          v-bind:key="index"
+          v-show="type === item.type"
+          v-bind:class="{
+            contract_tr_highlight: item.important,
+          }"
+        >
+          <td>
+            {{ item.fullname }}
+          </td>
+          <td>
+            {{ item.chainId }}
+          </td>
+          <td NOWRAP>
+            <span
+              :id="item.type + '-' + contractName + '-' + index"
+              class="contract-addresses-address"
+              >{{ item.address }}</span
+            >
+            <CopyIcon :text="item.address" />
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
   <div v-else>
@@ -70,42 +61,16 @@ import axios from 'axios';
 import chainsRef from '../../chains.json';
 export default {
   name: 'ContractAddresses',
-  props: ['type'],
+  props: ['type', 'contractName'],
   data: () => ({
     loaded: false,
     showSpinner: true,
     error: null,
     contracts: [],
     chains: {},
+    list: {},
+    items: [],
   }),
-  methods: {
-    /** Create a chain JSON obj from the chainNames
-     * received from the repo. Add in the type (mainnet or testnet)
-     * and if important (1, ropsten, kovan, goerli, rinkeby).
-     */
-    buildChainsObj(repoChains) {
-      for (const chainId in repoChains) {
-        let chain = {};
-        this.chains[chainId] = { name: repoChains[chainId] };
-
-        // Set the network type (mainnet or testnet).
-        this.chains[chainId].type = chainsRef[chainId].type;
-
-        // Set (mainnet, ropsten, kovan, goerli, rinkeby) as important for display purpose.
-        // Note: chainId is a string
-        const important = ['1', '3', '4', '5', '42'];
-        if (important.includes(chainId)) {
-          this.chains[chainId].important = true;
-        }
-        // Add fullname
-        if (chainsRef[chainId]) {
-          this.chains[chainId].fullname = chainsRef[chainId].fullname;
-        } else {
-          this.chains[chainId].fullname = this.chains[chainId].name + '*';
-        }
-      }
-    },
-  },
   mounted() {
     this.$nextTick(async function () {
       try {
@@ -113,78 +78,47 @@ export default {
           'https://raw.githubusercontent.com/api3dao/airnode/master/packages/airnode-protocol/deployments/references.json'
         );
 
-        // These are holders of specific chains that go on top of each contract's
-        // array, under them chains are sort A-Z.
-        // In testnets, start with ropsten, rinkeby, goerli, kovan,
-        // then continue with the others in A-Z order.
-        let mainnetObj = [];
-        let ropstenObj = [];
-        let rinkebyObj = [];
-        let goerliObj = [];
-        let kovanObj = [];
+        // Build the list of chains for the contract and network type passed.
+        // A few chains are important and need to be at the top of their list.
+        const important = [1, 3, 4, 5, 42];
+        let importantArr = [];
+        let notImportantArr = [];
 
-        // Pull the chainNames from resp
-        this.buildChainsObj(response.data.chainNames);
-        delete response.data['chainNames'];
-        // Jun 2022, networks was add to the payload, not needed.
-        // See GitHub issue 833
-        delete response.data['networks'];
-
-        // Create a list of contracts with addresses
-        for (const key in response.data) {
-          // ADDRESSES
-          let addresses = [];
-          for (const chainId in response.data[key]) {
-            const add = {
-              address: response.data[key][chainId],
-              chainId: chainId,
-              chain: this.chains[chainId] || { name: 'Unknown' },
-            };
-            if (add.chainId === '1') mainnetObj = add;
-            else if (add.chainId === '3') ropstenObj = add;
-            else if (add.chainId === '4') rinkebyObj = add;
-            else if (add.chainId === '5') goerliObj = add;
-            else if (add.chainId === '42') kovanObj = add;
-            else addresses.push(add);
+        for (const key in response.data[this.contractName]) {
+          // Here the network is not in chainsRef list
+          // Is it a testnet or mainnet, tell by its repo name
+          if (!chainsRef[key]) {
+            let network = 'mainnet';
+            if (response.data.chainNames[key].indexOf('testnet') > -1) {
+              network = 'testnet';
+            }
+            importantArr.push({
+              address: response.data[this.contractName][key],
+              chainId: parseInt(key),
+              fullname: response.data.chainNames[key],
+              type: network,
+            });
+            // Here the chain is in the chainsRef list
+          } else if (chainsRef[key].type === this.type) {
+            if (important.includes(parseInt(key))) {
+              importantArr.push({
+                address: response.data[this.contractName][key],
+                chainId: parseInt(key),
+                fullname: chainsRef[key].fullname,
+                important: true,
+                type: chainsRef[key].type,
+              });
+            } else {
+              notImportantArr.push({
+                address: response.data[this.contractName][key],
+                chainId: parseInt(key),
+                fullname: chainsRef[key].fullname,
+                type: chainsRef[key].type,
+              });
+            }
           }
-          addresses = addresses.filter((item) => item.chain.type === this.type);
-          // Sort addresses by chain name
-          addresses.sort((a, b) => (a.chain.name > b.chain.name ? 1 : -1));
-
-          // Move mainnet to top, then  special testnets
-          addresses.unshift(kovanObj);
-          addresses.unshift(goerliObj);
-          addresses.unshift(rinkebyObj);
-          addresses.unshift(ropstenObj);
-          addresses.unshift(mainnetObj);
-
-          // Build contract with addresses
-          let contract = { contractName: key, addresses: addresses };
-          this.contracts.push(contract);
         }
-
-        // Need to reorder the response.data by contract
-        // AirnodeRrp (first), RequesterAuthorizerWithAirnode, AccessControlRegistry,
-        // then any "other" contracts that might be present
-
-        // AccessControlRegistry
-        let index = this.contracts.findIndex(
-          (x) => x.contractName === 'AccessControlRegistry'
-        );
-        let contract = this.contracts.splice(index, 1);
-        this.contracts.unshift(contract[0]);
-        // RequesterAuthorizerWithAirnode
-        index = this.contracts.findIndex(
-          (x) => x.contractName === 'RequesterAuthorizerWithAirnode'
-        );
-        contract = this.contracts.splice(index, 1);
-        this.contracts.unshift(contract[0]);
-        // AirnodeRrp
-        index = this.contracts.findIndex(
-          (x) => x.contractName === 'AirnodeRrp'
-        );
-        contract = this.contracts.splice(index, 1);
-        this.contracts.unshift(contract[0]);
+        this.items = importantArr.concat(notImportantArr);
       } catch (err) {
         this.error = err.toString();
         console.error('error:', this.error);
