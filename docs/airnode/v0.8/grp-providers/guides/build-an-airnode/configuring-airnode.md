@@ -235,12 +235,14 @@ The `nodeSettings` field holds node-specific (Airnode) configuration parameters.
     "httpGateway": {
       "enabled": true,
       "apiKey": "${HTTP_GATEWAY_API_KEY}",
-      "maxConcurrency": 20
+      "maxConcurrency": 20,
+      "corsOrigins": []
     },
     "httpSignedDataGateway": {
       "enabled": true,
       "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_API_KEY}",
-      "maxConcurrency": 20
+      "maxConcurrency": 20,
+      "corsOrigins": []
     },
     "logFormat": "plain",
     "logLevel": "INFO",
@@ -280,11 +282,13 @@ note that that distinct API keys must be used for each.
 - [httpGateway](../../../reference/deployment-files/config-json.md#httpgateway)
   - [httpGateway.enabled](../../../reference/deployment-files/config-json.md#httpgateway-enabled)
   - [httpGateway.apiKey](../../../reference/deployment-files/config-json.md#httpgateway-apikey)
-  - [httpGateway.maxConcurrency](../../../reference/deployment-files/config-json.md#httpgateway-maxconcurrency)
+  - [httpGateway.maxConcurrency](../../../reference/deployment-files/config-json.md#httpgateway-corsorigins)
+  - [httpGateway.corsOrigins](../../../reference/deployment-files/config-json.md#httpgateway-maxconcurrency)
 - [httpSignedDataGateway](../../../reference/deployment-files/config-json.md#httpsigneddatagateway)
   - [httpSignedDataGateway.enabled](../../../reference/deployment-files/config-json.md#httpsigneddatagateway-enabled)
   - [httpSignedDataGateway.apiKey](../../../reference/deployment-files/config-json.md#httpsigneddatagateway-apikey)
   - [httpSignedDataGateway.maxConcurrency](../../../reference/deployment-files/config-json.md#httpsigneddatagateway-maxconcurrency)
+  - [httpSignedDataGateway.corsOrigins](../../../reference/deployment-files/config-json.md#httpsigneddatagateway-corsorigins)
 - [logFormat](../../../reference/deployment-files/config-json.md#logformat)
 - [logLevel](../../../reference/deployment-files/config-json.md#loglevel)
 - [nodeVersion](../../../reference/deployment-files/config-json.md#nodeversion)

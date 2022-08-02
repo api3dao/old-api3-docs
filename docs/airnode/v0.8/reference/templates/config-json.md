@@ -111,12 +111,14 @@ building a config.json file.
     "httpGateway": {
       "enabled": "<FILL_BOOLEAN>",
       "apiKey": "${HTTP_GATEWAY_API_KEY}", // In secrets.env
-      "maxConcurrency": "<FILL_NUMBER>"
+      "maxConcurrency": "<FILL_NUMBER>",
+      "corsOrigins": ["<FILL_*>"]
     },
     "httpSignedDataGateway": {
       "enabled": <FILL_BOOLEAN>,
       "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_API_KEY}", // In secrets.env
-      "maxConcurrency": <FILL_NUMBER>
+      "maxConcurrency": <FILL_NUMBER>,
+      "corsOrigins": ["<FILL_*>"]
     },
     "logFormat": "json",
     "logLevel": "INFO",

@@ -337,12 +337,14 @@ An object containing general deployment parameters of an Airnode.
   "httpGateway": {
     "enabled": true,
     "apiKey": "${HTTP_GATEWAY_API_KEY}",
-    "maxConcurrency": 20
+    "maxConcurrency": 20,
+    "corsOrigins": []
   },
   "httpSignedDataGateway": {
     "enabled": true,
     "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_API_KEY}",
-    "maxConcurrency": 20
+    "maxConcurrency": 20,
+    "corsOrigins": []
   },
   "logFormat": "json",
   "logLevel": "INFO"
@@ -442,6 +444,11 @@ must have a length of between 30 - 120 characters. Do not use the same key for
 number of serverless functions serving HTTP gateway requests running at the same
 time. When omitted, there is no maximum concurrency set.
 
+#### `httpGateway.corsOrigins`
+
+(only if enabled) - A list of allowed origins. An empty array (`[]`) can be used
+to disable CORS and the wildcard (`['*']`) can be used to allow all origins.
+
 ### `httpSignedDataGateway`
 
 (required) - The Airnode's HTTP gateway can request endpoints without using the
@@ -465,6 +472,11 @@ must have a length of between 30 - 120 characters. Do not use the same key for
 (only if enabled, optional) - A number higher than zero representing the maximum
 number of serverless functions serving HTTP gateway requests running at the same
 time. When omitted, there is no maximum concurrency set.
+
+#### `httpSignedDataGateway.corsOrigins`
+
+(only if enabled) - A list of allowed origins. An empty array (`[]`) can be used
+to disable CORS and the wildcard (`['*']`) can be used to allow all origins.
 
 ### `logFormat`
 

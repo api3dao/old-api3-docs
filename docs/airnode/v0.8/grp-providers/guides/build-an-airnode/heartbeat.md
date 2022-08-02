@@ -45,12 +45,14 @@ Turn on the optional heartbeat functionality by setting all fields in the
       "httpGateway": {
         "enabled": true,
         "apiKey": "${HTTP_GATEWAY_API_KEY}",
-        "maxConcurrency": 20
+        "maxConcurrency": 20,
+        "corsOrigins": []
       },
       "httpSignedDataGateway": {
         "enabled": true,
         "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_API_KEY}",
-        "maxConcurrency": 20
+        "maxConcurrency": 20,
+        "corsOrigins": []
       },
       "logFormat": "json",
       "logLevel": "INFO",
