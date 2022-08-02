@@ -31,6 +31,9 @@ module.exports = [
     children: [
       'operations/operations-repository.md',
       'operations/structure.md',
+      'operations/development_usage.md',
+      'operations/deployment_usage.md',
+      'operations/integrating_a_new_provider.md',
       'operations/reference.md',
     ],
   },
