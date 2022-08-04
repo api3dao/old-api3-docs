@@ -6,7 +6,7 @@ Parent of SearchBox2.vue. Opens a search modal.
 -->
 
 <template>
-  <span v-show="showSearchIcon">
+  <span>
     <button
       class="search2-btn"
       @click="openModal"
@@ -32,7 +32,7 @@ export default {
   },
   data: () => ({
     showModal: false,
-    showSearchIcon: false,
+    //showSearchIcon: false,
   }),
   methods: {
     openModal() {
@@ -49,7 +49,7 @@ export default {
   mounted() {
     this.$nextTick(function () {
       // If not the landing page show the search icon.
-      if (this.$route.path !== '/') this.showSearchIcon = true;
+      //if (this.$route.path !== '/') this.showSearchIcon = true;
     });
   },
 };

@@ -25,6 +25,7 @@ Possible text highlighting: https://x-team.com/blog/highlight-text-vue-regex/
         @keyup.down="onDown"
       />&nbsp;&nbsp;<span v-if="suggestions">({{ suggestions.length }})</span>
     </div>
+    <search-SearchBoxSelect2 :path="path" />
     <search-SearchBoxList2 :suggestions="suggestions" />
   </div>
 </template>
@@ -39,23 +40,28 @@ export default {
   name: 'SearchBox2',
   data() {
     return {
+      v: Vue.version,
       query: localStorage.getItem('search_query') || '',
       scrollY: localStorage.getItem('scrollY'),
       focused: false,
       focusIndex: 0,
-      currentDocSetWithVersion: undefined, // The doc set the user is reading
+      path: undefined,
     };
   },
-
   computed: {
     showSuggestions() {
       return this.focused && this.suggestions && this.suggestions.length;
     },
     suggestions() {
       const query = this.query.trim().toLowerCase();
-      if (!this.currentDocSetWithVersion) {
-        this.setCurrentDocSet();
+
+      // This prevents excessive filtering when now
+      // looking thru "All Documentation" .
+      if (!this.path) {
+        this.setPath();
       }
+
+      // Store the query
       if (query.length < 3) {
         localStorage.setItem('search_query', '');
         return;
@@ -63,19 +69,24 @@ export default {
       localStorage.setItem('search_query', query);
 
       const { pages } = this.$site;
+      pages.sort(this.sortByPath);
       const max =
         this.$site.themeConfig.searchMaxSuggestions || SEARCH_MAX_SUGGESTIONS;
 
-      const res = [];
-      const words = query.split(' ');
+      const res = []; // The array to the pages to, to be returned
+      const words = query.split(' '); // Array of words from the query string
 
       for (let i = 0; i < pages.length; i++) {
         if (res.length >= max) break;
         const p = pages[i];
+
         // Filters by the path in "p", current doc set only
         if (!this.filterByPath(p)) {
           continue;
         }
+
+        // Skip the landing page
+        if (p.path === '/') continue;
 
         words.some(checkTitle);
         words.some(checkHeaders);
@@ -85,7 +96,7 @@ export default {
           if (p.title.toLowerCase().indexOf(word.toLowerCase()) > -1) {
             res.push({
               level: 0,
-              path: p.path,
+              page: p,
               folder: p.frontmatter.folder,
               pageTitle: p.title,
             });
@@ -98,6 +109,7 @@ export default {
             p.headers.forEach((h) => {
               if (h.title.toLowerCase().indexOf(word.toLowerCase()) > -1) {
                 res.push({
+                  p_path: p.path,
                   level: h.level,
                   path: p.path + '#' + h.slug,
                   folder: p.frontmatter.folder,
@@ -108,16 +120,19 @@ export default {
             });
           }
         }
+
+        // Sort the pages from $site
       }
+      console.log(res);
       return res;
     },
   },
 
   mounted() {
+    this.setPath();
     this.placeholder = this.$site.themeConfig.searchPlaceholder || '';
     document.addEventListener('keydown', this.onHotkey);
   },
-
   beforeDestroy() {
     document.removeEventListener('keydown', this.onHotkey);
   },
@@ -126,18 +141,30 @@ export default {
     onClickOutside(url, event) {
       this.$emit('clicked'); // goes to parent method
     },
-    setCurrentDocSet() {
+    updatePathFromChild(path) {
+      // Called by child "SearchBoxSelect2.vue" component's "picklist"
+      this.path = path;
+    },
+    sortByPath(a, b) {
+      if (a.path > b.path) {
+        return -1;
+      }
+      if (a.path < b.path) {
+        return 1;
+      }
+      return 0;
+    },
+    setPath() {
       const docSet = this.$route.path.split('/');
-
       if (['airnode', 'ois'].includes(docSet[1])) {
-        this.currentDocSetWithVersion = '/' + docSet[1] + '/' + docSet[2];
+        this.path = '/' + docSet[1] + '/' + docSet[2];
       } else {
-        this.currentDocSetWithVersion = '/' + docSet[1];
+        this.path = '/' + docSet[1];
       }
     },
     filterByPath(p) {
-      // Only allow the search to show items found in the current doc set
-      if (p.regularPath.indexOf(this.currentDocSetWithVersion) === 0) {
+      // Only show items found in the reader's select doc set
+      if (p.regularPath.indexOf(this.path) === 0) {
         return true;
       }
       return false;
@@ -151,7 +178,6 @@ export default {
         event.preventDefault();
       }
     },
-
     onUp() {
       if (this.showSuggestions) {
         if (this.focusIndex > 0) {
@@ -161,7 +187,6 @@ export default {
         }
       }
     },
-
     onDown() {
       if (this.showSuggestions) {
         if (this.focusIndex < this.suggestions.length - 1) {
@@ -191,9 +216,43 @@ export default {
   box-shadow: 2px 2px 20px 1px;
   overflow-y: auto;
 }
+
+select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+
+.select {
+  display: grid;
+  grid-template-areas: 'select';
+  align-items: center;
+  position: relative;
+}
 </style>
 
 <style lang="stylus">
+
+.sb-tab
+  border none
+  padding 0
+  background none
+  color #50c878
+  font-size medium
+  font-weight 600
+  cursor pointer
+  margin-top 12px
+  .sb-tab-selected
+    padding-bottom 3px
+    color black
+    border-bottom solid black 2px
 
 .sb-show-path{
   font-size x-large

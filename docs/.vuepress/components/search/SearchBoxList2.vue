@@ -28,6 +28,7 @@
               └&nbsp;#&nbsp;{{ s.headerTitle }}
             </div>
           </div>
+          <div style="font-size: xx-small">{{ s.path }}</div>
         </a>
       </li>
     </ul>
@@ -70,7 +71,9 @@ export default {
 
 .ls-search-list
   user-select none
-  margin-top 15px
+  margin-top 9px
+  border-top solid lightgrey 2px
+  border-bottom solid lightgrey 2px
   .ls-docSet-heading
     max-width 200px
     border-bottom solid lightgrey 1px
@@ -80,7 +83,7 @@ export default {
       color gray
   .ls-suggestions
     margin-bottom -50px
-    margin-top -15px
+    margin-top -10px
     background #fff
     max-width 34rem
 

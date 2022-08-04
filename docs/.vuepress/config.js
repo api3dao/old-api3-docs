@@ -28,6 +28,27 @@ module.exports = {
   /// Job page revision, incremented when a new job(s) is added
   jobPageRevision: 4,
 
+  /// Search picklist for doc sets
+  searchPicklist: [
+    { label: 'All Documentation', path: '/', published: true },
+    { label: 'Airnode v0.8', path: '/airnode/v0.8' },
+    { label: 'Airnode v0.7', path: '/airnode/v0.7', published: true },
+    { label: 'Airnode v0.6', path: '/airnode/v0.6', published: true },
+    { label: 'Airnode v0.5', path: '/airnode/v0.5', published: true },
+    { label: 'Airnode v0.4', path: '/airnode/v0.4', published: true },
+    { label: 'Airnode v0.3', path: '/airnode/v0.3', published: true },
+    { label: 'Airnode v0.2', path: '/airnode/v0.2', published: true },
+    { label: 'Airnode pre-alpha', path: '/airnode/pre-alpha', published: true },
+    { label: 'OIS v1.0', path: '/ois/v1.0', published: true },
+    { label: 'OIS v1.1', path: '/ois/v1.1', published: true },
+    { label: 'dAPIs', path: '/dapis', published: true },
+    { label: 'ChainAPI', path: '/chainapi', published: true },
+    { label: 'QRNG', path: '/qrng', published: true },
+    { label: 'DAO Members', path: '/dao-members', published: true },
+    { label: 'API3', path: '/api3', published: true },
+    { label: 'api3-docs Development', path: '/dev' },
+    { label: 'Operations', path: '/operations' },
+  ],
   head: [
     [
       'meta',
