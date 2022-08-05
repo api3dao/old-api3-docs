@@ -1,5 +1,7 @@
 ---
 title: Quirks
+docSetName: api3-docs Development
+tags:
 ---
 
 # {{$frontmatter.title}}

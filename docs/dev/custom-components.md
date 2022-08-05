@@ -1,5 +1,7 @@
 ---
 title: Custom Components
+docSetName: api3-docs Development
+tags:
 ---
 
 # {{$frontmatter.title}}

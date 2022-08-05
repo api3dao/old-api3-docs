@@ -1,6 +1,8 @@
 ---
 title: Release Notes
 path: v0.5
+docSetName: api3-docs Development
+tags:
 ---
 
 # {{$frontmatter.title}}

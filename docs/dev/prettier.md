@@ -1,5 +1,7 @@
 ---
 title: Prettier
+docSetName: api3-docs Development
+tags:
 ---
 
 # {{$frontmatter.title}}

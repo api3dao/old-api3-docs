@@ -1,5 +1,7 @@
 ---
 title: Redirects
+docSetName: api3-docs Development
+tags:
 ---
 
 # {{$frontmatter.title}}

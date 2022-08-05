@@ -1,5 +1,7 @@
 ---
 title: Zip Tutorial Files
+docSetName: api3-docs Development
+tags:
 ---
 
 # {{$frontmatter.title}}

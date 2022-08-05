@@ -1,5 +1,7 @@
 ---
 title: Setup
+docSetName: api3-docs Development
+tags:
 ---
 
 # {{$frontmatter.title}}
