@@ -31,7 +31,7 @@ jobs:
           channelId: ${{ steps.get_branch.outputs.branch_name }}
         id: firebase_deploy
 
-      - uses: actions/github-script@v5
+      - uses: actions/github-script@v6
         with:
           script: |
             github.rest.repos.createCommitComment({
