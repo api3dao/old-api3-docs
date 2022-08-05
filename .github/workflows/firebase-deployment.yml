@@ -43,15 +43,3 @@ jobs:
               commit_sha: context.sha,
               body: 'Preview site: ${{ steps.firebase_deploy.outputs.details_url }}'
             })
-
-      - uses: actions/github-script@v6
-        name: Comment on PR
-        if: ${{ github.event_name == 'pull_request' }}
-        with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'Preview site: ${{ steps.firebase_deploy.outputs.details_url }}'
-            })
