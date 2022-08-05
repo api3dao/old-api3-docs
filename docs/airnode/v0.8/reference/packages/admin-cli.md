@@ -665,7 +665,7 @@ Airnode wallet.
 
 - [derive-airnode-xpub](admin-cli.md#derive-airnode-xpub)
 - [derive-endpoint-id](admin-cli.md#derive-endpoint-id)
-- [generate-mnemonic](admin-cli.md#generate-mnemonic)
+- [generate-airnode-mnemonic](admin-cli.md#generate-airnode-mnemonic)
 - [derive-airnode-address](admin-cli.md#derive-airnode-address)
 
 ### `derive-airnode-xpub`
@@ -736,13 +736,23 @@ npx @api3/airnode-admin derive-endpoint-id ^
 
 ::::
 
-### `generate-mnemonic`
+### `generate-airnode-mnemonic`
 
 Generates a unique mnemonic which can be used to create an
 [airnode wallet](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#airnodewalletmnemonic).
 In addition to the mnemonic, this command will also display the corresponding
 [airnode address](../../concepts/airnode.md#airnodeaddress) and its extended
 public key ([xpub](../../concepts/airnode.md#xpub)).
+
+```sh
+npx @api3/airnode-admin generate-airnode-mnemonic
+```
+
+### `generate-mnemonic`
+
+Generates a unique mnemonic which can be used to create a wallet. In addition to
+the mnemonic, this command will also display the corresponding default wallet
+(path:m/44'/60'/0'/0/0) address and its extended public key (xpub).
 
 ```sh
 npx @api3/airnode-admin generate-mnemonic

@@ -102,7 +102,7 @@ Add values for each of the these fields.
 - `AIRNODE_WALLET_MNEMONIC`: Provide the seed phrase (mnemonic) to a digital
   wallet. For the purpose of this demo it does not need eth in it for the
   Rinkeby test network. If you don't have one use the Admin CLI command
-  [generate-mnemonic](../../../reference/packages/admin-cli.md#generate-mnemonic)
+  [generate-airnode-mnemonic](../../../reference/packages/admin-cli.md#generate-airnode-mnemonic)
   to create one or another method you prefer.
 
 - `PROJECT_ID`: Project ID of your GCP project.
