@@ -1,8 +1,11 @@
 ---
 title: config.json
+folder: Reference > Example Deployment Files
+docSetName: ChainAPI
+tags:
 ---
 
-<TitleSpan>Example Deployment Files</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

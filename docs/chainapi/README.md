@@ -1,8 +1,11 @@
 ---
 title: What is ChainAPI?
+folder: Introduction
+docSetName: ChainAPI
+tags:
 ---
 
-<TitleSpan>Introduction</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

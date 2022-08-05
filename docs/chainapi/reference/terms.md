@@ -1,8 +1,11 @@
 ---
 title: Terminology
+folder: Reference
+docSetName: ChainAPI
+tags:
 ---
 
-<TitleSpan>Introduction</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 
