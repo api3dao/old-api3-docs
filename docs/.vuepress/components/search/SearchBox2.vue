@@ -8,6 +8,7 @@ Possible text highlighting: https://x-team.com/blog/highlight-text-vue-regex/
     v-click-outside="onClickOutside"
     style="user-select: none"
   >
+    <!-- Removed from input, keep in case needed - @keyup.enter="go(focusIndex)"-->
     <div class="sb-search-input-box">
       <input
         ref="input"
@@ -20,7 +21,6 @@ Possible text highlighting: https://x-team.com/blog/highlight-text-vue-regex/
         @input="query = $event.target.value"
         @focus="focused = true"
         @blur="focused = false"
-        @keyup.enter="go(focusIndex)"
         @keyup.up="onUp"
         @keyup.down="onDown"
       />&nbsp;&nbsp;<span v-if="suggestions">({{ suggestionsCnt }})</span>
@@ -73,6 +73,10 @@ export default {
 
       const { pages } = this.$site; // Load the site pages
       pages.sort(this.sortByPath); // Sort the pages by their path
+      /*pages.forEach((item, index) => {
+        if (index < 100) console.log(index, item.regularPath);
+      });*/
+
       const max =
         this.$site.themeConfig.searchMaxSuggestions || SEARCH_MAX_SUGGESTIONS; // Max allowed results set
 
@@ -172,6 +176,7 @@ export default {
       }
       // Suggestions  cnt
       this.suggestionsCnt = lastCnt;
+      console.log(res);
       return res;
     },
   },

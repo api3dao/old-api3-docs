@@ -1,8 +1,13 @@
 <template>
   <div v-if="suggestions" class="ls-search-list">
+    <!-- To show a li below 
+      1. is a header and has a cnt > 0
+      2. is a true link, has s.path
+    -->
     <ul class="ls-suggestions" @mouseleave="unfocus">
       <li
         v-for="(s, i) in suggestions"
+        v-show="(s.header && s.header.cnt > 0) || s.path"
         :key="i"
         class="ls-suggestion"
         :class="{ focused: i === focusIndex }"
@@ -13,7 +18,7 @@
         -->
         <div v-if="s.header && s.header.cnt > 0" class="ls-suggestion-header">
           {{ s.header.title }}
-          <span style="font-size: small">({{ s.header.cnt }})</span>
+          <span style="font-size: x-small">({{ s.header.cnt }})</span>
         </div>
 
         <!-- Links -->
@@ -24,7 +29,11 @@
               <span style="font-size: x-small">📂</span>
               {{ s.folder }}
             </div>
-            <div class="ls-page-title">└&nbsp;{{ s.pageTitle }}</div>
+            <div class="ls-page-title">
+              └&nbsp;<span style="font-size: xx-small">📄</span>&nbsp;{{
+                s.pageTitle
+              }}
+            </div>
             <div v-if="s.headerTitle" class="ls-header">
               └&nbsp;#&nbsp;{{ s.headerTitle }}
             </div>
@@ -32,7 +41,9 @@
 
           <!-- No folder -->
           <div v-if="!s.folder">
-            <div class="ls-page-title">{{ s.pageTitle }}</div>
+            <div class="ls-page-title">
+              <span style="font-size: xx-small">📄</span>&nbsp;{{ s.pageTitle }}
+            </div>
             <div v-if="s.headerTitle" class="ls-header-no-folder">
               └&nbsp;#&nbsp;{{ s.headerTitle }}
             </div>
@@ -111,6 +122,7 @@ export default {
     .ls-suggestion-header
       border-bottom solid 1px lightgrey
       font-weight 600
+      margin-left -10px
     a
       white-space normal
       color lighten($textColor, 35%)
@@ -125,7 +137,7 @@ export default {
       .ls-header
         font-size 0.7em
         font-weight 400
-        margin-left:17px
+        margin-left:20px
 
       .ls-header-no-folder
         font-size 0.7em
