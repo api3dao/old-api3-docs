@@ -115,7 +115,19 @@ of `api3/airnode-client` matches the `nodeVersion` in the config.json file.
 
 :::: tabs
 
-::: tab Linux/Mac/WSL2/PowerShell
+::: tab Linux
+
+```sh
+docker run --detach \
+  --volume "$(pwd):/app/config" \
+  --name quick-deploy-container-airnode \
+  --network host \
+  api3/airnode-client:0.7.2
+```
+
+:::
+
+::: tab Mac/WSL2/PowerShell
 
 ```sh
 docker run --detach \
@@ -129,13 +141,13 @@ docker run --detach \
 
 ::: tab Windows CMD
 
-For Windows, use CMD (and not PowerShell).
+For Windows CMD:
 
 ```batch
 docker run --detach ^
   --volume "%cd%:/app/config" ^
   --name quick-deploy-container-airnode ^
-  --publish 3000:3000
+  --publish 3000:3000 ^
   api3/airnode-client:0.7.2
 ```
 
@@ -150,6 +162,9 @@ machine. If run using [host networking](https://docs.docker.com/network/host/)
 you need to change the port via
 [gatewayServerPort](../../../reference/deployment-files/config-json.md#cloudprovider-gatewayserverport)
 property inside config.json.
+
+For Linux, it's recommended to use
+[host networking](https://docs.docker.com/network/host/).
 
 ## Test the Airnode
 
