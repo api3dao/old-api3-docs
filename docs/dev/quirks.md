@@ -1,6 +1,8 @@
 ---
 title: Quirks
 docSetName: api3-docs Development
+folder: Docs Development
+searchPath: /dev
 tags:
 ---
 

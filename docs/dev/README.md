@@ -1,6 +1,8 @@
 ---
 title: Setup
 docSetName: api3-docs Development
+folder: Docs Development
+searchPath: /dev
 tags:
 ---
 

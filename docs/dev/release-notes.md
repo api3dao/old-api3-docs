@@ -2,6 +2,8 @@
 title: Release Notes
 path: v0.5
 docSetName: api3-docs Development
+folder: Docs Development
+searchPath: /dev
 tags:
 ---
 
