@@ -1,5 +1,9 @@
 ---
 title: Specification
+docSetName: OIS v1.0
+folder:
+searchPath: /ois/v1.0
+tags:
 ---
 
 # {{$frontmatter.title}}

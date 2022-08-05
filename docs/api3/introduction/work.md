@@ -1,5 +1,9 @@
 ---
 title: Work with API3
+docSetName: API3
+folder:
+searchPath: /api3
+tags:
 ---
 
 # {{$frontmatter.title}}

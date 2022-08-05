@@ -1,6 +1,9 @@
 ---
 title: QRNG Example Project
+docSetName: QRNG
 folder: How to Guides
+searchPath: /qrng
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

@@ -1,6 +1,9 @@
 ---
 title: Staking Tokens
+docSetName: DAO Members
 folder: Dashboard
+searchPath: /dao-members
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

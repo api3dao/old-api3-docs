@@ -1,5 +1,9 @@
 ---
 title: OIS Template
+docSetName: OIS v1.1
+folder:
+searchPath: /ois/v1.1
+tags:
 ---
 
 # {{$frontmatter.title}}

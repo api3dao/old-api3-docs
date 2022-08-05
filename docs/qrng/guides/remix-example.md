@@ -1,6 +1,9 @@
 ---
 title: Remix Example
+docSetName: QRNG
 folder: How to Guides
+searchPath: /qrng
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

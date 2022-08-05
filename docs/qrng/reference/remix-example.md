@@ -1,6 +1,9 @@
 ---
 title: RemixQrngExample.sol
+docSetName: QRNG
 folder: Reference
+searchPath: /qrng
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

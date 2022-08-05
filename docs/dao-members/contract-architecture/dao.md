@@ -1,6 +1,9 @@
 ---
 title: DAO (Api3Template.sol)
+docSetName: DAO Members
 folder: Contract Architecture
+searchPath: /dao-members
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

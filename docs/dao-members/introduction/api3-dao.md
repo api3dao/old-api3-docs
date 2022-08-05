@@ -1,6 +1,9 @@
 ---
 title: API3 DAO
+docSetName: DAO Members
 folder: Introduction
+searchPath: /dao-members
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

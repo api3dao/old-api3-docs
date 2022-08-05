@@ -1,5 +1,9 @@
 ---
 title: Contributing
+docSetName: API3
+folder:
+searchPath: /api3
+tags:
 ---
 
 # {{$frontmatter.title}}

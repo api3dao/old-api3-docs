@@ -1,6 +1,9 @@
 ---
 title: DAO Tracker
+docSetName: DAO Members
 folder: Dashboard
+searchPath: /dao-members
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

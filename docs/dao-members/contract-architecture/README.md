@@ -1,6 +1,9 @@
 ---
 title: Contracts Overview
+docSetName: DAO Members
 folder: Contract Architecture
+searchPath: /dao-members
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

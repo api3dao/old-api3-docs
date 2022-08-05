@@ -1,6 +1,9 @@
 ---
 title: Voting (Api3Voting.sol)
+docSetName: DAO Members
 folder: Contract Architecture
+searchPath: /dao-members
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
