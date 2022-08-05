@@ -2,6 +2,7 @@
 title: config.json
 folder: Reference > Example Deployment Files
 docSetName: ChainAPI
+searchPath: /chainapi
 tags:
 ---
 

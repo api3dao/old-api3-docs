@@ -2,6 +2,7 @@
 title: Overview
 folder: How to Guides
 docSetName: ChainAPI
+searchPath: /chainapi
 tags:
 ---
 

@@ -2,6 +2,7 @@
 title: aws.env
 folder: Reference > Example Deployment Files
 docSetName: ChainAPI
+searchPath: /chainapi
 tags:
 ---
 
