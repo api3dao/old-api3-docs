@@ -1,6 +1,7 @@
 name: Deploy to Firebase Hosting
 on:
   push:
+  pull_request:
 
 jobs:
   build_and_preview:
@@ -32,6 +33,8 @@ jobs:
         id: firebase_deploy
 
       - uses: actions/github-script@v6
+        name: Comment on commit
+        if: ${{ github.event_name == 'push' }}
         with:
           script: |
             github.rest.repos.createCommitComment({
