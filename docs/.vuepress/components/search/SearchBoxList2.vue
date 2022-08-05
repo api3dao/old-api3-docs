@@ -8,7 +8,16 @@
         :class="{ focused: i === focusIndex }"
         @mouseenter="focus(i)"
       >
-        <a href="javascript:void(0)" @click="go(s.path)">
+        <!-- Headers 
+        If the header cnt === 0 then do not show
+        -->
+        <div v-if="s.header && s.header.cnt > 0" class="ls-suggestion-header">
+          {{ s.header.title }}
+          <span style="font-size: small">({{ s.header.cnt }})</span>
+        </div>
+
+        <!-- Links -->
+        <a v-if="s.path" href="javascript:void(0)" @click="go(s.path)">
           <!-- Has folder -->
           <div v-if="s.folder">
             <div class="ls-page-folder">
@@ -28,7 +37,7 @@
               └&nbsp;#&nbsp;{{ s.headerTitle }}
             </div>
           </div>
-          <div style="font-size: xx-small">{{ s.path }}</div>
+          <!--div style="font-size: xx-small">:{{ s.path }}</div-->
         </a>
       </li>
     </ul>
@@ -99,6 +108,9 @@ export default {
     border-radius 6px
     cursor pointer
     margin .5rem
+    .ls-suggestion-header
+      border-bottom solid 1px lightgrey
+      font-weight 600
     a
       white-space normal
       color lighten($textColor, 35%)

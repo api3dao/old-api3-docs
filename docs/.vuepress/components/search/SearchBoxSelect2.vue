@@ -11,7 +11,6 @@
         :value="item.path"
       >
         {{ item.label }}
-        <span v-if="item.unpublished">(unpublished)</span>
       </option>
     </select>
   </div>
@@ -51,7 +50,8 @@ export default {
     if (!obj) {
       obj = this.pickList.find((o) => o.path === this.path);
       obj.published = true;
-      obj.unpublished = true;
+      // Let the parent know a new (sudo) published path has been added
+      this.$parent.updateDocSetAsPublished(this.path);
     }
 
     // Now remove anything still unpublished.
