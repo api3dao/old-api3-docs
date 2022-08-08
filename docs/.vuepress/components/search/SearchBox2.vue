@@ -24,13 +24,23 @@ Possible text highlighting: https://x-team.com/blog/highlight-text-vue-regex/
         @keyup.up="onUp"
         @keyup.down="onDown"
       />&nbsp;&nbsp;<span v-if="suggestions">({{ suggestionsCnt }})</span>
+      <div
+        style="margin-top: -11px; float: right; font-size: x-small; color: red"
+        v-if="suggestions && cntLimit"
+      >
+        result set limit reached
+      </div>
     </div>
     <search-SearchBoxSelect2
       v-if="basePaths"
       :pathParam="path"
       :basePathsParam="basePaths"
     />
-    <search-SearchBoxList2 :suggestions="suggestions" :basePath="path" />
+    <search-SearchBoxList2
+      :suggestions="suggestions"
+      :suggestionsCnt="suggestionsCnt"
+      :basePath="path"
+    />
   </div>
 </template>
 
@@ -51,6 +61,7 @@ export default {
       focused: false,
       focusIndex: 0,
       suggestionsCnt: 0,
+      cntLimit: undefined,
       path: undefined,
       basePaths: basePaths,
     };
@@ -63,7 +74,6 @@ export default {
       // This needs to be here so when "this.basePath"  changes this function fires
       if (this.path) {
       }
-      console.log('++++++++ FIRE IT >');
       const query = this.query.trim().toLowerCase();
 
       // This prevents excessive filtering when now
@@ -91,13 +101,18 @@ export default {
         header: { title: undefined, cnt: undefined, position: undefined },
       };
 
+      this.cntLimit = undefined;
       this.suggestionsCnt = 0;
       let lastHeaderObj = undefined; // Needed by filter functions
       let lastCnt = 0; // Needed by filter functions
+      const path = this.path;
 
       // LOOP thru pages
       for (let i = 0; i < pages.length; i++) {
-        if (res.length >= max) break;
+        if (res.length >= max) {
+          this.cntLimit = true;
+          break;
+        }
 
         const p = pages[i];
 
@@ -105,20 +120,23 @@ export default {
         if (p.path === '/') continue;
 
         // Filter by path
-        if (this.path === '/' || this.path === p.frontmatter.basePath);
+        if (this.path === '/' && this.basePaths[p.frontmatter.basePath]);
+        else if (this.path === p.frontmatter.basePath);
         else continue;
 
         // HEADER WORK: If reader selected "All Documentation" add a
         // header to the list for each docSetName as it changes. So
         // only for this.path === '/'.
-        const docSetName = p.frontmatter.docSetName || 'Unknown';
-        if (headerObj.header.title != docSetName) {
-          // Create the next header
-          headerObj = {
-            header: { title: docSetName, cnt: 0, position: res.length },
-          };
-          res.push(headerObj);
-          lastHeaderObj = headerObj;
+        if (this.path === '/') {
+          const docSetName = p.frontmatter.docSetName || 'Unknown';
+          if (headerObj.header.title != docSetName) {
+            // Create the next header
+            headerObj = {
+              header: { title: docSetName, cnt: 0, position: res.length },
+            };
+            res.push(headerObj);
+            lastHeaderObj = headerObj;
+          }
         }
 
         words.some(checkTitle);
@@ -127,7 +145,7 @@ export default {
         // Does the title contain any words (OR)
         function checkTitle(word) {
           if (p.title.toLowerCase().indexOf(word.toLowerCase()) > -1) {
-            res[lastHeaderObj.header.position].header.cnt++;
+            if (path === '/') res[lastHeaderObj.header.position].header.cnt++;
             lastCnt++;
             res.push({
               level: 0,
@@ -148,7 +166,8 @@ export default {
           if (p.headers) {
             p.headers.forEach((h) => {
               if (h.title.toLowerCase().indexOf(word.toLowerCase()) > -1) {
-                res[lastHeaderObj.header.position].header.cnt++;
+                if (path === '/')
+                  res[lastHeaderObj.header.position].header.cnt++;
                 lastCnt++;
                 res.push({
                   p_path: p.path,
@@ -167,9 +186,8 @@ export default {
           return 0;
         }
       }
-      // Suggestions  cnt
       this.suggestionsCnt = lastCnt;
-      console.log(res);
+      //console.log(res);
       return res;
     },
   },
@@ -217,12 +235,6 @@ export default {
       } else {
         this.path = '/' + docSet[1];
       }
-    },
-    filterByBasePaths(p) {
-      if (this.basePaths.includes(p.frontmatter.basePath)) {
-        return true;
-      }
-      return false;
     },
     onHotkey(event) {
       if (

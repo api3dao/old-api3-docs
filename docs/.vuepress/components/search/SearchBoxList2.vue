@@ -1,5 +1,5 @@
 <template>
-  <div class="ls-search-list" v-if="suggestions && suggestions.length > 0">
+  <div class="ls-search-list" v-if="suggestions && suggestionsCnt > 0">
     <!-- To show a li below 
       1. is a header and the basePath === '/' and header.cnt > 0
       2. is a true link, has s.path
@@ -56,7 +56,7 @@
 <script>
 export default {
   name: 'SearchBoxList2',
-  props: ['suggestions', 'basePath'],
+  props: ['suggestions', 'suggestionsCnt', 'basePath'],
   data() {
     return {
       focused: false,
