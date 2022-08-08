@@ -1,5 +1,6 @@
 ---
-title: Reserved parameters
+title: Reserved Parameters
+docSetName: Airnode v0.2
 folder: Reference > Specifications
 basePath: /airnode/v0.2
 tags:

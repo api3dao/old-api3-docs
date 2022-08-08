@@ -1,5 +1,6 @@
 ---
 title: secrets.env
+docSetName: Airnode v0.2
 folder: API Providers > Tutorial
 basePath: /airnode/v0.2
 tags:

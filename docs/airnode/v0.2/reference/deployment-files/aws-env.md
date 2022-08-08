@@ -1,5 +1,6 @@
 ---
 title: aws.env
+docSetName: Airnode v0.2
 folder: Reference > Deployment Files
 basePath: /airnode/v0.2
 tags:

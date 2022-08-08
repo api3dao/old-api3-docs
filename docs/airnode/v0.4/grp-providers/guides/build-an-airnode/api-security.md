@@ -1,8 +1,12 @@
 ---
 title: API Security
+docSetName: Airnode v0.4
+folder: API Providers > Build an Airnode
+basePath: /airnode/v0.4
+tags:
 ---
 
-<TitleSpan>Build an Airnode</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

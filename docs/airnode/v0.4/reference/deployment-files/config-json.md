@@ -1,8 +1,12 @@
 ---
 title: config.json
+docSetName: Airnode v0.4
+folder: Reference > Deployment Files
+basePath: /airnode/v0.4
+tags:
 ---
 
-<TitleSpan>Deployment Files</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

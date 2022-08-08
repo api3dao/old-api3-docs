@@ -1,6 +1,9 @@
 ---
 title: Configuring Airnode
+docSetName: Airnode v0.7
 folder: API Providers > Build an Airnode
+basePath: /airnode/v0.7
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

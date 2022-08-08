@@ -1,5 +1,6 @@
 ---
 title: Calling an Airnode
+docSetName: Airnode v0.2
 folder: Developers
 basePath: /airnode/v0.2
 tags:

@@ -1,10 +1,16 @@
 ---
 title: config.json
+docSetName: Airnode v0.3
+folder: API Providers > Tutorials > Quick Deploy Container
+basePath: /airnode/v0.3
+tags:
 ---
 
-<TitleSpan>Quick Deploy Container</TitleSpan> <VersionWarning/>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
+
+<VersionWarning/>
 
 The config.json file contents shown below is for the
 [Quick Deploy Container](./) demo.

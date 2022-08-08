@@ -1,5 +1,6 @@
 ---
 title: Oracle Integration Specifications (OIS) 1.0.0
+docSetName: Airnode v0.2
 folder: Reference > Specifications
 basePath: /airnode/v0.2
 tags:

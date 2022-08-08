@@ -1,5 +1,6 @@
 ---
-title: Self-serve integration
+title: Self-serve Integration
+docSetName: Airnode pre-alpha
 folder: Guides > Smart Contracts Platform
 basePath: /airnode/pre-alpha
 tags:

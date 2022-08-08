@@ -1,6 +1,9 @@
 ---
 title: Oracle Integration Specifications (OIS)
+docSetName: Airnode v0.6
 folder: Reference > Specifications
+basePath: /airnode/v0.6
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

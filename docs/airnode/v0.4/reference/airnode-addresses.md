@@ -1,8 +1,12 @@
 ---
 title: Airnode Contract Addresses
+docSetName: Airnode v0.4
+folder: Reference
+basePath: /airnode/v0.4
+tags:
 ---
 
-<TitleSpan>Reference</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

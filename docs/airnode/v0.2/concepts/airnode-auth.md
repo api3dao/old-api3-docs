@@ -1,5 +1,6 @@
 ---
 title: Airnode Authentication
+docSetName: Airnode v0.2
 folder: Concepts and Definitions
 basePath: /airnode/v0.2
 tags:

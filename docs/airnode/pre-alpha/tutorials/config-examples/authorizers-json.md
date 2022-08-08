@@ -1,5 +1,6 @@
 ---
 title: authorizers.json
+docSetName: Airnode pre-alpha
 folder: Tutorials > Config Examples
 basePath: /airnode/pre-alpha
 tags:

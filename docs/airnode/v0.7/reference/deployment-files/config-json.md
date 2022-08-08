@@ -1,7 +1,7 @@
 ---
 title: config.json
-folder: Reference > Deployment Files
 docSetName: Airnode v0.7
+folder: Reference > Deployment Files
 basePath: /airnode/v0.7
 tags:
 ---

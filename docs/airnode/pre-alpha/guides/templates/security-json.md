@@ -1,5 +1,6 @@
 ---
 title: security.json
+docSetName: Airnode pre-alpha
 folder: Guides > Templates
 basePath: /airnode/pre-alpha
 tags:

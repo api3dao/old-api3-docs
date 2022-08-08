@@ -1,5 +1,6 @@
 ---
 title: Endorsement
+docSetName: Airnode pre-alpha
 folder: Request-Response Protocol
 basePath: /airnode/pre-alpha
 tags:

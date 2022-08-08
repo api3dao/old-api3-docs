@@ -1,6 +1,9 @@
 ---
 title: secrets.env
-folder: Reference > Examples
+docSetName: Airnode v0.6
+folder: Reference > Example Files
+basePath: /airnode/v0.6
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

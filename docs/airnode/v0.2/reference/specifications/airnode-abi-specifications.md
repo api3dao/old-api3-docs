@@ -1,5 +1,6 @@
 ---
 title: Airnode ABI Specification
+docSetName: Airnode v0.2
 folder: Reference > Specifications
 basePath: /airnode/v0.2
 tags:

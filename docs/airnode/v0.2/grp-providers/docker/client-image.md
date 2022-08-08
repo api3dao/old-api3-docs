@@ -1,5 +1,6 @@
 ---
 title: Airnode Client Image
+docSetName: Airnode v0.2
 folder: API Providers > Docker Images
 basePath: /airnode/v0.2
 tags:

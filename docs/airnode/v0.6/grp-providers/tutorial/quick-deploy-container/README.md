@@ -1,6 +1,8 @@
 ---
 title: Instructions
+docSetName: Airnode v0.6
 folder: API Providers > Tutorials > Quick Deploy Container
+basePath: /airnode/v0.6
 tags:
   - quick deploy container
   - tutorial tutorials
