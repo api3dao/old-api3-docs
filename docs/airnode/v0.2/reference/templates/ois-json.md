@@ -1,8 +1,11 @@
 ---
 title: ois.json
+folder: Reference > Templates
+basePath: /airnode/v0.2
+tags:
 ---
 
-<TitleSpan>Templates</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

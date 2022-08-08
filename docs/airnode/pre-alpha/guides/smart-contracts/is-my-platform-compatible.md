@@ -1,6 +1,12 @@
 ---
 title: Is my platform compatible?
+docSetName: Airnode pre-alpha
+folder: Guides > Smart Contracts Platform
+basePath: /airnode/pre-alpha
+tags:
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 <VersionWarning/>

@@ -2,7 +2,7 @@
 title: Workspaces
 folder: How to Guides
 docSetName: ChainAPI
-searchPath: /chainapi
+basePath: /chainapi
 tags:
 ---
 

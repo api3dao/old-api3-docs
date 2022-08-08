@@ -1,8 +1,11 @@
 ---
 title: Overview
+folder: API Providers
+basePath: /airnode/v0.2
+tags:
 ---
 
-<TitleSpan>API Providers</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

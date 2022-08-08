@@ -2,7 +2,7 @@
 title: Terminology
 folder: Reference
 docSetName: ChainAPI
-searchPath: /chainapi
+basePath: /chainapi
 tags:
 ---
 

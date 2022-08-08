@@ -2,7 +2,7 @@
 title: Voting (Api3Voting.sol)
 docSetName: DAO Members
 folder: Contract Architecture
-searchPath: /dao-members
+basePath: /dao-members
 tags:
 ---
 

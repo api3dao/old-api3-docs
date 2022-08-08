@@ -2,7 +2,7 @@
 title: Youtube QRNG Access Guide
 docSetName: QRNG
 folder: How to Guides
-searchPath: /qrng
+basePath: /qrng
 tags:
 ---
 

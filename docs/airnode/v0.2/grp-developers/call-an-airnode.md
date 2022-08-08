@@ -1,6 +1,11 @@
 ---
 title: Calling an Airnode
+folder: Developers
+basePath: /airnode/v0.2
+tags:
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

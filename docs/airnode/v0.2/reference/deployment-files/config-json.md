@@ -1,8 +1,11 @@
 ---
 title: config.json
+folder: Reference > Deployment Files
+basePath: /airnode/v0.2
+tags:
 ---
 
-<TitleSpan>Deployment Files</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

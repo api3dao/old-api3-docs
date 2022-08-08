@@ -1,6 +1,9 @@
 ---
 title: Ethereum providers
+docSetName: Airnode v0.8
 folder: API Providers
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

@@ -2,7 +2,7 @@
 title: README.md
 folder: Reference > Example Deployment Files
 docSetName: ChainAPI
-searchPath: /chainapi
+basePath: /chainapi
 tags:
 ---
 

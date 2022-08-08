@@ -2,7 +2,7 @@
 title: secrets.env
 folder: Reference > Example Deployment Files
 docSetName: ChainAPI
-searchPath: /chainapi
+basePath: /chainapi
 tags:
 ---
 

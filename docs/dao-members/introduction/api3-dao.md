@@ -2,7 +2,7 @@
 title: API3 DAO
 docSetName: DAO Members
 folder: Introduction
-searchPath: /dao-members
+basePath: /dao-members
 tags:
 ---
 

@@ -2,7 +2,7 @@
 title: GitHub Actions
 docSetName: api3-docs Development
 folder: Docs Development
-searchPath: /dev
+basePath: /dev
 tags:
 ---
 

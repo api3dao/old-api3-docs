@@ -2,7 +2,7 @@
 title: What is QRNG?
 docSetName: QRNG
 folder: Introduction
-searchPath: /qrng
+basePath: /qrng
 tags:
 ---
 

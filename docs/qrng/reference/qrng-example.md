@@ -2,7 +2,7 @@
 title: QrngExample.sol
 docSetName: QRNG
 folder: Reference
-searchPath: /qrng
+basePath: /qrng
 tags:
 ---
 

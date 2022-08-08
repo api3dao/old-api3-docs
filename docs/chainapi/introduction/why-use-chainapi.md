@@ -2,7 +2,7 @@
 title: Why use ChainAPI?
 folder: Introduction
 docSetName: ChainAPI
-searchPath: /chainapi
+basePath: /chainapi
 tags:
 ---
 

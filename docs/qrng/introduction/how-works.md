@@ -2,7 +2,7 @@
 title: How it Works!
 docSetName: QRNG
 folder: Introduction
-searchPath: /qrng
+basePath: /qrng
 tags:
 ---
 

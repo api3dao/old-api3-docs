@@ -2,7 +2,7 @@
 title: Pre/Post Processing
 docSetName: OIS v1.1
 folder:
-searchPath: /ois/v1.1
+basePath: /ois/v1.1
 tags:
 ---
 

@@ -1,6 +1,11 @@
 ---
 title: security.json
+folder: Tutorials > Config Examples
+basePath: /airnode/pre-alpha
+tags:
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 <VersionWarning/>

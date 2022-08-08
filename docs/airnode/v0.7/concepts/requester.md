@@ -1,6 +1,9 @@
 ---
 title: Requester
+docSetName: Airnode v0.7
 folder: Concepts and Definitions
+basePath: /airnode/v0.7
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

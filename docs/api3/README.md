@@ -2,7 +2,7 @@
 title: Who is API3?
 docSetName: API3
 folder:
-searchPath: /api3
+basePath: /api3
 tags:
 ---
 

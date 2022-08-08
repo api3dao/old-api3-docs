@@ -2,7 +2,7 @@
 title: Chains
 docSetName: QRNG
 folder: Reference
-searchPath: /qrng
+basePath: /qrng
 tags:
 ---
 

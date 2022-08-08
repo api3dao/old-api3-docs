@@ -1,8 +1,11 @@
 ---
 title: aws.env
+folder: API Providers > Tutorial
+basePath: /airnode/v0.2
+tags:
 ---
 
-<TitleSpan>Quick Deploy Demo</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

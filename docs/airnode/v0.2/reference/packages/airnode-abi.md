@@ -1,8 +1,11 @@
 ---
 title: Airnode ABI
+folder: Reference > Packages
+basePath: /airnode/v0.2
+tags:
 ---
 
-<TitleSpan>Packages</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

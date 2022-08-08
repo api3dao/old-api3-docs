@@ -2,7 +2,7 @@
 title: QRNG Example Project
 docSetName: QRNG
 folder: How to Guides
-searchPath: /qrng
+basePath: /qrng
 tags:
 ---
 

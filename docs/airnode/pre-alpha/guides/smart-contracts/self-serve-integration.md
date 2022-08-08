@@ -1,6 +1,11 @@
 ---
 title: Self-serve integration
+folder: Guides > Smart Contracts Platform
+basePath: /airnode/pre-alpha
+tags:
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 <VersionWarning/>

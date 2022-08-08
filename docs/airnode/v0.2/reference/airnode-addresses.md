@@ -1,8 +1,11 @@
 ---
 title: Airnode Contract Addresses
+folder: Reference
+basePath: /airnode/v0.2
+tags:
 ---
 
-<TitleSpan>Reference</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

@@ -2,7 +2,7 @@
 title: The DAO Pool
 docSetName: DAO Members
 folder: Introduction
-searchPath: /dao-members
+basePath: /dao-members
 tags:
 ---
 

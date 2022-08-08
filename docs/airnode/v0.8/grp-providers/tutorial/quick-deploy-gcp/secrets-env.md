@@ -1,6 +1,8 @@
 ---
 title: secrets.env
+docSetName: Airnode v0.8
 folder: API Providers > Tutorials > Quick Deploy GCP
+basePath: /airnode/v0.8
 tags:
   - quick deploy gcp
   - tutorial tutorials

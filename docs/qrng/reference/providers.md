@@ -2,7 +2,7 @@
 title: API Providers
 docSetName: QRNG
 folder: Reference
-searchPath: /qrng
+basePath: /qrng
 tags:
 ---
 

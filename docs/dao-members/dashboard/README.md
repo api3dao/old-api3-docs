@@ -2,7 +2,7 @@
 title: Overview
 docSetName: DAO Members
 folder: Dashboard
-searchPath: /dao-members
+basePath: /dao-members
 tags:
 ---
 

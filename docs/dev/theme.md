@@ -2,7 +2,7 @@
 title: Theme
 docSetName: api3-docs Development
 folder: Docs Development
-searchPath: /dev
+basePath: /dev
 tags:
 ---
 

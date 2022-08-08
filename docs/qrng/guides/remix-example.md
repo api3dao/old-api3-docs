@@ -2,7 +2,7 @@
 title: Remix Example
 docSetName: QRNG
 folder: How to Guides
-searchPath: /qrng
+basePath: /qrng
 tags:
 ---
 

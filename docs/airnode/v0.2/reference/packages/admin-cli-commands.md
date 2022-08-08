@@ -1,8 +1,11 @@
 ---
 title: Admin CLI Commands
+folder: Reference > Packages
+basePath: /airnode/v0.2
+tags:
 ---
 
-<TitleSpan>Reference</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 
