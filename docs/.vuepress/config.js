@@ -140,7 +140,7 @@ module.exports = {
     [
       '@vuepress/search',
       {
-        searchMaxSuggestions: 200,
+        searchMaxSuggestions: 250,
         /*
           2021-03-10: wkande:  Do not use "test:", version filtering has been
           added to .vuepress.components/SearchBox.vue
