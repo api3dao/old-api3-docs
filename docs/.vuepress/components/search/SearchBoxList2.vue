@@ -1,22 +1,20 @@
 <template>
-  <div v-if="suggestions" class="ls-search-list">
+  <div class="ls-search-list" v-if="suggestions && suggestions.length > 0">
     <!-- To show a li below 
-      1. is a header and has a cnt > 0
+      1. is a header and the basePath === '/' and header.cnt > 0
       2. is a true link, has s.path
     -->
     <ul class="ls-suggestions" @mouseleave="unfocus">
       <li
         v-for="(s, i) in suggestions"
-        v-show="(s.header && s.header.cnt > 0) || s.path"
+        v-show="(s.header && s.header.cnt > 0 && basePath === '/') || s.path"
         :key="i"
         class="ls-suggestion"
         :class="{ focused: i === focusIndex }"
         @mouseenter="focus(i)"
       >
-        <!-- Headers 
-        If the header cnt === 0 then do not show
-        -->
-        <div v-if="s.header && s.header.cnt > 0" class="ls-suggestion-header">
+        <!-- Headers -->
+        <div v-if="s.header" class="ls-suggestion-header">
           {{ s.header.title }}
           <span style="font-size: x-small">({{ s.header.cnt }})</span>
         </div>
@@ -58,7 +56,7 @@
 <script>
 export default {
   name: 'SearchBoxList2',
-  props: ['suggestions'],
+  props: ['suggestions', 'basePath'],
   data() {
     return {
       focused: false,

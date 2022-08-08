@@ -25,13 +25,17 @@ Possible text highlighting: https://x-team.com/blog/highlight-text-vue-regex/
         @keyup.down="onDown"
       />&nbsp;&nbsp;<span v-if="suggestions">({{ suggestionsCnt }})</span>
     </div>
-    <search-SearchBoxSelect2 :path="path" />
-    <search-SearchBoxList2 :suggestions="suggestions" />
+    <search-SearchBoxSelect2
+      v-if="basePaths"
+      :pathParam="path"
+      :basePathsParam="basePaths"
+    />
+    <search-SearchBoxList2 :suggestions="suggestions" :basePath="path" />
   </div>
 </template>
 
 <script>
-import { searchPicklist } from '../../config.js'; // "picklist" selections as doc sets"
+import { basePaths } from '../../config.js'; // "basePaths" selections as doc sets"
 import Vue from 'vue';
 import vClickOutside from 'v-click-outside';
 Vue.use(vClickOutside);
@@ -48,7 +52,7 @@ export default {
       focusIndex: 0,
       suggestionsCnt: 0,
       path: undefined,
-      publishedPaths: [],
+      basePaths: basePaths,
     };
   },
   computed: {
@@ -56,6 +60,10 @@ export default {
       return this.focused && this.suggestions && this.suggestions.length;
     },
     suggestions() {
+      // This needs to be here so when "this.basePath"  changes this function fires
+      if (this.path) {
+      }
+      console.log('++++++++ FIRE IT >');
       const query = this.query.trim().toLowerCase();
 
       // This prevents excessive filtering when now
@@ -73,14 +81,11 @@ export default {
 
       const { pages } = this.$site; // Load the site pages
       pages.sort(this.sortByPath); // Sort the pages by their path
-      /*pages.forEach((item, index) => {
-        if (index < 100) console.log(index, item.regularPath);
-      });*/
 
       const max =
         this.$site.themeConfig.searchMaxSuggestions || SEARCH_MAX_SUGGESTIONS; // Max allowed results set
 
-      const res = []; // Add qualified pages to this array, to be returned
+      const res = []; // Add filtered pages to this array, to be returned
       const words = query.split(' '); // Array of words from the query string
       let headerObj = {
         header: { title: undefined, cnt: undefined, position: undefined },
@@ -88,7 +93,6 @@ export default {
 
       this.suggestionsCnt = 0;
       let lastHeaderObj = undefined; // Needed by filter functions
-      let lastPath = this.path; // Needed by filter functions
       let lastCnt = 0; // Needed by filter functions
 
       // LOOP thru pages
@@ -100,28 +104,21 @@ export default {
         // Skip the landing page
         if (p.path === '/') continue;
 
-        // ALL DOCUMENTATION - "PUBLISHED" DOC SETS ONLY
-        if (this.path === '/' && !this.filterByPath_allPublished(p)) {
-          continue;
-        }
-        // CURRENT DOC SET (published and unpublished) ONLY: filters by the path in "p"
-        else if (!this.filterByPath_currentOnly(p)) {
-          continue;
-        }
+        // Filter by path
+        if (this.path === '/' || this.path === p.frontmatter.basePath);
+        else continue;
 
         // HEADER WORK: If reader selected "All Documentation" add a
         // header to the list for each docSetName as it changes. So
         // only for this.path === '/'.
-        if (this.path === '/') {
-          const docSetName = p.frontmatter.docSetName || 'Unknown';
-          if (headerObj.header.title != docSetName) {
-            // Create the next header
-            headerObj = {
-              header: { title: docSetName, cnt: 0, position: res.length },
-            };
-            res.push(headerObj);
-            lastHeaderObj = headerObj;
-          }
+        const docSetName = p.frontmatter.docSetName || 'Unknown';
+        if (headerObj.header.title != docSetName) {
+          // Create the next header
+          headerObj = {
+            header: { title: docSetName, cnt: 0, position: res.length },
+          };
+          res.push(headerObj);
+          lastHeaderObj = headerObj;
         }
 
         words.some(checkTitle);
@@ -130,9 +127,7 @@ export default {
         // Does the title contain any words (OR)
         function checkTitle(word) {
           if (p.title.toLowerCase().indexOf(word.toLowerCase()) > -1) {
-            if (lastPath === '/') {
-              res[lastHeaderObj.header.position].header.cnt++;
-            }
+            res[lastHeaderObj.header.position].header.cnt++;
             lastCnt++;
             res.push({
               level: 0,
@@ -141,7 +136,7 @@ export default {
               pageTitle: p.title,
               path: p.path,
               docSetName: p.frontmatter.docSetName || 'Unknown',
-              searchPath: p.frontmatter.searchPath || 'searchPath unknown',
+              basePath: p.frontmatter.basePath || 'basePath unknown',
             });
             return 1;
           }
@@ -153,9 +148,7 @@ export default {
           if (p.headers) {
             p.headers.forEach((h) => {
               if (h.title.toLowerCase().indexOf(word.toLowerCase()) > -1) {
-                if (lastPath === '/') {
-                  res[lastHeaderObj.header.position].header.cnt++;
-                }
+                res[lastHeaderObj.header.position].header.cnt++;
                 lastCnt++;
                 res.push({
                   p_path: p.path,
@@ -165,7 +158,7 @@ export default {
                   headerTitle: h.title,
                   pageTitle: p.title,
                   docSetName: p.frontmatter.docSetName || 'Unknown',
-                  searchPath: p.frontmatter.searchPath || 'searchPath unknown',
+                  basePath: p.frontmatter.basePath || 'basePath unknown',
                 });
                 return 1;
               }
@@ -182,11 +175,15 @@ export default {
   },
 
   mounted() {
-    // Build an array of published paths
-    searchPicklist.forEach((item) => {
-      if (item.published) this.publishedPaths.push(item.path);
-    });
     this.setPath();
+
+    // Is the path in basePaths? The user "discovered" a hidden path.
+    // Only valid for the life of the SPA. Each time the user types into
+    // The browser URL bar the SPA reloads and this goes away.
+    if (!this.basePaths[this.path]) {
+      this.basePaths[this.path] = this.path;
+    }
+
     this.placeholder = this.$site.themeConfig.searchPlaceholder || '';
     document.addEventListener('keydown', this.onHotkey);
   },
@@ -203,16 +200,12 @@ export default {
     updatePathFromChild(path) {
       this.path = path;
     },
-    // FROM CHILD, add a doc set as published because the reader found it (e.g. /dev)
-    updateDocSetAsPublished(path) {
-      if (!this.publishedPaths.includes(path)) this.publishedPaths.push(path);
-    },
     // Sorts the pages by their path
     sortByPath(a, b) {
-      if (a.path > b.path) {
+      if (b.path > a.path) {
         return -1;
       }
-      if (a.path < b.path) {
+      if (b.path < a.path) {
         return 1;
       }
       return 0;
@@ -225,16 +218,8 @@ export default {
         this.path = '/' + docSet[1];
       }
     },
-    // Only all items that are in published do set
-    filterByPath_allPublished(p) {
-      if (this.publishedPaths.includes(p.frontmatter.searchPath)) {
-        return true;
-      }
-      return false;
-    },
-    // Only show items found in the reader's selected doc set
-    filterByPath_currentOnly(p) {
-      if (p.regularPath.indexOf(this.path) === 0) {
+    filterByBasePaths(p) {
+      if (this.basePaths.includes(p.frontmatter.basePath)) {
         return true;
       }
       return false;
@@ -331,7 +316,7 @@ select {
 .sb-search-input-box
 
   input
-    width 13rem
+    width 12rem
     cursor text
     height 1.5rem
     color lighten($textColor, 25%)
