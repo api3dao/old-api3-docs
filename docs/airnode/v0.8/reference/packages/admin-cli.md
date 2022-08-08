@@ -752,7 +752,7 @@ npx @api3/airnode-admin generate-airnode-mnemonic
 
 Generates a unique mnemonic which can be used to create a wallet. In addition to
 the mnemonic, this command will also display the corresponding default wallet
-(path:m/44'/60'/0'/0/0) address and its extended public key (xpub).
+(path:m/44'/60'/0'/0/0) address.
 
 ```sh
 npx @api3/airnode-admin generate-mnemonic
