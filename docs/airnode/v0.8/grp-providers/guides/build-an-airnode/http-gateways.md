@@ -125,18 +125,16 @@ Airnode deployment using a [Docker image](../../docker/).
 ### When using Airnode client
 
 Airnode client can be used to run Airnode as a docker container locally. There
-is a common web server for both gateways, which can be exposed to the host
+is a common web server for both gateways, which is exposed on the host
 machine. Doing so will make the gateways API accessible like a regular web
-server running on the machine. Each gateway has a separate endpoint, which
-always looks like:
+server running on the machine. Each gateway has a separate endpoint as shown below. Note the `PORT` which is exposed as part of the Airnode client container. See the [Airnode client usage](../../docker/client-image.md#usage) for more details.
 
 - `http://localhost:<PORT>/http-data/:endpointId` - Gateway URL for the HTTP
   Gateway
 - `http://localhost:<PORT>/http-signed-data/:endpointId` - Gateway URL for the
   HTTP Signed Data Gateway
 
-where `PORT` is the exposed port of the Airnode client container. See the
-[Airnode client usage](../../docker/client-image.md#usage) for more details.
+
 
 ## Using CURL
 
