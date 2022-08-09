@@ -386,7 +386,7 @@ under.
 
 #### `cloudProvider.gatewayServerPort`
 
-(optional for local, defaults to `3000`) - The port number of the API gateway
+(optional for local) - The port number (defaults to `3000`) of the API gateway
 inside the docker container. This property is especially useful, if the
 container is run using [host networking](https://docs.docker.com/network/host/).
 
