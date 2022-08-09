@@ -1,6 +1,9 @@
 ---
 title: Deployer
+docSetName: Airnode v0.8
 folder: Reference > Packages
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

@@ -1,5 +1,9 @@
 ---
-title: Reserved parameters
+title: Reserved Parameters
+docSetName: OIS v1.0
+folder:
+basePath: /ois/v1.0
+tags:
 ---
 
 # {{$frontmatter.title}}

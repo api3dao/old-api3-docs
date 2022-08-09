@@ -1,8 +1,12 @@
 ---
 title: Airnode ABI Specification
+docSetName: Airnode v0.4
+folder: Reference > Specifications
+basePath: /airnode/v0.4
+tags:
 ---
 
-<TitleSpan>Specifications</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

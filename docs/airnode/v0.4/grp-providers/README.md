@@ -1,8 +1,12 @@
 ---
 title: Overview
+docSetName: Airnode v0.4
+folder: API Providers
+basePath: /airnode/v0.4
+tags:
 ---
 
-<TitleSpan>API Providers</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

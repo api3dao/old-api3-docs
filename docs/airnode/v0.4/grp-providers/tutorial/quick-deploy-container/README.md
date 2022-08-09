@@ -1,8 +1,12 @@
 ---
 title: Instructions
+docSetName: Airnode v0.4
+folder: API Providers > Tutorials > Quick Deploy Container
+basePath: /airnode/v0.4
+tags:
 ---
 
-<TitleSpan>Quick Deploy Container</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

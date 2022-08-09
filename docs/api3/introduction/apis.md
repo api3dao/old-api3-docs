@@ -1,5 +1,9 @@
 ---
 title: API (Application programming interface)
+docSetName: API3
+folder:
+basePath: /api3
+tags:
 ---
 
 # {{$frontmatter.title}}

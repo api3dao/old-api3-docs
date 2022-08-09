@@ -1,8 +1,12 @@
 ---
 title: Applying Authorization (optional)
+docSetName: Airnode v0.3
+folder: API Providers > Build an Airnode
+basePath: /airnode/v0.3
+tags:
 ---
 
-<TitleSpan>Build an Airnode</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

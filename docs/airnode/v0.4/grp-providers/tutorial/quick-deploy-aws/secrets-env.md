@@ -1,8 +1,12 @@
 ---
 title: secrets.env
+docSetName: Airnode v0.4
+folder: API Providers > Tutorials > Quick Deploy AWS
+basePath: /airnode/v0.4
+tags:
 ---
 
-<TitleSpan>Quick Deploy AWS</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

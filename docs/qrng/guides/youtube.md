@@ -1,6 +1,9 @@
 ---
 title: Youtube QRNG Access Guide
+docSetName: QRNG
 folder: How to Guides
+basePath: /qrng
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

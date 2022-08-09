@@ -1,6 +1,9 @@
 ---
 title: Why use Airnode?
+docSetName: Airnode v0.6
 folder: Introduction
+basePath: /airnode/v0.6
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

@@ -1,8 +1,12 @@
 ---
 title: Deploying Airnode
+docSetName: Airnode v0.2
+folder: API Providers > Build an Airnode
+basePath: /airnode/v0.2
+tags:
 ---
 
-<TitleSpan>Build an Airnode</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

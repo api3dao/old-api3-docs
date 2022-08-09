@@ -1,6 +1,9 @@
 ---
 title: Overview
+docSetName: DAO Members
 folder: Introduction
+basePath: /dao-members
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

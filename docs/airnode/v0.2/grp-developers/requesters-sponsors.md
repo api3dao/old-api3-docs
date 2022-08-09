@@ -1,6 +1,12 @@
 ---
 title: Requesters and Sponsors
+docSetName: Airnode v0.2
+folder: Developers
+basePath: /airnode/v0.2
+tags:
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

@@ -1,6 +1,12 @@
 ---
 title: Deployer image instructions
+docSetName: Airnode pre-alpha
+folder: Guides > Docker
+basePath: /airnode/pre-alpha
+tags:
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 <VersionWarning/>

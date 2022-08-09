@@ -1,8 +1,12 @@
 ---
 title: config.json
+docSetName: Airnode v0.4
+folder: Reference > Templates
+basePath: /airnode/v0.4
+tags:
 ---
 
-<TitleSpan>Templates</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

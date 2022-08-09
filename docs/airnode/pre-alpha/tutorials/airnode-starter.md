@@ -1,6 +1,12 @@
 ---
 title: Airnode starter
+docSetName: Airnode pre-alpha
+folder: Tutorials
+basePath: /airnode/pre-alpha
+tags:
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 <VersionWarning/>

@@ -1,6 +1,9 @@
 ---
 title: Admin CLI
+docSetName: Airnode v0.5
 folder: Reference > Packages
+basePath: /airnode/v0.5
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

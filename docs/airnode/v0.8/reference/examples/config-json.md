@@ -1,6 +1,9 @@
 ---
 title: config.json
+docSetName: Airnode v0.8
 folder: Reference > Example Files
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

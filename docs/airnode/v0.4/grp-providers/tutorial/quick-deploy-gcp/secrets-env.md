@@ -1,8 +1,12 @@
 ---
 title: secrets.env
+docSetName: Airnode v0.4
+folder: API Providers > Tutorials > Quick Deploy GCP
+basePath: /airnode/v0.4
+tags:
 ---
 
-<TitleSpan>Quick Deploy GCP</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

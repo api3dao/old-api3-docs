@@ -1,6 +1,12 @@
 ---
 title: Oracle Integration Specifications (OIS) 1.0.0
+docSetName: Airnode pre-alpha
+folder: Airnode > Specifications
+basePath: /airnode/pre-alpha
+tags:
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 <VersionWarning/>
