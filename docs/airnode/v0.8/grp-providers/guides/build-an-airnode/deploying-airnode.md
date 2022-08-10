@@ -165,6 +165,7 @@ that detail how to do this.
 - [HTTP Gateways](./http-gateways.md#using-curl)
 - [Quick Deploy AWS](../../tutorial/quick-deploy-aws/#test-the-airnode)
 - [Quick Deploy GCP](../../tutorial/quick-deploy-gcp/#test-the-airnode)
+- [Quick Deploy Container](../../tutorial/quick-deploy-container/#test-the-airnode)
 
 ## Calling the Airnode
 

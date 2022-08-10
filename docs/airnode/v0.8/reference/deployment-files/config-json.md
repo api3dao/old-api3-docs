@@ -386,6 +386,12 @@ section.
 (required for GCP) - Project ID of the GCP project the Airnode will be deployed
 under.
 
+#### `cloudProvider.gatewayServerPort`
+
+(optional for local) - The port number (defaults to `3000`) of the API gateway
+inside the docker container. This property is especially useful, if the
+container is run using [host networking](https://docs.docker.com/network/host/).
+
 ### `airnodeWalletMnemonic`
 
 (required) - The wallet mnemonic that will be used as the Airnode's BIP 44
