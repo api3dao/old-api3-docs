@@ -131,7 +131,7 @@ server running on the machine. Each gateway has a separate endpoint as shown bel
 
 - `http://localhost:<PORT>/http-data/<endpointId>` - Gateway URL for the HTTP
   Gateway
-- `http://localhost:<PORT>/http-signed-data/:endpointId` - Gateway URL for the
+- `http://localhost:<PORT>/http-signed-data/<endpointId>` - Gateway URL for the
   HTTP Signed Data Gateway
 
 
