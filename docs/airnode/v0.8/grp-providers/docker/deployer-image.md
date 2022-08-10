@@ -118,15 +118,27 @@ A unique deployment is defined by the value of
 you deploy again, using the same `nodeSetting.stage` value, then you are
 re-deploying or updating the previous deployment.
 
-- If the re-deployment fails (and
-  [--auto-remove](../../reference/packages/deployer.html#deploy) = false) the
-  Airnode could be left in an unstable state.
-- If the re-deployment fails (and
-  [--auto-remove](../../reference/packages/deployer.html#deploy) = true) the
-  deployer will attempt to remove the Airnode.
+By default the deployer will attempt to remove the Airnode should either a
+deployment or re-deployment fail. But if either fails (and
+[--auto-remove](../../reference/packages/deployer.html#deploy) is false) then
+the Airnode will not be removed, however it could be left in an unstable state.
+You can alter the `deploy` command to change this behavior using the following.
 
-For production systems consider changing the value of `nodeSetting.stage` to
-create a new deployment and follow-up by removing the previous deployment.
+- `--auto-remove true|false`: defaults to true
+- `--no-auto-remove`
+
+Auto removal is usually recommended for development deployments. For production
+deployments, consider changing the value of `nodeSetting.stage` to create a new
+deployment and follow-up by removing the previous deployment.
+
+Use the following example to avoid the automatic removal of the Airnode.
+
+```sh
+docker run -it --rm \
+-e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
+-v "$(pwd):/app/config" \
+api3/airnode-deployer:0.8.0 deploy --auto-remove false
+```
 
 :::
 
