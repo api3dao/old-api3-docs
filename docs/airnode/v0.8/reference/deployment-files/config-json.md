@@ -454,8 +454,9 @@ time. When omitted, there is no maximum concurrency set.
 
 #### `httpGateway.corsOrigins`
 
-(required, if enabled) - A list of allowed origins. An empty array (`[]`) can be used
-to disable CORS and the wildcard (`['*']`) can be used to allow all origins.
+(required, if enabled) - A list of allowed origins. An empty array (`[]`) can be
+used to disable CORS and the wildcard (`['*']`) can be used to allow all
+origins.
 
 ### `httpSignedDataGateway`
 

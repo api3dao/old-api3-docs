@@ -172,8 +172,8 @@ For Linux, it's recommended to use
 
 ### Request
 
-Make a CURL request using the example below. Be sure to replace `HTTP_GATEWAY_API_KEY` with
-your key from `secrets.env`.
+Make a CURL request using the example below. Be sure to replace
+`HTTP_GATEWAY_API_KEY` with your key from `secrets.env`.
 
 ```sh
 # For Windows CMD replace line termination marker \ with ^
@@ -242,7 +242,7 @@ This tutorial did not address making a request on-chain as its purpose was
 simply to quickly deploy a functional Airnode.
 
 Finally the API integration was tested using the
-[HTTP gateway](../../guides/build-an-airnode/http-gateways.md#http-gateway).
-You made a CURL request (using HTTP) to the HTTP gateway and Airnode queried the API
-provider and sent back a response. All of this was performed without
-accessing the blockchain.
+[HTTP gateway](../../guides/build-an-airnode/http-gateways.md#http-gateway). You
+made a CURL request (using HTTP) to the HTTP gateway and Airnode queried the API
+provider and sent back a response. All of this was performed without accessing
+the blockchain.
