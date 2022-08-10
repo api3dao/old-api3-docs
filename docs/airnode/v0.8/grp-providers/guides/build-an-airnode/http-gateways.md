@@ -50,9 +50,10 @@ Enable either gateway in the `config.json` file fields
 - **apiKey**: A user defined API key to authenticate against the gateway. The
   key must have a length of between 30 - 120 characters.
 - **maxConcurrency**: (optional) A number higher than zero that represents the
-  maximum number of serverless functions serving gateway requests. When omitted,
-  there is no maximum concurrency set. This field is ignored for Airnode client
+  maximum number of serverless functions serving gateway requests. When omitted, there is no maximum concurrency set. This field is ignored for Airnode client
   gateways.
+- **corsOrigins**: A list of allowed origins, `['*']` to allow all origins or an
+  empty array to disable CORS.
 
 ```json
 "nodeSettings": {
@@ -65,12 +66,14 @@ Enable either gateway in the `config.json` file fields
   "httpGateway": {
     "enabled": true,
     "apiKey": "${HTTP_GATEWAY_API_KEY}",
-    "maxConcurrency": 20
+    "maxConcurrency": 20,
+    "corsOrigins": []
   },
   "httpSignedDataGateway": {
     "enabled": true,
     "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_API_KEY}",
-    "maxConcurrency": 20
+    "maxConcurrency": 20,
+    "corsOrigins": []
   },
   ...
 },

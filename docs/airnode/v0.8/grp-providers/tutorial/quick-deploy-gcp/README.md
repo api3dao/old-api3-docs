@@ -203,7 +203,8 @@ tested.
   "httpGateway": {
     "enabled": true, // The gateway is activated for this Airnode
     "apiKey": "${HTTP_GATEWAY_API_KEY}", // Gateway apiKey
-    "maxConcurrency": 20
+    "maxConcurrency": 20,
+    "corsOrigins": [] // CORS is disabled
   },
   ...
 },
