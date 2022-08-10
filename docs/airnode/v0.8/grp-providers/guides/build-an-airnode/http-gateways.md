@@ -50,7 +50,8 @@ Enable either gateway in the `config.json` file fields
 - **apiKey**: A user defined API key to authenticate against the gateway. The
   key must have a length of between 30 - 120 characters.
 - **maxConcurrency**: (optional) A number higher than zero that represents the
-  maximum number of serverless functions serving gateway requests. When omitted, there is no maximum concurrency set. This field is ignored for Airnode client
+  maximum number of serverless functions serving gateway requests. When omitted,
+  there is no maximum concurrency set. This field is ignored for Airnode client
   gateways.
 - **corsOrigins**: A list of allowed origins, `['*']` to allow all origins or an
   empty array to disable CORS.
@@ -131,16 +132,16 @@ Airnode deployment using a [Docker image](../../docker/).
 ### When using Airnode client
 
 Airnode client can be used to run Airnode as a docker container locally. There
-is a common web server for both gateways, which is exposed on the host
-machine. Doing so will make the gateways API accessible like a regular web
-server running on the machine. Each gateway has a separate endpoint as shown below. Note the `PORT` which is exposed as part of the Airnode client container. See the [Airnode client usage](../../docker/client-image.md#usage) for more details.
+is a common web server for both gateways, which is exposed on the host machine.
+Doing so will make the gateways API accessible like a regular web server running
+on the machine. Each gateway has a separate endpoint as shown below. Note the
+`PORT` which is exposed as part of the Airnode client container. See the
+[Airnode client usage](../../docker/client-image.md#usage) for more details.
 
 - `http://localhost:<PORT>/http-data/<endpointId>` - Gateway URL for the HTTP
   Gateway
 - `http://localhost:<PORT>/http-signed-data/<endpointId>` - Gateway URL for the
   HTTP Signed Data Gateway
-
-
 
 ## Using CURL
 
