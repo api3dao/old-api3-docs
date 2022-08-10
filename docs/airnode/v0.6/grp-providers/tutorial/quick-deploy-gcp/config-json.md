@@ -1,6 +1,8 @@
 ---
 title: config.json
+docSetName: Airnode v0.6
 folder: API Providers > Tutorials > Quick Deploy GCP
+basePath: /airnode/v0.6
 tags:
   - quick deploy gcp
   - tutorial tutorials

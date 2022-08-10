@@ -1,6 +1,9 @@
 ---
 title: receipt.json
+docSetName: Airnode v0.6
 folder: Reference > Deployment Files
+basePath: /airnode/v0.6
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

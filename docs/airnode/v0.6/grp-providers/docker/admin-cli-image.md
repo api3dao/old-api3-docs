@@ -1,6 +1,9 @@
 ---
 title: Airnode Admin CLI Image
+docSetName: Airnode v0.6
 folder: API Providers > Docker Images
+basePath: /airnode/v0.6
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

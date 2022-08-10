@@ -1,6 +1,9 @@
 ---
 title: Deploying Airnode
+docSetName: Airnode v0.8
 folder: API Providers > Build an Airnode
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -111,7 +114,7 @@ docker run -it --rm \
 
 ::: tab Windows
 
-```sh
+```batch
 # For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
@@ -162,6 +165,7 @@ that detail how to do this.
 - [HTTP Gateways](./http-gateways.md#using-curl)
 - [Quick Deploy AWS](../../tutorial/quick-deploy-aws/#test-the-airnode)
 - [Quick Deploy GCP](../../tutorial/quick-deploy-gcp/#test-the-airnode)
+- [Quick Deploy Container](../../tutorial/quick-deploy-container/#test-the-airnode)
 
 ## Calling the Airnode
 

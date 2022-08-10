@@ -1,6 +1,9 @@
 ---
 title: Overview
+docSetName: Airnode v0.6
 folder: Developers
+basePath: /airnode/v0.6
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

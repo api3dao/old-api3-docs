@@ -1,5 +1,9 @@
 ---
 title: What is OIS?
+docSetName: OIS v1.0
+folder:
+basePath: /ois/v1.0
+tags:
 ---
 
 # {{$frontmatter.title}}

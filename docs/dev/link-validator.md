@@ -1,5 +1,9 @@
 ---
 title: Link Validation
+docSetName: api3-docs Development
+folder: Docs Development
+basePath: /dev
+tags:
 ---
 
 # {{$frontmatter.title}}

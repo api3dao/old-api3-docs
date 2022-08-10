@@ -1,6 +1,12 @@
 ---
 title: Tutorials
+docSetName: Airnode v0.3
+folder: API Providers > Tutorials
+basePath: /airnode/v0.3
+tags:
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

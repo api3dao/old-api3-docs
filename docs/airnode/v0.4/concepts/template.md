@@ -1,8 +1,12 @@
 ---
 title: Template
+docSetName: Airnode v0.4
+folder: Concepts and Definitions
+basePath: /airnode/v0.4
+tags:
 ---
 
-<TitleSpan>Concepts and Definitions</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

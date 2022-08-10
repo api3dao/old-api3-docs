@@ -1,6 +1,9 @@
 ---
 title: Requesters and Sponsors
+docSetName: Airnode v0.8
 folder: Developers
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -166,7 +169,7 @@ Requester 0x2c...gDER7 sponsored using sponsorAddress 0xF4...dDyu9
 
 ::: tab Windows
 
-```
+```batch
 npx @api3/airnode-admin sponsor-requester ^
   --providerUrl https://ropsten.infura.io/v3/<KEY> ^
   --sponsor-mnemonic "cricket...oppose" ^
@@ -220,7 +223,7 @@ Sponsor wallet address: 0x14D5a34E5a370b9951Fef4f8fbab2b1016D557d9
 
 ::: tab Windows
 
-```bash
+```batch
 npx @api3/airnode-admin derive-sponsor-wallet-address ^
   --airnode-xpub xpub6CUGRUo... ^
   --airnode-address 0xe1...dF05s ^

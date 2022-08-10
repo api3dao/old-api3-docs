@@ -1,6 +1,12 @@
 ---
 title: Developing a client contract
+docSetName: Airnode pre-alpha
+folder: Guides > Requester
+basePath: /airnode/pre-alpha
+tags:
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 <VersionWarning/>

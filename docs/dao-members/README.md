@@ -1,6 +1,9 @@
 ---
 title: Overview
+docSetName: DAO Members
 folder: Introduction
+basePath: /dao-members
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -20,8 +23,6 @@ following topics are covered:
 
 ::: tip DAO Dashboard
 
-Access the [DAO Dashboard](https://api3.eth.link/#/) on **Mainnet**.
+Access the [DAO Dashboard](https://dao.api3.org) on **Mainnet**.
 
 :::
-
-<!--[staging.api3.eth](https://staging.api3.eth.link/) (Rinkeby Testnet)-->

@@ -1,6 +1,12 @@
 ---
 title: Reserved parameters
+docSetName: Airnode pre-alpha
+folder: Airnode > Specifications
+basePath: /airnode/pre-alpha
+tags:
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 <VersionWarning/>

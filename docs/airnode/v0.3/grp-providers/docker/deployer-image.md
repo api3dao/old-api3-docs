@@ -1,8 +1,12 @@
 ---
 title: Airnode Deployer Image
+docSetName: Airnode v0.3
+folder: API Providers > Docker Images
+basePath: /airnode/v0.3
+tags:
 ---
 
-<TitleSpan>Docker Images</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

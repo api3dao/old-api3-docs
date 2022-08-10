@@ -1,6 +1,9 @@
 ---
 title: Working with Proposals
+docSetName: DAO Members
 folder: Dashboard
+basePath: /dao-members
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -30,7 +33,7 @@ post your own delegate pitch.
 
 ## Getting Started
 
-1. Access the [DAO Dashboard](https://api3.eth.link/)
+1. Access the [DAO Dashboard](https://dao.api3.org)
 2. Click the **Connect Wallet** button in the upper right hand corner and
    connect to your wallet using the Ethereum Mainnet.
 
@@ -251,7 +254,10 @@ address point to the ENS name). If your proposal will make a
 the address of a _multisig_ wallet, you can
 [set a reverse record with the multisig](https://medium.com/the-ethereum-name-service/you-can-now-manage-ens-names-with-gnosis-safe-9ddcb7e6c4ac)
 to your ENS name. See Parameters in
-[this proposal](https://api3.eth.link/#/history/secondary-6) for an example.
+[this proposal](https://bafybeice5xg7dk6alljdkkkv4v65r6x5tgy3cpbxti4tlcd4yuyfzsz6mq.ipfs.dweb.link/#/history/secondary-31)
+for an example.
+
+<!-- The link above used to be https://api3.eth.link/#/history/secondary-6 -->
 
 ## Using IPFS for Proposals
 

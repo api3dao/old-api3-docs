@@ -1,8 +1,12 @@
 ---
 title: Deployer
+docSetName: Airnode v0.4
+folder: Reference > Packages
+basePath: /airnode/v0.4
+tags:
 ---
 
-<TitleSpan>Packages</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

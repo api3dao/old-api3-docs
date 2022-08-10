@@ -1,8 +1,12 @@
 ---
 title: Using Templates
+docSetName: Airnode v0.4
+folder: Developers
+basePath: /airnode/v0.4
+tags:
 ---
 
-<TitleSpan>Developers</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

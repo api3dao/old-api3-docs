@@ -1,6 +1,9 @@
 ---
 title: Dashboard Attributes
+docSetName: DAO Members
 folder: Contract Architecture
+basePath: /dao-members
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

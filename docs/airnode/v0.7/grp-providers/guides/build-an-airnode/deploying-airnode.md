@@ -1,6 +1,9 @@
 ---
 title: Deploying Airnode
+docSetName: Airnode v0.7
 folder: API Providers > Build an Airnode
+basePath: /airnode/v0.7
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -119,7 +122,7 @@ docker run -it --rm \
 
 For Windows, use CMD (and not PowerShell).
 
-```sh
+```batch
 docker run -it --rm ^
   --env-file aws.env ^
   -v "%cd%/config:/app/config" ^
@@ -152,7 +155,7 @@ docker run -it --rm \
 
 For Windows, use CMD (and not PowerShell).
 
-```sh
+```batch
 docker run -it --rm ^
   -v "%cd%/gcp.json:/app/gcp.json" ^
   -v "%cd%/config:/app/config" ^
@@ -230,7 +233,7 @@ docker run -it --rm \
 
 For Windows, use CMD (and not PowerShell).
 
-```sh
+```batch
 docker run -it --rm ^
   --env-file aws.env ^
   -v "%cd%/output:/app/output" ^
@@ -260,7 +263,7 @@ docker run -it --rm \
 
 For Windows, use CMD (and not PowerShell).
 
-```sh
+```batch
 docker run -it --rm ^
   -v "%cd%/gcp.json:/app/gcp.json" ^
   -v "%cd%/output:/app/output" ^

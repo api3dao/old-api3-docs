@@ -1,6 +1,9 @@
 ---
 title: Airnode Deployer Image
+docSetName: Airnode v0.8
 folder: API Providers > Docker Images
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -50,8 +53,8 @@ and for GCP deployment, see the
 
 ## Deployer Image Commands
 
-All three commands are the same for AWS and GCP with an exception of GCP. It
-requires an additional parameter of `projectId` when removing a deployment.
+All three commands are similar for AWS and GCP, with differences noted where
+they exist.
 
 - [deploy](./deployer-image.md#deploy)
 - [remove-with-receipt](./deployer-image.md#remove-with-receipt)
@@ -97,7 +100,7 @@ docker run -it --rm \
 
 ::: tab Windows
 
-```sh
+```batch
 # For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
@@ -149,7 +152,7 @@ docker run -it --rm \
 
 ::: tab Windows
 
-```sh
+```batch
 # For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
@@ -167,7 +170,9 @@ The
 command is available as an alternative to `remove-with-receipt` and uses the
 Airnode short address and cloud provider specifications. All values, other than
 `airnodeShortAddress`, can be found in
-[config.json](../../reference/deployment-files/config-json.md).
+[config.json](../../reference/deployment-files/config-json.md). Note that
+relative to AWS Airnode removal, GCP Airnode removal requires an additional
+parameter: `projectId`.
 
 - `--airnode-address-short`: Can be found in the
   [receipt.json](../../reference/deployment-files/receipt-json.md) file or in
@@ -180,10 +185,10 @@ Airnode short address and cloud provider specifications. All values, other than
 - `--region`:
   [nodeSetting.cloudProvider.region](../../reference/deployment-files/config-json.md#cloudprovider-region)
 - `--project-id`: (GCP only)
-  [cloudProvider.projectId](../../reference/deployment-files/config-json.md#cloudprovider-projectid)
+  [nodeSetting.cloudProvider.projectId](../../reference/deployment-files/config-json.md#cloudprovider-projectid)
 
-Note that the example commands below use placeholder values that should be
-replaced.
+Note that the example commands below use placeholder values for a GCP deployment
+that should be replaced.
 
 :::: tabs
 
@@ -195,25 +200,25 @@ docker run -it --rm \
   api3/airnode-deployer:0.8.0 remove-with-deployment-details \
   --airnode-address-short abd9eaa \
   --stage dev \
-  --cloud-provider aws \
+  --cloud-provider gcp \
   --projectId myAirnode101 \ ← GCP only
-  --region us-east-1
+  --region us-east1
 ```
 
 :::
 
 ::: tab Windows
 
-```sh
+```batch
 #For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "$(pwd):/app/config" ^
   api3/airnode-deployer:0.8.0 remove-with-deployment-details ^
   --airnode-address-short abd9eaa ^
   --stage dev ^
-  --cloud-provider aws ^
+  --cloud-provider gcp ^
   --projectId myAirnode101 ^ ← GCP only
-  --region us-east-1
+  --region us-east1
 ```
 
 :::
@@ -224,15 +229,15 @@ docker run -it --rm ^
 
 Optionally you can remove an Airnode manually though it is highly recommended
 that you do so using the deployer image's `remove-with-receipt` or
-`remove-with-deployment-details` commands. Airnode has a presence in several
-areas of both AWS and GCP. An Airnode has a `airnodeAddressShort` (e.g.,
-`0ab830c`) that is included in the element name of AWS and GCP deployed
-features.
+`remove-with-deployment-details` commands. When removing manually, you will need
+the short Airnode address, `airnodeAddressShort` (e.g., `0ab830c`), that is
+included in the element name of AWS and GCP deployed features. Airnode has a
+presence in several areas of both AWS and GCP as listed below.
 
 ::: danger Remember
 
 Only delete elements of a feature with the `airnodeAddressShort` address in the
-name you are targeting. There can be more than one Airnode.
+name you are targeting as there can be more than one Airnode.
 
 :::
 

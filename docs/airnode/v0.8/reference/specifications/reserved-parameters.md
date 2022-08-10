@@ -1,6 +1,9 @@
 ---
 title: Reserved Parameters
+docSetName: Airnode v0.8
 folder: Reference > Specifications
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

@@ -1,6 +1,12 @@
 ---
 title: Endpoint
+docSetName: Airnode pre-alpha
+folder: Request-Response Protocol
+basePath: /airnode/pre-alpha
+tags:
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 <VersionWarning/>

@@ -28,6 +28,24 @@ module.exports = {
   /// Job page revision, incremented when a new job(s) is added
   jobPageRevision: 4,
 
+  /// basePath for each doc set, used by search
+  basePaths: {
+    '/': 'All Documentation',
+    '/airnode/v0.7': 'Airnode v0.7',
+    '/airnode/v0.6': 'Airnode v0.6',
+    '/airnode/v0.5': 'Airnode v0.5',
+    '/airnode/v0.4': 'Airnode v0.4',
+    '/airnode/v0.3': 'Airnode v0.3',
+    '/airnode/v0.2': 'Airnode v0.2',
+    '/airnode/pre-alpha': 'Airnode pre-alpha',
+    '/api3': 'API3',
+    '/chainapi': 'ChainAPI',
+    '/dapis': 'dAPIs',
+    '/dao-members': 'DAO Members',
+    '/ois/v1.1': 'OIS v1.1',
+    '/ois/v1.0': 'OIS v1.0',
+    '/qrng': 'QRNG',
+  },
   head: [
     [
       'meta',
@@ -122,7 +140,7 @@ module.exports = {
     [
       '@vuepress/search',
       {
-        searchMaxSuggestions: 200,
+        searchMaxSuggestions: 250,
         /*
           2021-03-10: wkande:  Do not use "test:", version filtering has been
           added to .vuepress.components/SearchBox.vue

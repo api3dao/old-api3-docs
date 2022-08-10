@@ -1,6 +1,9 @@
 ---
 title: Airnode Client Image
+docSetName: Airnode v0.8
 folder: API Providers > Docker Images
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -52,7 +55,7 @@ $ docker run --volume $(pwd):/app/config ...
 
 ::: tab Windows PowerShell
 
-```sh
+```powershell
 $ tree
 .
 ├── config.json
@@ -64,7 +67,7 @@ $ docker run --volume $(pwd):/app/config ...
 
 ::: tab Windows CMD
 
-```sh
+```batch
 $ tree
 .
 ├── config.json
@@ -101,7 +104,7 @@ docker run --detach \
 
 ::: tab Windows PowerShell
 
-```sh
+```powershell
 docker run --detach \
   --volume $(pwd):/app/config \
   --name airnode \
@@ -112,7 +115,7 @@ docker run --detach \
 
 ::: tab Windows
 
-```sh
+```batch
 docker run --detach ^
   --volume %cd%:/app/config ^
   --name airnode ^

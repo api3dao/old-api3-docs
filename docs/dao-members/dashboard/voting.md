@@ -1,6 +1,9 @@
 ---
 title: How to Vote
+docSetName: DAO Members
 folder: Dashboard
+basePath: /dao-members
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -18,7 +21,7 @@ voting power.
 
 ## Getting Started
 
-1. Access the [DAO Dashboard](https://api3.eth.link/)
+1. Access the [DAO Dashboard](https://dao.api3.org)
 2. Click the **Connect Wallet** button in the upper right hand corner and
    connect to your wallet using the mainnet.
 

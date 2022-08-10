@@ -1,6 +1,9 @@
 ---
 title: Instructions
+docSetName: Airnode v0.5
 folder: API Providers > Tutorials > Quick Deploy AWS
+basePath: /airnode/v0.5
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

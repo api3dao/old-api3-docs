@@ -1,6 +1,9 @@
 ---
 title: OIS Object
+docSetName: Airnode v0.7
 folder: Reference > Templates
+basePath: /airnode/v0.7
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

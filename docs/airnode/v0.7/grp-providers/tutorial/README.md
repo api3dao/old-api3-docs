@@ -1,8 +1,14 @@
 ---
 title: Overview
+docSetName: Airnode v0.7
+folder: API Providers > Tutorials
+basePath: /airnode/v0.7
+tags:
+  - quick deploy gcp
+  - tutorial tutorials
 ---
 
-<TitleSpan>Tutorials</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

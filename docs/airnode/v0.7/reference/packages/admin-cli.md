@@ -1,6 +1,9 @@
 ---
 title: Admin CLI
+docSetName: Airnode v0.7
 folder: Reference > Packages
+basePath: /airnode/v0.7
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -248,7 +251,7 @@ npx @api3/airnode-admin sponsor-requester \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin sponsor-requester ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
   --sponsor-mnemonic "nature about salad..." ^
@@ -299,7 +302,7 @@ npx @api3/airnode-admin unsponsor-requester \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin unsponsor-requester ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
   --sponsor-mnemonic "nature about salad..." ^
@@ -338,7 +341,7 @@ npx @api3/airnode-admin get-sponsor-status \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin get-sponsor-status ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
   --sponsor-address 0x9Ec6C4... ^
@@ -378,7 +381,7 @@ npx @api3/airnode-admin derive-sponsor-wallet-address \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin derive-sponsor-wallet-address ^
   --airnode-xpub xpub6CUGRUo... ^
   --airnode-address 0xe1e0dd... ^
@@ -428,7 +431,7 @@ npx @api3/airnode-admin create-template \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin create-template ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
   --mnemonic "nature about salad..." ^
@@ -471,7 +474,7 @@ npx @api3/airnode-admin create-inline-template \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin create-inline-template ^
   --template-file-path ./template.json
 ```
@@ -503,7 +506,7 @@ npx @api3/airnode-admin get-template \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin get-template ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
   --template-id 0x8d3b9...
@@ -573,7 +576,7 @@ npx @api3/airnode-admin request-withdrawal \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin request-withdrawal ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
   --sponsor-mnemonic "nature about salad..." ^
@@ -611,7 +614,7 @@ npx @api3/airnode-admin check-withdrawal-request \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin check-withdrawal-request ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
   --withdrawal-request-id 0x011d1b...
@@ -647,7 +650,7 @@ npx @api3/airnode-admin verify-airnode-xpub \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin verify-airnode-xpub ^
   --airnode-xpub xpub6CUGRUo... ^
   --airnode-address 0xe1e0dd...
@@ -691,7 +694,7 @@ npx @api3/airnode-admin derive-airnode-xpub --airnode-mnemonic "nature about sal
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin derive-airnode-xpub --airnode-mnemonic "nature about salad..."
 ```
 
@@ -726,7 +729,7 @@ npx @api3/airnode-admin derive-endpoint-id \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin derive-endpoint-id ^
   --ois-title "My OIS title..." ^
   --endpoint-name "My endpoint name..."
@@ -771,7 +774,7 @@ npx @api3/airnode-admin derive-airnode-address \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin derive-airnode-address ^
 --airnode-mnemonic "cricket among ..."
 ```
@@ -847,7 +850,7 @@ npx @api3/airnode-admin set-whitelist-expiration \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin set-whitelist-expiration ^
   --mnemonic "nature about salad..." ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
@@ -907,7 +910,7 @@ npx @api3/airnode-admin extend-whitelist-expiration \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin extend-whitelist-expiration ^
   --mnemonic "nature about salad..." ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
@@ -970,7 +973,7 @@ npx @api3/airnode-admin set-indefinite-whitelist-status \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin set-indefinite-whitelist-status ^
   --mnemonic "nature about salad..." ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
@@ -1011,7 +1014,7 @@ npx @api3/airnode-admin get-whitelist-status \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin get-whitelist-status ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
   --endpoint-id 0xda088e2d94... ^
@@ -1051,7 +1054,7 @@ npx @api3/airnode-admin is-requester-whitelisted \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin is-requester-whitelisted ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
   --requester-authorizer-with-airnode 0xDc64a1... ^

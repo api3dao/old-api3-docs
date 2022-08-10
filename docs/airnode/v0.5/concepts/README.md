@@ -1,6 +1,9 @@
 ---
 title: Request-Response Protocol
+docSetName: Airnode v0.5
 folder: Concepts and Definitions
+basePath: /airnode/v0.5
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

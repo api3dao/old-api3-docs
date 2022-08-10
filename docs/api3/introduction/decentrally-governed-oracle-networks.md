@@ -1,5 +1,9 @@
 ---
 title: Decentrally-governed oracle networks
+docSetName: API3
+folder:
+basePath: /api3
+tags:
 ---
 
 # {{$frontmatter.title}}

@@ -1,5 +1,9 @@
 ---
 title: First-party oracles
+docSetName: API3
+folder:
+basePath: /api3
+tags:
 ---
 
 # {{$frontmatter.title}}
