@@ -41,7 +41,7 @@
     "logFormat": "plain",
     "logLevel": "INFO",
     "nodeVersion": "0.6.5",
-    "stage": "dev"
+    "stage": "tutorial-container"
   },
   "triggers": {
     "rrp": [
