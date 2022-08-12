@@ -226,7 +226,7 @@ export const templatesSchema = z.record(templateSchema);
  * OISes Schema
  *
  * OISes are keyed by a composite of their `title` and `version`.
- * For more information, visit: https://docs.api3.org/ois
+ * For more information, visit: https://docs.api3.org/ois/v1.1/
  */
 export const oisesSchema = z.record(oisSchema);
 
