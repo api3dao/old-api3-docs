@@ -123,9 +123,8 @@ console.log(templateFull);
 
 EVM chains do not have floating point variable types and therefore all decimal
 values are stored as whole numbers. Airnode multiplies a decimal value from an
-API endpoint with a `_times` factor. `_times` is an Airnode Reserved Parameter.
-For more information, refer to the
-[API3 Docs](https://docs.api3.org/ois/latest/reserved-parameters.html)
+API endpoint with a `_times` factor. `_times` is an Airnode
+[Reserved Parameter](/ois/v1.1/reserved-parameters.html).
 
 <!-- markdown-link-check-enable -->
 

@@ -60,7 +60,7 @@ examples that need to be populated.
 <!-- markdown-link-check-disable -->
 
 Populate the `/data/apis/<PROVIDER_NAME>/OIS/*.json` according to the
-[OIS specification](https://docs.api3.org/ois/latest/ois.html).
+[OIS specification](/ois/v1.1/ois.html).
 
 <!-- markdown-link-check-enable -->
 
@@ -90,9 +90,9 @@ the structure below:
 
 `templateId` and `parameters` can be empty when populating the template data.  
 For populating `decodedParamters`, you can refer to
-[this](https://docs.api3.org/airnode/v0.6/grp-developers/call-an-airnode.html#request-parameters).
+[this](/airnode/v0.7/grp-developers/call-an-airnode.html#request-parameters).
 For deriving the `endpointId`, you can refer to
-[this](https://docs.api3.org/airnode/v0.6/reference/packages/admin-cli.html#derive-endpoint-id)
+[this](/airnode/v0.7/reference/packages/admin-cli.html#derive-endpoint-id)
 
 > Note that the above files can have any name initially as the normalization
 > script will name them according to their `templateName`.
