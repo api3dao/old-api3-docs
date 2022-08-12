@@ -29,7 +29,7 @@ export const evmXpubSchema = z.string().regex(/^xpub[a-zA-Z\d]{107}$/);
  * The type of wallet specified.
  *
  * If a wallet type contains "Sponsor" it means the target wallet must be derived using the Airnode Sponsor-wallet
- * algorithm: https://docs.api3.org/airnode/latest/concepts/sponsor.html#derive-a-sponsor-wallet
+ * algorithm: https://docs.api3.org/airnode/v0.7/concepts/sponsor.html#derive-a-sponsor-wallet
  *
  * If a wallet type does not contain "Sponsor" it is the derived target wallet.
  */
@@ -59,7 +59,7 @@ export const topUpWalletSchema = z
  * A description of a parent beacon's on-chain presence and associated resources.
  *
  * @param active Whether the beacon is currently actively being updated
- * @param sponsor The `sponsor` address (https://docs.api3.org/airnode/latest/concepts/sponsor.html#sponsoraddress)
+ * @param sponsor The `sponsor` address (https://docs.api3.org/airnode/v0.7/concepts/sponsor.html#sponsoraddress)
  * @param updateConditionPercentage The API provider's Airkeeper update condition percentage
  * @param displayDisabled Should the beacon be displayed in UI applications (TODO this should be moved to explorerMetadata)
  * @param airseekerConfig API3's Airkseeker update configuration, including:
@@ -188,7 +188,7 @@ export const deploymentsSchema = z.record(deploymentSetSchema);
 /**
  * An Airnode Template
  *
- * Please see documentation here: https://docs.api3.org/airnode/latest/grp-developers/using-templates.html#part-1-build-a-template
+ * Please see documentation here: https://docs.api3.org/airnode/v0.7/grp-developers/using-templates.html#part-1-build-a-template
  */
 export const templateDecodedParametersSchema = z.object({
   name: z.string(),
@@ -203,7 +203,7 @@ export const templateDecodedParametersSchema = z.object({
  * @param templateId Referenced by beacons and used to generate configuration files for Airnode, Airkeeper and Airseeker
  * @param endpointId References an OIS-based endpoint: https//docs.api3.org/airnode/latest/concepts/endpoint.html#endpointid
  * @param parameters Encoded parameters - derived from `decodedParameters` and used in consuming applications
- * @param decodedParameters Used as an input into the generation of `parameters`. See https://docs.api3.org/airnode/latest/reference/deployment-files/config-json.html#triggers
+ * @param decodedParameters Used as an input into the generation of `parameters`. See https://docs.api3.org/airnode/v0.7/reference/deployment-files/config-json.html#triggers
  */
 export const templateSchema = z
   .object({
@@ -239,8 +239,8 @@ export const oisesSchema = z.record(oisSchema);
  * @param active Whether any of the provider's beacons are active
  * @param description A UI-suitably formatted description of the API provider
  * @param homepage The API provider's homepage
- * @param airnode The API Provider's Airnode address, see: https://docs.api3.org/airnode/latest/reference/packages/admin-cli.html#derive-airnode-address
- * @param xpub The extended public key of the API Provider's Airnode, see: https://docs.api3.org/airnode/latest/reference/packages/admin-cli.html#derive-airnode-xpub
+ * @param airnode The API Provider's Airnode address, see: https://docs.api3.org/airnode/v0.7/reference/packages/admin-cli.html#derive-airnode-address
+ * @param xpub The extended public key of the API Provider's Airnode, see: https://docs.api3.org/airnode/v0.7/reference/packages/admin-cli.html#derive-airnode-xpub
  * @param logoPath The API Provider's web-accessible logo as a URL
  * @param orderLogoPath An alternative logo for the API Provider for light backgrounds
  * @param maxSubscriptionPeriod The maximum period that a requester contract may be allowed to read from the API provider's beacons in months
