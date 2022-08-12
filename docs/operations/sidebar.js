@@ -4,7 +4,7 @@ module.exports = [
     initialOpenGroupIndex: 1,
     collapsable: false,
     children: [
-      '/operations/operations-repository',
+      '/operations/',
       '/operations/structure',
       '/operations/development_usage',
       '/operations/deployment_usage',
