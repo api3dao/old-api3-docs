@@ -1,12 +1,15 @@
 module.exports = [
   {
-    title: 'Operations',
+    title: 'Operations Repository',
+    initialOpenGroupIndex: 1,
     collapsable: false,
-    children: ['/operations/'],
-  },
-  {
-    title: 'Another Folder',
-    collapsable: false,
-    children: ['/operations/another-folder/stuff.md'],
+    children: [
+      '/operations/',
+      '/operations/structure',
+      '/operations/development_usage',
+      '/operations/deployment_usage',
+      '/operations/integrating_new_provider',
+      '/operations/reference',
+    ],
   },
 ];
