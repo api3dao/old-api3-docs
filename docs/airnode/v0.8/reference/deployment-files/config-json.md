@@ -639,7 +639,7 @@ the HTTP Signed Data Gateway.
 ## templates
 
 An array that includes the necessary information to make
-[Template Requests](../../concepts/request.md#template-request). The `temnplres`
+[Template Requests](../../concepts/request.md#template-request). The `templates`
 array must be included in the `config.json` file. The array can be left empty if
 no templates are used . Valid templates will be used to make template requests
 without calling the contract to fetch the template from the chain. For details
@@ -656,21 +656,21 @@ see [Using Templates](../../grp-developers/using-templates.md).
 ]
 ```
 
-#### `templateId`
+### `templateId`
 
 (required: <span style="font-size:small;color:gray;">
 `for each row in templates`</span>) - An identifier derived by hashing the
 Airnode address, the endpointId and the encoded parameters of the template. For
 derivation see: [Templates](../../concepts/template.md#templateid).
 
-#### `endpointId`
+### `endpointId`
 
 (required: <span style="font-size:small;color:gray;">
 `for each row in templates`</span>) - An identifier derived for an
 oisTitle/endpointName pair. For derivation see:
 [derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id).
 
-#### `encodedParameters`
+### `encodedParameters`
 
 (required: <span style="font-size:small;color:gray;">
 `for each row in templates`</span>) - The encoded request parameters.
