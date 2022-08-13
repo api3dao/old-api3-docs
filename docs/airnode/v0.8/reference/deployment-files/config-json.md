@@ -235,11 +235,11 @@ relevant only for some chains (e.g.
 
 ##### `options.withdrawalRemainder.value`
 
-<p style="margin-left:35px;">(required) - A number specifying the <code>withdrawalRemainder</code> value.</p>
+<p style="margin-left:35px;">(required:<span style="font-size:small;color:gray;"> <code>if option.withdrawalRemainder present</code></span>) - A number specifying the <code>withdrawalRemainder</code> value.</p>
 
 ##### `options.withdrawalRemainder.unit`
 
-<p style="margin-left:35px;">(required) - The unit of the <code>withdrawalRemainder</code> value. It can be one of the following:
+<p style="margin-left:35px;">(required:<span style="font-size:small;color:gray;"> <code>if withdrawalRemainder present</code></span>) - The unit of the <code>withdrawalRemainder</code> value. It can be one of the following:
 (wei, kwei, mwei, gwei, szabo, finney, ether).</p>
 
 #### `options.gasPriceOracle[n]`
@@ -256,36 +256,38 @@ below. For more detail on each, see the
 [Gas Prices](../../concepts/gas-prices.md) page.-->
 
 - [latestBlockPercentileGasPrice](../../concepts/gas-prices.md#latestblockpercentilegasprice)
-  - `percentile`: (required) - The percentile of gas prices to return from a
+  - `percentile`<br/>(required) - The percentile of gas prices to return from a
     block.
-  - `minTransactionCount`: (required) - The minimum amount of transactions
+  - `minTransactionCount`<br/>(required) - The minimum amount of transactions
     required in a block to use for calculating a gas price percentile.
-  - `pastToCompareInBlocks`: (required) - The number of blocks to look back for
-    the reference block.
-  - `maxDeviationMultiplier`: (required) - The maximum deviation multiplier of
-    the latest block gas price percentile compared to the reference block gas
+  - `pastToCompareInBlocks`<br/>(required) - The number of blocks to look back
+    for the reference block.
+  - `maxDeviationMultiplier`<br/>(required) - The maximum deviation multiplier
+    of the latest block gas price percentile compared to the reference block gas
     price percentile. Used to protect against large gas price spikes.
 - [providerRecommendedGasPrice](../../concepts/gas-prices.md#providerrecommendedgasprice)
-  - `recommendedGasPriceMultiplier`: (required) - A number with a maximum of two
-    decimals that gets multiplied by the provider reported gas price. The
+  - `recommendedGasPriceMultiplier`<br/>(required) - A number with a maximum of
+    two decimals that gets multiplied by the provider reported gas price. The
     resulting Gas Price will equal `Gas Price * providerRecommendedGasPrice`.
 - [providerRecommendedEip1559GasPrice](../../concepts/gas-prices.md#providerrecommendedeip1559gasprice)
-  - `baseFeeMultiplier`: (required) - Number multiplied by the Base Fee to yield
-    the Maximum Fee for EIP-1559 transactions. Defaults to: `2`. The resulting
-    Maximum Fee will equal `(Base Fee * baseFeeMultiplier) + priorityFee`.
-  - `priorityFee`: (required) - An object that configures the EIP-1559 Priority
-    Fee. Defaults: `{"value": 3.12, "unit": "gwei"}`.
-    - `priorityFee.value`: (required) - A number specifying the EIP-1559
+  - `baseFeeMultiplier`<br/>(required) - Number multiplied by the Base Fee to
+    yield the Maximum Fee for EIP-1559 transactions. Defaults to: `2`. The
+    resulting Maximum Fee will equal
+    `(Base Fee * baseFeeMultiplier) + priorityFee`.
+  - `priorityFee`:<br/>(required) - An object that configures the EIP-1559
+    Priority Fee. Defaults: `{"value": 3.12, "unit": "gwei"}`.
+    - `priorityFee.value`<br/>(required) - A number specifying the EIP-1559
       priority fee value.
-    - `priorityFee.unit`: (required) - The unit of the priority fee value. It
+    - `priorityFee.unit`<br/>(required) - The unit of the priority fee value. It
       can be one of the following: (wei, kwei, mwei, gwei, szabo, finney,
       ether).
 - [constantGasPrice](../../concepts/gas-prices.md#constantgasprice)
-  - `gasPrice`: (required) - An object of the form `{"value": 0, "unit": "wei"}`
-    that configures the amount to use as gas price.
-    - `gasPrice.value`: (required) - A number specifying the gasPrice value.
-    - `gasPrice.unit`: (required) The unit of the gasPrice value. It can be one
-      of the following: (wei, kwei, mwei, gwei, szabo, finney, ether).
+  - `gasPrice`<br/>(required) - An object of the form
+    `{"value": 0, "unit": "wei"}` that configures the amount to use as gas
+    price.
+    - `gasPrice.value`<br/>(required) - A number specifying the gasPrice value.
+    - `gasPrice.unit`<br/>(required) The unit of the gasPrice value. It can be
+      one of the following: (wei, kwei, mwei, gwei, szabo, finney, ether).
 
 ### `maxConcurrency`
 
@@ -298,7 +300,7 @@ and limiting
 number of spawned cloud functions based on this field.
 
 If you want to disable this behavior, see
-[`disableConcurrencyReservations`](#cloudprovider-disableconcurrencyreservations).
+[disableConcurrencyReservations](#cloudprovider-disableconcurrencyreservations).
 
 See
 [Configuring an Airnode](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#considerations-concurrency)
@@ -307,7 +309,7 @@ for additional considerations.
 ### `blockHistoryLimit`
 
 (optional) - The number of blocks in the past that the Airnode deployment should
-search for requests. Defaults to `300` (roughly 1 hour for Ethereum).
+search for requests. Defaults to `300`, roughly 1 hour for Ethereum.
 
 ### `minConfirmations`
 
@@ -363,36 +365,41 @@ configuration. Learn more about AWS or GCP resources that Airnode uses in the
 #### `cloudProvider.type`
 
 (required) - Currently `aws` and `gcp` are supported for serverless
-([deployer-image](../../grp-providers/docker/deployer-image.md)). Use `local` if
-you want to run Airnode as a docker container locally
+([deployer-image](../../grp-providers/docker/deployer-image.md)). Use `local` to
+run Airnode as a docker container locally
 ([client-image](../../grp-providers/docker/client-image.md)).
 
 #### `cloudProvider.region`
 
-(required for AWS and GCP) - The cloud provider region that the node will be
-deployed at. An example AWS value would be `us-east-1` and an example GCP value
-would be `us-east1`. See the cloud provider's documentation for possible values.
-When using GCP, make sure to choose a **region** and not a zone. Note that
-transferring a deployment from one region to the other is not trivial (i.e., it
-does not take one command like deployment, but rather three). Therefore, try to
-choose a region and stick to it for this specific deployment.
+(required:<span style="font-size:small;color:gray">
+`if cloudPrivider.type is AWS or GCP`</span>) - The cloud provider region that
+the node will be deployed at. An example AWS value would be `us-east-1` and an
+example GCP value would be `us-east1`. See the cloud provider's documentation
+for possible values. When using GCP, make sure to choose a **region** and not a
+zone. Note that transferring a deployment from one region to the other is not
+trivial (i.e., it does not take one command like deployment, but rather three).
+Therefore, try to choose a region and stick to it for this specific deployment.
 
 #### `cloudProvider.disableConcurrencyReservations`
 
-(required for AWS and GCP) - Disables concurrency reservations for spawned cloud
-functions. For more information refer to the [maxConcurrency](#maxconcurrency)
-section.
+(required:<span style="font-size:small;color:gray">
+`if cloudProvider.type is AWS or GCP`</span>) - Disables concurrency
+reservations for spawned cloud functions. For more information refer to the
+[maxConcurrency](#maxconcurrency) section.
 
 #### `cloudProvider.projectId`
 
-(required for GCP) - Project ID of the GCP project the Airnode will be deployed
-under.
+(required:<span style="font-size:small;color:gray">
+`if cloudProvider.type is GCP`</span>) - Project ID of the GCP project the
+Airnode will be deployed under.
 
 #### `cloudProvider.gatewayServerPort`
 
-(optional for local) - The port number (defaults to `3000`) of the API gateway
-inside the docker container. This property is especially useful, if the
-container is run using [host networking](https://docs.docker.com/network/host/).
+(optional:<span style="font-size:small;color:gray">
+`if cloudProvider.type is local`</span>) - The port number (defaults to `3000`)
+of the API gateway inside the docker container. This property is especially
+useful, if the container is run using
+[host networking](https://docs.docker.com/network/host/).
 
 ### `airnodeWalletMnemonic`
 
@@ -418,15 +425,21 @@ documentation for more information.
 
 #### `heartbeat.apiKey`
 
-(only if enabled) - The API key to authenticate against the heartbeat URL.
+(required: <span style="font-size:small;color:gray;">
+`if heartbeat.enabled is true`</span>) - The API key to authenticate against the
+heartbeat URL.
 
 #### `heartbeat.id`
 
-(only if enabled) - The Airnode heartbeat ID for accounting purposes.
+(required: <span style="font-size:small;color:gray;">
+`if heartbeat.enabled is true`</span>) - The Airnode heartbeat ID for accounting
+purposes.
 
 #### `heartbeat.url`
 
-(only if enabled) - The URL to make the heartbeat request to.
+(required: <span style="font-size:small;color:gray;">
+`if heartbeat.enabled is true`</span>) - The URL to make the heartbeat request
+to.
 
 ### `httpGateway`
 
@@ -442,21 +455,25 @@ HTTP gateway.
 
 #### `httpGateway.apiKey`
 
-(only if enabled) - The API key to authenticate against the gateway. The key
-must have a length of between 30 - 120 characters. Do not use the same key for
-`httpGateway` and `httpSignedDataGateway`.
+(required: <span style="font-size:small;color:gray;">
+`if httpGateway.enabled is true`</span>) - The API key to authenticate against
+the gateway. The key must have a length of between 30 - 120 characters. Do not
+use the same key for `httpGateway` and `httpSignedDataGateway`.
 
 #### `httpGateway.maxConcurrency`
 
-(only if enabled, optional) - A number higher than zero representing the maximum
-number of serverless functions serving HTTP gateway requests running at the same
-time. When omitted, there is no maximum concurrency set.
+(required: <span style="font-size:small;color:gray;">
+`if httpGateway.enabled is true`</span>) - A number higher than zero
+representing the maximum number of serverless functions serving HTTP gateway
+requests running at the same time. When omitted, there is no maximum concurrency
+set.
 
 #### `httpGateway.corsOrigins`
 
-(required, if enabled) - A list of allowed origins. An empty array (`[]`) can be
-used to disable CORS and the wildcard (`['*']`) can be used to allow all
-origins.
+(required: <span style="font-size:small;color:gray;">
+`if httpGateway.enabled is true`</span>) - A list of allowed origins. An empty
+array (`[]`) can be used to disable CORS and the wildcard (`['*']`) can be used
+to allow all origins.
 
 ### `httpSignedDataGateway`
 
@@ -472,20 +489,25 @@ gateway.
 
 #### `httpSignedDataGateway.apiKey`
 
-(only if enabled) - The API key to authenticate against the gateway. The key
-must have a length of between 30 - 120 characters. Do not use the same key for
-`httpGateway` and `httpSignedDataGateway`.
+(required: <span style="font-size:small;color:gray;">
+`if httpSignedDataGateway.enabled is true`</span>) - The API key to authenticate
+against the gateway. The key must have a length of between 30 - 120 characters.
+Do not use the same key for `httpGateway` and `httpSignedDataGateway`.
 
 #### `httpSignedDataGateway.maxConcurrency`
 
-(only if enabled, optional) - A number higher than zero representing the maximum
-number of serverless functions serving HTTP gateway requests running at the same
-time. When omitted, there is no maximum concurrency set.
+(required: <span style="font-size:small;color:gray;">
+`if httpSignedDataGateway.enabled is true`</span>) - A number higher than zero
+representing the maximum number of serverless functions serving HTTP gateway
+requests running at the same time. When omitted, there is no maximum concurrency
+set.
 
 #### `httpSignedDataGateway.corsOrigins`
 
-(only if enabled) - A list of allowed origins. An empty array (`[]`) can be used
-to disable CORS and the wildcard (`['*']`) can be used to allow all origins.
+(required: <span style="font-size:small;color:gray;">
+`if httpSignedDataGateway.enabled is true`</span>) - A list of allowed origins.
+An empty array (`[]`) can be used to disable CORS and the wildcard (`['*']`) can
+be used to allow all origins.
 
 ### `logFormat`
 
@@ -617,7 +639,11 @@ the HTTP Signed Data Gateway.
 ## templates
 
 An array that includes the necessary information to make
-[template requests](../../concepts/request.md#template-request)
+[Template Requests](../../concepts/request.md#template-request). The `temnplres`
+array must be included in the `config.json` file. The array can be left empty if
+no templates are used . Valid templates will be used to make template requests
+without calling the contract to fetch the template from the chain. For details
+see [Using Templates](../../grp-developers/using-templates.md).
 
 ```json
 // templates
@@ -630,28 +656,24 @@ An array that includes the necessary information to make
 ]
 ```
 
-### `templates`
-
-(required) - An array of templates which can be left empty if no templates are
-used. Valid templates will be used to make template requests without calling the
-contract to fetch the template from the chain. For details see:
-[using templates](../../grp-developers/using-templates.md)
-
 #### `templateId`
 
-(required) - An identifier derived by hashing the Airnode address, the
-endpointId and the encoded parameters of the template. For derivation see:
-[templates](../../concepts/template.md#templateid).
+(required: <span style="font-size:small;color:gray;">
+`for each row in templates`</span>) - An identifier derived by hashing the
+Airnode address, the endpointId and the encoded parameters of the template. For
+derivation see: [Templates](../../concepts/template.md#templateid).
 
 #### `endpointId`
 
-(required) - An identifier derived for an oisTitle/endpointName pair. For
-derivation see:
+(required: <span style="font-size:small;color:gray;">
+`for each row in templates`</span>) - An identifier derived for an
+oisTitle/endpointName pair. For derivation see:
 [derive-endpoint-id](../packages/admin-cli.md#derive-endpoint-id).
 
 #### `encodedParameters`
 
-(required) - The encoded request parameters.
+(required: <span style="font-size:small;color:gray;">
+`for each row in templates`</span>) - The encoded request parameters.
 
 ## ois
 
@@ -712,16 +734,19 @@ empty.
 
 ### `oisTitle`
 
-(required) - The `ois.title` of the OIS where the `securitySchemeName` can be
-found.
+(required: <span style="font-size:small;color:gray;">
+`for each row in apiCredentials`</span>) - The `ois.title` of the OIS where the
+`securitySchemeName` can be found.
 
 ### `securitySchemeName`
 
-(required) - The name of a security scheme from
+(required: <span style="font-size:small;color:gray;">
+`for each row in apiCredentials`</span>) - The name of a security scheme from
 `ois[n].components.securitySchemes.{securitySchemeName}`.
 
 ### `securitySchemeValue`
 
-(required) - The value of the security scheme used (as defined by
-`ois[n].components.securitySchemes.{securitySchemeName}` for the authentication.
-Usually stored in `secrets.env`.
+(required: <span style="font-size:small;color:gray;">
+`for each row in apiCredentials`</span>) - The value of the security scheme used
+(as defined by `ois[n].components.securitySchemes.{securitySchemeName}` for the
+authentication. Usually stored in `secrets.env`.
