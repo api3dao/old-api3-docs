@@ -268,8 +268,14 @@ you want to run Airnode as a docker container locally
 #### `cloudProvider.region`
 
 (required for AWS and GCP) - The cloud provider region that the node will be
-deployed at. See the cloud provider's documentation for possible values. When
-using GCP, make sure to choose a **region** and not a zone.
+deployed at. See the cloud provider's documentation for possible values. Some
+AWS regions are disabled by default, you must enable them before you can create
+and manage resources, see
+[Enabling a Region](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html).
+When using GCP, make sure to choose a **region** and not a zone. Note that
+transferring a deployment from one region to the other is not trivial (i.e., it
+does not take one command like deployment, but rather three). Therefore, try to
+choose a region and stick to it for this specific deployment.
 
 #### `cloudProvider.disableConcurrencyReservations`
 
