@@ -147,7 +147,7 @@ A full request using the AirnodeRrp.sol contract `makeFullRequest` function
 requires all parameters needed by the Airnode application to be passed at
 runtime. This is in contrast to a template request that would use a template for
 some or all of the required parameters. Learn more about
-[using templates](call-an-airnode.md#using-templates).
+[using templates](using-templates.md).
 
 Since the `callTheAirnode` function makes a
 [full request](../concepts/request.md#full-request), it must gather the
