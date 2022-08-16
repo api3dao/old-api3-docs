@@ -233,7 +233,7 @@ a few things to keep track of.
 | sponsor wallets | Record which `sponsorAddress` was used to create a sponsorWallet for an Airnode.                                                                                                                                                            |
 | sponsor wallets | Record the `sponsorWalletAddress` of the sponsorWallet derived for an Airnode. For each Airnode you have derived a sponsorWallet, the Airnode keeps the private key and returns the public address which is used to fund the sponsorWallet. |
 
-You can acquire the public address of a sponsorWallet later, if you loose it, by
+You can acquire the public address of a sponsorWallet later, if you lose it, by
 running the command `derive-sponsor-wallet-address` again. Since the
 sponsorWallet was already created for the sponsorAddress/airnodeAddress pair,
 the command will only return the public address for the wallet. However you must
