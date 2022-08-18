@@ -113,7 +113,7 @@ docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
   -v "$(pwd)/config:/app/config" \
   -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.7.2 deploy
+  api3/airnode-deployer:0.7.3 deploy
 ```
 
 :::
@@ -127,7 +127,7 @@ docker run -it --rm ^
   --env-file aws.env ^
   -v "%cd%/config:/app/config" ^
   -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.7.2 deploy
+  api3/airnode-deployer:0.7.3 deploy
 ```
 
 :::
@@ -146,7 +146,7 @@ docker run -it --rm \
   -v "$(pwd)/gcp.json:/app/gcp.json" \
   -v "$(pwd)/config:/app/config" \
   -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.7.2 deploy
+  api3/airnode-deployer:0.7.3 deploy
 ```
 
 :::
@@ -160,7 +160,7 @@ docker run -it --rm ^
   -v "%cd%/gcp.json:/app/gcp.json" ^
   -v "%cd%/config:/app/config" ^
   -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.7.2 deploy
+  api3/airnode-deployer:0.7.3 deploy
 ```
 
 :::
@@ -190,7 +190,7 @@ Airnode should you choose.
       "region": "us-east-1"
     },
     "stage": "dev",
-    "nodeVersion": "0.7.2",
+    "nodeVersion": "0.7.3",
     "timestamp": "2022-03-26T02:37:55.506Z"
   },
   "api": {
@@ -224,7 +224,7 @@ folder. This file is needed to remove an Airnode.
 docker run -it --rm \
   --env-file aws.env \
   -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.7.2 remove -r output/receipt.json
+  api3/airnode-deployer:0.7.3 remove -r output/receipt.json
 ```
 
 :::
@@ -237,7 +237,7 @@ For Windows, use CMD (and not PowerShell).
 docker run -it --rm ^
   --env-file aws.env ^
   -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.7.2 remove -r output/receipt.json
+  api3/airnode-deployer:0.7.3 remove -r output/receipt.json
 ```
 
 :::
@@ -254,7 +254,7 @@ docker run -it --rm ^
 docker run -it --rm \
   -v "$(pwd)/gcp.json:/app/gcp.json" \
   -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.7.2 remove -r output/receipt.json
+  api3/airnode-deployer:0.7.3 remove -r output/receipt.json
 ```
 
 :::
@@ -267,7 +267,7 @@ For Windows, use CMD (and not PowerShell).
 docker run -it --rm ^
   -v "%cd%/gcp.json:/app/gcp.json" ^
   -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.7.2 remove -r output/receipt.json
+  api3/airnode-deployer:0.7.3 remove -r output/receipt.json
 ```
 
 :::

@@ -124,7 +124,7 @@ docker run --detach \
   --volume "$(pwd):/app/config" \
   --name quick-deploy-container-airnode \
   --network host \
-  api3/airnode-client:0.7.2
+  api3/airnode-client:0.7.3
 ```
 
 :::
@@ -136,7 +136,7 @@ docker run --detach \
   --volume "$(pwd):/app/config" \
   --name quick-deploy-container-airnode \
   --publish 3000:3000 \
-  api3/airnode-client:0.7.2
+  api3/airnode-client:0.7.3
 ```
 
 :::
@@ -150,7 +150,7 @@ docker run --detach ^
   --volume "%cd%:/app/config" ^
   --name quick-deploy-container-airnode ^
   --publish 3000:3000 ^
-  api3/airnode-client:0.7.2
+  api3/airnode-client:0.7.3
 ```
 
 :::
