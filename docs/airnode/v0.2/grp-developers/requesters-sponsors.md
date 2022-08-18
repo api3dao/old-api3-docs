@@ -114,7 +114,7 @@ wallet_.
 
 When a sponsor uses the same `sponsorAddress` to "sponsor a requester" and to
 "derive a sponsor wallet" for an Airnode, the requester will have permission to
-make requests to the Airnode on behave of the sponsor. This allows the sponsor
+make requests to the Airnode on behalf of the sponsor. This allows the sponsor
 to cover the gas costs incurred by the Airnode when responding to the request.
 Sponsors need to keep their sponsor wallets topped off if they want Airnodes to
 fulfill requests made by their requesters. However this does not cover the cost
