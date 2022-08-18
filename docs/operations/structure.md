@@ -19,7 +19,7 @@ of the repository schema and as a type system. This ensures strong consistency,
 which prevents consuming applications from malfunctioning due to schema changes.
 
 The validation rules are centralised in
-[`/src/utils/validation.ts`](https://github.com/api3dao/operations/blob/main/src/utils/validation.ts).
+[`/src/utils/validation.ts`](https://github.com/api3dao/operations/blob/main/src/validation/validation.ts).
 The Operations repository is our single source of truth, and therefore the code
 always takes precedence over this documentation.
 
