@@ -445,11 +445,10 @@ that cannot be overridden by the requester.
 ### 5.4. `reservedParameters`
 
 [<InfoBtnBlue/>](/airnode/v0.7/grp-providers/guides/build-an-airnode/api-integration.md#reservedparameters)
-
-A list of objects that specify reserved Airnode endpoint parameters that do not
-map to any API operation parameters, but are used for special purposes by the
-Airnode. See the [Reserved Parameters](./reserved-parameters.md) doc for an
-in-depth explanation. Each object has the following elements:
+(Optional) A list of objects that specify reserved Airnode endpoint parameters
+that do not map to any API operation parameters, but are used for special
+purposes by the Airnode. See the [Reserved Parameters](./reserved-parameters.md)
+doc for an in-depth explanation. Each object has the following elements:
 
 - `name`
 - `fixed`
