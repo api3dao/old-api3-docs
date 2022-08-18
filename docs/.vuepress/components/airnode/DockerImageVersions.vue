@@ -64,12 +64,20 @@ inside the Airnode doc set.
         <td>0.6.5</td>
       </tr>
       <tr>
+        <td>0.6.6</td>
+        <td>0.6.6</td>
+      </tr>
+      <tr>
         <td>0.7.2</td>
         <td>0.7.2</td>
       </tr>
       <tr>
+        <td>0.7.3</td>
+        <td>0.7.3</td>
+      </tr>
+      <tr>
         <td>latest</td>
-        <td>0.7.2</td>
+        <td>0.7.3</td>
       </tr>
     </table>
     <div style="font-size: small; margin-left: 20px; margin-top: -10px">
