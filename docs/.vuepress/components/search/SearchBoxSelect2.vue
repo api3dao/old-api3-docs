@@ -56,7 +56,7 @@ export default {
   font-size:small;
   width: 280px;
   color:gray;
-  border: none
+  border: none;
 
   /* Do not change the below settings. These are needed
      for mobile devices to prevent horizontal scrolling
