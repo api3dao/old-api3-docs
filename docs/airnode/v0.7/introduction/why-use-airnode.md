@@ -6,7 +6,7 @@ basePath: /airnode/v0.7
 tags:
 ---
 
-<TitleSpan>{{$frontmatter.folder}}</TitleSpan>>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 
