@@ -136,7 +136,7 @@ For Windows, use CMD (and not PowerShell).
 docker run --detach ^
   --volume "%cd%/config:/app/config" ^
   --name quick-deploy-container-airnode ^
-  api3/airnode-client:0.6.6
+  api3/airnode-client:0.6.7
 ```
 
 :::
