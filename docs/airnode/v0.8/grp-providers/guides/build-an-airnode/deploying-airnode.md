@@ -129,7 +129,7 @@ docker run -it --rm ^
 
 The `receipt.json` file is a product of a deployment attempt. It contains
 Airnode configuration and deployment information and is used to remove the
-Airnode. The field `success` is importance in that it specifies whether the
+Airnode. The field `success` is important in that it specifies whether the
 deployment was successful or not.
 
 ```json
@@ -148,9 +148,6 @@ deployment was successful or not.
     "stage": "dev",
     "nodeVersion": "0.8.0",
     "timestamp": "2022-03-26T02:37:55.506Z"
-  },
-  "api": {
-    "heartbeatId": "caccf290-e683-11ec-8fea-0242ac120002"
   },
   "success": true
 }
