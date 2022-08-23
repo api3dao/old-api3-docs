@@ -45,7 +45,7 @@
     },
     "logFormat": "plain",
     "logLevel": "INFO",
-    "nodeVersion": "0.7.3",
+    "nodeVersion": "0.7.5",
     "stage": "tutorial-gcp"
   },
   "triggers": {
