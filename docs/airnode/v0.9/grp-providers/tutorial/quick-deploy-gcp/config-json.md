@@ -1,8 +1,8 @@
 ---
 title: config.json
-docSetName: Airnode v0.8
+docSetName: Airnode v0.9
 folder: API Providers > Tutorials > Quick Deploy GCP
-basePath: /airnode/v0.8
+basePath: /airnode/v0.9
 tags:
   - quick deploy gcp
   - tutorial tutorials
@@ -18,4 +18,4 @@ The config.json file contents shown below is for the [Quick Deploy GCP](./)
 demo.
 
 <!-- prettier-ignore -->
-<<< @/docs/airnode/v0.8/grp-providers/tutorial/quick-deploy-gcp/src/quick-deploy-gcp/config.json
+<<< @/docs/airnode/v0.9/grp-providers/tutorial/quick-deploy-gcp/src/quick-deploy-gcp/config.json

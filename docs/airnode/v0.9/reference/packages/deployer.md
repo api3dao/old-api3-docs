@@ -1,8 +1,8 @@
 ---
 title: Deployer
-docSetName: Airnode v0.8
+docSetName: Airnode v0.9
 folder: Reference > Packages
-basePath: /airnode/v0.8
+basePath: /airnode/v0.9
 tags:
 ---
 

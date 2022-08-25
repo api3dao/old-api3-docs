@@ -1,8 +1,8 @@
 ---
 title: Design Philosophy
-docSetName: Airnode v0.8
+docSetName: Airnode v0.9
 folder: API Providers
-basePath: /airnode/v0.8
+basePath: /airnode/v0.9
 tags:
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: Instructions
-docSetName: Airnode v0.8
+docSetName: Airnode v0.9
 folder: API Providers > Tutorials > Quick Deploy Container
-basePath: /airnode/v0.8
+basePath: /airnode/v0.9
 tags:
   - quick deploy container
   - tutorial tutorials
@@ -66,7 +66,7 @@ quick-deploy-container
 
 ::: tab Download
 
-Download the <a href="/zip-files/quick-deploy-container-v0.8.zip" download>
+Download the <a href="/zip-files/quick-deploy-container-v0.9.zip" download>
 quick-deploy-container</a> project folder.
 
 :::

@@ -1,8 +1,8 @@
 ---
 title: Instructions
-docSetName: Airnode v0.8
+docSetName: Airnode v0.9
 folder: API Providers > Tutorials > Quick Deploy GCP
-basePath: /airnode/v0.8
+basePath: /airnode/v0.9
 tags:
   - quick deploy gcp
   - tutorial tutorials
@@ -67,7 +67,7 @@ quick-deploy-gcp
 
 ::: tab Download
 
-Download the <a href="/zip-files/quick-deploy-gcp-v0.8.zip" download>
+Download the <a href="/zip-files/quick-deploy-gcp-v0.9.zip" download>
 quick-deploy-gcp</a> project folder.
 
 :::

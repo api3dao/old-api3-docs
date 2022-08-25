@@ -1,8 +1,8 @@
 ---
 title: API Integration
-docSetName: Airnode v0.8
+docSetName: Airnode v0.9
 folder: API Providers > Build an Airnode
-basePath: /airnode/v0.8
+basePath: /airnode/v0.9
 tags:
 ---
 
@@ -98,7 +98,7 @@ json object.
 ### oisFormat
 
 A specific version of the [OIS Specification](/ois/v1.1/ois.md#_1-oisformat) to
-be used. For this guide, which uses Airnode `v0.8.x`, the proper OIS version is
+be used. For this guide, which uses Airnode `v0.9.x`, the proper OIS version is
 `1.1.1`.
 
 ### title
