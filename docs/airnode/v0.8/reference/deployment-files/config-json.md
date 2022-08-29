@@ -552,7 +552,8 @@ defined in an OIS.
     {
       "endpointId": "0xd7ddc8ee64d6e540682ec844a5dd9737663ec3afe5751102eb4f966744751838",
       "oisTitle": "myOisTitle",
-      "endpointName": "myEndpointName"
+      "endpointName": "myEndpointName",
+      "cacheResponses": false
     }
   ],
   "http": [
@@ -601,6 +602,12 @@ derivation see:
 #### `rrp[n].endpointName`
 
 (required) - The endpoint name of an OIS endpoint.
+
+#### `rrp[n].cacheResponses`
+
+(required) - Whether to cache API responses for an endpoint by `requestId` and
+return the cached response. Useful for non-idempotent API operations like random
+number generators.
 
 ### `http`
 

@@ -89,7 +89,8 @@
       {
         "endpointId": "0xf10f067e716dd8b9c91b818e3a933b880ecb3929c04a6cd234c171aa27c6eefe",
         "oisTitle": "CoinGecko Requests",
-        "endpointName": "coinMarketData"
+        "endpointName": "coinMarketData",
+        "cacheResponses": false
       }
     ],
     "http": [

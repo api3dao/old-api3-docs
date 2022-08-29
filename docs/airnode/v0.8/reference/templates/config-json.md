@@ -133,7 +133,8 @@ building a config.json file.
       {
         "endpointId": "<FILL_*>",
         "oisTitle": "<FILL_OIS_TITLE>",
-        "endpointName": "<FILL_ENDPOINT_NAME>"
+        "endpointName": "<FILL_ENDPOINT_NAME>",
+        "cacheResponses": "<FILL_CACHE_RESPONSES>"
       }
     ],
     "http": [
