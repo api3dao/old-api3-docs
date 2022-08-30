@@ -316,7 +316,8 @@ trigger for each endpoint in your OIS object.
       {
         "endpointId": "0xd4b0718c9a3316dbd831e6d01058202e5dde20a116304419f0d79e07a82b46bf",
         "oisTitle": "CoinGecko Requests",
-        "endpointName": "coinGeckoMarketData"
+        "endpointName": "coinGeckoMarketData",
+        "cacheResponses": false
       }
     ],
     "http": [
@@ -351,6 +352,7 @@ and that these endpoints can be triggers for `rrp`, `http`, and/or
   - [rrp[n].endpointId](../../../reference/deployment-files/config-json.md#rrp-n-endpointid)
   - [rrp[n].oisTitle](../../../reference/deployment-files/config-json.md#rrp-n-oistitle)
   - [rrp[n].endpointName](../../../reference/deployment-files/config-json.md#rrp-n-endpointname)
+  - [rrp[n].cacheResponses](../../../reference/deployment-files/config-json.md#rrp-n-cacheresponses)
 - [http](../../../reference/deployment-files/config-json.md#http)
   - [http[n].endpointId](../../../reference/deployment-files/config-json.md#http-n-endpointid)
   - [http[n].oisTitle](../../../reference/deployment-files/config-json.md#http-n-oistitle)

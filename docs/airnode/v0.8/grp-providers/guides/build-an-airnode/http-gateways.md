@@ -93,6 +93,7 @@ using the HTTP signed data gateway or via RRP.
       "endpointId": "0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6",
       "oisTitle": "CoinGecko Basic Request",
       "endpointName": "coinMarketData",
+      "cacheResponses": false
     }
   ],
   "http": [
