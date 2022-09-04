@@ -282,10 +282,7 @@ To host a proposal description on IPFS:
    <code style="overflow-wrap: break-word;">bafybeifl4prxv75fgumtjh4ovklfkp7zzt7dwkl4xmndv37gtcalwpam2u</code>.
 3. If using Fleek, append the hash to `https://ipfs.fleek.co/ipfs/`. The URL for
    the above hash would then be:
-   > <a style="overflow-wrap: break-word;" target="_blank"
-   >  href="https://ipfs.fleek.co/ipfs/bafybeifl4prxv75fgumtjh4ovklfkp7zzt7dwkl4xmndv37gtcalwpam2u">
    > https://ipfs.fleek.co/ipfs/bafybeifl4prxv75fgumtjh4ovklfkp7zzt7dwkl4xmndv37gtcalwpam2u
-   > </a>
 4. Add the URL to your forum posting and later to the description field of your
    DAO dashboard proposal.
 
