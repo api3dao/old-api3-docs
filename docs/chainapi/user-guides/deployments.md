@@ -37,16 +37,19 @@ created to define and deploy an Airnode to a cloud provider of your choice.
 
 ### Name
 
-Name the deployment. 
-**You won’t be able to change this after saving the deployment.**
+Name the deployment. **You won’t be able to change this after saving the
+deployment.**
 
 ### Integration
 
-This is where you will select which integration(s) that you want to use, the version of the integration and the notes you captured during the integration associated with that version.
+This is where you will select which integration(s) that you want to use, the
+version of the integration and the notes you captured during the integration
+associated with that version.
 
 ## Cloud Provider Settings
 
-Select the desired cloud provider and the region the Airnode should be deployed to.
+Select the desired cloud provider and the region the Airnode should be deployed
+to.
 
 ### Cloud provider
 
@@ -58,7 +61,9 @@ Select the desired region for your cloud provider.
 
 ### Airnode version
 
-The latest Airnode version will be selected by default and we recommend you leave it on the latest version unless you have a specific reason to select an older version.
+The latest Airnode version will be selected by default and we recommend you
+leave it on the latest version unless you have a specific reason to select an
+older version.
 
 ## Networks
 
@@ -70,23 +75,28 @@ These are actual chains that process actual transactions.
 
 ### Testnets
 
-These are test networks that can be used for testing your deployment and integrations.
+These are test networks that can be used for testing your deployment and
+integrations.
 
 ### Network
 
-Here you will see all the networks (chains) that are supported and your Airnode will respond to.
+Here you will see all the networks (chains) that are supported and your Airnode
+will respond to.
 
 ### Public Providers
 
-These are publicly available RPC URLs that provide access to the blockchain network. There is no cost while using them.
+These are publicly available RPC URLs that provide access to the blockchain
+network. There is no cost while using them.
 
 ### User Provided
 
-These are private RPC URLs, controlled either by yourself or a blockchain provider, that provide access to the blockchain network.
+These are private RPC URLs, controlled either by yourself or a blockchain
+provider, that provide access to the blockchain network.
 
 ## Review Configuration
 
-Review the deployment configuration before continuing. Go back to make changes if needed.
+Review the deployment configuration before continuing. Go back to make changes
+if needed.
 
 ## Download and Deploy
 
@@ -95,7 +105,8 @@ the required secrets.
 
 ### Download files
 
-These files are needed to deploy your Airnode. Inside the zip file, you will find a README, a file based on your cloud provider selection, config folder, and
+These files are needed to deploy your Airnode. Inside the zip file, you will
+find a README, a file based on your cloud provider selection, config folder, and
 output folder.
 
 ### Edit your downloaded files
