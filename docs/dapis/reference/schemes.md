@@ -7,8 +7,6 @@ folder: Reference
 
 # {{$frontmatter.title}}
 
-<VersionWarning/>
-
 What is the difference between a dAPI name and a Beacon or Beacon set ID? dAPI
 names are the principle means used to get API provider data held by Beacons. Any
 one Beacon, identified by an ID, has a single value. A dAPI may in fact get

@@ -7,11 +7,6 @@ folder: Introduction
 
 # {{$frontmatter.title}}
 
-<VersionWarning/>
-
-<!--TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" /-->
-
 Due to being composed out of first-party data feeds, dAPIs offer security,
 transparency, cost-efficiency and scalability in a turn-key package.
 
