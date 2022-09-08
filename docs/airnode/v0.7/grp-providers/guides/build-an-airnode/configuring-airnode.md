@@ -223,7 +223,9 @@ Currently, Amazon Web Services (AWS) and Google Cloud Platform (GCP) are
 supported cloud providers for hosting Airnode. Note that while many fields
 within `nodeSettings` are required by both, there are some cloud provider
 specific fields. For example, `cloudProvider.projectId` is only required with
-GCP.
+GCP. Also note that not all cloud provider regions can be deployed to; see the
+[cloudProvider.region reference](../../../reference/deployment-files/config-json.md#cloudprovider-region)
+for more information.
 
 #### Considerations: Gateways
 
