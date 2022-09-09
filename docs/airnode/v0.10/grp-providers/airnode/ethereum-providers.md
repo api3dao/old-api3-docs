@@ -1,8 +1,8 @@
 ---
 title: Ethereum providers
-docSetName: Airnode v0.9
+docSetName: Airnode v0.10
 folder: API Providers
-basePath: /airnode/v0.9
+basePath: /airnode/v0.10
 tags:
 ---
 

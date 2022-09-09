@@ -1,8 +1,8 @@
 ---
 title: Airnode ABI Specification
-docSetName: Airnode v0.9
+docSetName: Airnode v0.10
 folder: Reference > Specifications
-basePath: /airnode/v0.9
+basePath: /airnode/v0.10
 tags:
 ---
 

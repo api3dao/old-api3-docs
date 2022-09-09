@@ -1,8 +1,8 @@
 ---
 title: secrets.env
-docSetName: Airnode v0.9
+docSetName: Airnode v0.10
 folder: Reference > Deployment Files
-basePath: /airnode/v0.9
+basePath: /airnode/v0.10
 tags:
 ---
 

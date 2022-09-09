@@ -1,8 +1,8 @@
 ---
 title: Gas Price Strategies
-docSetName: Airnode v0.9
+docSetName: Airnode v0.10
 folder: Concepts and Definitions
-basePath: /airnode/v0.9
+basePath: /airnode/v0.10
 tags:
 ---
 

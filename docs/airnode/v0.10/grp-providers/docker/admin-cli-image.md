@@ -1,8 +1,8 @@
 ---
 title: Airnode Admin CLI Image
-docSetName: Airnode v0.9
+docSetName: Airnode v0.10
 folder: API Providers > Docker Images
-basePath: /airnode/v0.9
+basePath: /airnode/v0.10
 tags:
 ---
 

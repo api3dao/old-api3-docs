@@ -1,8 +1,8 @@
 ---
 title: aws.env
-docSetName: Airnode v0.9
+docSetName: Airnode v0.10
 folder: Reference > Templates
-basePath: /airnode/v0.9
+basePath: /airnode/v0.10
 tags:
 ---
 

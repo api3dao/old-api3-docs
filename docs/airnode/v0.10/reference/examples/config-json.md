@@ -1,8 +1,8 @@
 ---
 title: config.json
-docSetName: Airnode v0.9
+docSetName: Airnode v0.10
 folder: Reference > Example Files
-basePath: /airnode/v0.9
+basePath: /airnode/v0.10
 tags:
 ---
 

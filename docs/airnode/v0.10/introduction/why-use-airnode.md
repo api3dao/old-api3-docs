@@ -1,8 +1,8 @@
 ---
 title: Why use Airnode?
-docSetName: Airnode v0.9
+docSetName: Airnode v0.10
 folder: Introduction
-basePath: /airnode/v0.9
+basePath: /airnode/v0.10
 tags:
 ---
 

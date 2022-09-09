@@ -1,8 +1,8 @@
 ---
 title: API Integration
-docSetName: Airnode v0.9
+docSetName: Airnode v0.10
 folder: API Providers > Build an Airnode
-basePath: /airnode/v0.9
+basePath: /airnode/v0.10
 tags:
 ---
 
