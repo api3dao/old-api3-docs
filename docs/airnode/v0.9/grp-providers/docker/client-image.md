@@ -24,7 +24,7 @@ A docker client image has been published on
 [Docker Hub](https://hub.docker.com/r/api3/airnode-client). If you want to build
 the container from the source yourself, you can find the image and built
 instructions in the
-[Airnode repository](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-node/docker).
+[Airnode repository](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-node/docker).
 
 ## Configuration
 
@@ -97,7 +97,7 @@ parameter, but you may run the it without it as well.
 docker run --detach \
   --volume $(pwd):/app/config \
   --name airnode \
-  api3/airnode-client:0.7.3
+  api3/airnode-client:0.8.0
 ```
 
 :::
@@ -108,7 +108,7 @@ docker run --detach \
 docker run --detach \
   --volume $(pwd):/app/config \
   --name airnode \
-  api3/airnode-client:0.7.3
+  api3/airnode-client:0.8.0
 ```
 
 :::
@@ -119,7 +119,7 @@ docker run --detach \
 docker run --detach ^
   --volume %cd%:/app/config ^
   --name airnode ^
-  api3/airnode-client:0.7.3
+  api3/airnode-client:0.8.0
 ```
 
 :::

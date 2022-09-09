@@ -86,7 +86,8 @@ exclude = [
   "rinkebyfaucet.com",
   "https://dx.doi.org/10.1063/1.3597793",
   "faucet.egorfine.com",
-  "https://developer.offchainlabs.com/docs/arbgas"
+  "https://developer.offchainlabs.com/docs/arbgas",
+  "localhost:3000"
 ]
 
 # Exclude URLs contained in a file from checking
