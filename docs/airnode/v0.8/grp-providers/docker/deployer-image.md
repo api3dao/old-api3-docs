@@ -114,15 +114,15 @@ docker run -it --rm ^
 :::tip Re-deployments
 
 A unique deployment is defined by the value of
-[nodeSetting.stage](../../reference/deployment-files/config-json.html#stage). If
+[nodeSetting.stage](../../reference/deployment-files/config-json.md#stage). If
 you deploy again, using the same `nodeSetting.stage` value, then you are
 re-deploying or updating the previous deployment.
 
 By default the deployer will attempt to remove the Airnode should either a
 deployment or re-deployment fail. But if either fails (and
-[--auto-remove](../../reference/packages/deployer.html#deploy) is false) then
-the Airnode will not be removed, however it could be left in an unstable state.
-You can alter the `deploy` command to change this behavior using the following.
+[--auto-remove](../../reference/packages/deployer.md#deploy) is false) then the
+Airnode will not be removed, however it could be left in an unstable state. You
+can alter the `deploy` command to change this behavior using the following.
 
 - `--auto-remove true|false`: defaults to true
 - `--no-auto-remove`
