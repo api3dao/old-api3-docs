@@ -20,7 +20,7 @@ You can also view this example
 [config.json](https://github.com/api3dao/airnode/blob/v0.8/packages/airnode-deployer/config/config.example.json)
 in the Airnode repo.
 
-<<< @/docs/airnode/v0.8/reference/examples/config-cloud.json
+<<< @/docs/airnode/v0.10/reference/examples/config-cloud.json
 
 :::
 
@@ -30,7 +30,7 @@ You can also view this example
 [config.json](https://github.com/api3dao/airnode/blob/v0.8/packages/airnode-node/config/config.example.json)
 in the Airnode repo.
 
-<<< @/docs/airnode/v0.8/reference/examples/config-local.json
+<<< @/docs/airnode/v0.10/reference/examples/config-local.json
 
 :::
 
