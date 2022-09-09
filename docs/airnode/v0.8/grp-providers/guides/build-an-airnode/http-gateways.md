@@ -256,8 +256,11 @@ The response format is a simple JSON object with the following fields:
 
 ::::
 
-There are additional examples of using CURL to call the HTTP gateway in the
-[Quick Deploy AWS](../../tutorial/quick-deploy-aws/#execute-endpoint),
-[Quick Deploy Container](../../tutorial/quick-deploy-container/#test-the-airnode)
-and [Quick Deploy GCP](../../tutorial/quick-deploy-gcp/#execute-endpoint)
-tutorials.
+## Tutorials
+
+The `airnode-examples` monorepo hosts examples demonstrating use of the HTTP
+Gateway and HTTP Signed Data Gateway,
+[see here](../../tutorial/README.md#monorepo-examples). Furthermore, there are
+additional examples of using CURL to call the HTTP gateway in both the
+[Quick Deploy AWS](../../tutorial/quick-deploy-aws/#execute-endpoint) and
+[Quick Deploy GCP](../../tutorial/quick-deploy-gcp/#execute-endpoint) tutorials.

@@ -283,3 +283,11 @@ All of these values are then together encoded to single bytes value that can be
 sent on chain. You can use
 [testing gateway](/airnode/v0.7/grp-providers/guides/build-an-airnode/deploying-airnode.md#testing-with-http-gateway)
 to inspect the raw API response, casting results and the final encoded value.
+
+::: tip Multiple Reserved Parameters Tutorial
+
+The `weather-multi-value` monorepo example demonstrates encoding of multiple
+values of different types,
+[see here](../../airnode/v0.8/grp-providers/tutorial/README.md#monorepo-examples).
+
+:::

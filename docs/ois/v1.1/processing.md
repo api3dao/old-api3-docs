@@ -32,6 +32,14 @@ Every processing snippet follows this schema:
 - `timeoutMs` - The maximum timeout that this snippet can run. In case the
   timeout is exceeded an error is thrown.
 
+::: tip Pre- and Post-processing Tutorials
+
+The `airnode-examples` monorepo has examples using pre-processing and
+post-processing,
+[see here](../../airnode/v0.8/grp-providers/tutorial/README.md#monorepo-examples).
+
+:::
+
 ## Inputs
 
 The processing snippet receives an `input` value which is either the initial
