@@ -1,6 +1,6 @@
 {
   "name": "api3-docs",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "API3 Developer Documentation.",
   "main": "index.js",
   "repository": "https://github.com/api3dao/api3-docs",
