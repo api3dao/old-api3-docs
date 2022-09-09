@@ -57,9 +57,6 @@ A public list of examples showcasing the features of Airnode.
 The node part of Airnode that allows for connecting multiple blockchains to the
 rest of the world.
 
-[**airnode-ois**:](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-ois)
-Types for [Oracle Integration Specification (OIS)](/ois/v1.1/ois.md).
-
 [**airnode-operation**:](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-operation)
 Development and testing utilities for the core parts of Airnode.
 
@@ -68,3 +65,11 @@ Contracts that implement Airnode RRP (request–response protocol).
 
 [**airnode-validator**:](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-validator)
 A package that can be used to validate Airnode configuration.
+
+## OIS
+
+The `airnode-ois` monorepo package was removed from the Airnode repo and is now
+in its own repo (`ois`) starting with Airnode `v0.8`.
+
+[**ois**:](https://github.com/api3dao/ois/tree/v1.1.1) Types for
+[Oracle Integration Specification (OIS)](/ois/v1.1/ois.md).

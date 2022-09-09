@@ -3,6 +3,7 @@ module.exports = {
 
   /// Doc set versioned pick lists.
   versions: [
+    { name: 'v0.8', url: '/airnode/v0.8/' },
     { name: 'v0.7', url: '/airnode/v0.7/' },
     { name: 'v0.6', url: '/airnode/v0.6/' },
     { name: 'v0.5', url: '/airnode/v0.5/' },
@@ -11,19 +12,22 @@ module.exports = {
     { name: 'v0.2', url: '/airnode/v0.2/' },
     { name: 'pre-alpha', url: '/airnode/pre-alpha/' },
   ],
-  versionsOis: [{ name: 'v1.0', url: '/ois/v1.0/' }],
+  versionsOis: [
+    { name: 'v1.1', url: '/ois/v1.1/' },
+    { name: 'v1.0', url: '/ois/v1.0/' },
+  ],
 
   /// Next version of airnode, used by /next route.
-  airnodeVersionNext: [{ name: 'v0.8', url: '/airnode/v0.8/' }],
+  airnodeVersionNext: [{ name: 'v0.9', url: '/airnode/v0.9/' }],
 
   /// Latest/current Airnode doc set versioned paths.
   /// Used by api3dao/airnode CI link checking.
-  latestVersion: '/airnode/v0.7/',
-  latestOisVersion: '/ois/v1.0/',
+  latestVersion: '/airnode/v0.8/',
+  latestOisVersion: '/ois/v1.1/',
 
   /// The title of the versioned doc sets, these are used by the search.
-  latestTitle: 'Airnode v0.7',
-  latestOisTitle: 'OIS v1.0',
+  latestTitle: 'Airnode v0.8',
+  latestOisTitle: 'OIS v1.1',
 
   /// Job page revision, incremented when a new job(s) is added
   jobPageRevision: 4,
@@ -31,6 +35,7 @@ module.exports = {
   /// basePath for each doc set, used by search
   basePaths: {
     '/': 'All Documentation',
+    '/airnode/v0.8': 'Airnode v0.8',
     '/airnode/v0.7': 'Airnode v0.7',
     '/airnode/v0.6': 'Airnode v0.6',
     '/airnode/v0.5': 'Airnode v0.5',
@@ -65,8 +70,8 @@ module.exports = {
     extractHeaders: ['h2', 'h3', 'h4', 'h5'],
   },
   themeConfig: {
-    startPath: '/airnode/v0.7/',
-    latestVersions: { airnode: '/airnode/v0.7/', ois: '/ois/v1.0' },
+    startPath: '/airnode/v0.8/',
+    latestVersions: { airnode: '/airnode/v0.8/', ois: '/ois/v1.1' },
     sidebarDepth: 0,
     displayAllHeaders: false,
     logo: '/img/logo.png',
