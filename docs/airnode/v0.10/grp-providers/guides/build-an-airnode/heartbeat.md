@@ -67,7 +67,6 @@ Turn on the optional heartbeat functionality by setting all fields in the
 - `enabled`: Enable/disable Airnode's heartbeat.
 - `url`: The URL to make the heartbeat request to.
 - `apiKey`: The API key to authenticate with the heartbeat URL.
-- `id`: The Airnode heartbeat ID for accounting purposes.
 
 ## Heartbeat Endpoint
 

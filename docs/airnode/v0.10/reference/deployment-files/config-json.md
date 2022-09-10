@@ -444,12 +444,6 @@ documentation for more information.
 `if heartbeat.enabled is true`</span>) - The API key to authenticate against the
 heartbeat URL.
 
-#### `heartbeat.id`
-
-(required: <span style="font-size:small;color:gray;">
-`if heartbeat.enabled is true`</span>) - The Airnode heartbeat ID for accounting
-purposes.
-
 #### `heartbeat.url`
 
 (required: <span style="font-size:small;color:gray;">
