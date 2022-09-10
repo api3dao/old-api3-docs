@@ -232,7 +232,6 @@ The `nodeSettings` field holds node-specific (Airnode) configuration parameters.
     "heartbeat": {
       "enabled": true,
       "apiKey": "${HEARTBEAT_API_KEY}",
-      "id": "${HEARTBEAT_ID}",
       "url": "${HEARTBEAT_URL}"
     },
     "httpGateway": {

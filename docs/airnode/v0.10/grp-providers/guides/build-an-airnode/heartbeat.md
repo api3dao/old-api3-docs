@@ -42,8 +42,7 @@ Turn on the optional heartbeat functionality by setting all fields in the
       "heartbeat": {
         "enabled": true,
         "url": "${HEARTBEAT_URL}",
-        "apiKey": "${HEARTBEAT_API_KEY}",
-        "id": "${HEARTBEAT_ID}"
+        "apiKey": "${HEARTBEAT_API_KEY}"
       },
       "httpGateway": {
         "enabled": true,
@@ -77,7 +76,6 @@ The table below illustrates the parameters passed to the Heartbeat URL.
 | name                         | in     | type   |
 | ---------------------------- | ------ | ------ |
 | airnode-heartbeat-api-key    | header | string |
-| deployment_id                | body   | string |
 | http_gateway_url             | body   | string |
 | http_signed_data_gateway_url | body   | string |
 
@@ -85,7 +83,6 @@ Below is an example of what is included in the request body to `heartbeat.url`.
 
 ```json
 {
-  "deployment_id": "916d3ec80fda",
   "http_gateway_url": "https://some.aws.http.gateway.url/v1",
   "http_signed_data_gateway_url": "https://some.aws.http.signed.data.gateway.url/v1"
 }
@@ -94,9 +91,6 @@ Below is an example of what is included in the request body to `heartbeat.url`.
 <table>
   <tr>
     <td>airnode-heartbeat-api-key:</td><td>API key for heartbeat calls configured in nodeSettings.heartbeat.apiKey. Used for authentication against the heartbeat service running on URL from nodeSettings.heartbeat.url.</td>
-  </tr>
-  <tr>
-    <td>deployment_id:</td><td>An ID for accounting purposes, unique to the deployed Airnode.</td>
   </tr>
   <tr>
     <td>http_gateway_url:</td><td>If HTTP gateway is enabled this is the URL of the gateway you can make test HTTP calls against.</td>
