@@ -77,13 +77,17 @@ The table below illustrates the parameters passed to the Heartbeat URL.
 | airnode-heartbeat-api-key    | header | string |
 | http_gateway_url             | body   | string |
 | http_signed_data_gateway_url | body   | string |
+| signature                    | body   | string |
+| timestamp                    | body   | string |
 
 Below is an example of what is included in the request body to `heartbeat.url`.
 
 ```json
 {
   "http_gateway_url": "https://some.aws.http.gateway.url/v1",
-  "http_signed_data_gateway_url": "https://some.aws.http.signed.data.gateway.url/v1"
+  "http_signed_data_gateway_url": "https://some.aws.http.signed.data.gateway.url/v1",
+  "signature": "0xde49c22487107a1f46f1a35f47d2e50fdb94a518c8fc79a93ef046984ac2108a0f0b68269076b3de97d4447b04563527fd0d86fbe72f31eadb2dc4f6eea33c161c",
+  "timestamp": "1661582890984"
 }
 ```
 
@@ -94,7 +98,13 @@ Below is an example of what is included in the request body to `heartbeat.url`.
   <tr>
     <td>http_gateway_url:</td><td>If HTTP gateway is enabled this is the URL of the gateway you can make test HTTP calls against.</td>
   </tr>
-    <tr>
+  <tr>
     <td>http_signed_data_gateway_url:</td><td>If HTTP signed data gateway is enabled this is the URL of the gateway you can make HTTP calls against.</td>
+  </tr>
+  <tr>
+    <td>signature:</td><td>If HTTP signed data gateway is enabled this is the signature of the heartbeat payload signed with the Airnode wallet.</td>
+  </tr>
+  <tr>
+    <td>timestamp:</td><td>If HTTP signed data gateway is enabled this is the timestamp.</td>
   </tr>
 </table>
