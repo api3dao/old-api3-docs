@@ -90,7 +90,7 @@ Below is an example of what is included in the request body to `heartbeat.url`.
   "http_gateway_url": "https://some.aws.http.gateway.url/v1",
   "http_signed_data_gateway_url": "https://some.aws.http.signed.data.gateway.url/v1",
   "cloud_provider": "aws",
-  "region": "us-east1",
+  "region": "us-east-1",
   "stage": "220910-0913",
   "signature": "0xde49c22487107a1f46f1a35f47d2e50fdb94a518c8fc79a93ef046984ac2108a0f0b68269076b3de97d4447b04563527fd0d86fbe72f31eadb2dc4f6eea33c161c",
   "timestamp": "1661582890984"
