@@ -28,7 +28,6 @@ sure to change the correlating interpolation value in `config.json`.
 | SS_MY_API_KEY                    | `apiCredentials[].securitySchemeValue`      | A security scheme value                                          |
 | HEARTBEAT_URL                    | `nodeSettings.heartbeat.url`                | The URL to make the heartbeat request to                         |
 | HEARTBEAT_API_KEY                | `nodeSettings.heartbeat.apiKey`             | The API key to authenticate against the heartbeat URL            |
-| HEARTBEAT_ID                     | `nodeSettings.heartbeat.id`                 | The Airnode heartbeat ID for accounting purposes                 |
 | HTTP_GATEWAY_API_KEY             | `nodeSettings.httpGateway.apiKey`           | The API key to authenticate against the HTTP gateway             |
 | HTTP_SIGNED_DATA_GATEWAY_API_KEY | `nodeSettings.httpSignedDataGateway.apiKey` | The API key to authenticate against the signed data HTTP gateway |
 | GCP_PROJECT_ID                   | `nodeSettings.cloudProvider.projectId`      | (GCP only) The GCP project ID for deployment                     |
@@ -46,7 +45,6 @@ CHAIN_PROVIDER_URL="https://mainnet.infura.io/v3/5122f3ff104f30f21412aa38fd143d5
 SS_MY_API_KEY="FRACZKMH4F32BZ8X5uTd"
 
 HEARTBEAT_API_KEY="d714a900-3b9e-4e4d-8eae-756ef06a8836"
-HEARTBEAT_ID="916d3ec80fda"
 HEARTBEAT_URL="https://your.heartbeat.service.io/airnode"
 
 HTTP_GATEWAY_API_KEY="441ffc41-3c8b-44b9-a689-63b500fd17da"
