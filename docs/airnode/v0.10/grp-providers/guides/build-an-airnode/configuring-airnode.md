@@ -232,7 +232,6 @@ The `nodeSettings` field holds node-specific (Airnode) configuration parameters.
     "heartbeat": {
       "enabled": true,
       "apiKey": "${HEARTBEAT_API_KEY}",
-      "id": "${HEARTBEAT_ID}",
       "url": "${HEARTBEAT_URL}"
     },
     "httpGateway": {
@@ -280,7 +279,6 @@ note that that distinct API keys must be used for each.
 - [heartbeat](../../../reference/deployment-files/config-json.md#heartbeat)
   - [heartbeat.enabled](../../../reference/deployment-files/config-json.md#heartbeat-enabled)
   - [heartbeat.apiKey](../../../reference/deployment-files/config-json.md#heartbeat-apikey)
-  - [heartbeat.id](../../../reference/deployment-files/config-json.md#heartbeat-id)
   - [heartbeat.url](../../../reference/deployment-files/config-json.md#heartbeat-url)
 - [httpGateway](../../../reference/deployment-files/config-json.md#httpgateway)
   - [httpGateway.enabled](../../../reference/deployment-files/config-json.md#httpgateway-enabled)

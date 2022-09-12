@@ -109,7 +109,6 @@ building a config.json file.
       "enabled": <FILL_BOOLEAN>,
       "url": "${HEARTBEAT_API_KEY}", // In secrets.env
       "apiKey": "${HEARTBEAT_API_KEY}", // In secrets.env
-      "id": "${HEARTBEAT_ID}" // In secrets.env
     },
     "httpGateway": {
       "enabled": "<FILL_BOOLEAN>",

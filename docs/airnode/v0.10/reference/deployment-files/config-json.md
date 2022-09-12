@@ -336,8 +336,7 @@ An object containing general deployment parameters of an Airnode.
   "heartbeat": {
     "enabled": true,
     "url": "${HEARTBEAT_URL}",
-    "apiKey": "${HEARTBEAT_API_KEY}",
-    "id": "${HEARTBEAT_ID}"
+    "apiKey": "${HEARTBEAT_API_KEY}"
   },
   "httpGateway": {
     "enabled": true,
@@ -442,12 +441,6 @@ documentation for more information.
 (required: <span style="font-size:small;color:gray;">
 `if heartbeat.enabled is true`</span>) - The API key to authenticate against the
 heartbeat URL.
-
-#### `heartbeat.id`
-
-(required: <span style="font-size:small;color:gray;">
-`if heartbeat.enabled is true`</span>) - The Airnode heartbeat ID for accounting
-purposes.
 
 #### `heartbeat.url`
 

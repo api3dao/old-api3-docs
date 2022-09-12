@@ -45,7 +45,6 @@ CHAIN_PROVIDER_URL="https://mainnet.infura.io/v3/5122f3ff104f30f21412aa38fd143d5
 SS_MY_API_KEY="FRACZKMH4F32BZ8X5uTd"
 
 HEARTBEAT_API_KEY="d714a900-3b9e-4e4d-8eae-756ef06a8836"
-HEARTBEAT_ID="916d3ec80fda"
 HEARTBEAT_URL="https://your.heartbeat.service.io/airnode"
 
 # GCP only
