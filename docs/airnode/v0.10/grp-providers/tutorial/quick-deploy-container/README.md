@@ -104,9 +104,6 @@ Add values for each of the these fields.
   [generate-airnode-mnemonic](../../../reference/packages/admin-cli.md#generate-airnode-mnemonic)
   to create one or another method you prefer.
 
-- `HTTP_GATEWAY_API_KEY`: The authentication API key that needs to be sent with
-  every HTTP gateway request.
-
 ## Deploy
 
 Make sure Docker is running and then run the Airnode client container from the
@@ -172,16 +169,14 @@ For Linux, it's recommended to use
 
 ### Request
 
-Make a CURL request using the example below. Be sure to replace
-`HTTP_GATEWAY_API_KEY` with your key from `secrets.env`.
+Make a CURL request using the example below.
 
 ```sh
 # For Windows CMD replace line termination marker \ with ^
 curl -X POST \
   -d '{"parameters":{"coinIds":"api3","coinVs_currencies":"usd"}}' \
   -H 'Content-Type: application/json' \
-  -H 'x-api-key: <HTTP_GATEWAY_API_KEY>' \
-  'http://localhost:3000/http-data/0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6'
+  'http://localhost:3000/http-data/01234567-abcd-abcd-abcd-012345678abc/0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6'
 ```
 
 ### Response
