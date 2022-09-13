@@ -340,13 +340,11 @@ An object containing general deployment parameters of an Airnode.
   },
   "httpGateway": {
     "enabled": true,
-    "apiKey": "${HTTP_GATEWAY_API_KEY}",
     "maxConcurrency": 20,
     "corsOrigins": []
   },
   "httpSignedDataGateway": {
     "enabled": true,
-    "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_API_KEY}",
     "maxConcurrency": 20,
     "corsOrigins": []
   },
@@ -462,13 +460,6 @@ documentation for more info.
 (required) - Enable or disable, using `true` or `false`, Airnode's access to the
 HTTP gateway.
 
-#### `httpGateway.apiKey`
-
-(required: <span style="font-size:small;color:gray;">
-`if httpGateway.enabled is true`</span>) - The API key to authenticate against
-the gateway. The key must have a length of between 30 - 120 characters. Do not
-use the same key for `httpGateway` and `httpSignedDataGateway`.
-
 #### `httpGateway.maxConcurrency`
 
 (required: <span style="font-size:small;color:gray;">
@@ -495,13 +486,6 @@ documentation for more info.
 
 (required) - Enable/disable, using true/false, Airnode's access to the HTTP
 gateway.
-
-#### `httpSignedDataGateway.apiKey`
-
-(required: <span style="font-size:small;color:gray;">
-`if httpSignedDataGateway.enabled is true`</span>) - The API key to authenticate
-against the gateway. The key must have a length of between 30 - 120 characters.
-Do not use the same key for `httpGateway` and `httpSignedDataGateway`.
 
 #### `httpSignedDataGateway.maxConcurrency`
 

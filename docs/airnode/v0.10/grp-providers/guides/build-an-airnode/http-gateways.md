@@ -47,8 +47,6 @@ Enable either gateway in the `config.json` file fields
 `nodeSettings.httpGateway` and `nodeSettings.httpSignedDataGateway`.
 
 - **enabled**: A boolean to enable/disable for the gateway.
-- **apiKey**: A user defined API key to authenticate against the gateway. The
-  key must have a length of between 30 - 120 characters.
 - **maxConcurrency**: (optional) A number higher than zero that represents the
   maximum number of serverless functions serving gateway requests. When omitted,
   there is no maximum concurrency set. This field is ignored for Airnode client
@@ -66,13 +64,11 @@ Enable either gateway in the `config.json` file fields
   "heartbeat": {...},
   "httpGateway": {
     "enabled": true,
-    "apiKey": "${HTTP_GATEWAY_API_KEY}",
     "maxConcurrency": 20,
     "corsOrigins": []
   },
   "httpSignedDataGateway": {
     "enabled": true,
-    "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_API_KEY}",
     "maxConcurrency": 20,
     "corsOrigins": []
   },
@@ -119,7 +115,11 @@ The gateway implementation is different depending on how Airnode is deployed.
 When deployed on a cloud provider, the serverless gateway is used. Inside
 Airnode client, the gateway is implemented via a simple web server inside the
 docker container. There are subtle differences in both how the gateways work and
-how do the gateway URLs look like.
+what the gateway URLs look like.
+
+The deployer generates a secret `UUID` path parameter which ensures that the
+endpoints are not openly accessible. Therefore, the gateway URLs should be kept
+secret.
 
 The gateway URLs are also available as part of the payload sent from Airnode's
 [heartbeat](./heartbeat.md) to your specified heartbeat URL.
@@ -127,8 +127,9 @@ The gateway URLs are also available as part of the payload sent from Airnode's
 ### When deployed on a cloud provider
 
 A gateway URL is generated for each gateway (when enabled) when Airnode is
-deployed. You can see the URLs displayed on your terminal at the end of an
-Airnode deployment using a [Docker image](../../docker/).
+deployed. You can see the URLs including the secret `UUID` path parameter,
+displayed on your terminal at the end of an Airnode deployment using a
+[Docker image](../../docker/).
 
 ### When using Airnode client
 
@@ -139,10 +140,10 @@ on the machine. Each gateway has a separate endpoint as shown below. Note the
 `PORT` which is exposed as part of the Airnode client container. See the
 [Airnode client usage](../../docker/client-image.md#usage) for more details.
 
-- `http://localhost:<PORT>/http-data/<endpointId>` - Gateway URL for the HTTP
-  Gateway
-- `http://localhost:<PORT>/http-signed-data/<endpointId>` - Gateway URL for the
-  HTTP Signed Data Gateway
+- `http://localhost:<PORT>/http-data/01234567-abcd-abcd-abcd-012345678abc/<endpointId>` -
+  Gateway URL for the HTTP Gateway
+- `http://localhost:<PORT>/http-signed-data/01234567-abcd-abcd-abcd-012345678abc/<endpointId>` -
+  Gateway URL for the HTTP Signed Data Gateway
 
 ## Using CURL
 
@@ -153,9 +154,6 @@ required as part of the CURL call.
   can found in config.json under `triggers.http.endpointId` or
   `triggers.httpSignedData.endpointId`.
 - Add the `Content-Type` header, set to `application/json`.
-- Add the `x-api-key` header, set to the apiKey. The `x-api-key` can found in
-  config.json under `nodeSettings.httpGateway.apiKey` or
-  `nodeSettings.httpSignedDataGateway.apiKey`.
 - Place the parameters/encodedParameters in the request body.
 
 <style type="text/css" rel="stylesheet">
@@ -165,7 +163,6 @@ required as part of the CURL call.
 | CURL Parameters                                                        | In     | CURL Options                                              |
 | ---------------------------------------------------------------------- | ------ | --------------------------------------------------------- |
 | Content-Type                                                           | header | `-H 'Content-Type: application/json'`                     |
-| x-api-key                                                              | header | `-H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e'`    |
 | endpointId                                                             | path   | `<gatewayUrl>/0x6db9e3e3d0...c7025f5c27af6`               |
 | \* parameters<div class="tSmall">HTTP Gateway</div>                    | body   | `-d '{"parameters": {"param1": "myValue", "param2": 5}}'` |
 | \* encodedParameters<div class="tSmall">HTTP Signed Data Gateway</div> | body   | `-d '{"encodedParameters": "0x3173737300....000"}'`       |
@@ -188,7 +185,6 @@ terminal at the end of an Airnode deployment using a
 curl \
 -X POST \
 -H 'Content-Type: application/json' \
--H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e' \
 -d '{"parameters": {"param1": "myValue", "param2": 5}}' \
 '<gatewayUrl>/0x6db9e3e3d0...c7025f5c27af6'
 ```
@@ -201,7 +197,6 @@ curl \
 curl \
 -X POST \
 -H 'Content-Type: application/json' \
--H 'x-api-key: 8d890a46-799d-48b3-a337-8531e23dfe8e' \
 -d '{"encodedParameters": "0x3173737300....000"}' \
 '<gatewayUrl>/0x6db9e3e3d0...c7025f5c27af6'
 ```

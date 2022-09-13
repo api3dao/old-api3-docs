@@ -46,13 +46,11 @@ Turn on the optional heartbeat functionality by setting all fields in the
       },
       "httpGateway": {
         "enabled": true,
-        "apiKey": "${HTTP_GATEWAY_API_KEY}",
         "maxConcurrency": 20,
         "corsOrigins": []
       },
       "httpSignedDataGateway": {
         "enabled": true,
-        "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_API_KEY}",
         "maxConcurrency": 20,
         "corsOrigins": []
       },
@@ -87,8 +85,8 @@ Below is an example of what is included in the request body to `heartbeat.url`.
 
 ```json
 {
-  "http_gateway_url": "https://some.aws.http.gateway.url/v1",
-  "http_signed_data_gateway_url": "https://some.aws.http.signed.data.gateway.url/v1",
+  "http_gateway_url": "https://some.aws.http.gateway.url/v1/01234567-abcd-abcd-abcd-012345678abc",
+  "http_signed_data_gateway_url": "https://some.aws.http.signed.data.gateway.url/v1/01234567-abcd-abcd-abcd-012345678abc",
   "cloud_provider": "aws",
   "region": "us-east-1",
   "stage": "220910-0913",

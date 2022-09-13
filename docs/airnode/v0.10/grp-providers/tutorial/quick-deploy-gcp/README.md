@@ -111,10 +111,6 @@ Add values for each of the these fields.
   [Create a GCP project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
   under which will the Airnode be deployed and copy the project ID.
 
-- `HTTP_GATEWAY_API_KEY`: Make up an apiKey to authenticate calls to the HTTP
-  Gateway. Used to test your Airnode with CURL later. The expected length is
-  30 - 128 characters.
-
 ### GCP Project Setup & Credentials
 
 1. First
@@ -202,7 +198,6 @@ tested.
   ...
   "httpGateway": {
     "enabled": true, // The gateway is activated for this Airnode
-    "apiKey": "${HTTP_GATEWAY_API_KEY}", // Gateway apiKey
     "maxConcurrency": 20,
     "corsOrigins": [] // CORS is disabled
   },
@@ -240,23 +235,21 @@ use
 (WSL2) to run CURL for Linux.
 
 In order to test an endpoint make a HTTP POST request with the `endpointId` as a
-path parameter, the `Content-Type` header set to `application/json`, the
-`x-api-key` header set to the key and place the endpoint parameter in the
-request body as a key/value pair.
+path parameter, the `Content-Type` header set to `application/json` and place
+the endpoint parameter in the request body as a key/value pair.
 
 - `-X`: POST
 - `-H`: The `Content-Type` using the value of `application/json`.
-- `-H`: The `x-api-key` using the value of `HTTP_GATEWAY_API_KEY` from
-  `secrets.env` file.
 - `-d`: Use request body data to pass the endpoint parameter key/value pair.
 
 URL:
 
 <code style="overflow-wrap:break-word;">&#60;httpGatewayUrl>/0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c</code>
 
-- `<httpGatewayUrl>`: The base URL to the gateway, displayed in the terminal at
-  the end of an Airnode deployment using a [Docker image](../../docker/). Update
-  the placeholder in the CURL example below with its value.
+- `<httpGatewayUrl>`: The base URL to the gateway including the secret `UUID`
+  path parameter, displayed in the terminal at the end of an Airnode deployment
+  using a [Docker image](../../docker/). Update the placeholder in the CURL
+  example below with its value.
 - <code style="overflow-wrap:break-word;">0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c</code>:
   Passed as a path parameter, the endpointId to call, see
   `triggers.rrp[0].endpointId` in the `config.json` file.
@@ -271,7 +264,6 @@ URL:
 curl -v \
 -X POST \
 -H 'Content-Type: application/json' \
--H 'x-api-key: 123-my-key-must-be-30-characters-min' \
 -d '{"parameters": {"coinIds": "api3", "coinVs_currencies": "usd"}}' \
 '<httpGatewayUrl>/0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6'
 ```
@@ -284,7 +276,6 @@ curl -v \
 curl -v ^
 -X POST ^
 -H 'Content-Type: application/json' ^
--H "x-api-key: 123-my-key-must-be-30-characters-min" ^
 -d '{"parameters": {"coinIds": "api3", "coinVs_currencies": "usd"}}' ^
 "<httpGatewayUrl>/0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6"
 ```

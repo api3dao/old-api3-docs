@@ -236,13 +236,11 @@ The `nodeSettings` field holds node-specific (Airnode) configuration parameters.
     },
     "httpGateway": {
       "enabled": true,
-      "apiKey": "${HTTP_GATEWAY_API_KEY}",
       "maxConcurrency": 20,
       "corsOrigins": []
     },
     "httpSignedDataGateway": {
       "enabled": true,
-      "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_API_KEY}",
       "maxConcurrency": 20,
       "corsOrigins": []
     },
@@ -284,12 +282,10 @@ note that that distinct API keys must be used for each.
   - [heartbeat.url](../../../reference/deployment-files/config-json.md#heartbeat-url)
 - [httpGateway](../../../reference/deployment-files/config-json.md#httpgateway)
   - [httpGateway.enabled](../../../reference/deployment-files/config-json.md#httpgateway-enabled)
-  - [httpGateway.apiKey](../../../reference/deployment-files/config-json.md#httpgateway-apikey)
   - [httpGateway.maxConcurrency](../../../reference/deployment-files/config-json.md#httpgateway-corsorigins)
   - [httpGateway.corsOrigins](../../../reference/deployment-files/config-json.md#httpgateway-maxconcurrency)
 - [httpSignedDataGateway](../../../reference/deployment-files/config-json.md#httpsigneddatagateway)
   - [httpSignedDataGateway.enabled](../../../reference/deployment-files/config-json.md#httpsigneddatagateway-enabled)
-  - [httpSignedDataGateway.apiKey](../../../reference/deployment-files/config-json.md#httpsigneddatagateway-apikey)
   - [httpSignedDataGateway.maxConcurrency](../../../reference/deployment-files/config-json.md#httpsigneddatagateway-maxconcurrency)
   - [httpSignedDataGateway.corsOrigins](../../../reference/deployment-files/config-json.md#httpsigneddatagateway-corsorigins)
 - [logFormat](../../../reference/deployment-files/config-json.md#logformat)
@@ -447,14 +443,14 @@ interpolation.
 
 ```json
 // Sample interpolation value from config.json
-"httpGateway": {
+"heartbeat": {
   "enabled": true,
-  "apiKey": "${HTTP_GATEWAY_API_KEY}"
+  "apiKey": "${HEARTBEAT_API_KEY}"
 },
 
 // Sample variable in secrets.env
 // Variable names cannot contain dashes (-) or start with a number.
-HTTP_GATEWAY_API_KEY="FRACZKMH4F32BZ8X5uTd"
+HEARTBEAT_API_KEY="d714a900-3b9e-4e4d-8eae-756ef06a8836"
 ```
 
 Use the [secrets.env](../../../reference/templates/secrets-env.md) template and
