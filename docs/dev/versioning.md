@@ -143,9 +143,7 @@ themeConfig:{
    OIS. This version reflects a release of the docs and is not shown anywhere in
    the docs.
 
-5. Update the `ois-OisAirnodeVersions.vue` component dependency chart.
-
-6. Update `check-links-imgs.yaml` to exclude future versions.
+5. Update `check-links-imgs.yaml` to exclude future versions.
 
    ```sh
    run: >
@@ -156,11 +154,11 @@ themeConfig:{
       -type f -name "*.md" | xargs lychee - -c .github/workflows/lychee.toml
    ```
 
-7. Update each tutorial download link and the corresponding config.json files to
+6. Update each tutorial download link and the corresponding config.json files to
    reflect the new version of the Docker images. The update the zip files for
    the necessary tutorials. See [Zip Tutorial Files](./zip-files.md).
 
-8. Push branch changes to the repo, pull back to local main branch and run
+7. Push branch changes to the repo, pull back to local main branch and run
    `sh deploy.sh`.
 
 ## Update Older Versions
