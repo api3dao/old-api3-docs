@@ -197,17 +197,6 @@ in `/data/apis/<PROVIDER_NAME>/deployments/<DEPLOYMENT_DATE>`
     - `aws.env`: This file will need to be populated by the provider during
       deployment
 
-### 7. Generate the gateway keys
-
-Use the following command to generate the gateway keys
-
-```
-yarn generate-gateway-key
-```
-
-These keys need to be stored on the API3 keybase account and will be forwarded
-to the API provider during deployment to be filled in `secrets.env`.
-
 ### 8. Checkout and publish
 
 Once you have populated the config files, avoiding populating them with any
@@ -244,7 +233,7 @@ yarn deploy-all
 ```
 
 - Be sure to retain a copy of `receipt.json` located at  
-  `/data/apis/<PROVIDER_NAME>/deployments/<DEPLOYMENT_DATE>/airnode/reciept.json`.
+  `/data/apis/<PROVIDER_NAME>/deployments/<DEPLOYMENT_DATE>/airnode/receipt.json`.
 - Thank the API provider for being part of the API3 ecosystem.
 - Post `receipt.json` to our Slack channel: `#operations-keys` and also push it
   to API3's keybase account.
