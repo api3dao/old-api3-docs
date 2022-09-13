@@ -139,8 +139,9 @@ themeConfig:{
    },
    ```
 
-4. Change the version in `package.json` to the new version. This version
-   reflects a release of the docs and is not shown anywhere in the docs.
+4. Change the version in `package.json` when the Airnode version changes, not
+   OIS. This version reflects a release of the docs and is not shown anywhere in
+   the docs.
 
 5. Update `check-links-imgs.yaml` to exclude future versions.
 

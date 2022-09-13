@@ -14,7 +14,7 @@ tags:
 
 Use this page as a checklist when creating a new release for any versioned
 documentation set. It may be necessary to reference other pages in the `/dev`
-document set.
+document set, mostly [Versioning](./versioning.md).
 
 ## Airnode
 
@@ -34,6 +34,7 @@ document set.
   `v0.4` and update as needed. There is at least one link to the Airnode repo as
   well that uses a tag (such as `v0.4`).
 
+- Update the `ois-OisAirnodeVersions.vue` component dependency chart.
 - The dAPIs document set has links back to Airnode. Look for an older tag such
   as `v0.4` and update as needed.
 
