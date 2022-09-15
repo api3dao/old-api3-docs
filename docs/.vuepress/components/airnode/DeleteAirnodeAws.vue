@@ -43,7 +43,10 @@ https://renatello.com/dynamic-drop-down-list-in-vue-js/
       <option value="sa-east-1">South America (São Paulo) sa-east-1</option>
     </select>
 
-    <p>Click the following links and delete all elements in each feature.</p>
+    <p>
+      Click the following links and delete all elements for each feature with
+      the <b>appropriate</b> <code>airnodeAddressShort</code>.
+    </p>
     <!-- prettier-ignore -->
     <ul>
       <li><a :href="'https://' +region + '.console.aws.amazon.com/events/home?region=' + region + '#rules'" target="_aws-console">EventBridge<ExternalLinkImage/></a>
@@ -55,7 +58,7 @@ https://renatello.com/dynamic-drop-down-list-in-vue-js/
       </li>
       
       <li><a :href="'https://' +region + '.console.aws.amazon.com/lambda/home?region=' + region + '#/functions'" target="_aws-console">Lambda<ExternalLinkImage/></a>
-        : There are up to five functions to delete.
+        : Delete the functions.
       </li>
 
       <li v-show="dynamoDB==='show'"><a :href="'https://' +region + '.console.aws.amazon.com/dynamodbv2/home?region=' + region + '#/tables'" target="_aws-console">DynamoDB<ExternalLinkImage/></a>
@@ -63,7 +66,7 @@ https://renatello.com/dynamic-drop-down-list-in-vue-js/
       </li>
 
       <li><a :href="'https://console.aws.amazon.com/iamv2/home?#/roles'" target="_aws-console">IAM<ExternalLinkImage/></a>
-        : There are up to six roles to delete.
+        : Delete the IAM roles.
       </li>
 
       <li><a :href="'https://' +region + '.console.aws.amazon.com/apigateway/main/apis?region=' + region" target="_aws-console">API Gateways<ExternalLinkImage/></a>:  Delete the API Gateways.
