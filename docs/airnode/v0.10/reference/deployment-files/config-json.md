@@ -175,7 +175,7 @@ respective parameters.
 
 (required) - An object containing authorizer types that list authorizer contract
 addresses specifying the authorization patterns that the Airnode should use. An
-empty array would allow-all. See the
+empty object would allow-all. See the
 [Authorization](../../concepts/authorization.md) doc for more information.
 
 ### `authorizations`
