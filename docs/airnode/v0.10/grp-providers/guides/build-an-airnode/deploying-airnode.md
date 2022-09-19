@@ -140,7 +140,6 @@ deployment was successful or not.
     "xpub": "xpub661MyMwAqRbcGHp9uC7...vbeziJwFHuNs"
   },
   "deployment": {
-    "airnodeAddressShort": "abd9daa",
     "cloudProvider": {
       "type": "aws",
       "region": "us-east-1"

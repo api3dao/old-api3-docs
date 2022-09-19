@@ -186,10 +186,10 @@ Airnode short address and cloud provider specifications. All values, other than
 relative to AWS Airnode removal, GCP Airnode removal requires an additional
 parameter: `projectId`.
 
-- `--airnode-address-short`: Can be found in the
-  [receipt.json](../../reference/deployment-files/receipt-json.md) file or in
-  the AWS or GCP consoles within the names of the serverless functions (e.g.,
-  `abd9eaa`).
+- `--airnode-address`: Can be found in the
+  [receipt.json](../../reference/deployment-files/receipt-json.md) file or
+  obtained via Admin CLI command
+  [`derive-airnode-address`](../../reference/packages/admin-cli.html#derive-airnode-address)
 - `--stage`:
   [nodeSetting.stage](../../reference/deployment-files/config-json.md#stage)
 - `--cloud-provider`:
@@ -210,7 +210,7 @@ that should be replaced.
 docker run -it --rm \
   -v "$(pwd):/app/config" \
   api3/airnode-deployer:0.9.0 remove-with-deployment-details \
-  --airnode-address-short abd9eaa \
+  --airnode-address 0xaBd9daAdf32fCd96eE4607bf3d5B31e19a244Cac \
   --stage dev \
   --cloud-provider gcp \
   --projectId myAirnode101 \ ← GCP only
@@ -226,7 +226,7 @@ docker run -it --rm \
 docker run -it --rm ^
   -v "$(pwd):/app/config" ^
   api3/airnode-deployer:0.9.0 remove-with-deployment-details ^
-  --airnode-address-short abd9eaa ^
+  --airnode-address 0xaBd9daAdf32fCd96eE4607bf3d5B31e19a244Cac ^
   --stage dev ^
   --cloud-provider gcp ^
   --projectId myAirnode101 ^ ← GCP only

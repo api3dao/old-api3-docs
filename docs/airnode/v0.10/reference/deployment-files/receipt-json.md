@@ -41,7 +41,6 @@ not generated for client deployments (deploying to a Docker container).
     "airnodeXpub": "xpub6C8tvRgYkjNVaGMtpyZf4deBcUQHf7vgWUraVxY6gYiZhBYbPkFkLLWJzUUeVFdkKpVtatmXHX8kB76xgfmTpVZWbVWdq1rneaAY6a8RtbY"
   },
   "deployment": {
-    "airnodeAddressShort": "a30ca71",
     "cloudProvider": {
       "type": "aws",
       "region": "us-east-1",
@@ -67,7 +66,6 @@ not generated for client deployments (deploying to a Docker container).
     "airnodeXpub": "xpub6C6wfzZ8EptS8Ti2xZgukJFWkgBcFY2ygU4BDTTGtR2GmX3vvrx3YFat3i1XLfwvhtiCEty1GZnV1MSCKBBt7uYKBbrHaqWvP623w9jUNhW"
   },
   "deployment": {
-    "airnodeAddressShort": "accc602",
     "cloudProvider": {
       "type": "gcp",
       "region": "us-east4",
