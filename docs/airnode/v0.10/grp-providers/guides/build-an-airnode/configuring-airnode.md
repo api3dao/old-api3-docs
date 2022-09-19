@@ -132,18 +132,6 @@ Below is a simple chain array with a single chain provider.
 ],
 ```
 
-#### Considerations: Transaction Options
-
-A number of fields within the `chains` array adjust how transactions are
-handled. Exposing these fields is necessary for Airnode to serve numerous
-disparate `evm` chains. For example, some chains, such as Optimism, do not
-support EIP-1559 transaction pricing, in which case `legacy` should be used for
-`txType`. In cases where gas pricing estimates may be low or transactions are
-processed slowly, either `baseFeeMultiplier`, for legacy transactions, or
-`gasPriceMultiplier`, for EIP-1559 transactions, can be set. The
-[reference section below](#chains-reference) has links to these and other
-relevant fields.
-
 ::: warning Idiosyncrasies
 
 See the dedicated
