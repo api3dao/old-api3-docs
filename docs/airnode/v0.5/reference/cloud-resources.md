@@ -1,6 +1,9 @@
 ---
 title: Cloud Resources
+docSetName: Airnode v0.5
 folder: Reference
+basePath: /airnode/v0.5
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

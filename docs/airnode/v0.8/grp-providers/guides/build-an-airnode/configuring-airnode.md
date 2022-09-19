@@ -1,6 +1,9 @@
 ---
 title: Configuring Airnode
+docSetName: Airnode v0.8
 folder: API Providers > Build an Airnode
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -235,16 +238,18 @@ The `nodeSettings` field holds node-specific (Airnode) configuration parameters.
     "httpGateway": {
       "enabled": true,
       "apiKey": "${HTTP_GATEWAY_API_KEY}",
-      "maxConcurrency": 20
+      "maxConcurrency": 20,
+      "corsOrigins": []
     },
     "httpSignedDataGateway": {
       "enabled": true,
       "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_API_KEY}",
-      "maxConcurrency": 20
+      "maxConcurrency": 20,
+      "corsOrigins": []
     },
     "logFormat": "plain",
     "logLevel": "INFO",
-    "nodeVersion": "0.7.2",
+    "nodeVersion": "0.8.0",
     "stage": "dev"
   },
 ```
@@ -255,7 +260,9 @@ Currently, Amazon Web Services (AWS) and Google Cloud Platform (GCP) are
 supported cloud providers for hosting Airnode. Note that while many fields
 within `nodeSettings` are required by both, there are some cloud provider
 specific fields. For example, `cloudProvider.projectId` is only required with
-GCP.
+GCP. Also note that not all cloud provider regions can be deployed to; see the
+[cloudProvider.region reference](../../../reference/deployment-files/config-json.md#cloudprovider-region)
+for more information.
 
 #### Considerations: Gateways
 
@@ -280,11 +287,13 @@ note that that distinct API keys must be used for each.
 - [httpGateway](../../../reference/deployment-files/config-json.md#httpgateway)
   - [httpGateway.enabled](../../../reference/deployment-files/config-json.md#httpgateway-enabled)
   - [httpGateway.apiKey](../../../reference/deployment-files/config-json.md#httpgateway-apikey)
-  - [httpGateway.maxConcurrency](../../../reference/deployment-files/config-json.md#httpgateway-maxconcurrency)
+  - [httpGateway.maxConcurrency](../../../reference/deployment-files/config-json.md#httpgateway-corsorigins)
+  - [httpGateway.corsOrigins](../../../reference/deployment-files/config-json.md#httpgateway-maxconcurrency)
 - [httpSignedDataGateway](../../../reference/deployment-files/config-json.md#httpsigneddatagateway)
   - [httpSignedDataGateway.enabled](../../../reference/deployment-files/config-json.md#httpsigneddatagateway-enabled)
   - [httpSignedDataGateway.apiKey](../../../reference/deployment-files/config-json.md#httpsigneddatagateway-apikey)
   - [httpSignedDataGateway.maxConcurrency](../../../reference/deployment-files/config-json.md#httpsigneddatagateway-maxconcurrency)
+  - [httpSignedDataGateway.corsOrigins](../../../reference/deployment-files/config-json.md#httpsigneddatagateway-corsorigins)
 - [logFormat](../../../reference/deployment-files/config-json.md#logformat)
 - [logLevel](../../../reference/deployment-files/config-json.md#loglevel)
 - [nodeVersion](../../../reference/deployment-files/config-json.md#nodeversion)
@@ -309,7 +318,8 @@ trigger for each endpoint in your OIS object.
       {
         "endpointId": "0xd4b0718c9a3316dbd831e6d01058202e5dde20a116304419f0d79e07a82b46bf",
         "oisTitle": "CoinGecko Requests",
-        "endpointName": "coinGeckoMarketData"
+        "endpointName": "coinGeckoMarketData",
+        "cacheResponses": false
       }
     ],
     "http": [
@@ -344,6 +354,7 @@ and that these endpoints can be triggers for `rrp`, `http`, and/or
   - [rrp[n].endpointId](../../../reference/deployment-files/config-json.md#rrp-n-endpointid)
   - [rrp[n].oisTitle](../../../reference/deployment-files/config-json.md#rrp-n-oistitle)
   - [rrp[n].endpointName](../../../reference/deployment-files/config-json.md#rrp-n-endpointname)
+  - [rrp[n].cacheResponses](../../../reference/deployment-files/config-json.md#rrp-n-cacheresponses)
 - [http](../../../reference/deployment-files/config-json.md#http)
   - [http[n].endpointId](../../../reference/deployment-files/config-json.md#http-n-endpointid)
   - [http[n].oisTitle](../../../reference/deployment-files/config-json.md#http-n-oistitle)

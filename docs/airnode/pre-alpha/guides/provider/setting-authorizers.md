@@ -1,6 +1,12 @@
 ---
 title: Setting Authorizers
+docSetName: Airnode pre-alpha
+folder: Guides > Provider
+basePath: /airnode/pre-alpha
+tags:
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 <VersionWarning/>

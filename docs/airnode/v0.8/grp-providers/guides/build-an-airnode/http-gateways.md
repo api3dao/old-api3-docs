@@ -1,6 +1,9 @@
 ---
 title: HTTP Gateways (optional)
+docSetName: Airnode v0.8
 folder: API Providers > Build an Airnode
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -21,7 +24,7 @@ Gateways.
 ## Gateway Differences
 
 Both gateways are setup identically. The differences are in their purpose and
-response. Gateways are allowed only when deploying to AWS and GCP.
+response.
 
 > <img src="../../../assets/images/gateway.png" width="650px"/>
 
@@ -48,7 +51,10 @@ Enable either gateway in the `config.json` file fields
   key must have a length of between 30 - 120 characters.
 - **maxConcurrency**: (optional) A number higher than zero that represents the
   maximum number of serverless functions serving gateway requests. When omitted,
-  there is no maximum concurrency set.
+  there is no maximum concurrency set. This field is ignored for Airnode client
+  gateways.
+- **corsOrigins**: A list of allowed origins, `['*']` to allow all origins or an
+  empty array to disable CORS.
 
 ```json
 "nodeSettings": {
@@ -61,12 +67,14 @@ Enable either gateway in the `config.json` file fields
   "httpGateway": {
     "enabled": true,
     "apiKey": "${HTTP_GATEWAY_API_KEY}",
-    "maxConcurrency": 20
+    "maxConcurrency": 20,
+    "corsOrigins": []
   },
   "httpSignedDataGateway": {
     "enabled": true,
     "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_API_KEY}",
-    "maxConcurrency": 20
+    "maxConcurrency": 20,
+    "corsOrigins": []
   },
   ...
 },
@@ -85,6 +93,7 @@ using the HTTP signed data gateway or via RRP.
       "endpointId": "0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6",
       "oisTitle": "CoinGecko Basic Request",
       "endpointName": "coinMarketData",
+      "cacheResponses": false
     }
   ],
   "http": [
@@ -106,11 +115,34 @@ using the HTTP signed data gateway or via RRP.
 
 ## Gateway URLs
 
+The gateway implementation is different depending on how Airnode is deployed.
+When deployed on a cloud provider, the serverless gateway is used. Inside
+Airnode client, the gateway is implemented via a simple web server inside the
+docker container. There are subtle differences in both how the gateways work and
+how do the gateway URLs look like.
+
+The gateway URLs are also available as part of the payload sent from Airnode's
+[heartbeat](./heartbeat.md) to your specified heartbeat URL.
+
+### When deployed on a cloud provider
+
 A gateway URL is generated for each gateway (when enabled) when Airnode is
 deployed. You can see the URLs displayed on your terminal at the end of an
-Airnode deployment using a [Docker image](../../docker/). They are also
-available as part of the payload sent from Airnode's [heartbeat](./heartbeat.md)
-to your specified heartbeat URL.
+Airnode deployment using a [Docker image](../../docker/).
+
+### When using Airnode client
+
+Airnode client can be used to run Airnode as a docker container locally. There
+is a common web server for both gateways, which is exposed on the host machine.
+Doing so will make the gateways API accessible like a regular web server running
+on the machine. Each gateway has a separate endpoint as shown below. Note the
+`PORT` which is exposed as part of the Airnode client container. See the
+[Airnode client usage](../../docker/client-image.md#usage) for more details.
+
+- `http://localhost:<PORT>/http-data/<endpointId>` - Gateway URL for the HTTP
+  Gateway
+- `http://localhost:<PORT>/http-signed-data/<endpointId>` - Gateway URL for the
+  HTTP Signed Data Gateway
 
 ## Using CURL
 
@@ -224,6 +256,11 @@ The response format is a simple JSON object with the following fields:
 
 ::::
 
-There are additional examples of using CURL to call the HTTP gateway in both the
+## Tutorials
+
+The `airnode-examples` monorepo hosts examples demonstrating use of the HTTP
+Gateway and HTTP Signed Data Gateway,
+[see here](../../tutorial/README.md#monorepo-examples). Furthermore, there are
+additional examples of using CURL to call the HTTP gateway in both the
 [Quick Deploy AWS](../../tutorial/quick-deploy-aws/#execute-endpoint) and
 [Quick Deploy GCP](../../tutorial/quick-deploy-gcp/#execute-endpoint) tutorials.

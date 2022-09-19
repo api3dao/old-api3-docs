@@ -1,9 +1,12 @@
 ---
 title: aws.env
+docSetName: Airnode v0.7
 folder: Reference > Deployment Files
+basePath: /airnode/v0.7
+tags:
 ---
 
-<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>>
 
 # {{$frontmatter.title}}
 

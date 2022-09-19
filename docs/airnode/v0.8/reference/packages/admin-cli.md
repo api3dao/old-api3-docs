@@ -1,6 +1,9 @@
 ---
 title: Admin CLI
+docSetName: Airnode v0.8
 folder: Reference > Packages
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -13,7 +16,7 @@ folder: Reference > Packages
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 Use the
-[airnode-admin](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-admin)
+[airnode-admin](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-admin)
 Admin CLI tool to interact with Airnode across blockchains. There are commands
 for both developers (dApp) and API providers. Developers can sponsor
 [requester](../../concepts/requester.md) contracts and derive
@@ -38,9 +41,9 @@ are just two examples of many possibilities. See the
 - `https://ropsten.infura.io/v3/<KEY>`
 
 The CLI connects to the
-[AirnodeRrpV0.sol](https://github.com/api3dao/airnode/blob/v0.7/packages/airnode-protocol/contracts/rrp/AirnodeRrpV0.sol)
+[AirnodeRrpV0.sol](https://github.com/api3dao/airnode/blob/v0.8/packages/airnode-protocol/contracts/rrp/AirnodeRrpV0.sol)
 or the
-[RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/v0.7/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol)
+[RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/v0.8/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol)
 contract, which addresses are derived from the current chain. You can optionally
 specify the contract addresses yourself by providing optional
 `airnode-rrp-address` or `requester-authorizer-with-airnode` command argument
@@ -95,13 +98,13 @@ npx @api3/airnode-admin $COMMAND --help
 Use the Admin CLI docker image as an alternative to `npx`:
 
 ```sh
-docker run api3/airnode-admin:0.7.2 --help
+docker run api3/airnode-admin:0.8.0 --help
 ```
 
 View the parameters of a command:
 
 ```sh
-docker run api3/airnode-admin:0.7.2 $COMMAND --help
+docker run api3/airnode-admin:0.8.0 $COMMAND --help
 ```
 
 ## SDK
@@ -184,7 +187,7 @@ between [requesters](../../concepts/requester.md) and
 [sponsorWallets](../../concepts/sponsor.md#sponsorwallet) as well as
 [templates](../../concepts/template.md) used by a sponsor's requesters. Some of
 these commands connect to the
-[AirnodeRrpV0.sol](https://github.com/api3dao/airnode/blob/v0.7/packages/airnode-protocol/contracts/rrp/AirnodeRrpV0.sol)
+[AirnodeRrpV0.sol](https://github.com/api3dao/airnode/blob/v0.8/packages/airnode-protocol/contracts/rrp/AirnodeRrpV0.sol)
 protocol contract where the signer is sponsor account.
 
 - [sponsor-requester](admin-cli.md#sponsor-requester)
@@ -248,7 +251,7 @@ npx @api3/airnode-admin sponsor-requester \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin sponsor-requester ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
   --sponsor-mnemonic "nature about salad..." ^
@@ -299,7 +302,7 @@ npx @api3/airnode-admin unsponsor-requester \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin unsponsor-requester ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
   --sponsor-mnemonic "nature about salad..." ^
@@ -338,7 +341,7 @@ npx @api3/airnode-admin get-sponsor-status \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin get-sponsor-status ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
   --sponsor-address 0x9Ec6C4... ^
@@ -378,7 +381,7 @@ npx @api3/airnode-admin derive-sponsor-wallet-address \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin derive-sponsor-wallet-address ^
   --airnode-xpub xpub6CUGRUo... ^
   --airnode-address 0xe1e0dd... ^
@@ -428,7 +431,7 @@ npx @api3/airnode-admin create-template \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin create-template ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
   --mnemonic "nature about salad..." ^
@@ -471,7 +474,7 @@ npx @api3/airnode-admin create-inline-template \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin create-inline-template ^
   --template-file-path ./template.json
 ```
@@ -503,7 +506,7 @@ npx @api3/airnode-admin get-template \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin get-template ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
   --template-id 0x8d3b9...
@@ -573,7 +576,7 @@ npx @api3/airnode-admin request-withdrawal \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin request-withdrawal ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
   --sponsor-mnemonic "nature about salad..." ^
@@ -611,7 +614,7 @@ npx @api3/airnode-admin check-withdrawal-request \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin check-withdrawal-request ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
   --withdrawal-request-id 0x011d1b...
@@ -647,7 +650,7 @@ npx @api3/airnode-admin verify-airnode-xpub \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin verify-airnode-xpub ^
   --airnode-xpub xpub6CUGRUo... ^
   --airnode-address 0xe1e0dd...
@@ -665,7 +668,7 @@ Airnode wallet.
 
 - [derive-airnode-xpub](admin-cli.md#derive-airnode-xpub)
 - [derive-endpoint-id](admin-cli.md#derive-endpoint-id)
-- [generate-mnemonic](admin-cli.md#generate-mnemonic)
+- [generate-airnode-mnemonic](admin-cli.md#generate-airnode-mnemonic)
 - [derive-airnode-address](admin-cli.md#derive-airnode-address)
 
 ### `derive-airnode-xpub`
@@ -691,7 +694,7 @@ npx @api3/airnode-admin derive-airnode-xpub --airnode-mnemonic "nature about sal
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin derive-airnode-xpub --airnode-mnemonic "nature about salad..."
 ```
 
@@ -726,7 +729,7 @@ npx @api3/airnode-admin derive-endpoint-id \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin derive-endpoint-id ^
   --ois-title "My OIS title..." ^
   --endpoint-name "My endpoint name..."
@@ -736,13 +739,23 @@ npx @api3/airnode-admin derive-endpoint-id ^
 
 ::::
 
-### `generate-mnemonic`
+### `generate-airnode-mnemonic`
 
 Generates a unique mnemonic which can be used to create an
 [airnode wallet](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#airnodewalletmnemonic).
 In addition to the mnemonic, this command will also display the corresponding
 [airnode address](../../concepts/airnode.md#airnodeaddress) and its extended
 public key ([xpub](../../concepts/airnode.md#xpub)).
+
+```sh
+npx @api3/airnode-admin generate-airnode-mnemonic
+```
+
+### `generate-mnemonic`
+
+Generates a unique mnemonic which can be used to create a wallet. In addition to
+the mnemonic, this command will also display the corresponding default wallet
+(path:m/44'/60'/0'/0/0) address.
 
 ```sh
 npx @api3/airnode-admin generate-mnemonic
@@ -771,7 +784,7 @@ npx @api3/airnode-admin derive-airnode-address \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin derive-airnode-address ^
 --airnode-mnemonic "cricket among ..."
 ```
@@ -791,7 +804,7 @@ This authorizer contract can whitelist [requesters](../../concepts/requester.md)
 where each Airnode is adminned by themselves.
 
 These commands connect to the
-[RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/v0.7/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol)
+[RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/v0.8/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol)
 contract.
 
 - [set-whitelist-expiration](admin-cli.md#set-whitelist-expiration)
@@ -847,7 +860,7 @@ npx @api3/airnode-admin set-whitelist-expiration \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin set-whitelist-expiration ^
   --mnemonic "nature about salad..." ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
@@ -907,7 +920,7 @@ npx @api3/airnode-admin extend-whitelist-expiration \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin extend-whitelist-expiration ^
   --mnemonic "nature about salad..." ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
@@ -970,7 +983,7 @@ npx @api3/airnode-admin set-indefinite-whitelist-status \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin set-indefinite-whitelist-status ^
   --mnemonic "nature about salad..." ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
@@ -1011,7 +1024,7 @@ npx @api3/airnode-admin get-whitelist-status \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin get-whitelist-status ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
   --endpoint-id 0xda088e2d94... ^
@@ -1051,7 +1064,7 @@ npx @api3/airnode-admin is-requester-whitelisted \
 
 ::: tab Windows
 
-```sh
+```batch
 npx @api3/airnode-admin is-requester-whitelisted ^
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
   --requester-authorizer-with-airnode 0xDc64a1... ^
@@ -1067,4 +1080,4 @@ npx @api3/airnode-admin is-requester-whitelisted ^
 ## More Examples
 
 You can find more examples in the _@api3-dao/airnode/package/admin_
-[test files](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-admin/test).
+[test files](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-admin/test).

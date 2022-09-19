@@ -1,6 +1,8 @@
 ---
 title: Instructions
+docSetName: Airnode v0.8
 folder: API Providers > Tutorials > Quick Deploy AWS
+basePath: /airnode/v0.8
 tags:
   - quick deploy aws
   - tutorial tutorials
@@ -110,7 +112,7 @@ Add values for each of the these fields.
 - `AIRNODE_WALLET_MNEMONIC`: Provide the seed phrase (mnemonic) to a digital
   wallet. For the purpose of this demo it does not need eth in it for the
   Rinkeby test network. If you don't have one use the Admin CLI command
-  [generate-mnemonic](../../../reference/packages/admin-cli.md#generate-mnemonic)
+  [generate-airnode-mnemonic](../../../reference/packages/admin-cli.md#generate-airnode-mnemonic)
   to create one or another method you prefer.
 
 - `HTTP_GATEWAY_API_KEY`: Make up an apiKey to authenticate calls to the HTTP
@@ -159,7 +161,7 @@ docker run -it --rm \
 
 For Windows, use CMD (and not PowerShell).
 
-```sh
+```batch
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
   api3/airnode-deployer:0.8.0 deploy
@@ -190,7 +192,8 @@ tested.
   "httpGateway": {
     "enabled": true, // The gateway is activated for this Airnode
     "apiKey": "${HTTP_GATEWAY_API_KEY}", // Gateway apiKey
-    "maxConcurrency": 20
+    "maxConcurrency": 20,
+    "corsOrigins": []
   },
   ...
 },
@@ -200,6 +203,7 @@ tested.
       "endpointId": "0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6",
       "oisTitle": "CoinGecko Basic Request",
       "endpointName": "coinMarketData",
+      "cacheResponses": false
     }
   ],
   "http": [
@@ -265,7 +269,7 @@ curl -v \
 
 ::: tab Windows
 
-```sh
+```batch
 curl -v ^
 -X POST ^
 -H "Content-Type: application/json" ^
@@ -316,7 +320,7 @@ docker run -it --rm \
 
 For Windows, use CMD (and not PowerShell).
 
-```sh
+```batch
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
   api3/airnode-deployer:0.8.0 remove-with-receipt

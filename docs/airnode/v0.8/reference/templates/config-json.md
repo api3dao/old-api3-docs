@@ -1,6 +1,9 @@
 ---
 title: config.json
+docSetName: Airnode v0.8
 folder: Reference > Templates
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -111,16 +114,18 @@ building a config.json file.
     "httpGateway": {
       "enabled": "<FILL_BOOLEAN>",
       "apiKey": "${HTTP_GATEWAY_API_KEY}", // In secrets.env
-      "maxConcurrency": "<FILL_NUMBER>"
+      "maxConcurrency": "<FILL_NUMBER>",
+      "corsOrigins": ["<FILL_*>"]
     },
     "httpSignedDataGateway": {
       "enabled": <FILL_BOOLEAN>,
       "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_API_KEY}", // In secrets.env
-      "maxConcurrency": <FILL_NUMBER>
+      "maxConcurrency": <FILL_NUMBER>,
+      "corsOrigins": ["<FILL_*>"]
     },
     "logFormat": "json",
     "logLevel": "INFO",
-    "nodeVersion": "0.7.2",
+    "nodeVersion": "0.8.0",
     "stage": "<FILL_*>"
   },
   "triggers": {
@@ -128,7 +133,8 @@ building a config.json file.
       {
         "endpointId": "<FILL_*>",
         "oisTitle": "<FILL_OIS_TITLE>",
-        "endpointName": "<FILL_ENDPOINT_NAME>"
+        "endpointName": "<FILL_ENDPOINT_NAME>",
+        "cacheResponses": "<FILL_CACHE_RESPONSES>"
       }
     ],
     "http": [

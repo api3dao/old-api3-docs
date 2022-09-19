@@ -1,5 +1,9 @@
 ---
 title: Pre/Post Processing
+docSetName: OIS v1.1
+folder:
+basePath: /ois/v1.1
+tags:
 ---
 
 # {{$frontmatter.title}}
@@ -27,6 +31,14 @@ Every processing snippet follows this schema:
 - `value` - The processing code written as a string.
 - `timeoutMs` - The maximum timeout that this snippet can run. In case the
   timeout is exceeded an error is thrown.
+
+::: tip Pre- and Post-processing Tutorials
+
+The `airnode-examples` monorepo has examples using pre-processing and
+post-processing,
+[see here](../../airnode/v0.8/grp-providers/tutorial/README.md#monorepo-examples).
+
+:::
 
 ## Inputs
 

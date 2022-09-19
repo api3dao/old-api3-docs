@@ -1,6 +1,9 @@
 ---
 title: Heartbeat (optional)
+docSetName: Airnode v0.6
 folder: API Providers > Build an Airnode
+basePath: /airnode/v0.6
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -54,7 +57,7 @@ Turn on the optional heartbeat functionality by setting all fields in the
       },
       "logFormat": "json",
       "logLevel": "INFO",
-      "nodeVersion": "0.6.5",
+      "nodeVersion": "0.6.7",
       "stage": "testnet",
   }
 }

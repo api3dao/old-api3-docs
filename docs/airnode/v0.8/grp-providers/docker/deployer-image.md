@@ -1,6 +1,9 @@
 ---
 title: Airnode Deployer Image
+docSetName: Airnode v0.8
 folder: API Providers > Docker Images
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -15,7 +18,7 @@ folder: API Providers > Docker Images
 Use the deployer image to deploy or remove an Airnode with a cloud provider such
 as AWS. The simplest way is to use the pre-built packages. If you would rather
 build the images yourself see the
-[README](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-deployer/docker)
+[README](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-deployer/docker)
 in the deployer package.
 
 ::: tip Quick Deploy Demos
@@ -50,8 +53,8 @@ and for GCP deployment, see the
 
 ## Deployer Image Commands
 
-All three commands are the same for AWS and GCP with an exception of GCP. It
-requires an additional parameter of `projectId` when removing a deployment.
+All three commands are similar for AWS and GCP, with differences noted where
+they exist.
 
 - [deploy](./deployer-image.md#deploy)
 - [remove-with-receipt](./deployer-image.md#remove-with-receipt)
@@ -97,7 +100,7 @@ docker run -it --rm \
 
 ::: tab Windows
 
-```sh
+```batch
 # For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
@@ -111,19 +114,31 @@ docker run -it --rm ^
 :::tip Re-deployments
 
 A unique deployment is defined by the value of
-[nodeSetting.stage](../../reference/deployment-files/config-json.html#stage). If
+[nodeSetting.stage](../../reference/deployment-files/config-json.md#stage). If
 you deploy again, using the same `nodeSetting.stage` value, then you are
 re-deploying or updating the previous deployment.
 
-- If the re-deployment fails (and
-  [--auto-remove](../../reference/packages/deployer.html#deploy) = false) the
-  Airnode could be left in an unstable state.
-- If the re-deployment fails (and
-  [--auto-remove](../../reference/packages/deployer.html#deploy) = true) the
-  deployer will attempt to remove the Airnode.
+By default the deployer will attempt to remove the Airnode should either a
+deployment or re-deployment fail. But if either fails (and
+[--auto-remove](../../reference/packages/deployer.md#deploy) is false) then the
+Airnode will not be removed, however it could be left in an unstable state. You
+can alter the `deploy` command to change this behavior using the following.
 
-For production systems consider changing the value of `nodeSetting.stage` to
-create a new deployment and follow-up by removing the previous deployment.
+- `--auto-remove true|false`: defaults to true
+- `--no-auto-remove`
+
+Auto removal is usually recommended for development deployments. For production
+deployments, consider changing the value of `nodeSetting.stage` to create a new
+deployment and follow-up by removing the previous deployment.
+
+Use the following example to avoid the automatic removal of the Airnode.
+
+```sh
+docker run -it --rm \
+-e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
+-v "$(pwd):/app/config" \
+api3/airnode-deployer:0.8.0 deploy --auto-remove false
+```
 
 :::
 
@@ -149,7 +164,7 @@ docker run -it --rm \
 
 ::: tab Windows
 
-```sh
+```batch
 # For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
@@ -167,7 +182,9 @@ The
 command is available as an alternative to `remove-with-receipt` and uses the
 Airnode short address and cloud provider specifications. All values, other than
 `airnodeShortAddress`, can be found in
-[config.json](../../reference/deployment-files/config-json.md).
+[config.json](../../reference/deployment-files/config-json.md). Note that
+relative to AWS Airnode removal, GCP Airnode removal requires an additional
+parameter: `projectId`.
 
 - `--airnode-address-short`: Can be found in the
   [receipt.json](../../reference/deployment-files/receipt-json.md) file or in
@@ -180,10 +197,10 @@ Airnode short address and cloud provider specifications. All values, other than
 - `--region`:
   [nodeSetting.cloudProvider.region](../../reference/deployment-files/config-json.md#cloudprovider-region)
 - `--project-id`: (GCP only)
-  [cloudProvider.projectId](../../reference/deployment-files/config-json.md#cloudprovider-projectid)
+  [nodeSetting.cloudProvider.projectId](../../reference/deployment-files/config-json.md#cloudprovider-projectid)
 
-Note that the example commands below use placeholder values that should be
-replaced.
+Note that the example commands below use placeholder values for a GCP deployment
+that should be replaced.
 
 :::: tabs
 
@@ -195,25 +212,25 @@ docker run -it --rm \
   api3/airnode-deployer:0.8.0 remove-with-deployment-details \
   --airnode-address-short abd9eaa \
   --stage dev \
-  --cloud-provider aws \
+  --cloud-provider gcp \
   --projectId myAirnode101 \ ← GCP only
-  --region us-east-1
+  --region us-east1
 ```
 
 :::
 
 ::: tab Windows
 
-```sh
+```batch
 #For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "$(pwd):/app/config" ^
   api3/airnode-deployer:0.8.0 remove-with-deployment-details ^
   --airnode-address-short abd9eaa ^
   --stage dev ^
-  --cloud-provider aws ^
+  --cloud-provider gcp ^
   --projectId myAirnode101 ^ ← GCP only
-  --region us-east-1
+  --region us-east1
 ```
 
 :::
@@ -224,15 +241,15 @@ docker run -it --rm ^
 
 Optionally you can remove an Airnode manually though it is highly recommended
 that you do so using the deployer image's `remove-with-receipt` or
-`remove-with-deployment-details` commands. Airnode has a presence in several
-areas of both AWS and GCP. An Airnode has a `airnodeAddressShort` (e.g.,
-`0ab830c`) that is included in the element name of AWS and GCP deployed
-features.
+`remove-with-deployment-details` commands. When removing manually, you will need
+the short Airnode address, `airnodeAddressShort` (e.g., `0ab830c`), that is
+included in the element name of AWS and GCP deployed features. Airnode has a
+presence in several areas of both AWS and GCP as listed below.
 
 ::: danger Remember
 
 Only delete elements of a feature with the `airnodeAddressShort` address in the
-name you are targeting. There can be more than one Airnode.
+name you are targeting as there can be more than one Airnode.
 
 :::
 

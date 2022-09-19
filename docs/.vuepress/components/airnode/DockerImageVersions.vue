@@ -6,75 +6,49 @@ inside the Airnode doc set.
 <template>
   <span>
     <p>
-      The docker images must pair with a particular
-      <router-link class="route-link" :to="path"> nodeVersion </router-link>
-      from your config.json file. However there is a
-      <code>latest</code> version provided for convenience which always requires
-      the highest <code>nodeVersion</code> available at the time of its
-      execution.
+      All images are available on DockerHub, see the links below. It is not
+      required to download these manually as they are pulled automatically when
+      running the provided Docker desktop commands.
     </p>
 
-    <table>
-      <tr>
-        <th>Docker Images</th>
-        <th>nodeVersion</th>
-      </tr>
-      <tr>
-        <td>0.2.2</td>
-        <td>0.2.2</td>
-      </tr>
-      <tr>
-        <td>0.3.0</td>
-        <td>0.3.0</td>
-      </tr>
-      <tr>
-        <td>0.3.1</td>
-        <td>0.3.1</td>
-      </tr>
-      <tr>
-        <td>0.4.0</td>
-        <td>0.4.0</td>
-      </tr>
-      <tr>
-        <td>0.4.1</td>
-        <td>0.4.1</td>
-      </tr>
-      <tr>
-        <td>0.5.0</td>
-        <td>0.5.0</td>
-      </tr>
-      <tr>
-        <td>0.5.2</td>
-        <td>0.5.2</td>
-      </tr>
-      <tr>
-        <td>0.6.0</td>
-        <td>0.6.0</td>
-      </tr>
-      <tr>
-        <td>0.6.2</td>
-        <td>0.6.2</td>
-      </tr>
-      <tr>
-        <td>0.6.4</td>
-        <td>0.6.4</td>
-      </tr>
-      <tr>
-        <td>0.6.5</td>
-        <td>0.6.5</td>
-      </tr>
-      <tr>
-        <td>0.7.2</td>
-        <td>0.7.2</td>
-      </tr>
-      <tr>
-        <td>latest</td>
-        <td>0.7.2</td>
-      </tr>
-    </table>
-    <div style="font-size: small; margin-left: 20px; margin-top: -10px">
-      The above table updates when new images are released.
-    </div>
+    <ul>
+      <li>
+        <a
+          :href="'https://hub.docker.com/r/api3/airnode-deployer/tags'"
+          target="_docker-hub"
+          >Deployer images
+          <ExternalLinkImage />
+        </a>
+      </li>
+
+      <li>
+        <a
+          :href="'https://hub.docker.com/r/api3/airnode-client/tags'"
+          target="_docker-hub"
+          >Client images
+          <ExternalLinkImage />
+        </a>
+      </li>
+
+      <li>
+        <a
+          :href="'https://hub.docker.com/r/api3/airnode-admin/tags'"
+          target="_docker-hub"
+          >Admin CLI images
+          <ExternalLinkImage />
+        </a>
+      </li>
+    </ul>
+
+    <p>
+      All image versions must pair with the
+      <router-link class="route-link" :to="path"> nodeVersion </router-link>
+      from your Airnode config.json file. However there is a
+      <code>latest</code> image version provided for convenience which always
+      requires the highest <code>nodeVersion</code> found in the
+      <code>config.json</code>
+      file at the time of its execution.
+    </p>
   </span>
 </template>
 

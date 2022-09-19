@@ -1,5 +1,9 @@
 ---
 title: dAPI (Decentralized API)
+docSetName: API3
+folder:
+basePath: /api3
+tags:
 ---
 
 # {{$frontmatter.title}}

@@ -70,16 +70,18 @@
     "httpGateway": {
       "enabled": true,
       "apiKey": "${HTTP_GATEWAY_API_KEY}",
-      "maxConcurrency": 20
+      "maxConcurrency": 20,
+      "corsOrigins": []
     },
     "httpSignedDataGateway": {
       "enabled": true,
       "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_API_KEY}",
-      "maxConcurrency": 20
+      "maxConcurrency": 20,
+      "corsOrigins": []
     },
     "logFormat": "plain",
     "logLevel": "INFO",
-    "nodeVersion": "0.7.2",
+    "nodeVersion": "0.8.0",
     "stage": "dev"
   },
   "triggers": {
@@ -87,7 +89,8 @@
       {
         "endpointId": "0xf10f067e716dd8b9c91b818e3a933b880ecb3929c04a6cd234c171aa27c6eefe",
         "oisTitle": "CoinGecko Requests",
-        "endpointName": "coinMarketData"
+        "endpointName": "coinMarketData",
+        "cacheResponses": false
       }
     ],
     "http": [

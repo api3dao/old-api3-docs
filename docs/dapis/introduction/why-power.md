@@ -7,8 +7,6 @@ folder: Introduction
 
 # {{$frontmatter.title}}
 
-<VersionWarning/>
-
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
@@ -47,4 +45,6 @@ Join the growing number of API providers working with API3 to provide
 first-party oracle services. Airnode is designed specifically for API providers
 to operate, and API3 will always be here to help.
 
-Sounds appealing? Click **here** to begin!
+Sounds appealing? Click
+<router-link :to="$themeConfig.latestVersions.airnode">here</router-link> to
+begin!

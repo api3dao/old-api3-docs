@@ -44,8 +44,8 @@
     },
     "logFormat": "plain",
     "logLevel": "INFO",
-    "nodeVersion": "0.6.5",
-    "stage": "dev"
+    "nodeVersion": "0.6.7",
+    "stage": "tutorial-aws"
   },
   "triggers": {
     "rrp": [

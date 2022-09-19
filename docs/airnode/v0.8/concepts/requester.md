@@ -1,6 +1,9 @@
 ---
 title: Requester
+docSetName: Airnode v0.8
 folder: Concepts and Definitions
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -24,4 +27,4 @@ may specify the request such that the request is fulfilled by the Airnode
 calling back another contract.
 
 See the
-[Airnode requester examples](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-examples/contracts).
+[Airnode requester examples](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-examples/contracts).

@@ -1,6 +1,12 @@
 ---
 title: The Airnode
+docSetName: Airnode v0.3
+folder: Introduction
+basePath: /airnode/v0.3
+tags:
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

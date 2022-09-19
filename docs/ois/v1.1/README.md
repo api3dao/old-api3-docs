@@ -1,5 +1,9 @@
 ---
 title: What is OIS?
+docSetName: OIS v1.1
+folder:
+basePath: /ois/v1.1
+tags:
 ---
 
 # {{$frontmatter.title}}
@@ -38,6 +42,7 @@ endpoint that maps to the same API operation.
 ## Releases
 
 <br/>
+
 <ois-OisAirnodeVersions/>
 
 ## API Mapping Examples
@@ -50,7 +55,7 @@ Mapping details are better documented in the next doc [Specification](./ois.md).
 An API has a simple operation the returns the current value of an on-chain token
 `GET /token/{id}` and has `id` as its only parameter. Here the Airnode endpoint
 will only mimic the API operation. To do so, the Airnode will declare its
-endpoint to have one parameter, `id`. Airnode will except an `id` argument from
+endpoint to have one parameter, `id`. Airnode will accept an `id` argument from
 an on-chain request and move its value to the API operation's path parameter
 named `id`.
 

@@ -1,6 +1,9 @@
 ---
 title: Heartbeat (optional)
+docSetName: Airnode v0.8
 folder: API Providers > Build an Airnode
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -45,16 +48,18 @@ Turn on the optional heartbeat functionality by setting all fields in the
       "httpGateway": {
         "enabled": true,
         "apiKey": "${HTTP_GATEWAY_API_KEY}",
-        "maxConcurrency": 20
+        "maxConcurrency": 20,
+        "corsOrigins": []
       },
       "httpSignedDataGateway": {
         "enabled": true,
         "apiKey": "${HTTP_SIGNED_DATA_GATEWAY_API_KEY}",
-        "maxConcurrency": 20
+        "maxConcurrency": 20,
+        "corsOrigins": []
       },
       "logFormat": "json",
       "logLevel": "INFO",
-      "nodeVersion": "0.7.2",
+      "nodeVersion": "0.8.0",
       "stage": "testnet",
   }
 }

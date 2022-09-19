@@ -1,5 +1,9 @@
 ---
 title: Specification
+docSetName: OIS v1.0
+folder:
+basePath: /ois/v1.0
+tags:
 ---
 
 # {{$frontmatter.title}}
@@ -410,7 +414,7 @@ respective API operation.-->
 
 [<InfoBtnBlue/>](/airnode/v0.7/grp-providers/guides/build-an-airnode/api-integration.md#fixedoperationparameters)
 (Required) A list of objects specifying the fixed parameters for an API
-operation. While required, the fixedOperationParameters array can be left empty.
+operation. While required, the `fixedOperationParameters` array can be empty.
 Each object has the following elements:
 
 - `operationParameter`
@@ -440,11 +444,12 @@ that cannot be overridden by the requester.
 ### 5.4. `reservedParameters`
 
 [<InfoBtnBlue/>](/airnode/v0.7/grp-providers/guides/build-an-airnode/api-integration.md#reservedparameters)
-
-A list of objects that specify reserved Airnode endpoint parameters that do not
-map to any API operation parameters, but are used for special purposes by the
-Airnode. See the [Reserved Parameters](./reserved-parameters.md) doc for an
-in-depth explanation. Each object has the following elements:
+(Required) A list of objects that specify reserved Airnode endpoint parameters
+that do not map to any API operation parameters, but are used for special
+purposes by the Airnode. At a minimum, one object must specify the API response
+type i.e. it must include `"name": "_type"`. See the
+[Reserved Parameters](./reserved-parameters.md) doc for an in-depth explanation.
+Each object has the following elements:
 
 - `name`
 - `fixed`
@@ -470,9 +475,9 @@ override the default value.
 ### 5.5. `parameters`
 
 [<InfoBtnBlue/>](/airnode/v0.7/grp-providers/guides/build-an-airnode/api-integration.md#parameters)
-(Optional) A list of objects that specify Airnode endpoint parameters that map
-to an particular API operation's parameters. Each object has the following
-elements:
+(Required) A list of objects that specify Airnode endpoint parameters that map
+to an particular API operation's parameters. While required, the `parameters`
+array can be empty. Each object has the following elements:
 
 - `operationParameter`
 - `name`

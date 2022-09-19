@@ -1,6 +1,9 @@
 ---
 title: Airnode Client Image
+docSetName: Airnode v0.8
 folder: API Providers > Docker Images
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -21,7 +24,7 @@ A docker client image has been published on
 [Docker Hub](https://hub.docker.com/r/api3/airnode-client). If you want to build
 the container from the source yourself, you can find the image and built
 instructions in the
-[Airnode repository](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-node/docker).
+[Airnode repository](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-node/docker).
 
 ## Configuration
 
@@ -52,7 +55,7 @@ $ docker run --volume $(pwd):/app/config ...
 
 ::: tab Windows PowerShell
 
-```sh
+```powershell
 $ tree
 .
 ├── config.json
@@ -64,7 +67,7 @@ $ docker run --volume $(pwd):/app/config ...
 
 ::: tab Windows CMD
 
-```sh
+```batch
 $ tree
 .
 ├── config.json
@@ -94,29 +97,29 @@ parameter, but you may run the it without it as well.
 docker run --detach \
   --volume $(pwd):/app/config \
   --name airnode \
-  api3/airnode-client:0.7.2
+  api3/airnode-client:0.8.0
 ```
 
 :::
 
 ::: tab Windows PowerShell
 
-```sh
+```powershell
 docker run --detach \
   --volume $(pwd):/app/config \
   --name airnode \
-  api3/airnode-client:0.7.2
+  api3/airnode-client:0.8.0
 ```
 
 :::
 
 ::: tab Windows
 
-```sh
+```batch
 docker run --detach ^
   --volume %cd%:/app/config ^
   --name airnode ^
-  api3/airnode-client:0.7.2
+  api3/airnode-client:0.8.0
 ```
 
 :::

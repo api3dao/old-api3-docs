@@ -1,6 +1,9 @@
 ---
 title: Using Templates
+docSetName: Airnode v0.8
 folder: Developers
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -22,7 +25,7 @@ same parameters. In such instances, it is wasteful to pass all of these
 parameters repeatedly. Templates are used to hold a set of parameter values
 on-chain that can be used repeatedly when calling
 the`makeTemplateRequest()`function in
-[AirnodeRrpV0.sol](https://github.com/api3dao/airnode/blob/v0.7/packages/airnode-protocol/contracts/rrp/AirnodeRrpV0.sol).
+[AirnodeRrpV0.sol](https://github.com/api3dao/airnode/blob/v0.8/packages/airnode-protocol/contracts/rrp/AirnodeRrpV0.sol).
 Unlike`makeFullRequest(), makeTemplateRequest()`requires that a requester
 pass`templateId`which identifies a template.
 
@@ -101,7 +104,7 @@ template is created when the parameters are the same.
 ## Part #2: Upload Template
 
 Use the
-[create-template](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-admin#create-template)
+[create-template](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-admin#create-template)
 command in the @api3/airnode-admin package to move your template on-chain. The
 command`create-template`reads a file, uses its contents to create a template and
 returns a`templateId`. To create a new template record you will need the
@@ -134,3 +137,10 @@ npx @api3/airnode-admin create-template \
 You can create as many templates as needed. Call the `getTemplates`command in
 the @api3/airnode-admin package to get a list of the templates by
 their`templateIds`.
+
+::: tip Templates Tutorial
+
+The `coingecko-template` monorepo example demonstrates template requests,
+[see here](../grp-providers/tutorial/README.md#monorepo-examples).
+
+:::

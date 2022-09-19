@@ -1,6 +1,9 @@
 ---
 title: Chain Idiosyncrasies
+docSetName: Airnode v0.8
 folder: Reference
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

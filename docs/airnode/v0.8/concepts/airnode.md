@@ -1,6 +1,9 @@
 ---
 title: Airnode
+docSetName: Airnode v0.8
 folder: Concepts and Definitions
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -66,14 +69,15 @@ npx @api3/airnode-admin derive-airnode-xpub \
 Airnode xpub: xpub6CUGRUo...
 ```
 
-## Admin CLI: `generate-mnemonic`
+## Admin CLI: `generate-airnode-mnemonic`
 
-The [generate-mnemonic](../reference/packages/admin-cli.md#generate-mnemonic)
+The
+[generate-airnode-mnemonic](../reference/packages/admin-cli.md#generate-airnode-mnemonic)
 command is useful because it will generate a mnemonic as well as return the
 `airnodeAddress` and `xpub`.
 
 ```sh
-npx @api3/airnode-admin generate-mnemonic
+npx @api3/airnode-admin generate-airnode-mnemonic
 
 # output
 This mnemonic is created locally on your machine using "ethers.Wallet.createRandom" under the hood.

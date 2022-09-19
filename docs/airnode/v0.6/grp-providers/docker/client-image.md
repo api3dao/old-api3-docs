@@ -1,6 +1,9 @@
 ---
 title: Airnode Client Image
+docSetName: Airnode v0.6
 folder: API Providers > Docker Images
+basePath: /airnode/v0.6
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -97,7 +100,7 @@ parameter, but you may run the it without it as well.
 docker run --detach \
   --volume $(pwd)/config:/app/config \
   --name airnode \
-  api3/airnode-client:0.6.5
+  api3/airnode-client:0.6.7
 ```
 
 :::
@@ -108,7 +111,7 @@ docker run --detach \
 docker run --detach \
   --volume $(pwd)/config:/app/config \
   --name airnode \
-  api3/airnode-client:0.6.5
+  api3/airnode-client:0.6.7
 ```
 
 :::
@@ -119,7 +122,7 @@ docker run --detach \
 docker run --detach ^
   --volume %cd%/config:/app/config ^
   --name airnode ^
-  api3/airnode-client:0.6.5
+  api3/airnode-client:0.6.7
 ```
 
 :::

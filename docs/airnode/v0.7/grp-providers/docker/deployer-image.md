@@ -1,6 +1,9 @@
 ---
 title: Airnode Deployer Image
+docSetName: Airnode v0.7
 folder: API Providers > Docker Images
+basePath: /airnode/v0.7
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -101,7 +104,7 @@ docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
   -v "$(pwd)/config:/app/config" \
   -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.7.2 deploy
+  api3/airnode-deployer:0.7.5 deploy
 ```
 
 :::
@@ -110,12 +113,12 @@ docker run -it --rm \
 
 For Windows, use CMD (and not PowerShell).
 
-```sh
+```batch
 docker run -it --rm ^
   --env-file aws.env ^
   -v "%cd%/config:/app/config" ^
   -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.7.2 deploy
+  api3/airnode-deployer:0.7.5 deploy
 ```
 
 :::
@@ -134,19 +137,19 @@ docker run -it --rm \
   -v "$(pwd)/gcp.json:/app/gcp.json" \
   -v "$(pwd)/config:/app/config" \
   -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.7.2 deploy
+  api3/airnode-deployer:0.7.5 deploy
 ```
 
 :::
 
 ::: tab Windows
 
-```sh
+```batch
 docker run -it --rm ^
   -v "%cd%/gcp.json:/app/gcp.json" ^
   -v "%cd%/config:/app/config" ^
   -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.7.2 deploy
+  api3/airnode-deployer:0.7.5 deploy
 ```
 
 :::
@@ -168,7 +171,7 @@ was created. Use this file to remove an Airnode.
 docker run -it --rm \
   --env-file aws.env \
   -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.7.2 remove -r output/receipt.json
+  api3/airnode-deployer:0.7.5 remove -r output/receipt.json
 ```
 
 :::
@@ -177,11 +180,11 @@ docker run -it --rm \
 
 For Windows, use CMD (and not PowerShell).
 
-```sh
+```batch
 docker run -it --rm ^
   --env-file aws.env ^
   -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.7.2 remove -r output/receipt.json
+  api3/airnode-deployer:0.7.5 remove -r output/receipt.json
 ```
 
 :::
@@ -198,7 +201,7 @@ docker run -it --rm ^
 docker run -it --rm \
   -v "$(pwd)/gcp.json:/app/gcp.json" \
   -v "$(pwd)/output:/app/output" \
-  api3/airnode-deployer:0.7.2 remove -r output/receipt.json
+  api3/airnode-deployer:0.7.5 remove -r output/receipt.json
 ```
 
 :::
@@ -207,11 +210,11 @@ docker run -it --rm \
 
 For Windows, use CMD (and not PowerShell).
 
-```sh
+```batch
 docker run -it --rm ^
   -v "%cd%/gcp.json:/app/gcp.json" ^
   -v "%cd%/output:/app/output" ^
-  api3/airnode-deployer:0.7.2 remove -r output/receipt.json
+  api3/airnode-deployer:0.7.5 remove -r output/receipt.json
 ```
 
 :::

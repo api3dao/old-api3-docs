@@ -1,6 +1,9 @@
 ---
 title: HTTP Gateways (optional)
+docSetName: Airnode v0.6
 folder: API Providers > Build an Airnode
+basePath: /airnode/v0.6
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

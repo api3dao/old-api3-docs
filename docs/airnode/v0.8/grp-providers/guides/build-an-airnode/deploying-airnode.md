@@ -1,6 +1,9 @@
 ---
 title: Deploying Airnode
+docSetName: Airnode v0.8
 folder: API Providers > Build an Airnode
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -32,7 +35,7 @@ next step is to deploy the Airnode.
 The recommended way to deploy Airnode is by using the Docker
 [deployer image](../../docker/deployer-image.md). This image is simply a wrapper
 around the
-[deployer CLI](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-deployer).
+[deployer CLI](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-deployer).
 Try out the [Quick Deploy](../../tutorial/) tutorial if you wish to become
 familiar with the deployer image first.
 
@@ -111,7 +114,7 @@ docker run -it --rm \
 
 ::: tab Windows
 
-```sh
+```batch
 # For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
@@ -126,7 +129,7 @@ docker run -it --rm ^
 
 The `receipt.json` file is a product of a deployment attempt. It contains
 Airnode configuration and deployment information and is used to remove the
-Airnode. The field `success` is importance in that it specifies whether the
+Airnode. The field `success` is important in that it specifies whether the
 deployment was successful or not.
 
 ```json
@@ -146,9 +149,6 @@ deployment was successful or not.
     "nodeVersion": "0.8.0",
     "timestamp": "2022-03-26T02:37:55.506Z"
   },
-  "api": {
-    "heartbeatId": "caccf290-e683-11ec-8fea-0242ac120002"
-  },
   "success": true
 }
 ```
@@ -162,6 +162,7 @@ that detail how to do this.
 - [HTTP Gateways](./http-gateways.md#using-curl)
 - [Quick Deploy AWS](../../tutorial/quick-deploy-aws/#test-the-airnode)
 - [Quick Deploy GCP](../../tutorial/quick-deploy-gcp/#test-the-airnode)
+- [Quick Deploy Container](../../tutorial/quick-deploy-container/#test-the-airnode)
 
 ## Calling the Airnode
 

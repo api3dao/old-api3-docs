@@ -1,6 +1,9 @@
 ---
 title: Calling an Airnode
+docSetName: Airnode v0.8
 folder: Developers
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -28,7 +31,7 @@ mechanics of the entire process.
 
 The AirnodeRrpV0 protocol is designed to be flexible and is meant to serve a
 variety of use cases. See the Airnode
-[requester examples](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-examples/contracts)
+[requester examples](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-examples/contracts)
 for potential design patterns.
 
 Ignoring the mechanics of the overall process, the requester calling an Airnode
@@ -50,7 +53,7 @@ its deployment and sponsoring.
 ## Step #1: Inherit RrpRequesterV0.sol
 
 A requester inherits from the
-[RrpRequesterV0.sol](https://github.com/api3dao/airnode/blob/v0.7/packages/airnode-protocol/contracts/rrp/requesters/RrpRequesterV0.sol)
+[RrpRequesterV0.sol](https://github.com/api3dao/airnode/blob/v0.8/packages/airnode-protocol/contracts/rrp/requesters/RrpRequesterV0.sol)
 contract. This will expose the AirnodeRrpV0.sol protocol contract to the
 requester allowing it to make Airnode requests.
 
@@ -144,7 +147,7 @@ A full request using the AirnodeRrpV0.sol contract `makeFullRequest` function
 requires all parameters needed by the Airnode application to be passed at
 runtime. This is in contrast to a template request that would use a template for
 some or all of the required parameters. Learn more about
-[using templates](call-an-airnode.md#using-templates).
+[using templates](using-templates.md).
 
 Since the `callTheAirnode` function makes a
 [full request](../concepts/request.md#full-request), it must gather the

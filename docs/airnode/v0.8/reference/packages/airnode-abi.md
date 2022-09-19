@@ -1,6 +1,9 @@
 ---
 title: ABI
+docSetName: Airnode v0.8
 folder: Reference > Packages
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -13,7 +16,7 @@ folder: Reference > Packages
 <TOC class="table-of-contents" :include-level="[2,4]" />
 
 The
-[airnode-abi](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-abi)
+[airnode-abi](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-abi)
 package is a unique way to encode and decode parameters for use with Airnode.
 Parameters are provided with encoding types, names and values. The types are
 shortened and grouped with a version as the "header". The name/value pairs are

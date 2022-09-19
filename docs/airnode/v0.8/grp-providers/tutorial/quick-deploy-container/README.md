@@ -1,6 +1,8 @@
 ---
 title: Instructions
+docSetName: Airnode v0.8
 folder: API Providers > Tutorials > Quick Deploy Container
+basePath: /airnode/v0.8
 tags:
   - quick deploy container
   - tutorial tutorials
@@ -17,8 +19,8 @@ tags:
 
 This demo is a simple Airnode deployment, using a hands-on approach, to better
 understand the overall deployment process of the Airnode
-[client image](../../../grp-providers/docker/deployer-image.md) which deploys
-the off-chain component of Airnode ([a.k.a., the node](../../../)) to a Docker
+[client image](../../../grp-providers/docker/client-image.md) which deploys the
+off-chain component of Airnode ([a.k.a., the node](../../../)) to a Docker
 container, in this case a locally run Docker container. It uses an API endpoint
 (`GET /simple/price`) from
 [CoinGecko](https://www.coingecko.com/en/api/documentation) which returns the
@@ -26,7 +28,7 @@ current value of a coin. This demo does not detail the overall configuration of
 an Airnode, it is just a quick start.
 
 An Airnode Docker container deployment uses a Docker image (called
-[client image](../../../grp-providers/docker/deployer-image.md)) which in turn
+[client image](../../../grp-providers/docker/client-image.md)) which in turn
 requires two files as input.
 
 - [config.json](./config-json.md)
@@ -80,7 +82,7 @@ default, the Airnode client image looks for them in the project root directory.
 
 This file requires no changes on your part. It has been created with just one
 API endpoint. It will instruct the Airnode to attach to the Rinkeby test
-network. There are two variables this file will extract (interpolation) from
+network. There are a few variables this file will extract (interpolate) from
 `secrets.env`.
 
 ### secrets.env
@@ -99,45 +101,100 @@ Add values for each of the these fields.
 - `AIRNODE_WALLET_MNEMONIC`: Provide the seed phrase (mnemonic) to a digital
   wallet. For the purpose of this demo it does not need eth in it for the
   Rinkeby test network. If you don't have one use the Admin CLI command
-  [generate-mnemonic](../../../reference/packages/admin-cli.md#generate-mnemonic)
+  [generate-airnode-mnemonic](../../../reference/packages/admin-cli.md#generate-airnode-mnemonic)
   to create one or another method you prefer.
+
+- `HTTP_GATEWAY_API_KEY`: The authentication API key that needs to be sent with
+  every HTTP gateway request.
 
 ## Deploy
 
-Make sure Docker is running and then execute the client image from the root of
-the `quick-deploy-container` folder.
+Make sure Docker is running and then run the Airnode client container from the
+root of the `quick-deploy-container` folder.
 
-Run the following command to deploy the demo Airnode locally. Note that the
-version of `api3/airnode-deployer` matches the `nodeVersion` in the config.json
-file.
+Run the following command to deploy the Airnode locally. Note that the version
+of `api3/airnode-client` matches the `nodeVersion` in the config.json file.
 
 :::: tabs
 
-::: tab Linux/Mac/WSL2/PowerShell
+::: tab Linux
 
 ```sh
 docker run --detach \
   --volume "$(pwd):/app/config" \
   --name quick-deploy-container-airnode \
-  api3/airnode-client:0.7.2
+  --network host \
+  api3/airnode-client:0.8.0
+```
+
+:::
+
+::: tab Mac/WSL2/PowerShell
+
+```sh
+docker run --detach \
+  --volume "$(pwd):/app/config" \
+  --name quick-deploy-container-airnode \
+  --publish 3000:3000 \
+  api3/airnode-client:0.8.0
 ```
 
 :::
 
 ::: tab Windows CMD
 
-For Windows, use CMD (and not PowerShell).
+For Windows CMD:
 
-```sh
+```batch
 docker run --detach ^
   --volume "%cd%:/app/config" ^
   --name quick-deploy-container-airnode ^
-  api3/airnode-client:0.7.2
+  --publish 3000:3000 ^
+  api3/airnode-client:0.8.0
 ```
 
 :::
 
 ::::
+
+Note that `--publish HOST_PORT:CONTAINER_PORT` parameter can have different
+values for the `HOST_PORT` and `CONTAINER_PORT`. E.g. parameter
+`--publish 8000:3000` would expose the web server on port 8000 on the host
+machine. If run using [host networking](https://docs.docker.com/network/host/)
+you need to change the port via
+[gatewayServerPort](../../../reference/deployment-files/config-json.md#cloudprovider-gatewayserverport)
+property inside config.json.
+
+For Linux, it's recommended to use
+[host networking](https://docs.docker.com/network/host/).
+
+## Test the Airnode
+
+### Request
+
+Make a CURL request using the example below. Be sure to replace
+`HTTP_GATEWAY_API_KEY` with your key from `secrets.env`.
+
+```sh
+# For Windows CMD replace line termination marker \ with ^
+curl -X POST \
+  -d '{"parameters":{"coinIds":"api3","coinVs_currencies":"usd"}}' \
+  -H 'Content-Type: application/json' \
+  -H 'x-api-key: <HTTP_GATEWAY_API_KEY>' \
+  'http://localhost:3000/http-data/0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6'
+```
+
+### Response
+
+```json
+{
+  "encodedValue": "0x0000000000000000000000000000000000000000000000000000000000362b30",
+  "rawValue": { "api3": { "usd": 3.55 } },
+  "values": ["3550000"]
+}
+```
+
+<airnode-tutorials-TutorialResponse/>
 
 ## Start and Stop
 
@@ -161,66 +218,6 @@ docker logs quick-deploy-container-airnode
 docker logs --follow quick-deploy-container-airnode
 ```
 
-## Test the Airnode
-
-After a successful deployment the Airnode can be tested using the
-[test-api.js](https://github.com/api3dao/airnode/tree/v0.7/packages/airnode-node#testing-api)
-script which allows you to execute an Airnode endpoint without accessing the
-blockchain.
-
-::: warning test-api.js
-
-The `test-api.js` nodejs script is an unsupported feature used for internal
-development and should not be used for any production purposes. It is used here
-purely for demonstration purposes.
-
-:::
-
-The Nodejs script `test-api.js` requires two arguments, endpointId and
-parameters to get a response from an integrated API. These arguments come from
-the `config.json` file.
-
-- -e, --endpoint-id [string][required]: See config.json
-  `triggers.rrp[0].endpointId`.
-- -p, --parameters [string] [default: "{}"]: See config.json
-  `ois.endpoints[0].parameters[0].name`.
-
-The arguments are pre-filled for you in the request code below. Note the JSON
-response value is the ETH price multiplied by `1e6`, which results from setting
-the `_times` reserved parameter to `1000000` in `config.json`. This manipulation
-is necessary in order to correctly handle floating point numbers.
-
-### Request
-
-```sh
-# For Windows CMD replace line termination marker \ with ^
-docker exec -it quick-deploy-container-airnode node src/cli/test-api.js \
-  -e 0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6 \
-  -p '{"coinIds":"api3", "coinVs_currencies":"usd"}'
-```
-
-Alternately you could run the test using the CLI command prompt provided for the
-container in the Docker desktop application.
-
-```sh
-# For Windows CMD replace line termination marker \ with ^
-node src/cli/test-api.js \
-  -e 0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6 \
-  -p '{"coinIds":"api3", "coinVs_currencies":"usd"}'
-```
-
-### Response
-
-```json
-{
-  "encodedValue": "0x0000000000000000000000000000000000000000000000000000000000362b30",
-  "rawValue": { "api3": { "usd": 3.55 } },
-  "values": ["3550000"]
-}
-```
-
-<airnode-tutorials-TutorialResponse/>
-
 ## Remove the Airnode
 
 When you are done with this demo you can remove it. Do so using the Docker
@@ -236,12 +233,16 @@ docker rm quick-deploy-container-airnode
 
 ## Summary
 
-You have deployed an Airnode into a Docker container and tested it using the
-`test-api.js` Nodejs script. Please remember the script is not supported for use
-in production environments.
+You have deployed an Airnode into a Docker container. This Airnode attaches
+itself to the Rinkeby testnet as stated in the `config.json` file. The Airnode,
+upon deployment, started contacting the AirnodeRrpV0 contract on the Rinkeby
+testnet to gather any requests made by requesters to this Airnode.
 
-This Airnode attaches itself to the Rinkeby testnet as stated in the
-`config.json` file. The Airnode, upon deployment, started contacting the
-AirnodeRrpV0 contract on the Rinkeby testnet to gather any requests made by
-requesters to this Airnode. This tutorial did not address making a request
-on-chain as its purpose was simply to quickly deploy a functional Airnode.
+This tutorial did not address making a request on-chain as its purpose was
+simply to quickly deploy a functional Airnode.
+
+Finally the API integration was tested using the
+[HTTP gateway](../../guides/build-an-airnode/http-gateways.md#http-gateway). You
+made a CURL request (using HTTP) to the HTTP gateway and Airnode queried the API
+provider and sent back a response. All of this was performed without accessing
+the blockchain.

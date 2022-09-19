@@ -1,6 +1,12 @@
 ---
 title: Validator
+docSetName: Airnode v0.3
+folder: Reference > Packages
+basePath: /airnode/v0.3
+tags:
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

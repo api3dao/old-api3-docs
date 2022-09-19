@@ -1,6 +1,9 @@
 ---
 title: API3 DAO
+docSetName: DAO Members
 folder: Introduction
+basePath: /dao-members
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -57,7 +60,7 @@ based on expert opinion. As API3 operations expand, this governance hierarchy
 may demand additional layers in the form of subDAOs.
 
 To learn more about hierarchical team structures
-<a href="/api3-whitepaper-v1.0.3.pdf#page=21" target="_blank"> see Section 5.3
+<a href="/api3-whitepaper-v1.0.3.pdf#page=22" target="_blank"> see Section 5.3
 of the API3 Whitepaper</a>.
 
 ### subDAO

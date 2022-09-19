@@ -1,6 +1,9 @@
 ---
 title: Overview
+docSetName: Airnode v0.6
 folder: API Providers > Docker Images
+basePath: /airnode/v0.6
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -26,50 +29,17 @@ If using a Linux distribution that enforces Selinux policies, allow the Docker
 images access to the host directory by
 [creating an appropriate rule](https://stackoverflow.com/questions/24288616/permission-denied-on-accessing-host-directory-in-docker).
 
-- The [Airnode deployer image](./deployer-image.md) deploys the node in the form
-  of serverless functions to a serverless cloud provider (e.g. AWS Lambda).
+- The [deployer image](./deployer-image.md) deploys the node in the form of
+  serverless functions to a serverless cloud provider (e.g. AWS Lambda).
 
-- The [Airnode client image](client-image.md) is the node itself, containerized.
-  The container can be run locally or deployed to a cloud hosting service (e.g.
-  AWS EC2 or Lightsail).
+- The [client image](client-image.md) is the node itself, containerized. The
+  container can be run locally or deployed to a cloud hosting service (e.g. AWS
+  EC2 or Lightsail).
 
-- The [Airnode admin CLI image](admin-cli-image.md) wraps the admin CLI package
-  in a docker image to provide an alternative usage option to the Admin CLI
-  commands (npx).
+- The [admin CLI image](admin-cli-image.md) wraps the admin CLI package in a
+  docker image to provide an alternative usage option to the Admin CLI commands
+  (npx).
 
 ## DockerHub
-
-All images are available on DockerHub. It is not required to download these
-manually because they are pulled automatically when running the provided Docker
-commands.
-
-<ul>
-  <li>
-    <a
-      :href="'https://hub.docker.com/r/api3/airnode-deployer/tags'"
-      target="_docker-hub"
-      >Airnode deployer images
-      <ExternalLinkImage />
-    </a>
-  </li>
-
-  <li>
-    <a
-      :href="'https://hub.docker.com/r/api3/airnode-client/tags'"
-      target="_docker-hub"
-      >Airnode client images
-      <ExternalLinkImage />
-    </a>
-  </li>
-
-  <li>
-    <a
-      :href="'https://hub.docker.com/r/api3/airnode-admin/tags'"
-      target="_docker-hub"
-      >Airnode admin CLI images
-      <ExternalLinkImage />
-    </a>
-  </li>
-</ul>
 
 <airnode-DockerImageVersions/>

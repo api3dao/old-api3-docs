@@ -68,7 +68,7 @@
     },
     "logFormat": "plain",
     "logLevel": "INFO",
-    "nodeVersion": "0.7.2",
+    "nodeVersion": "0.8.0",
     "stage": "dev"
   },
   "triggers": {
@@ -76,7 +76,8 @@
       {
         "endpointId": "0x13dea3311fe0d6b84f4daeab831befbc49e19e6494c41e9e065a09c3c68f43b6",
         "oisTitle": "Currency Converter API",
-        "endpointName": "convertToUSD"
+        "endpointName": "convertToUSD",
+        "cacheResponses": false
       }
     ]
   },

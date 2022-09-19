@@ -1,8 +1,12 @@
 ---
 title: Overview
+docSetName: Airnode v0.2
+folder: API Providers > Docker Images
+basePath: /airnode/v0.2
+tags:
 ---
 
-<TitleSpan>Docker Images</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -16,37 +20,15 @@ image and the Airnode client image. To use these images first install
 [Docker](https://docs.docker.com/get-docker/) if it is not present on your
 system.
 
-- The [Airnode deployer image](./deployer-image.md) deploys the node in the form
-  of serverless functions to a serverless cloud provider (e.g. AWS Lambda).
+- The [deployer image](./deployer-image.md) deploys the node in the form of
+  serverless functions to a serverless cloud provider (e.g. AWS Lambda).
 
-- The [Airnode client image](client-image.md) is the node itself, containerized.
-  The container can be run locally or deployed to a cloud hosting service (e.g.
-  AWS EC2 or Lightsail).
+- The [client image](client-image.md) is the node itself, containerized. The
+  container can be run locally or deployed to a cloud hosting service (e.g. AWS
+  EC2 or Lightsail).
+
+- The admin image is only available for Airnode versions 3 and higher.
 
 ## DockerHub
-
-Both images are available on DockerHub. It is not required to download these
-manually because they are pulled automatically when running the provided Docker
-commands.
-
-<ul>
-  <li>
-    <a
-      :href="'https://hub.docker.com/r/api3/airnode-deployer/tags'"
-      target="_docker-hub"
-      >Airnode deployer images
-      <ExternalLinkImage />
-    </a>
-  </li>
-
-  <li>
-    <a
-      :href="'https://hub.docker.com/r/api3/airnode-client/tags'"
-      target="_docker-hub"
-      >Airnode client images
-      <ExternalLinkImage />
-    </a>
-  </li>
-</ul>
 
 <airnode-DockerImageVersions/>

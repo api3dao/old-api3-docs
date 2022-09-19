@@ -1,8 +1,12 @@
 ---
 title: secrets.env
+docSetName: Airnode v0.3
+folder: Reference > Templates
+basePath: /airnode/v0.3
+tags:
 ---
 
-<TitleSpan>Templates</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

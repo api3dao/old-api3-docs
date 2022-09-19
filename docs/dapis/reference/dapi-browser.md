@@ -7,6 +7,4 @@ folder: Reference
 
 # {{$frontmatter.title}}
 
-<VersionWarning/>
-
 <dapis-browsers-DapiList/>

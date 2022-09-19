@@ -42,5 +42,7 @@ jobs:
           -not -path "docs/airnode/v0.3/*"
           -not -path "docs/airnode/v0.4/*"
           -not -path "docs/airnode/v0.5/*"
-          -not -path "docs/airnode/v0.8/*"
+          -not -path "docs/airnode/v0.6/*"
+          -not -path "docs/airnode/v0.9/*"
+          -not -path "docs/airnode/v0.10/*"
           -type f -name "*.md" | xargs lychee - -c .github/workflows/lychee.toml

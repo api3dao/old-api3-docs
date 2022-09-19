@@ -1,6 +1,9 @@
 ---
 title: Design Philosophy
+docSetName: Airnode v0.6
 folder: API Providers
+basePath: /airnode/v0.6
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

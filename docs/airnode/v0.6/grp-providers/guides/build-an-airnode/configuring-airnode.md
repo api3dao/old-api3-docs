@@ -1,6 +1,9 @@
 ---
 title: Configuring Airnode
+docSetName: Airnode v0.6
 folder: API Providers > Build an Airnode
+basePath: /airnode/v0.6
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -250,7 +253,7 @@ The `nodeSettings` field holds node-specific (Airnode) configuration parameters.
     },
     "logFormat": "plain",
     "logLevel": "INFO",
-    "nodeVersion": "0.6.5",
+    "nodeVersion": "0.6.7",
     "stage": "dev"
   },
 ```

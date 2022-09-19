@@ -1,6 +1,12 @@
 ---
 title: Requesters and Sponsors
+docSetName: Airnode v0.3
+folder: Developers
+basePath: /airnode/v0.3
+tags:
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -254,7 +260,7 @@ few things to keep track of.
 | sponsor wallet address | Record the `sponsorWalletAddress` of the sponsorWallet derived for an Airnode. For each Airnode you have derived a sponsorWallet, the Airnode keeps the private key and returns the public address (`sponsorWalletAddress`) which is used to fund the sponsorWallet. |
 
 You can acquire the public address (`sponsorWalletAddress`) of a sponsorWallet
-later, if you loose it, by running the command `derive-sponsor-wallet-address`
+later, if you lose it, by running the command `derive-sponsor-wallet-address`
 again. Since the sponsorWallet was already created for the
 `sponsorAddress/airnodeAddress` pair, the command will only return the public
 address for the wallet. However you must use the same `sponsorAddress` used when

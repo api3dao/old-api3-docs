@@ -1,6 +1,9 @@
 ---
 title: Airnode Client Image
+docSetName: Airnode v0.7
 folder: API Providers > Docker Images
+basePath: /airnode/v0.7
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -53,7 +56,7 @@ $ docker run --volume $(pwd)/config:/app/config ...
 
 ::: tab Windows PowerShell
 
-```sh
+```powershell
 $ tree
 .
 └── config
@@ -66,7 +69,7 @@ $ docker run --volume $(pwd)/config:/app/config ...
 
 ::: tab Windows CMD
 
-```sh
+```batch
 $ tree
 .
 └── config
@@ -97,29 +100,29 @@ parameter, but you may run the it without it as well.
 docker run --detach \
   --volume $(pwd)/config:/app/config \
   --name airnode \
-  api3/airnode-client:0.7.2
+  api3/airnode-client:0.7.5
 ```
 
 :::
 
 ::: tab Windows PowerShell
 
-```sh
+```powershell
 docker run --detach \
   --volume $(pwd)/config:/app/config \
   --name airnode \
-  api3/airnode-client:0.7.2
+  api3/airnode-client:0.7.5
 ```
 
 :::
 
 ::: tab Windows
 
-```sh
+```batch
 docker run --detach ^
   --volume %cd%/config:/app/config ^
   --name airnode ^
-  api3/airnode-client:0.7.2
+  api3/airnode-client:0.7.5
 ```
 
 :::

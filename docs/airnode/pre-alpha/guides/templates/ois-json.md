@@ -1,6 +1,12 @@
 ---
 title: ois.json
+docSetName: Airnode pre-alpha
+folder: Guides > Templates
+basePath: /airnode/pre-alpha
+tags:
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 <VersionWarning/>

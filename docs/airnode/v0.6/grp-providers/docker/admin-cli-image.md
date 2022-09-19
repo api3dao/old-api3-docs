@@ -1,6 +1,9 @@
 ---
 title: Airnode Admin CLI Image
+docSetName: Airnode v0.6
 folder: API Providers > Docker Images
+basePath: /airnode/v0.6
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -42,7 +45,7 @@ npx @api3/airnode-admin get-sponsor-status \
   --requester-address 0x2c2e12...
 
 # Docker
-docker run api3/airnode-admin:0.6.5 get-sponsor-status \
+docker run api3/airnode-admin:0.6.7 get-sponsor-status \
   --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
   --sponsor-address 0x9Ec6C4... \
   --requester-address 0x2c2e12...

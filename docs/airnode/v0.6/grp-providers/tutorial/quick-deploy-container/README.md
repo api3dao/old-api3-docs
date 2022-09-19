@@ -1,6 +1,8 @@
 ---
 title: Instructions
+docSetName: Airnode v0.6
 folder: API Providers > Tutorials > Quick Deploy Container
+basePath: /airnode/v0.6
 tags:
   - quick deploy container
   - tutorial tutorials
@@ -134,7 +136,7 @@ For Windows, use CMD (and not PowerShell).
 docker run --detach ^
   --volume "%cd%/config:/app/config" ^
   --name quick-deploy-container-airnode ^
-  api3/airnode-client:0.6.5
+  api3/airnode-client:0.6.7
 ```
 
 :::

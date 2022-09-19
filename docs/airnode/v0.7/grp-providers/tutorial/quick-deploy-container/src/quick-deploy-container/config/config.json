@@ -40,8 +40,8 @@
     },
     "logFormat": "plain",
     "logLevel": "INFO",
-    "nodeVersion": "0.7.2",
-    "stage": "dev"
+    "nodeVersion": "0.7.5",
+    "stage": "tutorial-container"
   },
   "triggers": {
     "rrp": [

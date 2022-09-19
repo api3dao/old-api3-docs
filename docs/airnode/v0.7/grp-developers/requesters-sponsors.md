@@ -1,6 +1,9 @@
 ---
 title: Requesters and Sponsors
+docSetName: Airnode v0.7
 folder: Developers
+basePath: /airnode/v0.7
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -166,7 +169,7 @@ Requester 0x2c...gDER7 sponsored using sponsorAddress 0xF4...dDyu9
 
 ::: tab Windows
 
-```
+```batch
 npx @api3/airnode-admin sponsor-requester ^
   --providerUrl https://ropsten.infura.io/v3/<KEY> ^
   --sponsor-mnemonic "cricket...oppose" ^
@@ -220,7 +223,7 @@ Sponsor wallet address: 0x14D5a34E5a370b9951Fef4f8fbab2b1016D557d9
 
 ::: tab Windows
 
-```bash
+```batch
 npx @api3/airnode-admin derive-sponsor-wallet-address ^
   --airnode-xpub xpub6CUGRUo... ^
   --airnode-address 0xe1...dF05s ^
@@ -257,7 +260,7 @@ few things to keep track of.
 | sponsor wallet address | Record the `sponsorWalletAddress` of the sponsorWallet derived for an Airnode. For each Airnode you have derived a sponsorWallet, the Airnode keeps the private key and returns the public address (`sponsorWalletAddress`) which is used to fund the sponsorWallet. |
 
 You can acquire the public address (`sponsorWalletAddress`) of a sponsorWallet
-later, if you loose it, by running the command `derive-sponsor-wallet-address`
+later, if you lose it, by running the command `derive-sponsor-wallet-address`
 again. Since the sponsorWallet was already created for the
 `sponsorAddress/airnodeAddress` pair, the command will only return the public
 address for the wallet. However you must use the same `sponsorAddress` used when

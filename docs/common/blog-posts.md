@@ -1,6 +1,7 @@
 ---
 title: Blog Posts
 folder: Introduction
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

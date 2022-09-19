@@ -1,5 +1,9 @@
 ---
-title: Reserved parameters
+title: Reserved Parameters
+docSetName: OIS v1.1
+folder:
+basePath: /ois/v1.1
+tags:
 ---
 
 # {{$frontmatter.title}}
@@ -279,3 +283,11 @@ All of these values are then together encoded to single bytes value that can be
 sent on chain. You can use
 [testing gateway](/airnode/v0.7/grp-providers/guides/build-an-airnode/deploying-airnode.md#testing-with-http-gateway)
 to inspect the raw API response, casting results and the final encoded value.
+
+::: tip Multiple Reserved Parameters Tutorial
+
+The `weather-multi-value` monorepo example demonstrates encoding of multiple
+values of different types,
+[see here](../../airnode/v0.8/grp-providers/tutorial/README.md#monorepo-examples).
+
+:::

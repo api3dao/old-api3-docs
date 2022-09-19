@@ -1,8 +1,12 @@
 ---
 title: Integrations
+folder: How to Guides
+docSetName: ChainAPI
+basePath: /chainapi
+tags:
 ---
 
-<TitleSpan>How to Guides</TitleSpan>
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 

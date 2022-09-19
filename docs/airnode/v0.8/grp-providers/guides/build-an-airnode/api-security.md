@@ -1,6 +1,9 @@
 ---
 title: API Security
+docSetName: Airnode v0.8
 folder: API Providers > Build an Airnode
+basePath: /airnode/v0.8
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -116,6 +119,13 @@ the `secrets.emv` file.
 }
 ```
 
+::: tip Authentication Tutorial
+
+The `authenticated-coinmarketcap` monorepo example demonstrates authentication,
+[see here](../../tutorial/README.md#monorepo-examples).
+
+:::
+
 ## Relayed Meta Data Security Schemes
 
 In addition to authenticating itself, Airnode can "relay" security information
@@ -140,6 +150,14 @@ perform any additional logic. You must implement any desired logic in your API
 operations. See
 [Relayed Meta Data Authentication](../../../concepts/relay-meta-auth.md) for
 overview of its usage.
+
+:::
+
+::: tip Relay Metadata Tutorial
+
+The `relay-security-schemes` monorepo example demonstrates how to relay multiple
+request metadata like chain ID and sponsor address to the API endpoint,
+[see here](../../tutorial/README.md#monorepo-examples).
 
 :::
 

@@ -1,6 +1,9 @@
 ---
 title: config.json
+docSetName: Airnode v0.6
 folder: Reference > Templates
+basePath: /airnode/v0.6
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
@@ -91,7 +94,7 @@ building a config.json file.
     },
     "logFormat": "json",
     "logLevel": "INFO",
-    "nodeVersion": "0.6.5",
+    "nodeVersion": "0.6.7",
     "stage": "<FILL_*>"
   },
   "triggers": {

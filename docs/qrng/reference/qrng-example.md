@@ -1,6 +1,9 @@
 ---
 title: QrngExample.sol
+docSetName: QRNG
 folder: Reference
+basePath: /qrng
+tags:
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

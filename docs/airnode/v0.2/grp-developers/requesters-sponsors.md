@@ -1,6 +1,12 @@
 ---
 title: Requesters and Sponsors
+docSetName: Airnode v0.2
+folder: Developers
+basePath: /airnode/v0.2
+tags:
 ---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
 
 # {{$frontmatter.title}}
 
@@ -108,7 +114,7 @@ wallet_.
 
 When a sponsor uses the same `sponsorAddress` to "sponsor a requester" and to
 "derive a sponsor wallet" for an Airnode, the requester will have permission to
-make requests to the Airnode on behave of the sponsor. This allows the sponsor
+make requests to the Airnode on behalf of the sponsor. This allows the sponsor
 to cover the gas costs incurred by the Airnode when responding to the request.
 Sponsors need to keep their sponsor wallets topped off if they want Airnodes to
 fulfill requests made by their requesters. However this does not cover the cost
@@ -227,7 +233,7 @@ a few things to keep track of.
 | sponsor wallets | Record which `sponsorAddress` was used to create a sponsorWallet for an Airnode.                                                                                                                                                            |
 | sponsor wallets | Record the `sponsorWalletAddress` of the sponsorWallet derived for an Airnode. For each Airnode you have derived a sponsorWallet, the Airnode keeps the private key and returns the public address which is used to fund the sponsorWallet. |
 
-You can acquire the public address of a sponsorWallet later, if you loose it, by
+You can acquire the public address of a sponsorWallet later, if you lose it, by
 running the command `derive-sponsor-wallet-address` again. Since the
 sponsorWallet was already created for the sponsorAddress/airnodeAddress pair,
 the command will only return the public address for the wallet. However you must
