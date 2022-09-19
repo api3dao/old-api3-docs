@@ -140,7 +140,7 @@ mark that domain and any Integrations it is used in as verified.
    popular providers:
 
 - [Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html#TXTFormat)
-- [BlueHost](https://www.bluehost.com/help/article/txt-records)
+- [BlueHost](https://www.bluehost.com/help/article/txt-records/)
 - [Cloudflare](https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-dns-records/)
 - [Enom](https://cp.enom.com/kb/kb/kb_0488-add-spf-txt-records.htm)
 - [GoDaddy](https://za.godaddy.com/help/add-a-txt-record-19232)
