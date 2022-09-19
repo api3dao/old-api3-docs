@@ -43,7 +43,7 @@ typically checks for a single condition ("has the requester made their monthly
 payment", "is this `requesterAddress` whitelisted", etc.). Authorizers can be
 combined to enforce more complex policies. If any of the authorizers in the list
 gives access, the request will considered to be authorized. From a logical
-standpoint, the authorization outcomes get **OR**ed.
+standpoint, the authorization outcomes get *OR*ed.
 
 You can use different authorizers contracts for your Airnode deployment per
 chain by declaring them in the `config.json` file under `chains[n].authorizers`.

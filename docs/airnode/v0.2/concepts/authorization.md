@@ -96,7 +96,7 @@ An authorizer typically checks for a single condition (has the requester made
 their monthly payment, is the `requester` whitelisted, etc.). Authorizers can be
 combined to enforce more complex policies. If any of the authorizers in the list
 gives access, the request will considered to be authorized. From a logical
-standpoint, the authorization outcomes get `OR`ed.
+standpoint, the authorization outcomes get *OR*ed.
 
 ### Authorizer Interface
 
