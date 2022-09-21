@@ -155,7 +155,7 @@ recommended to provide `url` via interpolation from the `secrets.env` file.
 ### `options`
 
 (required) - An object that configures chain-related options. See
-[Configuring an Airnode](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#considerations-transaction-options)
+[Configuring an Airnode](../../grp-providers/guides/build-an-airnode/configuring-airnode.md#chains)
 for some considerations.
 
 #### `options.txType`

@@ -32,7 +32,7 @@ the deployer CLI commands.
 ## Usage
 
 The deployer's commands can be run using
-[npx](https://nodejs.dev/learn/the-npx-nodejs-package-runner), installing a
+[npx](https://nodejs.dev/en/learn/the-npx-nodejs-package-runner), installing a
 global npm package or by manually building the airnode-deployer package. Using
 npx is the simplest method to interact with the deployer manually if you do not
 wish to use the Docker images.
