@@ -30,7 +30,7 @@ advanced use cases you can use the [validator SDK](./validator.md#sdk-usage).
 ## CLI Usage
 
 The simplest way to run the CLI is using
-[npx](https://nodejs.dev/learn/the-npx-nodejs-package-runner). Alternatively,
+[npx](https://nodejs.dev/en/learn/the-npx-nodejs-package-runner). Alternatively,
 you can install the validator package as a dependency in your project.
 
 ```sh

@@ -26,7 +26,7 @@ them.
 ## Usage
 
 The validator's commands can be run using
-[npx](https://nodejs.dev/learn/the-npx-nodejs-package-runner), installing a
+[npx](https://nodejs.dev/en/learn/the-npx-nodejs-package-runner), installing a
 global npm package, the validator SDK or by manually building the validator
 package. Using npx is the simplest method to interact with the validator.
 
