@@ -55,4 +55,4 @@ be an issue.
 ## Authorizers
 
 Airnodes can assign a list of authorizers to their endpoints. See the section
-[Authorizer](authorization.md) for more information.
+[Authorizer](authorizers.md) for more information.

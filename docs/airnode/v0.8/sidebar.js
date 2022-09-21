@@ -113,7 +113,7 @@ module.exports = [
       'concepts/', // Routes to the README.md in /concepts
       'concepts/airnode',
       'concepts/endpoint',
-      'concepts/authorization',
+      'concepts/authorizers',
       'concepts/airnode-auth',
       'concepts/relay-meta-auth',
       'concepts/requester',
