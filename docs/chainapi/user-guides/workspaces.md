@@ -123,3 +123,38 @@ Deployments
 - A deployment is edited
 - A deployment is deactivated
 - A deployment is deleted
+
+## DNS Verification
+
+You can verify that your Workspace is the owner of the domains used in your
+Integrations by adding a TXT record at your domain registrar.
+
+ChainAPI will periodically check the DNS records for each of your domains. If a
+TXT record is found with its content matching the verification snippet, it will
+mark that domain and any Integrations it is used in as verified.
+
+### Verification
+
+1. Copy the verification snippet to your clipboard.
+2. Add a TXT record at your provider. Below are links to instructions for
+   popular providers:
+
+- [Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html#TXTFormat)
+- [Cloudflare](https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-dns-records/)
+- [Enom](https://cp.enom.com/kb/kb/kb_0488-add-spf-txt-records.htm)
+- [GoDaddy](https://za.godaddy.com/help/add-a-txt-record-19232)
+- [Google Domains](https://support.google.com/a/answer/183895?hl=en)
+- [Namecheap](https://www.namecheap.com/support/knowledgebase/article.aspx/317/2237/how-do-i-add-txtspfdkimdmarc-records-for-my-domain/)
+
+3. Wait for the the DNS record changes to propagate. This can take up to 72
+   hours.
+4. ChainAPI will notify all owners and admins on the Workspace when the domain
+   is verified.
+
+### Removing Verification
+
+1. Remove the TXT record at your provider.
+2. Wait for the the DNS record changes to propagate. This can take up to 72
+   hours.
+3. ChainAPI will notify all owners and admins on the Workspace when the domain
+   has been unverified.
