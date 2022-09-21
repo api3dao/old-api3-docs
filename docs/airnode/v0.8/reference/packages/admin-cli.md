@@ -796,7 +796,7 @@ npx @api3/airnode-admin derive-airnode-address ^
 ## RequesterAuthorizerWithAirnode
 
 RequesterAuthorizerWithAirnode contract was written by API3 as an
-[authorizer](../../concepts/authorization.md) contract that can be used by any
+[authorizer](../../concepts/authorizers.md) contract that can be used by any
 Airnode. Airnode owners can use this contract in addition to authorizer
 contracts they have written themselves.
 
