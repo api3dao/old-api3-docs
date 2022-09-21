@@ -173,10 +173,11 @@ respective parameters.
 
 ### `authorizers`
 
-(required) - An object containing authorizer types that list authorizer contract
-addresses specifying the authorization patterns that the Airnode should use. An
-empty array would allow-all. See the
-[Authorization](../../concepts/authorization.md) doc for more information.
+(required) - An object containing authorizer scheme types that list authorizer
+contract addresses specifying the auth patterns that the
+[AirnodeRrpV0](../../concepts/#airnoderrpv0-sol) contract should use on-chain.
+An empty `<authorizerSchemeType>` array would allow-all. See the
+[Authorizers](../../concepts/authorizers.md) doc for more information.
 
 ### `authorizations`
 
