@@ -161,6 +161,33 @@ airnode-deployer deploy
 airnode-deployer deploy --config config/config.json --secrets config/secrets.env --receipt config/receipt.json
 ```
 
+### Listing Airnodes
+
+Once you've already deployed one or more Airnode, you can list your currently
+deployed instances using the `list` command.
+
+#### list
+
+By default, the deployer will attempt to list Airnode instances from all the
+supported cloud providers. You can use the `--cloud-providers` option to select
+just the cloud providers you want the deployer to list from.
+
+```bash
+# Lists deployed Airnode instances
+
+Options:
+      --version          Show version number                                                                   [boolean]
+      --debug            Run in debug mode                                                    [boolean] [default: false]
+      --help             Show help                                                                             [boolean]
+  -c, --cloud-providers  Cloud providers to list Airnodes from  [array] [choices: "aws", "gcp"] [default: ["aws","gcp"]]
+
+# Basic example
+airnode-deployer list
+
+# Advanced example with cloud provider selection
+airnode-deployer list --cloud-providers gcp
+```
+
 ### Airnode Removal
 
 An Airnode can be removed in two different ways:

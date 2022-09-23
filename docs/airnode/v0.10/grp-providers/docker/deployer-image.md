@@ -57,6 +57,7 @@ All three commands are similar for AWS and GCP, with differences noted where
 they exist.
 
 - [deploy](./deployer-image.md#deploy)
+- [list](./deployer-image.md#list)
 - [remove-with-receipt](./deployer-image.md#remove-with-receipt)
 - [remove-with-deployment-details](./deployer-image.md#remove-with-deployment-details)
 
@@ -141,6 +142,69 @@ api3/airnode-deployer:0.9.0 deploy --auto-remove false
 ```
 
 :::
+
+### `list`
+
+Once one or more Airnodes were deployed using the
+[deploy](./deployer-image.md#deploy) command above, the
+[list](../../reference/packages/deployer.md#list) command can be used to list
+currently deployed Airnodes. Files for cloud provider authentication are needed
+for the command to run correctly: `aws.env` (for AWS) and/or `gcp.json` (for
+GCP).
+
+:::: tabs
+
+::: tab Linux/Mac/WSL2
+
+```sh
+docker run -it --rm \
+  -v "$(pwd):/app/config" \
+  api3/airnode-deployer:0.9.0 list
+```
+
+:::
+
+::: tab Windows
+
+```batch
+# For Windows, use CMD (not PowerShell).
+docker run -it --rm ^
+  -v "%cd%:/app/config" ^
+  api3/airnode-deployer:0.9.0 list
+```
+
+:::
+
+::::
+
+By default, the deployer will attempt to list Airnode instances from all the
+supported cloud providers. You can use the `--cloud-providers` option to select
+just the cloud providers you want the deployer to list from.
+
+:::: tabs
+
+::: tab Linux/Mac/WSL2
+
+```sh
+docker run -it --rm \
+  -v "$(pwd):/app/config" \
+  api3/airnode-deployer:0.9.0 list --cloud-providers aws
+```
+
+:::
+
+::: tab Windows
+
+```batch
+# For Windows, use CMD (not PowerShell).
+docker run -it --rm ^
+  -v "%cd%:/app/config" ^
+  api3/airnode-deployer:0.9.0 list --cloud-providers aws
+```
+
+:::
+
+::::
 
 ### `remove-with-receipt`
 
