@@ -18,4 +18,4 @@ The config.json file contents shown below is for the [Quick Deploy GCP](./)
 demo.
 
 <!-- prettier-ignore -->
-<<< @/docs/airnode/v0.9/grp-providers/tutorial/quick-deploy-gcp/src/quick-deploy-gcp/config.json
+<<< @/docs/airnode/v0.10/grp-providers/tutorial/quick-deploy-gcp/src/quick-deploy-gcp/config.json

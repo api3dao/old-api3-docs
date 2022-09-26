@@ -98,8 +98,8 @@ json object.
 ### oisFormat
 
 A specific version of the [OIS Specification](/ois/v1.1/ois.md#_1-oisformat) to
-be used. For this guide, which uses Airnode `v0.9.x`, the proper OIS version is
-`1.1.2`.
+be used. For this guide, which uses Airnode `v0.10.x`, the proper OIS version is
+`1.2.0`.
 
 ### title
 

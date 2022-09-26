@@ -66,7 +66,7 @@ quick-deploy-container
 
 ::: tab Download
 
-Download the <a href="/zip-files/quick-deploy-container-v0.9.zip" download>
+Download the <a href="/zip-files/quick-deploy-container-v0.10.zip" download>
 quick-deploy-container</a> project folder.
 
 :::
@@ -121,7 +121,7 @@ docker run --detach \
   --volume "$(pwd):/app/config" \
   --name quick-deploy-container-airnode \
   --network host \
-  api3/airnode-client:0.9.0
+  api3/airnode-client:0.10.0
 ```
 
 :::
@@ -133,7 +133,7 @@ docker run --detach \
   --volume "$(pwd):/app/config" \
   --name quick-deploy-container-airnode \
   --publish 3000:3000 \
-  api3/airnode-client:0.9.0
+  api3/airnode-client:0.10.0
 ```
 
 :::
@@ -147,7 +147,7 @@ docker run --detach ^
   --volume "%cd%:/app/config" ^
   --name quick-deploy-container-airnode ^
   --publish 3000:3000 ^
-  api3/airnode-client:0.9.0
+  api3/airnode-client:0.10.0
 ```
 
 :::
