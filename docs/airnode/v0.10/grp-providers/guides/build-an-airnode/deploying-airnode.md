@@ -107,7 +107,7 @@ need arise.
 docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
   -v "$(pwd):/app/config" \
-  api3/airnode-deployer:0.9.0 deploy
+  api3/airnode-deployer:0.10.0 deploy
 ```
 
 :::
@@ -118,7 +118,7 @@ docker run -it --rm \
 # For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
-  api3/airnode-deployer:0.9.0 deploy
+  api3/airnode-deployer:0.10.0 deploy
 ```
 
 :::
