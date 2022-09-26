@@ -1,8 +1,8 @@
 ---
 title: OIS Template
-docSetName: OIS v1.1
+docSetName: OIS v1.2
 folder:
-basePath: /ois/v1.1
+basePath: /ois/v1.2
 tags:
 ---
 
