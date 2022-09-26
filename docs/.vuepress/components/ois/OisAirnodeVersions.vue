@@ -12,7 +12,7 @@
     deploying.
     <table>
       <th>Airnode version</th>
-      <th>Compatible OIS version</th>
+      <th>Latest compatible OIS version</th>
       <tr>
         <td>0.2.x through 0.7.x</td>
         <td>

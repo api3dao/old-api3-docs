@@ -1,8 +1,8 @@
 ---
 title: What is OIS?
-docSetName: OIS v1.1
+docSetName: OIS v1.2
 folder:
-basePath: /ois/v1.1
+basePath: /ois/v1.2
 tags:
 ---
 
@@ -25,7 +25,7 @@ defines an Airnode.
 - apiCredentials
 
 For more information about the config.json file see the
-[Deployment Files](/airnode/v0.8/reference/deployment-files/config-json.md)
+[Deployment Files](/airnode/v0.9/reference/deployment-files/config-json.md)
 section in the Airnode document set.
 
 In the diagram below, an Airnode exposes its endpoints to the on-chain

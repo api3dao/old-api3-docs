@@ -1,8 +1,8 @@
 ---
 title: Specification
-docSetName: OIS v1.1
+docSetName: OIS v1.2
 folder:
-basePath: /ois/v1.1
+basePath: /ois/v1.2
 tags:
 ---
 
@@ -236,9 +236,9 @@ Applies to all operations. A security scheme can contain information required by
 the API to authenticate Airnode as well as information about the requester
 (relay information) the API may also require. Read more about security schemes
 in the
-[API Security](../../airnode/v0.8/grp-providers/guides/build-an-airnode/api-security.md)
+[API Security](../../airnode/v0.9/grp-providers/guides/build-an-airnode/api-security.md)
 section of the _Build an Airnode_ guide and the
-[Airnode Authentication](../../airnode/v0.8/concepts/airnode-auth.md) section of
+[Airnode Authentication](../../airnode/v0.9/concepts/airnode-auth.md) section of
 _Concepts and Definitions_.
 
 The `security` object maintains the names of all the security schemes used. Each
