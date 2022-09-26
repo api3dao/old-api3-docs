@@ -145,7 +145,7 @@ deployment was successful or not.
       "region": "us-east-1"
     },
     "stage": "dev",
-    "nodeVersion": "0.9.0",
+    "nodeVersion": "0.10.0",
     "timestamp": "2022-03-26T02:37:55.506Z"
   },
   "success": true
