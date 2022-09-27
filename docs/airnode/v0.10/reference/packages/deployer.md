@@ -188,6 +188,29 @@ airnode-deployer list
 airnode-deployer list --cloud-providers gcp
 ```
 
+### Fetching deployment information
+
+You can use the `info` command to retrieve information about one of your
+deployments. The retrieved information include deployment's Airnode address,
+stage, Airnode version and the update history.
+
+#### info
+
+```bash
+# Displays info about deployed Airnode
+
+Positionals:
+  deployment-id  ID of the deployment (from 'list' command)                                          [string] [required]
+
+Options:
+  --version  Show version number                                                                               [boolean]
+  --debug    Run in debug mode                                                                [boolean] [default: false]
+  --help     Show help                                                                                         [boolean]
+
+# Example
+airnode-deployer info 2c6ef2b3
+```
+
 ### Airnode Removal
 
 An Airnode can be removed in two different ways:

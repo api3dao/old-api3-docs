@@ -58,6 +58,7 @@ they exist.
 
 - [deploy](./deployer-image.md#deploy)
 - [list](./deployer-image.md#list)
+- [info](./deployer-image.md#info)
 - [remove-with-receipt](./deployer-image.md#remove-with-receipt)
 - [remove-with-deployment-details](./deployer-image.md#remove-with-deployment-details)
 
@@ -200,6 +201,41 @@ docker run -it --rm \
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
   api3/airnode-deployer:0.10.0 list --cloud-providers aws
+```
+
+:::
+
+::::
+
+### `info`
+
+You can retrieve more information about the deployment with the
+[info](../../reference/packages/deployer.md#info) command. Use the deployment ID
+from the [list](./deployer-image.md#list) command above to request information
+about a specific deployment. The retrieved information include deployment's
+Airnode address, stage, Airnode version and the update history. Files for cloud
+provider authentication are needed for the command to run correctly: `aws.env`
+(for AWS) and/or `gcp.json` (for GCP).
+
+:::: tabs
+
+::: tab Linux/Mac/WSL2
+
+```sh
+docker run -it --rm \
+  -v "$(pwd):/app/config" \
+  api3/airnode-deployer:0.10.0 info 2c6ef2b3
+```
+
+:::
+
+::: tab Windows
+
+```batch
+# For Windows, use CMD (not PowerShell).
+docker run -it --rm ^
+  -v "%cd%:/app/config" ^
+  api3/airnode-deployer:0.10.0 info 2c6ef2b3
 ```
 
 :::
