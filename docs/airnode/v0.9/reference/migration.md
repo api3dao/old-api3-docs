@@ -45,9 +45,9 @@ Updated to "0.9.0"
 3. `airnode-deployer remove-with-deployment-details` accepts `--airnode-address`
    parameter
 
-In version 0.9. the airnode-deployer undergone an internal refactor which
-improves cloud provider deployments. The only user facing change is that
-deployer no longer uses short Airnode address to remove airnode when using the
+In Airnode 0.9. the `airnode-deployer` underwent an internal refactor to improve
+cloud provider deployments. The only user facing change is that the deployer
+uses the full Airnode address instead of the shortened one when executing the
 `remove-with-deployment-details` command.
 
 ```diff
