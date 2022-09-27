@@ -25,7 +25,7 @@ for your particular use case. You can also check out the OISes created for our
 
 ```json
 {
-  "oisFormat": "1.1.1",
+  "oisFormat": "1.2.0",
   "title": "<FILL_*>",
   "version": "<FILL_*>",
   "apiSpecifications": {
