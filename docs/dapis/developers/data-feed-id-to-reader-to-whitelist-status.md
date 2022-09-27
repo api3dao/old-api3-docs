@@ -49,12 +49,17 @@ contract mySmartContract {
 
 ::: tip dAPI name
 
-If you want to check the status for a dAPI `name`, you first need to calculate
-the hash off-chain of `name` as shown below. Then pass the value of
-`dapiNameHash` as `_datafeedId` in the example above.
+If you want to check the status for a dAPI `name`, you first need to encode 
+the dAPI `name` to bytes32 then calculate the hash off-chain of the encoded `name` as shown below. 
+Afterwards, pass the value of `dapiNameHash` as `_datafeedId` in the example above.
+
 
 ```solidity
-dapiNameHash = ethers.utils.solidityKeccak256(['string'], [dapiName]);
+encodedDapiName = ethers.utils.formatBytes32String(dapiName);
+```
+
+```solidity
+dapiNameHash = ethers.utils.solidityKeccak256(['bytes32'], [encodedDapiName]);
 ```
 
 :::
