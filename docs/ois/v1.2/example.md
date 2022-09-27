@@ -10,4 +10,4 @@ tags:
 
 <VersionWarning/>
 
-<<< @/docs/ois/v1.1/example.json
+<<< @/docs/ois/v1.2/example.json
