@@ -19,7 +19,7 @@ Airnode, such as airnode-deployer, airnode-admin and more.
    (`--airnode-address-short`)
 
 4. We recommend using _Sepolia_ and _Goerli_ testnets instead of _Rinkeby_,
-   _Ropsten_ and _Kovan_
+   _Ropsten_, and _Kovan_
 
 ### Details
 
@@ -74,6 +74,7 @@ uses the full Airnode address instead of the shortened one when executing the
 
 4. Recommended testnets to use are now _Sepolia_ and _Goerli_
 
-The _Rinkeby_, _Ropsten_ and _Kovan_ testnets have been deprecated and will be
-removed. You can read more details in the
+The _Rinkeby_, _Ropsten_, and _Kovan_ testnets have been deprecated and will be
+removed. Etherscan has also discontinued or is in the process of discontinuing
+their blockchain explorer for each. You can read more details on the
 [ethereum blog](https://blog.ethereum.org/2022/06/21/testnet-deprecation).
