@@ -1,4 +1,19 @@
-## Migration Guide
+---
+title: Migration Guide
+docSetName: Airnode v0.9
+folder: Reference
+basePath: /airnode/v0.9
+tags:
+---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
+
+# {{$frontmatter.title}}
+
+<VersionWarning/>
+
+<!--TocHeader />
+<TOC class="table-of-contents" :include-level="[2,3]" /-->
 
 The following guide assumes a valid v0.8.x `config.json` file. All changes
 listed below will need to be implemented in order to migrate to Airnode v0.9.0.
@@ -8,7 +23,7 @@ earlier Airnode versions.
 The document also mentions changes of the user facing services related to
 Airnode, such as airnode-deployer, airnode-admin and more.
 
-### Summary
+## Summary
 
 1. `ois[n].oisFormat` updated to "1.2.0"
 
@@ -21,7 +36,7 @@ Airnode, such as airnode-deployer, airnode-admin and more.
 4. We recommend using _Sepolia_ and _Goerli_ testnets instead of _Rinkeby_,
    _Ropsten_, and _Kovan_
 
-### Details
+## Details
 
 1. `ois[n].oisFormat`
 

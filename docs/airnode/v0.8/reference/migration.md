@@ -1,4 +1,19 @@
-## Migration Guide
+---
+title: Migration Guide
+docSetName: Airnode v0.8
+folder: Reference
+basePath: /airnode/v0.8
+tags:
+---
+
+<TitleSpan>{{$frontmatter.folder}}</TitleSpan>
+
+# {{$frontmatter.title}}
+
+<VersionWarning/>
+
+<!--TocHeader />
+<TOC class="table-of-contents" :include-level="[2,3]" /-->
 
 The following guide assumes a valid v0.7.x `config.json` file. All changes
 listed below will need to be implemented in order to migrate to Airnode v0.8.
@@ -7,7 +22,7 @@ earlier Airnode versions, but some of the new fields have additional options
 that can be found in the v0.8
 [Airnode documentation](https://docs.api3.org/airnode/v0.8/)
 
-### Summary
+## Summary
 
 1. `chains[n].authorizers` is now an object rather than an array of strings
 
@@ -35,7 +50,7 @@ that can be found in the v0.8
 
 8. `nodeSettings.nodeVersion` updated to "0.8.0"
 
-### Details
+## Details
 
 1. `chains[n].authorizers`
 
