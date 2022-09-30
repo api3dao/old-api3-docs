@@ -21,11 +21,6 @@ authorizers. As an alternative, an API provider could also use
 requests. Authorizers require blockchain knowledge by the API provider, relayed
 meta data does not.
 
-Other docs related to authorizers and relayed meta data:
-
-- [Using Authorizers](../grp-providers/guides/build-an-airnode/apply-auth.md)
-- [API Security](../grp-providers/guides/build-an-airnode/api-security.md)
-
 When an Airnode receives a request, it can use on-chain authorizer contracts to
 verify if a response is warranted. Authorizers allow Airnodes to implement a
 wide variety of policies. Below are some examples:
@@ -49,7 +44,7 @@ The diagram below illustrates how Airnode utilizes authorizers.
 
 > <img src="../assets/images/concepts-authorizers.png" width="650px"/>
 >
-> 1. <p class="diagram-line">When Airnode starts it reads its list of authorizer contracts declared in config.json.</p>
+> 1. <p class="diagram-line">When Airnode starts it reads its list of authorizer contracts declared in <code>config.json.</code></p>
 > 2. <p class="diagram-line">Airnode gathers requests from the event logs, during its run cycle.</p>
 > 3. <p class="diagram-line">Airnode sends each request, along with the list of authorizer contracts, to <code>checkAuthorizationStatus()</code>.</p>
 > 4. <p class="diagram-line"><code>checkAuthorizationStatus()</code> executes the <code>isAuthorized()</code> function in each authorizer contract. If any one authorizer contract returns true, then true is returned to the Airnode which in turn proceeds to fulfill the request.</p>
@@ -148,7 +143,7 @@ contract myAuthorizer is IAuthorizer
 }
 ```
 
-### Why is an authorizer scheme needed?
+### Why is an authorizers scheme needed?
 
 Airnodes need the ability to fulfill requests selectively. This is required for
 two main reasons:
@@ -158,13 +153,13 @@ two main reasons:
 2. The services of the Airnode are sensitive and can only be accessed by certain
    requesters, e.g., who have gone through KYC.
 
-A protocol that does not have the authorizer scheme or equivalent functionality
-cannot be considered as permissionless, and will not be able to achieve
-wide-spread adoption.
+A protocol that does not have the `authorizers` scheme or equivalent
+functionality cannot be considered as permissionless, and will not be able to
+achieve wide-spread adoption.
 
-Currently there is only one authorizer scheme type, see
+Currently there is only one `authorizers` scheme type, see
 [requesterEndpointAuthorizers](https://github.com/api3dao/airnode/blob/master/packages/airnode-validator/src/config/config.ts#L160-L163).
-The authorizer scheme type is set in
+The `authorizers` scheme type is set in
 `chains[n].authorizers.{<authorizerSchemeType>}` of `config.json`.
 
 ```json
@@ -174,8 +169,9 @@ chains[n].authorizers:{requesterEndpointAuthorizers:[]},
 ### Are authorizers required?
 
 Authorizers are not required. An Airnode operator could use
-[Relayed Meta Data Security Schemes](../grp-providers/guides/build-an-airnode/api-security.md#relayed-meta-data-security-schemes).
-It is possible to use both authorizers and relay security schemes together.
+[Authorizations](./authorizations.md) or
+[Relayed Meta Data Security Schemes](./relay-meta-auth.md). It is possible to
+use both authorizers, authorizations, and relay security schemes together.
 
 ## How are authorizers implemented?
 
@@ -416,3 +412,14 @@ event SetWhitelistStatusPastExpiration(
 The `isAuthorized()` function will be called by AirnodeRrpV0 to verify the
 authorization status of a request. This function will return true for all
 whitelisted requester contracts, admins and the meta-admin address.
+
+## More reading...
+
+Other docs related to authorizations and relayed meta data:
+
+- Reference ➙ Deployment Files ➙
+  [config.json](../reference/deployment-files/config-json.md)
+- API Providers ➙ Build an Airnode ➙
+  [Using Authorizers](../grp-providers/guides/build-an-airnode/apply-auth.md)
+- API Providers ➙ Build an Airnode ➙ API Security ➙
+  [Relayed Meta Data Security Schemes](../grp-providers/guides/build-an-airnode/api-security.md#relayed-meta-data-security-schemes)

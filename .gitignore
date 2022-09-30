@@ -6,6 +6,7 @@ docs/.vuepress/dist
 
 package-lock.json
 libs/myGitHubToken.json
+**/*.drawio.bkp
 
 
 
