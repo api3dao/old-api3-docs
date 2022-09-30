@@ -16,10 +16,10 @@ tags:
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 Airnode serves an API to a blockchain according to
-[Oracle Integration Specifications (OIS)](/ois/v1.1/). An API is composed of
-[operations](/ois/v1.1/ois.md#_5-2-operation), which represent individual
+[Oracle Integration Specifications (OIS)](/ois/v1.2/). An API is composed of
+[operations](/ois/v1.2/ois.md#_5-2-operation), which represent individual
 functionalities that an API offers. OIS maps each API operation to an
-[endpoint](/ois/v1.1/ois.md#_5-endpoints), which can be thought of as an Airnode
+[endpoint](/ois/v1.2/ois.md#_5-endpoints), which can be thought of as an Airnode
 operation. The endpoints that an Airnode will serve over the request–response
 protocol are listed under
 [triggers](../reference/deployment-files/config-json.md#triggers) of
