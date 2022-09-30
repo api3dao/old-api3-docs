@@ -208,7 +208,7 @@ Options:
   --help     Show help                                                                                         [boolean]
 
 # Example
-airnode-deployer info 2c6ef2b3
+airnode-deployer info aws2c6ef2b3
 ```
 
 ### Airnode Removal
