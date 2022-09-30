@@ -15,9 +15,9 @@ tags:
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-An Airnode can authorize requester contract access to its underlying API using
-[Authorizers](../../../concepts/authorizers.md). This method is on-chain and
-requires some blockchain knowledge by an API provider.
+An Airnode can authorize smart contracts (know as requesters) access to its
+endpoints using [Authorizers](../../../concepts/authorizers.md). This method is
+on-chain and requires some blockchain knowledge by an API provider.
 
 An [Authorizer](../../../concepts/authorizers.md) is a contract which typically
 checks for a single condition ("has the requester made their monthly payment",
@@ -28,11 +28,11 @@ the authorization outcomes get *OR*ed.
 
 ::: tip Alternative: Relayed Meta Data
 
-As an alternative to authorizers, an API provider can use
+As an alternative to authorizers and authorizations, an API provider can use
 [Relayed Meta Data](./api-security.md#relayed-meta-data-security-schemes) to
 authenticate a request. This approach is off-chain and requires no blockchain
-knowledge by the API provider. Note that it is possible to use both authorizers
-and relayed meta data together.
+knowledge by the API provider. Note that it is possible to use authorizers,
+authorizations, and relayed meta data together.
 
 :::
 
@@ -59,10 +59,10 @@ method of authorization,
 {
  ...
  "chains":[
-    {
-      "id": "1",
-      ...
-      "authorizers": {
+    {                   Scheme type requesterEndpointAuthorizers lists
+      "id": "1",        on-chain authorizer contract addresses
+      ...               such as RequesterAuthorizerWithAirnode
+      "authorizers": {  ⬇︎
         "requesterEndpointAuthorizers": [  // Requests must satisfy at least
           "0xeabb...C123",                 // one of the authorizer contracts
           "0xCE5e...1abc"
@@ -86,7 +86,6 @@ method of authorization,
       }
     },
    ]
- }
 }
 ```
 
@@ -102,10 +101,10 @@ case and may in fact satisfy the needs of many Airnodes. You can find the
 contract address of this authorizer in the
 [Airnode Contract Addresses](../../../reference/airnode-addresses.md) doc.
 
-To use the RequesterAuthorizerWithAirnode authorizer:
+To use the RequesterAuthorizerWithAirnode authorizer contract:
 
 1. Add an authorizer contract address to the array for
-   `chains[n].authorizers.{<authorizerContract>}`.
+   `chains[n].authorizers.{<authorizerContractAddress>}`.
 2. After your Airnode is deployed, call the Admin CLI command
    [set-whitelist-expiration](../../../reference/packages/admin-cli.md#set-whitelist-expiration)
    to add the desired requester contract addresses to the whitelist maintained
