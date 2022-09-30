@@ -33,6 +33,10 @@ module.exports = [
             path: 'grp-providers/guides/build-an-airnode/apply-auth',
           },
           {
+            title: 'Using Authorizations',
+            path: 'grp-providers/guides/build-an-airnode/using-authorizations',
+          },
+          {
             title: 'Heartbeat',
             path: 'grp-providers/guides/build-an-airnode/heartbeat',
           },
@@ -114,6 +118,7 @@ module.exports = [
       'concepts/airnode',
       'concepts/endpoint',
       'concepts/authorizers',
+      'concepts/authorizations',
       'concepts/airnode-auth',
       'concepts/relay-meta-auth',
       'concepts/requester',
