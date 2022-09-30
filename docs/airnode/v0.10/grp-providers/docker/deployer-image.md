@@ -224,7 +224,7 @@ provider authentication are needed for the command to run correctly: `aws.env`
 ```sh
 docker run -it --rm \
   -v "$(pwd):/app/config" \
-  api3/airnode-deployer:0.10.0 info 2c6ef2b3
+  api3/airnode-deployer:0.10.0 info aws2c6ef2b3
 ```
 
 :::
@@ -235,7 +235,7 @@ docker run -it --rm \
 # For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
-  api3/airnode-deployer:0.10.0 info 2c6ef2b3
+  api3/airnode-deployer:0.10.0 info aws2c6ef2b3
 ```
 
 :::
