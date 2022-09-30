@@ -173,18 +173,22 @@ respective parameters.
 
 ### `authorizers`
 
-(required) - An object containing authorizer scheme types that list authorizer
-contract addresses specifying the auth patterns that the
+(required) - An object containing `authorizers` scheme types that contain
+authorizer contract addresses specifying the auth patterns that the
 [AirnodeRrpV0](../../concepts/#airnoderrpv0-sol) contract should use on-chain.
-An empty `<authorizerSchemeType>` array would allow-all. See the
-[Authorizers](../../concepts/authorizers.md) doc for more information.
+An empty `<authorizerSchemeType>` array would allow-all. Learn more about
+authorizers in [Concepts](../../concepts/authorizers.md) and
+[Build an Airnode](../../grp-providers/guides/build-an-airnode/apply-auth.md).
 
 ### `authorizations`
 
-(required) - An object containing authorization types that list authorized
-requester addresses for specific endpoints. If an authorization for a requester
-address and `endpointId` is found in the `config.json`, the on-chain
-authorization check is skipped.
+(required) - An object containing `authorizations` scheme types that contain
+authorized endpointId/address pairs where the address is that of a requester.
+Airnode uses these pairs to determine access to its endpoints during its run
+cycle off-chain. Nothing in `authorizers` can supersede permissions granted by
+`authorizations` as they take precedence. Learn more about authorizations in
+[Concepts](../../concepts/authorizations.md) and
+[Build an Airnode](../../grp-providers/guides/build-an-airnode/using-authorizations.md).
 
 ### `contracts`
 
