@@ -37,8 +37,8 @@ Almost all commands require you to provide a blockchain `providerUrl`. Following
 are just two examples of many possibilities. See the
 [Chain Providers](../../concepts/chain-providers.md) doc for more information.
 
-- <code style="overflow-wrap: break-word;">https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID></code>
-- `https://ropsten.infura.io/v3/<KEY>`
+- <code style="overflow-wrap: break-word;">https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID></code>
+- `https://sepolia.infura.io/v3/<KEY>`
 
 The CLI connects to the
 [AirnodeRrpV0.sol](https://github.com/api3dao/airnode/blob/v0.8/packages/airnode-protocol/contracts/rrp/AirnodeRrpV0.sol)
@@ -242,7 +242,7 @@ command.
 
 ```sh
 npx @api3/airnode-admin sponsor-requester \
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> \
   --sponsor-mnemonic "nature about salad..." \
   --requester-address 0x2c2e12...
 ```
@@ -253,7 +253,7 @@ npx @api3/airnode-admin sponsor-requester \
 
 ```batch
 npx @api3/airnode-admin sponsor-requester ^
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> ^
   --sponsor-mnemonic "nature about salad..." ^
   --requester-address 0x2c2e12...
 ```
@@ -293,7 +293,7 @@ from the `mnemonic` you provide here has to belong to the sponsor.
 
 ```bash
 npx @api3/airnode-admin unsponsor-requester \
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> \
   --sponsor-mnemonic "nature about salad..." \
   --requester-address 0x2c2e12...
 ```
@@ -304,7 +304,7 @@ npx @api3/airnode-admin unsponsor-requester \
 
 ```batch
 npx @api3/airnode-admin unsponsor-requester ^
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> ^
   --sponsor-mnemonic "nature about salad..." ^
   --requester-address 0x2c2e12...
 ```
@@ -332,7 +332,7 @@ otherwise).
 
 ```sh
 npx @api3/airnode-admin get-sponsor-status \
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> \
   --sponsor-address 0x9Ec6C4... \
   --requester-address 0x2c2e12...
 ```
@@ -343,7 +343,7 @@ npx @api3/airnode-admin get-sponsor-status \
 
 ```batch
 npx @api3/airnode-admin get-sponsor-status ^
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> ^
   --sponsor-address 0x9Ec6C4... ^
   --requester-address 0x2c2e12...
 ```
@@ -422,7 +422,7 @@ template file.
 
 ```sh
 npx @api3/airnode-admin create-template \
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> \
   --mnemonic "nature about salad..." \
   --template-file-path ./template.json
 ```
@@ -433,7 +433,7 @@ npx @api3/airnode-admin create-template \
 
 ```batch
 npx @api3/airnode-admin create-template ^
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> ^
   --mnemonic "nature about salad..." ^
   --template-file-path ./template.json
 ```
@@ -498,7 +498,7 @@ Returns the [template](../../concepts/template.md) for the given `template-id`.
 
 ```sh
 npx @api3/airnode-admin get-template \
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> \
   --template-id 0x8d3b9...
 ```
 
@@ -508,7 +508,7 @@ npx @api3/airnode-admin get-template \
 
 ```batch
 npx @api3/airnode-admin get-template ^
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> ^
   --template-id 0x8d3b9...
 ```
 
@@ -566,7 +566,7 @@ withdrawal is requested.
 
 ```sh
 npx @api3/airnode-admin request-withdrawal \
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> \
   --sponsor-mnemonic "nature about salad..." \
   --airnode-address 0xe1e0dd... \
   --sponsor-wallet-address 0x9Ec6C4...
@@ -578,7 +578,7 @@ npx @api3/airnode-admin request-withdrawal \
 
 ```batch
 npx @api3/airnode-admin request-withdrawal ^
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> ^
   --sponsor-mnemonic "nature about salad..." ^
   --airnode-address 0xe1e0dd... ^
   --sponsor-wallet-address 0x9Ec6C4...
@@ -606,7 +606,7 @@ request with the given `withdrawal-request-id` from the
 
 ```sh
 npx @api3/airnode-admin check-withdrawal-request \
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> \
   --withdrawal-request-id 0x011d1b...
 ```
 
@@ -616,7 +616,7 @@ npx @api3/airnode-admin check-withdrawal-request \
 
 ```batch
 npx @api3/airnode-admin check-withdrawal-request ^
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> ^
   --withdrawal-request-id 0x011d1b...
 ```
 
@@ -849,7 +849,7 @@ previously set timestamp.
 ```sh
 npx @api3/airnode-admin set-whitelist-expiration \
   --mnemonic "nature about salad..." \
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> \
   --endpoint-id 0xda088e2d94... \
   --requester-address 0x2c2e12... \
   --expiration-timestamp 1947451793 \
@@ -863,7 +863,7 @@ npx @api3/airnode-admin set-whitelist-expiration \
 ```batch
 npx @api3/airnode-admin set-whitelist-expiration ^
   --mnemonic "nature about salad..." ^
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> ^
   --endpoint-id 0xda088e2d94... ^
   --requester-address 0x2c2e12... ^
   --expiration-timestamp 1947451793 ^
@@ -909,7 +909,7 @@ timestamp.
 ```sh
 npx @api3/airnode-admin extend-whitelist-expiration \
   --mnemonic "nature about salad..." \
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> \
   --endpoint-id 0xda088e2d94... \
   --requester-address 0x2c2e12... \
   --expiration-timestamp 1947451793 \
@@ -923,7 +923,7 @@ npx @api3/airnode-admin extend-whitelist-expiration \
 ```batch
 npx @api3/airnode-admin extend-whitelist-expiration ^
   --mnemonic "nature about salad..." ^
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> ^
   --endpoint-id 0xda088e2d94... ^
   --requester-address 0x2c2e12... ^
   --expiration-timestamp 1947451793 ^
@@ -972,7 +972,7 @@ even beyond the expiration period.
 ```sh
 npx @api3/airnode-admin set-indefinite-whitelist-status \
   --mnemonic "nature about salad..." \
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> \
   --endpoint-id 0xda088e2d94... \
   --requester-address 0x2c2e12... \
   --whitelist-status-past-expiration true \
@@ -986,7 +986,7 @@ npx @api3/airnode-admin set-indefinite-whitelist-status \
 ```batch
 npx @api3/airnode-admin set-indefinite-whitelist-status ^
   --mnemonic "nature about salad..." ^
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> ^
   --endpoint-id 0xda088e2d94... ^
   --requester-address 0x2c2e12... ^
   --whitelist-status-past-expiration true ^
@@ -1014,7 +1014,7 @@ Airnode–endpoint pair.
 
 ```sh
 npx @api3/airnode-admin get-whitelist-status \
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> \
   --endpoint-id 0xda088e2d94... \
   --requester-address 0x2c2e12... \
   --airnode-address 0xe1e0dd...
@@ -1026,7 +1026,7 @@ npx @api3/airnode-admin get-whitelist-status \
 
 ```batch
 npx @api3/airnode-admin get-whitelist-status ^
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> ^
   --endpoint-id 0xda088e2d94... ^
   --requester-address 0x2c2e12... ^
   --airnode-address 0xe1e0dd...
@@ -1053,7 +1053,7 @@ Called to check if a requester is whitelisted to use the Airnode–endpoint pair
 
 ```sh
 npx @api3/airnode-admin is-requester-whitelisted \
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> \
   --requester-authorizer-with-airnode 0xDc64a1... \
   --endpoint-id 0xda088e2d94... \
   --requester-address 0x2c2e12... \
@@ -1066,7 +1066,7 @@ npx @api3/airnode-admin is-requester-whitelisted \
 
 ```batch
 npx @api3/airnode-admin is-requester-whitelisted ^
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> ^
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> ^
   --requester-authorizer-with-airnode 0xDc64a1... ^
   --endpoint-id 0xda088e2d94... ^
   --requester-address 0x2c2e12... ^

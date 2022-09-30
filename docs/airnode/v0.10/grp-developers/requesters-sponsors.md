@@ -158,7 +158,7 @@ sponsor a requester and returns the requesterAddress and sponsorAddress.
 
 ```bash
 npx @api3/airnode-admin sponsor-requester \
-  --providerUrl https://ropsten.infura.io/v3/<KEY> \
+  --providerUrl https://sepolia.infura.io/v3/<KEY> \
   --sponsor-mnemonic "cricket...oppose" \
   --requester-address 0x2c...gDER7
 
@@ -171,7 +171,7 @@ Requester 0x2c...gDER7 sponsored using sponsorAddress 0xF4...dDyu9
 
 ```batch
 npx @api3/airnode-admin sponsor-requester ^
-  --providerUrl https://ropsten.infura.io/v3/<KEY> ^
+  --providerUrl https://sepolia.infura.io/v3/<KEY> ^
   --sponsor-mnemonic "cricket...oppose" ^
   --requester-address 0x2c...gDER7
 

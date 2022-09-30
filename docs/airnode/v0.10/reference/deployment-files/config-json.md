@@ -122,10 +122,10 @@ respective parameters.
     "contracts": {
       "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
     },
-    "id": "3",
+    "id": "11155111",
     "providers": {
-      "infuraRopsten": {
-        "url": "${CP_INFURA_ROPSTEN_URL}"
+      "infuraSepolia": {
+        "url": "${CP_INFURA_SEPOLIA_URL}"
       }
     },
     "type": "evm",

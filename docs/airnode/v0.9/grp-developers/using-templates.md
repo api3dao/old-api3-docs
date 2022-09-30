@@ -125,7 +125,7 @@ sponsor record.
 
 ```bash
 npx @api3/airnode-admin create-template \
-  --providerUrl https://ropsten.infura.io/v3/<KEY> \
+  --providerUrl https://sepolia.infura.io/v3/<KEY> \
   --mnemonic "nature about salad..." \
   --templateFilePath ./template.json
 ```

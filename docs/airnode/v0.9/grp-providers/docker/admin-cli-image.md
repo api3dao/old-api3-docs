@@ -40,13 +40,13 @@ npx when executing the `get-sponsor-status` admin CLI command.
 ```sh
 #npx
 npx @api3/airnode-admin get-sponsor-status \
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> \
   --sponsor-address 0x9Ec6C4... \
   --requester-address 0x2c2e12...
 
 # Docker
 docker run api3/airnode-admin:0.9.0 get-sponsor-status \
-  --provider-url https://eth-rinkeby.gateway.pokt.network/v1/lb/<APP_ID> \
+  --provider-url https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID> \
   --sponsor-address 0x9Ec6C4... \
   --requester-address 0x2c2e12...
 ```

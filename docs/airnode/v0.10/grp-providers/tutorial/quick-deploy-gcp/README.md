@@ -84,7 +84,7 @@ directory.
 ### config.json
 
 This file requires no changes on your part. It has been created with just one
-API endpoint. It will instruct the Airnode to attach to the Rinkeby test
+API endpoint. It will instruct the Airnode to attach to the Sepolia test
 network. There are three variables this file will extract (interpolation) from
 `secrets.env`.
 
@@ -94,16 +94,16 @@ Add values for each of the these fields.
 
 - `CHAIN_PROVIDER_URL`: A chain provider url from a provider such as
   [Infura](https://infura.io/). Make sure the provider url you use is for the
-  Rinkeby test network. Using another chain provider other than Infura is
+  Sepolia test network. Using another chain provider other than Infura is
   acceptable.
 
   - Sign-up or login to Infura.
   - Create a new project, select the **Settings** tab in the project.
-  - Copy the URL (https) for Rinkeby under the Endpoints pick list.
+  - Copy the URL (https) for Sepolia under the Endpoints pick list.
 
 - `AIRNODE_WALLET_MNEMONIC`: Provide the seed phrase (mnemonic) to a digital
   wallet. For the purpose of this demo it does not need eth in it for the
-  Rinkeby test network. If you don't have one use the Admin CLI command
+  Sepolia test network. If you don't have one use the Admin CLI command
   [generate-airnode-mnemonic](../../../reference/packages/admin-cli.md#generate-airnode-mnemonic)
   to create one or another method you prefer.
 
@@ -226,7 +226,7 @@ tested.
 ### Execute Endpoint
 
 Use CURL to execute the Airnode and get the results from the CoinGecko endpoint
-`/simple/price` bypassing the Rinkeby test network that Airnode was deployed
+`/simple/price` bypassing the Sepolia test network that Airnode was deployed
 for. As an alternative to CURL try an app such as
 [Insomnia](https://insomnia.rest/) or
 [Postman](https://www.postman.com/product/rest-client/). Windows users can also
@@ -343,7 +343,7 @@ minutes to complete its behind the scenes clean-up of configured resources.
 ## Summary
 
 You have deployed an Airnode on GCP. The Airnode, upon deployment, started
-contacting the AirnodeRrpV0 contract on the Rinkeby testnet to gather any
+contacting the AirnodeRrpV0 contract on the Sepolia testnet to gather any
 requests made by requesters to this Airnode. This tutorial did not address
 making a request as its purpose was simply to quickly deploy a functional
 Airnode.

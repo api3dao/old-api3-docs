@@ -27,10 +27,10 @@ might use.
 
 ## One Chain: One Provider
 
-As an example the `chains` field declares its use of blockchain 4, _Rinkeby_.
-The `type` is set to _evm_ which is the only type currently supported by
-Airnode. It then applies an arbitrary name for the blockchain provider
-"infura_rinkeby" in the `providers` array.
+As an example the `chains` field declares its use of _Sepolia_ blockchain with
+id 11155111. The `type` is set to _evm_ which is the only type currently
+supported by Airnode. It then applies an arbitrary name for the blockchain
+provider "infuraSepolia" in the `providers` array.
 
 ```json
 "chains": [
@@ -46,10 +46,10 @@ Airnode. It then applies an arbitrary name for the blockchain provider
     "contracts": {
       "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
     },
-    "id": "4",
+    "id": "11155111",
     "providers": {
-      "infura_rinkeby": {
-        "url": "${INFURA_RINKEBY_PROVIDER_URL}"
+      "infuraSepolia": {
+        "url": "${INFURA_SEPOLIA_PROVIDER_URL}"
       }
     },
     "type": "evm",
@@ -109,13 +109,13 @@ Multiple providers can be used per chain. Simply add another object to
     "contracts": {
       "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
     },
-    "id": "4",
+    "id": "11155111",
     "providers": {
-      "infura_rinkeby": {
-        "url": "${INFURA_RINKEBY_PROVIDER_URL}"
+      "infuraSepolia": {
+        "url": "${INFURA_SEPOLIA_PROVIDER_URL}"
       },
-      "alchemy_rinkeby": {
-        "url": "${ALCHEMY_RINKEBY_PROVIDER_URL}"
+      "alchemySepolia": {
+        "url": "${ALCHEMYSEPOLIA_PROVIDER_URL}"
       }
     },
     "type": "evm",
@@ -174,13 +174,13 @@ each has a unique `id` and `type` and a list of `providers` for each.
     "contracts": {
       "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
     },
-    "id": "4",
+    "id": "11155111",
     "providers": {
-      "infura_rinkeby": {
-        "url": "${INFURA_RINKEBY_PROVIDER_URL}"
+      "infuraSepolia": {
+        "url": "${INFURA_SEPOLIA_PROVIDER_URL}"
       },
-      "alchemy_rinkeby": {
-        "url": "${ALCHEMY_RINKEBY_PROVIDER_URL}"
+      "alchemySepolia": {
+        "url": "${ALCHEMYSEPOLIA_PROVIDER_URL}"
       }
     },
     "type": "evm",
@@ -229,10 +229,10 @@ each has a unique `id` and `type` and a list of `providers` for each.
     "contracts": {
       "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
     },
-    "id": "3",
+    "id": "11155111",
     "providers": {
-      "infura_ropsten": {
-        "url": "${INFURA_ROPSTEN_PROVIDER_URL}"
+      "infuraSepolia": {
+        "url": "${INFURA_SEPOLIA_PROVIDER_URL}"
       }
     },
     "type": "evm",

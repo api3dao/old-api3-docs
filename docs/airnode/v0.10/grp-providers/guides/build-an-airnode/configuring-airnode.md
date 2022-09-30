@@ -87,10 +87,10 @@ Below is a simple chain array with a single chain provider.
     "contracts": {
       "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
     },
-    "id": "4",
+    "id": "11155111",
     "providers": {
-      "infura_rinkeby": {
-        "url": "${INFURA_RINKEBY_PROVIDER_URL}"
+      "infuraSepolia": {
+        "url": "${INFURA_SEPOLIA_PROVIDER_URL}"
       }
     },
     "type": "evm",
