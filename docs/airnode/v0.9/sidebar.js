@@ -197,6 +197,7 @@ module.exports = [
       'reference/airnode-addresses',
       'reference/chain-idiosyncrasies',
       'reference/cloud-resources',
+      'reference/migration',
     ],
   },
 ];
