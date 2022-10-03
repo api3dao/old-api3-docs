@@ -140,6 +140,7 @@ deployment was successful or not.
     "xpub": "xpub661MyMwAqRbcGHp9uC7...vbeziJwFHuNs"
   },
   "deployment": {
+    "deploymentId": "aws8fd2e911",
     "cloudProvider": {
       "type": "aws",
       "region": "us-east-1"
