@@ -59,8 +59,8 @@ they exist.
 - [deploy](./deployer-image.md#deploy)
 - [list](./deployer-image.md#list)
 - [info](./deployer-image.md#info)
+- [remove](./deployer-image.md#remove)
 - [remove-with-receipt](./deployer-image.md#remove-with-receipt)
-- [remove-with-deployment-details](./deployer-image.md#remove-with-deployment-details)
 
 ### `deploy`
 
@@ -242,13 +242,50 @@ docker run -it --rm ^
 
 ::::
 
+### `remove`
+
+A deployed Airnode can be removed via the
+[remove](../../reference/packages/deployer.md#remove) command. To remove
+Airnode, use the deployment ID from the [list](./deployer-image.md#list) command
+above. Airnode's update history, that can be seen by the
+[info](./deployer-image.md#info) command, will be removed as well. Files for
+cloud provider authentication are needed for the command to run correctly:
+`aws.env` (for AWS) and/or `gcp.json` (for GCP). This is the recommended way to
+remove a deployment, but there are alternatives as described below.
+
+:::: tabs
+
+::: tab Linux/Mac/WSL2
+
+```sh
+docker run -it --rm \
+  -v "$(pwd):/app/config" \
+  api3/airnode-deployer:0.10.0 remove aws2c6ef2b3
+```
+
+:::
+
+::: tab Windows
+
+```batch
+# For Windows, use CMD (not PowerShell).
+docker run -it --rm ^
+  -v "%cd%:/app/config" ^
+  api3/airnode-deployer:0.10.0 remove aws2c6ef2b3
+```
+
+:::
+
+::::
+
 ### `remove-with-receipt`
 
 When an Airnode was deployed using the `deploy` command, a `receipt.json` file
 was created. This file is used to remove the Airnode. The
 [remove-with-receipt](../../reference/packages/deployer.md#remove-with-receipt)
-command (identical for AWS and GCP) is the recommended way to remove a
-deployment, but there are alternatives as described below.
+command is identical for AWS and GCP. Files for cloud provider authentication
+are needed for the command to run correctly: `aws.env` (for AWS) and/or
+`gcp.json` (for GCP).
 
 :::: tabs
 
@@ -275,76 +312,14 @@ docker run -it --rm ^
 
 ::::
 
-### `remove-with-deployment-details`
-
-The
-[remove-with-deployment-details](../../reference/packages/deployer.md#remove-with-deployment-details)
-command is available as an alternative to `remove-with-receipt` and uses the
-Airnode short address and cloud provider specifications. All values, other than
-`airnodeShortAddress`, can be found in
-[config.json](../../reference/deployment-files/config-json.md). Note that
-relative to AWS Airnode removal, GCP Airnode removal requires an additional
-parameter: `projectId`.
-
-- `--airnode-address`: Can be found in the
-  [receipt.json](../../reference/deployment-files/receipt-json.md) file or
-  obtained via Admin CLI command
-  [`derive-airnode-address`](../../reference/packages/admin-cli.html#derive-airnode-address)
-- `--stage`:
-  [nodeSetting.stage](../../reference/deployment-files/config-json.md#stage)
-- `--cloud-provider`:
-  [nodeSetting.cloudProvider.type](../../reference/deployment-files/config-json.md#cloudprovider-type)
-- `--region`:
-  [nodeSetting.cloudProvider.region](../../reference/deployment-files/config-json.md#cloudprovider-region)
-- `--project-id`: (GCP only)
-  [nodeSetting.cloudProvider.projectId](../../reference/deployment-files/config-json.md#cloudprovider-projectid)
-
-Note that the example commands below use placeholder values for a GCP deployment
-that should be replaced.
-
-:::: tabs
-
-::: tab Linux/Mac/WSL2
-
-```sh
-docker run -it --rm \
-  -v "$(pwd):/app/config" \
-  api3/airnode-deployer:0.10.0 remove-with-deployment-details \
-  --airnode-address 0xaBd9daAdf32fCd96eE4607bf3d5B31e19a244Cac \
-  --stage dev \
-  --cloud-provider gcp \
-  --projectId myAirnode101 \ ← GCP only
-  --region us-east1
-```
-
-:::
-
-::: tab Windows
-
-```batch
-#For Windows, use CMD (not PowerShell).
-docker run -it --rm ^
-  -v "$(pwd):/app/config" ^
-  api3/airnode-deployer:0.10.0 remove-with-deployment-details ^
-  --airnode-address 0xaBd9daAdf32fCd96eE4607bf3d5B31e19a244Cac ^
-  --stage dev ^
-  --cloud-provider gcp ^
-  --projectId myAirnode101 ^ ← GCP only
-  --region us-east1
-```
-
-:::
-
-::::
-
 ## Manual Removal
 
 Optionally you can remove an Airnode manually though it is highly recommended
-that you do so using the deployer image's `remove-with-receipt` or
-`remove-with-deployment-details` commands. When removing manually, you will need
-the short Airnode address, `airnodeAddressShort` (e.g., `0ab830c`), that is
-included in the element name of AWS and GCP deployed features. Airnode has a
-presence in several areas of both AWS and GCP as listed below.
+that you do so using the deployer image's `remove` or `remove-with-receipt`
+commands. When removing manually, you will need the short Airnode address,
+`airnodeAddressShort` (e.g., `0ab830c`), that is included in the element name of
+AWS and GCP deployed features. Airnode has a presence in several areas of both
+AWS and GCP as listed below.
 
 ::: danger Remember
 
