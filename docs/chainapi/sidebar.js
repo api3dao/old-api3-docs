@@ -18,6 +18,7 @@ module.exports = [
       'user-guides/integrations',
       'user-guides/deployments',
       'user-guides/workspaces',
+      'user-guides/Import&Export',
     ],
   },
   {
