@@ -27,9 +27,10 @@ them.
 ## Usage
 
 The validator's commands can be run using
-[npx](https://nodejs.dev/en/learn/the-npx-nodejs-package-runner), installing a
-global npm package, the validator SDK or by manually building the validator
-package. Using npx is the simplest method to interact with the validator.
+[npx](https://www.codingninjas.com/codestudio/library/difference-between-npm-and-npx),
+installing a global npm package, the validator SDK or by manually building the
+validator package. Using npx is the simplest method to interact with the
+validator.
 
 - [Using npx](./validator.md#using-npx)
 - [Global Package](./validator.md#global-package)
