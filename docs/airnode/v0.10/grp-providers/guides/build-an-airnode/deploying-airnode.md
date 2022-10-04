@@ -140,6 +140,7 @@ deployment was successful or not.
     "xpub": "xpub661MyMwAqRbcGHp9uC7...vbeziJwFHuNs"
   },
   "deployment": {
+    "deploymentId": "aws8fd2e911",
     "cloudProvider": {
       "type": "aws",
       "region": "us-east-1"
@@ -172,6 +173,6 @@ requests are made to it.
 ## Removing the Airnode
 
 If you would like to remove a deployed Airnode, see the Docker image commands
-for [remove-with-receipt](../../docker/deployer-image.md#remove-with-receipt) or
-[remove-with-deployment-details](../../docker/deployer-image.md#remove-with-deployment-details)
+for [remove](../../docker/deployer-image.md#remove) or
+[remove-with-receipt](../../docker/deployer-image.md#remove-with-receipt)
 instructions.

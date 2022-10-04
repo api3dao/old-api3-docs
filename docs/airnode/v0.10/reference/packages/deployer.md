@@ -215,19 +215,28 @@ airnode-deployer info aws2c6ef2b3
 
 An Airnode can be removed in two different ways:
 
-- **Best:** With `remove-with-receipt`, which uses the deployment receipt
+- **Best:** With `remove`, which uses the deployment ID found either in the
+  [deployment receipt file](../../reference/deployment-files/receipt-json.md) or
+  via the `list` command.
+- **Alternate:** With `remove-with-receipt`, which uses the deployment receipt
   created when the Airnode was deployed.
-- **Alternate:** With `remove-with-deployment-details`, which uses the Airnode
-  address and cloud provider specifications. The Airnode adress can be found in
-  the [receipt.json](../../reference/deployment-files/receipt-json.md) file or
-  obtained via Admin CLI command
-  [`derive-airnode-address`](../../reference/packages/admin-cli.html#derive-airnode-address).
-  The other values can be found in `config.json`.
-  - `nodeSetting.cloudProvider.type`
-  - `nodeSetting.cloudProvider.region`
-  - <code style="overflow-wrap: break-word;">nodeSetting.cloudProvider.projectId</code>
-    (GCP only)
-  - `nodeSetting.stage`
+
+#### remove
+
+```bash
+# Removes a deployed Airnode instance
+
+Positionals:
+  deployment-id  ID of the deployment (from 'list' command)                                          [string] [required]
+
+Options:
+  --version  Show version number                                                                               [boolean]
+  --debug    Run in debug mode                                                                [boolean] [default: false]
+  --help     Show help                                                                                         [boolean]
+
+# Example
+airnode-deployer remove aws2c6ef2b3
+```
 
 #### remove-with-receipt
 
@@ -245,23 +254,4 @@ airnode-deployer remove-with-receipt
 
 # Advanced example specifying the receipt file location
 airnode-deployer remove-with-receipt --receipt config/receipt.json
-```
-
-#### remove-with-deployment-details
-
-```bash
-# Removes a deployed Airnode instance.
-
-Options:
-      --version                Show version number                                                             [boolean]
-      --debug                  Run in debug mode                                              [boolean] [default: false]
-      --help                   Show help                                                                       [boolean]
-  -a, --airnode-address        Airnode Address                                                                  [string]
-  -s, --stage                  Stage (environment)                                                              [string]
-  -c, --cloud-provider         Cloud provider                                                    [choices: "aws", "gcp"]
-  -e, --region                 Region                                                                           [string]
-  -p, --project-id             Project ID (GCP only)                                                            [string]
-
-# Example
-airnode-deployer remove-with-deployment-details --airnode-address 0xaBd9daAdf32fCd96eE4607bf3d5B31e19a244Cac --stage dev --cloud-provider aws --region us-east-1
 ```
