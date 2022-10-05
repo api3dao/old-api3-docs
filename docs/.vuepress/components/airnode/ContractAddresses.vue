@@ -80,7 +80,7 @@ export default {
 
         // Build the list of chains for the contract and network type passed.
         // A few chains are important and need to be at the top of their list.
-        const important = [1, 3, 4, 5, 42];
+        const important = [1, 3, 4, 5, 42, 11155111];
         let importantArr = [];
         let notImportantArr = [];
 
