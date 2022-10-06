@@ -18,16 +18,14 @@ across workspaces, making integration backups and other use cases.
 
 ## Import OIS
 
-When adding a new integration, you have the option to click “Import OIS” which
-allows you to paste an OIS
-([click here](https://docs.api3.org/ois/latest/) for more information) that will
-be used to pre-populate the integration wizard for you. You will then be able to
+When adding a new integration, you have the option to click “Import OIS” which allows you to paste an OIS
+([click here](https://docs.api3.org/ois/latest/) for more information) that will be used to pre-populate the integration for you. You will then be able to
 complete the integration.
 
 ::: tip Important notes
 - Importing an OIS is only available for new integrations
 - If you are using a config.json file, copy the OIS object from within the array and paste
-into the text area provided ([click here](https://docs.api3.org/ois/latest/example.html) for an example OIS object).
+into the text area provided ([click here](https://docs.api3.org/ois/latest/example.html) for an example OIS object)
 :::
 
 ## Export OIS
@@ -35,16 +33,16 @@ into the text area provided ([click here](https://docs.api3.org/ois/latest/examp
 You can export an OIS from one of the below sections:
 
 **Manage Versions page**
-1. navigate to your integrations by clicking "Integrate" on the sidebar
-2. click "Manage Versions" on the integration you
-   want to export
-3. click the ellipsis on the right of the version you wish
-   to export
-4. select "Export OIS"
+1. Navigate to your integrations by clicking "Integrate" on the sidebar.
+2. Click "Manage Versions" on the integration you
+   want to export.
+3. Click the ellipsis on the right of the version you wish
+   to export.
+4. Select "Export OIS".
 
 **View Version page**
-1. navigate to your integrations by clicking "Integrate" on the sidebar
-2. click "Manage Versions" on the integration you
-   want to export
-3. select "View" for the version you wish to export
-4. click "Export OIS" on the top right of the page
+1. Navigate to your integrations by clicking "Integrate" on    the sidebar.
+2. Click "Manage Versions" on the integration you
+   want to export.
+3. Select "View" for the version you wish to export.
+4. Click "Export OIS" on the top right of the page.
