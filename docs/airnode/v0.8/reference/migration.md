@@ -46,7 +46,7 @@ that can be found in the v0.8
 6. `nodeSettings.httpSignedDataGateway.corsOrigins` same as
    `nodeSettings.httpGateway.corsOrigins`
 
-7. `ois[n].oisFormat` updated to "1.1.1"
+7. `ois[n].oisFormat` updated to "1.1.2"
 
 8. `nodeSettings.nodeVersion` updated to "0.8.1"
 
@@ -208,12 +208,12 @@ signed data gateway.
 
 1. `ois[n].oisFormat`
 
-Updated to "1.1.1"
+Updated to "1.1.2"
 
 ```diff
 {
 -  "oisFormat": "1.0.0"
-+  "oisFormat": "1.1.1"
++  "oisFormat": "1.1.2"
 }
 ```
 
