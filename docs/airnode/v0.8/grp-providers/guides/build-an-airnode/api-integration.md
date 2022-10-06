@@ -88,7 +88,7 @@ json object.
 
 ```json
 {
-  "oisFormat": "1.1.1",
+  "oisFormat": "1.1.2",
   "title": "myOisTitle",
   "version": "0.1.0",
   ...
@@ -99,7 +99,7 @@ json object.
 
 A specific version of the [OIS Specification](/ois/v1.1/ois.md#_1-oisformat) to
 be used. For this guide, which uses Airnode `v0.8.x`, the proper OIS version is
-`1.1.1`.
+`1.1.2`.
 
 ### title
 

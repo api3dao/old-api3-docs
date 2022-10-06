@@ -25,16 +25,16 @@ Airnode, such as airnode-deployer, airnode-admin and more.
 
 ## Summary
 
-1. `ois[n].oisFormat` updated to "1.2.0"
+1. `ois[n].oisFormat` updated to "1.2.0".
 
-2. `nodeSettings.nodeVersion` updated to "0.9.0"
+2. `nodeSettings.nodeVersion` updated to "0.9.0".
 
 3. `airnode-deployer remove-with-deployment-details` now accepts a full
    `--airnode-address` argument instead of the short airnode address
-   (`--airnode-address-short`)
+   (`--airnode-address-short`).
 
 4. We recommend using _Sepolia_ and _Goerli_ testnets instead of _Rinkeby_,
-   _Ropsten_, and _Kovan_
+   _Ropsten_, and _Kovan_.
 
 ## Details
 
@@ -44,7 +44,7 @@ Updated to "1.2.0"
 
 ```diff
 {
--  "oisFormat": "1.1.1"
+-  "oisFormat": "1.1.2"
 +  "oisFormat": "1.2.0"
 }
 ```
@@ -55,7 +55,7 @@ Updated to "0.9.0"
 
 ```diff
 {
--  "nodeVersion": "0.8.0"
+-  "nodeVersion": "0.8.1"
 +  "nodeVersion": "0.9.0"
 }
 ```

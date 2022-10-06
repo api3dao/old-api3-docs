@@ -161,7 +161,7 @@ building a config.json file.
   ],
   "ois": [
     {
-      "oisFormat": "1.1.1",
+      "oisFormat": "1.1.2",
       "version": "<FILL_*>",
       "title": "<FILL_OIS_TITLE>",
       "apiSpecifications": {

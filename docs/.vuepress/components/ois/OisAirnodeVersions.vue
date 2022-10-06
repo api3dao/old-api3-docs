@@ -24,8 +24,8 @@
       <tr>
         <td>0.8.x</td>
         <td>
-          <a href="https://github.com/api3dao/ois/tree/v1.1.1" target="_blank"
-            >1.1.1 <ExternalLinkImage
+          <a href="https://github.com/api3dao/ois/tree/v1.1.2" target="_blank"
+            >1.1.2 <ExternalLinkImage
           /></a>
         </td>
       </tr>
