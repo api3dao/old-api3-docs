@@ -98,13 +98,13 @@ npx @api3/airnode-admin $COMMAND --help
 Use the Admin CLI docker image as an alternative to `npx`:
 
 ```sh
-docker run api3/airnode-admin:0.8.0 --help
+docker run api3/airnode-admin:0.8.1 --help
 ```
 
 View the parameters of a command:
 
 ```sh
-docker run api3/airnode-admin:0.8.0 $COMMAND --help
+docker run api3/airnode-admin:0.8.1 $COMMAND --help
 ```
 
 ## SDK

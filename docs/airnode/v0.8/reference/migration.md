@@ -48,7 +48,7 @@ that can be found in the v0.8
 
 7. `ois[n].oisFormat` updated to "1.1.1"
 
-8. `nodeSettings.nodeVersion` updated to "0.8.0"
+8. `nodeSettings.nodeVersion` updated to "0.8.1"
 
 ## Details
 
@@ -219,11 +219,11 @@ Updated to "1.1.1"
 
 8. `nodeSettings.nodeVersion`
 
-Updated to "0.8.0"
+Updated to "0.8.1"
 
 ```diff
 {
 -  "nodeVersion": "0.7.0"
-+  "nodeVersion": "0.8.0"
++  "nodeVersion": "0.8.1"
 }
 ```

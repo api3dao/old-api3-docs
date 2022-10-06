@@ -152,7 +152,7 @@ Run the following command to deploy the demo Airnode. Note that the version of
 docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
   -v "$(pwd):/app/config" \
-  api3/airnode-deployer:0.8.0 deploy
+  api3/airnode-deployer:0.8.1 deploy
 ```
 
 :::
@@ -164,7 +164,7 @@ For Windows, use CMD (and not PowerShell).
 ```batch
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
-  api3/airnode-deployer:0.8.0 deploy
+  api3/airnode-deployer:0.8.1 deploy
 ```
 
 :::
@@ -311,7 +311,7 @@ was deployed.
 ```sh
 docker run -it --rm \
   -v "$(pwd):/app/config" \
-  api3/airnode-deployer:0.8.0 remove-with-receipt
+  api3/airnode-deployer:0.8.1 remove-with-receipt
 ```
 
 :::
@@ -323,7 +323,7 @@ For Windows, use CMD (and not PowerShell).
 ```batch
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
-  api3/airnode-deployer:0.8.0 remove-with-receipt
+  api3/airnode-deployer:0.8.1 remove-with-receipt
 ```
 
 :::
