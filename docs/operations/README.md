@@ -27,7 +27,6 @@ Operations principally consists of the following components:
   - top-up wallets for those beacons
   - [Airseeker, Airkeeper and Airnode configuration for beacon services.](https://github.com/api3dao/operations/tree/main/data/apis/amberdata/deployments)
 - Metadata around on-chain services including
-  - [policies and read access rights for beacons](https://github.com/api3dao/operations/tree/main/data/policies)
   - [dAPI name to beacon mappings](https://github.com/api3dao/operations/tree/main/data/dapis)
   - [DapiServer contract addresses and ABIs](https://github.com/api3dao/operations/blob/main/data/chains/avalanche.json)
 - Metadata related to the display and user-related representation of beacons and
