@@ -29,7 +29,9 @@ will then be able to complete the integration.
 - If you are using a config.json file, copy the OIS object from within the array
   and paste into the text area provided
   ([click here](https://docs.api3.org/ois/v1.1/example.html) for an example OIS
-  object) :::
+  object) 
+  
+  :::
 
 ## Export OIS
 
