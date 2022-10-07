@@ -100,10 +100,9 @@ for more information.
 
 Add values for each of the these fields.
 
-- `CHAIN_PROVIDER_URL`: A chain provider url from a provider such as
-  [Infura](https://infura.io/). Make sure the provider url you use is for the
-  Sepolia test network. Using another chain provider other than Infura is
-  acceptable.
+- `CHAIN_PROVIDER_URL`: A chain provider url (using the Sepolia network) from a
+  provider such as [Infura](https://infura.io/). Using another chain provider
+  other than Infura is acceptable.
 
   - Sign-up or login to Infura.
   - Create a new project, select the **Settings** tab in the project.

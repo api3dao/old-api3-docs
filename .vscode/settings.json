@@ -48,6 +48,7 @@
     "collateralized",
     "Sokol",
     "Moonbase",
+    "Sepolia"
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true

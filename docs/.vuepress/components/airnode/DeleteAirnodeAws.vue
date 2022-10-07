@@ -82,7 +82,9 @@ https://renatello.com/dynamic-drop-down-list-in-vue-js/
       </li>
 
       <li><a :href="'https://s3.console.aws.amazon.com/s3/home?region=' + region" target="_aws-console">S3<ExternalLinkImage/></a>
-        : Delete the Airnode's S3 bucket. You will be prompted to delete its contents first.
+        : Delete the Airnode's S3 bucket directory, not the S3 bucket. Drill down to the directory  
+        identified by the <i>stage</i> name of the Airnode which can be found in the config.json and 
+        the receipt.json files.
       </li>
 
     </ul>
