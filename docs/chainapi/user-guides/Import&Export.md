@@ -23,7 +23,7 @@ allows you to paste an OIS ([click here](https://docs.api3.org/ois/latest/) for
 more information) that will be used to pre-populate the integration for you. You
 will then be able to complete the integration.
 
-::: tip Important notes
+::: tip Important Notes
 
 - Importing an OIS is only available for new integrations
 - If you are using a config.json file, copy the OIS object from within the array
