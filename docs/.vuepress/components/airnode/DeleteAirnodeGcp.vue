@@ -52,7 +52,9 @@ a manual removal of an Airnode from GCP.
                   
       <li><a :href="'https://console.cloud.google.com/storage/browser?forceOnBucketsSortingFiltering=false&orgonly=true&project='+projectId+'&supportedpurview=organizationId&prefix=&forceOnObjectsSortingFiltering=false'" 
       target="_gcp-console">Cloud Storage</a>
-        : Delete the six buckets of Cloud Storage.
+        : Delete the Airnode's bucket directory, not the bucket. Drill down to the directory 
+        identified by the <i>stage</i> name of the Airnode which can be found in the config.json and 
+        the receipt.json files.
       </li>
     </ul>
 
