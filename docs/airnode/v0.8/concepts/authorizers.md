@@ -199,7 +199,7 @@ making a static call to check if they are authorized. This scheme both allows
 the Airnode to set transparent and flexible policies, and this to be done with
 no gas overhead.
 
-### Access (deny, allow, filter)
+### Access (allow, filter)
 
 How authorizer contracts impact access is based on the `chains` field of
 `config.json` for a given Airnode.
