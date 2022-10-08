@@ -128,9 +128,14 @@ Below is an example of how to create the simplest form of an authorizer. This
 authorizer allows any requester contract to call the endpointId (0xf2ee...).
 
 ```solidity
-contract myAuthorizer is IAuthorizer
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.9;
+
+import "@api3/airnode-protocol/contracts/authorizers/interfaces/IAuthorizerV0.sol";
+
+contract MyAuthorizer is IAuthorizerV0
 {
-  function isAuthorized(
+  function isAuthorizedV0(
     bytes32 requestId,
     address airnode,
     bytes32 endpointId,
