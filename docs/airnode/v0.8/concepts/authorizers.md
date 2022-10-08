@@ -113,8 +113,8 @@ respond to anyone after block number N). An authorizer is a contract with the
 following interface:
 
 ```solidity
-interface IAuthorizer {
-  function isAuthorized(
+interface IAuthorizerV0 {
+  function isAuthorizedV0(
       bytes32 requestId,
       address airnode,
       bytes32 endpointId,
