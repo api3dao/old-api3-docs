@@ -204,34 +204,17 @@ no gas overhead.
 How authorizer contracts impact access is based on the `chains` field of
 `config.json` for a given Airnode.
 
-#### Deny All
-
-If the Airnode wants to deny all access for a particular chain, it should not
-operate on it (i.e., it should not exist in `chains`). The below example would
-"deny all" for chains _1 and 3–n_ since they do not have entries in the `chains`
-field.
-
-```json
-chains:[
-  {
-    id:2,
-    authorizers:{requesterEndpointAuthorizers:[]},
-    ...
-  }
-]
-```
-
 #### Allow All
 
 When `chains[n].authorizers.{<authorizerSchemeType>}` (such as the
 `requesterEndpointAuthorizers` type) is an empty array, this means "let everyone
-through". In the example below chain _2_ would allow access to any requester.
+through". In the example below, all chain _2_ requests are authorized.
 
 ```json
-chains:[
+"chains": [
   {
-    id:2,
-    authorizers:{requesterEndpointAuthorizers:[]}
+    "id": "2",
+    "authorizers": { "requesterEndpointAuthorizers": [] }
     ...
   },
   ...
@@ -241,16 +224,15 @@ chains:[
 #### Filter All
 
 If the Airnode wants to give access selectively, it should use one or more
-authorizer contracts that implement filtering logic. In the example below the
-Airnode will accept requests via two authorizer contracts on chain _2_. Here a
-requester would be filtered by two authorizer contracts of the authorizer scheme
-type `requesterEndpointAuthorizers`.
+authorizer contracts that implement filtering logic. In the example below, a
+request would be authorized on chain _2_ if _either_ of the two
+`requesterEndpointAuthorizers` contracts authorize the request.
 
 ```json
-chains:[
+"chains": [
   {
-    id:2,
-    authorizers:{requesterEndpointAuthorizers:['0xcd...cd8d','0xff...d19c]}
+    "id": "2",
+    "authorizers": { "requesterEndpointAuthorizers": ["0xcd...cd8d", "0xff...d19c"] }
     ...
   }
 ]
