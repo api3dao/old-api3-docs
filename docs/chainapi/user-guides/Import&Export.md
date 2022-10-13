@@ -18,10 +18,10 @@ workspaces, making integration backups and other use cases.
 
 ## Import OIS
 
-When adding a new integration, you have the option to click “Import OIS” which
-allows you to paste an OIS ([click here](hhttps://docs.api3.org/ois/v1.2/) for
-more information) that will be used to pre-populate the integration for you. You
-will then be able to complete the integration.
+When adding a new integration, you have the option to click **Import OIS** which
+allows you to paste an OIS for more information) that will be used to
+pre-populate the integration for you. You will then be able to complete the
+integration. Read more about OIS [here](https://docs.api3.org/ois/v1.2/).
 
 ::: tip Important Notes
 
@@ -37,16 +37,23 @@ will then be able to complete the integration.
 
 You can export an OIS from one of the below sections:
 
+When exporting, what is the difference between **Download OIS** and **Copy**?
+
+- **Download OIS** will download a .json file containing your OIS, this can then
+  be used to backup your OIS or at a later date for import purposes
+- **Copy** will copy your OIS which you can then paste directly into the
+  **Import OIS** text box or add it to an external file
+
 **Manage Versions page**
 
-1. Navigate to your integrations by clicking "Integrate" on the sidebar.
-2. Click "Manage Versions" on the integration you want to export.
+1. Navigate to your integrations by clicking **Integrate** on the sidebar.
+2. Click **Manage Versions** on the integration you want to export.
 3. Click the ellipsis on the right of the version you wish to export.
-4. Select "Export OIS".
+4. Select **Export OIS**.
 
 **View Version page**
 
-1. Navigate to your integrations by clicking "Integrate" on the sidebar.
-2. Click "Manage Versions" on the integration you want to export.
-3. Select "View" for the version you wish to export.
-4. Click "Export OIS" on the top right of the page.
+1. Navigate to your integrations by clicking **Integrate** on the sidebar.
+2. Click **Manage Versions** on the integration you want to export.
+3. Select **View** for the version you wish to export.
+4. Click **Export OIS** on the top right of the page.
