@@ -38,13 +38,6 @@ integration.
 
 You can export an OIS from one of the below sections:
 
-When exporting, what is the difference between **Download OIS** and **Copy**?
-
-- **Download OIS** will download a .json file containing your OIS, this can then
-  be used to backup your OIS or at a later date for import purposes
-- **Copy** will copy your OIS which you can then paste directly into the
-  **Import OIS** text box or add it to an external file
-
 **Manage Versions page**
 
 1. Navigate to your integrations by clicking **Integrate** on the sidebar.
@@ -58,3 +51,10 @@ When exporting, what is the difference between **Download OIS** and **Copy**?
 2. Click **Manage Versions** on the integration you want to export.
 3. Select **View** for the version you wish to export.
 4. Click **Export OIS** on the top right of the page.
+
+When exporting, what is the difference between **Download OIS** and **Copy**?
+
+- **Download OIS** will download a .json file containing your OIS, this can then
+  be used to backup your OIS or at a later date for import purposes
+- **Copy** will copy your OIS which you can then paste directly into the
+  **Import OIS** text box or add it to an external file
