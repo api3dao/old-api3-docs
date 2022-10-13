@@ -14,14 +14,15 @@ tags:
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 Importing and exporting allows for easy sharing of integrations across
-workspaces, making integration backups and other use cases.
+workspaces, making integration backups and other use cases. Read more about OIS
+[here](https://docs.api3.org/ois/v1.2/).
 
 ## Import OIS
 
 When adding a new integration, you have the option to click **Import OIS** which
 allows you to paste an OIS for more information) that will be used to
 pre-populate the integration for you. You will then be able to complete the
-integration. Read more about OIS [here](https://docs.api3.org/ois/v1.2/).
+integration.
 
 ::: tip Important Notes
 
