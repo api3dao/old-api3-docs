@@ -2,6 +2,7 @@
 .DS_Store
 node_modules/
 
+.python-version
 docs/.vuepress/dist
 
 package-lock.json
