@@ -91,9 +91,9 @@ Note that `nodeSetting.disableConcurrencyReservations` has been set to `true`.
 This is a precaution for new AWS accounts that have yet to address concurrency
 management. For production deployments, `disableConcurrencyReservations` should
 be set to `false`. See
-[disableConcurrencyReservations](../../guides/build-an-airnode/configuring-airnode.md#cloudprovider)
-under the `cloudProvider` key and
-[maxConcurrency](../../guides/build-an-airnode/configuring-airnode.md#maxconcurrency)
+[disableConcurrencyReservations](../../../reference/deployment-files/config-json.md#cloudprovider-disableconcurrencyreservations)
+and
+[maxConcurrency](../../../reference/deployment-files/config-json.md#maxconcurrency)
 for more information.
 
 ### secrets.env
