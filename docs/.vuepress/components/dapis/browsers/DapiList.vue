@@ -161,7 +161,7 @@ export default {
           // Future use: not sure how to determine NOT a beacon set.
           let beacons = [];
           // Single beacon
-          if (!beacon.beacons) {
+          if (!beacon?.beacons) {
             beacons.push(beacon);
             //content += beacon.beaconId + '' + beacon.description;
           }
