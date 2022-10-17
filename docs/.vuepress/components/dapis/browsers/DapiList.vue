@@ -130,7 +130,7 @@ export default {
         'https://operations-development.s3.amazonaws.com/latest/apis.json'
       );
       for (var provider in response.data) {
-        for (var beacon in response.data[provider].beacons) {
+        for (var beacon in response.data[provider]?.beacons) {
           const id = response.data[provider].beacons[beacon].beaconId;
           this.beacons[id] = response.data[provider].beacons[beacon];
         }
