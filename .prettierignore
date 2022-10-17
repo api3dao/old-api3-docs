@@ -27,3 +27,5 @@
 /docs/airnode/v0.3/assets
 /docs/airnode/v0.3/figures
 
+# Beacon-related resources
+/docs/.vuepress/beacons.json
