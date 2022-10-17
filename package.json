@@ -6,6 +6,9 @@
   "repository": "https://github.com/api3dao/api3-docs",
   "author": "API3 DAO",
   "license": "MIT",
+  "engines": {
+    "node": "^14"
+  },
   "scripts": {
     "sync:404": "cp docs/.vuepress/components/Sub404.vue node_modules/@vuepress/theme-default/layouts/404.vue",
     "sync:navbar": "cp docs/.vuepress/components/Navbar.vue node_modules/@vuepress/theme-default/components/Navbar.vue",
