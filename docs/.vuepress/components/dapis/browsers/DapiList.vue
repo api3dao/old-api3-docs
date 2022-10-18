@@ -154,6 +154,10 @@ export default {
         );
         // Construct a dAPI complex object
         for (var dAPI in responseDapis.data) {
+          // Exclude Stable/USD for now
+          if (dAPI === 'Stable/USD') {
+            continue;
+          }
           const datafeedId = responseDapis.data[dAPI]; // Get the dAPI's beacon/setId
           const beacon = this.beacons[datafeedId];
           let content = dAPI + ' ';
