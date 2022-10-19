@@ -31,7 +31,7 @@ module.exports = [
     collapsable: false,
     children: [
       'reference/schemes.md',
-      'reference/dapi-browser.md',
+      //'reference/dapi-browser.md',
       'reference/chains.md',
     ],
   },

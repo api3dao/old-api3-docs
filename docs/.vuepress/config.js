@@ -75,7 +75,7 @@ module.exports = {
   },
   themeConfig: {
     startPath: '/airnode/v0.8/',
-    latestVersions: { airnode: '/airnode/v0.8/', ois: '/ois/v1.1' },
+    latestVersions: { airnode: '/airnode/v0.9/', ois: '/ois/v1.2' },
     sidebarDepth: 0,
     displayAllHeaders: false,
     logo: '/img/logo.png',
