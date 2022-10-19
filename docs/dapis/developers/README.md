@@ -100,10 +100,3 @@ set. Also see [dAPI Composition](../#dapi-composition).
   timestamp using a Beacon or Beacon set ID.
 - [readDataFeedValueWithId()](./read-data-feed-value-with-id.md) - Returns a
   value using a Beacon or Beacon set ID.
-
-## Resources
-
-- [Chains and Contracts](../reference/chains.md): A list of chains, and
-  supporting contracts that dAPIs are available on.
-- [dAPI Browser](../reference/dapi-browser.md): A list of dAPIs that have been
-  deployed.

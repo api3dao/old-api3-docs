@@ -25,13 +25,6 @@ called, and with which parameters. This provides complete transparency to the
 dApp developer, which is a big step from depending on a pseudonymous selection
 of third parties that intentionally obscure their data sources.
 
-::: tip dAPI Browser
-
-dAPIs source data from Beacons, whose parameters you can examine in detail. See
-the [dAPI Browser](../reference/dapi-browser.md).
-
-:::
-
 **Cost-efficiency**: dAPIs are cost efficient compared to third-party data
 feeds, as the user does not need to pay middlemen node operators for their
 services. Furthermore, first-party data feeds do not require redundancy against
@@ -46,3 +39,10 @@ improved scalability of dAPIs also factors into building aggregated data feeds.
 Since first-party data feeds do not require redundancy at the middlemen layer,
 the aggregation costs less gas and source-level decentralization becomes more
 affordable.
+
+::: tip API3 Market
+
+dAPIs source data from Beacons, whose parameters you can examine in detail. See
+the [API3 Market](https://market.api3.org/) to view available dAPIs.
+
+:::
