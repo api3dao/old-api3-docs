@@ -59,20 +59,21 @@ use when calling the any API operations.
 ### Base URL
 
 This is the first part of the URL to which all requests are made. The full
-request URL is made up of two parts: the Base URL and the path. The paths are
-captured by various (?) endpoints which we’ll get to in a second.
+request URL is made up of two parts: the Base URL and the path. The path is
+captured as part of each endpoint you add, we will expand on this under
+[New Endpoint](#new-endpoint).
 
 ### Security Schemes
 
 Typically, APIs are secured in one way or another. They can be secured by API
-Keys, cookies, and OAuth. After choosing the type of security scheme, you can
+keys, cookies, and OAuth. After choosing the type of security scheme, you can
 specify where it will be set, we’ll say in the header, and will give the key a
 name.
 
-We will never ask for your apiKey due to security and because ChainAPI never
-wants to handle your sensitive data. You will be asked to enter your apiKey when
-you deploy your Airnode, but that's just between you and your cloud provider.
-ChainAPI will never see that key.
+We will never ask for your API key due to security and because ChainAPI never
+wants to handle your sensitive data. You will be asked to enter your API key
+when you deploy your Airnode, but that's just between you and your cloud
+provider. ChainAPI will never see that key.
 
 ## New Endpoint
 
