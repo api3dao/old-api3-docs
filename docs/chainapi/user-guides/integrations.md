@@ -21,7 +21,8 @@ Airnode document set for more information.
 
 Select the **Integrate** menu in the navigation bar on the left side of the
 page. Then select the **Integrate API** button. ChainAPI will step-you-through
-the integration creation. <br/> <img src="../assets/images/integrate-api.png"
+the integration creation. <br/><br/>
+<img src="../assets/images/integrate-api.png"
 width="22%"/>
 
 ## New API
@@ -58,38 +59,40 @@ use when calling the any API operations.
 ### Base URL
 
 This is the first part of the URL to which all requests are made. The full
-request URL is made up of two parts: the Base URL and the path. The paths are
-captured by various (?) endpoints which we’ll get to in a second.
+request URL is made up of two parts: the Base URL and the path. The path is
+captured as part of each endpoint you add, we will expand on this under
+[New Endpoint](#new-endpoint).
 
 ### Security Schemes
 
 Typically, APIs are secured in one way or another. They can be secured by API
-Keys, cookies, and OAuth. After choosing the type of security scheme, you can
+keys, cookies, and OAuth. After choosing the type of security scheme, you can
 specify where it will be set, we’ll say in the header, and will give the key a
 name.
 
-We will never ask for your apiKey due to security and because ChainAPI never
-wants to handle your sensitive data. You will be asked to enter your apiKey when
-you deploy your Airnode, but that's just between you and your cloud provider.
-ChainAPI will never see that key.
+We will never ask for your API key due to security and because ChainAPI never
+wants to handle your sensitive data. You will be asked to enter your API key
+when you deploy your Airnode, but that's just between you and your cloud
+provider. ChainAPI will never see that key.
 
 ## New Endpoint
 
 ### Path/Method
 
-Endpoints are classified by path and method. Currently we support GET and POST,
-but as Airnode supports the different http methods we’ll add them here.
+Endpoints are classified by path and method. Currently we support `GET` and
+`POST`, but as Airnode supports the different http methods we’ll add them here.
 
 ### Endpoint Documentation
 
-We can capture some documentation- summary, description, and an existing
+We can capture some documentation - summary, description, and an existing
 external URL.
 
-### Parameters
+## Parameters
 
 Airnode works by using a scheme that allows access to your parameters. When a
 developer tries to access your API, they can only submit parameters that have
-been allowed by you. So, we need to set those parameters here.
+been allowed by you. So, we need to set those parameters here. You are free to
+capture as many parameters as the endpoint requires.
 
 ### Name
 
@@ -105,30 +108,56 @@ Choose where that parameter will be set in the request.
 
 ### Value Source
 
-This can be either user defined, which means that the caller can specify
-whatever value they would like, or it can be fixed. For fixed parameters, we
-hardcode a value that will never be overwritten by the user.
+This can be either <b>User Defined</b>, which means that the caller can specify
+whatever value they would like, or it can be <b>Fixed</b>. For <b>Fixed</b>
+parameters, we hardcode a value that can't be overwritten by the user.
+
+### Parameter Documentation
 
 Similar to the high level details, we can also capture documentation around the
 parameter. For example, is it required, the description, and the example value.
-You are free to capture as many parameters as the endpoint requires.
 
-### Reserved Parameters
+## Reserved Parameters
 
 These are used by Airnode before submitting values back to the blockchain. There
 are several restrictions around what you can and cannot handle on the
-blockchain, and these are handled by the reserved parameters. For example, if
-your API returns a number value, you would want to have the user be able to pass
-that in int256 or uint256 which are the types on the Ethereum blockchain.
-Similarly if you had a string value, you would set that to bytes32. Like the
-value source in your other parameters, these can also be fixed or user defined.
+blockchain, and these are handled by the reserved parameters. Read more about
+reserved parameters
+[here](https://docs.api3.org/ois/v1.2/reserved-parameters.html).
+
+::: tip Value Source
+
+In most cases, you'll want to leave the reserved parameter's value source as
+<b>User Defined</b> to allow the callers of your Airnode to decide how to store
+the data on chain.
+
+Only use the <b>Fixed</b> value source if you need to control the data that is
+returned.
+
+:::
+
+The `_type` defines which Solidity data type the value in the response should
+map to.
 
 The `_path` defines how the values to be sent back to the blockchain should be
 selected.
 
 The `_times` parameter is useful when you’re dealing with numbers. Many
 blockchains don’t support decimal values, so using this parameter multiplies the
-api value by the value specified
+api value by the value specified.
+
+### Multiple Reserved Parameters
+
+When using a <b>Fixed</b> value source, you can capture multiple reserved
+parameters by using comma notation.
+
+For example, you can capture multiple `_type` parameters as `int256,bytes32`.
+
+You need to provide the same number of values for all reserved parameters that
+use a <b>Fixed</b> value source.
+
+Read more about multiple reserved parameters
+[here](https://docs.api3.org/ois/v1.2/reserved-parameters.html#encoding-multiple-values).
 
 ---
 
