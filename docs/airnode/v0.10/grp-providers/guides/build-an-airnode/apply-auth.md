@@ -97,14 +97,11 @@ authorizer contract developed for Airnode operators to use right out-of-the-box.
 It allows the whitelisting of requester contracts (with or without expiration
 timestamps) on a per endpoint basis. Endpoints are declared in the
 `ois.endpoints` field of the `config.json` file. This is the most common use
-case and may in fact satisfy the needs of many Airnodes. You can find the
-contract address of this authorizer in the
-[Airnode Contract Addresses](../../../reference/airnode-addresses.md) doc.
+case and can be implemented with the following steps:
 
-To use the RequesterAuthorizerWithAirnode authorizer contract:
-
-1. Add an authorizer contract address to the array for
-   `chains[n].authorizers.{<authorizerContractAddress>}`.
+1. Add the RequesterAuthorizerWithAirnode
+   [authorizer contract address](../../../reference/airnode-addresses.md#requesterauthorizerwithairnode)
+   to the array `chains[n].authorizers.requesterEndpointAuthorizers`.
 2. After your Airnode is deployed, call the Admin CLI command
    [set-whitelist-expiration](../../../reference/packages/admin-cli.md#set-whitelist-expiration)
    to add the desired requester contract addresses to the whitelist maintained
