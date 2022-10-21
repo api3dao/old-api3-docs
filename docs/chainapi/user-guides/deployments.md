@@ -93,6 +93,20 @@ network. There is no cost while using them.
 These are private RPC URLs, controlled either by yourself or a blockchain
 provider, that provide access to the blockchain network.
 
+## Authorizers
+
+Authorizer contracts allow you to specify which smart contracts can make
+requests to your Airnode’s endpoints.
+
+**Public** authorizers allow any smart contract to make requests to your
+Airnode’s endpoints.
+
+**Restricted** authorizers only allow smart contract addresses that have been
+granted access to make requests to your Airnode’s endpoints.
+
+To learn more about authorizers,
+[check out these docs](https://docs.api3.org/airnode/v0.9/concepts/authorizers).
+
 ## Review Configuration
 
 Review the deployment configuration before continuing. Go back to make changes
