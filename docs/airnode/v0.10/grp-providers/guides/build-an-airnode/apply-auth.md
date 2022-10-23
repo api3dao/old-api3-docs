@@ -39,7 +39,7 @@ authorizations, and relayed meta data together.
 When you deploy your Airnode a receipt file is generated which contains the
 Airnode's `airnodeAddress`. Sponsors (via their sponsored requesters) use
 `airnodeAddress` and an `endpointId` to make requests to your Airnode's
-endpoints. However, you probably do not want to serve them publicly.
+endpoints. However, rather than serve them publicly, you may want to:
 
 - Only serve your own
   [requester contracts](../../../grp-developers/requesters-sponsors.md).
@@ -49,10 +49,11 @@ endpoints. However, you probably do not want to serve them publicly.
 You can use different authorizer contracts for your Airnode deployment per chain
 by declaring them in the `config.json` file under `chains[n].authorizers`. Add
 one or more authorizer contract addresses to the
-`chains[n].authorizers.{<authorizerSchemeType>}` array as shown below (e.g.
-`requesterEndpointAuthorizers`). If the array is left empty then all requests
-will be accepted by the Airnode but still could be filtered by the another
-method of authorization,
+`chains[n].authorizers.requesterEndpointAuthorizers` array or add one or more
+cross-chain authorizer objects to the
+`chains[n].authorizers.crossChainRequesterAuthorizers` array as shown below. If
+the `requesterEndpointAuthorizers` array is left empty then all requests will be
+accepted by the Airnode but still could be filtered by using
 [Relayed Meta Data Security Schemes](./api-security.md#relayed-meta-data-security-schemes).
 
 ```json
@@ -66,14 +67,16 @@ method of authorization,
         "requesterEndpointAuthorizers": [  // Requests must satisfy at least
           "0xeabb...C123",                 // one of the authorizer contracts
           "0xCE5e...1abc"
-        ]
+        ],
+        "crossChainRequesterAuthorizers": []
       }
     },
     {
       "id": "2",
       ...
       "authorizers": {
-        "requesterEndpointAuthorizers": [] // All requests will be processed
+        "requesterEndpointAuthorizers": [], // All requests will be processed
+        "crossChainRequesterAuthorizers": []
       },
     },
     {
@@ -82,6 +85,30 @@ method of authorization,
       "authorizers": {
         "requesterEndpointAuthorizers": [  // Requests must satisfy a
           "0xeabb...C123"                  // single authorizer contract
+        ],
+        "crossChainRequesterAuthorizers": []
+      }
+    },
+    {
+      "id": "4",
+      ...
+      "authorizers": {
+        "requesterEndpointAuthorizers": [  // Requests must satisfy a
+          "0xeabb...C123"                  // single authorizer contract
+        ],                                 // OR an authorizer contract deployed
+                                           // on a different chain (Ethereum mainnet)
+        "crossChainRequesterAuthorizers": [
+          {
+            "requesterEndpointAuthorizers": ["0xCE5e...1abc"],
+            "chainType": "evm",
+            "chainId": "1",
+            "contracts": {
+              "AirnodeRrp": "0xa0AD...a1Bd"
+            },
+            "chainProvider": {
+              "url": "https://mainnet.infura.io/..."
+            }
+          }
         ]
       }
     },

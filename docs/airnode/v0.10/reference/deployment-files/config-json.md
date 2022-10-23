@@ -58,7 +58,8 @@ respective parameters.
       "requesterEndpointAuthorizers": [
         "0xf18c105D0375E80980e4EED829a4A68A539E6178",
         "0xCE5e...1abc"
-      ]
+      ],
+      "crossChainRequesterAuthorizers": []
     },
     "authorizations": {
       "requesterEndpointAuthorizations": {}
@@ -114,7 +115,8 @@ respective parameters.
   },
   {
     "authorizers": {
-      "requesterEndpointAuthorizers": []
+      "requesterEndpointAuthorizers": [],
+      "crossChainRequesterAuthorizers": []
     },
     "authorizations": {
       "requesterEndpointAuthorizations": {}
