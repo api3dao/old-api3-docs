@@ -58,7 +58,8 @@ respective parameters.
       "requesterEndpointAuthorizers": [
         "0xf18c105D0375E80980e4EED829a4A68A539E6178",
         "0xCE5e...1abc"
-      ]
+      ],
+      "crossChainRequesterAuthorizers": []
     },
     "authorizations": {
       "requesterEndpointAuthorizations": {}
@@ -114,7 +115,8 @@ respective parameters.
   },
   {
     "authorizers": {
-      "requesterEndpointAuthorizers": []
+      "requesterEndpointAuthorizers": [],
+      "crossChainRequesterAuthorizers": []
     },
     "authorizations": {
       "requesterEndpointAuthorizations": {}
@@ -176,8 +178,7 @@ respective parameters.
 (required) - An object containing `authorizers` scheme types that contain
 authorizer contract addresses specifying the auth patterns that the
 [AirnodeRrpV0](../../concepts/#airnoderrpv0-sol) contract should use on-chain.
-An empty `<authorizerSchemeType>` array would allow-all. Learn more about
-authorizers in [Concepts](../../concepts/authorizers.md) and
+Learn more about authorizers in [Concepts](../../concepts/authorizers.md) and
 [Build an Airnode](../../grp-providers/guides/build-an-airnode/apply-auth.md).
 
 ### `authorizations`
