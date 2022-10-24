@@ -385,28 +385,8 @@ and you must
 [enable them](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html)
 before you can create and manage resources. Note that transferring a deployment
 from one region to the other is not trivial (i.e., it does not take one command
-like deployment, but rather three) and is not advised.
-
-##### Supported regions:
-
-| GCP                  | AWS            |
-|----------------------|----------------|
-| asia-northeast1      | ap-northeast-1 |
-| australia-southeast1 | ap-northeast-2 |
-| europe-west1         | ap-south-1     |
-| europe-west2         | ap-southeast-1 |
-| us-central1          | ap-southeast-2 |
-| us-east1             | ca-central-1   |
-| us-east4             | eu-central-1   |
-| us-west2             | eu-north-1     |
-| us-west4             | eu-west-1      |
-|                      | eu-west-2      |
-|                      | eu-west-3      |
-|                      | sa-east-1      |
-|                      | us-east-1      |
-|                      | us-east-2      |
-|                      | us-west-1      |
-|                      | us-west-2      |
+like deployment, but rather three) and is not advised. See
+[Cloud Resource](../cloud-resources.md) for a list of supported regions.
 
 #### `cloudProvider.disableConcurrencyReservations`
 
