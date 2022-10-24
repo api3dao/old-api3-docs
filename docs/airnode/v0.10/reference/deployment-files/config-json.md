@@ -178,8 +178,7 @@ respective parameters.
 (required) - An object containing `authorizers` scheme types that contain
 authorizer contract addresses specifying the auth patterns that the
 [AirnodeRrpV0](../../concepts/#airnoderrpv0-sol) contract should use on-chain.
-An empty `<authorizerSchemeType>` array would allow-all. Learn more about
-authorizers in [Concepts](../../concepts/authorizers.md) and
+Learn more about authorizers in [Concepts](../../concepts/authorizers.md) and
 [Build an Airnode](../../grp-providers/guides/build-an-airnode/apply-auth.md).
 
 ### `authorizations`
