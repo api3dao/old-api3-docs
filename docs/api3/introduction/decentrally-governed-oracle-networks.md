@@ -11,7 +11,7 @@ tags:
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
 _See the medium article,
-[On DAOs: Decentralized Autonomous Organizations](https://medium.com/api3/on-daos-decentralized-autonomous-organizations-84c00abb89bc)
+[Why API3 DAO, not API3 CORP?](https://medium.com/api3/why-api3-dao-not-api3-corp-2dde51c537c1)
 on DAOs and decentralized governance._
 
 [First-party oracles](./first-party-oracles.md) are optimally secure and
