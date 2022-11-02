@@ -1,5 +1,5 @@
 ---
-title: How it Works!
+title: How it Works
 docSetName: QRNG
 folder: Introduction
 basePath: /qrng
