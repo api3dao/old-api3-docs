@@ -16,7 +16,7 @@ tags:
 <TOC class="table-of-contents" :include-level="[2,3]" /-->
 
 The following guide assumes a valid v0.8.x `config.json` file. All changes
-listed below will need to be implemented in order to migrate to Airnode v0.9.0.
+listed below will need to be implemented in order to migrate to Airnode v0.9.x.
 This document is written in a way that will preserve existing behaviour with
 earlier Airnode versions.
 
@@ -27,7 +27,7 @@ Airnode, such as airnode-deployer, airnode-admin and more.
 
 1. `ois[n].oisFormat` updated to "1.2.0".
 
-2. `nodeSettings.nodeVersion` updated to "0.9.0".
+2. `nodeSettings.nodeVersion` updated to "0.9.1".
 
 3. `airnode-deployer remove-with-deployment-details` now accepts a full
    `--airnode-address` argument instead of the short airnode address
@@ -51,27 +51,27 @@ Updated to "1.2.0"
 
 2. `nodeSettings.nodeVersion`
 
-Updated to "0.9.0"
+Updated to "0.9.1"
 
 ```diff
 {
 -  "nodeVersion": "0.8.1"
-+  "nodeVersion": "0.9.0"
++  "nodeVersion": "0.9.1"
 }
 ```
 
 3. `airnode-deployer remove-with-deployment-details` accepts `--airnode-address`
    parameter
 
-In Airnode 0.9. the `airnode-deployer` underwent an internal refactor to improve
-cloud provider deployments. The only user facing change is that the deployer
-uses the full Airnode address instead of the shortened one when executing the
-`remove-with-deployment-details` command.
+In Airnode v0.9.x the `airnode-deployer` underwent an internal refactor to
+improve cloud provider deployments. The only user facing change is that the
+deployer uses the full Airnode address instead of the shortened one when
+executing the `remove-with-deployment-details` command.
 
 ```diff
 - docker run -it --rm \
 -   -v "$(pwd):/app/config" \
--   api3/airnode-deployer:0.8.0 remove-with-deployment-details \
+-   api3/airnode-deployer:0.8.1 remove-with-deployment-details \
 -   --airnode-address-short abd9eaa \
 -   --stage dev \
 -   --cloud-provider gcp \
@@ -79,7 +79,7 @@ uses the full Airnode address instead of the shortened one when executing the
 -   --region us-east1
 + docker run -it --rm \
 +   -v "$(pwd):/app/config" \
-+   api3/airnode-deployer:0.9.0 remove-with-deployment-details \
++   api3/airnode-deployer:0.9.1 remove-with-deployment-details \
 +   --airnode-address 0xabd9eaa588B6818Ac4C32c5e9b31962E351Cd39F \
 +   --stage dev \
 +   --cloud-provider gcp \

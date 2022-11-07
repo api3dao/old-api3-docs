@@ -49,5 +49,5 @@ Name" in order to view a specific request type or Airnode cycle stage.
 
 Running the `airnode-client` Docker image will output container logs to the
 command line. These logs are also available through the Docker interface e.g.
-under Containers within Docker Desktop. For more on the `airnode-client` image,
-[see here](../../docker/client-image.md).
+under Containers within Docker Desktop. For more information see the
+[airnode-client](../../docker/client-image.md#checking-airnode-logs) image.
