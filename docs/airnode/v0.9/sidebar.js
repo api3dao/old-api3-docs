@@ -45,6 +45,7 @@ module.exports = [
             path: 'grp-providers/guides/build-an-airnode/http-gateways',
           },
           'grp-providers/guides/build-an-airnode/deploying-airnode',
+          'grp-providers/guides/build-an-airnode/monitoring-airnode',
         ],
       },
       {
