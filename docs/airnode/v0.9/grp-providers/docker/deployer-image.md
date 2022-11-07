@@ -93,7 +93,7 @@ some deployment information and is used to remove the Airnode.
 docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
   -v "$(pwd):/app/config" \
-  api3/airnode-deployer:0.9.0 deploy
+  api3/airnode-deployer:0.9.1 deploy
 ```
 
 :::
@@ -104,7 +104,7 @@ docker run -it --rm \
 # For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
-  api3/airnode-deployer:0.9.0 deploy
+  api3/airnode-deployer:0.9.1 deploy
 ```
 
 :::
@@ -137,7 +137,7 @@ Use the following example to avoid the automatic removal of the Airnode.
 docker run -it --rm \
 -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
 -v "$(pwd):/app/config" \
-api3/airnode-deployer:0.9.0 deploy --auto-remove false
+api3/airnode-deployer:0.9.1 deploy --auto-remove false
 ```
 
 :::
@@ -157,7 +157,7 @@ deployment, but there are alternatives as described below.
 ```sh
 docker run -it --rm \
   -v "$(pwd):/app/config" \
-  api3/airnode-deployer:0.9.0 remove-with-receipt
+  api3/airnode-deployer:0.9.1 remove-with-receipt
 ```
 
 :::
@@ -168,7 +168,7 @@ docker run -it --rm \
 # For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
-  api3/airnode-deployer:0.9.0 remove-with-receipt
+  api3/airnode-deployer:0.9.1 remove-with-receipt
 ```
 
 :::
@@ -209,7 +209,7 @@ that should be replaced.
 ```sh
 docker run -it --rm \
   -v "$(pwd):/app/config" \
-  api3/airnode-deployer:0.9.0 remove-with-deployment-details \
+  api3/airnode-deployer:0.9.1 remove-with-deployment-details \
   --airnode-address 0xaBd9daAdf32fCd96eE4607bf3d5B31e19a244Cac \
   --stage dev \
   --cloud-provider gcp \
@@ -225,7 +225,7 @@ docker run -it --rm \
 #For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "$(pwd):/app/config" ^
-  api3/airnode-deployer:0.9.0 remove-with-deployment-details ^
+  api3/airnode-deployer:0.9.1 remove-with-deployment-details ^
   --airnode-address 0xaBd9daAdf32fCd96eE4607bf3d5B31e19a244Cac ^
   --stage dev ^
   --cloud-provider gcp ^
