@@ -151,13 +151,40 @@ api value by the value specified.
 When using a <b>Fixed</b> value source, you can capture multiple reserved
 parameters by using comma notation.
 
-For example, you can capture multiple `_type` parameters as `int256,bytes32`.
+For example, you could capture multiple `_type` parameters as `int256,bytes32`.
 
 You need to provide the same number of values for all reserved parameters that
 use a <b>Fixed</b> value source.
 
-Read more about multiple reserved parameters
-[here](https://docs.api3.org/ois/v1.2/reserved-parameters.html#encoding-multiple-values).
+Read more about
+[multiple reserved parameters](https://docs.api3.org/ois/v1.2/reserved-parameters.html#encoding-multiple-values)
+on the Airnode documentation.
+
+## Advanced Settings
+
+::: warning Security Warning
+
+Advanced features may have security implications. Ensure you are familiar with
+these features and their risks before using them.
+
+:::
+
+### Pre/Post Processing
+
+Pre/Post Processing allows you to specify snippets of Javascript code to be run
+before or after a request is made to your Airnode.
+
+Snippets will be run sequentially in the order you capture them in.
+
+There are three settings per snippet:
+
+1. Environment - either `Node 14` or `Node 14 Async`
+2. Value - the snippet to process
+3. Timeout - the duration in milliseconds your snippet is allowed to run in
+
+Read more about
+[Pre/Post Processing](https://docs.api3.org/ois/v1.2/processing.html) on the
+Airnode documentation.
 
 ---
 
