@@ -484,8 +484,8 @@ array can be empty. Each object has the following elements:
 - `name`
 - `default`
 - `description *`
-- `require`
-- `example`
+- `required`
+- `example *`
 
 #### 5.5.1. `operationParameter`
 
