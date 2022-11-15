@@ -22,7 +22,7 @@ A requester can pass request parameters either by referencing a
 argument of the request-making methods of
 [AirnodeRrpV0.sol](/airnode/v0.7/concepts/#airnoderrpv0-sol). In either case,
 these parameters are encoded using the
-[AirnodeRrpV0 ABI](/airnode/v7/reference/specifications/airnode-abi-specifications.md).
+[AirnodeRrpV0 ABI](/airnode/v0.7/reference/specifications/airnode-abi-specifications.md).
 There are two types of parameters which are part of the OIS object:
 
 1. [Endpoint parameters](./ois.md#_5-5-parameters) - Airnode endpoint parameters
@@ -62,7 +62,7 @@ section below.
 Before the API response value is encoded for on chain use, it is parsed and
 converted. The conversion behaviors for any given type is explained in depth in
 the
-[adapter package docs](/airnode/v7/reference/packages/adapter.md#conversion).
+[adapter package docs](/airnode/v.07/reference/packages/adapter.md#conversion).
 
 The converted value is then encoded internally by
 [ethers ABI Coder](https://docs.ethers.io/v5/api/utils/abi/coder/#AbiCoder)
@@ -214,8 +214,8 @@ _times: "100"
 
 the request will be fulfilled with the value `123`. Note that the number gets
 multiplied by `100`, and then gets floored. This is because the result of the
-multiplication is [cast](/airnode/v8/reference/packages/adapter.md) to `int256`
-afterwards.
+multiplication is [cast](/airnode/v0.8/reference/packages/adapter.md) to
+`int256` afterwards.
 
 Make sure to pass the `_times` parameter as string. Airnode will convert this
 string to number internally. You can also pass and empty string `""` to `_times`
