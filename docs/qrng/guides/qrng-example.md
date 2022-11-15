@@ -44,7 +44,7 @@ The QRNG example project
 [sets the sponsor wallet](https://github.com/api3dao/qrng-example/blob/main/deploy/2_setup.js#L11-L28)
 using the requester address. The wallet is then used to pay gas costs when the
 Airnode responds to a request. An alternate method is to use the
-[Admin CLI](/airnode/v0.7/reference/packages/admin-cli.md) as is the case with
+[Admin CLI](/airnode/v0.9/reference/packages/admin-cli.md) as is the case with
 the [Remix Example Project](./remix-example.md).
 
 <airnode-SponsorWalletWarning/>

@@ -91,7 +91,7 @@ this public utility at the
 
 ## What to expect next?
 
-API3 QRNG is built on [Airnode](/airnode/v0.7/), which means any future
+API3 QRNG is built on [Airnode](/airnode/v0.9/), which means any future
 improvements to Airnode will also be available for API3 QRNG. Most importantly,
 this includes faster, cheaper, and more customizable request fulfillments. In
 addition, integrations to more chains and QRNG providers will be made available

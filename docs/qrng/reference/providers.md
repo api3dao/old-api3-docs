@@ -13,7 +13,7 @@ tags:
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-API3 QRNG is built on [Airnode RRP](/airnode/v0.7/concepts/), and as a result is
+API3 QRNG is built on [Airnode RRP](/airnode/v0.9/concepts/), and as a result is
 provider-agnostic. See below for the providers that are currently available.
 Each provider has an Airnode address with an extended public key (xpub)) and two
 endpoint IDs.

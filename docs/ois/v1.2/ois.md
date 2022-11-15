@@ -167,7 +167,7 @@ the non-nested application/json content-type is supported.</p>
 
 ### 4.3. `components`
 
-[<InfoBtnBlue/>](/airnode/v0.7/grp-providers/guides/build-an-airnode/api-security.md)
+[<InfoBtnBlue/>](/airnode/v0.9/grp-providers/guides/build-an-airnode/api-security.md)
 (Required) An object where security schemes can be found under
 `securitySchemes.{securitySchemeName}` with the following elements:
 
@@ -413,7 +413,7 @@ respective API operation.-->
 
 ### 5.3. `fixedOperationParameters`
 
-[<InfoBtnBlue/>](/airnode/v0.7/grp-providers/guides/build-an-airnode/api-integration.md#fixedoperationparameters)
+[<InfoBtnBlue/>](/airnode/v0.9/grp-providers/guides/build-an-airnode/api-integration.md#fixedoperationparameters)
 (Required) A list of objects specifying the fixed parameters for an API
 operation. While required, the `fixedOperationParameters` array can be empty.
 Each object has the following elements:
@@ -444,7 +444,7 @@ that cannot be overridden by the requester.
 
 ### 5.4. `reservedParameters`
 
-[<InfoBtnBlue/>](/airnode/v0.7/grp-providers/guides/build-an-airnode/api-integration.md#reservedparameters)
+[<InfoBtnBlue/>](/airnode/v0.9/grp-providers/guides/build-an-airnode/api-integration.md#reservedparameters)
 (Required) A list of objects that specify reserved Airnode endpoint parameters
 that do not map to any API operation parameters, but are used for special
 purposes by the Airnode. At a minimum, one object must specify the API response
@@ -475,7 +475,7 @@ override the default value.
 
 ### 5.5. `parameters`
 
-[<InfoBtnBlue/>](/airnode/v0.7/grp-providers/guides/build-an-airnode/api-integration.md#parameters)
+[<InfoBtnBlue/>](/airnode/v0.9/grp-providers/guides/build-an-airnode/api-integration.md#parameters)
 (Required) A list of objects that specify Airnode endpoint parameters that map
 to an particular API operation's parameters. While required, the `parameters`
 array can be empty. Each object has the following elements:
