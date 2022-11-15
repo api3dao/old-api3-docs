@@ -18,7 +18,7 @@ contract,
 [AirnodeRrpV0](https://github.com/api3dao/airnode/blob/master/packages/airnode-protocol/contracts/rrp/AirnodeRrpV0.sol),
 to acquire a random number.
 
-Upon request, [Airnode](/airnode/v0.7/) calls a designated API operation and
+Upon request, [Airnode](/airnode/v0.9/) calls a designated API operation and
 acquires a random number and then delivers it on-chain, via the `AirnodeRrpV0`
 protocol contract, to a requester.
 
@@ -32,7 +32,7 @@ requester with the random number.
 
 Calling `AirnodeRrpV0` for a random number is the same as any other Airnode
 request. Read more about how a requester
-[accesses an Airnode](/airnode/v0.7/grp-developers/) to acquire data from API
+[accesses an Airnode](/airnode/v0.9/grp-developers/) to acquire data from API
 operations.
 
 ::: tip Gas Costs

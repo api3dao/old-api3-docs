@@ -95,7 +95,7 @@ corresponding fields for the function.
 - `_sponsorWallet`: A wallet derived from the requester's contract address, the
   Airnode address, and the Airnode xpub. The wallet is used to pay gas costs to
   acquire a random number. A sponsor wallet must be derived using the command
-  [derive-sponsor-wallet-address](/airnode/v0.7/reference/packages/admin-cli.html#derive-sponsor-wallet-address)
+  [derive-sponsor-wallet-address](/airnode/v0.9/reference/packages/admin-cli.html#derive-sponsor-wallet-address)
   from the Admin CLI. Use the value of the _sponsor wallet address_ that the
   command outputs.
 
