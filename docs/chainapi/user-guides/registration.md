@@ -1,5 +1,5 @@
 ---
-title: Sign Up to use ChainAPI
+title: Registration
 folder: How to Guides
 docSetName: ChainAPI
 tags:
@@ -15,14 +15,15 @@ tags:
 <!-- If you change the following paragraph, change it in the README. -->
 
 ChainAPI identifies you through a wallet you own by way of
-[MetaMask](https://metamask.io). Other wallets will be supported in the future.
-ChainAPI will ask you to sign a message (from within MetaMask) for a particular
-wallet account proving your ownership of the account. For the first time you
-connect, you will be prompted for your email address which will be linked to a
-ChainAPI account. Each time you return to ChainAPI you will connect again, using
-MetaMask, to identify yourself by signing a message for the same account.
+[MetaMask](https://metamask.io). ChainAPI will ask you to sign a message within
+MetaMask for a particular wallet account proving your ownership of the account.
+For the first time you connect, you will be prompted for your email address
+which will be linked to a ChainAPI account.
 
-## Connecting
+When you return to ChainAPI, you'll be able to choose whether to login using
+your email address or by connecting with your Metamask wallet.
+
+## Create an Account
 
 If you are an existing MetaMask user, it is recommended that you create a
 separate (dedicated) MetaMask wallet specifically for ChainAPI using a new seed
@@ -68,7 +69,21 @@ separate dedicated wallet will help streamline these features.
    address. After performing the confirmation ChainAPI should show its **Getting
    Started** page.
 
-## Subsequent Connecting
+## Login
 
-Be sure to use same account each time you use the _Connect With MetaMask_
-button. Opening MetaMask will show you the account currently selected.
+On a subsequent visit to ChainAPI, you'll need to login using one of these two
+methods.
+
+### Login with Email
+
+Enter the email address you confirmed during registration. An email will be sent
+to you containing a magic link. Click on this link to login to your account. The
+magic link will expire after one hour.
+
+### Connect with Metamask
+
+When using this option, be sure to use same account that you registered with.
+Opening MetaMask will show you the account currently selected which is not
+necessarily the same account you registered with.
+
+---
