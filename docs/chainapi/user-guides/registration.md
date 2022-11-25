@@ -17,24 +17,26 @@ tags:
 ChainAPI identifies you through a wallet you own by way of
 [MetaMask](https://metamask.io). ChainAPI will ask you to sign a message within
 MetaMask for a particular wallet account proving your ownership of the account.
-For the first time you connect, you will be prompted for your email address
-which will be linked to a ChainAPI account.
 
-When you return to ChainAPI, you'll be able to choose whether to login using
-your email address or by connecting with your Metamask wallet.
+During registration you will be prompted for your email address which will be
+linked to your ChainAPI account. When you return to ChainAPI, you'll be able to
+choose whether to login using your email address or by connecting with your
+Metamask wallet.
 
 ## Create an Account
 
-If you are an existing MetaMask user, it is recommended that you create a
-separate (dedicated) MetaMask wallet specifically for ChainAPI using a new seed
-phrase known in MetaMask as a "Secret Recovery Phrase". In the future ChainAPI
-will offer services allowing control of your Airnode via the ChainAPI UI. A
-separate dedicated wallet will help streamline these features.
+:::tip Existing Metamask Users
 
-1. **Connect:** Click on the **Connect With MetaMask** button (or alternatively
-   use _Log In Using MetaMask_) to create a new account and register and email
-   address. If you do not have MetaMask installed you will be prompted to do so.
-   <br/><img src="../assets/images/connect.png" width="25%"/> <br/>
+If you are an existing MetaMask user, it is recommended that you create a
+separate, dedicated MetaMask wallet specifically for ChainAPI using a new seed
+phrase.
+
+:::
+
+1. **Connect:** Click on the **Register** button to create a new account and
+   register and email address. If you do not have MetaMask installed you will be
+   prompted to do so. <br/><img src="../assets/images/connect.png" width="25%"/>
+   <br/>
 
 ---
 
@@ -42,7 +44,7 @@ separate dedicated wallet will help streamline these features.
    installed MaskMask, it will open a web page to create or open an existing
    wallet. <br/><img src="../assets/images/choose-wallet.png" width="70%"/>
    <br/>Once the new wallet is created, return to the ChainAPI landing page,
-   refresh it and select the **Connect With Metamask** button again.
+   refresh it and select the **Register** button again.
 
 ---
 
@@ -58,12 +60,10 @@ separate dedicated wallet will help streamline these features.
 
 ---
 
-4. **Register Email**: (first time connecting) After the MetaMask popup closes
-   you may be prompted for your email address if the MetaMask account you
-   selected is not recognized by ChainAPI. ChainAPI associates your email
-   address with your MetaMask wallet account for future communications. Enter
-   your email, wait a moment for it verification, then select the _Confirm
-   Email_ button.
+4. **Register Email**: After the MetaMask popup closes you may be prompted for
+   your email address if the MetaMask account you selected is not recognized by
+   ChainAPI. ChainAPI associates your email address with your MetaMask wallet
+   account for future communications.
 
    An email will be sent to you asking you to confirm ownership of the email
    address. After performing the confirmation ChainAPI should show its **Getting
