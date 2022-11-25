@@ -35,8 +35,7 @@ phrase.
 
 1. **Connect:** Click on the **Register** button to create a new account and
    register and email address. If you do not have MetaMask installed you will be
-   prompted to do so. <br/><img src="../assets/images/connect.png" width="25%"/>
-   <br/>
+   prompted to do so.
 
 ---
 
