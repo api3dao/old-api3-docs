@@ -14,7 +14,7 @@ module.exports = [
     collapsable: false,
     children: [
       'user-guides/',
-      'user-guides/signup',
+      'user-guides/registration',
       'user-guides/integrations',
       'user-guides/deployments',
       'user-guides/workspaces',
