@@ -81,7 +81,8 @@ practice is to use one or the other.
 The `latestBlockPercentileGasPrice` strategy calculates a gas price based on the
 specified percentile of previous transactions in recent blocks and sets the
 transaction to `type 0` and a `gasPrice` value. The parameters that the strategy
-uses to calculate the gas price can be configured.
+uses to calculate the gas price can be configured. This strategy can fail with
+local hardhat nodes because the chain may not have enough blocks.
 
 ```json
 {
