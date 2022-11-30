@@ -15,19 +15,18 @@ tags:
 
 <!-- If you change the following paragraph, change it in the README. -->
 
-This section will step you through deploying an Airnode using a configuration
-that was built when creating an integration. An integration can be used for
-multiple deployments if desired. Deployments can be made on AWS or GCP.
+This section will take you through deploying an Airnode. Multiple deployments
+can use the same integration if desired.
 
 There are a few things needed before creating a deployment:
 
-- Acquire cloud provider account such as AWS or GCP.
-- Acquire a blockchain provider account for the networks required.
-- Install Docker.
+- Acquire cloud provider account such as AWS or GCP
+- Acquire a blockchain provider account for the networks required
+- Install Docker
 
-Select the **Deploy** menu in the navigation bar on the left side of the page.
-Then select the **New Deployment** button. ChainAPI will step-you-through the
-deployment process.
+Select **Deploy** in the navigation bar on the left side of the page. Then click
+the **New Deployment** button. You will then be guided through the deployment
+process.
 
 ## Integrations
 
@@ -36,7 +35,7 @@ created to define and deploy an Airnode to a cloud provider of your choice.
 
 ### Name
 
-Name the deployment. **You won’t be able to change this after saving the
+Name your deployment. **You won’t be able to change this after saving the
 deployment.**
 
 ### Integration
