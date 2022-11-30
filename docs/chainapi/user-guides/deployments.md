@@ -27,8 +27,7 @@ There are a few things needed before creating a deployment:
 
 Select the **Deploy** menu in the navigation bar on the left side of the page.
 Then select the **New Deployment** button. ChainAPI will step-you-through the
-deployment process. <br/> <img src="../assets/images/new-deployment.png"
-  width="22%"/>
+deployment process.
 
 ## Integrations
 
@@ -188,11 +187,12 @@ readme)-->
 
 ### Check deployment status
 
-Once your deployment is completed, its status will change to either **Active**
-or **Timed Out**. If your deployment is **Active**, that means that we have
-received the Airnode heartbeat and your Airnode is **Active**. If it’s **Timed
-Out**, something went wrong and you should start by checking the Deployment
-Checklist below, and check docker for any errors during deployment.
+Once your deployment is completed, it will take a few minutes for the status to
+update to either **Active** or **Timed Out**. If your deployment is **Active**,
+that means that we have received the Airnode heartbeat and your Airnode is
+**Active**. If it’s **Timed Out**, something went wrong and you should start by
+checking the Deployment Checklist below, and check docker for any errors during
+deployment.
 
 <!--If successfully completed, your deployment’s status will become Active within 1
 minute. If your deployment is not active after clicking "Finish deployment",
