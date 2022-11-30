@@ -188,13 +188,11 @@ readme)-->
 
 ### Check deployment status
 
-Once your deployment is completed, its status will change to either Active or
-Timed Out. If your deployment is Active, that means that we have received the
-Airnode heartbeat and your Airnode is active. If it’s Timed Out, something went
-wrong and you should start by checking the Deployment Checklist below, and check
-docker for any errors during deployment.
-
-<span style="margin-left:120px;"><img src="../assets/images/deployment-status.png" width="40%" /></span>
+Once your deployment is completed, its status will change to either **Active**
+or **Timed Out**. If your deployment is **Active**, that means that we have
+received the Airnode heartbeat and your Airnode is **Active**. If it’s **Timed
+Out**, something went wrong and you should start by checking the Deployment
+Checklist below, and check docker for any errors during deployment.
 
 <!--If successfully completed, your deployment’s status will become Active within 1
 minute. If your deployment is not active after clicking "Finish deployment",
