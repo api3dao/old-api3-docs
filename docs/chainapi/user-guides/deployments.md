@@ -128,8 +128,8 @@ that the `config.json` file will read.
 
 ### Use Docker container to deploy your Airnode
 
-Copy and paste the commands below to your terminal at the directory with your
-config.json and secrets.env files.
+Copy and paste the relevant command based on your operating system to your
+terminal at the directory with your config.json and secrets.env files.
 
 :::warning Please note
 
@@ -138,35 +138,6 @@ will fail and need to be removed manually through your cloud provider’s web
 interface.
 
 :::
-
-:::: tabs
-
-::: tab Linux/Mac/WSL2
-
-```sh
-docker run -it --rm \
-      --env-file aws.env \
-      -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
-      -v "$(pwd)/config:/app/config" \
-      -v "$(pwd)/output:/app/output" \
-      api3/airnode-deployer:0.6.4 deploy
-```
-
-:::
-
-::: tab Windows
-
-```sh
-docker run -it --rm ^
-      --env-file aws.env ^
-      -v "%cd%/config:/app/config" ^
-      -v "%cd%/output:/app/output" ^
-      api3/airnode-deployer:0.6.4 deploy
-```
-
-:::
-
-::::
 
 ## Finish Deployment
 
