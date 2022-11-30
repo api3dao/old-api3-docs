@@ -194,7 +194,7 @@ Airnode heartbeat and your Airnode is active. If it’s Timed Out, something wen
 wrong and you should start by checking the Deployment Checklist below, and check
 docker for any errors during deployment.
 
-<span style="margin-left:40px;border:solid 1px gray;"><img src="../assets/images/deployment-status.png" width="47%" /></span>
+<span style="margin-left:40px;"><img src="../assets/images/deployment-status.png" width="47%" /></span>
 
 <!--If successfully completed, your deployment’s status will become Active within 1
 minute. If your deployment is not active after clicking "Finish deployment",
@@ -202,7 +202,7 @@ check your cloud provider logs and configuration details before redeploying.-->
 
 ### Deployment Statuses
 
-<span style="margin-left:0px;border:solid 1px gray;"><img src="../assets/images/deployment-statuses-diagram.png" width="100%" /></span>
+<span style="margin-left:0px;"><img src="../assets/images/deployment-statuses-diagram.png" width="100%" /></span>
 
 <br/>
 
