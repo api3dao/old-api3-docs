@@ -96,13 +96,13 @@ The method by which the heartbeat payload is generated is as follows:
   URLs, the cloud provider and cloud region.
 - The Airnode's mnemonic (using the default EVM derivation path to derive a key)
   is used to sign the payload.
-- The payload and signature are included in a new object and marshaled to JSON.
+- The payload and signature are included in a new object and marshalled to JSON.
 
 The reason this nested JSON approach has been used is to prevent subtle
 inconsistencies between JSON marshallers in different languages causing the
 signature to not match the payload.
 
-The airnode's public key can then be recovered from this signature and be used,
+The airnode's public key can be recovered from this signature and be used,
 generally, to verify the authenticity of the payload.
 
 The inner payload's contents are as follows:
