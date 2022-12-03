@@ -57,7 +57,7 @@ Turn on the optional heartbeat functionality by setting all fields in the
       "logFormat": "json",
       "logLevel": "INFO",
       "nodeVersion": "0.10.0",
-      "stage": "testnet",
+      "stage": "testnet"
   }
 }
 ```
@@ -81,19 +81,31 @@ The table below illustrates the parameters passed to the Heartbeat URL.
 | signature                    | body   | string |
 | timestamp                    | body   | string |
 
-Below is an example of what is included in the request body to `heartbeat.url`.
+Below is an example of what is included in the request body to `heartbeat.url`:
 
 ```json
 {
-  "http_gateway_url": "https://some.aws.http.gateway.url/v1/01234567-abcd-abcd-abcd-012345678abc",
-  "http_signed_data_gateway_url": "https://some.aws.http.signed.data.gateway.url/v1/01234567-abcd-abcd-abcd-012345678abc",
-  "cloud_provider": "aws",
-  "region": "us-east-1",
-  "stage": "220910-0913",
-  "signature": "0xde49c22487107a1f46f1a35f47d2e50fdb94a518c8fc79a93ef046984ac2108a0f0b68269076b3de97d4447b04563527fd0d86fbe72f31eadb2dc4f6eea33c161c",
-  "timestamp": "1661582890984"
+  "payload": "{\"timestamp\":1661582891,\"region\":\"us-east-1\",\"stage\":\"2209100913\",\"cloud_provider\":\"aws\",\"http_gateway_url\":\"https://some.aws.http.gateway.url/v1/01234567-abcd-abcd-abcd-012345678abc\",\"http_signed_data_gateway_url\":\"https://some.aws.http.signed.data.gateway.url/v1/01234567-abcd-abcd-abcd-012345678abc\"}",
+  "signature": "0x733f81fa1dffab3188e50ad66c178a22aca3a781d79a1b8daee7828cff31d1443d89efd5a2b1f40fc70953c9c5838cc8d5747374f3cf25d092331ba15b6420651c"
 }
 ```
+
+The method by which the heartbeat payload is generated is as follows:
+
+- An object is marshalled to JSON - this object contains a timestamp, gateway
+  URLs, the cloud provider and cloud region.
+- The Airnode's mnemonic (using the default EVM derivation path to derive a key)
+  is used to sign the payload.
+- The payload and signature are included in a new object and marshalled to JSON.
+
+The reason this nested JSON approach has been used is to prevent subtle
+inconsistencies between JSON marshallers in different languages causing the
+signature to not match the payload.
+
+The airnode's public key can be recovered from this signature and be used,
+generally, to verify the authenticity of the payload.
+
+The inner payload's contents are as follows:
 
 <table>
   <tr>
