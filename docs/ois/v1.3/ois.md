@@ -389,8 +389,8 @@ operation.-->
 
 ### 5.2. `operation`
 
-(Optional) An object that refers to an API operation defined in
-`apiSpecifications.paths`, has the following elements:
+(Required if API call won't be skipped) An object that refers to an API
+operation defined in `apiSpecifications.paths`, has the following elements:
 
 - `path`
 - `method`
