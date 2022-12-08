@@ -41,8 +41,8 @@ Australia. Visit their website at
 
 ::: warning Supported chains
 
-ANU Quantum Random Numbers is only available on [mainnets](./chains.md).
-Refer to byog Random Numbers below for testnet service.
+ANU Quantum Random Numbers is only available on [mainnets](./chains.md). Refer
+to byog Random Numbers below for testnet service.
 
 :::
 
@@ -85,7 +85,8 @@ builds high-impact oracle services.
 
 ::: warning Supported chains
 
-byog Random Numbers emulates the QRNG service on [testnets](./chains.md) using [pseudorandom number generation](../README.md).
+byog Random Numbers emulates the QRNG service on [testnets](./chains.md) using
+[pseudorandom number generation](../README.md).
 
 :::
 
