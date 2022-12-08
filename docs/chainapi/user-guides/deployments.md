@@ -20,9 +20,12 @@ can use the same integration if desired.
 
 There are a few things needed before creating a deployment:
 
-- Acquire cloud provider account such as AWS or GCP
-- Acquire a blockchain provider account for the networks required
-- Install Docker
+- A cloud provider account such as [AWS](https://aws.amazon.com/) or
+  [GCP](https://cloud.google.com/)
+- A
+  [blockchain provider account](../../airnode/v0.9/concepts/chain-providers.md)
+  for the networks required
+- [Docker](https://www.docker.com/)
 
 Select **Deploy** in the navigation bar on the left side of the page. Then click
 the **New Deployment** button. You will then be guided through the deployment
@@ -69,7 +72,7 @@ Here you will define which networks (chains) the Airnode will respond to.
 
 ### Mainnets
 
-These are actual chains that process actual transactions.
+These are the chains that process actual transactions.
 
 ### Testnets
 
@@ -115,6 +118,14 @@ if needed.
 Here you will download the required deployment files to perform final editing of
 the required secrets.
 
+:::warning Please note
+
+Complete one deployment at a time. Starting multiple, simultaneous deployments
+will fail and need to be removed manually through your cloud provider’s web
+interface.
+
+:::
+
 ### Download files
 
 These files are needed to deploy your Airnode. Inside the zip file, you will
@@ -126,18 +137,10 @@ output folder.
 Use the instruction in the README and comments in the other files to add secrets
 that the `config.json` file will read.
 
-### Use Docker container to deploy your Airnode
+### Deploy with Docker
 
 Copy and paste the relevant command based on your operating system to your
 terminal at the directory with your config.json and secrets.env files.
-
-:::warning Please note
-
-Complete one deployment at a time. Starting multiple, simultaneous deployments
-will fail and need to be removed manually through your cloud provider’s web
-interface.
-
-:::
 
 ## Finish Deployment
 
@@ -155,26 +158,25 @@ will impact your Airnode How will adding or changing your network impact your
 Airnode How to delete a deployment (use docker) Deployment ReadMe (generalized
 readme)-->
 
-### Check deployment status
+### Check status
 
 Once your deployment is completed, it will take a few minutes for the status to
-update to either **Active** or **Timed Out**. If your deployment is **Active**,
-that means that we have received the Airnode heartbeat and your Airnode is
-**Active**. If it’s **Timed Out**, something went wrong and you should start by
-checking the Deployment Checklist below, and check docker for any errors during
-deployment.
+update to either **Active** or **Timed Out**.
+
+If your deployment is **Active**, that means that we have received the Airnode
+heartbeat and your Airnode is **Active**.
+
+If it’s **Timed Out**, something went wrong and you should start by checking the
+[troubleshooting](#troubleshooting) below, and check docker for any errors
+during deployment.
 
 <!--If successfully completed, your deployment’s status will become Active within 1
 minute. If your deployment is not active after clicking "Finish deployment",
 check your cloud provider logs and configuration details before redeploying.-->
 
-### Deployment Statuses
+## Deployment Status and Lifecycle
 
-<span style="margin-left:0px;"><img src="../assets/images/deployment-statuses-diagram.png" width="100%" /></span>
-
-<br/>
-
-### Description of each deployment status
+These are the possible deployment statuses you might see and what they mean.
 
 | Status       | Description                                                                                                                                                                                                                                                                             |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -183,6 +185,10 @@ check your cloud provider logs and configuration details before redeploying.-->
 | Deactivating | You clicked **Deactivate** on your active deployment. Once you have run the command to deactivate your Airnode then: <br/>1. **If successful** your deployment becomes **Inactive** <br/> 2. **If unsuccessful** we will receive a heartbeat which will make your deployment **Active** |
 | Inactive     | There are two scenarios for this status: <br/>1. You started a deployment and clicked **Save for later** <br/> 2. You clicked Deactivate on your active deployment, ran the command to deactivate your Airnode and we stopped receiving heartbeats                                      |
 | Timed out    | We have not received a heartbeat for a **Deploying** or **Active** deployment                                                                                                                                                                                                           |
+
+### Lifecycle
+
+<span style="margin-left:0px;"><img src="../assets/images/deployment-statuses-diagram.png" width="100%" /></span>
 
 ### Sub-deployments
 
@@ -199,7 +205,7 @@ Please check if you have met all these prerequisites for your deployment:
     [GCP](https://cloud.google.com/)) with the provider you selected under the
     Cloud Provider Settings on the Settings and Networks page
 3.  You have
-    [blockchain provider account(s)](../../airnode/v0.7/concepts/chain-providers.md)
+    [blockchain provider account(s)](../../airnode/v0.9/concepts/chain-providers.md)
     for each of the number of providers you selected under the Networks section
     on the Settings and Networks page
 4.  You have populated the secrets.env file with all the requested variables
