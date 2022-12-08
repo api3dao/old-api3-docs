@@ -41,8 +41,8 @@ Australia. Visit their website at
 
 ::: warning Supported chains
 
-ANU Quantum Random Numbers is only available on [mainnets](./chains.md).
-Refer to byog Random Numbers below for testnet service.
+ANU Quantum Random Numbers is only available on [mainnets](./chains.md). Refer
+to byog Random Numbers below for testnet service.
 
 :::
 
@@ -85,7 +85,8 @@ builds high-impact oracle services.
 
 ::: warning Supported chains
 
-byog Random Numbers emulates the QRNG service on [testnets](./chains.md) using [pseudorandom number generation](../README.md).
+byog Random Numbers emulates the QRNG service on [testnets](./chains.md) using
+[pseudorandom number generation](../README.md).
 
 :::
 
@@ -121,4 +122,44 @@ byog Random Numbers emulates the QRNG service on [testnets](./chains.md) using [
 <div style="word-wrap:break-word;margin-top:15px;margin-left:15px;">
     <span style="font-family:courier">0x27cc2713e7f968e4e86ed274a051a5c8aaee9cca66946f23af6f29ecea9704c3</span>
     <CopyIcon text="0x27cc2713e7f968e4e86ed274a051a5c8aaee9cca66946f23af6f29ecea9704c3"/>
+</div>
+
+## Quintessence Random Numbers
+
+Australian-based [Quintessence Labs](https://www.quintessencelabs.com/) is a
+global leader in quantum cybersecurity, recognized for its advanced
+quantum-resilient data protection capabilities.
+
+<!-- Need css for mobile -->
+
+### `airnode`
+
+<div style="word-wrap:break-word;margin-top:25px;">
+<div style="margin-top:15px;margin-left:15px">
+    <span style="font-family:courier">0x224e030f03Cd3440D88BD78C9BF5Ed36458A1A25</span>
+    <CopyIcon text="0x224e030f03Cd3440D88BD78C9BF5Ed36458A1A25"/>
+</div>
+</div>
+
+### `xpub`
+
+<div style="word-wrap:break-word;margin-top:25px;">
+<div style="margin-top:15px;margin-left:15px">
+    <span style="font-family:courier">xpub6CyZcaXvbnbqGfqqZWvWNUbGvdd5PAJRrBeAhy9rz1bbnFmpVLg2wPj1h6TyndFrWLUG3kHWBYpwacgCTGWAHFTbUrXEg6LdLxoEBny2YDz</span>
+    <CopyIcon text="xpub6CyZcaXvbnbqGfqqZWvWNUbGvdd5PAJRrBeAhy9rz1bbnFmpVLg2wPj1h6TyndFrWLUG3kHWBYpwacgCTGWAHFTbUrXEg6LdLxoEBny2YDz"/>
+</div>
+</div>
+
+### `endpointIdUint256`
+
+<div style="word-wrap:break-word;margin-top:15px;margin-left:15px">
+    <span style="font-family:courier">0xffd1bbe880e7b2c662f6c8511b15ff22d12a4a35d5c8c17202893a5f10e25284</span>
+    <CopyIcon text="0xffd1bbe880e7b2c662f6c8511b15ff22d12a4a35d5c8c17202893a5f10e25284"/>
+</div>
+
+### `endpointIdUint256Array`
+
+<div style="word-wrap:break-word;margin-top:15px;margin-left:15px;">
+    <span style="font-family:courier">0x4554e958a68d68de6a4f6365ff868836780e84ac3cba75ce3f4c78a85faa8047</span>
+    <CopyIcon text="0x4554e958a68d68de6a4f6365ff868836780e84ac3cba75ce3f4c78a85faa8047"/>
 </div>
