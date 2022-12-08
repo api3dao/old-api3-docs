@@ -39,6 +39,13 @@ Australia. Visit their website at
 
 <!-- Need css for mobile -->
 
+::: warning Supported chains
+
+ANU Quantum Random Numbers is only available on [mainnets](./chains.md).
+Refer to byog Random Numbers below for testnet service.
+
+:::
+
 ### `airnode`
 
 <div style="word-wrap:break-word;margin-top:25px;">
@@ -71,10 +78,16 @@ Australia. Visit their website at
     <CopyIcon text="0x27cc2713e7f968e4e86ed274a051a5c8aaee9cca66946f23af6f29ecea9704c3"/>
 </div>
 
-## BYOG Random Numbers
+## byog Random Numbers
 
-Bring Your Own Gas is an independent group within the API3 ecosystem that builds
-high-impact oracle services. Visit at [https://byog.io/](https://byog.io/).
+[byog](https://byog.io/) is an independent group within the API3 ecosystem that
+builds high-impact oracle services.
+
+::: warning Supported chains
+
+byog Random Numbers emulates the QRNG service on [testnets](./chains.md) using [pseudorandom number generation](../README.md).
+
+:::
 
 <!-- Need css for mobile -->
 
