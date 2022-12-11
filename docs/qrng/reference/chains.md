@@ -70,7 +70,7 @@ to not break as well.
 
 :::
 
-::: tab BYOG
+::: tab byog
 
 <div class="testnets">
 <h3> Testnets </h3>
