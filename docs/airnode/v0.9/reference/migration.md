@@ -27,7 +27,7 @@ Airnode, such as airnode-deployer, airnode-admin and more.
 
 1. `ois[n].oisFormat` updated to "1.2.0".
 
-2. `nodeSettings.nodeVersion` updated to "0.9.1".
+2. `nodeSettings.nodeVersion` updated to "0.9.2".
 
 3. `airnode-deployer remove-with-deployment-details` now accepts a full
    `--airnode-address` argument instead of the short airnode address
@@ -51,12 +51,12 @@ Updated to "1.2.0"
 
 2. `nodeSettings.nodeVersion`
 
-Updated to "0.9.1"
+Updated to "0.9.2"
 
 ```diff
 {
 -  "nodeVersion": "0.8.1"
-+  "nodeVersion": "0.9.1"
++  "nodeVersion": "0.9.2"
 }
 ```
 
@@ -79,7 +79,7 @@ executing the `remove-with-deployment-details` command.
 -   --region us-east1
 + docker run -it --rm \
 +   -v "$(pwd):/app/config" \
-+   api3/airnode-deployer:0.9.1 remove-with-deployment-details \
++   api3/airnode-deployer:2 remove-with-deployment-details \
 +   --airnode-address 0xabd9eaa588B6818Ac4C32c5e9b31962E351Cd39F \
 +   --stage dev \
 +   --cloud-provider gcp \
