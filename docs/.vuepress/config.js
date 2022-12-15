@@ -96,6 +96,7 @@ module.exports = {
       '/airnode/v0.2/': require(`../airnode/v0.2/sidebar.js`),
       '/airnode/pre-alpha/': require(`../airnode/pre-alpha/sidebar.js`),
       '/dapis/': require(`../dapis/sidebar.js`),
+      '/ois/v1.4/': require(`../ois/v1.4/sidebar.js`),
       '/ois/v1.3/': require(`../ois/v1.3/sidebar.js`),
       '/ois/v1.2/': require(`../ois/v1.2/sidebar.js`),
       '/ois/v1.1/': require(`../ois/v1.1/sidebar.js`),
