@@ -189,7 +189,7 @@ parameter: `projectId`.
 - `--airnode-address`: Can be found in the
   [receipt.json](../../reference/deployment-files/receipt-json.md) file or
   obtained via Admin CLI command
-  [`derive-airnode-address`](../../reference/packages/admin-cli.html#derive-airnode-address)
+  [`derive-airnode-address`](../../reference/packages/admin-cli.md#derive-airnode-address)
 - `--stage`:
   [nodeSetting.stage](../../reference/deployment-files/config-json.md#stage)
 - `--cloud-provider`:

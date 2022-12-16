@@ -90,6 +90,7 @@ exclude = [
   "localhost:3000",
   "ipfs.fleek.co/ipfs/bafybeifl4prxv75fgumtjh4ovklfkp7zzt7dwkl4xmndv37gtcalwpam2u",
   "ipfs.dweb.link",
+  "https://eth-goerli.gateway.pokt.network/v1/lb/",
 ]
 
 # Exclude URLs contained in a file from checking
