@@ -168,10 +168,10 @@ An Airnode can be removed in two different ways:
 - **Best:** With `remove-with-receipt`, which uses the deployment receipt
   created when the Airnode was deployed.
 - **Alternate:** With `remove-with-deployment-details`, which uses the Airnode
-  address and cloud provider specifications. The Airnode adress can be found in
+  address and cloud provider specifications. The Airnode address can be found in
   the [receipt.json](../../reference/deployment-files/receipt-json.md) file or
   obtained via Admin CLI command
-  [`derive-airnode-address`](../../reference/packages/admin-cli.html#derive-airnode-address).
+  [`derive-airnode-address`](../../reference/packages/admin-cli.md#derive-airnode-address).
   The other values can be found in `config.json`.
   - `nodeSetting.cloudProvider.type`
   - `nodeSetting.cloudProvider.region`
