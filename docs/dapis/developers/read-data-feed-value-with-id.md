@@ -26,7 +26,7 @@ must have [read access](./#coverage-policies) for the dAPI requested.
 Calling from off-chain code (_using a library such as `ether.js`_) is not
 subject to coverage policies. Off-chain code is beyond the scope of this doc.
 
-## Example Code
+## Example Usage
 
 ```solidity
 // SPDX-License-Identifier: MIT

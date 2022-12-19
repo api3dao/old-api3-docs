@@ -17,7 +17,7 @@ meaning that the reader address has read access. See
 [Coverage Policies](./#coverage-policies) for more information about dAPI read
 access.
 
-## Example Code
+## Example Usage
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -25,7 +25,6 @@ pragma solidity 0.8.9;
 
 import "@api3/airnode-protocol-v1/contracts/dapis/interfaces/IDapiServer.sol";
 contract mySmartContract {
-
 
   function myVerifyReadable(
     address _dapiServerContractAddress,
@@ -42,18 +41,6 @@ contract mySmartContract {
 
 ```
 
-::: tip Using dapiName
-
-If you want to check the status using a `dapiName`, you first need to calculate
-its off-chain hash. Then pass `dapiNameHash` as `_datafeedId` in the example
-code above.
-
-```solidity
-dapiNameHash = ethers.utils.solidityKeccak256(['bytes32'], [ethers.utils.formatBytes32String(dapiName)]);
-```
-
-:::
-
 ## Parameters
 
 `readerCanReadDataFeed(bytes32 datafeedId, address reader)`
@@ -61,6 +48,23 @@ dapiNameHash = ethers.utils.solidityKeccak256(['bytes32'], [ethers.utils.formatB
 - `bytes32 datafeedId` - The ID of a dAPI, Beacon, or Beacon set.
 - `address reader` - The address to verify such as the reader's smart contract
   address or another address.
+
+::: tip Using a dapiName for datafeedId
+
+If you want to check the status using a `dapiName`, first encode the `dapiName`
+to bytes32 and calculate the off-chain hash of the `encodedDapiName` as shown
+below. Then pass the value of `dapiNameHash` as `_datafeedId` in the code
+example above.
+
+```solidity
+// First encode the dapiName (such as AVAX/USD) to bytes32
+encodedDapiName = ethers.utils.formatBytes32String("AVAX/USD");
+
+// Then calculate the off-chain hash
+dapiNameHash = ethers.utils.solidityKeccak256(['bytes32'], [encodedDapiName]);
+```
+
+:::
 
 ## Returns
 

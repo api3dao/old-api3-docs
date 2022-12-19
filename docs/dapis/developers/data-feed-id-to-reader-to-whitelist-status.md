@@ -21,7 +21,7 @@ expirationTimestamp (assuming their `indefiniteWhitelistCount` is 0 ). If the
 `indefiniteWhitelistCount` is greater than 0 , the reader will be able to read
 the data feed indefinitely (regardless of the value of `expirationTimestamp`).
 
-## Example Code
+## Example Usage
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -29,7 +29,6 @@ pragma solidity 0.8.9;
 
 import "@api3/airnode-protocol-v1/contracts/dapis/interfaces/IDapiServer.sol";
 contract mySmartContract {
-
 
   function myReadable(
     address _dapiServerContractAddress,
@@ -47,30 +46,30 @@ contract mySmartContract {
 
 ```
 
-::: tip dAPI name
-
-If you want to check the status for a dAPI `name`, you first need to encode the
-dAPI `name` to bytes32 then calculate the hash off-chain of the encoded `name`
-as shown below. Afterwards, pass the value of `dapiNameHash` as `_datafeedId` in
-the example above.
-
-```solidity
-encodedDapiName = ethers.utils.formatBytes32String(dapiName);
-```
-
-```solidity
-dapiNameHash = ethers.utils.solidityKeccak256(['bytes32'], [encodedDapiName]);
-```
-
-:::
-
 ## Parameters
 
-`readerCanReadDataFeed(bytes32 datafeedId, address reader)`
+`dataFeedIdToReaderToWhitelistStatus(bytes32 datafeedId, address reader)`
 
 - `bytes32 datafeedId` - The ID of a dAPI, Beacon, or Beacon set.
 - `address reader` - The address to verify such as the reader's smart contract
   address or another address.
+
+::: tip Using a dapiName for datafeedId
+
+If you want to check the status using a `dapiName`, first encode the `dapiName`
+to bytes32 and calculate the off-chain hash of the `encodedDapiName` as shown
+below. Then pass the value of `dapiNameHash` as `_datafeedId` in the code
+example above.
+
+```solidity
+// First encode the dapiName (such as AVAX/USD) to bytes32
+encodedDapiName = ethers.utils.formatBytes32String("AVAX/USD");
+
+// Then calculate the off-chain hash
+dapiNameHash = ethers.utils.solidityKeccak256(['bytes32'], [encodedDapiName]);
+```
+
+:::
 
 ## Returns
 
