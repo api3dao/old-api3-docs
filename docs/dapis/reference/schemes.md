@@ -27,8 +27,8 @@ are fixed.
 
 A dAPI's name is identical across all chains. When accessing a dAPI value with a
 function such as
-[readDataFeedWithName()](../developers/read-data-feed-with-dapi-name.md), only
-the dAPI `name` is needed.
+[readDataFeedWithName()](../developers/read-data-feed-with-dapi-name.md), use
+the [bytes32 encoded value](../developers/#dapi-names) of the `dapiName`.
 
 A Beacon's ID and its template are identical across chains. When accessing a
 Beacon's value with a function such as

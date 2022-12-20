@@ -42,13 +42,14 @@ multiple Beacons.
 
 > <img src="./assets/images/dapi-beacons.png" width="550px"/>
 
-Each dAPI has a human-readable name (e.g., `ETH/USD`) that makes them easily
-accessible using `DapiServer.sol`.
+Each dAPI has a human-readable name (e.g., `ETH/USD`). Encode the name as
+bytes32 and pass the value to `DapiServer.sol`.
 
 ```solidity
 // Reading the ETH/USD dAPI using the DapiServer contract
+// Encode ETH/USD to bytes32
 (value, timestamp) =
-  IDapiServer(_dapiServerContractAddress).readDataFeedWithDapiName("ETH/USD");
+  IDapiServer(_dapiServerContractAddress).readDataFeedWithDapiName("0x4554...00000");
 ```
 
 See the [dApp Developers](./developers/) section to learn more about accessing

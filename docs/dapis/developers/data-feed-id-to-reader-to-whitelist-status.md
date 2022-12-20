@@ -54,22 +54,25 @@ contract mySmartContract {
 - `address reader` - The address to verify such as the reader's smart contract
   address or another address.
 
-::: tip Using a dapiName for datafeedId
+### Using a `dapiName` for the `datafeedId` parameter
 
 If you want to check the status using a `dapiName`, first encode the `dapiName`
 to bytes32 and calculate the off-chain hash of the `encodedDapiName` as shown
 below. Then pass the value of `dapiNameHash` as `_datafeedId` in the code
-example above.
+example above. Try it in the
+[ethers playground](https://playground.ethers.org/).
 
 ```solidity
 // First encode the dapiName (such as AVAX/USD) to bytes32
 encodedDapiName = ethers.utils.formatBytes32String("AVAX/USD");
+// encodedDapiName now equals
+// 0x415641582f555344000000000000000000000000000000000000000000000000
 
 // Then calculate the off-chain hash
 dapiNameHash = ethers.utils.solidityKeccak256(['bytes32'], [encodedDapiName]);
+// dapiNameHash now equals
+// 0xcc06defee290c6e46f55823e39eb14024b06d4a6c7a0b6bf8b1f1e229c389b9c
 ```
-
-:::
 
 ## Returns
 
