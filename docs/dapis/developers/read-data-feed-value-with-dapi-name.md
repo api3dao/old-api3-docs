@@ -48,7 +48,17 @@ See another code example of `readDataFeedValueWithDapiName()` in the
 
 `readDataFeedValueWithDapiName(bytes32 _dapiName)`
 
-- `bytes32 dapiName` - The name of the dAPI to retrieve a value for.
+- `bytes32 dapiName` - The encoded bytes32 value of a dAPI name to retrieve a
+  value for (no timestamp). The example below generates the encoded bytes32
+  value of AVAX/USD. Try it in the
+  [ethers playground](https://playground.ethers.org/).
+
+  ```solidity
+  // Encode the dapiName (such as AVAX/USD) to bytes32
+  ethers.utils.formatBytes32String("AVAX/USD");
+  // 0x415641582f555344000000000000000000000000000000000000000000000000
+  // Pass the above value to readDataFeedWithDapiName()
+  ```
 
 ## Returns
 
