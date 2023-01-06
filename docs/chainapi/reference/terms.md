@@ -169,7 +169,7 @@ authenticate itself to API endpoints.
 
 See
 [API Security](../../airnode/v0.7/grp-providers/guides/build-an-airnode/api-security.md)
-in hte Airnode documentation set.
+in the Airnode documentation set.
 
 ### Versioning
 
