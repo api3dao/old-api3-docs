@@ -211,6 +211,31 @@ Options:
 airnode-deployer info aws2c6ef2b3
 ```
 
+### Fetching deployment files
+
+During the Airnode deployment, your `config.json` and `secrets.env` are uploaded
+to the cloud provider of your choosing. You can use the `fetch-files` command to
+retrieve them.
+
+#### fetch-files
+
+```bash
+# Fetch deployment files for the deployed Airnode
+
+Positionals:
+  deployment-id  ID of the deployment (from 'list' command)                                          [string] [required]
+  version-id     ID of the deployment version (from 'info' command)                                             [string]
+
+Options:
+      --version     Show version number                                                                        [boolean]
+      --debug       Run in debug mode                                                         [boolean] [default: false]
+      --help        Show help                                                                                  [boolean]
+  -o, --output-dir  Where to store fetched files                                           [string] [default: "config/"]
+
+# Example
+airnode-deployer fetch-files aws2c6ef2b3
+```
+
 ### Airnode Removal
 
 An Airnode can be removed in two different ways:

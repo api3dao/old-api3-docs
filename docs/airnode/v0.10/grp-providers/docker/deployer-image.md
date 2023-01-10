@@ -59,6 +59,7 @@ they exist.
 - [deploy](./deployer-image.md#deploy)
 - [list](./deployer-image.md#list)
 - [info](./deployer-image.md#info)
+- [fetch-files](./deployer-image.md#fetch-files)
 - [remove](./deployer-image.md#remove)
 - [remove-with-receipt](./deployer-image.md#remove-with-receipt)
 
@@ -236,6 +237,48 @@ docker run -it --rm \
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
   api3/airnode-deployer:0.10.0 info aws2c6ef2b3
+```
+
+:::
+
+::::
+
+### `fetch-files`
+
+During the Airnode deployment, your `config.json` and `secrets.env` are uploaded
+to the cloud provider of your choosing. You can use the
+[fetch-files](../../reference/packages/deployer.md#fetch-files) command to
+retrieve them. You need to provide the deployment ID from the
+[list](./deployer-image.md#list) command above to specify the deployment for
+which should be the files retrieved. By default, the files from the latest
+version of this deployment are fetched. Additionally, you can provide a
+deployment version ID from the [info](./deployer-image.md#info) command above to
+specify a version of the deployment for which the files should be downloaded. By
+default, the archive with the files is stored in the `config` directory. You can
+change the output directory by providing an `--output-dir` option specifying a
+different directory instead. Files for cloud provider authentication are needed
+for the command to run correctly: `aws.env` (for AWS) and/or `gcp.json` (for
+GCP).
+
+:::: tabs
+
+::: tab Linux/Mac/WSL2
+
+```sh
+docker run -it --rm \
+  -v "$(pwd):/app/config" \
+  api3/airnode-deployer:0.10.0 fetch-files aws2c6ef2b3
+```
+
+:::
+
+::: tab Windows
+
+```batch
+# For Windows, use CMD (not PowerShell).
+docker run -it --rm ^
+  -v "%cd%:/app/config" ^
+  api3/airnode-deployer:0.10.0 fetch-files aws2c6ef2b3
 ```
 
 :::
