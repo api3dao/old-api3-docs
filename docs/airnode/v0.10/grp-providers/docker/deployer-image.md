@@ -216,7 +216,7 @@ from the [list](./deployer-image.md#list) command above to request information
 about a specific deployment. The retrieved information include deployment's
 Airnode address, stage, Airnode version and the update history. Files for cloud
 provider authentication are needed for the command to run correctly: `aws.env`
-(for AWS) and/or `gcp.json` (for GCP).
+(for AWS) or `gcp.json` (for GCP).
 
 :::: tabs
 
@@ -257,8 +257,7 @@ specify a version of the deployment for which the files should be downloaded. By
 default, the archive with the files is stored in the `config` directory. You can
 change the output directory by providing an `--output-dir` option specifying a
 different directory instead. Files for cloud provider authentication are needed
-for the command to run correctly: `aws.env` (for AWS) and/or `gcp.json` (for
-GCP).
+for the command to run correctly: `aws.env` (for AWS) or `gcp.json` (for GCP).
 
 :::: tabs
 
@@ -293,7 +292,7 @@ Airnode, use the deployment ID from the [list](./deployer-image.md#list) command
 above. Airnode's update history, that can be seen by the
 [info](./deployer-image.md#info) command, will be removed as well. Files for
 cloud provider authentication are needed for the command to run correctly:
-`aws.env` (for AWS) and/or `gcp.json` (for GCP). This is the recommended way to
+`aws.env` (for AWS) or `gcp.json` (for GCP). This is the recommended way to
 remove a deployment, but there are alternatives as described below.
 
 :::: tabs
@@ -327,8 +326,8 @@ When an Airnode was deployed using the `deploy` command, a `receipt.json` file
 was created. This file is used to remove the Airnode. The
 [remove-with-receipt](../../reference/packages/deployer.md#remove-with-receipt)
 command is identical for AWS and GCP. Files for cloud provider authentication
-are needed for the command to run correctly: `aws.env` (for AWS) and/or
-`gcp.json` (for GCP).
+are needed for the command to run correctly: `aws.env` (for AWS) or `gcp.json`
+(for GCP).
 
 :::: tabs
 
