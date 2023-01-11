@@ -254,10 +254,13 @@ which should be the files retrieved. By default, the files from the latest
 version of this deployment are fetched. Additionally, you can provide a
 deployment version ID from the [info](./deployer-image.md#info) command above to
 specify a version of the deployment for which the files should be downloaded. By
-default, the archive with the files is stored in the `config` directory. You can
-change the output directory by providing an `--output-dir` option specifying a
-different directory instead. Files for cloud provider authentication are needed
-for the command to run correctly: `aws.env` (for AWS) or `gcp.json` (for GCP).
+default, the archive with the files is stored in the `config` directory **within
+the Docker container** that is, in the example below, mapped to your current
+working directory. You can change the output directory by providing an
+`--output-dir` option specifying a different directory instead. Don't forget to
+add a mapping for the new output directory so you'll be able to access the
+files. Files for cloud provider authentication are needed for the command to run
+correctly: `aws.env` (for AWS) or `gcp.json` (for GCP).
 
 :::: tabs
 
