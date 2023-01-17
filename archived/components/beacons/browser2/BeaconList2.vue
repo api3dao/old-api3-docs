@@ -95,7 +95,7 @@ export default {
           'https://operations-development.s3.amazonaws.com/latest/apis.json'
         );
         const responseChains = await axios.get(
-          'https://operations-development.s3.amazonaws.com/latest/chains.json '
+          'https://db-api-prod.api3.org/api/docs-chains-reference'
         );
         const providers = response.data;
         const chains = responseChains.data;
