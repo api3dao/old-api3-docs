@@ -227,6 +227,46 @@ The `_times` parameter also works in conjunction with arrays and
 multidimensional arrays. All elements of the API response array will be
 multiplied before they are encoded.
 
+## `_gasPrice`
+
+The `_gasPrice` reserved parameter enables a requester to override
+[Airnode gas price strategies](../../airnode/v0.10/concepts/gas-prices.md) with
+a specified gas price when Airnode
+[fulfills](../../airnode/v0.10/concepts/request.md#fulfill) the request. The
+recommended implementation is to have the `_gasPrice` reserved parameter without
+a `default` or `fixed` value as shown in the abbreviated snippet below:
+
+```json
+{
+  "reservedParameters": [
+    {
+      "name": "_gasPrice"
+    }
+  ]
+}
+```
+
+This allows requesters to specify the gas price via a parameter in their
+request. The value, in `wei`, should be
+[encoded](../../airnode/v0.10/reference/packages/airnode-abi.md#encode) as a
+`string32` type by the requester, for example:
+
+```ts
+import { encode } from '@api3/airnode-abi';
+encode([
+  {
+    name: '_gasPrice',
+    type: 'string32',
+    // 10 gwei in wei
+    value: '1000000000000000000',
+  },
+]);
+```
+
+Note that if a requester specifies a `_gasPrice` as a parameter in a request but
+the Airnode's configuration does not include the `_gasPrice` reserved parameter,
+the requester's gas price will be ignored.
+
 ## Encoding Multiple Values
 
 Solidity has support for decoding and "destructuring" multiple values. For
@@ -244,8 +284,9 @@ function decodeMultipleParameters(bytes calldata data)
 
 The example above demonstrates the decoding on chain of three values of types
 `string`, `uint256` and `address` respectively. You can instruct Airnode to
-encode these values using the reserved parameters by separating the values using
-`,` (comma). For example using the following combination of reserved parameters
+encode these values using the `_type`, `_path`, and `_times` reserved parameters
+by separating the values using `,` (comma). For example using the following
+combination of reserved parameters
 
 ```js
 {

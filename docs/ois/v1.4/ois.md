@@ -345,6 +345,9 @@ node.
       },
       {
         "name": "_times"
+      },
+      {
+        "name": "_gasPrice"
       }
     ],
     "parameters": [
@@ -460,7 +463,7 @@ Each object has the following elements:
 
 (Required) The name of the reserved parameter. Always starts with `_`.
 
-Allowed values: `_type`, `_path` or `_times`
+Allowed values: `_type`, `_path`, `_times`, and `_gasPrice`.
 
 #### 5.4.2. `fixed`
 
