@@ -113,6 +113,9 @@
           {
             "name": "_times",
             "fixed": "1000000"
+          },
+          {
+            "name": "_gasPrice"
           }
         ],
         "parameters": [
