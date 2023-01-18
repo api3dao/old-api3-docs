@@ -459,6 +459,12 @@ Each object has the following elements:
 - `fixed`
 - `default`
 
+Note that if a reserved parameter object does not include a `fixed` value, a
+requester can, or may be expected to, supply this value as a parameter. A value
+supplied by a requester overrides a `default`. See the
+[\_gasPrice reserved parameter description](./reserved-parameters.md#gasprice)
+for an example.
+
 #### 5.4.1. `name`
 
 (Required) The name of the reserved parameter. Always starts with `_`.
@@ -473,8 +479,8 @@ If `fixed` is used, `default` has no effect and should not be used.
 #### 5.4.3. `default`
 
 (Optional) The default value for the reserved parameter. Used when no value is
-provided. If `default` is used, `fixed` must not be used because it would
-override the default value.
+provided by a requester. If `default` is used, `fixed` must not be used because
+it would override the default value.
 
 ### 5.5. `parameters`
 
