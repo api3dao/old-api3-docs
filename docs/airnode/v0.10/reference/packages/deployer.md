@@ -48,7 +48,7 @@ you to run deployer commands without installing the deployer npm package or
 having to manually build the airnode-deployer package yourself.
 
 ```sh
-npx @api3/airnode-deployer deploy --config config/config.json --secrets config/secrets.env --receipt config/receipt.json
+npx @api3/airnode-deployer deploy --config config/config.json --secrets config/secrets.env --receipt config/receipt.json --logs config/logs/
 ```
 
 ### Global Package
@@ -62,7 +62,7 @@ yarn global add @api3/airnode-deployer
 npm install @api3/airnode-deployer -g
 
 # Executing the deployer.
-airnode-deployer deploy --config config/config.json --secrets config/secrets.env --receipt config/receipt.json
+airnode-deployer deploy --config config/config.json --secrets config/secrets.env --receipt config/receipt.json --logs config/logs/
 ```
 
 <!--  HOLD THIS UNTIL THE REPO README IS UPDATED
@@ -136,6 +136,9 @@ in the `config/` directory, although a different path can be specified using the
 path and name with the `--receipt` argument. The receipt contains metadata about
 the deployment and can be used to remove the Airnode.
 
+By default the deployer will save logs into the `config/logs/` directory, but
+this can be changed with the `--logs` argument.
+
 If the deployment isn't successful, the command will try to automatically remove
 deployed resources. You can disable this by running the deploy command with a
 `--no-auto-remove` argument.
@@ -151,6 +154,7 @@ Options:
   -c, --configuration, --config, --conf  Path to configuration file             [string] [default: "config/config.json"]
   -s, --secrets                          Path to secrets file                   [string] [default: "config/secrets.env"]
   -r, --receipt                          Output path for receipt file          [string] [default: "config/receipt.json"]
+  -l, --logs                             Output path for log files                    [string] [default: "config/logs/"]
       --auto-remove                      Enable automatic removal of deployed resources for failed deployments
                                                                                                [boolean] [default: true]
 
@@ -158,7 +162,7 @@ Options:
 airnode-deployer deploy
 
 # Advanced example
-airnode-deployer deploy --config config/config.json --secrets config/secrets.env --receipt config/receipt.json
+airnode-deployer deploy --config config/config.json --secrets config/secrets.env --receipt config/receipt.json --logs config/logs/
 ```
 
 ### Listing Airnodes
@@ -180,6 +184,7 @@ Options:
       --debug            Run in debug mode                                                    [boolean] [default: false]
       --help             Show help                                                                             [boolean]
   -c, --cloud-providers  Cloud providers to list Airnodes from  [array] [choices: "aws", "gcp"] [default: ["aws","gcp"]]
+  -l, --logs             Output path for log files                                    [string] [default: "config/logs/"]
 
 # Basic example
 airnode-deployer list
@@ -203,9 +208,10 @@ Positionals:
   deployment-id  ID of the deployment (from 'list' command)                                          [string] [required]
 
 Options:
-  --version  Show version number                                                                               [boolean]
-  --debug    Run in debug mode                                                                [boolean] [default: false]
-  --help     Show help                                                                                         [boolean]
+  --version    Show version number                                                                             [boolean]
+  --debug      Run in debug mode                                                              [boolean] [default: false]
+  --help       Show help                                                                                       [boolean]
+  -l, --logs   Output path for log files                                              [string] [default: "config/logs/"]
 
 # Example
 airnode-deployer info aws2c6ef2b3
@@ -231,6 +237,7 @@ Options:
       --debug       Run in debug mode                                                         [boolean] [default: false]
       --help        Show help                                                                                  [boolean]
   -o, --output-dir  Where to store fetched files                                           [string] [default: "config/"]
+  -l, --logs        Output path for log files                                         [string] [default: "config/logs/"]
 
 # Example
 airnode-deployer fetch-files aws2c6ef2b3
@@ -255,9 +262,10 @@ Positionals:
   deployment-id  ID of the deployment (from 'list' command)                                          [string] [required]
 
 Options:
-  --version  Show version number                                                                               [boolean]
-  --debug    Run in debug mode                                                                [boolean] [default: false]
-  --help     Show help                                                                                         [boolean]
+  --version     Show version number                                                                            [boolean]
+  --debug       Run in debug mode                                                             [boolean] [default: false]
+  --help        Show help                                                                                      [boolean]
+  -l, --logs    Output path for log files                                             [string] [default: "config/logs/"]
 
 # Example
 airnode-deployer remove aws2c6ef2b3
@@ -273,10 +281,11 @@ Options:
       --debug                  Run in debug mode                                              [boolean] [default: false]
       --help                   Show help                                                                       [boolean]
   -r, --receipt                Path to receipt file                            [string] [default: "config/receipt.json"]
+  -l, --logs                   Output path for log files                              [string] [default: "config/logs/"]
 
 # Basic example
 airnode-deployer remove-with-receipt
 
-# Advanced example specifying the receipt file location
-airnode-deployer remove-with-receipt --receipt config/receipt.json
+# Advanced example specifying the receipt file and logs location
+airnode-deployer remove-with-receipt --receipt config/receipt.json --logs config/logs/
 ```
