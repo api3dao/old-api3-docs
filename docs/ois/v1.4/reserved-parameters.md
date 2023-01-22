@@ -28,8 +28,10 @@ There are two types of parameters which are part of the OIS object:
 1. [Endpoint parameters](./ois.md#_5-5-parameters) - Airnode endpoint parameters
    are mapped to API operation parameters.
 2. [Reserved parameters](./ois.md#_5-4-reservedparameters) - Reserved parameters
-   perform a specific operation on the response before fulfilling the request.
-   Reserved parameter names start with `_`.
+   perform a specific operation related to the request or on the response before
+   fulfilling the request. Reserved parameter names start with `_`. Depending on
+   the configuration, they may be overridden by a parameter supplied by a
+   requester.
 
 ## `_type`
 
