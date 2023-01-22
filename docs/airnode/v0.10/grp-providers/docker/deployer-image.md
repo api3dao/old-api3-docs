@@ -51,6 +51,11 @@ currently supports deploying to AWS and GCP. For AWS deployment, see the
 and for GCP deployment, see the
 [GCP Setup](../guides/build-an-airnode/configuring-airnode.md#gcp-setup-gcp-deployment-only).
 
+## Deployer Logs
+
+The deployer saves log files by default into the `config/logs/` direcotry, but
+this can be changed by passing a `--logs` argument to the command.
+
 ## Deployer Image Commands
 
 All three commands are similar for AWS and GCP, with differences noted where
