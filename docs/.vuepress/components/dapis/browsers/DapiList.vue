@@ -97,7 +97,7 @@ export default {
   methods: {
     async init() {
       const responseChains = await axios.get(
-        'https://operations-development.s3.amazonaws.com/latest/chains.json '
+        'https://db-api-prod.api3.org/api/docs-chains-reference'
       );
       this.chains = responseChains.data;
       this.chains = this.sortChainsByName(this.chains);
