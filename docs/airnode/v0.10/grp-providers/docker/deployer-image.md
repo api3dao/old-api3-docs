@@ -64,6 +64,7 @@ they exist.
 - [deploy](./deployer-image.md#deploy)
 - [list](./deployer-image.md#list)
 - [info](./deployer-image.md#info)
+- [rollback](./deployer-image.md#rollback)
 - [fetch-files](./deployer-image.md#fetch-files)
 - [remove](./deployer-image.md#remove)
 - [remove-with-receipt](./deployer-image.md#remove-with-receipt)
@@ -242,6 +243,45 @@ docker run -it --rm \
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
   api3/airnode-deployer:0.10.0 info aws2c6ef2b3
+```
+
+:::
+
+::::
+
+### `rollback`
+
+In case you want to revert to one of the previous versions of your deployment,
+you can do so with the [rollback](../../reference/packages/deployer.md#rollback)
+command. You need to provide the deployment ID from the
+[list](./deployer-image.md#list) command above to specify what deployment you
+want to revert. You also need to provide the deployment version ID from the
+[info](./deployer-image.md#info) command above to specify the deployment version
+to which you want to revert. The
+[rollback](../../reference/packages/deployer.md#rollback) command will then
+fetch your configuration files of the specified version and **deploy a new
+version** with the same configuration. You can check this with the
+[info](./deployer-image.md#info) command above.
+
+:::: tabs
+
+::: tab Linux/Mac/WSL2
+
+```sh
+docker run -it --rm \
+  -v "$(pwd):/app/config" \
+  api3/airnode-deployer:0.10.0 rollback aws2c6ef2b3 3580a278
+```
+
+:::
+
+::: tab Windows
+
+```batch
+# For Windows, use CMD (not PowerShell).
+docker run -it --rm ^
+  -v "%cd%:/app/config" ^
+  api3/airnode-deployer:0.10.0 rollback aws2c6ef2b3 3580a278
 ```
 
 :::

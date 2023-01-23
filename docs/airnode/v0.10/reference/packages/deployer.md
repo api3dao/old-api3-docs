@@ -217,6 +217,28 @@ Options:
 airnode-deployer info aws2c6ef2b3
 ```
 
+### Reverting to a previous version
+
+In case you want to revert to one of the previous versions of your deployment,
+you can do so with the `rollback` command.
+
+#### rollback
+
+```bash
+# Deploy one of the previous Airnode deployment versions
+
+Positionals:
+  deployment-id  ID of the deployment (from 'list' command)                                          [string] [required]
+  version-id     ID of the deployment version (from 'info' command)                                  [string] [required]
+
+Options:
+      --version      Show version number                                                                       [boolean]
+      --debug        Run in debug mode                                                        [boolean] [default: false]
+      --help         Show help                                                                                 [boolean]
+  -r, --receipt      Output path for receipt file                              [string] [default: "config/receipt.json"]
+      --auto-remove  Enable automatic removal of deployed resources for failed deployments     [boolean] [default: true]
+```
+
 ### Fetching deployment files
 
 During the Airnode deployment, your `config.json` and `secrets.env` are uploaded
