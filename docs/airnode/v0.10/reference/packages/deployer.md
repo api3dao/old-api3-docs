@@ -205,7 +205,7 @@ stage, Airnode version and the update history.
 # Displays info about deployed Airnode
 
 Positionals:
-  deployment-id  ID of the deployment (from 'list' command)                                          [string] [required]
+  deployment-id  ID of the deployment to show info for (from 'list' command)                         [string] [required]
 
 Options:
   --version    Show version number                                                                             [boolean]
@@ -215,6 +215,32 @@ Options:
 
 # Example
 airnode-deployer info aws2c6ef2b3
+```
+
+### Reverting to a previous version
+
+In case you want to revert to one of the previous versions of your deployment,
+you can do so with the `rollback` command.
+
+#### rollback
+
+```bash
+# Deploy one of the previous Airnode deployment versions
+
+Positionals:
+  deployment-id  ID of the deployment to rollback (from 'list' command)                              [string] [required]
+  version-id     ID of the deployment version to rollback to (from 'info' command)                   [string] [required]
+
+Options:
+      --version      Show version number                                                                       [boolean]
+      --debug        Run in debug mode                                                        [boolean] [default: false]
+      --help         Show help                                                                                 [boolean]
+  -r, --receipt      Output path for receipt file                              [string] [default: "config/receipt.json"]
+  -l, --logs         Output path for log files                                        [string] [default: "config/logs/"]
+      --auto-remove  Enable automatic removal of deployed resources for failed deployments     [boolean] [default: true]
+
+# Example
+airnode-deployer rollback aws808e2a22 5bbcd317
 ```
 
 ### Fetching deployment files
@@ -229,8 +255,8 @@ retrieve them.
 # Fetch deployment files for the deployed Airnode
 
 Positionals:
-  deployment-id  ID of the deployment (from 'list' command)                                          [string] [required]
-  version-id     ID of the deployment version (from 'info' command)                                             [string]
+  deployment-id  ID of the deployment to fetch files for (from 'list' command)                       [string] [required]
+  version-id     ID of the deployment version to fetch files for (from 'info' command)                          [string]
 
 Options:
       --version     Show version number                                                                        [boolean]
@@ -259,7 +285,7 @@ An Airnode can be removed in two different ways:
 # Removes a deployed Airnode instance
 
 Positionals:
-  deployment-id  ID of the deployment (from 'list' command)                                          [string] [required]
+  deployment-id  ID of the deployment to remove (from 'list' command)                                [string] [required]
 
 Options:
   --version     Show version number                                                                            [boolean]
