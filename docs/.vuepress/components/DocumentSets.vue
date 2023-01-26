@@ -58,7 +58,7 @@ it will always default to the startPath in config.json.
           >
             <img
               :src="item.iconInactive"
-              class="ds-icon-shrink"
+              class="ds-icon-shrink-chainapi"
               v-if="!item.active"
             />
             <span class="ds-list-line-name">{{ item.name }}</span></a
@@ -214,6 +214,12 @@ export default {
   width: 45px;
   height: 39px;
   margin-top: 8px;
+}
+.ds-icon-shrink-chainapi {
+  width: 39px;
+  height: 39px;
+  margin-top: 8px;
+  margin-right: 7px;
 }
 
 .ds-arrow {
