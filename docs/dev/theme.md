@@ -42,7 +42,6 @@ sidebar: {
   '/ois/v1.1/': require(`../ois/v1.1/sidebar.js`),
   '/ois/v1.0/': require(`../ois/v1.0/sidebar.js`),
   '/qrng/': require(`../qrng/sidebar.js`),
-  '/chainapi/': require(`../chainapi/sidebar.js`),
   '/dao-members/': require(`../dao-members/sidebar.js`),
   '/api3/': require(`../api3/sidebar.js`),
   '/dev/': require(`../dev/sidebar.js`),

@@ -19,24 +19,7 @@ it will always default to the startPath in config.json.
           style="cursor: pointer"
           v-on:click="showDocSets = !(showDocSets != false)"
         >
-          <img
-            v-show="docSets[0].name !== 'ChainAPI'"
-            :src="docSets[0].iconActive"
-            class="ds-icon-shrink"
-          />
-          <!-- This is temp for ChainAPI. Remove the v-show in hte directive above
-          when ChainAPI is removed. -->
-          <img
-            v-show="docSets[0].name === 'ChainAPI'"
-            :src="docSets[0].iconActive"
-            class="ds-icon-shrink-chainapi"
-            style="
-              width: 35px;
-              height: 35px;
-              margin-top: 10px;
-              margin-bottom: 2px;
-            "
-          />
+          <img :src="docSets[0].iconActive" class="ds-icon-shrink" />
           <span
             class="ds-list-line-name"
             style="margin-top: 12px; color: black"
@@ -59,22 +42,27 @@ it will always default to the startPath in config.json.
           <router-link
             class="ds-route-link"
             :to="{ path: item.path }"
-            v-if="index > 0"
+            v-if="index > 0 && item.name !== 'ChainAPI'"
           >
-            <!-- Temp until ChainAPI moves out of the docs -->
-            <img
-              :src="item.iconInactive"
-              class="ds-icon-shrink-chainapi"
-              v-if="!item.active && item.name === 'ChainAPI'"
-            />
-            <!-- For ChainAPI update the v-if statement -->
             <img
               :src="item.iconInactive"
               class="ds-icon-shrink"
-              v-if="!item.active && item.name !== 'ChainAPI'"
+              v-if="!item.active"
             />
             <span class="ds-list-line-name">{{ item.name }}</span>
           </router-link>
+          <a
+            class="ds-route-link"
+            :href="'https://docs.chainapi.com'"
+            v-if="index > 0 && item.name === 'ChainAPI'"
+          >
+            <img
+              :src="item.iconInactive"
+              class="ds-icon-shrink"
+              v-if="!item.active"
+            />
+            <span class="ds-list-line-name">{{ item.name }}</span></a
+          >
         </li>
       </ul>
     </div>
@@ -111,7 +99,7 @@ export default {
         name: 'ChainAPI',
         iconActive: '/img/chainapi-active.png',
         iconInactive: '/img/chainapi-inactive.png',
-        path: '/chainapi/',
+        path: 'https://docs.chainapi.com/',
       },
       {
         name: 'dAPIs',
@@ -226,12 +214,6 @@ export default {
   width: 45px;
   height: 39px;
   margin-top: 8px;
-}
-.ds-icon-shrink-chainapi {
-  width: 39px;
-  height: 39px;
-  margin-top: 8px;
-  margin-right: 7px;
 }
 
 .ds-arrow {
