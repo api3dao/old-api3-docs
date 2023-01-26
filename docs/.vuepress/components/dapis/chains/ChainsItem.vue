@@ -5,22 +5,24 @@
 <template>
   <div>
     <div class="bc-chains-name">
-      <a :href="chain.explorerUrl">{{ chain.fullname }}</a
+      <a :href="chain.explorerUrl">{{ chain.fullName }}</a
       ><ExternalLinkImage />
     </div>
-    <!--div class="bc-chains-short-name">({{ chain.name }})</div-->
+
+    <div style="float: right; margin-top: -23px; font-size: small">
+      {{ chain.nativeToken }}
+    </div>
+
     <div class="bc-chains-id">
       Id: <b>{{ chain.id }}</b>
     </div>
 
-    <!-- Contract list -->
-    <div
-      class="bc-chains-contract-address"
-      v-for="(address, key) in chain.contracts"
-      v-bind:key="address"
-    >
-      {{ key }}: <span>{{ address }}</span
-      ><CopyIcon :text="address" />
+    <!-- Contracts -->
+    <div class="bc-chains-contract-address">
+      AirnodeRrpV0: <span>{{ chain.contracts['AirnodeRrpV0'] }}</span
+      ><CopyIcon :text="chain.contracts['AirnodeRrpV0']" /> <br />DapiServer:
+      <span>{{ chain.contracts['DapiServer'] }}</span
+      ><CopyIcon :text="chain.contracts['DapiServer']" />
     </div>
   </div>
 </template>
