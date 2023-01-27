@@ -20,8 +20,8 @@ listed below will need to be implemented in order to migrate to Airnode v0.10.x.
 This document is written in a way that will preserve existing behaviour with
 earlier Airnode versions.
 
-The document also mentions changes of the user facing services related to
-Airnode, such as airnode-deployer, airnode-admin, etc., and new features.
+The document also mentions changes to user facing services related to Airnode,
+such as airnode-deployer, airnode-admin, etc., and new features.
 
 ## Migration
 
@@ -40,6 +40,8 @@ Airnode, such as airnode-deployer, airnode-admin, etc., and new features.
 
 6. Command `airnode-deployer remove-with-deployment-details` no longer exists.
    It was replaced by a command `airnode-deployer remove <deployment ID>`.
+
+7. Integrations within `airnode-examples` default to `DEBUG` log level.
 
 ### Details
 
@@ -108,10 +110,11 @@ Updated to "0.10.0"
 
 5. Field `nodeSettings.heartbeat.id` was removed from the heartbeat
    configuration. The ID is no longer needed to recognize which Airnode is
-   sending the heartbeat request.
-   [The payload is signed by the Airnode and the Airnode's public key can be recovered from the signature](../grp-providers/guides/build-an-airnode/heartbeat.md#heartbeat-endpoint).
-   **This change is relevant only for those using the
-   [Heartbeat feature](../grp-providers/guides/build-an-airnode/heartbeat.md#).**
+   sending the heartbeat request as
+   [the payload is signed by the Airnode](../grp-providers/guides/build-an-airnode/heartbeat.md#heartbeat-endpoint)
+   and the Airnode's public key can be recovered from the signature. **This
+   change is relevant only for those using the
+   [Heartbeat feature](../grp-providers/guides/build-an-airnode/heartbeat.md).**
 
 ```diff
 {
@@ -135,6 +138,20 @@ Updated to "0.10.0"
    You can still remove the Airnode deployment with the
    `airnode-deployer remove-with-receipt` command as before.
 
+7. In order to provide a better sense of Airnode behaviour and improve the
+   visibility of request logs within cloud provider monitoring services, the log
+   level specified by `nodeSettings.logLevel` within `config.json` has been
+   changed from `INFO` to `DEBUG` for `airnode-examples` integrations.
+   Similarly, integration deployment commands are now run with the `--debug`
+   flag.
+
+```diff
+{
+-  "logLevel": "INFO"
++  "logLevel": "DEBUG"
+}
+```
+
 ## New features
 
 - _Skipping API calls to just run pre/post processing (TODO
@@ -145,9 +162,9 @@ Updated to "0.10.0"
   the [documentation](../../../ois/v1.4/reserved-parameters.html). _(TODO link
   documentation for `_minConfirmations` once it's done
   https://github.com/api3dao/api3-docs/issues/1130)_
-- We now support a new type of authorizers, Cross-chain authorizers. Read more
+- We now support a new type of authorizers, cross-chain authorizers. Read more
   about when it makes sense to use it and how in the
-  [documentation](https://docs.api3.org/airnode/v0.10/concepts/authorizers.html#cross-chain-crosschainrequesterauthorizers).
+  [documentation](../concepts/authorizers.md#cross-chain-crosschainrequesterauthorizers).
 - Airnode's Deployer CLI went through multiple changes, improving the user
   experience. There are four additional commands,
   [`list`](./packages/deployer.md#listing-airnodes),
