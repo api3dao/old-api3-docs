@@ -41,8 +41,6 @@ such as airnode-deployer, airnode-admin, etc., and new features.
 6. Command `airnode-deployer remove-with-deployment-details` no longer exists.
    It was replaced by a command `airnode-deployer remove <deployment ID>`.
 
-7. Integrations within `airnode-examples` default to `DEBUG` log level.
-
 ### Details
 
 1. `ois[n].oisFormat`
@@ -138,20 +136,6 @@ Updated to "0.10.0"
    You can still remove the Airnode deployment with the
    `airnode-deployer remove-with-receipt` command as before.
 
-7. In order to provide a better sense of Airnode behaviour and improve the
-   visibility of request logs within cloud provider monitoring services, the log
-   level specified by `nodeSettings.logLevel` within `config.json` has been
-   changed from `INFO` to `DEBUG` for `airnode-examples` integrations.
-   Similarly, integration deployment commands are now run with the `--debug`
-   flag.
-
-```diff
-{
--  "logLevel": "INFO"
-+  "logLevel": "DEBUG"
-}
-```
-
 ## New features
 
 - _Skipping API calls to just run pre/post processing (TODO
@@ -173,3 +157,8 @@ Updated to "0.10.0"
   [`fetch-files`](./packages/deployer.md#fetching-deployment-files) to help you
   interact with your deployments more easily. You can read all about the new
   features in the [documentation](../grp-providers/docker/deployer-image.md).
+- In order to provide a better sense of Airnode behaviour and improve the
+  visibility of request logs within cloud provider monitoring services, the log
+  level specified by `nodeSettings.logLevel` within `config.json` has been
+  changed from `INFO` to `DEBUG` for `airnode-examples` integrations. Similarly,
+  integration deployment commands are now run with the `--debug` flag.
