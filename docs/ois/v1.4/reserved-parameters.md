@@ -269,6 +269,45 @@ Note that if a requester specifies a `_gasPrice` as a parameter in a request but
 the Airnode's configuration does not include the `_gasPrice` reserved parameter,
 the requester's gas price will be ignored.
 
+## `_minConfirmations`
+
+The `_minConfirmations` reserved parameter enables a requester to override the
+default minimum number of block confirmations set by the Airnode for that chain
+in
+[config.json](../../airnode/v0.10/reference/deployment-files/config-json.md#minconfirmations).
+The recommended implementation is to have the `_minConfirmations` reserved
+parameter without a `default` or `fixed` value as shown in the abbreviated
+snippet below:
+
+```json
+{
+  "reservedParameters": [
+    {
+      "name": "_minConfirmations"
+    }
+  ]
+}
+```
+
+This allows requesters to specify the minimum number of block confirmations via
+a parameter in their request. The value should be
+[encoded](../../airnode/v0.10/reference/packages/airnode-abi.md#encode) as a
+`string32` type by the requester, for example:
+
+```ts
+import { encode } from '@api3/airnode-abi';
+encode([{ name: '_minConfirmations', type: 'string32', value: '1' }]);
+```
+
+Requests are independently filtered based on the number of block confirmations
+since the request. For example, if a requester submits request A with a
+`_minConfirmations` value of 5, then 1 block later, submits request B with a
+`_minConfirmations` value of 2, request B will be fulfilled before request A.
+
+Note that if a requester specifies a `_minConfirmations` as a parameter in a
+request but the Airnode's configuration does not include the `_minConfirmations`
+reserved parameter, the requester's minimum confirmations value will be ignored.
+
 ## Encoding Multiple Values
 
 Solidity has support for decoding and "destructuring" multiple values. For

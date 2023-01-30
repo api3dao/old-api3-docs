@@ -395,9 +395,10 @@ start with an underscore. See the
 [related OIS docs](/ois/v1.4/ois.md#_5-4-reservedparameters) for more
 information.
 
-The current list of reserved parameters are `_type`, `_path`, `_times`, and
-`_gasPrice`. See [Reserved Parameters](/ois/v1.4/reserved-parameters.md) in the
-OIS document set to understand what each of these parameters are for.
+The current list of reserved parameters are `_type`, `_path`, `_times`,
+`_gasPrice`, and `_minConfirmations`. See
+[Reserved Parameters](/ois/v1.4/reserved-parameters.md) in the OIS document set
+to understand what each of these parameters are for.
 
 #### parameters
 
