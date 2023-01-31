@@ -392,11 +392,18 @@ operation.-->
 
 ### 5.2. `operation`
 
-(Required if API call won't be skipped) An object that refers to an API
-operation defined in `apiSpecifications.paths`, has the following elements:
+(Required: when calling an API provider operation) An object that refers to an
+API operation defined in `apiSpecifications.paths`. The following elements must
+be defined:
 
 - `path`
 - `method`
+
+`operation` must be omitted if the intent is to not call an API provider
+operation (endpoint) but rather return a value from either the
+[Pre/Post Processing](processing.md) capabilities of Airnode. See
+[Skip the API provider call](processing.md#skip-the-api-provider-call) for more
+information.
 
 #### 5.2.1. `path`
 
