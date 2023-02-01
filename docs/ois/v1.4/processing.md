@@ -89,36 +89,34 @@ statement. Therefore code should be tested thoroughly in the target environment
 pre-processing should always be executed at the end of the respective processing
 chain and special care should be taken to avoid leakage of secrets.
 
-## Skip the API provider call
+## Skip the API call
 
-Not all Airnode endpoints need to call an API provider operation. An Airnode
-endpoint can rely on either (or both) pre-processing or post-processing to
-acquire a value for the Airnode to place on-chain.
+Not all Airnode endpoints need to call an API. An Airnode endpoint can rely on
+either (or both) pre-processing or post-processing to acquire a value for the
+Airnode to place on-chain.
 
-Instead of a call to an API provide operation, Airnode uses output of
+Instead of calling an API, Airnode uses the output of
 `preProcessingSpecifications`, `postProcessingSpecifications`, or both. The
-filed `operation` must be undefined, `fixedOperationParameters` must be an empty
+field `operation` must be undefined, `fixedOperationParameters` must be an empty
 array and one of `preProcessingSpecifications` or `postProcessingSpecifications`
 must be defined and not be an empty array.
 
 ### Use case: random number
 
 An Airnode endpoint that places a random number on-chain. Rather than calling an
-off-chain API provider operation the Airnode will derive the random number
-during its execution of a pre-process specification. A requester would make a
-request of this Airnode endpoint without parameters. The Airnode endpoint simply
-sets the random number on-chain in response to the request using a
-`preProcessingSpecifications` specification. Example #1 below implements this
-use case.
+API, the Airnode will derive a random number during its execution of a
+pre-process specification. A requester would make a request of this Airnode
+endpoint without parameters. The Airnode endpoint simply sets the random number
+on-chain in response to the request using a `preProcessingSpecifications`
+specification. Example #1 below implements this use case.
 
 ### Example #1
 
 This example creates an Airnode endpoint named `generateRandomNumber` with no
 parameters. Because there isn't an [operation field](ois.md#_5-2-operation)
-defined for this Airnode endpoint, a call to an API provider operation will be
-not be made. The Airnode will instead perform a single specification defined in
-the [preProcessingSpecifications](ois.md#_5-9-preprocessingspecifications)
-array.
+defined for this Airnode endpoint, a call to an API will not be made. The
+Airnode will instead execute a single specification defined in the
+[preProcessingSpecifications](ois.md#_5-9-preprocessingspecifications) array.
 
 To implement the use case mentioned above, the
 [operation field](ois.md#_5-2-operation) will be undefined,
@@ -142,7 +140,7 @@ endpoints: [
       {
         "environment": "Node 14",
         "timeoutMs": 5000,
-        "value": "output = {randomNumber: Math.random()}"
+        "value": "output = {randomNumber: Math.floor(Math.random() * 100)}"
       }
     ],
     "reservedParameters": [
@@ -168,8 +166,8 @@ The code below is unrelated to the [use case](#use-case) mentioned earlier. This
 example creates an Airnode endpoint named `endpointThatSumsWith1000` with a
 parameter named `numberToSum`. Because there isn't an
 [operation field](ois.md#_5-2-operation) defined for this Airnode endpoint, a
-call to an API provider operation will not be made. The Airnode will instead
-perform a single specification defined in the
+call to an API will not be made. The Airnode will instead execute a single
+specification defined in the
 [preProcessingSpecifications](ois.md#_5-9-preprocessingspecifications) array.
 
 - A requester passes the number `5` in the parameter named `numberToSum`.
