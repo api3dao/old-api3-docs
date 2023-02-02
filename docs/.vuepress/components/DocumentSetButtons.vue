@@ -38,9 +38,9 @@ it will always default to the startPath in config.json.
       </p>
     </li>
     <li>
-      <router-link to="/chainapi">
+      <a href="https://docs.chainapi.com">
         <img src="/img/chainapi-active.png" />
-        ChainAPI</router-link
+        ChainAPI</a
       >
       <p>
         Enable your API to be called by smart contracts and applications running
