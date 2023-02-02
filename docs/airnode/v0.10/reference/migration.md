@@ -141,11 +141,10 @@ Updated to "0.10.0"
 - Skipping API calls to just run pre/post processing, see the OIS
   [documentation](/ois/v1.4/processing.md#skip-the-api-call).
 - There are two new reserved parameters available,
-  [`_gasPrice`](../../../ois/v1.4/reserved-parameters.html#gasprice) and
-  `_minConfirmations`. You can read more about how and what are they used for in
-  the [documentation](../../../ois/v1.4/reserved-parameters.html). _(TODO link
-  documentation for `_minConfirmations` once it's done
-  https://github.com/api3dao/api3-docs/issues/1130)_
+  [`_gasPrice`](../../../ois/v1.4/reserved-parameters.md#gasprice) and
+  [`_minConfirmations`](../../../ois/v1.4/reserved-parameters.md#minconfirmations).
+  You can read more about how and what are they used for in the
+  [documentation](../../../ois/v1.4/reserved-parameters.md).
 - We now support a new type of authorizers, cross-chain authorizers. Read more
   about when it makes sense to use it and how in the
   [documentation](../concepts/authorizers.md#cross-chain-crosschainrequesterauthorizers).

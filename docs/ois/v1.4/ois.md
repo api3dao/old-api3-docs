@@ -348,6 +348,9 @@ node.
       },
       {
         "name": "_gasPrice"
+      },
+      {
+        "name": "_minConfirmations"
       }
     ],
     "parameters": [
@@ -474,7 +477,8 @@ for an example.
 
 (Required) The name of the reserved parameter. Always starts with `_`.
 
-Allowed values: `_type`, `_path`, `_times`, and `_gasPrice`.
+Allowed values: `_type`, `_path`, `_times`, `_gasPrice`, and
+`_minConfirmations`.
 
 #### 5.4.2. `fixed`
 
