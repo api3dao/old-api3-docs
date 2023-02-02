@@ -138,8 +138,8 @@ Updated to "0.10.0"
 
 ## New features
 
-- _Skipping API calls to just run pre/post processing (TODO
-  https://github.com/api3dao/api3-docs/issues/1118 still open)_
+- Skipping API calls to just run pre/post processing, see the OIS
+  [documentation](/ois/v1.4/processing.md#skip-the-api-call).
 - There are two new reserved parameters available,
   [`_gasPrice`](../../../ois/v1.4/reserved-parameters.html#gasprice) and
   `_minConfirmations`. You can read more about how and what are they used for in
@@ -157,7 +157,7 @@ Updated to "0.10.0"
   [`fetch-files`](./packages/deployer.md#fetching-deployment-files) to help you
   interact with your deployments more easily. You can read all about the new
   features in the [documentation](../grp-providers/docker/deployer-image.md).
-- In order to provide a better sense of Airnode behaviour and improve the
+- In order to provide a better sense of Airnode behavior and improve the
   visibility of request logs within cloud provider monitoring services, the log
   level specified by `nodeSettings.logLevel` within `config.json` has been
   changed from `INFO` to `DEBUG` for `airnode-examples` integrations. Similarly,
