@@ -24,7 +24,7 @@ A docker client image has been published on
 [Docker Hub](https://hub.docker.com/r/api3/airnode-client). If you want to build
 the container from the source yourself, you can find the image and built
 instructions in the
-[Airnode repository](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-node/docker).
+[Airnode repository](https://github.com/api3dao/airnode/tree/v0.10/packages/airnode-node/docker).
 
 ## Configuration
 

@@ -42,35 +42,35 @@ part.
 ## Monorepo Examples
 
 There are examples of various Airnode functionality in the
-[airnode-examples package](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-examples)
+[airnode-examples package](https://github.com/api3dao/airnode/tree/v0.10/packages/airnode-examples)
 of the Airnode monorepo:
 
-- [authenticated-coinmarketcap](https://github.com/api3dao/airnode/blob/v0.8/packages/airnode-examples/integrations/authenticated-coinmarketcap) -
+- [authenticated-coinmarketcap](https://github.com/api3dao/airnode/blob/v0.10/packages/airnode-examples/integrations/authenticated-coinmarketcap) -
   cryptocurrency price request using
   [authentication](../guides/build-an-airnode/api-security.md#airnode-authentication-security-schemes).
-- [coingecko](https://github.com/api3dao/airnode/blob/v0.8/packages/airnode-examples/integrations/coingecko) -
+- [coingecko](https://github.com/api3dao/airnode/blob/v0.10/packages/airnode-examples/integrations/coingecko) -
   unauthenticated cryptocurrency price request.
-- [coingecko-post-processing](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-examples/integrations/coingecko-post-processing) -
+- [coingecko-post-processing](https://github.com/api3dao/airnode/tree/v0.10/packages/airnode-examples/integrations/coingecko-post-processing) -
   demonstration of the [post-processing](../../../../ois/v1.2/processing.md)
   feature.
-- [coingecko-pre-processing](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-examples/integrations/coingecko-pre-processing) -
+- [coingecko-pre-processing](https://github.com/api3dao/airnode/tree/v0.10/packages/airnode-examples/integrations/coingecko-pre-processing) -
   demonstration of the [pre-processing](../../../../ois/v1.2/processing.md)
   feature.
-- [coingecko-signed-data](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-examples/integrations/coingecko-signed-data) -
+- [coingecko-signed-data](https://github.com/api3dao/airnode/tree/v0.10/packages/airnode-examples/integrations/coingecko-signed-data) -
   demonstration of [signed data](../guides/build-an-airnode/http-gateways.md)
   retrieval for beacon updates.
-- [coingecko-template](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-examples/integrations/coingecko-template) -
+- [coingecko-template](https://github.com/api3dao/airnode/tree/v0.10/packages/airnode-examples/integrations/coingecko-template) -
   demonstration of [template](../../grp-developers/using-templates.md) requests.
-- [coingecko-testable](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-examples/integrations/coingecko-testable) -
+- [coingecko-testable](https://github.com/api3dao/airnode/tree/v0.10/packages/airnode-examples/integrations/coingecko-testable) -
   demonstration of how to test the endpoint using the
   [HTTP gateway](../guides/build-an-airnode/http-gateways.md).
-- [failing-example](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-examples/integrations/failing-example) -
+- [failing-example](https://github.com/api3dao/airnode/tree/v0.10/packages/airnode-examples/integrations/failing-example) -
   demonstration of Airnode error handling through an invalid request.
-- [relay-security-schemes](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-examples/integrations/relay-security-schemes) -
+- [relay-security-schemes](https://github.com/api3dao/airnode/tree/v0.10/packages/airnode-examples/integrations/relay-security-schemes) -
   demonstration of how to
   [relay multiple request metadata](../guides/build-an-airnode/api-security.md#relayed-meta-data-security-schemes)
   like chain ID and sponsor address to the API endpoint.
-- [weather-multi-value](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-examples/integrations/weather-multi-value) -
+- [weather-multi-value](https://github.com/api3dao/airnode/tree/v0.10/packages/airnode-examples/integrations/weather-multi-value) -
   authenticated weather request
   [encoding multiple parameters](../../../../ois/v1.2/reserved-parameters.md#encoding-multiple-values)
   including the transaction timestamp, time of sunset, temperature, and a
