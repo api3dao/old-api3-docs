@@ -71,7 +71,7 @@ which implements this interface.
 
 This interface inherits:
 
-- [IAuthorizationUtilsV0.sol](https://github.com/api3dao/airnode/blob10/packages/airnode-protocol/contracts/rrp/interfaces/IAuthorizationUtilsV0.sol)
+- [IAuthorizationUtilsV0.sol](https://github.com/api3dao/airnode/blob/v0.10/packages/airnode-protocol/contracts/rrp/interfaces/IAuthorizationUtilsV0.sol)
 - [IWithdrawalUtilsV0.sol](https://github.com/api3dao/airnode/blob/v0.10/packages/airnode-protocol/contracts/rrp/interfaces/IWithdrawalUtilsV0.sol)
 - [ITemplateUtilsV0.sol](https://github.com/api3dao/airnode/blob/v0.10/packages/airnode-protocol/contracts/rrp/interfaces/ITemplateUtilsV0.sol)
 
