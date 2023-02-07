@@ -67,7 +67,7 @@ quick-deploy-gcp
 
 ::: tab Download
 
-Download the <a href="/zip-files/quick-deploy-gcp-v0.10.zip" download>
+Download the <a href="/zip-files/quick-deploy-gcp-v0.11.zip" download>
 quick-deploy-gcp</a> project folder.
 
 :::
