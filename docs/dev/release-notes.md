@@ -23,7 +23,9 @@ Be sure to search in `/doc/airnode/<version>`.
 - Be sure all links to Github use the proper tag. Look for use of `master`,
   `main` or a previous tag such as `v0.10`.
 
-- Check that the quick start tutorial zip files are up-to-date.
+- Update each tutorial download link and the corresponding config.json files to
+  reflect the new version of the Docker images. Then update the zip files for
+  the necessary tutorials. See [Zip Tutorial Files](./zip-files.md).
 
 - Update the versions in the `config.js` files. See the doc
   [Versioning](./versioning.md) for help.

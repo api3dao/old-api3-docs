@@ -19,9 +19,12 @@ public
 └── zip-files
     └── quick-deploy-aws
         ├── quick-deploy-aws-v0.3.zip
-        ├── quick-deploy-aws-v0.4.zip
+        ...
+        ├── quick-deploy-aws-v0.11.zip
         ├── quick-deploy-container-v0.3.zip
-        ├── quick-deploy-container-v0.4.zip
+        ...
+        ├── quick-deploy-container-v0.11.zip
         ├── quick-deploy-gcp-v0.3.zip
-        └── quick-deploy-gcp-v0.4.zip
+        ...
+        └── quick-deploy-gcp-v0.11.zip
 ```
