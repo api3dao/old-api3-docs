@@ -152,7 +152,7 @@ themeConfig:{
    ```
 
 6. Update each tutorial download link and the corresponding config.json files to
-   reflect the new version of the Docker images. The update the zip files for
+   reflect the new version of the Docker images. Then update the zip files for
    the necessary tutorials. See [Zip Tutorial Files](./zip-files.md).
 
 7. Push branch changes to the repo, pull back to local main branch and run

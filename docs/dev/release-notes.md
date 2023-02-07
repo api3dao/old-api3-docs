@@ -18,30 +18,54 @@ document set, mostly [Versioning](./versioning.md).
 
 ## Airnode
 
-- Be sure all links to Github use the proper tag. Look for use of `master`,
-  `main` or a previous tag such as `v0.4`.
-- Check that the tutorial zip files are up-to-date.
+Be sure to search in `/doc/airnode/<version>`.
 
-- Update the Docker deployer image versions in
-  `/.vuepress/components/DockerImageVersions.vue`.
+- Be sure all links to Github use the proper tag. Look for use of `master`,
+  `main` or a previous tag such as `v0.10`.
+
+- Check that the quick start tutorial zip files are up-to-date.
 
 - Update the versions in the `config.js` files. See the doc
   [Versioning](./versioning.md) for help.
 
-- Look for older Airnode versions such as `0.4.0` in configuration files.
+- Look for older Airnode versions such as `0.10.0` in configuration files under
+  the Reference section.
 
-- The OIS document set has links back to Airnode. Look for an older tag such as
-  `v0.4` and update as needed. There is at least one link to the Airnode repo as
-  well that uses a tag (such as `v0.4`).
+- There is at least one link to the Airnode repo that uses a URL such as
+  `v0.10`.
 
-- Update the `ois-OisAirnodeVersions.vue` component dependency chart.
-- The dAPIs document set has links back to Airnode. Look for an older tag such
-  as `v0.4` and update as needed.
+- Update `check-links-imgs.yaml` to exclude versions as needed including
+  unreleased ones.
+
+## dAPIs
+
+search in `/doc/dapis`.
+
+Links back to Airnode should have been updated to use a router-link element
+below. Still it is best to check that someone has not added a standard markdown
+link back to a particular Airnode version.
+
+```
+<router-link :to="$themeConfig.latestVersions.airnode">Airnode</router-link>
+```
+
+- The dAPIs document may have links back to Airnode. Look for an older tag such
+  as `v0.10` and update as needed.
 
 ## OIS
 
-::: warning To-Be-Update
+Be sure to search in `/doc/ois/<version>`.
 
-This section will get updated when the next release of OIS is ready.
+- Update the `ois-OisAirnodeVersions.vue` component dependency chart.
 
-:::
+- Update the versions in the `config.js` files. See the doc
+  [Versioning](./versioning.md) for help.
+
+- Check the links back to Airnode. Look for an older tag such as `v0.10` and
+  update as needed.
+
+- Check the links to remote repos. Look for an older tag such as `v0.10` and
+  update as needed.
+
+- Update `check-links-imgs.yaml` to exclude versions as needed including
+  unreleased ones.
