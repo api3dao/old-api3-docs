@@ -18,4 +18,4 @@ The config.json file contents shown below is for the [Quick Deploy AWS](./)
 demo.
 
 <!-- prettier-ignore -->
-<<< @/docs/airnode/v0.10/grp-providers/tutorial/quick-deploy-aws/src/quick-deploy-aws/config.json
+<<< @/docs/airnode/v0.11/grp-providers/tutorial/quick-deploy-aws/src/quick-deploy-aws/config.json
