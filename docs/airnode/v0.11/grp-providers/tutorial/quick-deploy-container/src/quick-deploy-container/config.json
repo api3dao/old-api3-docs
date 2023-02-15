@@ -71,7 +71,7 @@
     "logFormat": "plain",
     "logLevel": "DEBUG",
     "nodeVersion": "0.11.0",
-    "stage": "tutorial-container"
+    "stage": "tutorial-contain"
   },
   "triggers": {
     "rrp": [
