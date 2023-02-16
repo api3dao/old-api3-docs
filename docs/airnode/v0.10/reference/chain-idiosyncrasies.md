@@ -12,8 +12,8 @@ tags:
 
 <VersionWarning/>
 
-<!--TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" /-->
+<TocHeader />
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 Differences in chain design inevitably lead to some unique chain-specific
 considerations. Below are idiosyncrasies we have identified, though it may not
