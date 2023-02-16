@@ -48,4 +48,5 @@ jobs:
           -not -path "docs/ois/v1.1/*"
           -not -path "docs/ois/v1.2/*"
           -not -path "docs/ois/v1.3/*"
+          -not -path "docs/ois/v2.0/*"
           -type f -name "*.md" | xargs lychee - -c .github/workflows/lychee.toml
