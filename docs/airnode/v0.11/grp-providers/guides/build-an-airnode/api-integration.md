@@ -17,7 +17,7 @@ tags:
 
 A successful integration of an API with an Airnode requires the mapping of each
 other's interface. This is accomplished using an OIS
-([Oracle Integration Specifications](/ois/v1.2/ois.md)) json object, found in
+([Oracle Integration Specifications](/ois/v2.0/ois.md)) json object, found in
 the config.json file, that is designed to follow three basic steps.
 
 - API operations are specified
@@ -97,7 +97,7 @@ json object.
 
 ### oisFormat
 
-A specific version of the [OIS Specification](/ois/v1.2/ois.md#_1-oisformat) to
+A specific version of the [OIS Specification](/ois/v2.0/ois.md#_1-oisformat) to
 be used. For this guide, which uses Airnode `v0.10.x`, the proper OIS version is
 `1.2.0`.
 
@@ -392,12 +392,12 @@ and `endpoints[n].parameters`.
 The requester can provide some parameters that are not mapped to API operation
 parameters. These parameters are called "reserved parameters", and their names
 start with an underscore. See the
-[related OIS docs](/ois/v1.4/ois.md#_5-4-reservedparameters) for more
+[related OIS docs](/ois/v2.0/ois.md#_5-4-reservedparameters) for more
 information.
 
 The current list of reserved parameters are `_type`, `_path`, `_times`,
 `_gasPrice`, and `_minConfirmations`. See
-[Reserved Parameters](/ois/v1.4/reserved-parameters.md) in the OIS document set
+[Reserved Parameters](/ois/v2.0/reserved-parameters.md) in the OIS document set
 to understand what each of these parameters are for.
 
 #### parameters
