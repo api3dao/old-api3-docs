@@ -37,14 +37,11 @@ in stablecoins. We are fully remote and hire globally.
 Here are some great roles we need help with.
 
 1. [Senior Quality Assurance Engineer](./work.md#senior-quality-assurance-engineer-job-description)
-2. [Oracle Developer](./work.md#oracle-developer-job-description)
 
 We're always interested in hearing from great candidates, even if we don't have
 an opening that matches. Get in touch and let's have a conversation.
 
-<api3-JobsEmailAddress/>
-
-<hr/>
+---
 
 ### Senior Quality Assurance Engineer Job Description
 
@@ -83,31 +80,5 @@ following:**
 - Scripting proficiency with NodeJS, Bash and/or Python
 - Experience with Blockchain and Ethereum technologies
 - Experience with smart contract security auditing and testing
-
-### Oracle Developer Job Description
-
-We're looking for an Oracle Developer to join the API3 Core Technical team.
-You'll play a key role in scoping our data feed requirements as well as their
-implementation. You'll have ownership over the scoping, implementation as well
-as maintainance of the Oracle Integrations of our partners.
-
-**What you'll be doing:**
-
-- Maintaining regular integrations calls with our partners to keep their oracle
-  specs up to date
-- Onboarding new partners: analysis of API endpoints, backtesting of oracle
-  parameters through historical data, preparation of deployment files and
-  maintaining a call schedule for implementations
-- Designing the Oracle Integrations Process and documenting it from start to end
-- Work closely together with other members of the Core Tech Team (from engineers
-  to product owners) to manage the relationship with our partners
-
-**What skills we need you to have:**
-
-- Solid understanding of APIs, Solidity smart contracts and Oracles
-- Experience with Serverless functions (AWS & GCP)
-- Self-starter: In most cases there won't be anybody telling you what needs to
-  be done each and every single day. You own this process entirely.
-- Professional working proficiency in English
 
 <api3-JobsEmailAddress/>
