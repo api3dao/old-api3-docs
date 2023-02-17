@@ -215,7 +215,7 @@ _times: "100"
 
 the request will be fulfilled with the value `123`. Note that the number gets
 multiplied by `100`, and then gets floored. This is because the result of the
-multiplication is [cast](/airnode/v0.1/reference/packages/adapter.md) to
+multiplication is [cast](/airnode/v0.11/reference/packages/adapter.md) to
 `int256` afterwards.
 
 Make sure to pass the `_times` parameter as string. Airnode will convert this
