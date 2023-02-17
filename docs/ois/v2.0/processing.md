@@ -23,7 +23,7 @@ so on.
 
 Every processing snippet follows this schema:
 
-- `environment` - Currently one of `Node 14` or `Node 14 async`. Both options
+- `environment` - Currently one of `Node 18` or `Node 18 async`. Both options
   interpret the code as JavaScript and execute in Node.js version 14. The async
   version can use asynchronous code. The code snippet is expected to call
   `resolve(output)` with the output value as an argument. Airnode will use the
@@ -68,7 +68,7 @@ should be escaped inside the `config.json` like this:
 
 ```json
 {
-  "environment": "Node 14",
+  "environment": "Node 18",
   "timeoutMs": 5000,
   "value": "console.log(`Received input \\${input}`);\nconst output = input;"
 }
@@ -138,7 +138,7 @@ endpoints: [
     "parameters": [],
     "preProcessingSpecifications": [
       {
-        "environment": "Node 14",
+        "environment": "Node 18",
         "timeoutMs": 5000,
         "value": "output = {randomNumber: Math.floor(Math.random() * 100)}"
       }
@@ -192,7 +192,7 @@ endpoints: [
     ],
     "preProcessingSpecifications": [
       {
-        "environment": "Node 14",
+        "environment": "Node 18",
         "timeoutMs": 5000,
         "value": "output = {inputsSumWith1000: parseInt(input.numberToSum) + 1000}"
       }
