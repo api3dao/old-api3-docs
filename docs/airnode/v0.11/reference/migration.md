@@ -137,12 +137,12 @@ Updated to "0.11.0"
 ## New features
 
 - Skipping API calls to just run pre/post processing, see the OIS
-  [documentation](/ois/v1.4/processing.md#skip-the-api-call).
+  [documentation](/ois/v2.0/processing.md#skip-the-api-call).
 - There are two new reserved parameters available,
-  [`_gasPrice`](../../../ois/v1.4/reserved-parameters.md#gasprice) and
-  [`_minConfirmations`](../../../ois/v1.4/reserved-parameters.md#minconfirmations).
+  [`_gasPrice`](../../../ois/v2.0/reserved-parameters.md#gasprice) and
+  [`_minConfirmations`](../../../ois/v2.0/reserved-parameters.md#minconfirmations).
   You can read more about how and what are they used for in the
-  [documentation](../../../ois/v1.4/reserved-parameters.md).
+  [documentation](../../../ois/v2.0/reserved-parameters.md).
 - We now support a new type of authorizers, cross-chain authorizers. Read more
   about when it makes sense to use it and how in the
   [documentation](../concepts/authorizers.md#cross-chain-crosschainrequesterauthorizers).

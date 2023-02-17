@@ -111,7 +111,6 @@ module.exports = {
       '/dao-members/': require(`../dao-members/sidebar.js`),
       '/api3/': require(`../api3/sidebar.js`),
       '/dev/': require(`../dev/sidebar.js`),
-      '/operations/': require(`../operations/sidebar.js`),
     },
     /*
       2021-02-17: wkande:

@@ -36,7 +36,7 @@ Every processing snippet follows this schema:
 
 The `airnode-examples` monorepo has examples using pre-processing and
 post-processing,
-[see here](../../airnode/v0.10/grp-providers/tutorial/README.md#monorepo-examples).
+[see here](../../airnode/v0.11/grp-providers/tutorial/README.md#monorepo-examples).
 
 :::
 

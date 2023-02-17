@@ -53,7 +53,7 @@ An OIS has five root fields (keys).
 
 ```json
 {
-  "oisFormat": "1.4.0",
+  "oisFormat": "2.0.0",
   "title": "myOisTitle",
   "version": "1.2.3",
   "apiSpecifications": {
@@ -167,7 +167,7 @@ the non-nested application/json content-type is supported.</p>
 
 ### 4.3. `components`
 
-[<InfoBtnBlue/>](/airnode/v0.10/grp-providers/guides/build-an-airnode/api-security.md)
+[<InfoBtnBlue/>](/airnode/v0.11/grp-providers/guides/build-an-airnode/api-security.md)
 (Required) An object where security schemes can be found under
 `securitySchemes.{securitySchemeName}` with the following elements:
 
@@ -236,9 +236,9 @@ Applies to all operations. A security scheme can contain information required by
 the API to authenticate Airnode as well as information about the requester
 (relay information) the API may also require. Read more about security schemes
 in the
-[API Security](../../airnode/v0.10/grp-providers/guides/build-an-airnode/api-security.md)
+[API Security](../../airnode/v0.11/grp-providers/guides/build-an-airnode/api-security.md)
 section of the _Build an Airnode_ guide and the
-[Airnode Authentication](../../airnode/v0.10/concepts/airnode-auth.md) section
+[Airnode Authentication](../../airnode/v0.11/concepts/airnode-auth.md) section
 of _Concepts and Definitions_.
 
 The `security` object maintains the names of all the security schemes used. Each
@@ -424,7 +424,7 @@ respective API operation.-->
 
 ### 5.3. `fixedOperationParameters`
 
-[<InfoBtnBlue/>](/airnode/v0.10/grp-providers/guides/build-an-airnode/api-integration.md#fixedoperationparameters)
+[<InfoBtnBlue/>](/airnode/v0.11/grp-providers/guides/build-an-airnode/api-integration.md#fixedoperationparameters)
 (Required) A list of objects specifying the fixed parameters for an API
 operation. While required, the `fixedOperationParameters` array can be empty.
 Each object has the following elements:
@@ -455,7 +455,7 @@ that cannot be overridden by the requester.
 
 ### 5.4. `reservedParameters`
 
-[<InfoBtnBlue/>](/airnode/v0.10/grp-providers/guides/build-an-airnode/api-integration.md#reservedparameters)
+[<InfoBtnBlue/>](/airnode/v0.11/grp-providers/guides/build-an-airnode/api-integration.md#reservedparameters)
 (Required) A list of objects that specify reserved Airnode endpoint parameters
 that do not map to any API operation parameters, but are used for special
 purposes by the Airnode. At a minimum, one object must specify the API response
@@ -492,7 +492,7 @@ provided by a requester. Cannot be used together with `fixed`.
 
 ### 5.5. `parameters`
 
-[<InfoBtnBlue/>](/airnode/v0.10/grp-providers/guides/build-an-airnode/api-integration.md#parameters)
+[<InfoBtnBlue/>](/airnode/v0.11/grp-providers/guides/build-an-airnode/api-integration.md#parameters)
 (Required) A list of objects that specify Airnode endpoint parameters that map
 to an particular API operation's parameters. While required, the `parameters`
 array can be empty. Each object has the following elements:
