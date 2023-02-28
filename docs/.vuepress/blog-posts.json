@@ -128,6 +128,18 @@
           "dt": "2022-11-01",
           "title": "Oracle extractable value (OEV)",
           "url": "https://medium.com/api3/oracle-extractable-value-oev-13c1b6d53c5b"
+        },
+        {
+          "date": "Jan 12, 2023",
+          "dt": "2023-01-12",
+          "title": "DAO Snippets: Engineering Web3 — an interview with Burak Benligiray",
+          "url": "https://medium.com/api3/dao-snippets-engineering-web3-an-interview-with-burak-benligiray-e69d2980c137"
+        },
+        {
+          "date": "Feb 02, 2023",
+          "dt": "2023-02-02",
+          "title": "API3 Recap 2022",
+          "url": "https://medium.com/api3/api3-recap-2022-113f1a2f522a"
         }
       ]
     },
@@ -398,6 +410,12 @@
           "dt": "2022-10-31",
           "title": "API3 Core Technical Team Report, October 2022",
           "url": "https://bbenligiray.medium.com/api3-core-technical-team-report-october-2022-775a762b063e"
+        },
+        {
+          "date": "Feb 28, 2023",
+          "dt": "2023-02-28",
+          "title": "API3 Core Technical Team Report, November 2022–February 2023",
+          "url": "https://bbenligiray.medium.com/api3-core-technical-team-report-november-2022-february-2023-cc49f315a0db"
         }
       ]
     },
