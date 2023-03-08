@@ -117,7 +117,7 @@ of `api3/airnode-client` matches the `nodeVersion` in the config.json file.
 ::: tab Mac/WSL2/PowerShell
 
 ```sh
-docker run --detach \
+docker run \
   --volume "$(pwd):/app/config" \
   --name quick-deploy-container-airnode \
   --publish 3000:3000 \
@@ -131,7 +131,7 @@ docker run --detach \
 For Windows CMD:
 
 ```batch
-docker run --detach ^
+docker run ^
   --volume "%cd%:/app/config" ^
   --name quick-deploy-container-airnode ^
   --publish 3000:3000 ^
@@ -143,7 +143,7 @@ docker run --detach ^
 ::: tab Linux
 
 ```sh
-docker run --detach \
+docker run \
   --volume "$(pwd):/app/config" \
   --name quick-deploy-container-airnode \
   --network host \
