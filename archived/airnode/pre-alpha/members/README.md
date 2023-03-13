@@ -13,6 +13,5 @@ This documentation describes the structure and functionality of the API3 DAO. It
 - Participating in API3 governance via proposal creation, voting, and execution
 
 ::: tip DAO Dashboard
-Access the [DAO Dashboard](https://api3.eth.link/) on **Mainnet**.
+Access the [DAO Dashboard](https://api3.eth/) on **Mainnet**.
 :::
-<!--[staging.api3.eth](https://staging.api3.eth.link/) (Rinkeby Testnet)-->

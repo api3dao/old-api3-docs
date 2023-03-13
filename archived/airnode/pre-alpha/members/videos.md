@@ -7,7 +7,7 @@ title: Dashboard Videos
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-Learn how to use the DAO Dashboard by watching these short videos. Access the DAO Dashboard at [DAO Dashboard](https://api3.eth.link/).
+Learn how to use the DAO Dashboard by watching these short videos. Access the DAO Dashboard at [DAO Dashboard](https://api3.eth/).
 
 ## Deposit and Withdraw
 
