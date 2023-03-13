@@ -68,7 +68,7 @@ exclude = [
   "eth-rinkeby.gateway.pokt.network",
   "execute-api.us-east-1.amazonaws.com",
   "github.com/.*.git",
-  "api3.eth.link",
+  "api3.eth",
   "config@1.0.0",
   "config@0.3",
   "config@0.4",

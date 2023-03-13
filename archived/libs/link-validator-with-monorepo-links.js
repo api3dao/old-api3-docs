@@ -84,7 +84,7 @@ async function testLink(url, filePath) {
     }
 
     // Sometimes the anchor indicator (#) is in the
-    // path: https://api3.eth.link/#/history/secondary-6
+    // path: https://api3.eth/#/history/secondary-6
     // This is not an anchor, ignore it.
     if (urlAnchor && urlAnchor.indexOf('#/') > -1) {
       urlAnchor = null;
