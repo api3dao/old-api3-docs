@@ -60,7 +60,6 @@ async function testLink(url, filePath) {
     // START: ignore section
     // TODO: This needs to move to an ignore file.
     let ignore = [
-      'https://staging.api3.eth.link/#/',
       'https://www.coingecko.com/en/api/documentation',
     ];
     // Some a tags may have javascript:void(0) in href

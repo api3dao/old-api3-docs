@@ -56,7 +56,6 @@ headers = []
 exclude = [
   "myapi.com",
   "mydao.com",
-  "staging.api3.eth.link",
   "infura.io",
   "api.coingecko.com/api/v3",
   "127.0.0.1",

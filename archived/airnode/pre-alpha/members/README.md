@@ -15,4 +15,3 @@ This documentation describes the structure and functionality of the API3 DAO. It
 ::: tip DAO Dashboard
 Access the [DAO Dashboard](https://api3.eth.link/) on **Mainnet**.
 :::
-<!--[staging.api3.eth](https://staging.api3.eth.link/) (Rinkeby Testnet)-->

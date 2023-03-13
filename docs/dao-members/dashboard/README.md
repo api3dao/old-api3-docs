@@ -28,10 +28,6 @@ The DAO dashboard focuses on your interaction with the DAO:
 
 - Access the [DAO Dashboard](https://dao.api3.org) on **Mainnet**.
 
-- Access the [Stage DAO Dashboard](https://staging.api3.eth.link/#/) on Rinkeby.
-  This is a staging area for beta and other testing. Please note that the
-  staging area may not be available at certain times.
-
 Connect your wallet by clicking the **Connect Wallet** button in the upper right
 hand corner. Select your wallet from the popup. Once connected you can view the
 DAO dashboard showing stake and reward status.
