@@ -51,19 +51,16 @@ of the Airnode monorepo:
 - [coingecko](https://github.com/api3dao/airnode/blob/v0.10/packages/airnode-examples/integrations/coingecko) -
   unauthenticated cryptocurrency price request.
 - [coingecko-post-processing](https://github.com/api3dao/airnode/tree/v0.10/packages/airnode-examples/integrations/coingecko-post-processing) -
-  demonstration of the [post-processing](../../../../ois/v1.2/processing.md)
+  demonstration of the [post-processing](../../../../ois/v2.0/processing.md)
   feature.
 - [coingecko-pre-processing](https://github.com/api3dao/airnode/tree/v0.10/packages/airnode-examples/integrations/coingecko-pre-processing) -
-  demonstration of the [pre-processing](../../../../ois/v1.2/processing.md)
+  demonstration of the [pre-processing](../../../../ois/v2.0/processing.md)
   feature.
-- [coingecko-signed-data](https://github.com/api3dao/airnode/tree/v0.10/packages/airnode-examples/integrations/coingecko-signed-data) -
-  demonstration of [signed data](../guides/build-an-airnode/http-gateways.md)
-  retrieval for beacon updates.
+- [coingecko-http-gateways](https://github.com/api3dao/airnode/tree/v0.10/packages/airnode-examples/integrations/coingecko-http-gateways) -
+  demonstration of the
+  [HTTP gateway and HTTP signed data gateway](../guides/build-an-airnode/http-gateways.md).
 - [coingecko-template](https://github.com/api3dao/airnode/tree/v0.10/packages/airnode-examples/integrations/coingecko-template) -
   demonstration of [template](../../grp-developers/using-templates.md) requests.
-- [coingecko-testable](https://github.com/api3dao/airnode/tree/v0.10/packages/airnode-examples/integrations/coingecko-testable) -
-  demonstration of how to test the endpoint using the
-  [HTTP gateway](../guides/build-an-airnode/http-gateways.md).
 - [failing-example](https://github.com/api3dao/airnode/tree/v0.10/packages/airnode-examples/integrations/failing-example) -
   demonstration of Airnode error handling through an invalid request.
 - [relay-security-schemes](https://github.com/api3dao/airnode/tree/v0.10/packages/airnode-examples/integrations/relay-security-schemes) -
@@ -72,6 +69,6 @@ of the Airnode monorepo:
   like chain ID and sponsor address to the API endpoint.
 - [weather-multi-value](https://github.com/api3dao/airnode/tree/v0.10/packages/airnode-examples/integrations/weather-multi-value) -
   authenticated weather request
-  [encoding multiple parameters](../../../../ois/v1.2/reserved-parameters.md#encoding-multiple-values)
+  [encoding multiple parameters](../../../../ois/v2.0/reserved-parameters.md#encoding-multiple-values)
   including the transaction timestamp, time of sunset, temperature, and a
   description of the weather.

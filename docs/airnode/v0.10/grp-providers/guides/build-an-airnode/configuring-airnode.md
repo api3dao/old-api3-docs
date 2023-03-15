@@ -27,7 +27,7 @@ Note that this guide is complementary to, and not a replacement of, the
 
 An Airnode is deployed or redeployed using configuration values from its
 `config.json` and `secrets.env` files. The `config.json` specifies the
-[Oracle Integration Specifications OIS](/ois/v1.2/ois.md) and other specific
+[Oracle Integration Specifications OIS](/ois/v1.4/ois.md) and other specific
 configuration details. The `secrets.env` file holds secrets, such as API keys
 and chain provider URLs, which are referenced within the config.json file using
 interpolation.
@@ -365,7 +365,7 @@ that a single instance of an Airnode can serve multiple APIs. You can simply
 copy paste OIS objects that you will be serving into the `ois` list. Use the
 previous guide [API Integration](api-integration.md) to create an OIS object.
 The full specification is available in the
-[Oracle Integration Specifications (OIS)](/ois/v1.2/) documentation.
+[Oracle Integration Specifications (OIS)](/ois/v1.4/) documentation.
 
 ### apiCredentials
 

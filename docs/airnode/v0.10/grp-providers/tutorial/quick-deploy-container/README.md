@@ -114,22 +114,10 @@ of `api3/airnode-client` matches the `nodeVersion` in the config.json file.
 
 :::: tabs
 
-::: tab Linux
-
-```sh
-docker run --detach \
-  --volume "$(pwd):/app/config" \
-  --name quick-deploy-container-airnode \
-  --network host \
-  api3/airnode-client:0.10.0
-```
-
-:::
-
 ::: tab Mac/WSL2/PowerShell
 
 ```sh
-docker run --detach \
+docker run \
   --volume "$(pwd):/app/config" \
   --name quick-deploy-container-airnode \
   --publish 3000:3000 \
@@ -143,7 +131,7 @@ docker run --detach \
 For Windows CMD:
 
 ```batch
-docker run --detach ^
+docker run ^
   --volume "%cd%:/app/config" ^
   --name quick-deploy-container-airnode ^
   --publish 3000:3000 ^
@@ -152,18 +140,33 @@ docker run --detach ^
 
 :::
 
+::: tab Linux
+
+```sh
+docker run \
+  --volume "$(pwd):/app/config" \
+  --name quick-deploy-container-airnode \
+  --network host \
+  api3/airnode-client:0.10.0
+```
+
+:::
+
 ::::
 
-Note that `--publish HOST_PORT:CONTAINER_PORT` parameter can have different
-values for the `HOST_PORT` and `CONTAINER_PORT`. E.g. parameter
-`--publish 8000:3000` would expose the web server on port 8000 on the host
-machine. If run using [host networking](https://docs.docker.com/network/host/)
-you need to change the port via
+Note that `--publish HOST_PORT:CONTAINER_PORT` parameter (Mac/WSL2/PowerShell)
+can have different values for the `HOST_PORT` and `CONTAINER_PORT`. E.g.
+parameter `--publish 8000:3000` would expose the web server on port 8000 on the
+host machine.
+
+For Linux, it's recommended to use
+[host networking](https://docs.docker.com/network/host/). When using host
+networking, change the port via
 [gatewayServerPort](../../../reference/deployment-files/config-json.md#cloudprovider-gatewayserverport)
 property inside config.json.
 
-For Linux, it's recommended to use
-[host networking](https://docs.docker.com/network/host/).
+In the Docker desktop application view the container
+(quick-deploy-container-airnode) and its logs.
 
 ## Test the Airnode
 

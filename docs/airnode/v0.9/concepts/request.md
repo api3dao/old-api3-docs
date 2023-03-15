@@ -135,11 +135,10 @@ the same name, the one provided at request-time will be used.
 
 ## Request Outcomes
 
-A request made to an Airnode has three possible outcomes:
+A request made to an Airnode has two possible outcomes:
 
 - [Fulfill](./request.md#fulfill)
 - [Fail](./request.md#fail)
-- [Ignore](./request.md#ignore)
 
 ### Fulfill
 

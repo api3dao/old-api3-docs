@@ -56,7 +56,6 @@ headers = []
 exclude = [
   "myapi.com",
   "mydao.com",
-  "staging.api3.eth.link",
   "infura.io",
   "api.coingecko.com/api/v3",
   "127.0.0.1",
@@ -69,7 +68,7 @@ exclude = [
   "eth-rinkeby.gateway.pokt.network",
   "execute-api.us-east-1.amazonaws.com",
   "github.com/.*.git",
-  "api3.eth.link",
+  "api3.eth",
   "config@1.0.0",
   "config@0.3",
   "config@0.4",

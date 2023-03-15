@@ -18,7 +18,7 @@ tags:
 ## Cloud Provider Log Organization
 
 Airnode logs or log groups are named similarly in AWS and GCP and include the
-following hyphen-separated components: `airnode`, `<airnode short address>`,
+following hyphen-separated components: `airnode`, `<airnode deployment id>`,
 `<stage>`, and `<airnode cycle stage or request type>`, for example,
 `airnode-9e62180-tutorial-startCoordinator`. The possible Airnode cycle stages
 or request types and the logs they contain are as follows:

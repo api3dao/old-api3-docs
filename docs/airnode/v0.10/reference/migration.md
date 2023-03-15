@@ -12,8 +12,8 @@ tags:
 
 <VersionWarning/>
 
-<!--TocHeader />
-<TOC class="table-of-contents" :include-level="[2,3]" /-->
+<TocHeader />
+<TOC class="table-of-contents" :include-level="[2,3]" />
 
 The following guide assumes a valid v0.9.x `config.json` file. All changes
 listed below will need to be implemented in order to migrate to Airnode v0.10.x.

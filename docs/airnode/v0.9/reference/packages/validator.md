@@ -142,5 +142,5 @@ if (parseResult.success) {
 
 ## Build Manually
 
-See the build instruction in the package developer documentation:
-https://github.com/api3dao/airnode/tree/v0.9/packages/airnode-validator
+See the build instructions in the
+[package repository](https://github.com/api3dao/airnode/tree/v0.9/packages/airnode-validator).

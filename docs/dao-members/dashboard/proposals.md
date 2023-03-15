@@ -257,7 +257,7 @@ to your ENS name. See Parameters in
 [this proposal](https://bafybeice5xg7dk6alljdkkkv4v65r6x5tgy3cpbxti4tlcd4yuyfzsz6mq.ipfs.dweb.link/#/history/secondary-31)
 for an example.
 
-<!-- The link above used to be https://api3.eth.link/#/history/secondary-6 -->
+<!-- The link above used to be https://api3.eth/#/history/secondary-6 -->
 
 ## Using IPFS for Proposals
 

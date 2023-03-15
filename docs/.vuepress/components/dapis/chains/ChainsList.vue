@@ -45,7 +45,7 @@ export default {
     async loadChainsFromRepo() {
       try {
         const response = await axios.get(
-          'https://db-api-prod.api3.org/api/docs-chains-reference'
+          'https://db-api-staging.api3.org/api/docs-chains-reference'
         );
         this.chains = response.data;
         this.chainsCnt = Object.keys(this.chains).length; //keys.length;

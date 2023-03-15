@@ -111,12 +111,12 @@ themeConfig:{
 
 1. Make a copy of the current version and rename it as needed.
 
-2. Markdown pages will probably contained hyperlinks to remote GitHub repos.
+1. Markdown pages will probably contained hyperlinks to remote GitHub repos.
    More than likely these links will need updating in the version just created.
    However these cannot be updated until the airnode monorepo contains a tag to
    use for these links.
 
-3. Adjust the list of sidebars as needed in `config.json`.
+1. Adjust the list of sidebars as needed in `config.json`.
 
    ```json
    sidebar: {
@@ -136,11 +136,11 @@ themeConfig:{
    },
    ```
 
-4. Change the version in `package.json` when the Airnode version changes, not
+1. Change the version in `package.json` when the Airnode version changes, not
    OIS. This version reflects a release of the docs and is not shown anywhere in
    the docs.
 
-5. Update `check-links-imgs.yaml` to exclude future versions.
+1. Update `check-links-imgs.yaml` to exclude future versions.
 
    ```sh
    run: >
@@ -151,10 +151,7 @@ themeConfig:{
       -type f -name "*.md" | xargs lychee - -c .github/workflows/lychee.toml
    ```
 
-6. Push branch changes to the repo, pull back to local main branch and run
-   `sh deploy.sh`.
-
-7. Update `$frontmatter` for all pages to the proper version number. Be sure to
+1. Update `$frontmatter` for all pages to the proper version number. Be sure to
    include the `$frontmatter` key such as `docSetName` in the search criteria to
    find and replace only `$frontmatter` keys.
 
@@ -167,14 +164,22 @@ themeConfig:{
    files to include: docs/airnode/v0.11
    ```
 
-8. Find and replace the string `0.10.0` with its replacement `v0.11`. This will
+1. Find and replace the string `0.10.0` with its replacement `v0.11`. This will
    appear in CLI commands and config files.
+
    ```bash
    "nodeVersion": "0.10.0"
    docker run api3/airnode-admin:0.10.0 --help
    api3/airnode-deployer:0.10.0 deploy
    ...
    ```
+
+1. Update the zip files in hte
+   tutorials<a href="/zip-files/quick-deploy-gcp-v0.10.zip" download>
+   quick-deploy-gcp</a>.
+
+1. Push branch changes to the repo, pull back to local main branch and run
+   `sh deploy.sh`.
 
 ## Update Older Versions
 

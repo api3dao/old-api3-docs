@@ -69,9 +69,9 @@
       "enabled": false
     },
     "logFormat": "plain",
-    "logLevel": "INFO",
+    "logLevel": "DEBUG",
     "nodeVersion": "0.10.0",
-    "stage": "tutorial-container"
+    "stage": "tutorial-contain"
   },
   "triggers": {
     "rrp": [

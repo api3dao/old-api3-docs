@@ -136,7 +136,7 @@ deployment was successful or not.
 {
   "airnodeWallet": {
     "airnodeAddress": "0xaBd9daAdf32fCd96eE4607bf3d5B31e19a244Cac",
-    "airnodeAddressShort": "abd9daa",
+
     "xpub": "xpub661MyMwAqRbcGHp9uC7...vbeziJwFHuNs"
   },
   "deployment": {
