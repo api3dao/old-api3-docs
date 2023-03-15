@@ -121,6 +121,11 @@ building a config.json file.
       "maxConcurrency": <FILL_NUMBER>,
       "corsOrigins": ["<FILL_*>"]
     },
+    "oevGateway": {
+      "enabled": <FILL_BOOLEAN>,
+      "maxConcurrency": <FILL_NUMBER>,
+      "corsOrigins": ["<FILL_*>"]
+    },
     "logFormat": "json",
     "logLevel": "INFO",
     "nodeVersion": "0.11.0",

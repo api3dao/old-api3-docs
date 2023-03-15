@@ -54,6 +54,11 @@ Turn on the optional heartbeat functionality by setting all fields in the
         "maxConcurrency": 20,
         "corsOrigins": []
       },
+      "oevGateway": {
+        "enabled": true,
+        "maxConcurrency": 20,
+        "corsOrigins": []
+      },
       "logFormat": "json",
       "logLevel": "INFO",
       "nodeVersion": "0.11.0",
@@ -75,6 +80,7 @@ The table below illustrates the parameters passed to the Heartbeat URL.
 | airnode-heartbeat-api-key    | header | string |
 | http_gateway_url             | body   | string |
 | http_signed_data_gateway_url | body   | string |
+| oev_gateway_url              | body   | string |
 | cloud_provider               | body   | string |
 | stage                        | body   | string |
 | region                       | body   | string |
@@ -91,7 +97,8 @@ Below is an example of what is included in the request body to `heartbeat.url`:
     "stage": "2209100913",
     "cloud_provider": "aws",
     "http_gateway_url": "https://some.aws.http.gateway.url/v1/01234567-abcd-abcd-abcd-012345678abc",
-    "http_signed_data_gateway_url": "https://some.aws.http.signed.data.gateway.url/v1/01234567-abcd-abcd-abcd-012345678abc"
+    "http_signed_data_gateway_url": "https://some.aws.http.signed.data.gateway.url/v1/01234567-abcd-abcd-abcd-012345678abc",
+    "oev_gateway_url": "https://some.aws.oev.gateway.url/v1/01234567-abcd-abcd-abcd-012345678abc"
   },
   "signature": "0x733f81fa1dffab3188e50ad66c178a22aca3a781d79a1b8daee7828cff31d1443d89efd5a2b1f40fc70953c9c5838cc8d5747374f3cf25d092331ba15b6420651c"
 }
@@ -123,6 +130,9 @@ The inner payload's contents are as follows:
   </tr>
   <tr>
     <td>http_signed_data_gateway_url:</td><td>If HTTP signed data gateway is enabled this is the URL of the gateway you can make HTTP calls against.</td>
+  </tr>
+  <tr>
+    <td>oev_gateway_url:</td><td>If OEV gateway is enabled this is the URL of the gateway you can make HTTP calls against.</td>
   </tr>
   <tr>
     <td>cloud_provider:</td><td>This is the deployment cloud provider.</td>

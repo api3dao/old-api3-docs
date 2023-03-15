@@ -44,6 +44,10 @@ module.exports = [
             title: 'HTTP Gateways',
             path: 'grp-providers/guides/build-an-airnode/http-gateways',
           },
+          {
+            title: 'OEV Gateway',
+            path: 'grp-providers/guides/build-an-airnode/oev-gateway',
+          },
           'grp-providers/guides/build-an-airnode/deploying-airnode',
           'grp-providers/guides/build-an-airnode/monitoring-airnode',
         ],
