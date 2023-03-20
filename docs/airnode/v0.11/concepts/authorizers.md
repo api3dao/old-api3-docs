@@ -190,50 +190,55 @@ making a static call to check if they are authorized. This scheme both allows
 the Airnode to set transparent and flexible policies, and this to be done with
 no gas overhead.
 
-Currently there are two `authorizers` scheme types,
-`requesterEndpointAuthorizers` and `crossChainRequesterAuthorizers`. These are
-set in `chains[n].authorizers` of `config.json` as described below.
+Currently there are four `authorizers` scheme types,
+`requesterEndpointAuthorizers`, `crossChainRequesterAuthorizers`,
+`requesterAuthorizersWithErc721`, and
+`crossChainRequesterAuthorizersWithErc721`. These are set in
+`chains[n].authorizers` of `config.json` as described below.
 
-### Same-chain: requesterEndpointAuthorizers
+### Special case: all authorizers values are empty arrays
 
-The `requesterEndpointAuthorizers` authorizer scheme type specifies an array of
-on-chain contract addresses to query when attempting to authorize a request. In
-contrast to the other authorizer scheme type, `crossChainRequesterAuthorizers`,
-the contract addresses are expected to reside on the chain specified by the `id`
-field of the parent `chains` object i.e. the authorizer contract addresses are
-on the same chain. There are two configurations possible for
-`requesterEndpointAuthorizers`: "allow all" and "filter all".
-
-#### Allow All
-
-When `chains[n].authorizers.requesterEndpointAuthorizers` is an empty array, all
-requests are authorized. In the example below, all chain _2_ requests are
-authorized.
+When all `chains[n].authorizers` values are empty arrays, all requests are
+authorized. In the example below, all chain _2_ requests are authorized.
 
 ```json
 "chains": [
   {
     "id": "2",
-    "authorizers": { "requesterEndpointAuthorizers": [] }
+    "authorizers": {
+      "requesterEndpointAuthorizers": [],
+      "crossChainRequesterAuthorizers": [],
+      "requesterAuthorizersWithErc721": [],
+      "crossChainRequesterAuthorizersWithErc721": []
+    }
     ...
   },
   ...
 ]
 ```
 
-#### Filter All
+### Same-chain: requesterEndpointAuthorizers
 
-If the Airnode wants to authorize selectively, it should use one or more
-authorizer contracts that implement filtering logic. In the example below, a
-request would be authorized on chain _2_ if _either_ of the two
-`requesterEndpointAuthorizers` contracts authorize the request.
+The `requesterEndpointAuthorizers` authorizer scheme type specifies an array of
+on-chain contract addresses to query when attempting to authorize a request. In
+contrast to the analogous `crossChainRequesterAuthorizers` authorizer scheme
+type, the contract addresses are expected to reside on the chain specified by
+the `id` field of the parent `chains` object i.e. the authorizer contract
+addresses are on the same chain.
+
+In the example below, a request would be authorized on chain _2_ if _either_ of
+the two `requesterEndpointAuthorizers` contracts authorize the request.
 
 ```json
 "chains": [
   {
     "id": "2",
-    "authorizers": { "requesterEndpointAuthorizers": ["0xcd...cd8d", "0xff...d19c"] }
-    ...
+    "authorizers": {
+      "requesterEndpointAuthorizers": ["0xcd...cd8d", "0xff...d19c"],
+      "crossChainRequesterAuthorizers": [],
+      "requesterAuthorizersWithErc721": [],
+      "crossChainRequesterAuthorizersWithErc721": []
+    }
   }
 ]
 ```
@@ -255,10 +260,7 @@ Note that `crossChainRequesterAuthorizers` is an array that can contain multiple
 cross-chain authorizer objects, which allows for authorizers across multiple
 chains and/or redundancy in providers for each chain.
 
-The below example combines both `requesterEndpointAuthorizers` and
-`crossChainRequesterAuthorizers` authorizer scheme types. Requests will be
-authorized if the same-chain (`"id": "2"`) `requesterEndpointAuthorizers`
-contract `0xcd...cd8d` authorizes the request or if the cross-chain
+In the below example, requests will be authorized if the cross-chain
 (`"chainId": "1"`) authorizer contract `0xCE5e...1abc` authorizes the request.
 
 ```json
@@ -266,7 +268,7 @@ contract `0xcd...cd8d` authorizes the request or if the cross-chain
   {
     "id": "2",
     "authorizers": {
-      "requesterEndpointAuthorizers": ["0xcd...cd8d"],
+      "requesterEndpointAuthorizers": [],
       "crossChainRequesterAuthorizers": [
         {
           "requesterEndpointAuthorizers": ["0xCE5e...1abc"],
@@ -279,9 +281,102 @@ contract `0xcd...cd8d` authorizes the request or if the cross-chain
             "url": "https://mainnet.infura.io/..."
           }
         }
+      ],
+      "requesterAuthorizersWithErc721": [],
+      "crossChainRequesterAuthorizersWithErc721": []
+    }
+  }
+]
+```
+
+### Same-chain: requesterAuthorizersWithErc721
+
+The `requesterAuthorizersWithErc721` authorizer scheme type allows requests on
+one chain to be authorized by NFT deposits on the same chain. More specifically,
+it defines an array of objects that allow for ERC721 authorization on the same
+chain as the chain specified by the `id` field of the parent `chains` object.
+The object consists of two fields: `erc721s`, an array of ERC721 contract
+addresses, and `RequesterAuthorizerWithErc721`, the address of the
+`RequesterAuthorizerWithErc721` contract. In the example below, a request would
+be authorized on chain _2_ if the requester has deposited a token with the
+contract address `0x00bDB2315678afecb367f032d93F642f64180a00` to the
+`RequesterAuthorizerWithErc721` contract at address
+`0x999DB2315678afecb367f032d93F642f64180aa9`. If multiple ERC721 contracts are
+specified, the requester will be authorized if a token corresponding to _any_ of
+the specified ERC721 contracts has been deposited. For deployed
+`RequesterAuthorizerWithErc721` contract addresses, see the
+[Airnode Contract Addresses](../reference/airnode-addresses.md#requesterauthorizerwitherc721)
+page.
+
+```json
+"chains": [
+  {
+    "id": "2",
+    "authorizers": {
+      "requesterEndpointAuthorizers": [],
+      "crossChainRequesterAuthorizers": [],
+      "requesterAuthorizersWithErc721": [
+        {
+          "erc721s": ["0x00bDB2315678afecb367f032d93F642f64180a00"],
+          "RequesterAuthorizerWithErc721": "0x999DB2315678afecb367f032d93F642f64180aa9"
+        }
+      ],
+      "crossChainRequesterAuthorizersWithErc721": []
+    }
+  }
+]
+```
+
+### Cross-chain: crossChainRequesterAuthorizersWithErc721
+
+The `crossChainRequesterAuthorizersWithErc721` authorizer scheme type allows for
+requests on one chain to be authorized by NFT deposits on a different chain.
+More specifically, it defines an array of objects that allow for ERC721
+cross-chain request authorization. Like `crossChainRequesterAuthorizers`, some
+of the fields within each object resemble other `config.json` objects:
+`chainType` and `contracts` are configured equivalently to their like named
+parent `chains[n]` objects described in the
+[config.json reference](../reference/deployment-files/config-json.md#chains),
+`chainId` specifies the cross-chain (network) id, and `chainProvider` is an
+object containing the chain provider url for the _chain specified by `chainId`_.
+The `erc721s` field value is an array of ERC721 contract addresses and within
+`contracts`, `RequesterAuthorizerWithErc721` specifies an address of the
+`RequesterAuthorizerWithErc721` contract _on the chain specified by `chainId`_.
+If multiple ERC721 contracts are specified in `erc721s`, the requester will be
+authorized if a token corresponding to _any_ of the specified ERC721 contracts
+has been deposited. For deployed `RequesterAuthorizerWithErc721` contract
+addresses, see the
+[Airnode Contract Addresses](../reference/airnode-addresses.md#requesterauthorizerwitherc721)
+page.
+
+In the below example, the request on chain _2_ will be authorized if the the
+`RequesterAuthorizerWithErc721` contract at address
+`0x6bbbb2315678afecb367f032d93F642f64180aa4` on chain _4_ authorizes the request
+based on the requester having deposited a token with the contract address
+`0x3FbDB2315678afecb367f032d93F642f64180aa6`.
+
+```json
+"chains": [
+  {
+    "id": "2",
+    "authorizers": {
+      "requesterEndpointAuthorizers": [],
+      "crossChainRequesterAuthorizers": [],
+      "requesterAuthorizersWithErc721": [],
+      "crossChainRequesterAuthorizersWithErc721": [
+        {
+          "erc721s": ["0x3FbDB2315678afecb367f032d93F642f64180aa6"],
+          "chainType": "evm",
+          "chainId": "4",
+          "contracts": {
+            "RequesterAuthorizerWithErc721": "0x6bbbb2315678afecb367f032d93F642f64180aa4"
+          },
+          "chainProvider": {
+            "url": "http://127.0.0.2"
+          }
+        }
       ]
     }
-    ...
   }
 ]
 ```

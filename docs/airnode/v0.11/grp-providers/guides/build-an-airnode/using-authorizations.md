@@ -55,11 +55,10 @@ requester addresses that can access them.
         "id": "1",
         ...
         "authorizers": {
-            "requesterEndpointAuthorizers": [
-                "0xeabb...C123",
-                "0xCE5e...1abc"
-            ],
-            "crossChainRequesterAuthorizers": []
+            "requesterEndpointAuthorizers": [],
+            "crossChainRequesterAuthorizers": [],
+            "requesterAuthorizersWithErc721": [],
+            "crossChainRequesterAuthorizersWithErc721": []
                              The scheme type requesterEndpointAuthorizations
         },                   grants access to endpointId/address pairs
         "authorizations": {  ⬇︎

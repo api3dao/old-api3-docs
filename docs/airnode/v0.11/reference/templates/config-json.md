@@ -45,7 +45,9 @@ building a config.json file.
     {
       "authorizers": {
         "requesterEndpointAuthorizers": ["<FILL_*>"],
-        "crossChainRequesterAuthorizers": ["<FILL_*>"]
+        "crossChainRequesterAuthorizers": ["<FILL_*>"],
+        "requesterAuthorizersWithErc721": ["<FILL_*>"],
+        "crossChainRequesterAuthorizersWithErc721": ["<FILL_*>"]
       },
       "authorizations": {
         "requesterEndpointAuthorizations": {
