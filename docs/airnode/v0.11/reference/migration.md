@@ -29,9 +29,15 @@ such as airnode-deployer, airnode-admin, etc., and new features.
 
 2. `nodeSettings.nodeVersion` updated to "0.11.0".
 
-3. Pre/post-processing is dropping version of the processing environment.
+3. `ois[n].endpoints[n].preProcessingSpecifications` and
+   `ois[n].endpoints[n].postProcessingSpecifications` have an updated allowed
+   Node environment value.
 
-4. Section `nodeSettings.oevGateway` was added.
+4. `chains[n].authorizers.requesterAuthorizersWithErc721` and
+   `chains[n].authorizers.crossChainRequesterAuthorizersWithErc721` added.
+
+5. Section `nodeSettings.oevGateway` was added.
+
 
 ## Details
 
@@ -91,7 +97,30 @@ from 14 to 18.
 }
 ```
 
-4. With the new OEV gateway feature there's a new section in the configuration
+4. `chains[n].authorizers.requesterAuthorizersWithErc721` and
+   `chains[n].authorizers.crossChainRequesterAuthorizersWithErc721`
+
+Adds two new authorizers, `requesterAuthorizersWithErc721` and
+`crossChainRequesterAuthorizersWithErc721`, that enable request authorization
+using ERC721 tokens. These new fields are required, but their values may be
+empty arrays if this feature is not required. For further details, see the
+[Authorizers](../concepts/authorizers.md#how-are-authorizers-implemented) page.
+
+```diff
+  "chains": [
+    {
+      "authorizers": {
+        "requesterEndpointAuthorizers": [],
+-       "crossChainRequesterAuthorizers": []
++       "crossChainRequesterAuthorizers": [],
++       "requesterAuthorizersWithErc721": [],
++       "crossChainRequesterAuthorizersWithErc721": []
+      },
+    }
+  ]
+```
+
+5. With the new OEV gateway feature there's a new section in the configuration
    file for it. The new section `nodeSettings.oevGateway` needs to be added in
    order for the configuration file to be valid.
 
