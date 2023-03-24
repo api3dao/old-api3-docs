@@ -38,7 +38,6 @@ such as airnode-deployer, airnode-admin, etc., and new features.
 
 5. Section `nodeSettings.oevGateway` was added.
 
-
 ## Details
 
 1. `ois[n].oisFormat`
@@ -150,3 +149,4 @@ to learn more about this feature.
 - There's a new gateway available called the OEV gateway. You can read more
   about this feature in its
   [documentation](../grp-providers/guides/build-an-airnode/oev-gateway.md).
+- The heartbeat payload now includes `deployment_id`.
