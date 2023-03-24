@@ -25,7 +25,7 @@ resources to fully operate.
 | CloudWatch  | Log groups for deployed resources. For more details see [Monitoring Airnode](../grp-providers/guides/build-an-airnode/monitoring-airnode.md). |
 | Lambda      | The heart of the Airnode. Serverless functions providing the Airnode service.                                                                 |
 | IAM         | Roles & policies to allow communication among other resources.                                                                                |
-| API Gateway | Endpoints for the HTTP Gateway and HTTP Signed Data Gateway.                                                                                  |
+| API Gateway | Endpoints for the Airnode gateways.                                                                                                           |
 | S3          | File describing the state of the deployed infrastructure.                                                                                     |
 
 :::

@@ -38,7 +38,6 @@ such as airnode-deployer, airnode-admin, etc., and new features.
 
 5. Section `nodeSettings.oevGateway` was added.
 
-
 ## Details
 
 1. `ois[n].oisFormat`

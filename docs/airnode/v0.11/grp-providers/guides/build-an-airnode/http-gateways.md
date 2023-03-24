@@ -15,24 +15,25 @@ tags:
 <TocHeader />
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-As part of the Airnode deployment you can decide to deploy two different HTTP
+As part of the Airnode deployment you can decide to deploy different HTTP
 Gateways.
 
 - HTTP Gateway: testing
 - HTTP Signed Data Gateway: production use
+- OEV Gateway: production use
 
 ## Gateway Differences
 
-Both gateways are setup identically. The differences are in their purpose and
+All gateways are setup identically. The differences are in their purpose and
 response.
 
 > <img src="../../../assets/images/gateway.png" width="650px"/>
 
 ### HTTP Gateway
 
-The regular HTTP gateway is strictly for testing purposes. Using a simple tool
-like CURL you can test that endpoints in the Airnode configuration are working
-properly without accessing the blockchain.
+The HTTP gateway is strictly for testing purposes. Using a simple tool like CURL
+you can test that endpoints in the Airnode configuration are working properly
+without accessing the blockchain.
 
 ### HTTP Signed Data Gateway
 
@@ -41,10 +42,17 @@ executed in a similar way as the HTTP gateway, its response is signed and does
 not contain a `rawValue` field. This gateway is executed by an off-chain code
 source that may in turn push data to a blockchain.
 
+### OEV Gateway
+
+The OEV gateway is used for production purposes and is intended to be called by
+OEV relay which is a service faciliating OEV signed data updates. You can learn
+more about OEV in https://api3.org/oev.
+
 ## Setup
 
-Enable either gateway in the `config.json` file fields
-`nodeSettings.httpGateway` and `nodeSettings.httpSignedDataGateway`.
+To enable a gateway you need to modify the `config.json`. The respective fields
+are `nodeSettings.httpGateway`, `nodeSettings.httpSignedDataGateway` and
+`nodeSettings.oevGateway`.
 
 - **enabled**: A boolean to enable/disable for the gateway.
 - **maxConcurrency**: (optional) A number higher than zero that represents the
@@ -81,6 +89,10 @@ and/or `triggers.httpSignedData[n]` arrays. The corresponding arrays do not need
 to match. You may want to test all endpoints but only serve certain endpoints
 using the HTTP signed data gateway or via RRP.
 
+The OEV gateway does not need triggers, because it used to sign the beacons
+belonging to the specific Airnode that is being requested and the data for these
+beacons is specified via request body.
+
 ```json
 // in config.json
 "triggers": {
@@ -114,8 +126,8 @@ using the HTTP signed data gateway or via RRP.
 The gateway implementation is different depending on how Airnode is deployed.
 When deployed on a cloud provider, the serverless gateway is used. Inside
 Airnode client, the gateway is implemented via a simple web server inside the
-docker container. There are subtle differences in both how the gateways work and
-what the gateway URLs look like.
+docker container. There are subtle differences in how the gateways work and what
+the gateway URLs look like.
 
 The deployer generates a secret `UUID` path parameter which ensures that the
 endpoints are not openly accessible. Therefore, the gateway URLs should be kept
@@ -134,7 +146,7 @@ displayed on your terminal at the end of an Airnode deployment using a
 ### When using Airnode client
 
 Airnode client can be used to run Airnode as a docker container locally. There
-is a common web server for both gateways, which is exposed on the host machine.
+is a common web server for all gateways, which is exposed on the host machine.
 Doing so will make the gateways API accessible like a regular web server running
 on the machine. Each gateway has a separate endpoint as shown below. Note the
 `PORT` which is exposed as part of the Airnode client container. See the
@@ -144,6 +156,8 @@ on the machine. Each gateway has a separate endpoint as shown below. Note the
   Gateway URL for the HTTP Gateway
 - `http://localhost:<PORT>/http-signed-data/01234567-abcd-abcd-abcd-012345678abc/<endpointId>` -
   Gateway URL for the HTTP Signed Data Gateway
+- `http://localhost:4500/sign-oev/01234567-abcd-abcd-abcd-012345678abc` -
+  Gateway URL for the OEV Gateway
 
 ## Using CURL
 
@@ -154,26 +168,7 @@ required as part of the CURL call.
   can found in config.json under `triggers.http.endpointId` or
   `triggers.httpSignedData.endpointId`.
 - Add the `Content-Type` header, set to `application/json`.
-- Place the parameters/encodedParameters in the request body.
-
-<style type="text/css" rel="stylesheet">
-.tSmall { font-size:x-small; margin-left:13px;}
-</style>
-
-| CURL Parameters                                                        | In     | CURL Options                                              |
-| ---------------------------------------------------------------------- | ------ | --------------------------------------------------------- |
-| Content-Type                                                           | header | `-H 'Content-Type: application/json'`                     |
-| endpointId                                                             | path   | `<gatewayUrl>/0x6db9e3e3d0...c7025f5c27af6`               |
-| \* parameters<div class="tSmall">HTTP Gateway</div>                    | body   | `-d '{"parameters": {"param1": "myValue", "param2": 5}}'` |
-| \* encodedParameters<div class="tSmall">HTTP Signed Data Gateway</div> | body   | `-d '{"encodedParameters": "0x3173737300....000"}'`       |
-
-\* Parameters for the gateways are named differently. The HTTP signed data
-gateway requires that the `encodedParameters` be encoded using
-[Airnode ABI](../../../reference/specifications/airnode-abi-specifications.md).
-
-Replace `<gatewayUrl>` in the examples below with the URL displayed in the
-terminal at the end of an Airnode deployment using a
-[Docker image](../../docker/).
+- Pass the correct request body.
 
 ### Request
 
@@ -186,8 +181,11 @@ curl \
 -X POST \
 -H 'Content-Type: application/json' \
 -d '{"parameters": {"param1": "myValue", "param2": 5}}' \
-'<gatewayUrl>/0x6db9e3e3d0...c7025f5c27af6'
+'<gatewayUrl>/<endpointId>'
 ```
+
+The HTTP gateway body accepts `parameter` which are passed to the API endpoint
+being called.
 
 :::
 
@@ -198,8 +196,45 @@ curl \
 -X POST \
 -H 'Content-Type: application/json' \
 -d '{"encodedParameters": "0x3173737300....000"}' \
-'<gatewayUrl>/0x6db9e3e3d0...c7025f5c27af6'
+'<gatewayUrl>/<endpointId>'
 ```
+
+The HTTP signed data gateway requires that the specified `encodedParameters` are
+encoded using
+[Airnode ABI](../../../reference/specifications/airnode-abi-specifications.md)
+
+:::
+
+::: tab OEV Gateway
+
+```sh
+curl --location '<gatewayUrl>' \
+--header 'Content-Type: application/json' \
+--data '{
+    "chainId": 6999,
+    "bidAmount": "50000000000000000",
+    "bidderAddress": "0xf20e5d27690078c102FDbDe117a990a337820A51",
+    "dapiServerAddress": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+    "oevProxyAddress": "0x29fbec16e63F1881a50423030e540037cecBd5A6",
+    "beacons": [
+         {
+            "airnodeAddress": "0xaD1b4e9F83bA33d9B0A92b0085f8606bFe4a41d0",
+            "endpointId": "0xc8e28c6013672bd9ef31bd065dab8843acdba163ec69c27478cb989f4a9c038f",
+            "encodedParameters": "0x",
+            "signedData": {
+                "encodedValue": "0x000000000000000000000000000000000000000000000000000000006d16277b",
+                "timestamp": "1679589673",
+                "signature": "0x36b4ba2ea19063e0f32055ef80774f302666bf9209f7f33b364fbfbd5079e8e61486f89aa9d63a392f2af2dd925b94da592fc5acb976303a095ffdcd77f1dc7d1b"
+            }
+        }
+    ],
+    "updateId": "0x336a3067645a4e33616f4e4c723734376633644555576a463675737900000000"
+}'
+```
+
+The OEV gateway request body specifies the payload for the gateway to sign. The
+most important part is `beacons` which defines the beacons of the data feed
+that. The gateway provides a signature only for its beacons.
 
 :::
 
@@ -219,7 +254,7 @@ curl \
 }
 ```
 
-The response format is a simple JSON object with the following fields:
+The response format is a JSON object with the following fields:
 
 - `rawValue` - the API response
 - `values` - an array of values after they are
@@ -240,12 +275,25 @@ The response format is a simple JSON object with the following fields:
 }
 ```
 
-The response format is a simple JSON object with the following fields:
+The response format is a JSON object with the following fields:
 
 - `timestamp` - The UNIX timestamp applied to the response.
 - `encodedValue` - The encoded bytes value that is sent as payload in the
   response. Suitable for use on-chain.
 - `signature` - The response has been signed by Airnode.
+
+:::
+
+::: tab OEV Gateway
+
+```json
+[
+  "0xf9ada63d498bca65598b7a2504a89f61a82665dd7e2a0828cf21c6715aca5214103998ac98e5ddc3d32ba50c79de984d286b3d602019acf6689f31845ec04abb1b"
+]
+```
+
+The response format is an array of signatures for the beacons belonging to the
+Airnode being called.
 
 :::
 
