@@ -149,7 +149,4 @@ The inner payload's contents are as follows:
   <tr>
     <td>timestamp:</td><td>This is the heartbeat timestamp.</td>
   </tr>
-  <tr>
-    <td>oev_gateway_url:</td><td>If OEV gateway is enabled this is the URL of the gateway you can call to sign data needed to make OEV update.</td>
-  </tr>
 </table>
