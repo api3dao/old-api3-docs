@@ -149,3 +149,4 @@ to learn more about this feature.
 - There's a new gateway available called the OEV gateway. You can read more
   about this feature in its
   [documentation](../grp-providers/guides/build-an-airnode/oev-gateway.md).
+- The heartbeat payload now includes `deployment_id`.
