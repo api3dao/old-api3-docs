@@ -42,7 +42,7 @@ Australia. Visit their website at
 ::: warning Supported chains
 
 ANU Quantum Random Numbers is only available on [mainnets](./chains.md). Refer
-to byog Random Numbers below for testnet service.
+to Nodary Random Numbers below for testnet service.
 
 :::
 
@@ -78,14 +78,14 @@ to byog Random Numbers below for testnet service.
     <CopyIcon text="0x27cc2713e7f968e4e86ed274a051a5c8aaee9cca66946f23af6f29ecea9704c3"/>
 </div>
 
-## byog Random Numbers
+## Nodary Random Numbers
 
-[byog](https://byog.io/) is an independent group within the API3 ecosystem that
-builds high-impact oracle services.
+[Nodary](https://nodary.io/) is an independent group within the API3 ecosystem
+that builds high-impact oracle services.
 
 ::: warning Supported chains
 
-byog Random Numbers emulates the QRNG service on [testnets](./chains.md) using
+Nodary Random Numbers emulates the QRNG service on [testnets](./chains.md) using
 [pseudorandom number generation](../README.md).
 
 :::

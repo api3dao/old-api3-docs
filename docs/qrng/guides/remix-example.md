@@ -50,7 +50,7 @@ Do not deploy the `RemixQrngExample.sol` contract to a production network. It
 lacks adequate security features.
 
 You can deploy on a [testnet](../reference/chains.md) to get random numbers from
-the [byog RNG API](../reference/providers.md#byog-random-numbers), which has
+the [Nodary RNG API](../reference/providers.md#nodary-random-numbers), which has
 equivalent usage as
 [ANU Quantum Random Numbers](../reference/providers.md#anu-quantum-random-numbers)
 available on mainnets.
@@ -91,12 +91,12 @@ corresponding fields for the function.
 - `_airnode`: The airnode address (copy it here →
   <CopyIcon text="0x6238772544f029ecaBfDED4300f13A3c4FE84E1D"/> ) of the desired
   RNG service provider. See its value from the
-  [byog Airnode](../reference/providers.md#airnode-2).
+  [Nodary Airnode](../reference/providers.md#airnode-2).
 
 - `_endpointIdUint256`: The Airnode endpoint ID (copy it here →
   <CopyIcon text="0xfb6d017bb87991b7495f563db3c8cf59ff87b09781947bb1e417006ad7f55a78"/>
   ) that will return a single random number. See its value from the
-  [byog Airnode](../reference/providers.md#endpointiduint256-2).
+  [Nodary Airnode](../reference/providers.md#endpointiduint256-2).
 
 - `_sponsorWallet`: A wallet derived from the requester's contract address, the
   Airnode address, and the Airnode xpub. The wallet is used to pay gas costs to

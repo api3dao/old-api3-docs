@@ -70,7 +70,7 @@ to not break as well.
 
 :::
 
-::: tab byog
+::: tab Nodary
 
 <div class="testnets">
 <h3> Testnets </h3>
