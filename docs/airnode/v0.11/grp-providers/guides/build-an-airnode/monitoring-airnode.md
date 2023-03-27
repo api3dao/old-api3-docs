@@ -29,7 +29,7 @@ or request types and the logs they contain are as follows:
 - `httpReq`: Logs for [HTTP gateway requests](./http-gateways.md#http-gateway)
 - `httpSignedReq`: Logs for
   [HTTP signed data gateway requests](./http-gateways.md#http-signed-data-gateway)
-- `signOevReq`: Logs for [OEV gateway requests](./http-gateways.md#oev-gateway)
+- `signOevReq`: Logs for [OEV gateway requests](./oev-gateway.md)
 
 ### AWS
 
