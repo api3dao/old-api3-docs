@@ -37,7 +37,8 @@ resources to fully operate.
 | Cloud Scheduler | Timer starting the Airnode service.                                                                                                           |
 | Logs Explorer   | Log groups for deployed resources. For more details see [Monitoring Airnode](../grp-providers/guides/build-an-airnode/monitoring-airnode.md). |
 | Cloud Functions | The heart of the Airnode. Serverless functions providing the Airnode service.                                                                 |
-| API Gateway     | Endpoints for the HTTP Gateway and HTTP Signed Data Gateway.                                                                                  |
+| API Gateway     | Endpoints for the Airnode gateways. 
+|
 | Cloud Storage   | File describing the state of the deployed infrastructure & source code for cloud functions.                                                   |
 | IAM             | Service accounts & roles to allow communication among other resources.                                                                        |
 
