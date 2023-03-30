@@ -22,7 +22,7 @@ This required percentage, as well as other DAO parameters, can be adjusted by
 the DAO as described in
 [Dashboard Attributes](../contract-architecture/dashboard-attributes.md). To
 view the percentage of staked tokens in the pool for an address, visit the
-[DAO Tracker wallets page](https://enormous.cloud/dao/api3/tracker/wallets).
+[DAO Tracker wallets page](https://tracker.api3.org/wallets).
 
 You can vote on all proposals regardless of the percentage of staked tokens in
 the pool you own. See [How to Vote](voting.md) for instructions. Alternatively,

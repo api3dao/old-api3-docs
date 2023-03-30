@@ -12,11 +12,11 @@ tags:
 
 <TOC class="table-of-contents" :include-level="[2,3]" />
 
-The [DAO Tracker](https://enormous.cloud/dao/api3/tracker/) is a
-community-developed tool that provides additional insight into the DAO beyond
-what is offered by the intentionally minimalist DAO Dashboard. Its
-[open source codebase](https://github.com/EnormousCloud/api3-dao-tracker) was
-developed by GitHub user [EnormousCloud](https://github.com/EnormousCloud).
+The [DAO Tracker](https://tracker.api3.org/) is a community-developed tool that
+provides additional insight into the DAO beyond what is offered by the
+intentionally minimalist DAO Dashboard. Its
+[open source codebase](https://github.com/api3dao/api3-tracker) was developed by
+GitHub user [EnormousCloud](https://github.com/EnormousCloud).
 
 The DAO Tracker features the following pages and content:
 
