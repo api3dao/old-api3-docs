@@ -4,8 +4,6 @@ docSetName: Airnode v0.10
 folder: API Providers > Tutorials > Quick Deploy GCP
 basePath: /airnode/v0.10
 tags:
-  - quick deploy gcp
-  - tutorial tutorials
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

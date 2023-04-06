@@ -4,8 +4,6 @@ docSetName: Airnode v0.11
 folder: API Providers > Tutorials > Quick Deploy AWS
 basePath: /airnode/v0.11
 tags:
-  - quick deploy aws
-  - tutorial tutorials
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>
