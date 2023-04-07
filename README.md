@@ -4,6 +4,8 @@
 
 # Documentation
 
+<div style="color:red;margin-bottom:20px">Please note: These docs are now legacy. The only changes to them should be corrections, no enhancements. Go to the <code>vitepress-docs</code> repo for the current documentation.</div>
+
 **[API3 Documentation](https://docs.api3.org)** is kept as a regular repository
 of Markdown files making it easy for everyone to contribute. Feel free to create
 [issues](https://github.com/api3dao/api3-docs/issues) for discussions, proposed
