@@ -12,9 +12,10 @@
   "scripts": {
     "sync:404": "cp docs/.vuepress/components/Sub404.vue node_modules/@vuepress/theme-default/layouts/404.vue",
     "sync:navbar": "cp docs/.vuepress/components/Navbar.vue node_modules/@vuepress/theme-default/components/Navbar.vue",
+    "sync:page": "cp libs/Page.vue node_modules/@vuepress/theme-default/components/Page.vue",
     "sync:sidebar": "cp docs/.vuepress/components/Sidebar.vue node_modules/@vuepress/theme-default/components/Sidebar.vue",
-    "docs:dev": "yarn sync:404; yarn sync:navbar; yarn sync:sidebar; vuepress dev docs",
-    "docs:build": "yarn sync:404; yarn sync:navbar; yarn sync:sidebar; vuepress build docs;",
+    "docs:dev": "yarn sync:404; yarn sync:navbar; yarn sync:page; yarn sync:sidebar; vuepress dev docs",
+    "docs:build": "yarn sync:404; yarn sync:navbar; yarn sync:page; yarn sync:sidebar; vuepress build docs;",
     "format": "prettier --write --cache \"./**/*.{js,vue,md,json,yaml}\" --loglevel silent",
     "format:check": "prettier --check --cache \"./**/*.{js,vue,md,json,yaml}\"",
     "prepare": "husky install"

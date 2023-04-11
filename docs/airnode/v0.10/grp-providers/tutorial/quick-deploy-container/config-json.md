@@ -4,8 +4,6 @@ docSetName: Airnode v0.10
 folder: API Providers > Tutorials > Quick Deploy Container
 basePath: /airnode/v0.10
 tags:
-  - quick deploy container
-  - tutorial tutorials
 ---
 
 <TitleSpan>{{$frontmatter.folder}}</TitleSpan>

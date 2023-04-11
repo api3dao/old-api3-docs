@@ -47,8 +47,8 @@ code that self-enables the desired dAPI. The following scripts from the
 [Starter Project](./#starter-project) detail how this is done. Please be sure to
 explore the starter project in its entirety.
 
-- [allow-to-read-with-name.js](https://github.com/api3dao/data-feed-reader-example/blob/main/scripts/allow-to-read-with-name.js)
-- [allow-to-read-with-id.js](https://github.com/api3dao/data-feed-reader-example/blob/main/scripts/allow-to-read-with-id.js)
+- [allow-to-read-with-name.js](https://github.com/api3dao/data-feed-reader-example/blob/phase-0/scripts/allow-to-read-with-name.js)
+- [allow-to-read-with-id.js](https://github.com/api3dao/data-feed-reader-example/blob/phase-0/scripts/allow-to-read-with-id.js)
 
 ## dAPI Names
 
