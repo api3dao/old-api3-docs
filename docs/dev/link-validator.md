@@ -70,7 +70,7 @@ node ./libs/link-validator.js  http://127.0.0.1:8082  ./docs/.vuepress/dist/airn
 
 This custom nodejs script (`/libs/link-validator-repos.js`) validates links
 (with or without attached anchors) in `api3dao` repos that point back to the
-https://docs.api3.org documentation site. This validator is a manual process
+https://old-docs.api3.org documentation site. This validator is a manual process
 that should be performed as often as possible. Currently it cannot be run as a
 GitHub action.
 
