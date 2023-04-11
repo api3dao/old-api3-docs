@@ -20,7 +20,7 @@ listed below will need to be implemented in order to migrate to Airnode v0.8.
 This document is written in a way that will preserve existing behaviour with
 earlier Airnode versions, but some of the new fields have additional options
 that can be found in the v0.8
-[Airnode documentation](https://docs.api3.org/airnode/v0.8/)
+[Airnode documentation](https://old-docs.api3.org/airnode/v0.8/)
 
 ## Summary
 
@@ -103,7 +103,7 @@ next oracle is used. As such, there are two important rules to note:
    (typically last) as a fallback.
 
 See the
-[Gas Price Strategies](https://docs.api3.org/airnode/v0.8/concepts/gas-prices.html)
+[Gas Price Strategies](https://old-docs.api3.org/airnode/v0.8/concepts/gas-prices.html)
 page for more information
 
 ```diff
@@ -151,7 +151,7 @@ calls made to the specific API endpoint.
 
 The amount of time a response is cached for depending on where the Airnode is
 hosted (AWS, GCP, Docker etc.). Refer to the
-[Airnode docs](https://docs.api3.org/airnode/v0.8/) for more details.
+[Airnode docs](https://old-docs.api3.org/airnode/v0.8/) for more details.
 
 This field is required for all `rrp` objects, even if it is set to false
 
@@ -170,13 +170,13 @@ A new required array has been added that allows for defining
 [CORS Origins](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS). String
 values can be entered that will allow certain origins access to the HTTP
 gateway. This will allow requests initiated from browsers to access the HTTP
-gateway.
+gateway.s
 
 `["*"]` can be used to allow all origins. It's also worth nothing that this
 array currently only supports simple string values and not regex patterns.
 
 Refer to the
-[Airnode docs](https://docs.api3.org/airnode/v0.8/reference/deployment-files/config-json.html#httpgateway-corsorigins)
+[Airnode docs](https://old-docs.api3.org/airnode/v0.8/reference/deployment-files/config-json.html#httpgateway-corsorigins)
 for more details
 
 ```diff

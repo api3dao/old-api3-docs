@@ -111,8 +111,8 @@ corresponding fields for the function.
     --airnode-address 0x6238772544f029ecaBfDED4300f13A3c4FE84E1D \
     --sponsor-address <use-the-address-of: RemixQrngExample.sol>
 
-    # --airnode-xpub:    Pre-filled, see https://docs.api3.org/qrng/reference/providers.html.
-    # --airnode-address: Pre-filled, see https://docs.api3.org/qrng/reference/providers.html.
+    # --airnode-xpub:    Pre-filled, see https://old-docs.api3.org/qrng/reference/providers.html.
+    # --airnode-address: Pre-filled, see https://old-docs.api3.org/qrng/reference/providers.html.
     # --sponsor-address: Use the requester's contract address for
     #                    RemixQrngExample.sol as displayed in the Remix IDE.
 
