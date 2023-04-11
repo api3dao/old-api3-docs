@@ -7,7 +7,7 @@
       class="theme-default-content"
       style="margin-left: 7px; max-width: 600px; position: absolute; top: 30px"
     >
-      <a href="https://dapi-docs.api3.org">
+      <a href="https://docs.api3.org">
         <div
           style="
             opacity: 0.5;
