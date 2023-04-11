@@ -9,6 +9,32 @@ footer:
 navbar: false
 ---
 
+<div 
+      class="theme-default-content"
+      style="max-width: 600px;padding-top:10px;padding-bottom:10px;"
+    >
+      <a href="https://docs.api3.org">
+        <div
+          style="
+            opacity: 0.5;
+            padding: 15px;
+            font-weight: 500;
+            background-color: green;
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 0.3em;
+          "
+        >
+          <span style="opacity: 1.5;"
+            >Newer release of the API3 Technical documentation available.
+            <br/><br/>https://docs.api3.org.</span
+          >
+        </div>
+      </a>
+    </div>
+
+
 <DocumentSetButtons/>
 
 <!-- This is an original button:    actionText: Get Started →     -->
