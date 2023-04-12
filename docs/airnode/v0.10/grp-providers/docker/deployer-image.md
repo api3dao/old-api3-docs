@@ -102,7 +102,7 @@ some deployment information and is used to remove the Airnode.
 docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
   -v "$(pwd):/app/config" \
-  api3/airnode-deployer:0.10.0 deploy
+  api3/airnode-deployer:0.10.1 deploy
 ```
 
 :::
@@ -113,7 +113,7 @@ docker run -it --rm \
 # For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
-  api3/airnode-deployer:0.10.0 deploy
+  api3/airnode-deployer:0.10.1 deploy
 ```
 
 :::
@@ -146,7 +146,7 @@ Use the following example to avoid the automatic removal of the Airnode.
 docker run -it --rm \
 -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
 -v "$(pwd):/app/config" \
-api3/airnode-deployer:0.10.0 deploy --auto-remove false
+api3/airnode-deployer:0.10.1 deploy --auto-remove false
 ```
 
 :::
@@ -167,7 +167,7 @@ GCP).
 ```sh
 docker run -it --rm \
   -v "$(pwd):/app/config" \
-  api3/airnode-deployer:0.10.0 list
+  api3/airnode-deployer:0.10.1 list
 ```
 
 :::
@@ -178,7 +178,7 @@ docker run -it --rm \
 # For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
-  api3/airnode-deployer:0.10.0 list
+  api3/airnode-deployer:0.10.1 list
 ```
 
 :::
@@ -196,7 +196,7 @@ just the cloud providers you want the deployer to list from.
 ```sh
 docker run -it --rm \
   -v "$(pwd):/app/config" \
-  api3/airnode-deployer:0.10.0 list --cloud-providers aws
+  api3/airnode-deployer:0.10.1 list --cloud-providers aws
 ```
 
 :::
@@ -207,7 +207,7 @@ docker run -it --rm \
 # For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
-  api3/airnode-deployer:0.10.0 list --cloud-providers aws
+  api3/airnode-deployer:0.10.1 list --cloud-providers aws
 ```
 
 :::
@@ -231,7 +231,7 @@ provider authentication are needed for the command to run correctly: `aws.env`
 ```sh
 docker run -it --rm \
   -v "$(pwd):/app/config" \
-  api3/airnode-deployer:0.10.0 info aws2c6ef2b3
+  api3/airnode-deployer:0.10.1 info aws2c6ef2b3
 ```
 
 :::
@@ -242,7 +242,7 @@ docker run -it --rm \
 # For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
-  api3/airnode-deployer:0.10.0 info aws2c6ef2b3
+  api3/airnode-deployer:0.10.1 info aws2c6ef2b3
 ```
 
 :::
@@ -270,7 +270,7 @@ version** with the same configuration. You can check this with the
 ```sh
 docker run -it --rm \
   -v "$(pwd):/app/config" \
-  api3/airnode-deployer:0.10.0 rollback aws2c6ef2b3 3580a278
+  api3/airnode-deployer:0.10.1 rollback aws2c6ef2b3 3580a278
 ```
 
 :::
@@ -281,7 +281,7 @@ docker run -it --rm \
 # For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
-  api3/airnode-deployer:0.10.0 rollback aws2c6ef2b3 3580a278
+  api3/airnode-deployer:0.10.1 rollback aws2c6ef2b3 3580a278
 ```
 
 :::
@@ -313,7 +313,7 @@ the command to run correctly: `aws.env` (for AWS) or `gcp.json` (for GCP).
 ```sh
 docker run -it --rm \
   -v "$(pwd):/app/config" \
-  api3/airnode-deployer:0.10.0 fetch-files aws2c6ef2b3
+  api3/airnode-deployer:0.10.1 fetch-files aws2c6ef2b3
 ```
 
 :::
@@ -324,7 +324,7 @@ docker run -it --rm \
 # For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
-  api3/airnode-deployer:0.10.0 fetch-files aws2c6ef2b3
+  api3/airnode-deployer:0.10.1 fetch-files aws2c6ef2b3
 ```
 
 :::
@@ -349,7 +349,7 @@ remove a deployment, but there are alternatives as described below.
 ```sh
 docker run -it --rm \
   -v "$(pwd):/app/config" \
-  api3/airnode-deployer:0.10.0 remove aws2c6ef2b3
+  api3/airnode-deployer:0.10.1 remove aws2c6ef2b3
 ```
 
 :::
@@ -360,7 +360,7 @@ docker run -it --rm \
 # For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
-  api3/airnode-deployer:0.10.0 remove aws2c6ef2b3
+  api3/airnode-deployer:0.10.1 remove aws2c6ef2b3
 ```
 
 :::
@@ -383,7 +383,7 @@ are needed for the command to run correctly: `aws.env` (for AWS) or `gcp.json`
 ```sh
 docker run -it --rm \
   -v "$(pwd):/app/config" \
-  api3/airnode-deployer:0.10.0 remove-with-receipt
+  api3/airnode-deployer:0.10.1 remove-with-receipt
 ```
 
 :::
@@ -394,7 +394,7 @@ docker run -it --rm \
 # For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
-  api3/airnode-deployer:0.10.0 remove-with-receipt
+  api3/airnode-deployer:0.10.1 remove-with-receipt
 ```
 
 :::

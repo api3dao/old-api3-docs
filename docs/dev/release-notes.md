@@ -30,7 +30,7 @@ Be sure to search in `/doc/airnode/<version>`.
 - Update the versions in the `config.js` files. See the doc
   [Versioning](./versioning.md) for help.
 
-- Look for older Airnode versions such as `0.10.0` in configuration files under
+- Look for older Airnode versions such as `0.10.1` in configuration files under
   the Reference section.
 
 - There is at least one link to the Airnode repo that uses a URL such as

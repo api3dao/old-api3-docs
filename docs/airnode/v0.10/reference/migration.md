@@ -17,7 +17,7 @@ tags:
 
 The following guide assumes a valid v0.9.x `config.json` file. All changes
 listed below will need to be implemented in order to migrate to Airnode v0.10.x.
-This document is written in a way that will preserve existing behaviour with
+This document is written in a way that will preserve existing behavior with
 earlier Airnode versions.
 
 The document also mentions changes to user facing services related to Airnode,
@@ -29,7 +29,7 @@ such as airnode-deployer, airnode-admin, etc., and new features.
 
 1. `ois[n].oisFormat` updated to "1.4.0".
 
-2. `nodeSettings.nodeVersion` updated to "0.10.0".
+2. `nodeSettings.nodeVersion` updated to "0.10.1".
 
 3. Field `chains[n].authorizers.crossChainRequesterAuthorizers` was added.
 
@@ -56,12 +56,12 @@ Updated to "1.4.0"
 
 2. `nodeSettings.nodeVersion`
 
-Updated to "0.10.0"
+Updated to "0.10.1"
 
 ```diff
 {
 -  "nodeVersion": "0.9.2"
-+  "nodeVersion": "0.10.0"
++  "nodeVersion": "0.10.1"
 }
 ```
 

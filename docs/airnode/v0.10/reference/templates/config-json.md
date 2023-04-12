@@ -123,7 +123,7 @@ building a config.json file.
     },
     "logFormat": "json",
     "logLevel": "INFO",
-    "nodeVersion": "0.10.0",
+    "nodeVersion": "0.10.1",
     "stage": "<FILL_*>"
   },
   "triggers": {
