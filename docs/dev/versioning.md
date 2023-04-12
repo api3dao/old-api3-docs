@@ -38,7 +38,7 @@ docs/
     ├── pre-alpha
     ├── v0.2
     ├── ...
-    └── v0.11
+    └── v0.10
  ├── api3
  ├── common
  ├── dev
@@ -157,24 +157,24 @@ themeConfig:{
 
    ```bash
 
-   find:             docSetName: Airnode v0.10
-   replace with:     docSetName: Airnode v0.11
-   find:             basePath: /airnode/v0.10
-   replace with:     basePath: /airnode/v0.11
+   find:             docSetName: Airnode v0.9
+   replace with:     docSetName: Airnode v0.10
+   find:             basePath: /airnode/v0.9
+   replace with:     basePath: /airnode/v0.10
    files to include: docs/airnode/v0.11
    ```
 
-1. Find and replace the string `0.10.0` with its replacement `v0.11`. This will
+1. Find and replace the string `0.9.2` with its replacement `v0.10.1`. This will
    appear in CLI commands and config files.
 
    ```bash
-   "nodeVersion": "0.10.0"
-   docker run api3/airnode-admin:0.10.0 --help
-   api3/airnode-deployer:0.10.0 deploy
+   "nodeVersion": "0.10.1"
+   docker run api3/airnode-admin:0.10.1 --help
+   api3/airnode-deployer:0.10.1 deploy
    ...
    ```
 
-1. Update the zip files in hte
+1. Update the zip files in the
    tutorials<a href="/zip-files/quick-deploy-gcp-v0.10.zip" download>
    quick-deploy-gcp</a>.
 

@@ -96,7 +96,7 @@ Use the following command to run Airnode:
 docker run \
   --volume $(pwd):/app/config \
   --name airnode \
-  api3/airnode-client:0.10.0
+  api3/airnode-client:0.10.1
 ```
 
 :::
@@ -107,7 +107,7 @@ docker run \
 docker run \
   --volume $(pwd):/app/config \
   --name airnode \
-  api3/airnode-client:0.10.0
+  api3/airnode-client:0.10.1
 ```
 
 :::
@@ -118,7 +118,7 @@ docker run \
 docker run ^
   --volume %cd%:/app/config ^
   --name airnode ^
-  api3/airnode-client:0.10.0
+  api3/airnode-client:0.10.1
 ```
 
 :::
