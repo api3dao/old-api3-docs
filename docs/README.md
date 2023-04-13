@@ -27,7 +27,7 @@ navbar: false
           "
         >
           <span style="opacity: 1.5;"
-            >Newer release of the API3 Technical documentation available.
+            >A newer release of the API3 Technical documentation is available.
             <br/><br/>https://docs.api3.org.</span
           >
         </div>
