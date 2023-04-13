@@ -16,19 +16,20 @@
             background-color: green;
             color: white;
             text-align: center;
-            margin-bottom: 20px;
+
             border-radius: 0.3em;
           "
         >
           <span style="opacity: 1.5"
-            >Newer release of the API3 Technical documentation available.</span
+            >A newer release of the API3 Technical documentation is
+            available.</span
           >
         </div>
       </a>
     </div>
 
-    <!-- wkande 04/2023 Added style="margin-top: 20px" to the following Content element -->
-    <Content class="theme-default-content" style="margin-top: 20px" />
+    <!-- wkande 04/2023 Added style="margin-top: 40px" to the following Content element -->
+    <Content class="theme-default-content" style="margin-top: 40px" />
     <PageEdit />
 
     <PageNav v-bind="{ sidebarItems }" />
