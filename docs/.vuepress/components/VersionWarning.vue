@@ -4,10 +4,15 @@ Each page in a doc set adds this component under its title and before
 the TOC if used.
 
 WARNING: Do not place HTML comment lines inside paragraph elements.
+
+April 2023, this banner is no longer needed. The v-if="1===2" was added
+to hide it. All versions are legacy in api3-docs after vitepress-docs was
+activated.
 -->
 
 <template>
-  <div v-if="show" class="custom-block danger">
+  <div v-if="1 === 2" class="custom-block danger">
+    <!--div v-if="show" class="custom-block danger"-->
     <p class="custom-block-title">Newer Version Available</p>
     <p>
       You are viewing an older version of the {{ docSet }} documentation set.
