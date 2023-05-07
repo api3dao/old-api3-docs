@@ -2,9 +2,12 @@
   <img src="https://github.com/api3dao/api3-docs/blob/main/docs/api3/assets/images/api3.png?raw=true" width="400" />
 </p>
 
-# Documentation
+# **_Legacy_** Documentation
 
-<div style="color:red;margin-bottom:20px">Please note: These docs are now legacy. The only changes to them should be corrections, no enhancements. Go to the <code>vitepress-docs</code> repo for the current documentation.</div>
+<span style="color:red;margin-bottom:20px">⚠️ Please note: These docs are now
+legacy. The only changes to them should be corrections, no enhancements. Go to
+the [vitepress-docs](https://github.com/api3dao/vitepress-docs/) repo for the
+current documentation. ⚠️</span>
 
 **[API3 Documentation](https://docs.api3.org)** is kept as a regular repository
 of Markdown files making it easy for everyone to contribute. Feel free to create
