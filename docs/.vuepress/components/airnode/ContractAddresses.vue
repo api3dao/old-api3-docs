@@ -85,20 +85,9 @@ export default {
         let notImportantArr = [];
 
         for (const key in response.data[this.contractName]) {
-          // Here the network is not in chainsRef list
-          // Is it a testnet or mainnet, tell by its repo name
+          // Skip if the network is not in chainsRef list
           if (!chainsRef[key]) {
-            let network = 'mainnet';
-            if (response.data.chainNames[key].indexOf('testnet') > -1) {
-              network = 'testnet';
-            }
-            importantArr.push({
-              address: response.data[this.contractName][key],
-              chainId: parseInt(key),
-              fullname: response.data.chainNames[key],
-              type: network,
-            });
-            // Here the chain is in the chainsRef list
+            continue;
           } else if (chainsRef[key].type === this.type) {
             if (important.includes(parseInt(key))) {
               importantArr.push({
