@@ -30,6 +30,7 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SA_API3_DOCS }}'
           expires: 7d
           channelId: ${{ steps.get_branch.outputs.branch_name }}
+          firebaseToolsVersion: '11.30.0'
         id: firebase_deploy
 
       - uses: actions/github-script@v6
