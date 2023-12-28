@@ -7,9 +7,6 @@ folder: Reference
 
 # {{$frontmatter.title}}
 
-dAPIs can be read on the following chains using the
-[DapiServer](../#dapiserver-sol) contract addresses listed below. Use the
-[API3 Market](https://market.api3.org/) website to find the desired dAPI names
-and the networks they are available on.
-
-<dapis-chains-ChainsList/>
+Please refer to the new API3 documentation's
+[dAPIs Reference](https://docs.api3.org/reference/dapis/chains/) for the latest
+technical details on accessing dAPIs.
